@@ -1,0 +1,102 @@
+{
+  "paper_id": "2024.emnlp-main.603",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-as-a-judge (GPT-4) against human evaluation by comparing their performance on identifying redundancies, omissions, and conflicts using modified precision, recall, and F1 metrics."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts are provided in appendix Table 14; the protocol includes definitions, examples, and resolution strategies for redundancies, omissions, and conflicts."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "High inter-annotator agreement",
+      "value": "Not numerically specified",
+      "interpretation": "Reliable annotated data",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text and figures",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines include definitions, real-life examples, and resolution strategies for redundancies, omissions, and conflicts (provided in Table/Figure in main text)."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Precision*",
+      "Recall*",
+      "F1*"
+    ],
+    "shared_criteria": [
+      "Redundancy",
+      "Omission",
+      "Conflict"
+    ],
+    "sample_size": {
+      "total_generated": 50,
+      "validated_by_both": 50,
+      "notes": "Validation conducted on 50 pairs of documents focusing on the same event; for conflict resolution strategies, manual evaluation was done on 93 instances."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "F1*",
+        "value": "Approaching human threshold (value 1)",
+        "criterion": "Redundancy and Omission",
+        "llm_model": "GPT-4",
+        "significance": "Not reported",
+        "notes": "GPT-4 performs comparably to human annotators for redundancy and omission."
+      },
+      {
+        "metric": "F1*",
+        "value": "Outperforms human annotators",
+        "criterion": "Conflict",
+        "llm_model": "GPT-4",
+        "significance": "Not reported",
+        "notes": "GPT-4's Recall* for conflict is nearly double that of human annotators."
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.968,
+        "criterion": "Conflict resolution strategies",
+        "llm_model": "GPT-4",
+        "significance": "Not reported",
+        "notes": "Manual evaluation of 93 conflict resolution strategies showed 90 out of 93 were correct."
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "Not applicable",
+      "threshold_used": "Not reported",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 performs comparably to humans in identifying redundancy and omission, outperforms humans in conflict identification (with higher recall), and achieves 96.8% accuracy in conflict resolution strategies."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Redundancy",
+      "Omission",
+      "Conflict"
+    ],
+    "notes": "Both LLM and human evaluation focus on the same three criteria: redundancies, omissions, and conflicts."
+  }
+}

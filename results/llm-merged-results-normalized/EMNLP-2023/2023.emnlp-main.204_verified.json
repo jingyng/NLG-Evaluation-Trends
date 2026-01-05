@@ -1,0 +1,112 @@
+{
+  "paper_id": "2023.emnlp-main.204",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "SGD",
+      "MULTIWOZ"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "galaxy",
+      "hdno",
+      "hdsa",
+      "flan_t_5",
+      "gpt_3.5_turbo"
+    ],
+    "outputs": [
+      "system responses (utterances)",
+      "system dialog acts"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-3.5-turbo"
+        ],
+        "outputs": [
+          "system dialog acts"
+        ]
+      },
+      "removed": {
+        "outputs": [
+          "system response utterances"
+        ]
+      },
+      "normalized": {
+        "GPT-turbo": "GPT-3.5-turbo",
+        "system responses (natural language utterances)": "system responses (utterances)"
+      },
+      "explanation": "Normalized GPT model name to standard form, consolidated similar output descriptions, and added missing NLG task (dialog act prediction)"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "F1",
+      "INFORM",
+      "SUCCESS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Inform",
+          "Success"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Info",
+          "Succ",
+          "Score"
+        ]
+      },
+      "normalized": {
+        "Info": "Inform",
+        "Succ": "Success"
+      },
+      "explanation": "Standardized metric names to their canonical forms (Inform, Success). Removed 'Score' as it's a composite metric, not a base evaluation metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT-3.5-turbo"
+        ],
+        "methods": [
+          "few-shot prompting"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "GPT-3.5-turbo is used for NLU annotation of generated responses, not as a judge to evaluate quality. Removed all items since the paper does not use LLMs as evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluations are conducted in this paper - evaluation is purely automatic using metrics like BLEU, F1, Inform, and Success."
+    }
+  },
+  "overall_notes": "This paper focuses on improving task-oriented dialogue systems by learning task structure graphs (TOD-Flow). The NLG aspect is primarily about generating appropriate system responses and dialog acts. Evaluation uses standard automatic metrics without human evaluation or LLM-as-judge approaches. The extraction was generally accurate but needed normalization of metric names and clarification of GPT-3.5-turbo's role (used for NLU, not evaluation)."
+}

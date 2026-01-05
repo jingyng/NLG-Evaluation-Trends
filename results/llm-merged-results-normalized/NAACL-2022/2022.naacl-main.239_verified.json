@@ -1,0 +1,145 @@
+{
+  "paper_id": "2022.naacl-main.239",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Clue Generation"
+    ],
+    "datasets": [
+      "CSQA",
+      "OBQA",
+      "ARC EASY",
+      "ARC CHALLENGE",
+      "QASC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart_base",
+      "bart_large",
+      "t_5_base",
+      "t_5_large"
+    ],
+    "outputs": [
+      "clue representation",
+      "clue text"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BART-base",
+          "BART-large",
+          "T5-base",
+          "T5-large"
+        ],
+        "outputs": [
+          "clue text"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BART",
+          "T5"
+        ],
+        "outputs": [
+          "clue representation or text",
+          "clue representation H_C"
+        ]
+      },
+      "normalized": {
+        "BART": "BART-base,BART-large",
+        "T5": "T5-base,T5-large",
+        "ARC-Challenge": "ARC-Challenge",
+        "ARC-Easy": "ARC-Easy",
+        "CSQA": "CSQA",
+        "OBQA": "OBQA",
+        "QASC": "QASC"
+      },
+      "explanation": "Normalized model names to include specific versions (base/large) as they are explicitly evaluated separately in the paper. Simplified output descriptions and removed redundant descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": false,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'None' from metrics list as the paper does not use any automatic NLG evaluation metrics. The paper only reports accuracy for MCQA task, not for evaluating the quality of generated clues."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values. The paper does not use LLMs as judges for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators categorize clues into three families: Irrelevant, Relevant but unhelpful, Helpful based on relevance and usefulness for answering the question"
+    ],
+    "criteria": [
+      "Relevance",
+      "Helpfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- categorize clues into families: Irrelevant, Relevant but unhelpful, Helpful",
+          "Annotators were asked to label each generated clue as Irrelevant, Relevant but unhelpful, or Helpful based on its relevance and usefulness for answering the question.",
+          "We then ask them to categorize clues into the following families: • Irrelevant: The clue is off topic or is not understandable. • Relevant but unhelpful: Though relevant, the clue makes a factually incorrect statement, often on the contrary of the main question, or the clue contributes relevant but insufficient knowledge for prediction, such as repetition of the question or other distractors. • Helpful: The clue adds helpful information to answer the question."
+        ],
+        "criteria": [
+          "Irrelevant",
+          "Relevant but unhelpful",
+          "Helpful"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated lengthy guideline descriptions into one concise statement. Converted the three categories from specific labels to the underlying criteria they represent (relevance and helpfulness), as these are the actual evaluation dimensions being measured."
+    }
+  },
+  "overall_notes": "The paper focuses on using NLG (clue generation) to enhance multiple-choice QA tasks. While it generates text (clues), the primary evaluation is on MCQA accuracy rather than NLG quality. Human evaluation specifically assesses the generated clues, making this relevant for NLG evaluation studies. The extraction quality was reasonable but needed normalization and simplification."
+}

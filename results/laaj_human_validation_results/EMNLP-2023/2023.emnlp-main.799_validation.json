@@ -1,0 +1,54 @@
+{
+  "paper_id": "2023.emnlp-main.799",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "Both LLM-as-a-judge and human evaluation are conducted but they are used for different purposes (LLM for filtering commonsense relevance, human for response/dialogue quality) and no quantitative comparison or validation between LLM and human judgments is reported."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-3.5"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "LLM was used as a zero-shot classifier via three-way multiple choice questions (yes/no/unknown) to validate whether commonsense triples were meaningfully instantiated, but exact prompt templates are not explicitly shown in the provided text."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": null,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": 0.5,
+      "interpretation": "good agreements",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human judges compare dialogues/responses in head-to-head comparisons based on specific criteria; guidelines include examples (e.g., annotation page shown in Figure) but detailed scoring rubrics are not fully described in the main text."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Commonsense Validation"
+    ],
+    "human_only_criteria": [
+      "Natural Flow",
+      "Context Dependence",
+      "Interestingness",
+      "Naturalness",
+      "Consistency",
+      "Specificity",
+      "Overall Quality"
+    ],
+    "shared_criteria": [],
+    "notes": "LLM evaluations focus on validating commonsense triple instantiation in narratives/conversations, while human evaluations assess dialogue and response quality along multiple conversational dimensions. There is no overlap in criteria between the two evaluation methods."
+  }
+}

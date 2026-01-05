@@ -1,0 +1,183 @@
+{
+  "paper_id": "2025.emnlp-main.477",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "sharegpt4v",
+      "SDCI",
+      "COCO",
+      "SAM",
+      "LAION",
+      "DE CAPBENCH",
+      "IMAGEINWORDS",
+      "URBAN 1k",
+      "IMAGENET",
+      "CIFAR 10",
+      "CIFAR 100",
+      "ARO",
+      "SCPP"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "specs",
+      "longclip",
+      "clip",
+      "siglip",
+      "negclip",
+      "dci",
+      "dac",
+      "laclip",
+      "spec",
+      "tripletclip"
+    ],
+    "outputs": [
+      "long, detailed image captions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "ImageNet",
+          "CIFAR-10",
+          "CIFAR-100",
+          "ARO",
+          "SCPP"
+        ],
+        "languages": [],
+        "models": [
+          "TripletCLIP"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "ImageInWords (IIW)"
+        ],
+        "languages": [],
+        "models": [
+          "LongCLIP-B/32"
+        ],
+        "outputs": [
+          "captions"
+        ]
+      },
+      "normalized": {
+        "ImageInWords (IIW)": "ImageInWords"
+      },
+      "explanation": "Removed redundant dataset variant, added missing datasets and models mentioned in evaluation sections, simplified outputs description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SPECS",
+      "CLIPSCORE",
+      "BLEU",
+      "CIDER",
+      "FLEUR",
+      "CLAIR",
+      "PACSCORE",
+      "SPICE",
+      "SIGLIP",
+      "SR",
+      "COSINE SIMILARITY",
+      "GPT 4 EVAL",
+      "FAITHSCORE",
+      "CAPTURE",
+      "DCSCORE",
+      "ROUGE",
+      "METEOR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Cosine Similarity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT4-Eval"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "bleu": "BLEU",
+        "BLEU": "BLEU",
+        "cosine similarity": "Cosine Similarity",
+        "GPT4-Eval": "GPT-4-Eval"
+      },
+      "explanation": "Normalized metric variants to base forms, removed duplicate metric, added missing cosine similarity metric used by SPECS"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4",
+          "open-source MLLMs"
+        ],
+        "methods": [
+          "zero-shot scoring",
+          "fact verification",
+          "pairwise evaluation",
+          "claim decomposition",
+          "direct comparison"
+        ],
+        "criteria": [
+          "faithfulness",
+          "hallucination reduction",
+          "alignment",
+          "relevance",
+          "helpfulness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all LLM-as-judge metadata since the paper does not use LLMs for evaluation (SPECS is a CLIP-based metric, not LLM-based judge)"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Adopting the evaluation protocol from DE-CAPBENCH which includes human-annotated ratings for multiple captions per image to assess preference/quality"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Adopting the evaluation protocol from DE-CAPBENCH",
+          "Human-annotated ratings for multiple captions per image were collected to assess preference/quality.",
+          "The evaluation protocol from DE-CAPBENCH includes human-annotated ratings for captions, enabling comparison with automatic metrics."
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated multiple guideline descriptions into one concise statement, removed placeholder criteria"
+    }
+  },
+  "overall_notes": "Paper primarily focuses on developing and evaluating SPECS metric for long image caption evaluation. While LLM-based metrics are discussed as baseline comparisons, the paper does not use LLMs as judges. Extracted metadata was generally good but needed normalization and removal of duplicates/irrelevant items."
+}

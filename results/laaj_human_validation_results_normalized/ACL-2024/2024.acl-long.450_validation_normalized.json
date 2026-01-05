@@ -1,0 +1,85 @@
+{
+  "paper_id": "2024.acl-long.450",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates GPT-4's factuality judgments against human annotations on 520 facts extracted from summaries, reporting quantitative correlation metrics and statistical significance."
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "gpt_4_turbo",
+      "instructgpt",
+      "llama_7b"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "The paper mentions using 'the same prompts as [FActScore authors]' for atomic fact extraction and support verification, but does not provide the exact prompt text."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Pearson correlation",
+      "value": 0.57,
+      "interpretation": "submitted as upper bound agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human evaluators were asked to decide whether each extracted fact was supported by the TV episode (1/True or 0/False). The full instructions are referenced in Appendix H but not provided in the main text."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "factuality"
+    ],
+    "sample_size": {
+      "total_generated": 520,
+      "validated_by_both": 520,
+      "notes": "Validation was performed on 520 facts extracted from summaries produced by several automatic systems on episodes from the SummScreen3D development set."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.5,
+        "criterion": "Factuality",
+        "llm_model": "gpt_4_turbo",
+        "significance": "p<0.01",
+        "notes": "Correlation between human ratings and GPT-4's estimate on whether a fact is supported"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "not specified",
+      "threshold_used": "not provided",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4's factuality judgments show significant correlation with human annotations (r=0.5, p<0.01), indicating moderate agreement for the PRISMA metric validation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Informativeness",
+      "Fluency"
+    ],
+    "shared_criteria": [
+      "Factuality"
+    ],
+    "notes": "Human evaluation for ranking summaries included informativeness and fluency as additional criteria, while the LLM validation specifically focused on factuality judgment agreement."
+  }
+}

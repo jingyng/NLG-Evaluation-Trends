@@ -1,0 +1,165 @@
+{
+  "paper_id": "2023.emnlp-main.701",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Formality Transfer",
+      "Detoxification",
+      "Sentiment Transfer",
+      "Paraphrase Generation",
+      "Stylistic Text Rewriting"
+    ],
+    "datasets": [
+      "REDDIT",
+      "CNN/DailyMail",
+      "BLOG AUTHORSHIP CORPUS",
+      "DAILYDIALOG",
+      "YELP",
+      "CIVIL COMMENTS IN CONTEXT CCC",
+      "MULTI LABEL DIALOGUE MALEVOLENCE DETECTION MDMD",
+      "PROSOCIALDIALOG"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3.5",
+      "gpt_neox"
+    ],
+    "outputs": [
+      "Rewritten text in target style",
+      "Stylistically rewritten sentences (formal/informal, toxic/less-toxic, sentiment-changed) conditioned on preceding context"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "CNN/DailyMail",
+          "Civil Comments in Context",
+          "Multi-Label Dialogue Malevolence Detection",
+          "Yelp reviews"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "rewritten text in different styles (formal, informal, positive, negative, less toxic)"
+        ]
+      },
+      "normalized": {
+        "Other:Sentiment Change": "Other:Sentiment Transfer",
+        "Other:Detoxification": "Other:Detoxification"
+      },
+      "explanation": "Removed duplicate dataset entries that were essentially the same as existing ones. Normalized 'Sentiment Change' to 'Sentiment Transfer' for consistency with paper terminology. Removed redundant output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "METEOR",
+      "WER",
+      "BERTSCORE",
+      "SBERT",
+      "SMATCH",
+      "PERPLEXITY",
+      "ROUGE CTX",
+      "METEOR CTX",
+      "WER CTX",
+      "BERTSCORE CTX",
+      "SBERT CTX",
+      "SMATCH CTX",
+      "CTXSIMFIT",
+      "NSP",
+      "PPL CTX"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "perplexity (GPT‑2)",
+          "style classifier probability",
+          "PPL",
+          "ROUGE Ctx",
+          "METEOR Ctx",
+          "WER Ctx",
+          "BERTScore Ctx",
+          "SBERT Ctx",
+          "Smatch Ctx",
+          "PPL Ctx"
+        ]
+      },
+      "normalized": {
+        "Perplexity": "Perplexity",
+        "PPL": "PPL",
+        "PPL_Ctx": "PPL_Ctx",
+        "NSP": "NSP"
+      },
+      "explanation": "Removed redundant metric variants (space vs underscore versions) and simplified descriptions to base metric names. Kept all contextual variants distinct with _Ctx suffix as they represent fundamentally different calculations from their non-contextual counterparts."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges/evaluators - LLMs are only used for generation, not for evaluation. Existing metadata was correctly null."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rank rewrites on five dimensions: Naturalness, Style Strength, Event-level Similarity, Intended Meaning, Overall Fit",
+      "Annotators compare each pair of rewrites (contextual vs non-contextual) given the same preceding context and rank them on the listed dimensions",
+      "Participants are given preceding context, pairs of rewritten sentences, and the desired style attribute, then asked to rank rewrites based on the five criteria"
+    ],
+    "criteria": [
+      "Naturalness",
+      "Strength",
+      "Similarity",
+      "Meaning",
+      "Fit"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Event‑level Similarity"
+        ]
+      },
+      "normalized": {
+        "Event‑level Similarity": "Event-level Similarity"
+      },
+      "explanation": "Removed duplicate 'Event‑level Similarity' criterion (note the different dash character). The guidelines were extensive but accurate, so kept all three descriptions."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on contextual vs non-contextual stylistic rewriting and evaluation across three tasks: formality transfer, detoxification, and sentiment transfer. The main contribution is the contextual evaluation framework and the CtxSimFit metric. All metadata was correctly extracted with only minor normalization needed."
+}

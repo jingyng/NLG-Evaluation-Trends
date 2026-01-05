@@ -1,0 +1,119 @@
+{
+  "paper_id": "2023.emnlp-main.9",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Generation",
+      "Other:Rationale Generation"
+    ],
+    "datasets": [
+      "RULE",
+      "ReClor"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "InstructGPT",
+      "Flan-UL2",
+      "LLaMA 2",
+      "Vicuna",
+      "Mistral",
+      "DeBERTa-v3",
+      "UnifiedQA-v2",
+      "FLAN-T5"
+    ],
+    "outputs": [
+      "subquestion texts",
+      "rationales"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Mistral",
+          "DeBERTa-v3",
+          "UnifiedQA-v2",
+          "FLAN-T5"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Instruct-GPT"
+        ]
+      },
+      "normalized": {
+        "Instruct-GPT": "InstructGPT",
+        "LLaMA 2": "LLaMA 2"
+      },
+      "explanation": "Normalized model names to standard forms (e.g., InstructGPT), removed duplicate, added missing models mentioned in the paper, kept consistent capitalization"
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "MainQ Accuracy",
+          "SubQ Accuracy",
+          "Selective SubQ Accuracy",
+          "Eliminative SubQ Accuracy",
+          "Consistency",
+          "MainQ-wise SubQ Accuracy"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper uses accuracy metrics for evaluation, but these are not standard NLG metrics like BLEU/ROUGE. All the extracted metrics are variants of accuracy, so normalized to base 'Accuracy' form since they evaluate classification performance, not generation quality."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper - LLMs are used for generation tasks only"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers compare human-written vs model-generated rationales and choose which is better",
+      "Workers answer subquestions and majority vote determines correctness",
+      "Workers validate rationale specificity through alignment tests",
+      "Workers validate subquestion answerability"
+    ],
+    "criteria": [
+      "necessity",
+      "specificity",
+      "answerability",
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Workers validate rationale specificity through alignment tests",
+          "Workers validate subquestion answerability"
+        ]
+      },
+      "removed": {},
+      "normalized": {},
+      "explanation": "Enhanced guidelines description to include all human evaluation tasks mentioned in the paper, kept original criteria which are well-supported"
+    }
+  },
+  "overall_notes": "This paper focuses on evaluating reasoning capabilities through question answering rather than traditional NLG evaluation. While it involves generation (question/rationale generation), the evaluation is primarily through multiple-choice accuracy metrics rather than standard NLG metrics. The human evaluations are comprehensive but focus on reasoning quality rather than text generation quality."
+}

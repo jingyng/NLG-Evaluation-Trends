@@ -1,0 +1,63 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "Given a fixed story prompt representing a core concept or initial idea of a story, Multi-Branch Story Generation focuses on generating multiple coherent and fluent story continuations in parallel, which are mutually diverse in their narrative trajectories.",
+        "tasks": [
+            "Other:Story Generation"
+        ],
+        "datasets": [
+            "ReedsyPrompts",
+            "WritingPrompts"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Mistral 7B",
+            "Llama 3B",
+            "Llama 8B",
+            "Qwen 7B"
+        ],
+        "outputs": "multi-branch stories"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We assess the performance of baseline methods using standard automatic evaluation metrics. Specifically, we first compute the average similarity among all stories generated for each prompt. The final score is obtained by averaging these values across all prompts. \u2022 BLEU, ROUGE-L, METEOR: We utilize these n-gram or unigram matching metrics as primary diversity indicators. \u2022 Sent-sim: To quantify semantic similarity, we first convert generated outputs into embedding vectors using Sentence-BERT, then compute the pairwise cosine similarity between these vectors.",
+        "automatic_metrics": [
+            "BLEU",
+            "ROUGE-L",
+            "METEOR",
+            "Sent-sim"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "\u2022 LLM-Score: We use OpenAI's recently revealed powerful reasoning model, GPT-o4-mini (OpenAI, 2025), to directly assess the diversity of multiple generated outputs for the same story prompt. ... \u2022 Degen: We also use GPT-o4-mini to evaluate the level of degeneration in each generated output of the scale 0-1.",
+        "models": [
+            "GPT-4o-mini"
+        ],
+        "methods": [
+            "rubric-based scoring"
+        ],
+        "criteria": [
+            "perspective",
+            "style",
+            "plot structure",
+            "language variation",
+            "syntactic integrity",
+            "semantic trajectory",
+            "lexical sanity",
+            "noise symptoms"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We recruit seven human annotators and let them rate each model's outputs on a 5-point Likert scale according to four criteria: \u2022 Diversity: The extent to which each story fundamentally differs from the others, beyond simple changes to character or theme names. \u2022 Degeneration: The degree to which the text maintains grammatical correctness and lexical coherence without breakdown. \u2022 Creativity: The overall originality and intrigue of the generated stories.",
+        "guideline": "Annotators evaluated only the last five generated outputs (samples 11-15) from each set on a 5-point Likert scale",
+        "criteria": [
+            "Diversity",
+            "Degeneration",
+            "Creativity"
+        ]
+    }
+}

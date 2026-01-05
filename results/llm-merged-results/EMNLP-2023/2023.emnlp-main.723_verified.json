@@ -1,0 +1,164 @@
+{
+  "paper_id": "2023.emnlp-main.723",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Video Captioning",
+      "Image Captioning"
+    ],
+    "datasets": [
+      "ActivityNet Captions",
+      "YouCook2",
+      "MSCOCO",
+      "ActivityNet-Fact",
+      "YouCook2-Fact",
+      "MSCOCO-Fact"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "MART",
+      "COOT",
+      "PDVC-gt",
+      "PDVC-pred",
+      "Song",
+      "VLTinT",
+      "VTrans",
+      "COOT-100m",
+      "UniVL",
+      "BUTD",
+      "BUTD-sc",
+      "VinVL",
+      "OFAbase",
+      "OFA-huge"
+    ],
+    "outputs": [
+      "generated video captions (sentences and paragraphs)",
+      "generated image captions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "ActivityNet-Fact",
+          "YouCook2-Fact"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Video Captioning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "FactVC"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Image Captioning": "Image Captioning",
+        "Other:Video Captioning": "Video Captioning"
+      },
+      "explanation": "Normalized task names to standard forms. Removed FactVC from models list as it's an evaluation metric, not a generation model. Added the actual factuality datasets created in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "CIDEr",
+      "COAHA",
+      "BERTScore",
+      "EMScore",
+      "PAC-S",
+      "FactVC",
+      "CLIPScore",
+      "RefCLIPScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "CLIPScore",
+          "RefCLIPScore"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "ROUGE": "ROUGE",
+        "METEOR": "METEOR",
+        "CIDEr": "CIDEr"
+      },
+      "explanation": "Added CLIPScore and RefCLIPScore which were tested for image captioning evaluation. All metrics were already in normalized form."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges for evaluation. The paper uses CLIP for similarity scoring, but this is part of automatic metric computation, not LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three-level factuality annotation: paragraph-level (Likert scale 1-5), sentence-level (binary factual error label), word-level (marking specific words/phrases with factual errors)",
+      "Focus on precision (correctness) not recall (completeness)",
+      "Use commonsense during annotation",
+      "Annotate sentences independently without temporal ordering"
+    ],
+    "criteria": [
+      "factuality",
+      "factual consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Focus on precision (correctness) not recall (completeness)",
+          "Use commonsense during annotation",
+          "Annotate sentences independently without temporal ordering"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "factuality (paragraph Likert)",
+          "sentence factuality (binary)",
+          "word-level error marking"
+        ]
+      },
+      "normalized": {
+        "factuality": "factuality",
+        "factual consistency": "factual consistency"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into comprehensive points. Removed overly specific criteria that are covered by the broader 'factuality' concept."
+    }
+  },
+  "overall_notes": "The paper is well-focused on NLG evaluation, specifically factuality assessment in video and image captioning. The extraction was mostly accurate, with minor additions needed for the image captioning metrics and clarification of the human annotation protocol. The paper conducts extensive evaluation with both automatic metrics and human annotation, proposing a new factuality metric FactVC."
+}

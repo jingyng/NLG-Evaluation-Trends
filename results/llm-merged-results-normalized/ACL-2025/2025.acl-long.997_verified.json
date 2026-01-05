@@ -1,0 +1,184 @@
+{
+  "paper_id": "2025.acl-long.997",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Speech Continuation Generation"
+    ],
+    "datasets": [
+      "LIBRISPEECH",
+      "MLS",
+      "ZEROSPEECH 2021",
+      "S STORYCLOZE",
+      "T STORYCLOZE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "twist",
+      "align_slm"
+    ],
+    "outputs": [
+      "speech continuations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Speech Continuation"
+        ],
+        "datasets": [
+          "MLS subset",
+          "sWUGGY",
+          "sBLIMP",
+          "StoryCloze"
+        ],
+        "languages": [],
+        "models": [
+          "Mistral 7B (instruct‑v02)",
+          "Whisper-large‑v02",
+          "HifiGAN vocoder"
+        ],
+        "outputs": [
+          "Audio speech continuations (generated speech)"
+        ]
+      },
+      "normalized": {
+        "Other:Speech Continuation Generation": "Other:Speech Continuation Generation"
+      },
+      "explanation": "Removed supporting models (Mistral, Whisper, HifiGAN) that are not the NLG models being evaluated. Removed redundant datasets and normalized task name."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SWUGGY",
+      "SBLIMP",
+      "S STORYCLOZE",
+      "T STORYCLOZE",
+      "GPT",
+      "MOSNET",
+      "BLEU",
+      "PERPLEXITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-4 score",
+          "auto-BLEU",
+          "PPL",
+          "auto‑BLEU",
+          "Perplexity (PPL)",
+          "Mistral score",
+          "GPT‑4‑o score",
+          "MMOS",
+          "GPT4-o score",
+          "MOSnet score"
+        ]
+      },
+      "normalized": {
+        "auto-BLEU": "BLEU",
+        "auto‑BLEU": "BLEU",
+        "PPL": "Perplexity",
+        "Perplexity (PPL)": "Perplexity",
+        "GPT-4 score": "GPT-4",
+        "GPT‑4‑o score": "GPT-4",
+        "GPT4-o score": "GPT-4",
+        "MOSnet score": "MOSnet"
+      },
+      "explanation": "Normalized metric names to base forms, removed duplicates and non-metric items (MMOS is human evaluation, Mistral score is LLM-as-judge metric)"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "mistral_7b",
+      "gpt_4"
+    ],
+    "methods": [
+      "semantic scoring on 1-5 scale",
+      "preference data selection"
+    ],
+    "criteria": [
+      "Likelihood",
+      "Meaningfulness",
+      "Relevance",
+      "Grammaticality",
+      "Coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "preference data selection"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Mistral 7B (instruct‑v02)",
+          "GPT‑4‑o",
+          "GPT4-o"
+        ],
+        "methods": [
+          "pairwise preference scoring via LLM‑generated score",
+          "rating prompt with 1–5 scale",
+          "pairwise evaluation via preference data"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "Mistral 7B (instruct‑v02)": "Mistral 7B",
+        "GPT‑4‑o": "GPT-4",
+        "GPT4-o": "GPT-4",
+        "scoring on a scale of 1-5": "semantic scoring on 1-5 scale",
+        "scoring semantic coherence and meaningfulness": "semantic scoring on 1-5 scale"
+      },
+      "explanation": "Normalized model names, simplified methods description, and removed redundant entries"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate meaningfulness on 1-5 scale based on relevance, coherence, and grammatical correctness"
+    ],
+    "criteria": [
+      "Relevance",
+      "Coherence",
+      "Grammaticality",
+      "Meaningfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Rate each generated speech continuation on a 1‑5 scale where 1 = very bad and 5 = very good, considering relevance, coherence, and grammatical correctness.",
+          "rate the meaningfulness in terms of relevance, coherence, and grammatical correctness"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "Rate the meaningfulness on a scale from 1 to 5 based on relevance, coherence, and grammatical correctness.": "Rate meaningfulness on 1-5 scale based on relevance, coherence, and grammatical correctness"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into a single clear statement"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate but contained some redundancy and inconsistent naming. The paper focuses on textless spoken language modeling with strong emphasis on semantic quality evaluation using both automatic metrics and human/LLM judges. Key contributions include preference optimization for SLMs and curriculum learning approaches."
+}

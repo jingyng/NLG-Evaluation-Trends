@@ -1,0 +1,135 @@
+{
+  "paper_id": "2021.emnlp-main.490",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "HotpotQA",
+      "CNN/Daily Mail"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "DistilBART",
+      "UnifiedQA",
+      "RoBERTa-large",
+      "RoBERTa-base",
+      "UnifiedQA-base"
+    ],
+    "outputs": [
+      "abstractive explanations (question-focused summaries)",
+      "answers"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "HotpotQA"
+        ],
+        "outputs": [
+          "answers"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "CNN/DailyMail"
+        ],
+        "outputs": [
+          "abstractive explanations (summaries)",
+          "abstractive explanations and answers"
+        ]
+      },
+      "normalized": {
+        "CNN/Daily Mail": "CNN/Daily Mail"
+      },
+      "explanation": "Consolidated duplicate dataset entries and simplified output descriptions. Added missing HotpotQA dataset which is central to the paper's experiments."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Compression Ratio",
+      "Abstractiveness",
+      "ROUGE",
+      "F1",
+      "XF1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1",
+          "XF1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Compression ratio",
+          "Answer F1",
+          "cov(w(c), w(e))",
+          "cov(w(e), w(q))"
+        ]
+      },
+      "normalized": {
+        "Compression ratio": "Compression Ratio",
+        "ROUGE-2": "ROUGE",
+        "Answer F1": "F1"
+      },
+      "explanation": "Normalized metric variants to base forms (ROUGE-2 → ROUGE), removed coverage functions that were part of reward calculation rather than final evaluation metrics, and consolidated F1 metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' entries since no LLM-as-judge evaluation was conducted. The paper uses traditional automatic metrics and human evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Crowdworkers judge if generated explanations provide sufficient information to answer questions using 3-point Likert scale (yes, likely, no) and provide inferred answers"
+    ],
+    "criteria": [
+      "sufficiency",
+      "answer correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "answer correctness"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "correctness of inferred answer"
+        ]
+      },
+      "normalized": {
+        "correctness of inferred answer": "answer correctness"
+      },
+      "explanation": "Consolidated redundant criteria descriptions and normalized to core evaluation criteria used in the human evaluation."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on generating abstractive explanations (question-focused summaries) for multi-hop reading comprehension. Key contributions include the SuQA framework that generates concise explanations using reinforcement learning with limited supervision. The human evaluation was well-documented with clear criteria."
+}

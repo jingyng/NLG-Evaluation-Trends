@@ -1,0 +1,101 @@
+{
+  "paper_id": "2025.emnlp-main.569",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-as-a-judge against human evaluation by comparing LLM-generated scores (including interval midpoints and raw scores) with human ratings as ground truth on the same instances, reporting correlation metrics and error analysis"
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "gpt_4o_mini",
+      "qwen_2.5_72b_instruct",
+      "deepseek_r_1_distill_qwen_32b",
+      "gpt_4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts provided in Appendix A.13, including standard G-Eval chain-of-thought prompts and SocREval prompts for reasoning tasks"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluation uses Likert-scale ratings across four dimensions: consistency, coherence, fluency, relevance. The average of three ratings is used as ground truth."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "correlation",
+      "mean_squared_error",
+      "mean_absolute_error"
+    ],
+    "shared_criteria": [
+      "consistency",
+      "coherence",
+      "fluency",
+      "relevance"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": 1600,
+      "notes": "Validation uses SummEval (1,600 samples) and DialSumm (1,400 samples) datasets where human ratings serve as ground truth"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "mean_squared_error",
+        "value": 0.443,
+        "criterion": "fluency",
+        "llm_model": "gpt_4o_mini",
+        "significance": null,
+        "notes": "Reduced 88.7% from baseline 3.907 when using Con R2CCP midpoint"
+      },
+      {
+        "metric": "mean_absolute_error",
+        "value": 0.5,
+        "criterion": "overall",
+        "llm_model": "multiple",
+        "significance": null,
+        "notes": "MAE between midpoints and true ratings consistently lower than 0.5 across all criteria"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "comparable or slightly better",
+      "threshold_used": "not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Interval midpoints achieve comparable or slightly better correlation with human ratings while significantly reducing error metrics (88.7% MSE reduction), providing less biased estimates of human preference."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "quality"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "consistency",
+      "coherence",
+      "fluency",
+      "relevance"
+    ],
+    "notes": "LLM evaluates additional 'quality' criterion not explicitly mentioned in human evaluation details, but both methods assess the same four main dimensions"
+  }
+}

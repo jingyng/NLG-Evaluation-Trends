@@ -1,0 +1,156 @@
+{
+  "paper_id": "2021.emnlp-main.333",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "MULTI NEWS",
+      "DUC 2002",
+      "DUC 2003",
+      "DUC 2004",
+      "CNN/DailyMail"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "sgsum",
+      "roberta",
+      "bertsumext",
+      "lexrank",
+      "matchsum",
+      "hetergraph",
+      "pg",
+      "hi_map",
+      "ft",
+      "graphsum",
+      "pg_mmr",
+      "extract+rewrite",
+      "mmr",
+      "submodular",
+      "structsvm",
+      "dpp",
+      "sim_dpp"
+    ],
+    "outputs": [
+      "Extractive multi-document summaries (sentences selected from source documents)",
+      "Text summaries in sub-graph form"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "CNN/DM"
+        ],
+        "models": [
+          "Submodular",
+          "StructSVM",
+          "DPP",
+          "Sim-DPP"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "DUC"
+        ],
+        "models": []
+      },
+      "normalized": {
+        "DUC2002": "DUC-2002",
+        "DUC2003": "DUC-2003",
+        "DUC2004": "DUC-2004"
+      },
+      "explanation": "Added CNN/DM dataset which was used for transfer learning experiments. Added missing baseline models mentioned in the paper. Normalized DUC dataset names with hyphens for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Consolidated all ROUGE variants (ROUGE-1, ROUGE-2, ROUGE-L) under the base metric 'ROUGE' following normalization guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'None' placeholders since LLM evaluation was not used in this paper. The paper explicitly states they use human evaluation, not LLM judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rank system summaries from 1 (best) to 4 (worst) based on informativeness and coherence criteria",
+      "Scores assigned as 2, 1, -1, -2 for rankings 1-4 respectively, averaged across test instances",
+      "Inter-annotator agreement measured using Cohen's Kappa"
+    ],
+    "criteria": [
+      "Informativeness",
+      "Coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Inter-annotator agreement measured using Cohen's Kappa"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "duplicate guideline text"
+        ],
+        "criteria": [
+          "informativeness",
+          "coherence"
+        ]
+      },
+      "normalized": {
+        "informativeness": "Informativeness",
+        "coherence": "Coherence"
+      },
+      "explanation": "Removed duplicate guideline text and lowercase criteria variants. Added information about inter-annotator agreement measurement. Consolidated criteria to title case."
+    }
+  },
+  "overall_notes": "The paper focuses on extractive multi-document summarization using a novel sub-graph selection approach. It uses both automatic (ROUGE) and human evaluation. The extraction was generally accurate with minor improvements needed for dataset/model completeness and normalization. No LLM evaluation was used."
+}

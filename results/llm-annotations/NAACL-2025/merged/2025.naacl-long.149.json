@@ -1,0 +1,86 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Given a user query, a tool-augmented language model (TaLM) can selectively call tools to gather more information and perform computation activities to accomplish the user's request... Finally, the TaLM produces the final answer r q to query q based on all tool outputs {e q i }.",
+            "A tool-augmented language model (TaLM) consists of (1) a backbone language model M and (2) a set of tools T = {t 1 , . . . , t n }. Each tool t i is a callable function (e.g., calculator(expr), document_retriever(query,docs)). Given a natural language (NL) query q, the TaLM selects a series of tools T q ⊆ T to solve the query."
+        ],
+        "tasks": [
+            "Other:Tool-Augmented Problem Solving",
+            "Other:Tool-Augmented Language Generation"
+        ],
+        "datasets": [
+            "FAIL-TALMS"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Qwen-72B-Instruct",
+            "Llama-8B",
+            "Llama-70B",
+            "Llama-405B",
+            "Claude-3.5-Sonnet",
+            "GPT-4o"
+        ],
+        "outputs": [
+            "Generated responses to user queries using tool outputs",
+            "The TaLM produces the final answer r q to query q based on all tool outputs {e q i }."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We adopt the pass rate metric... We also assess if TaLMs can identify the missing information or tools... We compute the unexpected success... We calculate the ratio of skipped examples among all examples.",
+            "We adopt the pass rate metric ... we pass in the initial user query, the tool outputs, and the final TaLM response to a GPT-4o model, and ask it to evaluate if the final response solves the user query.",
+            "We adopt the pass rate metric from Qin et al. (2023b), which calculates the proportion of successful tasks. Specifically, we pass in the initial user query, the tool outputs, and the final TaLM response to a GPT-4o model, and ask it to evaluate if the final response solves the user query."
+        ],
+        "automatic_metrics": [
+            "pass rate",
+            "information awareness",
+            "tool awareness",
+            "unexpected success",
+            "skipped queries",
+            "pass rate (model-based evaluation using GPT-4o)",
+            "awareness",
+            "interaction ratio"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "Specifically, we pass in the initial user query, the tool outputs, and the final TaLM response to a GPT-4o model, and ask it to evaluate if the final response solves the user query.",
+            "We pass ... the final TaLM response to a GPT-4o model, and ask it to evaluate if the final response solves the user query.",
+            "Specifically, we pass in the initial user query, the tool outputs, and the final TaLM response to a GPT-4o model, and ask it to evaluate if the final response solves the user query. GPT-4o grades responses binarily as \"Pass\" (1) or \"Fail\" (0). The final score is calculated by a majority vote across 5 GPT-4o graders."
+        ],
+        "models": [
+            "GPT-4o"
+        ],
+        "methods": [
+            "binary evaluation via prompting",
+            "binary pass/fail grading via GPT-4o with majority vote",
+            "majority vote across 5 GPT-4o graders",
+            "binary pass/fail evaluation"
+        ],
+        "criteria": [
+            "task success",
+            "task completion"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "To validate the reliability of GPT-4o's pass rate evaluation, we analyzed 95 examples randomly sampled from GPT-4o's responses on the perfect setting and compare the pass rate results between human evaluators and GPT-4o.",
+            "To validate the reliability of GPT-4o's pass rate evaluation, we analyzed 95 examples randomly sampled from GPT-4o's responses on the perfect setting and compare the pass rate results between human evaluators and GPT-4o. The comparison showed an 83.2% agreement in the correctness of model-generated final responses between GPT-4o and human evaluators."
+        ],
+        "guideline": [
+            "Human evaluators judged whether the assistant's response successfully fulfilled the user's instruction.",
+            "Human evaluators assessed whether the assistant's response completed the user's instruction, based on the query, the response, and the API calls and outputs."
+        ],
+        "criteria": [
+            "task success",
+            "correctness",
+            "task completion"
+        ]
+    }
+}

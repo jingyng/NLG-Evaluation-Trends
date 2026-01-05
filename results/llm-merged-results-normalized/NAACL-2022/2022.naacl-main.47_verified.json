@@ -1,0 +1,153 @@
+{
+  "paper_id": "2022.naacl-main.47",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Explanation Generation"
+    ],
+    "datasets": [
+      "CommonsenseQA",
+      "SNLI",
+      "E SNLI",
+      "COS E",
+      "ECQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3",
+      "t_5_large",
+      "t_0_3b"
+    ],
+    "outputs": [
+      "free-text explanations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:free-text explanation generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-3 Davinci",
+          "T5",
+          "T0"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Explanation Generation": "Other:Explanation Generation",
+        "Other:free-text explanation generation": "Other:Explanation Generation",
+        "GPT-3 Davinci": "GPT-3",
+        "T5": "T5-Large",
+        "T0": "T0-3B"
+      },
+      "explanation": "Consolidated duplicate task entries, normalized model names to standard forms (removed 'Davinci' specification and used consistent version naming)"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "ACCURACY",
+      "PRECISION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "accuracy",
+          "average precision"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "precision-recall"
+        ]
+      },
+      "normalized": {
+        "precision-recall": "average precision"
+      },
+      "explanation": "Changed answer from No to Yes since paper uses accuracy and average precision metrics. 'precision-recall' is not a metric name but rather refers to the precision-recall curve that average precision estimates"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-3",
+          "T5-Large",
+          "T0-3B"
+        ],
+        "methods": [
+          "negative log-likelihood scoring",
+          "acceptability classification"
+        ],
+        "criteria": [
+          "acceptability"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since no LLMs are used as judges - the models listed are for generation, not evaluation. The methods and criteria refer to human evaluation, not LLM-as-judge evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers evaluate explanations on criteria including grammaticality, new information, support for label, amount of information, and overall acceptability using Likert-scale judgments and pairwise comparisons"
+    ],
+    "criteria": [
+      "Generality",
+      "Grammaticality",
+      "Factuality",
+      "Information",
+      "Label",
+      "Acceptability"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- We design a second human study to collect absolute Likert-scale judgments across seven axes of quality: generality, grammaticality, factuality, whether new information is introduced, whether explanations support the gold label, whether the amount of information given is sufficient, and overall acceptability.",
+          "Workers evaluate explanations on criteria such as grammaticality, new information, support for the label, amount of information, and overall acceptability.",
+          "We present workers with a dataset instance, its gold label, and two explanations for the instance generated under different conditions (\"head-to-head\"). We then ask them to make a preferential selection... We also collect absolute Likert-scale judgments across seven axes of quality: generality, grammaticality, factuality, new information, support for the label, amount of information, and acceptability."
+        ],
+        "criteria": [
+          "support for label",
+          "grammar",
+          "amount info"
+        ]
+      },
+      "normalized": {
+        "grammar": "grammaticality",
+        "amount info": "amount of information",
+        "supports label": "supports label"
+      },
+      "explanation": "Consolidated guideline into a single clear description, normalized criteria names to remove duplicates and use consistent terminology"
+    }
+  },
+  "overall_notes": "The paper focuses on generating free-text explanations using GPT-3 with human evaluation. Key findings include that GPT-3 explanations are often preferred over crowdsourced ones, and a filter model trained on human acceptability judgments improves explanation quality. The extraction was mostly accurate but missed that automatic metrics (accuracy, AP) were used for filter evaluation."
+}

@@ -1,0 +1,147 @@
+{
+  "paper_id": "2022.emnlp-main.752",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Commonsense Knowledge Generation"
+    ],
+    "datasets": [
+      "CSLB",
+      "QUASIMODO",
+      "CONCEPTNET",
+      "CBT",
+      "c4 EASY",
+      "INFANTBOOKS",
+      "OMCS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bert_large",
+      "gpt_2",
+      "comet",
+      "childbert",
+      "t_5"
+    ],
+    "outputs": [
+      "commonsense assertions",
+      "subject-relation-object triples",
+      "knowledge base completions"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "COMET"
+        ],
+        "outputs": [
+          "knowledge base completions"
+        ]
+      },
+      "removed": {
+        "models": [
+          "COMET-ATOMIC-2020"
+        ]
+      },
+      "normalized": {
+        "COMET-ATOMIC-2020": "COMET",
+        "generated CSK assertions": "commonsense assertions",
+        "Generated CSK triples / sentences (subject‑relation‑object statements)": "subject-relation-object triples"
+      },
+      "explanation": "Normalized model names (COMET instead of COMET-ATOMIC-2020) and simplified output descriptions. Added 'knowledge base completions' as an additional output type mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MRR",
+      "HITS",
+      "PRECISION",
+      "RECALL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "precision",
+          "recall@k",
+          "Precision@k",
+          "Recall@k",
+          "Typicality score"
+        ]
+      },
+      "normalized": {
+        "precision": "Precision",
+        "recall@k": "Recall",
+        "Precision@k": "Precision",
+        "Recall@k": "Recall"
+      },
+      "explanation": "Normalized metric names to base forms (removed @k variants). Removed 'Typicality score' as it's not used as an automatic metric but rather as human evaluation criterion. The paper uses MRR, Hits@1, Hits@10, Precision, and Recall for automatic evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values. The paper does not use LLMs as judges for evaluation; it only uses LLMs for generation (BERT, GPT-2, etc.)."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators provided pairwise preferences based on correctness for 300 examples where model predictions differed",
+      "Human evaluators scored similarity on a 1-5 scale for 600 examples"
+    ],
+    "criteria": [
+      "Correctness",
+      "Similarity",
+      "Topicality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human evaluators scored similarity on a 1-5 scale for 600 examples"
+        ],
+        "criteria": [
+          "similarity",
+          "typicality"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Annotators were asked to choose the more correct generation in a pairwise comparison and to rate similarity on a 1–5 scale."
+        ]
+      },
+      "normalized": {
+        "typicality": "typicality"
+      },
+      "explanation": "Refined guideline descriptions to be more precise based on the paper text. Added 'similarity' and 'typicality' as explicit criteria mentioned in the human evaluation sections. The paper conducts both pairwise preference evaluation and absolute scoring on a 1-5 scale."
+    }
+  },
+  "overall_notes": "The paper focuses on commonsense knowledge generation using language models. The extraction was generally accurate but needed normalization of model names and metrics. The paper uses both automatic metrics (MRR, Hits@k, Precision, Recall) and human evaluation (pairwise preference and 1-5 scoring). No LLM-as-judge evaluation is used. The main NLG task is commonsense knowledge generation via prompting and supervised generation methods."
+}

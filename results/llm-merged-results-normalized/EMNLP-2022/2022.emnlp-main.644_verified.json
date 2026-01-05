@@ -1,0 +1,147 @@
+{
+  "paper_id": "2022.emnlp-main.644",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Explanation Generation",
+      "Reasoning Chain Generation"
+    ],
+    "datasets": [
+      "OBQA",
+      "QUARTZ"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_11b",
+      "gpt_3",
+      "macaw"
+    ],
+    "outputs": [
+      "Entailment-based proofs supporting answers",
+      "Reasoning chains for question answering",
+      "Natural language explanations for answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Explanation Generation",
+          "Other:Reasoning Chain Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Reasoning chains for question answering",
+          "Natural language explanations for answers"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Entailment-based Reasoning Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Entailer (T5-11B)",
+          "T5-11B Entailer",
+          "Frozen language model (e.g., T5)"
+        ],
+        "outputs": [
+          "Generated textual answers together with entailment proofs",
+          "entailment-based proofs and answers supported by reasoning chains"
+        ]
+      },
+      "normalized": {
+        "Other:Entailment-based Reasoning Generation": "Other:Reasoning Chain Generation",
+        "Other:Question Answering with Explanation Generation": "Other:Explanation Generation",
+        "Generated textual answers together with entailment proofs": "Entailment-based proofs supporting answers"
+      },
+      "explanation": "Normalized task names to be more consistent, removed redundant model references (Entailer is T5-11B), simplified output descriptions, and added missing NLG tasks like explanation generation"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "QA accuracy"
+        ]
+      },
+      "normalized": {
+        "QA accuracy": "Accuracy"
+      },
+      "explanation": "Normalized 'QA accuracy' to 'Accuracy' since they refer to the same metric measuring question answering accuracy percentages"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation method was used in this paper. The paper uses LLMs (GPT-3, T5) for generation, not for post-generation evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Users evaluate generated answers and explanations by agreeing/disagreeing with them",
+      "Users provide corrections to identified reasoning errors",
+      "Impact of user feedback measured on training and test set performance"
+    ],
+    "criteria": [
+      "Correctness",
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Users provide corrections to identified reasoning errors",
+          "Impact of user feedback measured on training and test set performance"
+        ],
+        "criteria": [
+          "Reasoning correctness",
+          "Factual accuracy",
+          "Answer correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Users evaluated generated answers and explanations by agreeing or disagreeing with them and providing corrections based on perceived correctness and reasoning errors.",
+          "Users interacted with the system to identify and correct erroneous beliefs, and their impact on training and test performance was measured."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "- Users evaluated generated answers and explanations by agreeing or disagreeing with them and providing corrections based on perceived correctness and reasoning errors.": "Users evaluate generated answers and explanations by agreeing/disagreeing with them",
+        "Users interacted with the system to identify and correct erroneous beliefs, and their impact on training and test performance was measured.": "Users provide corrections to identified reasoning errors"
+      },
+      "explanation": "Cleaned up guideline format, extracted implicit evaluation criteria from the human evaluation process described in the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on a teachable QA system that generates natural language explanations and reasoning chains. While it involves NLG (generating proofs and explanations), the primary focus is on reasoning and interactive learning rather than pure NLG evaluation. The extracted metadata was generally accurate but needed normalization and some refinement of task categorizations."
+}

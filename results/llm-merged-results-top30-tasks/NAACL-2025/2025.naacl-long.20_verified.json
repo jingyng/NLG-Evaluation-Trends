@@ -1,0 +1,179 @@
+{
+  "paper_id": "2025.naacl-long.20",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CONFLICTINGQA",
+      "DEBATEQFS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "mods",
+      "gpt_4",
+      "gpt_4_1106_preview",
+      "gpt_4_mini",
+      "colbert"
+    ],
+    "outputs": [
+      "Balanced multi-aspect summaries with citations",
+      "Query-focused summaries covering debatable yes/no queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Query-focused summaries covering debatable yes/no queries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "MODS (Speaker LLMs, Moderator LLM)",
+          "ColBERT retriever"
+        ],
+        "outputs": [
+          "Summaries",
+          "multi-aspect summaries with topic paragraphs covering debatable yes/no queries, containing citations to source documents"
+        ]
+      },
+      "normalized": {
+        "GPT-4-1106-preview": "GPT-4-1106-preview",
+        "ColBERT retriever": "ColBERT",
+        "MODS (Speaker LLMs, Moderator LLM)": "MODS"
+      },
+      "explanation": "Normalized model names to standard forms, removed redundant output descriptions, added concise output description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "DOCUMENT COVERAGE",
+      "KL DIVERGENCE FAIRNESS",
+      "KL DIVERGENCE FAITHFULNESS",
+      "CITATION ACCURACY",
+      "SELF BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Document Coverage (DC)",
+          "Fairness",
+          "Faithfulness",
+          "Prometheus quality scores (interest, coherence, relevance, coverage, diversity)"
+        ]
+      },
+      "normalized": {
+        "Document Coverage (DC)": "Document Coverage",
+        "KL Divergence (Fairness)": "KL Divergence (Fairness)",
+        "KL Divergence (Faithfulness)": "KL Divergence (Faithfulness)"
+      },
+      "explanation": "Removed Prometheus scores (those are for LLM-as-judge, not automatic metrics), normalized metric names to consistent forms"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "prometheus",
+      "gpt_4"
+    ],
+    "methods": [
+      "Rubric scoring",
+      "Entailment-based evaluation"
+    ],
+    "criteria": [
+      "Interest",
+      "Coherence",
+      "Relevance",
+      "Coverage",
+      "Diversity",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Rubric scoring",
+          "Entailment-based evaluation"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4 (entailment evaluator)"
+        ],
+        "methods": [
+          "scoring on criteria",
+          "LLM evaluation with rubric scoring prompt",
+          "Entailment‑based citation accuracy",
+          "1-5 scoring"
+        ],
+        "criteria": [
+          "interest",
+          "coherence",
+          "relevance",
+          "coverage",
+          "diversity"
+        ]
+      },
+      "normalized": {
+        "GPT-4 (entailment evaluator)": "GPT-4",
+        "interest": "Interest",
+        "coherence": "Coherence",
+        "relevance": "Relevance",
+        "coverage": "Coverage",
+        "diversity": "Diversity"
+      },
+      "explanation": "Normalized model names and criteria to standard capitalization, simplified method descriptions to clear categories"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants rate summaries on 5-point Likert scales for Readability and Balance",
+      "Readability assesses clarity, grammar, and flow",
+      "Balance assesses coverage of both sides of debatable queries using counterarguments"
+    ],
+    "criteria": [
+      "Readability",
+      "Balance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Participants rate summaries on 5-point Likert scales for Readability and Balance",
+          "Readability assesses clarity, grammar, and flow",
+          "Balance assesses coverage of both sides of debatable queries using counterarguments"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Users rate Readability and Balance on a 1-5 scale with specific questions provided.",
+          "Participants rated summaries on two Likert items: Readability (clarity, grammar, flow) and Balance (extent to which both sides of the debatable query are covered).",
+          "Participants rated summaries on two Likert scales: 1) Readability: 'Is the summary easy to read and understand?' with 5-point scale from 'very unclear' to 'exceptionally clear', and 2) Balance: 'Does the summary address both sides of the debatable query by using counterarguments to present a well-rounded view?' with 5-point scale from 'heavily biased' to 'perfectly balanced'."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline descriptions into clear, concise statements while preserving all key information"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main issues were: (1) Some redundancy in output descriptions, (2) Prometheus scores were incorrectly categorized as automatic metrics (they belong to LLM-as-judge), (3) Method descriptions needed normalization. The paper is clearly about NLG evaluation with comprehensive automatic, LLM-based, and human evaluation components."
+}

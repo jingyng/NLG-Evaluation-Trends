@@ -1,0 +1,142 @@
+{
+  "paper_id": "2020.emnlp-main.296",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "DUC 2005",
+      "DUC 2006",
+      "DUC 2007",
+      "TD-QFS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "QUERYSUM-S",
+      "QUERYSUM-P",
+      "QUERYSUM-S+P",
+      "BERT"
+    ],
+    "outputs": [
+      "query-focused multi-document summaries",
+      "extractive summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "query-focused multi-document summaries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WikiQA",
+          "TrecQA",
+          "SQuAD 2.0",
+          "DUC 2005-2007"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "summaries",
+          "summaries that answer a specific query"
+        ]
+      },
+      "normalized": {
+        "QUERYSUMS": "QUERYSUM-S",
+        "QUERYSUMP": "QUERYSUM-P",
+        "QUERYSUMS+P": "QUERYSUM-S+P",
+        "extractive summaries": "extractive summaries"
+      },
+      "explanation": "Removed QA datasets (WikiQA, TrecQA, SQuAD 2.0) as they were only used for training evidence estimators, not for summarization evaluation. Removed redundant dataset entry 'DUC 2005-2007' since individual years are listed. Normalized model names for consistency. Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-SU4"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-SU4": "ROUGE"
+      },
+      "explanation": "Normalized all ROUGE variants to base form 'ROUGE' following the guideline to simplify metric variants to base form."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper. The evaluation uses traditional automatic metrics and human evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate summaries on Relevance (does the summary provide answers to the query?), Succinctness (does the summary avoid unnecessary detail and redundant information?), and Coherence (does the summary make logical sense?) using a five-point Likert scale",
+      "For Relevance, assess each sentence individually as relevant (5 points), partially relevant (2.5 points), or irrelevant (0 points), then average to get overall relevance score"
+    ],
+    "criteria": [
+      "Relevance",
+      "Succinctness",
+      "Coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "For Relevance, assess each sentence individually as relevant (5 points), partially relevant (2.5 points), or irrelevant (0 points), then average to get overall relevance score"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Rate summaries on Succinctness (avoid unnecessary detail and redundant information), Coherence (logical sense), and Relevance (sentence-level assessment of providing answers to the query).",
+          "Rate each summary on Relevance, Succinctness, and Coherence using a five point Likert scale.",
+          "Succinctness (does the summary avoid unnecessary detail and redundant information?), Coherence (does the summary make logical sense?), and Relevance of the summary to the query."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "Succinctness": "Succinctness"
+      },
+      "explanation": "Consolidated and cleaned up the guideline description while preserving all key information. The criteria remain the same but are now presented more clearly."
+    }
+  },
+  "overall_notes": "This paper focuses on query-focused multi-document summarization using a coarse-to-fine approach with BERT-based evidence estimation. The extraction was generally accurate but included some training datasets that weren't used for NLG evaluation. The paper uses traditional evaluation methods (ROUGE + human evaluation) without LLM judges. Human evaluation was well-documented with clear criteria and methodology."
+}

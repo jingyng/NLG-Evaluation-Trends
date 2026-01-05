@@ -1,0 +1,146 @@
+{
+  "paper_id": "2024.emnlp-main.1212",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering"
+    ],
+    "datasets": [
+      "NICHEHAZARDQA",
+      "DANGEROUSQA",
+      "ADVBENCH",
+      "HARMFULQA",
+      "HEX PHI",
+      "NOINTENTEDIT",
+      "MMLU",
+      "TruthfulQA",
+      "HellaSwag",
+      "ARC",
+      "GSM8K",
+      "XSTEST"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b_chat_hf",
+      "mistral_7b_instruct_v_0.2",
+      "wizardmath_7b",
+      "llama_math",
+      "llama_2_7b_evolcodealpaca"
+    ],
+    "outputs": [
+      "Generated responses to harmful queries and utility benchmark questions",
+      "Safety evaluation of language model outputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering"
+        ],
+        "datasets": [
+          "AdvBench"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Machine Translation",
+          "Other:question answering"
+        ],
+        "datasets": [
+          "vbench"
+        ]
+      },
+      "normalized": {
+        "WIZARDMATH-7B": "WizardMath-7B",
+        "Llama Math": "Llama-Math",
+        "llama2-7b-chat-hf": "Llama-2-7b-chat-hf",
+        "mistral-7b-instruct-v0.2": "Mistral-7b-instruct-v0.2",
+        "Other:Question Answering": "Question Answering"
+      },
+      "explanation": "Removed 'Machine Translation' as it's only mentioned as example capability, not evaluated. Normalized model names to consistent format. Added 'AdvBench' which is the actual dataset name used (vbench appears to be a typo). Consolidated question answering tasks."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ATTACK SUCCESS RATE ASR",
+      "MMLU",
+      "TRUTHFULQA",
+      "HELLASWAG",
+      "ARC",
+      "GSM8K",
+      "REFUSAL RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "refusal rate"
+        ]
+      },
+      "normalized": {
+        "Attack Success Rate (ASR)": "Attack Success Rate",
+        "refusal rate": "Refusal Rate"
+      },
+      "explanation": "Normalized metric names to consistent capitalization and removed duplicate 'refusal rate'"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "GPT-4-based safety evaluation"
+    ],
+    "criteria": [
+      "Safety"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "prompt-based safety assessment",
+          "pairwise evaluation of safe vs unsafe responses"
+        ],
+        "criteria": [
+          "unsafe detection"
+        ]
+      },
+      "normalized": {
+        "GPT-4-based evaluation": "GPT-4-based safety evaluation"
+      },
+      "explanation": "Simplified methods to the core evaluation approach described. Removed speculative methods not explicitly mentioned. Kept only 'safety' as the explicit criterion for GPT-4 evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluations mentioned in the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on safety alignment of LLMs using a training-free framework. It evaluates generated responses primarily using GPT-4 as judge and automatic metrics. The extraction was generally accurate but needed normalization of model names and removal of some speculative items."
+}

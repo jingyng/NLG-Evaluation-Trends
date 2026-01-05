@@ -1,0 +1,124 @@
+{
+  "paper_id": "2022.emnlp-main.142",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Decomposition",
+      "Semantic Parsing",
+      "Question Answering"
+    ],
+    "datasets": [
+      "OVERNIGHT",
+      "TORQUE",
+      "STRATEGYQA",
+      "HotpotQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "decompt_5",
+      "t_5_large",
+      "t_5",
+      "gpt_3"
+    ],
+    "outputs": [
+      "question decompositions",
+      "supporting facts",
+      "corrected facts",
+      "binary answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Semantic Parsing"
+        ],
+        "outputs": [
+          "question decompositions",
+          "supporting facts",
+          "corrected facts",
+          "binary answers"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Question Decomposition": "Other:Question Decomposition",
+        "Other:Question Answering": "Question Answering"
+      },
+      "explanation": "Added 'Semantic Parsing' as it's explicitly evaluated in §5. Refined output descriptions to be more specific about what is generated. Kept all models as they are central to the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT MATCH",
+      "HIT",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "denotation accuracy",
+          "cosine similarity",
+          "semantic similarity",
+          "tf-idf"
+        ]
+      },
+      "normalized": {
+        "exact match": "Exact Match",
+        "Hit@K": "Hit@K"
+      },
+      "explanation": "Removed metrics used for data analysis (cosine similarity, semantic similarity, tf-idf) and intrinsic evaluation concept (denotation accuracy). Added 'Accuracy' which is the primary metric used for QA evaluation in §7. Kept 'Exact Match' and 'Hit@K' which are used for decomposition evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "GPT-3 is used for factual correction during decomposition generation, not as a judge evaluating outputs after generation. No LLM-as-judge methodology is present."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper mentions manual analysis in §7.5 but this is for analyzing decomposition quality qualitatively, not formal human evaluation of generated outputs. No formal human evaluation with guidelines or criteria is conducted."
+    }
+  },
+  "overall_notes": "The paper focuses on question decomposition and QA using NLG. Evaluation is primarily automatic with metrics like Exact Match, Hit@K, and Accuracy. GPT-3 is used during the generation pipeline for factual correction, not as a judge. No formal human evaluation is conducted. The extraction was generally accurate but included some analysis metrics that weren't used for NLG evaluation."
+}

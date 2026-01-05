@@ -1,0 +1,131 @@
+{
+  "paper_id": "2022.emnlp-main.699",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "MRED"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "pegasus",
+      "roberta_large"
+    ],
+    "outputs": [
+      "Structure-controllable summaries",
+      "Generated summaries with controlled structure"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "RoBERTa-Large"
+        ],
+        "outputs": [
+          "Generated summaries with controlled structure"
+        ]
+      },
+      "removed": {
+        "models": [
+          "bart-large-cnn"
+        ]
+      },
+      "normalized": {
+        "Pegasus": "Pegasus",
+        "Roberta-Large": "RoBERTa-Large",
+        "summaries": "Structure-controllable summaries"
+      },
+      "explanation": "Removed 'bart-large-cnn' as it's just a specific BART configuration. Added RoBERTa-Large which is used for classification. Normalized model names to standard capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE",
+      "TOTAL EDITS",
+      "STRUCTURE SIMILARITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "LSTM-CRF classifier",
+          "LSTM-CRF classifier predictions"
+        ]
+      },
+      "normalized": {
+        "Rouge-1": "ROUGE",
+        "Rouge-2": "ROUGE",
+        "Rouge-L": "ROUGE",
+        "structure similarity (automatic)": "Structure similarity",
+        "Structure similarity (edit distance)": "Structure similarity",
+        "total edits": "Total edits"
+      },
+      "explanation": "Consolidated ROUGE variants into single 'ROUGE' metric. Removed 'LSTM-CRF classifier' as it's an implementation detail, not a metric. Normalized metric names to standard forms."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper. The paper uses traditional classifiers and human evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Judges were provided with summaries from two models in random order",
+      "Asked to give score of 1 to preferred generation and 0 to the other",
+      "For structure similarity and decision correctness, judges predicted control structure and decision which were evaluated against gold standard"
+    ],
+    "criteria": [
+      "Fluency",
+      "Relevance",
+      "Similarity",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Judges were provided with summaries from two models in random order",
+          "For structure similarity and decision correctness, judges predicted control structure and decision which were evaluated against gold standard"
+        ]
+      },
+      "removed": {
+        "guideline": []
+      },
+      "normalized": {
+        "fluency": "Fluency",
+        "content relevance": "Content relevance",
+        "structure similarity": "Structure similarity",
+        "decision correctness": "Decision correctness"
+      },
+      "explanation": "Consolidated and normalized the guideline descriptions. Normalized criteria to title case."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main issues were minor normalization needs and removing implementation details that shouldn't be considered as metrics. The paper focuses on structure-controllable summarization using sentence-level beam search with comprehensive evaluation including both automatic metrics and human evaluation."
+}

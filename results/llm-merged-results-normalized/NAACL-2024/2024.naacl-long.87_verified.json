@@ -1,0 +1,160 @@
+{
+  "paper_id": "2024.naacl-long.87",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Authorship Obfuscation",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "EXTENDED BRENNAN GREENSTADT AMT",
+      "BLOG AUTHORSHIP CORPUS BLOG",
+      "AMT 3",
+      "AMT 5",
+      "AMT 10",
+      "BLOG 5",
+      "BLOG 10"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2_xl",
+      "gpt_2",
+      "t_5",
+      "pegasus",
+      "m_2m_100",
+      "gpt_3.5",
+      "keybert",
+      "llama_2_7b"
+    ],
+    "outputs": [
+      "obfuscated texts",
+      "obfuscated sentences/paragraphs",
+      "obfuscated text that preserves content and fluency while concealing authorship style"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-2 XL"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:authorship obfuscation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "GPT2": "GPT-2",
+        "GPT3.5": "GPT-3.5",
+        "Blog Authorship corpus (BLOG)": "Blog Authorship Corpus (BLOG)",
+        "Llama2-7B": "Llama-2-7B"
+      },
+      "explanation": "Removed duplicate task entry, normalized model names with proper dash formatting, and added GPT-2 XL which is the main model used in JAMDEC"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "DROP RATE",
+      "METEOR",
+      "NLI",
+      "COLA",
+      "TASK",
+      "PERPLEXITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Perplexity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Drop Rate (ENS)": "Drop Rate",
+        "Drop Rate (BertAA)": "Drop Rate"
+      },
+      "explanation": "Combined Drop Rate variants under single metric name, added Perplexity which is used later in the paper with Llama-2-7B"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "WANLI (NLI model)",
+          "RoBERTa (CoLA model)"
+        ],
+        "methods": [
+          "pairwise entailment scoring",
+          "grammatical acceptability scoring"
+        ],
+        "criteria": [
+          "content preservation (entailment)",
+          "language quality (grammaticality)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper does NOT use LLMs as judges. WANLI and RoBERTa are used for automatic evaluation scoring, not as LLM judges assessing outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers rated obfuscated texts on five criteria: Grammar, Fluency, Content Preservation, Content Addition, and Obfuscation",
+      "Workers read original and obfuscated passages and answered five Likert-scale questions using a three-point scale"
+    ],
+    "criteria": [
+      "Grammaticality",
+      "Fluency",
+      "Preservation",
+      "Addition",
+      "Obfuscation"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Workers read original and obfuscated passages and answered five Likert-scale questions using a three-point scale"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "We asked a series of five questions to be rated on a three-point likert scale"
+        ],
+        "criteria": [
+          "Obfuscation effectiveness",
+          "Overall quality"
+        ]
+      },
+      "normalized": {
+        "likert‑scale": "Likert-scale",
+        "Obfuscation effectiveness": "Obfuscation"
+      },
+      "explanation": "Consolidated guideline descriptions, removed criteria that were not explicitly used in human evaluation (Obfuscation effectiveness and Overall quality), and normalized formatting"
+    }
+  },
+  "overall_notes": "The paper presents JAMDEC, an unsupervised authorship obfuscation method using constrained decoding over small LMs. It evaluates on authorship obfuscation task using both automatic metrics (Drop Rate, METEOR, NLI, CoLA, Task Score, Perplexity) and human evaluation (5 criteria on 3-point Likert scale). The extraction was generally accurate but needed some normalization and removal of incorrect items for question 3."
+}

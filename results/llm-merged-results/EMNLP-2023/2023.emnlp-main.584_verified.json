@@ -1,0 +1,177 @@
+{
+  "paper_id": "2023.emnlp-main.584",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "XSum",
+      "XL-Sum",
+      "MLSum",
+      "WikiLingua",
+      "SEAHORSE",
+      "mFACE",
+      "TRUE"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Spanish",
+      "Russian",
+      "Turkish",
+      "Vietnamese"
+    ],
+    "models": [
+      "human reference",
+      "T5-base",
+      "T5-base-250",
+      "T5-xxl",
+      "mT5-small",
+      "mT5-small-250",
+      "mT5-xxl",
+      "PaLM-1shot",
+      "PaLM-finetuned"
+    ],
+    "outputs": [
+      "summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Machine Translation",
+          "Dialogue Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "reference": "human reference",
+        "t5_base": "T5-base",
+        "t5_base_250": "T5-base-250",
+        "t5_xxl": "T5-xxl",
+        "mt5_small": "mT5-small",
+        "mt5_small_250": "mT5-small-250",
+        "mt5_xxl": "mT5-xxl",
+        "palm_1shot": "PaLM-1shot",
+        "palm_finetuned": "PaLM-finetuned"
+      },
+      "explanation": "Removed 'Machine Translation' and 'Dialogue Generation' as these tasks are only mentioned as NLG examples but not actually evaluated in the paper. The paper focuses exclusively on text summarization. Normalized model names to standard capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "mt5_SEAHORSE",
+      "majority_class",
+      "t5_NLI",
+      "mt5_XNLI",
+      "mt5_mFACE",
+      "Area under ROC",
+      "Pearson correlation"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEU",
+          "mt5_mFACE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "BLEU": "BLEU",
+        "mt5 SEAHORSE": "mt5_SEAHORSE",
+        "t5 NLI": "t5_NLI",
+        "mt5 XNLI": "mt5_XNLI",
+        "Area under ROC": "Area under ROC",
+        "Pearson correlation": "Pearson correlation"
+      },
+      "explanation": "Added BLEU which is mentioned in the paper. Normalized metric variants to base forms (ROUGE-L → ROUGE). Included mt5_mFACE which is used as an upper-bound comparison. Maintained descriptive metrics 'Area under ROC' and 'Pearson correlation' as they are evaluation methods rather than specific scoring metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "mT5_xxl",
+          "mT5-xxl",
+          "t5 NLI",
+          "mt5 XNLI"
+        ],
+        "methods": [
+          "finetuned classification model",
+          "fine‑tuned classification/regression to predict human ratings",
+          "NLI‑based faithfulness scoring"
+        ],
+        "criteria": [
+          "comprehensibility",
+          "repetition",
+          "grammar",
+          "attribution",
+          "main ideas",
+          "conciseness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses fine-tuned models (mT5, T5) for evaluation metrics, but these are not LLMs used as judges in the sense of the question (LLMs prompted/evaluating after generation). These are specifically trained classifiers, not general LLMs used for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators answer six binary questions (Q1-Q6) about summaries: Q1-Q3 evaluated without source article, Q4-Q6 evaluated with source article",
+      "Ratings are 'Yes', 'No', or 'Unsure'",
+      "Reference-less evaluation: annotators evaluate summaries independently without comparison to reference"
+    ],
+    "criteria": [
+      "comprehensibility",
+      "repetition",
+      "grammar",
+      "attribution",
+      "main ideas",
+      "conciseness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Ratings are 'Yes', 'No', or 'Unsure'"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated and clarified the guideline description. The extracted criteria were already accurate and complete."
+    }
+  },
+  "overall_notes": "The paper primarily introduces the SEAHORSE dataset for multilingual summarization evaluation. It conducts extensive human evaluations and uses trained models as automatic metrics, but does not use LLMs as judges in the typical sense (prompted LLMs for evaluation). The paper's main NLG focus is text summarization evaluation across multiple languages."
+}

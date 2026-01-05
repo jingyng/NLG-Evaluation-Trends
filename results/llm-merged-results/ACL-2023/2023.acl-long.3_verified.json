@@ -1,0 +1,162 @@
+{
+  "paper_id": "2023.acl-long.3",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT'18 German-English news translation",
+      "Hallucination dataset (Guerreiro et al.)"
+    ],
+    "languages": [
+      "German",
+      "English"
+    ],
+    "models": [
+      "Transformer base (fairseq)",
+      "ALTI+",
+      "Seq-Logprob",
+      "COMET-QE",
+      "LaBSE",
+      "XNLI",
+      "LASER"
+    ],
+    "outputs": [
+      "German-to-English translations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WMT'18 German-English news translation data",
+          "hallucination dataset by Guerreiro et al."
+        ],
+        "languages": [],
+        "models": [
+          "Transformer base from fairseq"
+        ],
+        "outputs": [
+          "Machine-translated English sentences from German sources"
+        ]
+      },
+      "normalized": {
+        "WMT'18 German-English news translation data": "WMT'18 German-English news translation",
+        "hallucination dataset by Guerreiro et al.": "Hallucination dataset (Guerreiro et al.)",
+        "Transformer base from fairseq": "Transformer base (fairseq)",
+        "Machine-translated English sentences from German sources": "German-to-English translations"
+      },
+      "explanation": "Normalized dataset and model names for consistency, removed duplicate dataset entries"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "chrF",
+      "COMET",
+      "BLEU",
+      "Seq-Logprob",
+      "ALTI",
+      "COMET-QE",
+      "LASER",
+      "LaBSE",
+      "XNLI",
+      "ROC AUC",
+      "P@R90"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "All metrics are correctly extracted and properly normalized"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {
+        "None": ""
+      },
+      "explanation": "Removed placeholder 'None' values as the paper does not use LLMs as judges"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "For each of the machine translations, annotators assign one of five labels: OK (acceptable translation), Partial hallucination, Full hallucination, Undertranslation, or Other (other translation errors). For reporting, Partial and Full hallucination are grouped together, and Undertranslation with Other."
+    ],
+    "criteria": [
+      "correctness",
+      "hallucination",
+      "undertranslation",
+      "other errors"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators were provided with guidelines that defined categories such as Correct, Partial hallucination, Full hallucination, Undertranslation, and Other.",
+          "Annotators were provided with the guidelines shown in Table . For the reporting purposes, 'Partial hallucination' was grouped together with 'Full hallucination', and 'Undertranslation' with 'Other.'"
+        ],
+        "criteria": [
+          "Correct",
+          "Error",
+          "Hallucination",
+          "Partial hallucination",
+          "Full hallucination",
+          "Undertranslation",
+          "Other",
+          "OK: An acceptable translation; it conveys the main meaning correctly and does not introduce extra meaning.",
+          "Partial hallucination: a part of the translation is unrelated to the source, or is related very indirectly",
+          "Full hallucination: most or all of the translation is unrelated to the source",
+          "Undertranslation: there is no hallucinations, but a significant part of the source is not translated at all",
+          "Other: there are no hallucinations or undertranlsations, but there are other translation errors that make the translation unacceptable."
+        ]
+      },
+      "normalized": {
+        "Correct": "correctness",
+        "Error": "other errors",
+        "Hallucination": "hallucination"
+      },
+      "explanation": "Consolidated guideline into a single clear description and normalized criteria to core concepts"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on hallucination detection and mitigation in machine translation using both internal model characteristics (ALTI+) and external metrics (LaBSE, XNLI). Human evaluation was conducted with clear annotation guidelines for hallucination detection."
+}

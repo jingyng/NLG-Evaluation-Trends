@@ -1,0 +1,173 @@
+{
+  "paper_id": "2022.emnlp-main.131",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Data To Text Generation"
+    ],
+    "datasets": [
+      "SUMMEVAL",
+      "TOPICAL CHAT",
+      "SFRES",
+      "SFHOT",
+      "QAGS",
+      "CNN/DailyMail",
+      "XSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_large",
+      "bartscore",
+      "usr",
+      "ctc"
+    ],
+    "outputs": [
+      "generated summaries",
+      "dialogue responses",
+      "data-to-text utterances"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Data-to-text Generation",
+          "Other:data-to-text"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "T5",
+          "google/t5-v1_1-large"
+        ],
+        "outputs": [
+          "Generated summaries, dialogue responses, and data-to-text utterances",
+          "summaries, dialogue responses, data-to-text utterances"
+        ]
+      },
+      "normalized": {
+        "Other:Data-to-text Generation": "Data-to-Text Generation",
+        "Other:data-to-text": "Data-to-Text Generation",
+        "T5": "T5-large",
+        "google/t5-v1_1-large": "T5-large"
+      },
+      "explanation": "Normalized task names to standard format, consolidated T5 model references to 'T5-large' (the specific version used), and removed redundant output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "BERTSCORE",
+      "MOVERSCORE",
+      "CTC",
+      "BARTSCORE",
+      "USR",
+      "UNIEVAL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "UNIEVAL": "UniEval"
+      },
+      "explanation": "Only minor normalization of UniEval capitalization to match paper's consistent usage"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "t_5_large"
+    ],
+    "methods": [
+      "Boolean Question Answering",
+      "Continual Learning",
+      "Multi-task Learning"
+    ],
+    "criteria": [
+      "Coherence",
+      "Consistency",
+      "Fluency",
+      "Relevance",
+      "Naturalness",
+      "Groundedness",
+      "Engagingness",
+      "Understandability",
+      "Informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "T5",
+          "google/t5-v1_1-large"
+        ],
+        "methods": [
+          "Boolean QA scoring (probability of Yes/No)"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "T5": "T5-large",
+        "google/t5-v1_1-large": "T5-large",
+        "Boolean QA scoring (probability of Yes/No)": "Boolean Question Answering",
+        "continual learning": "Continual Learning",
+        "multi-task learning": "Multi-task Learning"
+      },
+      "explanation": "Consolidated T5 references to 'T5-large', normalized method names to title case, and simplified method descriptions"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Human annotators rated generated outputs on multiple dimensions such as fluency, coherence, consistency, relevance, naturalness, engagingness, groundedness, and understandability.",
+          "The benchmark provides human scores from four dimensions: fluency, coherence, consistency and relevance."
+        ],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "consistency",
+          "relevance",
+          "naturalness",
+          "engagingness",
+          "groundedness",
+          "understandability",
+          "informativeness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because the paper does NOT conduct new human evaluations - it only uses existing human evaluation benchmarks (SummEval, Topical-Chat, etc.) that were created by other researchers. The human scores mentioned are from these existing benchmarks, not new evaluations conducted by the authors."
+    }
+  },
+  "overall_notes": "The paper proposes UniEval, an automatic evaluation method that uses T5 as a judge. Key corrections: (1) The paper does NOT conduct new human evaluations - it uses existing human-annotated benchmarks for correlation analysis. (2) UniEval is the proposed method, not a baseline. (3) The paper uses T5-large specifically as the backbone model for the evaluator. The extraction was generally good but incorrectly assumed the authors conducted new human evaluations."
+}

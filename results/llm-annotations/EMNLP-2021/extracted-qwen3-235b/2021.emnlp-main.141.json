@@ -1,0 +1,46 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We propose TGUESSER and TDRAWER to play Iconary. Both models condition on the current game state, meaning the previous drawings, guesses and, for TDRAWER, the game phrase, and then generate either text to guess the phrase (for TGUESSER), or a sequence of special tokens that encode a drawing (for TDRAWER).",
+        "tasks": [
+            "Other:Dialogue Generation"
+        ],
+        "datasets": [
+            "Iconary"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "T5",
+            "BART"
+        ],
+        "outputs": "text to guess the phrase or a sequence of special tokens that encode a drawing"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "To facilitate automatic evaluation, we propose two metrics for both the Guesser and Drawer that can be computed using human/human games. Win: Whether the Guesser can win from game states in human/human games. ... Soft Win: As above, except we evaluate the Guesser's guessed words on the same soft win metric we use for human/AI games. Icon F1: Treating drawings as bags of icons, we measure the F1 overlap score between human and computer drawings. Drawing Perplexity: For models that use the same method of encoding the drawing, we compare the perplexity of each human drawing, averaged over all drawings per game, then averaged over all games in the corpus.",
+        "automatic_metrics": [
+            "Win",
+            "Soft Win",
+            "Icon F1",
+            "Drawing Perplexity"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": "",
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "Our models and two baselines played 300 games of Iconary with the same crowdworkers used to build our dataset. We evaluate performance on win rate and soft win rate (see Section 4.1). We compare against human/human games, and games with elite human players where either the Guesser (if comparing against an AI Guesser) or Drawer (if comparing against an AI Drawer) is a human player in the top quartile of win rates in human/human games.",
+        "guideline": "We measure the Win Rate, meaning whether the Guesser correctly guesses the game phrase. We also measure the Soft Win Rate, computed as whether the guesser guesses the exact phrase for phrases of length 2 or less, misses one word or less for phrases of length 3-5, and misses two words or less for phrases with 6 or more words. For OOD games, the game is only considered a soft win if at least one of the unseen words is guessed since that is the focus of our evaluation.",
+        "criteria": [
+            "win rate",
+            "soft win rate"
+        ]
+    }
+}

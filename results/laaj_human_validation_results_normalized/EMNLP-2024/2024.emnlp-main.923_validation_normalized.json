@@ -1,0 +1,80 @@
+{
+  "paper_id": "2024.emnlp-main.923",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM evaluation (via NLG metrics) with human evaluation on the TofuEval dataset, reporting quantitative correlation results between NLG metric rankings and human annotation rankings"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-3.5"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "Four types of LLM prompts are described but exact wording not shown: wo-GPT-3.5 (without dimension concepts), wi-gt-GPT-3.5 (with ground-truth summaries), wi-in-GPT-3.5 (with input text), wi-ingt-GPT-3.5 (with combined input and ground-truth)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "not_reported",
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human annotation guidelines describe seven error types from TofuEval dataset but no detailed scoring rubric or examples are provided"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Prediction Rejection Ratio (PRR)"
+    ],
+    "shared_criteria": [],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "Used TofuEval dataset with 100 dialogue-summary pairs with human annotations across seven dimensions"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Rankings of uncertainty estimation methods differ between NLG metrics and human annotation. NLG metrics can identify best uncertainty estimation method but yield inconsistent ranks compared to human annotation. Current uncertainty methods struggle to achieve positive PRR scores across human annotation perspectives."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Relevance",
+      "Consistency",
+      "Coherence",
+      "Fluency",
+      "Overall"
+    ],
+    "human_only_criteria": [
+      "Information",
+      "Referencing",
+      "Fact",
+      "Error",
+      "Modality",
+      "Contradiction",
+      "Shift"
+    ],
+    "shared_criteria": [],
+    "notes": "LLM evaluates via NLG metrics on standard quality dimensions, while human evaluates specific error types without direct dimensional overlap"
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "paper_id": "2025.emnlp-main.5",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Simplification"
+    ],
+    "datasets": [
+      "FrJUDGE"
+    ],
+    "languages": [
+      "French"
+    ],
+    "models": [
+      "GPT-4",
+      "CamemBERT-baseV2"
+    ],
+    "outputs": [
+      "Simplified legal texts from insurance contracts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [
+          "EUR-Lex-Sum",
+          "RISCBAC"
+        ],
+        "models": [
+          "GPT4‑turbo (zero‑shot prompting)",
+          "CamemBERT‑baseV2 (JUDGEBERT)",
+          "GPT4-turbo"
+        ],
+        "outputs": [
+          "simplified French legal sentences",
+          "simplified text from legal insurance documents"
+        ]
+      },
+      "normalized": {
+        "Other:Text Simplification": "Text Simplification"
+      },
+      "explanation": "Removed 'Paraphrase Generation' as the paper focuses on simplification not paraphrase. Removed EUR-Lex-Sum and RISCBAC as they are mentioned as comparison datasets but not used for evaluation. Simplified model names and output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "SARI",
+      "BERTScore",
+      "SBERT",
+      "SBERT-Multi",
+      "Coverage",
+      "QuestEval",
+      "LENS",
+      "MeaningBERT",
+      "JUDGEBERT",
+      "JUDGEBERT-DA"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Sentence Transformer": "SBERT"
+      },
+      "explanation": "Normalized 'Sentence Transformer' to 'SBERT' as it refers to Sentence-BERT. Kept all other metrics as they are correctly extracted and used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "JUDGEBERT",
+          "JUDGEBERT-DA"
+        ],
+        "methods": [
+          "regression head on CamemBERT-baseV2",
+          "fine-tuning on FrJUDGE with human annotations"
+        ],
+        "criteria": [
+          "legal meaning preservation"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed JUDGEBERT models and methods since they are automated metrics, not LLM-as-judge evaluations. QUESTION 3 specifically asks about using LLMs as judges after generation, which this paper does not do."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators assess simplicity level (4-point scale) and legal meaning preservation (10-point Likert scale) using characterization process"
+    ],
+    "criteria": [
+      "Simplicity",
+      "Legal Meaning Preservation",
+      "Characterization"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators assess simplicity level (4-point scale) and legal meaning preservation (10-point Likert scale) using characterization process"
+        ],
+        "criteria": [
+          "Simplicity",
+          "Legal Meaning Preservation",
+          "Characterization"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "simplicity level",
+          "legal meaning preservation",
+          "simplicity",
+          "characterization",
+          "legal meaning preservation (LMP)"
+        ]
+      },
+      "normalized": {
+        "simplicity level": "Simplicity",
+        "legal meaning preservation": "Legal Meaning Preservation",
+        "legal meaning preservation (LMP)": "Legal Meaning Preservation",
+        "characterization": "Characterization"
+      },
+      "explanation": "Consolidated duplicate criteria and normalized names. Simplified guideline to key evaluation procedures described in the paper."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main issues were: 1) Including models from QUESTION 3 that should only be in QUESTION 2, 2) Minor naming inconsistencies, 3) Including comparison datasets in QUESTION 1 that weren't used for evaluation. JUDGEBERT is an automatic evaluation metric, not an LLM-as-judge setup."
+}

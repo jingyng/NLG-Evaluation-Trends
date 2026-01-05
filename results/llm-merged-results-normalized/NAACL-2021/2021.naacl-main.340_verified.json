@@ -1,0 +1,140 @@
+{
+  "paper_id": "2021.naacl-main.340",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Clarification Question Generation"
+    ],
+    "datasets": [
+      "AMAZON QUESTION ANSWER DATASET",
+      "UBUNTU DIALOGUE CORPUS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "pplm",
+      "transformer"
+    ],
+    "outputs": [
+      "clarification questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Transformer"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Generation",
+          "Dialogue Generation"
+        ],
+        "datasets": [
+          "Amazon Product Descriptions",
+          "Amazon",
+          "Ubuntu"
+        ],
+        "languages": [],
+        "models": [
+          "YAKE",
+          "GloVe"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Amazon question-answer dataset": "Amazon Question-Answer Dataset",
+        "Ubuntu Dialog Corpus": "Ubuntu Dialog Corpus",
+        "bleu": "BLEU",
+        "meteor": "METEOR"
+      },
+      "explanation": "Consolidated tasks to focus on the main contribution (clarification question generation). Removed redundant dataset names and models that are not NLG models being evaluated (YAKE, GloVe are tools used in preprocessing). Added Transformer as it's explicitly evaluated as a baseline."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "DISTINCT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "METEOR": "METEOR",
+        "Distinct-2": "Distinct"
+      },
+      "explanation": "Normalized metric names to base forms following the guidelines (BLEU-4 → BLEU, Distinct-2 → Distinct)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper (published in 2021 before this practice became common). The paper uses human evaluation and traditional automatic metrics."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluated relevance, fluency, and missing information via yes/no questions, and usefulness via pairwise comparisons with scenario-specific instructions (e.g., 'Choose which of the two questions is more useful to a potential buyer' for Amazon, 'Choose which of the two questions is more useful to the other person in the dialog' for Ubuntu). Each generated output was evaluated by three annotators on Amazon Mechanical Turk."
+    ],
+    "criteria": [
+      "Relevance",
+      "Fluency",
+      "Information",
+      "Usefulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Relevance",
+          "Fluency",
+          "Missing Information",
+          "Usefulness"
+        ]
+      },
+      "normalized": {
+        "Relevance": "relevance",
+        "Fluency": "fluency",
+        "Missing Information": "missing information",
+        "Usefulness": "usefulness"
+      },
+      "explanation": "Consolidated criteria to lowercase form and removed duplicates. The guideline was already comprehensive and accurate."
+    }
+  },
+  "overall_notes": "The extraction was generally good. The paper focuses on clarification question generation using a two-stage approach (identifying missing information via global-local schema difference, then generating useful questions using BART+PPLM). It evaluates on both Amazon QA and Ubuntu Dialog datasets using both automatic metrics (BLEU, METEOR, Distinct) and human evaluation (relevance, fluency, missing information, usefulness). No LLM-as-judge evaluation was used."
+}

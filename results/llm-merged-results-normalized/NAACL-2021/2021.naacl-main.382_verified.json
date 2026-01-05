@@ -1,0 +1,127 @@
+{
+  "paper_id": "2021.naacl-main.382",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CLINSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "random",
+      "lexrank",
+      "clinneusum",
+      "oracle_top_k",
+      "oracle_gain",
+      "oracle_sent_align",
+      "oracle_retrieval",
+      "oracle_sa_+_retrieval",
+      "pointer_generator",
+      "retrieval_augmented_generation",
+      "bert",
+      "biobert",
+      "clinicalbert"
+    ],
+    "outputs": [
+      "Hospital course summaries",
+      "Brief Hospital Course (BHC) paragraphs"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "ClinicalBERT"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "models": [
+          "Bio_ClinicalBERT"
+        ],
+        "outputs": [
+          "Brief Hospital Course paragraphs summarizing a patient's inpatient visit"
+        ]
+      },
+      "normalized": {
+        "Bio_ClinicalBERT": "ClinicalBERT",
+        "Summaries of hospital courses": "Hospital course summaries",
+        "Brief Hospital Course (BHC) summary paragraphs": "Brief Hospital Course (BHC) paragraphs"
+      },
+      "explanation": "Normalized model names (Bio_ClinicalBERT → ClinicalBERT) and simplified output descriptions. Added ClinicalBERT which was mentioned as 'Bio_ClinicalBERT' in the text."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "ENTITY GRID COHERENCE",
+      "NEXT SENTENCE PREDICTION",
+      "BM25"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "R 12",
+          "entity-grid based neural coherence model",
+          "Next-Sentence Prediction (NSP)"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "R 12": "ROUGE",
+        "entity-grid based neural coherence model": "Entity-grid coherence",
+        "Next-Sentence Prediction (NSP)": "Next-Sentence Prediction"
+      },
+      "explanation": "Simplified ROUGE variants to base metric name. Normalized entity-grid and NSP metric names. R 12 is just an average of ROUGE-1 and ROUGE-2, so it's covered by ROUGE."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper. The paper mentions BERT/BioBERT but only for next-sentence prediction as an automatic metric, not as evaluators of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The paper focuses on dataset analysis and automatic evaluation of extractive baselines."
+    }
+  },
+  "overall_notes": "This paper primarily introduces a new clinical summarization dataset (CLINSUM) and analyzes its characteristics. It evaluates extractive summarization baselines using automatic metrics but does not include human evaluation or LLM-as-judge evaluation. The paper focuses on dataset analysis and implications for future model development rather than comprehensive model evaluation."
+}

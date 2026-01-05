@@ -1,0 +1,92 @@
+{
+  "paper_id": "2024.acl-long.14",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares IBE-Eval and GPT-3.5-as-a-judge against human judgment on the same explanation pairs, reporting quantitative correlation metrics and discussing the relationship"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-3.5"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "Paper mentions GPT-3.5 is presented with explanation pairs and asked to identify the most plausible explanation, but exact prompt text not provided"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.68,
+      "interpretation": "strong agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Evaluators were instructed to select the most plausible explanation without seeing the original question or correct answer to prevent bias"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "plausibility"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "100 explanation pairs sampled across COPA and E-CARE tasks, validated by both human evaluators and LLM-as-a-judge"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.31,
+        "criterion": "Plausibility",
+        "llm_model": "GPT-3.5-as-a-judge",
+        "significance": "statistically insignificant",
+        "notes": "Weak correlation with human judgment"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.64,
+        "criterion": "Plausibility",
+        "llm_model": "IBE-Eval",
+        "significance": "p<0.01",
+        "notes": "Significant alignment with human preferences"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "",
+      "threshold_used": "Not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "IBE-Eval shows significantly stronger correlation with human judgment (\u03c1=0.64, p<0.01) compared to GPT-3.5-as-a-judge (\u03c1=0.31, insignificant), suggesting better alignment with human preferences."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Logic",
+      "parsimony",
+      "Coherence",
+      "linguistic uncertainty"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Plausibility"
+    ],
+    "notes": "Both methods evaluate plausibility of explanations, though LLM-as-a-judge uses direct pairwise comparison while IBE-Eval computes plausibility scores from logical/linguistic features"
+  }
+}

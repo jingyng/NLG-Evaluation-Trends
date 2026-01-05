@@ -1,0 +1,192 @@
+{
+  "paper_id": "2025.acl-long.418",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering",
+      "Other:Document Generation",
+      "Other:Question Generation",
+      "Other:Keypoint Extraction"
+    ],
+    "datasets": [
+      "DragonBall"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "MiniCPM-2B-sft",
+      "MiniCPM-3-4B",
+      "Baichuan-2-7B-chat",
+      "Llama-3-8B-Instruct",
+      "Qwen-1.5-7B-chat",
+      "Qwen-1.5-14B-chat",
+      "Qwen-2-7B-Instruct",
+      "GPT-3.5-Turbo",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "Scenario-specific documents",
+      "Question-answer-reference triples",
+      "Keypoint lists",
+      "Generated answers for RAG evaluation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Qwen-1.5-14B-chat"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Other:Question-Answer Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "MiniCPM3-4B",
+          "Qwen1.5-7B/14B-chat",
+          "GPT-4o-2024-0806",
+          "MiniCPM-3-4B"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Llama3-8B-Instruct": "Llama-3-8B-Instruct",
+        "Qwen1.5-7B/14B-chat": "Qwen-1.5-7B-chat, Qwen-1.5-14B-chat",
+        "Qwen2-7B-Instruct": "Qwen-2-7B-Instruct",
+        "GPT-3.5-Turbo-0125": "GPT-3.5-Turbo",
+        "GPT-4o": "GPT-4o"
+      },
+      "explanation": "Removed 'Text Summarization' as it's not a main focus. Normalized model names to standard format. Removed duplicate 'MiniCPM3-4B' and 'MiniCPM-3-4B', kept 'MiniCPM-3-4B'. Split 'Qwen1.5-7B/14B-chat' into separate models. Removed version specifics from GPT models."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "F1",
+      "Recall",
+      "Effective Information Rate",
+      "Completeness",
+      "Hallucination",
+      "Irrelevance"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "EIR"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "BLEU": "BLEU",
+        "Recall": "Recall",
+        "EIR": "Effective Information Rate",
+        "Completeness": "Completeness",
+        "Hallucination": "Hallucination",
+        "Irrelevance": "Irrelevance"
+      },
+      "explanation": "Normalized metric variants to base forms (ROUGE-L → ROUGE). Added F1 which was mentioned. EIR was normalized to full name 'Effective Information Rate'."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "Keypoint-based evaluation",
+      "Automated metric validation"
+    ],
+    "criteria": [
+      "Completeness",
+      "Hallucination",
+      "Irrelevance",
+      "Semantic coverage",
+      "Contradiction detection",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "Semantic coverage",
+          "Contradiction detection",
+          "Relevance"
+        ]
+      },
+      "removed": {
+        "models": [
+          "other LLMs used for metric computation"
+        ],
+        "methods": [
+          "keypoint classification",
+          "LLM‑based keypoint coverage scoring"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "keypoint classification": "Keypoint-based evaluation",
+        "LLM‑based keypoint coverage scoring": "Keypoint-based evaluation",
+        "automated metric validation using LLMs": "Automated metric validation"
+      },
+      "explanation": "Consolidated similar methods. Removed vague 'other LLMs' reference. Added criteria mentioned in the evaluation process."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Scoring correctness of QRA triples on 0-5 scale",
+      "Ranking documents on clarity, safety, richness, conformity",
+      "Validating automated metrics against human judgments"
+    ],
+    "criteria": [
+      "Correctness",
+      "Fluency",
+      "Clarity",
+      "Safety",
+      "Richness",
+      "Conformity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Validating automated metrics against human judgments"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "correctness": "Correctness",
+        "fluency": "Fluency",
+        "clarity": "Clarity",
+        "safety": "Safety",
+        "richness": "Richness",
+        "conformity": "Conformity"
+      },
+      "explanation": "Added missing guideline about metric validation. Normalized criteria to title case."
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive RAG evaluation framework with strong NLG components. The extraction was generally accurate but needed normalization of model names and metric variants. The paper uses both traditional metrics (ROUGE, BLEU) and novel keypoint-based metrics (Completeness, Hallucination, Irrelevance) with extensive human and LLM-based evaluation."
+}

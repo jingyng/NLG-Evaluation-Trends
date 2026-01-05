@@ -1,0 +1,120 @@
+{
+  "paper_id": "2022.emnlp-main.483",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Entailment Tree Generation",
+      "Other:Explanation Generation"
+    ],
+    "datasets": [
+      "EntailmentBank"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "DeBERTa",
+      "BART",
+      "T5",
+      "MetGen"
+    ],
+    "outputs": [
+      "entailment trees with intermediate conclusions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Reasoning Chain Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BART-Large",
+          "T5-Large",
+          "T5-11B"
+        ],
+        "outputs": [
+          "entailment trees with generated intermediate conclusions",
+          "entailment trees with intermediate conclusions and final hypothesis"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed redundant task 'Reasoning Chain Generation' as it's covered by 'Entailment Tree Generation'. Consolidated outputs to remove duplicates. Removed model size variants (BART-Large, T5-Large, T5-11B) keeping only base model names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "AllCorrect",
+      "BLEURT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Leaves F1",
+          "Leaves AllCorrect",
+          "Steps F1",
+          "Steps AllCorrect",
+          "Intermediates BLEURT",
+          "Intermediates AllCorrect",
+          "Overall AllCorrect"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed metric sub-variants (Leaves/Steps/Intermediates/Overall) as they are specific implementations of the base metrics F1, AllCorrect, and BLEURT. The paper uses these three core metrics across different evaluation dimensions."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is used in this paper. The paper relies on automatic metrics and does not use LLMs to evaluate outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. The evaluation is entirely based on automatic metrics applied to the EntailmentBank dataset."
+    }
+  },
+  "overall_notes": "The paper presents RLET, a reinforcement learning framework for generating entailment trees as explanations for QA systems. The extraction was generally accurate but included some redundant/specific items that were normalized. The paper focuses on automatic evaluation using F1, AllCorrect, and BLEURT metrics on the EntailmentBank dataset, with no human or LLM-as-judge evaluations conducted."
+}

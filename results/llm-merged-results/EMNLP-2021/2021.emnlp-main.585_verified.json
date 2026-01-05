@@ -1,0 +1,148 @@
+{
+  "paper_id": "2021.emnlp-main.585",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Entailment Tree Generation",
+      "Other:Explanation Generation"
+    ],
+    "datasets": [
+      "ENTAILMENTBANK"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5-11B",
+      "T5-large",
+      "EntailmentWriter"
+    ],
+    "outputs": [
+      "multistep entailment trees with intermediate conclusions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "T5-large"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:explanation generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "T5"
+        ],
+        "outputs": [
+          "entailment trees encoded as linear sequences of multi-premise entailment steps"
+        ]
+      },
+      "normalized": {
+        "Other:Entailment Tree Generation": "Other:Entailment Tree Generation",
+        "Other:Explanation Generation": "Other:Explanation Generation",
+        "EntailmentWriter (T5-based)": "EntailmentWriter"
+      },
+      "explanation": "Removed duplicate 'explanation generation' task, normalized model names (T5-11B is specific, T5 is too generic), added T5-large which is also evaluated, simplified outputs description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "BLEURT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Leaf F1",
+          "Leaf AllCorrect",
+          "Step F1",
+          "Step AllCorrect",
+          "Intermediate F1",
+          "Intermediate AllCorrect",
+          "Overall AllCorrect",
+          "AllCorrect"
+        ]
+      },
+      "normalized": {
+        "Leaf F1": "F1",
+        "Step F1": "F1",
+        "Intermediate F1": "F1",
+        "BLEURT": "BLEURT"
+      },
+      "explanation": "Simplified to base metrics (F1, BLEURT) rather than specific variants. All the *AllCorrect scores are binary outcomes of F1=1.0 checks, not separate metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM-as-judge evaluation was conducted"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human judges rated the overall correctness of generated entailment trees compared to automated metrics",
+      "Raters assessed whether generated entailment trees were completely correct (overall correctness)"
+    ],
+    "criteria": [
+      "overall correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Raters assessed whether generated entailment trees were completely correct (overall correctness)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Human judges rated the overall correctness of generated entailment trees compared to automated metrics.",
+          "We find that a significant number of trees that were scored as invalid are in fact valid, suggesting that our automated metrics underestimate tree validity."
+        ],
+        "criteria": [
+          "Overall AllCorrect",
+          "validity of entailment trees"
+        ]
+      },
+      "normalized": {
+        "overall correctness": "overall correctness"
+      },
+      "explanation": "Refined guidelines to be more concise and directly descriptive of the human evaluation process. Simplified criteria to just 'overall correctness' which is the main focus."
+    }
+  },
+  "overall_notes": "The paper focuses on generating entailment tree explanations for QA using T5 models. The extraction was generally good but needed normalization of metric variants and removal of duplicate/placeholder items. The human evaluation was more limited than initially extracted - primarily focused on overall correctness validation rather than multiple fine-grained criteria."
+}

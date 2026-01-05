@@ -1,0 +1,124 @@
+{
+  "paper_id": "2025.naacl-long.434",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Reasoning Chain Generation",
+      "Other:Question Generation"
+    ],
+    "datasets": [
+      "StrategyQA",
+      "CommonsenseQA",
+      "ARC-challenge",
+      "MATH",
+      "GSM8K",
+      "TabMWP",
+      "ANLI",
+      "Date Understanding",
+      "BoolQ",
+      "OpenbookQA",
+      "e-SNLI",
+      "GSM8K-Reversal"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Gemini-1.5-Pro-001",
+      "Mistral-7B-Instruct",
+      "Gemma-7B-Instruct"
+    ],
+    "outputs": [
+      "forward reasoning",
+      "backward question",
+      "backward reasoning"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Question Generation"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Reasoning"
+        ],
+        "outputs": [
+          "Reasoning chains (forward and backward) and answers"
+        ]
+      },
+      "normalized": {
+        "Other:Reasoning Chain Generation": "Other:Reasoning Chain Generation",
+        "Other:Reasoning": "REMOVED"
+      },
+      "explanation": "Removed 'Other:Reasoning' as it was too vague and not specific to generation. Added 'Other:Question Generation' since the paper specifically investigates generating backward questions. Simplified outputs description to focus on the three specific generation tasks."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Normalized 'accuracy' to 'Accuracy' and removed duplicate entry to maintain consistency"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Gemini-1.5-Pro-001"
+        ],
+        "methods": [
+          "consistency checking via prompting"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed 'Gemini-1.5-Pro-001' and 'consistency checking via prompting' as these are used during training data construction, not for evaluating generated outputs after generation. The paper does not use LLMs as judges for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper; evaluation is done entirely through automatic metrics."
+    }
+  },
+  "overall_notes": "This paper focuses on training models to generate reasoning chains through reverse thinking. While it involves NLG (generating reasoning chains and questions), it's primarily a reasoning enhancement method rather than a traditional NLG evaluation paper. The extraction was reasonably accurate, mainly requiring normalization and clarification of the specific generation tasks involved."
+}

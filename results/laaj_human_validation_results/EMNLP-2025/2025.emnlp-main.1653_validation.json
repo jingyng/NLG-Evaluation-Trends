@@ -1,0 +1,107 @@
+{
+  "paper_id": "2025.emnlp-main.1653",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM Judge with human annotations through statistical correlation tests, reporting Spearman correlation values and validating LLM Judge as a reliable automated assessment tool"
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "GPT-4o",
+      "Qwen2.5-72B",
+      "DeepSeek"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full system prompts provided for both general and accessibility-specific evaluations, including detailed criteria and example review formats"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' κ and Krippendorff's α",
+      "value": "κ=0.76, α=0.82",
+      "interpretation": "substantial agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text and appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators used the same instructions as LLM judge, with detailed scoring criteria and example annotations provided"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation",
+      "Weighted Cohen's κ"
+    ],
+    "shared_criteria": [
+      "Relevance",
+      "Completeness",
+      "Accuracy",
+      "Clarity",
+      "Organization"
+    ],
+    "sample_size": {
+      "total_generated": 1200,
+      "validated_by_both": 1200,
+      "notes": "1200 responses validated (200 per domain across six domains), with balanced representation of disability types"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.86,
+        "criterion": "overall",
+        "llm_model": "GPT-4o",
+        "significance": "p=0.008",
+        "notes": "Highest agreement with human ratings"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.84,
+        "criterion": "overall",
+        "llm_model": "Qwen2.5-72B",
+        "significance": "p=0.001",
+        "notes": "Selected as LLM Judge for evaluation"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.78,
+        "criterion": "overall",
+        "llm_model": "DeepSeek",
+        "significance": "p=0.012",
+        "notes": "Slightly lower correlation indicating potential inconsistencies"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "ρ > 0.75 considered strong correlation",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "All LLM Judge scores show strong correlation with human judgments (ρ > 0.75), validating LLM Judge as a scalable alternative for bias evaluation that reduces need for expensive large-scale human annotation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Relevance",
+      "Completeness",
+      "Accuracy",
+      "Clarity",
+      "Organization"
+    ],
+    "notes": "Both LLM and human evaluators used identical criteria and scoring rubrics, ensuring direct comparability"
+  }
+}

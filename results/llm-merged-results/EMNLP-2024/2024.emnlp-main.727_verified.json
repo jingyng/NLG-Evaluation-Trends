@@ -1,0 +1,135 @@
+{
+  "paper_id": "2024.emnlp-main.727",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Biography Generation",
+      "Other:Event Description"
+    ],
+    "datasets": [
+      "Researcher",
+      "Wiki-Ent",
+      "Wiki-Event",
+      "News Events"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "text-bison-001",
+      "text-unicorn-001",
+      "Mistral-7B-Instruct-v0.3"
+    ],
+    "outputs": [
+      "biographies of entities and summaries of events",
+      "grounded long-form text"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "outputs": [
+          "grounded long-form text"
+        ]
+      },
+      "removed": {
+        "models": [
+          "textbison-001",
+          "Mistral-7B-Instruct"
+        ],
+        "outputs": [
+          "Biographies of people and descriptions of events"
+        ]
+      },
+      "normalized": {
+        "textbison-001": "text-bison-001",
+        "text-bison-001": "text-bison-001",
+        "Mistral-7B-Instruct": "Mistral-7B-Instruct-v0.3"
+      },
+      "explanation": "Normalized model names to consistent format, removed duplicates, and simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "AIS",
+      "ROUGE",
+      "Length"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Strict AIS": "AIS",
+        "Macro AIS": "AIS",
+        "Micro AIS": "AIS",
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-Lsum": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "Auto-AIS": "AIS"
+      },
+      "explanation": "Normalized all ROUGE variants to base ROUGE and all AIS variants to AIS as per simplification rules"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Auto-AIS (LLM‑based)",
+          "NLI model"
+        ],
+        "methods": [
+          "Auto‑AIS scoring",
+          "sentence-level entailment scoring"
+        ],
+        "criteria": [
+          "groundedness",
+          "attribution"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper uses Auto-AIS (an automated NLI-based model) for evaluation, but this is not 'LLM-as-judge' in the typical sense where an LLM is prompted to evaluate outputs after generation. Auto-AIS is a specialized trained model for attribution verification."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "For every pair of model generations, label which generation is more fluent or label 'no preference'",
+      "For every pair of model generations, label which generation provides more relevant information or label 'no preference'"
+    ],
+    "criteria": [
+      "fluency",
+      "informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The extracted human evaluation guidelines and criteria are accurate and complete"
+    }
+  },
+  "overall_notes": "The paper focuses on grounded text generation using plan-based retrieval to reduce hallucinations. It uses automated AIS metrics for attribution evaluation and conducts human evaluations for fluency and informativeness. The LLM-as-judge classification was changed to 'No' as Auto-AIS is a specialized trained model rather than a prompted LLM evaluation."
+}

@@ -1,0 +1,72 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We introduced ChartGaze, a novel dataset that captures how humans visually process charts. By capturing high-precision human gaze patterns for chart-based questions, ChartGaze enables detailed comparisons between human and model attention. This opens up new insights into how human gaze can serve as an implicit training signal to enhance LVLM performance on chart understanding.",
+            "We train models for CQA to focus on regions where humans typically fixate, thereby improving both alignment and interpretability. As shown in Figure..., models trained with our approach produce more interpretable and human-aligned attention maps, leading to more accurate answers.",
+            "We used few-shot prompting with GPT-4o to generate questions regarding descriptive statistics, point-wise comparisons, and trend analysis."
+        ],
+        "tasks": [
+            "Other:Chart Question Answering",
+            "Other:Question Generation"
+        ],
+        "datasets": [
+            "ChartGaze",
+            "Vis-Text",
+            "ChartQA",
+            "ChartGazeData"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "TinyLLaVA-450M",
+            "InternVL2-4B",
+            "InternVL2-8B",
+            "ChartGemma-3B",
+            "GPT-4o"
+        ],
+        "outputs": [
+            "Answers to chart-based yes/no questions; attention maps",
+            "yes/no answers",
+            "question-answer pairs"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Since our dataset consists of yes/no questions, we use accuracy, defined as the percentage of questions correctly answered, to compare chart understanding performance across different models. To assess the similarity between the LVLM attention maps and the human attention maps, we used three standard metrics commonly used in saliency prediction. Pearson's Correlation Coefficient (CC), Kullback-Leibler (KL) divergence, and histogram intersection (also known as similarity or SIM metric) between the ground-truth human gaze distribution and the model's attention distribution over the chart image.",
+            "Since our dataset consists of yes/no questions, we use accuracy, defined as the percentage of questions correctly answered, to compare chart understanding performance across different models. To assess the similarity between the LVLM attention maps and the human attention maps, we used three standard metrics commonly used in saliency prediction: Pearson's Correlation Coefficient (CC), Kullback-Leibler (KL) divergence, and histogram intersection (SIM).",
+            "To assess the similarity between the LVLM attention maps and the human attention maps, we used three standard metrics commonly used in saliency prediction (Meur and Baccino, 2012; Bruckert et al., 2021). Pearson's Correlation Coefficient (CC), Kullback-Leibler (KL) divergence, and histogram intersection (also known as similarity or SIM metric)..."
+        ],
+        "automatic_metrics": [
+            "Accuracy",
+            "Pearson's Correlation Coefficient (CC)",
+            "Kullback-Leibler (KL) divergence",
+            "Histogram Intersection (SIM)",
+            "Kullback-Leibler divergence (KL)",
+            "CC",
+            "KL",
+            "SIM"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "To ensure the correctness of our generated questions, we had human annotators flag ambiguous or incorrect questions during data collection... We also verified the quality of the GPT-generated answers by measuring agreement with human annotators. A random sample of 100 examples showed a 93% agreement between GPT-4o and the majority vote of our seven human annotators. The highest pairwise agreement among human annotators was 92%.",
+            "We had human annotators flag ambiguous or incorrect questions during data collection... We also verified the quality of the GPT-generated answers by measuring agreement with human annotators."
+        ],
+        "guideline": [
+            "Human annotators flagged ambiguous or incorrect questions; verified GPT-4o answers via agreement with human annotators.",
+            "human annotators were instructed to flag ambiguous or incorrect questions and verify answer correctness"
+        ],
+        "criteria": []
+    }
+}

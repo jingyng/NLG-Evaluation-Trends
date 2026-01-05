@@ -1,0 +1,137 @@
+{
+  "paper_id": "2024.naacl-long.456",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "HUMANRANKEVAL",
+      "STACKOVERFLOW",
+      "STACKEXCHANGE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2",
+      "llama_2_chat",
+      "codellama",
+      "codellama_instruct",
+      "palmyra",
+      "camel",
+      "pythia_instruct",
+      "vicuna",
+      "starcoder",
+      "mpt_chat",
+      "zephyr",
+      "wizardlm",
+      "koala"
+    ],
+    "outputs": [
+      "answers to information-seeking questions",
+      "log-likelihood scores of human-authored answers",
+      "preference rankings"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "preference rankings"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama2-7B",
+          "Llama2-13B",
+          "CodeLlama-7B",
+          "Vicuna-13B"
+        ],
+        "outputs": [
+          "open-ended conversational responses"
+        ]
+      },
+      "normalized": {
+        "HumanRankEval dataset sourced from StackOverflow and StackExchange": "HumanRankEval",
+        "Log‑likelihood scores of human‑authored answers used to rank model preferences": "log-likelihood scores of human-authored answers"
+      },
+      "explanation": "Removed redundant model variants with explicit sizes since those are already covered by the base model names. Removed 'open-ended conversational responses' as the paper focuses on ranking predefined human-authored answers rather than generating new conversational responses. Normalized dataset names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PEARSON CORRELATION",
+      "LOG LIKELIHOOD"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Pearson correlation coefficient"
+        ]
+      },
+      "normalized": {
+        "Pearson correlation coefficient": "Pearson correlation"
+      },
+      "explanation": "Normalized 'Pearson correlation coefficient' to 'Pearson correlation' and removed the redundant variant. The paper mentions both Pearson and Spearman correlation but primarily uses Pearson as the main metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper explicitly contrasts its approach with LLM-as-judge methods (MT-Bench, AlpacaEval) but does not use LLMs as judges. It evaluates models directly using log-likelihoods of human-authored answers."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "participants are asked to rate its performance in various metrics or by contrasting multiple LM outputs (produced by the same input/prompt) and voting for the one that is preferred"
+        ],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "helpfulness",
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper discusses human evaluation methods in general (Chatbot Arena, etc.) but does NOT conduct its own human evaluation. It uses pre-existing human ratings from StackOverflow/StackExchange as ground truth for its automatic metric. The extracted criteria and guidelines describe external methods, not those used in this paper."
+    }
+  },
+  "overall_notes": "The paper introduces HumanRankEval, an automatic evaluation method for conversational assistants that correlates model log-likelihoods of human-authored answers with human preference rankings. It does not generate new text but evaluates models based on their alignment with human preferences. The extraction was generally good but included some external references as if they were methods used in this paper."
+}

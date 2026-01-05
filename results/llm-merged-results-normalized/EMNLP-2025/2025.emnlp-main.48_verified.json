@@ -1,0 +1,167 @@
+{
+  "paper_id": "2025.emnlp-main.48",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Critique Generation",
+      "Reward Model Generation"
+    ],
+    "datasets": [
+      "EQAREWARDBENCH",
+      "OPENEQA",
+      "hm3d",
+      "SCANNET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "eqa_rm",
+      "qwen_2_vl_2b_instruct",
+      "gemini_2.0_flash",
+      "gemini_2.5_pro",
+      "gpt_4o",
+      "claude_3.5_haiku",
+      "rovrm",
+      "visualprm"
+    ],
+    "outputs": [
+      "textual critiques and scalar scores"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Gemini-2.5-Pro",
+          "GPT-4o",
+          "Claude-3.5-Haiku",
+          "RoVRM",
+          "VisualPRM"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Gemini-2.5-Pro-Experiment-03-14"
+        ],
+        "outputs": [
+          "textual critique and scalar score"
+        ]
+      },
+      "normalized": {
+        "EQAREWARDBENCH": "EQARewardBench",
+        "Scan-Net": "ScanNet",
+        "Gemini-2.5-Pro-Experiment-03-14": "Gemini-2.5-Pro"
+      },
+      "explanation": "Normalized dataset names and model versions. Added all main models mentioned in the paper for comprehensive coverage."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "RMSE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Root Mean Square Error"
+        ]
+      },
+      "normalized": {
+        "Root Mean Square Error": "RMSE"
+      },
+      "explanation": "Normalized 'Root Mean Square Error' to 'RMSE' since they refer to the same metric."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gemini_2.5_flash",
+      "gpt_4o",
+      "claude_3.5_haiku"
+    ],
+    "methods": [
+      "VLM-as-a-Judge"
+    ],
+    "criteria": [
+      "Plausibility",
+      "Visual",
+      "Logic",
+      "Consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "Answer Plausibility",
+          "Visual Grounding",
+          "Logic",
+          "Consistency",
+          "Trace-Answer Consistency"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "prompted offline evaluation"
+        ],
+        "criteria": [
+          "accuracy",
+          "relevance",
+          "visual grounding",
+          "reasoning coherence"
+        ]
+      },
+      "normalized": {
+        "prompted offline evaluation": "VLM-as-a-Judge",
+        "relevance": "Answer Plausibility",
+        "reasoning coherence": "Logic"
+      },
+      "explanation": "Normalized method name to 'VLM-as-a-Judge' and criteria to match the evaluation guidelines in the paper. Removed 'accuracy' as it's a metric, not an evaluation criterion."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [
+      "Human verification for reliability of ground truth scores"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human verification for reliability of ground truth scores"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "The evaluation criteria include Answer Plausibility & Visual Grounding (60% weight) and Reasoning Trace Quality (40% weight), with sub-criteria such as plausibility, visual confirmation, logic, consistency, and trace-answer consistency."
+        ],
+        "criteria": [
+          "Answer Plausibility",
+          "Visual Grounding",
+          "Logic",
+          "Consistency",
+          "Trace-Answer Consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed incorrect criteria that were for LLM evaluation, not human evaluation. Added the actual human verification mentioned in the paper for ground truth score validation."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation through reward modeling for embodied question answering. The extraction was generally accurate but needed normalization of names and clarification of what constitutes human vs. LLM evaluation. The paper uses LLMs as judges but does not conduct human evaluation of generated outputs beyond verification of ground truth scores."
+}

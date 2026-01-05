@@ -1,0 +1,163 @@
+{
+  "paper_id": "2025.emnlp-main.392",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other: Structured Report Generation"
+    ],
+    "datasets": [
+      "MIMIC-CXR",
+      "CheXpert Plus"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5-Base",
+      "FLAN-T5-Base",
+      "SciFive",
+      "Clin-T5-Sci",
+      "Clin-T5-Base",
+      "BERT2BERT",
+      "RoBERTa-base",
+      "BioMed-RoBERTa",
+      "RoBERTa-PM-M3",
+      "RadBERT-RoBERTa",
+      "LLaMA-3-1B",
+      "LLaMA-3-3B",
+      "LLaMA-3-8B",
+      "LLaMA-3-70B",
+      "Mistral-7B",
+      "Phi-3.5-Mini-Instruct",
+      "Vicuna-7B-v1.5",
+      "Med-Alpaca-7B"
+    ],
+    "outputs": [
+      "Structured radiology reports with sections: Exam Type, History, Technique, Comparison, Findings, and Impression"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "FLAN-T5-Base",
+          "RoBERTa-base"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Report Structuring",
+          "Other:Structured Report Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-3.1-8B-Instruct",
+          "Llama-3-8B"
+        ],
+        "outputs": [
+          "Structured radiology reports",
+          "Structured radiology reports (Findings and Impression sections) in a predefined template"
+        ]
+      },
+      "normalized": {
+        "Flan-T5-Base": "FLAN-T5-Base",
+        "RoBERTa-PM-M3": "RoBERTa-PM-M3",
+        "RadBERT-RoBERTa": "RadBERT-RoBERTa",
+        "BERT2BERT": "BERT2BERT"
+      },
+      "explanation": "Consolidated tasks to single 'Other: Structured Report Generation'; normalized model names and removed duplicates; simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "BERTScore",
+      "F1-RadGraph",
+      "GREEN",
+      "F1-SRR-BERT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "F1-SRRG-Bert": "F1-SRR-BERT"
+      },
+      "explanation": "Normalized ROUGE-L to ROUGE and corrected F1-SRRG-Bert to F1-SRR-BERT as used in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Fine-tuned LLM",
+          "finetuned LLM used for GREEN",
+          "GREEN"
+        ],
+        "methods": [
+          "Automated scoring",
+          "automated factual correctness scoring",
+          "factual correctness assessment using finetuned LLM"
+        ],
+        "criteria": [
+          "factual correctness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' because GREEN is used as an automated metric for factual correctness, not as an LLM judge evaluating outputs after generation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Assessing generated structured reports for errors and adherence to predefined template"
+    ],
+    "criteria": [
+      "errors",
+      "adherence to template"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Assessing for errors and adherence to predefined template",
+          "Assessing errors and adherence to predefined template",
+          "assessing them for errors and adherence to our predefined template"
+        ],
+        "criteria": [
+          "error detection",
+          "template adherence",
+          "clinical accuracy"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline descriptions and removed redundancy; kept only the explicitly mentioned criteria 'errors' and 'adherence to template'"
+    }
+  },
+  "overall_notes": "The paper focuses on structured report generation as an NLG task. The extraction was generally good but needed normalization of model names and metric variants. The key correction was for Question 3 - GREEN is used as an automated metric, not as an LLM judge evaluating outputs after generation."
+}

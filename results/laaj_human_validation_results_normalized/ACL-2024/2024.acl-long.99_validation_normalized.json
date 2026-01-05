@@ -1,0 +1,176 @@
+{
+  "paper_id": "2024.acl-long.99",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM and human preferences by fitting Bayesian logistic regression models to decompose preferences into property weights, computing similarity between human and LLM preference vectors using Pearson correlation across scenarios, and reporting manipulation experiments showing alignment/difference effects for both human and LLM judges"
+  },
+  "llm_judge_details": {
+    "num_models": 32,
+    "models": [
+      "gpt_4_turbo",
+      "gpt_3_5_turbo",
+      "llama_2_70b_chat",
+      "qwen_72b_chat",
+      "various_open_source_llms"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompt provided: 'Between Response A and Response B, which better addresses the user's query? The better response is Response'. Prompt alternates response order to mitigate positional bias"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear_from_text",
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage_agreement",
+      "value": "multiple_values",
+      "interpretation": "high_agreement",
+      "per_criterion": [
+        {
+          "criterion": "basic_properties",
+          "metric": "percentage_agreement",
+          "value": 93.1
+        },
+        {
+          "criterion": "error_detection",
+          "metric": "percentage_agreement",
+          "value": 85.1
+        },
+        {
+          "criterion": "query_specific_prerequisites",
+          "metric": "percentage_agreement",
+          "value": 94.8
+        },
+        {
+          "criterion": "query_specific_properties",
+          "metric": "percentage_agreement",
+          "value": 85.5
+        }
+      ],
+      "notes": "Four authors checked 50 randomly selected samples against GPT-4-Turbo annotations"
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed property descriptions and annotation prompts shown in appendix figures, including 21 basic properties, 5 query-specific properties, and error detection properties with clear rating scales"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "similarity_analysis",
+      "ranking_comparison",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson_correlation",
+      "similarity_score"
+    ],
+    "shared_criteria": [
+      "no_severe_errors",
+      "no_moderate_errors",
+      "no_minor_errors",
+      "satisfy_constraints",
+      "lengthy",
+      "harmless",
+      "clear",
+      "contain_rich_info",
+      "support_stances",
+      "admit_limits",
+      "correct_mistakes",
+      "clarify_intent",
+      "show_empathetic"
+    ],
+    "sample_size": {
+      "total_generated": "scenario_balanced_sample",
+      "validated_by_both": "all_samples",
+      "notes": "Dataset from Chatbot Arena Conversations with scenario-balanced sampling: 400 unsafe queries, 820 each for Knowledge-Aware and Others scenarios, 400 each for other 8 scenarios"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "preference_similarity",
+        "value": "significantly_different",
+        "criterion": "overall_preference_patterns",
+        "llm_model": "GPT-4-Turbo_vs_human",
+        "significance": "significant_difference_reported",
+        "notes": "Human and GPT-4-Turbo preferences significantly different from other LLMs"
+      },
+      {
+        "metric": "degree_of_preference",
+        "value": "humans_less_sensitive",
+        "criterion": "error_detection",
+        "llm_model": "GPT-4-Turbo_vs_human",
+        "significance": "clear_difference",
+        "notes": "Humans significantly less sensitive to severe errors than GPT-4-Turbo"
+      },
+      {
+        "metric": "manipulation_effect_size",
+        "value": 31.94,
+        "criterion": "AlpacaEval_2.0",
+        "llm_model": "GPT-3.5-Turbo",
+        "significance": "substantial_impact",
+        "notes": "Score variation up to 31.94 on AlpacaEval 2.0 when aligning with judge preferences"
+      },
+      {
+        "metric": "manipulation_effect_size",
+        "value": 0.59,
+        "criterion": "MT-Bench",
+        "llm_model": "GPT-3.5-Turbo",
+        "significance": "substantial_impact",
+        "notes": "Score variation up to 0.59 on MT-Bench (1-10 scale) when aligning with judge preferences"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "significant_differences",
+      "threshold_used": "Pearson_correlation_based_similarity",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Human and GPT-4-Turbo preferences show significant differences: humans are less sensitive to errors, dislike when models admit limits, and prefer sycophantic responses, while GPT-4-Turbo emphasizes correctness, clarity, and harmlessness. LLM-as-a-judge benchmarks are vulnerable to manipulation by strategically aligning outputs with judge preferences."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "log_probability_based_preference"
+    ],
+    "human_only_criteria": [
+      "real_world_user_preferences_from_chatbot_arena"
+    ],
+    "shared_criteria": [
+      "no_severe_errors",
+      "no_moderate_errors",
+      "no_minor_errors",
+      "satisfy_constraints",
+      "lengthy",
+      "harmless",
+      "Clarity",
+      "contain_rich_info",
+      "support_stances",
+      "admit_limits",
+      "correct_mistakes",
+      "clarify_intent",
+      "show_empathetic",
+      "friendly",
+      "polite",
+      "interactive",
+      "authoritative",
+      "funny",
+      "use_rhetorical_devices",
+      "complex_word_sentence",
+      "use_supporting_materials",
+      "well_formatted",
+      "Persuasive",
+      "step_by_step_solution",
+      "use_informal_expressions",
+      "non_repetitive",
+      "grammatically_correct",
+      "Relevance",
+      "Novel"
+    ],
+    "notes": "Both LLM and human evaluate the same 29 predefined properties through Bayesian logistic regression decomposition, though they use different raw judgment collection methods (log-probability for LLMs, Chatbot Arena selections for humans)"
+  }
+}

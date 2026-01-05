@@ -1,0 +1,109 @@
+{
+  "paper_id": "2024.emnlp-main.557",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares LLM-as-a-judge results with human evaluation results by benchmarking automatic evaluation methods (including LLM judges) against human labels, reporting balanced accuracy scores and other metrics against both annotator labels and expanded gold labels."
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "GPT-4",
+      "Claude-3",
+      "Mixtral-8x7B"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper provides the faithfulness definition used in prompts: 'The events and details described in the summary should not misrepresent details from the story or include details that are unsupported by the story.' For chain-of-thought, models are prompted to 'provide a couple sentences of reasoning for why the summary is or is not consistent with the story.'"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 10,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": 0.85,
+      "interpretation": "almost perfect inter-annotator agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed instructions provided: 'Is the information in the summary consistent with the story? The events and details described in the summary should not misrepresent details from the story or include details that are unsupported by the story. Ignore commentary in evaluating consistency.' Sentence-level evaluation protocol described with examples."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "balanced_accuracy",
+      "Cohen's_kappa",
+      "precision",
+      "recall"
+    ],
+    "shared_criteria": [
+      "faithfulness"
+    ],
+    "sample_size": {
+      "total_generated": 96,
+      "validated_by_both": 96,
+      "notes": "All 96 story-summary pairs were evaluated by both human and LLM methods"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "balanced_accuracy",
+        "value": 67.0,
+        "criterion": "Faithfulness",
+        "llm_model": "GPT-4 (FABLES)",
+        "significance": "not_reported",
+        "notes": "Against annotator labels"
+      },
+      {
+        "metric": "balanced_accuracy",
+        "value": 65.0,
+        "criterion": "Faithfulness",
+        "llm_model": "GPT-4 (FABLES)",
+        "significance": "not_reported",
+        "notes": "Against expanded gold labels"
+      },
+      {
+        "metric": "Cohen's_kappa",
+        "value": 0.22,
+        "criterion": "Faithfulness",
+        "llm_model": "GPT-4 (Binary)",
+        "significance": "not_reported",
+        "notes": "With annotator labels"
+      },
+      {
+        "metric": "Cohen's_kappa",
+        "value": 0.18,
+        "criterion": "Faithfulness",
+        "llm_model": "GPT-4 (CoT)",
+        "significance": "not_reported",
+        "notes": "With annotator labels"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "weak_to_moderate",
+      "threshold_used": "Cohen's kappa 0.2-0.4 considered fair agreement",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM evaluation methods show only fair agreement with human annotations (Cohen's kappa 0.18-0.22). The best LLM method (FABLES) achieves 65-67% balanced accuracy, similar to expert human performance, but this similarity is shown to be misleading when comparing against more comprehensive gold labels."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Faithfulness"
+    ],
+    "notes": "Both LLM and human evaluators assessed the same faithfulness criterion using identical definitions"
+  }
+}

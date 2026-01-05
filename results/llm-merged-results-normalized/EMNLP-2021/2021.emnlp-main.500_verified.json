@@ -1,0 +1,136 @@
+{
+  "paper_id": "2021.emnlp-main.500",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation",
+      "Sentence Simplification",
+      "Sentence Splitting"
+    ],
+    "datasets": [
+      "BISECT",
+      "WIKISPLIT",
+      "WEBSPLIT",
+      "HSPLIT WIKI",
+      "EMEA",
+      "JRC ACQUIS",
+      "OPUS"
+    ],
+    "languages": [
+      "English",
+      "French",
+      "Spanish",
+      "German"
+    ],
+    "models": [
+      "bert_initialized_transformer",
+      "with_adaptive_loss",
+      "copy_512",
+      "dissim"
+    ],
+    "outputs": [
+      "Generated split sentences from long input sentences",
+      "shorter, meaning-preserving sentences generated from complex input sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Sentence Simplification"
+        ],
+        "datasets": [
+          "OPUS"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Base Transformer",
+          "BERT-Initialized Transformer"
+        ],
+        "outputs": [
+          "shorter sentences that preserve the meaning of the input sentence"
+        ]
+      },
+      "normalized": {
+        "BISECT": "BiSECT",
+        "HSPLIT-WIKI": "HSPLIT-Wiki",
+        "Other:Sentence Splitting": "Other:Sentence Splitting",
+        "BERT-initialized transformer": "BERT-initialized Transformer",
+        "Transformer control": "Transformer control (with adaptive loss)"
+      },
+      "explanation": "Normalized dataset and model names to standard forms. Added 'Sentence Simplification' as a main task since the paper explicitly frames sentence splitting as part of text simplification. Added OPUS as a key dataset used. Removed redundant model variants."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "SARI",
+      "BERTSCORE",
+      "SAMSA"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "self-BLEU"
+        ]
+      },
+      "normalized": {
+        "self-BLEU": "BLEU"
+      },
+      "explanation": "Removed 'self-BLEU' as it's not a standard automatic metric but rather a variant analysis metric. Kept core evaluation metrics mentioned in the evaluation section."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper (LLMs were not prominent in 2021 when this paper was published)"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rated overall quality on a 0-100 scale (0 = erroneous split, 100 = perfect meaning-preserving split)",
+      "Three annotators evaluated each output",
+      "Annotators were trained using instructional video and qualification phase",
+      "Control outputs with random word replacements were included for reliability checks"
+    ],
+    "criteria": [
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three annotators evaluated each output"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "fluency",
+          "meaning preservation"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'fluency' and 'meaning preservation' as separate criteria since the paper explicitly states they used a single overall quality rating. Added information about three annotators to provide more complete evaluation methodology."
+    }
+  },
+  "overall_notes": "The paper focuses on the Split and Rephrase task, which is a form of paraphrase generation and sentence simplification. The extraction was mostly accurate, but needed normalization of dataset names (BiSECT instead of BISECT) and consolidation of redundant model variants. The human evaluation was well-documented with clear procedures for reliability checking."
+}

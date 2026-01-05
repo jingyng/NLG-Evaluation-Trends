@@ -1,0 +1,136 @@
+{
+  "paper_id": "2023.acl-long.460",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Code Generation",
+      "Semantic Parsing"
+    ],
+    "datasets": [
+      "CSpider",
+      "WMT2021",
+      "AFQMC",
+      "CMRC2018"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "DG-SQL",
+      "mBART50",
+      "RoBERTa-wwm",
+      "MacBERT",
+      "SubChar-Pinyin"
+    ],
+    "outputs": [
+      "SQL queries",
+      "English translations of Chinese input sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Semantic Parsing"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "SQL queries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "model predictions such as classification labels, answer spans, SQL queries, and translated sentences",
+          "The generated outputs are English translations of Chinese input sentences."
+        ]
+      },
+      "normalized": {
+        "semantic parsing": "Semantic Parsing",
+        "text2SQL": "Semantic Parsing"
+      },
+      "explanation": "Added 'Semantic Parsing' as a task since text2SQL is clearly an NLG task. Removed verbose output descriptions and consolidated to the main generated outputs. Kept Machine Translation and Code Generation as NLG tasks."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "Exact Match",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Sacre-BLEU",
+          "exact match"
+        ]
+      },
+      "normalized": {
+        "Sacre-BLEU": "BLEU",
+        "exact match": "Exact Match"
+      },
+      "explanation": "Normalized metric names - consolidated Sacre-BLEU to BLEU (since Sacre-BLEU is just an implementation of BLEU), and lowercase to title case. Removed duplicates."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM-as-judge evaluation was conducted. The paper only uses models for generation, not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "We instruct the annotators to select the sentence that is more likely to occur in real user input settings (i.e., more plausible)."
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' corrected version (paper stated 'No' but extracted showed human eval). The human evaluation was for DATA QUALITY assessment (comparing real vs. synthetic noises), not for evaluating MODEL GENERATED OUTPUTS. Removed all metadata since no human evaluation of generated outputs was conducted."
+    }
+  },
+  "overall_notes": "The paper focuses on robustness testing of NLP models on noisy inputs, with evaluation on NLG tasks (MT, code generation, semantic parsing) using automatic metrics. Human evaluation was conducted for data collection quality assessment, not for evaluating model-generated outputs. The extraction incorrectly identified data quality evaluation as output evaluation."
+}

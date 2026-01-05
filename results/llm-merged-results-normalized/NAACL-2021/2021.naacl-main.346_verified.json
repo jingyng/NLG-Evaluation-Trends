@@ -1,0 +1,122 @@
+{
+  "paper_id": "2021.naacl-main.346",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Commonsense Inference Generation"
+    ],
+    "datasets": [
+      "ATOMIC",
+      "ANION"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "comet",
+      "gpt_2"
+    ],
+    "outputs": [
+      "Generated commonsense inferences for events"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-2"
+        ],
+        "outputs": [
+          "Generated commonsense inferences for events"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:commonsense generation"
+        ],
+        "models": [
+          "RoBERTa-base"
+        ]
+      },
+      "normalized": {
+        "GPT2-M": "GPT-2",
+        "Generated commonsense inferences": "Generated commonsense inferences for events"
+      },
+      "explanation": "Consolidated tasks to 'Commonsense Inference Generation', removed RoBERTa-base (used for discriminative task, not generation), normalized GPT2-M to GPT-2, and simplified output description. RoBERTa-base is used for discrimination, not generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "PERPLEXITY",
+      "PRECISION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Perplexity"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "BLEU-2": "BLEU",
+        "perplexity": "Perplexity"
+      },
+      "explanation": "Normalized BLEU-2 to BLEU and perplexity to Perplexity. Added Perplexity as it was explicitly used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleared the lists as the answer is 'No'. The paper does not use LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Crowdworkers were asked to identify whether a generated commonsense inference is plausible given the event."
+    ],
+    "criteria": [
+      "Plausibility"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Crowdworkers were asked to identify whether a generated commonsense inference is plausible given the event."
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Identify whether the inference is plausible given the event",
+          "Crowdworkers were asked to indicate whether each generated inference is plausible for the given event.",
+          "We randomly sample 100 events from the original ATOMIC test set along with their negated counterparts from ANION. For each event, we present every decoded inference to five crowdworkers and ask them to identify whether the inference is plausible given the event."
+        ]
+      },
+      "normalized": {
+        "plausibility": "Plausibility",
+        "plausible": "Plausibility"
+      },
+      "explanation": "Consolidated the guideline into a single, clear sentence. Normalized the criteria to 'Plausibility'."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper's primary contribution is the ANION dataset and methods for improving commonsense inference generation for negated/contradicted events. The main NLG task is generating commonsense inferences (e.g., 'As a result, PersonX wants...') for given events. Evaluations used both automatic metrics (BLEU, Perplexity, P@10) and human evaluation (Plausibility)."
+}

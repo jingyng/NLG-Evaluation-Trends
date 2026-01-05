@@ -1,0 +1,171 @@
+{
+  "paper_id": "2025.emnlp-main.642",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Mathematical Reasoning"
+    ],
+    "datasets": [
+      "PMC",
+      "MATHTRAP",
+      "GSM8K",
+      "SVAMP",
+      "ADDSUB",
+      "MULTIARITH",
+      "ROBUSTMATH",
+      "GSM IC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_2.5_coder_7b",
+      "qwen_2.5_coder_3b",
+      "qwen_2.5_coder_1.5b",
+      "deepseek_coder_6.7b"
+    ],
+    "outputs": [
+      "mathematical solutions for well-defined problems",
+      "rejection decisions for ill-defined problems"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Code Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Qwen2.5-Coder",
+          "DeepSeek-Coder",
+          "DeepSeek-V3",
+          "Doubao",
+          "GLM"
+        ],
+        "outputs": [
+          "solutions to mathematical problems or rejection decisions"
+        ]
+      },
+      "normalized": {
+        "GSM8k": "GSM8K",
+        "GSM-IC": "GSM-IC",
+        "Deepseek-coder-6.7B": "DeepSeek-Coder-6.7B",
+        "Qwen2.5-Coder 7B": "Qwen2.5-Coder-7B",
+        "Qwen2.5-Coder 3B": "Qwen2.5-Coder-3B",
+        "Qwen2.5-Coder 1.5B": "Qwen2.5-Coder-1.5B",
+        "mathematical solutions and rejection decisions for ill-defined problems": "mathematical solutions for well-defined problems, rejection decisions for ill-defined problems"
+      },
+      "explanation": "Removed 'Code Generation' task as paper focuses on mathematical reasoning. Removed generic model names and only kept specific versions used in evaluation. Removed models mentioned only in dataset construction. Split outputs description for clarity."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "REJECTION RATE",
+      "REACTION",
+      "R"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Rejection Rate (R-Rate)": "Rejection Rate",
+        "R-Rate": "Rejection Rate",
+        "Reaction Score (R-Score)": "Reaction Score",
+        "R-Score": "Reaction Score",
+        "R*-score": "R*-score"
+      },
+      "explanation": "Normalized metric names by removing abbreviations and parentheses, kept all three metrics as they are distinct evaluation measures used in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "LLM J"
+    ],
+    "methods": [
+      "pairwise state comparison",
+      "LLM verification"
+    ],
+    "criteria": [
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "LLM verification"
+        ],
+        "criteria": [
+          "modeling state quality"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Qwen2.5-Coder",
+          "DeepSeek-Coder",
+          "DeepSeek-V3",
+          "Doubao",
+          "GLM"
+        ],
+        "methods": [
+          "verification prompting",
+          "verification prompt"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "pairwise state comparison": "pairwise state comparison",
+        "LLM J": "LLM J",
+        "verification prompting": "LLM verification",
+        "verification prompt": "LLM verification"
+      },
+      "explanation": "Removed all generation models and only kept 'LLM J' which is specifically used as evaluator. Normalized verification methods and added explicit criterion for what the LLM judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "human annotators review problems where LLMs disagree on solvability to confirm unsolvable status"
+    ],
+    "criteria": [
+      "Solvability"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "human annotators review problems where LLMs disagree on solvability to confirm unsolvable status"
+        ],
+        "criteria": [
+          "solvability confirmation"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- confirm its unsolvable status"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "- confirm its unsolvable status": "human annotators review problems where LLMs disagree on solvability to confirm unsolvable status"
+      },
+      "explanation": "Changed answer from No to Yes because human annotators are used to validate dataset construction. Added proper description of human evaluation process and criterion."
+    }
+  },
+  "overall_notes": "The paper focuses on mathematical reasoning evaluation rather than traditional NLG tasks, but does involve generation of mathematical solutions and rejection decisions. Human evaluation was conducted for dataset validation, not output quality assessment. LLM-as-judge is used for model state verification during the VCSEARCH process."
+}

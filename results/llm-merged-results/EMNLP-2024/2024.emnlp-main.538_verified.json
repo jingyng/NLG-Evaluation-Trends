@@ -1,0 +1,149 @@
+{
+  "paper_id": "2024.emnlp-main.538",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Literature Review Table Generation"
+    ],
+    "datasets": [
+      "ARXIVDIGESTABLES"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3.5-Turbo",
+      "Mixtral 8x22B"
+    ],
+    "outputs": [
+      "Literature review tables with rows as papers and columns as aspects",
+      "Table schemas (sets of aspects)",
+      "Table cell values"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Table schemas (sets of aspects)",
+          "Table cell values"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Table Generation"
+        ],
+        "datasets": [
+          "DECONTEXTEVAL"
+        ],
+        "languages": [],
+        "models": [
+          "Llama 3 (70B)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Mixtral 8x22": "Mixtral 8x22B",
+        "Other:Literature review table generation": "Other:Literature Review Table Generation"
+      },
+      "explanation": "Removed DECONTEXTEVAL as it's an evaluation method not a dataset. Removed Llama 3 as it's used for evaluation not generation. Clarified outputs to include both schemas and cell values. Consolidated task naming."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Exact match",
+      "Jaccard similarity",
+      "Sentence Transformers",
+      "DECONTEXTEVAL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Jaccard",
+          "schema recall",
+          "cosine similarity",
+          "Llama 3 (LLM‑based matching)",
+          "Sentence Transformers cosine similarity"
+        ]
+      },
+      "normalized": {
+        "Sentence Transformers (cosine similarity)": "Sentence Transformers"
+      },
+      "explanation": "Consolidated metric names by removing duplicates and redundant descriptors. Removed 'schema recall' as it's an evaluation measure using the metrics, not a metric itself."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Llama 3 (70B)"
+    ],
+    "methods": [
+      "LLM-based schema alignment"
+    ],
+    "criteria": [
+      "match correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "prompting for schema alignment": "LLM-based schema alignment",
+        "LLM‑based schema alignment (prompting Llama 3 to compare generated and reference columns)": "LLM-based schema alignment"
+      },
+      "explanation": "Simplified method descriptions while preserving the core concept of using Llama 3 for schema alignment."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate generated aspects on 5-point Likert scale for usefulness, specificity, and insightfulness",
+      "Label gold-generated value pairs as complete match, partial match, or unmatched"
+    ],
+    "criteria": [
+      "usefulness",
+      "specificity",
+      "insightfulness",
+      "completeness",
+      "accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Label gold-generated value pairs as complete match, partial match, or unmatched"
+        ],
+        "criteria": [
+          "completeness",
+          "accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "complete match": "completeness",
+        "unmatched": "accuracy"
+      },
+      "explanation": "Added missing value evaluation criteria and refined the guideline to cover both aspect and value evaluation."
+    }
+  },
+  "overall_notes": "Paper focuses on literature review table generation as an NLG task. DECONTEXTEVAL is an evaluation framework/metric, not a dataset. Human evaluation covers both schema (aspect) quality and value correctness. The paper presents a comprehensive evaluation including automatic metrics, LLM-as-judge, and human assessment."
+}

@@ -1,0 +1,143 @@
+{
+  "paper_id": "2021.emnlp-main.340",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Generation",
+      "Text Summarization"
+    ],
+    "datasets": [
+      "XSUM",
+      "SQuAD1.1",
+      "Natural Questions",
+      "TriviaQA",
+      "NewsQA",
+      "BioASQ",
+      "DuoRC",
+      "Wikipedia"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART",
+      "BERT",
+      "BERT-large"
+    ],
+    "outputs": [
+      "questions",
+      "synthetic QA pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Generation"
+        ],
+        "outputs": [
+          "synthetic QA pairs"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Generation"
+        ]
+      },
+      "normalized": {
+        "Text Summarization": "Text Summarization",
+        "Other:Question Generation": "Question Generation",
+        "synthetic <passage, answer, question> triples used for training QA models": "synthetic QA pairs"
+      },
+      "explanation": "Changed 'Other:Question Generation' to proper task name 'Question Generation'. Simplified output description. Added 'synthetic QA pairs' as an output type."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "Exact Match",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "ROUGE": "ROUGE",
+        "METEOR": "METEOR",
+        "Exact Match": "Exact Match",
+        "F1": "F1"
+      },
+      "explanation": "Changed answer from 'No' to 'Yes' because the paper explicitly mentions using BLEU, ROUGE, and METEOR for QG evaluation, and Exact Match/F1 for QA evaluation. The metrics were correctly extracted but the yes/no answer was incorrect."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is used in this paper. The paper was published in 2021 before LLM-as-judge became common practice."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual assessment of 50 randomly selected questions for quality, checking for wh-word mismatch, missing information, factual errors, and grammatical errors"
+    ],
+    "criteria": [
+      "wh-word match",
+      "answerability",
+      "factual correctness",
+      "grammaticality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual assessment of 50 randomly selected questions for quality, checking for wh-word mismatch, missing information, factual errors, and grammatical errors"
+        ],
+        "criteria": [
+          "answerability"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "mismatched wh-word and answer",
+          "missing information needed to locate the answer",
+          "factual errors",
+          "grammatical errors"
+        ]
+      },
+      "normalized": {
+        "wh-word match": "wh-word match",
+        "factual correctness": "factual correctness",
+        "grammaticality": "grammaticality",
+        "mismatched wh-word and answer": "wh-word match",
+        "missing information needed to locate the answer": "answerability"
+      },
+      "explanation": "Consolidated specific error types into broader criteria. Added 'answerability' to cover missing information criterion. Simplified guideline description while maintaining key details."
+    }
+  },
+  "overall_notes": "The paper focuses on Question Generation as the main NLG task, using summarization as an intermediate step. The key contribution is an unsupervised QG method that uses summary data to generate training data for QA systems. The extraction was generally good but missed that automatic metrics were used for QG evaluation (answer 2 was incorrect). The human evaluation was small-scale but clearly documented."
+}

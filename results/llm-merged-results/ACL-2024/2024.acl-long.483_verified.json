@@ -1,0 +1,165 @@
+{
+  "paper_id": "2024.acl-long.483",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering",
+      "Other:Open-ended Generation"
+    ],
+    "datasets": [
+      "TruthfulQA",
+      "Natural Questions",
+      "TriviaQA",
+      "FACTOR"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-2-7B-Chat",
+      "Llama-2-13B-Chat",
+      "Alpaca",
+      "ChatGLM",
+      "Baichuan",
+      "Mistral"
+    ],
+    "outputs": [
+      "Generated answers to questions via greedy decoding",
+      "Multiple-choice answer selection"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Alpaca"
+        ],
+        "outputs": [
+          "Multiple-choice answer selection"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:open-ended generation"
+        ],
+        "datasets": [
+          "FACTOR-news",
+          "FACTOR-expert",
+          "FACTOR-wiki"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated answers to QA prompts",
+          "The model generates responses to questions directly using greedy decoding."
+        ]
+      },
+      "normalized": {
+        "Other:Open-ended Generation": "Other:Open-ended Generation",
+        "Llama": "Llama-2-7B-Chat",
+        "Chatglm": "ChatGLM"
+      },
+      "explanation": "Consolidated tasks to remove duplicates, normalized model names to include versions, added Alpaca model which is mentioned in experiments, and simplified outputs description. FACTOR subdomains are consolidated under FACTOR."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "True (%)",
+      "Info (%)",
+      "Multi-Choice Accuracy (MC1)",
+      "Multi-Choice Accuracy (MC2)",
+      "Multi-Choice Accuracy (MC3)",
+      "Perplexity (PPL)"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Multi-Choice Accuracy (MC1)",
+          "Multi-Choice Accuracy (MC2)",
+          "Multi-Choice Accuracy (MC3)",
+          "Perplexity (PPL)"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "True*Info (%)",
+          "True%",
+          "Info%",
+          "True*Info%",
+          "MC1",
+          "MC2",
+          "MC3",
+          "True*Info (%)"
+        ]
+      },
+      "normalized": {
+        "MC1 (%)": "Multi-Choice Accuracy (MC1)",
+        "MC2 (%)": "Multi-Choice Accuracy (MC2)",
+        "MC3 (%)": "Multi-Choice Accuracy (MC3)",
+        "PPL": "Perplexity (PPL)"
+      },
+      "explanation": "Normalized metric names to full descriptive forms, removed duplicates and abbreviations. Kept True (%) and Info (%) as they are standard metrics in TruthfulQA evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-3"
+    ],
+    "methods": [
+      "binary classification for truthfulness and informativeness"
+    ],
+    "criteria": [
+      "truthfulness",
+      "informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-judge",
+          "GPT-info"
+        ],
+        "methods": [
+          "binary classification"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-judge": "GPT-3",
+        "GPT-info": "GPT-3"
+      },
+      "explanation": "GPT-judge and GPT-info are specific fine-tuned versions of GPT-3 used for evaluation, so normalized to GPT-3. The methods and criteria are correctly extracted."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The evaluation relies solely on automatic metrics and LLM-as-judge approaches."
+    }
+  },
+  "overall_notes": "Paper focuses on truthfulness evaluation of LLMs using inference-time intervention. Evaluation is primarily conducted using TruthfulQA benchmark with both open-ended generation and multiple-choice tasks. The paper uses fine-tuned GPT-3 models for evaluation but no human evaluation. Metadata extraction was reasonably accurate but needed normalization and consolidation of duplicate entries."
+}

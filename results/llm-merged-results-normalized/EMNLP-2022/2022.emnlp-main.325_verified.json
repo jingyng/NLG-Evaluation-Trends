@@ -1,0 +1,141 @@
+{
+  "paper_id": "2022.emnlp-main.325",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Summarization"
+    ],
+    "datasets": [
+      "SAMSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "mv_bart",
+      "coref_bart",
+      "condigsum_bart",
+      "t_5",
+      "bert",
+      "pegasus"
+    ],
+    "outputs": [
+      "dialogue summaries",
+      "generated summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Dialogue Summarization"
+        ],
+        "models": [
+          "BERT",
+          "PEGASUS"
+        ]
+      },
+      "removed": {
+        "models": [
+          "BART Large",
+          "BART Base"
+        ]
+      },
+      "normalized": {
+        "BART Large": "BART",
+        "BART Base": "BART",
+        "Text Summarization": "Text Summarization",
+        "Summaries of dialogues (dialogue summaries)": "dialogue summaries"
+      },
+      "explanation": "Added Dialogue Summarization as a specific task, normalized BART variants to base BART, added BERT and PEGASUS mentioned in the paper"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "BERTSCORE",
+      "FACTCC",
+      "FEQA",
+      "NLI",
+      "FACEVAL"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "BLEU-4",
+          "FactCC v1",
+          "FactCC v2"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "BLEU-4": "BLEU",
+        "FactCC v1": "FactCC",
+        "FactCC v2": "FactCC"
+      },
+      "explanation": "Normalized all metric variants to their base forms according to guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "BART",
+          "T5"
+        ],
+        "methods": [
+          "generation probability comparison"
+        ],
+        "criteria": [
+          "faithfulness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items as the paper does not use LLMs as judges. The models mentioned are used for generation, not evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators label whether generated summaries contain factual errors according to defined taxonomy",
+      "Two-step verification process with two annotators per sample and third annotator for disagreements"
+    ],
+    "criteria": [
+      "Factuality",
+      "Error",
+      "Negation",
+      "Hallucination"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Two-step verification process with two annotators per sample and third annotator for disagreements"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "factual errors": "factual consistency",
+        "- categorize the most frequently occurred factual errors into 6 types": "Annotators label whether generated summaries contain factual errors according to defined taxonomy"
+      },
+      "explanation": "Improved guideline description and normalized criteria names for consistency"
+    }
+  },
+  "overall_notes": "The paper focuses on dialogue summarization faithfulness evaluation. It uses both human evaluation (with detailed taxonomy) and automatic metrics. The extraction was generally good, but needed normalization of metric variants and clarification that no LLMs were used as judges - only traditional models for generation and evaluation."
+}

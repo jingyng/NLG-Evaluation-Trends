@@ -1,0 +1,94 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We present MALLS, a 28K real-world, diverse, and verified sentence-level NL-FOL pairs collected from GPT4... NL-FOL translation has been a long-standing challenge in both NLP and the formal logic literature.",
+            "We present MALLS, a 28K real-world, diverse, and verified sentence-level NL-FOL pairs collected from GPT4... MALLS can be used for (1) directly translating NL to FOL as a standalone translator...",
+            "We present MALLS (large language Model generAted NL-FOL pairS), a 28K real-world, diverse, and verified sentence-level NL-FOL pairs collected from GPT4."
+        ],
+        "tasks": [
+            "Other:NL to FOL Translation",
+            "Other:NL-FOL translation"
+        ],
+        "datasets": [
+            "MALLS",
+            "LogicNLI",
+            "FOLIO"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "LOGICLLAMA",
+            "GPT-4",
+            "GPT-3.5",
+            "LLaMA2",
+            "LLaMA2-7B",
+            "LLaMA2-13B",
+            "GPT4",
+            "Mistral-7B",
+            "Mixtral",
+            "Gemini Pro",
+            "GPT3.5"
+        ],
+        "outputs": [
+            "First-order logic rules",
+            "First-order logic (FOL) formulas",
+            "first-order logic (FOL) rules from natural language statements"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We use the logical equivalence (LE) introduced §4.3 as the main metric for FOL rules evaluation. Apart from this, it is also preferred that the generated FOL rule has the matching predicate names, so we measure the FOL BLEU between the predicted FOL and the ground-truth FOL.",
+            "We use BLEU and LE scores of different LOGICLLAMA variants... BLEU and LE scores of different LOGICLLAMA variants.",
+            "We use the logical equivalence (LE) introduced §4.3 as the main metric for FOL rules evaluation. Apart from this, it is also preferred that the generated FOL rule has the matching predicate names, so we measure the FOL BLEU between the predicted FOL and the ground-truth FOL."
+        ],
+        "automatic_metrics": [
+            "FOL BLEU",
+            "Logical Equivalence (LE)",
+            "BLEU"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [
+            "We construct a 5-shot prompt and use GPT3.5 to identify the potential pairs and then remove the incorrect ones manually."
+        ],
+        "models": [
+            "GPT-3.5"
+        ],
+        "methods": [
+            "5-shot prompt classification for error detection"
+        ],
+        "criteria": [
+            "alignment correctness",
+            "error detection"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We annotate a subset of 1K examples uniformly sampled from MALLS. Each sample is rated with respect to a 3-point scale: correct, partial, and incorrect. Each sample is evaluated by 3 annotators and gets the final rating via majority votes.",
+            "We annotate a subset of 1K examples... Each sample is evaluated by 3 annotators and gets the final rating via majority votes. The annotators were provided with detailed instructions regarding the rating scales.",
+            "We annotate a subset of 1K examples uniformly sampled from MALLS. Each sample is rated with respect to a 3-point scale: correct, partial, and incorrect. Each sample is evaluated by 3 annotators and gets the final rating via majority votes. We recruited 6 graduate students in CS/ECE department with a background in FOL."
+        ],
+        "guideline": [
+            "Annotators were provided with detailed instructions regarding the rating scales, and several examples per rating to clarify further, including criteria such as alignment with NL meaning, predicate completeness, quantifier accuracy, and variable correctness.",
+            "Annotators rated each NL-FOL pair as correct, partial, or incorrect based on alignment with the NL sentence.",
+            "The annotators were provided with detailed instructions regarding the rating scales, and several examples per rating to clarify further (details in §A)."
+        ],
+        "criteria": [
+            "alignment with NL meaning",
+            "predicate completeness",
+            "quantifier accuracy",
+            "variable correctness",
+            "correctness",
+            "partial correctness",
+            "incorrectness",
+            "Correct: The FOL rule aligns with the meaning of the NL sentence",
+            "Partial: one and only one of the following errors occur - The FOL rule does not align with the NL in some parts but does not explicitly contradict the NL - Missing important predicates, or having obviously irrelevant predicates - Wrong quantifier when the NL has explicit hints such as \"For all...\" or \"Some...\" - Wrong use of variables, such as free/redundant variables, wrong variable association, or redefining variables",
+            "Incorrect: More than one Partial error was found in an example - The FOL rule explicitly contradicts the NL meaning."
+        ]
+    }
+}

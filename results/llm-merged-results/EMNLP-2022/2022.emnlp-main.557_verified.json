@@ -1,0 +1,151 @@
+{
+  "paper_id": "2022.emnlp-main.557",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Recommendation",
+      "Other:Options Recommendation",
+      "Other:Block Type Suggestion"
+    ],
+    "datasets": [
+      "OOF"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "FormLM",
+      "RoBERTa",
+      "GPT-2",
+      "MarkupLM",
+      "BART"
+    ],
+    "outputs": [
+      "Generated question titles",
+      "Generated option sets concatenated with vertical bars"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Block Type Suggestion"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Generated questions (strings) for Question Recommendation; concatenated option sets (strings) for Options Recommendation": "Generated question titles",
+        "generated question titles and lists of options (concatenated with '|')": "Generated option sets concatenated with vertical bars",
+        "recommended questions and options for online forms": "Generated question titles"
+      },
+      "explanation": "Added Block Type Suggestion as it's a third NLG task evaluated in the paper. Normalized output descriptions to be more concise."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "Macro-F1",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Macro-F1",
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Simplified ROUGE variants to base form. Added Macro-F1 and Accuracy which are used for Block Type Suggestion evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is used in this paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Experts rated outputs on 1-5 Likert scale considering question clarity, context relevance, and block type suitability for Question Recommendation; option clarity, logical relation, and context relevance for Options Recommendation"
+    ],
+    "criteria": [
+      "clarity",
+      "context relevance",
+      "block type suitability",
+      "logical relation",
+      "non-overlap"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "clear meaning",
+          "context suitability",
+          "suitable to the form context",
+          "logically coherent with previous questions",
+          "non-overlap with previous questions",
+          "suitable to the selected block type",
+          "each option has clear meaning",
+          "option is a suitable answer to the Choice block title",
+          "options are logically related to each other",
+          "non-overlapped options",
+          "reasonable options considering previous form context"
+        ]
+      },
+      "normalized": {
+        "clear meaning": "clarity",
+        "context suitability": "context relevance",
+        "suitable to the form context": "context relevance",
+        "logically coherent with previous questions": "logical relation",
+        "non-overlap with previous questions": "non-overlap",
+        "suitable to the selected block type": "block type suitability",
+        "each option has clear meaning": "clarity",
+        "option is a suitable answer to the Choice block title": "block type suitability",
+        "options are logically related to each other": "logical relation",
+        "non-overlapped options": "non-overlap",
+        "reasonable options considering previous form context": "context relevance"
+      },
+      "explanation": "Normalized similar criteria that appeared multiple times into concise, standardized forms. Combined redundant descriptions."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper clearly addresses NLG tasks (question and option generation), uses automatic metrics (ROUGE, F1, accuracy), and conducts human evaluations. No LLM-as-judge evaluation is used. Added Block Type Suggestion as it's also an NLG task evaluated in the paper."
+}

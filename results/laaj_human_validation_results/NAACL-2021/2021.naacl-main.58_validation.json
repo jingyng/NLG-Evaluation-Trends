@@ -1,0 +1,60 @@
+{
+  "paper_id": "2021.naacl-main.58",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM-based evaluation (FactCC, BERT-Large) and human evaluation but never directly compares the two methods. While they compute correlation between their model-free metric RMR and human scores, they do not compare any LLM-as-a-judge results against human judgments."
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "FactCC",
+      "BERT-Large"
+    ],
+    "prompts": {
+      "provided": "no",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "no",
+      "notes": "No prompts provided. LLM models are used as automated evaluators (FactCC for binary classification, BERT-Large for NLI contradiction detection) but no prompt details are given."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "kappa-ratio",
+      "value": 0.32,
+      "interpretation": "Not provided",
+      "per_criterion": [
+        {
+          "criterion": "factual consistency",
+          "metric": "kappa-ratio",
+          "value": 0.32
+        },
+        {
+          "criterion": "informativeness",
+          "metric": "kappa-ratio",
+          "value": 0.28
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines mention that factual consistency indicates faithfulness to the article and informativeness indicates coverage of salient information, with scoring on a 1-3 scale. Examples of factual errors are shown in tables throughout the paper."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "informativeness"
+    ],
+    "shared_criteria": [
+      "factual consistency"
+    ],
+    "notes": "Both LLM evaluation (FactCC) and human evaluation assess factual consistency, but the paper does not compare these results. Human evaluation also assesses informativeness, which is not evaluated by LLM."
+  }
+}

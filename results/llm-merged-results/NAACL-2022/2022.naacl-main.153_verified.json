@@ -1,0 +1,153 @@
+{
+  "paper_id": "2022.naacl-main.153",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/Daily Mail",
+      "TAC 2010"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-2 small"
+    ],
+    "outputs": [
+      "summaries",
+      "generated summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "various summarization systems",
+          "various summarization models"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "bleu": "BLEU",
+        "meteor": "METEOR",
+        "bertscore": "BERTScore",
+        "blanc": "BLANC",
+        "shannon": "Shannon"
+      },
+      "explanation": "Removed vague model references ('various summarization systems/models') as they are not specific models being evaluated. The paper evaluates the SDC metric itself, not specific summarization models. Normalized metric names to standard capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "METEOR",
+      "BERTScore",
+      "BLANC",
+      "Shannon",
+      "SDC",
+      "SDC*"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Shannon*"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "MET.": "METEOR",
+        "BERT.": "BERTScore",
+        "BLA.": "BLANC",
+        "Shan.": "Shannon",
+        "Shan.*": "Shannon*"
+      },
+      "explanation": "Normalized all metric variants to base forms (ROUGE-1/2/L → ROUGE). Removed 'Shannon*' as it's not a proposed metric but a variant created for comparison. The paper's main contributions are SDC and SDC*."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-2 small"
+        ],
+        "methods": [
+          "semantic distribution correlation",
+          "Semantic Distribution Correlation (SDC)"
+        ],
+        "criteria": [
+          "coherence",
+          "consistency",
+          "fluency",
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "GPT-2 is used as a language model for computing semantic distributions in the SDC metric, not as an LLM judge evaluating outputs after generation. The criteria listed are from human evaluation, not LLM evaluation. This paper does not use LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Experts scored summaries based on coherence, consistency, fluency, relevance for CNN/Daily Mail",
+      "Overall score incorporating coverage (Pyramid) and linguistic quality (readability) for TAC 2010"
+    ],
+    "criteria": [
+      "coherence",
+      "consistency",
+      "fluency",
+      "relevance",
+      "coverage",
+      "linguistic quality",
+      "overall"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Overall score incorporating coverage (Pyramid) and linguistic quality (readability) for TAC 2010"
+        ],
+        "criteria": [
+          "coverage",
+          "linguistic quality",
+          "overall"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added missing TAC 2010 evaluation guidelines and criteria. The extracted metadata was incomplete for the TAC dataset evaluation."
+    }
+  },
+  "overall_notes": "The paper proposes a new reference-free evaluation metric (SDC/SDC*) for text summarization. Key correction: GPT-2 is used as a language model component within the SDC metric, not as an LLM judge. The paper uses pre-existing human evaluations from standard datasets rather than conducting new human evaluations."
+}

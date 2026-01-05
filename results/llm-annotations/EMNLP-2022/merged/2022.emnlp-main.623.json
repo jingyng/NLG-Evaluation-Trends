@@ -1,0 +1,91 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Text summarization aims to compress a long document(s) into a short and fluent form that preserves salient information.",
+            "Text summarization aims to compress a long document(s) into a short and fluent form that preserves salient information.",
+            "Text summarization aims to compress a long document(s) into a short and fluent form that preserves salient information."
+        ],
+        "tasks": [
+            "Text Summarization"
+        ],
+        "datasets": [
+            "XSum",
+            "CNN/DM",
+            "XSUM",
+            "FactCC"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "BART-large",
+            "UniLM",
+            "BottomUp",
+            "SpanFact",
+            "SpanFact-c",
+            "ReDRESS",
+            "FactPegasus",
+            "CompEdit",
+            "CCGS"
+        ],
+        "outputs": [
+            "summaries",
+            "summaries (original, edited, compressed)"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We evaluate using standard ROUGE-1/2/L (R-1/2/L) and include a variation called R1-c that evaluates R1 on the reference summaries with entities not found in the input removed from the summary.",
+            "We evaluate using standard ROUGE-1/2/L (R-1/2/L) and include a variation called R1-c ... We also include the percentage of the base model summaries that are edited by the post-editor (Edit%) and the following metrics: E-P src (E-R ref ) ... BS-P src (BS-F1 ref ) ... D arc ... QAFE ... CoLA ...",
+            "We evaluate using standard ROUGE-1/2/L (R-1/2/L) and include a variation called R1-c that evaluates R1 on the reference summaries with entities not found in the input removed from the summary."
+        ],
+        "automatic_metrics": [
+            "ROUGE-1",
+            "ROUGE-2",
+            "ROUGE-L",
+            "R1-c",
+            "E-P src",
+            "E-R ref",
+            "BS-P src",
+            "BS-F1 ref",
+            "D arc",
+            "QAFE",
+            "CoLA",
+            "Edit%",
+            "Entity Precision (E-P src)",
+            "Entity Recall (E-R ref)",
+            "BERTScore Precision (BS-P src)",
+            "BERTScore F1 (BS-F1 ref)",
+            "Dependency Arc Entailment (D arc)",
+            "QAFactEval (QAFE)",
+            "CoLA grammaticality"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "Human evaluation of the number of factually consistent and inconsistent summaries after post-editing on the FactCC test dataset.",
+            "Table : Human evaluation of the number of factually consistent and inconsistent summaries after post-editing on the FactCC test dataset.",
+            "We note that vanilla ROUGE scores do decrease along with improvements in factual consistency. However, R1-c actually shows improvements when applying FactPegasus or Com-pEdit, showing that much of the loss in vanilla R1 is due to factual inconsistencies in the references. We show the results of applying the above posteditors on non-BART models in Table . We find large improvements over . We see a gain in R1-c and entity precision when applying CompEdit to the pretrained UniLM, showing the benefits of our compression-based approach when the underlying model contains relatively highquality summaries. ReDRESS shows a large performance increase on BottomUp; its ability to completely rewrite the summary allows it to improve the non-pretrained, lower-quality summaries that require editing beyond just compression. There is also a benefit from the combination of ReDRESS and CompEdit in terms of entity precision for the BottomUp model, which has been shown to contain a high proportion of entity errors and inconsistencies . Finally, we show the manually-annotated results of post-editing a non-pretrained model from the CNN/DM-based FactCC  test dataset in Table ."
+        ],
+        "guideline": [
+            "annotators labeled summaries as factually consistent or inconsistent",
+            "Annotators judged each edited summary as either factually consistent or inconsistent.",
+            "We compare with previously-reported results: an autoregressive posteditor trained on entity swaps and backtranslated paraphrases , and a method that substitutes entities from retrieved source sentences . As extrinsic entity errors, for which CompEdit and FactPegasus are designed, constitute only a small proportion of errors in this dataset, we only include ReDRESS + CompEdit. CompEdit was applied to the ReDRESS outputs containing extrinsic named entity errors, 2.5% of edited summaries, all of which were then labeled factually consistent."
+        ],
+        "criteria": [
+            "factual consistency",
+            "factually consistent",
+            "factually inconsistent"
+        ]
+    }
+}

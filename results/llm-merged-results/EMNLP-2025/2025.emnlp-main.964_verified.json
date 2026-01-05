@@ -1,0 +1,168 @@
+{
+  "paper_id": "2025.emnlp-main.964",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Disinformation Generation"
+    ],
+    "datasets": [
+      "Fact-Check Insights Database",
+      "Fact Chequeado"
+    ],
+    "languages": [
+      "English",
+      "Spanish",
+      "Hindi"
+    ],
+    "models": [
+      "GPT-4o",
+      "GPT-4o-mini",
+      "Llama3.1-70b",
+      "Llama3.1-8b"
+    ],
+    "outputs": [
+      "Adversarial prompts for disinformation campaigns",
+      "Viral tweets",
+      "News headlines"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "News headlines"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:disinformation tweet generation"
+        ],
+        "datasets": [
+          "Duke Reporters' Lab",
+          "Alt News",
+          "FACTLY",
+          "Vishvas News",
+          "PolitiFact",
+          "FactCheck.org",
+          "Factchequeado",
+          "El Detector",
+          "Fact-Check Insights Database (Duke Reporters' Lab)",
+          "Fact Chequeado (Spanish US)",
+          "Fact-Check Insights Database from the Duke Reporters' Lab"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "viral tweets (and news headlines in ablation)",
+          "viral tweets suggesting disinformation narratives"
+        ]
+      },
+      "normalized": {
+        "Other:Disinformation Generation": "Other:Disinformation Generation",
+        "GPT-4o": "GPT-4o",
+        "GPT-4o-mini": "GPT-4o-mini",
+        "Llama3.1-70b": "Llama3.1-70b",
+        "Llama3.1-8b": "Llama3.1-8b"
+      },
+      "explanation": "Removed redundant dataset names and normalized task to single canonical form. Kept only the main dataset sources (Fact-Check Insights Database and Fact Chequeado). Simplified outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Attack Success Rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Harm Score"
+        ]
+      },
+      "normalized": {
+        "Attack Success Rate (ASR)": "Attack Success Rate"
+      },
+      "explanation": "Harm Score is not an evaluation metric for generated outputs but part of the attack generation quality control process. Removed it since it doesn't evaluate the final generated disinformation content."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "5-point scale evaluation"
+    ],
+    "criteria": [
+      "harmfulness",
+      "policy compliance",
+      "policy violation"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4o (as Judge LLM)"
+        ],
+        "methods": [
+          "5-point harm rating scale",
+          "Judge LLM with 5-point scale"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4o": "GPT-4o",
+        "policy compliance": "policy compliance",
+        "policy violation": "policy violation"
+      },
+      "explanation": "Consolidated redundant method descriptions and normalized model reference. The LLM judge evaluates based on harmfulness and policy compliance criteria."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Coding guides based on OpenAI/Meta usage policies with 5-point scoring rubric and examples"
+    ],
+    "criteria": [
+      "policy compliance",
+      "harmfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Coding guides based on OpenAI/Meta usage policies with 5-point scoring rubric and examples"
+        ],
+        "criteria": [
+          "harmfulness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Coding guides reviewing OpenAI/Meta usage policies with rubric and examples",
+          "Coding guides with policy review, rubric (scores 1-5), and examples were used for human annotation.",
+          "coders evaluated generated outputs using the same criteria as the Judge LLM following the coding guides provided in Appendix A.2. The guides instructed the coders to review OpenAI and Meta's usage policies and provided a set of examples to illustrate the criteria."
+        ],
+        "criteria": [
+          "score rubric (1-5)"
+        ]
+      },
+      "normalized": {
+        "policy violation": "policy compliance"
+      },
+      "explanation": "Consolidated verbose guideline descriptions into one clear statement. Added 'harmfulness' as explicit criterion and normalized 'policy violation' to 'policy compliance' since the evaluation assesses compliance with usage policies."
+    }
+  },
+  "overall_notes": "The paper addresses NLG through generating adversarial disinformation prompts. Evaluation uses both automatic metrics (Attack Success Rate) and human evaluation with LLM-as-judge. Extracted metadata was generally accurate but contained redundancy from multiple mentions of the same entities."
+}

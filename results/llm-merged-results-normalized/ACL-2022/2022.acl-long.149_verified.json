@@ -1,0 +1,133 @@
+{
+  "paper_id": "2022.acl-long.149",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation",
+      "Question In Context Rewriting"
+    ],
+    "datasets": [
+      "CANARD",
+      "QRECC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "lstm",
+      "adapter_tuned_bart",
+      "bart_base"
+    ],
+    "outputs": [
+      "self-contained question rewrites",
+      "self-contained rewritten questions"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "BART-base"
+        ],
+        "outputs": [],
+        "tasks": [],
+        "datasets": [],
+        "languages": []
+      },
+      "removed": {
+        "models": [],
+        "outputs": [],
+        "tasks": [],
+        "datasets": [],
+        "languages": []
+      },
+      "normalized": {
+        "Adapter-tuned BART": "Adapter-tuned BART",
+        "BART": "BART",
+        "LSTM": "LSTM"
+      },
+      "explanation": "Added 'BART-base' which is explicitly mentioned as the specific model variant used. Kept other items as they are correctly extracted."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized 'ROUGE-L' to base form 'ROUGE' following normalization rules. The paper uses BLEU scores extensively for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper. The paper uses BART for generation but not as a judge."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Human annotators summarized rewriting rules from training set",
+      "Annotated questions using labels of summarized rewriting rules",
+      "Counted number of rewriting rules used in hard/medium/easy subsets"
+    ],
+    "criteria": [
+      "Rules",
+      "Question"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators summarized rewriting rules from training set",
+          "Annotated questions using labels of summarized rewriting rules",
+          "Counted number of rewriting rules used in hard/medium/easy subsets"
+        ],
+        "criteria": [
+          "rewriting rules",
+          "question rewriting hardness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- We sum the number of each rewriting rule in each subset and show the distributions of rewriting rules for each subset in Figure ."
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {
+        "None": "removed"
+      },
+      "explanation": "Changed answer from 'No' to 'Yes' because the paper clearly conducts human evaluation in section 6.3.2. Added proper guidelines describing the human evaluation process and criteria based on rewriting rules and hardness analysis."
+    }
+  },
+  "overall_notes": "The paper extensively studies question rewriting (a form of paraphrase generation) using BART and adapter variants. It uses BLEU/ROUGE for automatic evaluation and conducts human evaluation to analyze rewriting rules and hardness. The extraction was mostly accurate except for missing the human evaluation component."
+}

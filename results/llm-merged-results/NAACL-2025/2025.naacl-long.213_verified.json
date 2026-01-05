@@ -1,0 +1,147 @@
+{
+  "paper_id": "2025.naacl-long.213",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Assertion Criteria Generation"
+    ],
+    "datasets": [
+      "PROMPTEVALS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o",
+      "Llama-3-8B",
+      "Mistral-7B"
+    ],
+    "outputs": [
+      "assertion criteria for LLM outputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Dialogue Generation",
+          "Code Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Fine-tuned Llama-3-8b",
+          "Fine-tuned Mistral-7b"
+        ],
+        "outputs": [
+          "assertion criteria"
+        ]
+      },
+      "normalized": {
+        "Llama-3-8b": "Llama-3-8B",
+        "Mistral-7b": "Mistral-7B"
+      },
+      "explanation": "Removed NLG tasks like Text Summarization/Dialogue Generation that are mentioned as examples but not actually evaluated. Kept only assertion generation which is the core task. Normalized model names and removed redundant output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Semantic F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Number of criteria",
+          "number of criteria"
+        ]
+      },
+      "normalized": {
+        "Number of criteria": "Semantic F1",
+        "number of criteria": "Semantic F1"
+      },
+      "explanation": "Removed 'number of criteria' as it's not an evaluation metric but a descriptive statistic. Kept only Semantic F1 which is the primary evaluation metric used to measure semantic similarity between generated and ground truth criteria."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted. The paper uses GPT-4o for generating ground truth criteria during dataset construction, but not for evaluating model outputs during benchmarking."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual review of criteria counts (added/removed criteria) compared to ground truth"
+    ],
+    "criteria": [
+      "completeness",
+      "relevance",
+      "non-redundancy",
+      "aligns with taxonomy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual review of criteria counts (added/removed criteria) compared to ground truth"
+        ],
+        "criteria": [
+          "completeness",
+          "relevance",
+          "non-redundancy",
+          "aligns with taxonomy"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "In our verification process, we tracked, for each prompt template, how many criteria we added, and how many criteria we removed.",
+          "Track the number of criteria added and removed compared to the ground‑truth list for each prompt template.",
+          "criteria that were both unique and aligned with the taxonomy categories"
+        ],
+        "criteria": [
+          "added criteria",
+          "removed criteria",
+          "Structured Output",
+          "Multiple Choice",
+          "Length Constraints",
+          "Semantic Constraints",
+          "Stylistic Constraints",
+          "Preventing Hallucination"
+        ]
+      },
+      "normalized": {
+        "In our verification process, we tracked, for each prompt template, how many criteria we added, and how many criteria we removed.": "Manual review of criteria counts",
+        "criteria that were both unique and aligned with the taxonomy categories": "aligns with taxonomy"
+      },
+      "explanation": "Consolidated verbose guidelines into a concise description. Replaced specific taxonomy categories with generalized evaluation criteria (completeness, relevance, etc.) that better capture what human evaluators were assessing."
+    }
+  },
+  "overall_notes": "The paper focuses on generating assertion criteria for LLM outputs rather than traditional NLG tasks. The human evaluation was limited to dataset quality validation during construction, not extensive evaluation of generated outputs. PROMPTEVALS is primarily a dataset/benchmark for assertion generation quality."
+}

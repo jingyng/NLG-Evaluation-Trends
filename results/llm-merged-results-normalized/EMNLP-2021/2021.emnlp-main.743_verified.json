@@ -1,0 +1,130 @@
+{
+  "paper_id": "2021.emnlp-main.743",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "AMASUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "selsum",
+      "bart",
+      "reinforce",
+      "r_1_top_k",
+      "randsel"
+    ],
+    "outputs": [
+      "Abstractive opinion summaries",
+      "Multi-document opinion summaries (verdicts, pros, cons)"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "datasets": [
+          "bestreviews.com",
+          "cnet.com",
+          "pmag.co.uk",
+          "runrepeat.com",
+          "AMASUM"
+        ],
+        "models": [
+          "BART (base)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "BART (base)": "BART",
+        "abstractive summaries": "Abstractive opinion summaries",
+        "Multi‑document opinion summaries (verdicts, pros, cons) generated from review subsets": "Multi-document opinion summaries (verdicts, pros, cons)"
+      },
+      "explanation": "Removed website names that are sources for the dataset but not datasets themselves. Normalized model names and output descriptions. AMASUM appears to be a typo/variant of AMA-SUM."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "ROUGE-F1"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "ROUGE-F1": "ROUGE"
+      },
+      "explanation": "Simplified all ROUGE variants to base ROUGE metric as per normalization rules"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluators marked each generated sentence as Full support (all content reflected in reviews), Partial support (some content reflected), or No support (content not reflected)"
+    ],
+    "criteria": [
+      "Support"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Full support",
+          "Partial support",
+          "No support"
+        ]
+      },
+      "normalized": {
+        "content support": "Content support"
+      },
+      "explanation": "The three support levels (Full/Partial/No) are specific instances of the broader 'Content support' criterion. Kept the comprehensive guideline description."
+    }
+  },
+  "overall_notes": "The paper focuses on opinion summarization using a novel SELSUM model that jointly learns to select informative reviews and summarize them. The extraction was generally accurate but needed normalization and removal of non-dataset items. The paper uses both automatic (ROUGE) and human evaluation (content support) but no LLM-based evaluation."
+}

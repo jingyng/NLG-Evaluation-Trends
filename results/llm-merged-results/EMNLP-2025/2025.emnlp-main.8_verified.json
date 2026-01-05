@@ -1,0 +1,152 @@
+{
+  "paper_id": "2025.emnlp-main.8",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Reward Modeling"
+    ],
+    "datasets": [
+      "RewardBench",
+      "HelpSteer2",
+      "HelpSteer2-Preference",
+      "SlimPajama",
+      "UltraFeedback",
+      "Magpie"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-3.x",
+      "Qwen2.5",
+      "Gemma-2",
+      "Tulu variants",
+      "Hermes-3-Llama-3.1-8B",
+      "Llama-3.1-8B-Instruct"
+    ],
+    "outputs": [
+      "reward scores for generated responses",
+      "preference judgments"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Reward Modeling"
+        ],
+        "models": [
+          "Hermes-3-Llama-3.1-8B",
+          "Llama-3.1-8B-Instruct"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Code Generation"
+        ],
+        "models": [
+          "Gemini",
+          "Claude",
+          "O1"
+        ]
+      },
+      "normalized": {
+        "Llama-3.x": "Llama-3.x",
+        "Qwen2.5": "Qwen2.5",
+        "Gemma-2": "Gemma-2",
+        "Tulu variants": "Tulu variants"
+      },
+      "explanation": "Removed 'Dialogue Generation' and 'Code Generation' as these are not the primary tasks studied. The paper focuses on reward modeling for NLG evaluation. Removed Gemini, Claude, O1 as they are only mentioned in introduction, not evaluated. Added 'Reward Modeling' as the main task and included additional models actually used in experiments."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "Pearson correlation",
+      "Spearman correlation",
+      "Mean Absolute Error",
+      "Jensen-Shannon Distance"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Mean Absolute Error",
+          "Jensen-Shannon Distance"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "Pearson correlation": "Pearson correlation",
+        "Spearman correlation": "Spearman correlation"
+      },
+      "explanation": "Added metrics explicitly used in the paper: Mean Absolute Error for regression model performance and Jensen-Shannon Distance for data distribution analysis. Normalized 'accuracy' to 'Accuracy'."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Trained reward models based on various base LLMs (e.g., Llama-3.x, Qwen2.5, Gemma-2)"
+        ],
+        "methods": [
+          "pairwise preference scoring",
+          "regression over multi-attribute scores"
+        ],
+        "criteria": [
+          "preference (human preference)",
+          "helpfulness",
+          "correctness",
+          "coherence",
+          "complexity",
+          "verbosity"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as the paper does NOT use LLMs as judges/evaluators. The paper trains reward models but does not use LLMs to evaluate generated outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators choose the preferred response for each task via binary preference",
+      "Use majority vote from 3 annotators to determine final preference"
+    ],
+    "criteria": [
+      "preference"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Use majority vote from 3 annotators to determine final preference"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "determine the final preference"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "preference": "preference"
+      },
+      "explanation": "Added more specific guideline details about the human evaluation methodology (3 annotators, majority vote). Kept 'preference' as the main criterion."
+    }
+  },
+  "overall_notes": "The paper focuses on reward modeling for NLG evaluation rather than direct NLG generation. It systematically analyzes base model selection for training reward models that evaluate generated outputs. The human evaluation was limited to verifying RewardBench quality (50 samples) rather than comprehensive output evaluation. The paper uses both automatic metrics and human evaluation, but does not use LLMs as judges."
+}

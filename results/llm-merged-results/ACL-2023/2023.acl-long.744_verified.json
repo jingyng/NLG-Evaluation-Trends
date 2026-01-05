@@ -1,0 +1,131 @@
+{
+  "paper_id": "2023.acl-long.744",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "MuST-C",
+      "Fisher-Callhome"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Spanish",
+      "French",
+      "Italian",
+      "Dutch",
+      "Portuguese",
+      "Romanian",
+      "Russian",
+      "Japanese"
+    ],
+    "models": [
+      "CTC-NAST",
+      "CTC-Aug ST",
+      "AR models"
+    ],
+    "outputs": [
+      "translated text in target language"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "Japanese"
+        ],
+        "models": [
+          "CTC-Aug ST"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Base AR",
+          "Base NAR"
+        ],
+        "outputs": [
+          "target-language text (speech translation output)",
+          "translated text from source language speech"
+        ]
+      },
+      "normalized": {
+        "MuST-C": "MuST-C",
+        "Fisher-Callhome": "Fisher-Callhome",
+        "CTC-based Non-autoregressive Speech Translation": "CTC-NAST"
+      },
+      "explanation": "Removed redundant output descriptions, consolidated to one clear description. Kept only main model names (CTC-NAST, CTC-Aug ST, AR models) removing 'Base AR' and 'Base NAR' variants. Added missing Japanese language. Normalized terminology."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "WER"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SacreBLEU"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "Word Error Rate (WER)": "WER",
+        "WER": "WER",
+        "SacreBLEU": "BLEU"
+      },
+      "explanation": "Simplified SacreBLEU to BLEU as it's an implementation of BLEU metric. Removed duplicate WER entry. The paper uses BLEU (including SacreBLEU implementation) for translation quality and WER for error analysis."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in this paper. The paper focuses on traditional automatic metrics and architectural improvements."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted in this paper. Evaluation is entirely based on automatic metrics (BLEU, WER)."
+    }
+  },
+  "overall_notes": "This paper presents CTC-based non-autoregressive speech translation model. The extraction quality was good overall. The paper focuses on architectural innovations for speech translation with evaluation using automatic metrics only. Key contributions include prediction-aware encoding, cross-layer attention, and curriculum learning mixing to address CTC limitations for translation tasks."
+}

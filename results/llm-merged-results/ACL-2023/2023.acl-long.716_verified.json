@@ -1,0 +1,150 @@
+{
+  "paper_id": "2023.acl-long.716",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "FRANK",
+      "TRUE",
+      "BUMP",
+      "QAGS-C",
+      "SummEval"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART",
+      "BART-based summarizer"
+    ],
+    "outputs": [
+      "summaries",
+      "abstractive summaries",
+      "reference summaries",
+      "faithful summaries",
+      "unfaithful summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "QAGS-C",
+          "SummEval"
+        ],
+        "outputs": [
+          "reference summaries",
+          "faithful summaries",
+          "unfaithful summaries"
+        ]
+      },
+      "removed": {
+        "models": [
+          "DeBERTa-xl-MNLI",
+          "BLEURT-20"
+        ]
+      },
+      "normalized": {
+        "BERT-base/BART-large": "BART"
+      },
+      "explanation": "Added datasets mentioned in comparisons (QAGS-C, SummEval). Removed models that are components of evaluation metrics, not actual NLG models. Added more specific output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "QUESTEVAL",
+      "Q²",
+      "QAFACTEVAL",
+      "FACTCC",
+      "DAE",
+      "SUMMAC",
+      "COCO",
+      "BLEURT",
+      "BERTSCORE",
+      "BARTSCORE"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Q2",
+          "ROUGE-2"
+        ]
+      },
+      "normalized": {
+        "Q 2": "Q²",
+        "Q2": "Q²",
+        "ROUGE-2": "ROUGE",
+        "ROUGE (ROUGE-2 Precision specifically)": "ROUGE"
+      },
+      "explanation": "Normalized metric variants to base forms (Q² instead of Q2/Q 2, ROUGE instead of ROUGE-2). Removed duplicates and consolidated variant names."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs are used as judges for evaluation in this paper. The paper evaluates faithfulness metrics themselves, not using LLMs to assess summaries."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators must introduce only one error by minimal edit to reference summary",
+      "Edited summary must be plausible and grammatically correct",
+      "Edited summary must maintain similar coverage of original article",
+      "Edits should be minimal and introduce single faithfulness error"
+    ],
+    "criteria": [
+      "faithfulness",
+      "consistency",
+      "discriminability",
+      "error type sensitivity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Edited summary must maintain similar coverage of original article",
+          "Edits should be minimal and introduce single faithfulness error"
+        ],
+        "criteria": [
+          "faithfulness",
+          "consistency",
+          "discriminability",
+          "error type sensitivity"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "single error",
+          "minimal edit",
+          "grammaticality",
+          "plausibility",
+          "coverage",
+          "Intrinsic Errors",
+          "Extrinsic Errors",
+          "Predicate Error",
+          "Entity Error",
+          "Circumstance Error",
+          "Coreference Error"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Reorganized criteria to separate annotation guidelines (moved to guideline) from evaluation criteria. Kept high-level evaluation criteria (faithfulness, consistency, discriminability, error type sensitivity) rather than specific error types which are more about the dataset construction than evaluation criteria."
+    }
+  },
+  "overall_notes": "This paper is primarily a meta-evaluation study of faithfulness metrics for summarization, not a study evaluating NLG systems themselves. The paper evaluates metrics using the BUMP dataset they created. Human evaluation was used for dataset creation (annotators creating unfaithful summaries) rather than directly evaluating generated outputs. The metadata extraction was generally good but needed normalization of metric names and clarification of what constitutes actual NLG models vs. components of evaluation metrics."
+}

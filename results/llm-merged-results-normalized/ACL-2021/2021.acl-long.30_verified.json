@@ -1,0 +1,149 @@
+{
+  "paper_id": "2021.acl-long.30",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "AMAZON PRODUCT REVIEWS SUMMARIZATION DATASET",
+      "YELP BUSINESS REVIEWS SUMMARIZATION DATASET",
+      "CNN DAILY MAIL DATASET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5",
+      "copycat",
+      "fewsum",
+      "pegasus",
+      "bart"
+    ],
+    "outputs": [
+      "abstractive summaries of product reviews",
+      "summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Yelp business reviews dataset"
+        ],
+        "languages": [],
+        "models": [
+          "T5-Base"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Text Summarization": "Text Summarization",
+        "T5-Base": "T5",
+        "Yelp business reviews dataset": "Yelp business reviews summarization dataset"
+      },
+      "explanation": "Removed duplicate 'Yelp business reviews dataset' and normalized model names (T5-Base → T5)"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "SPR",
+      "BERTSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "SPR-1": "SPR",
+        "SPR-2": "SPR",
+        "SPR-L": "SPR",
+        "Bert-Score": "BERTScore"
+      },
+      "explanation": "Normalized metric variants to base forms"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "T5",
+          "T5-Base"
+        ],
+        "methods": [
+          "pairwise classification",
+          "pairwise summary classifier",
+          "ranking based on pairwise comparisons"
+        ],
+        "criteria": [
+          "coherence",
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses T5 as a pairwise classifier, but this is a dedicated fine-tuned classifier, not an LLM-as-judge approach where a general-purpose LLM evaluates outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Used Best-Worst Scaling to compute each system's score as the difference between the percentage of times it was selected as best, and the percentage of times it was selected as worst",
+      "Annotations for crude errors (CE) and self-consistency errors (SCE) by independent annotators"
+    ],
+    "criteria": [
+      "Coherence",
+      "Ce",
+      "Consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "crude errors (CE)",
+          "self-consistency errors (SCE)"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "informativeness",
+          "fluency",
+          "relevance"
+        ]
+      },
+      "normalized": {
+        "crude errors (CE)": "crude errors (CE)",
+        "self-consistency errors (SCE)": "self-consistency errors (SCE)"
+      },
+      "explanation": "Removed criteria that were mentioned in literature review but not used in the paper's actual human evaluation. Kept coherence as it was evaluated, and added the specific error types that were annotated."
+    }
+  },
+  "overall_notes": "The paper focuses on product review summarization using T5 with a perturb-and-select approach. Key evaluation includes automatic metrics (ROUGE, SPR, BERTScore) and human evaluation (Best-Worst Scaling for coherence, error annotations). The pairwise classifier is a fine-tuned T5 model, not an LLM-as-judge setup."
+}

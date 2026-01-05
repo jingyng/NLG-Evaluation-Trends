@@ -1,0 +1,95 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Our findings expose a widespread overestimation of current methods and underscore the urgent need for more reliable, human-aligned evaluation metrics in QA hallucination detection... We generated answers using two open-source LLMs... We report results for a single run unless specified otherwise...",
+            "...We generated answers using two open-source LLMs: LLAMA3.1-8B-INSTRUCT and MISTRAL-7B-INSTRUCT-V0.3...",
+            "Our experimental design aims to investigate both the shortcomings of current evaluation methods and the effectiveness of simpler alternatives. For our experiments, we use three established QA datasets, each with distinct characteristics: • NQ-Open : Contains 3,610 question-answer pairs drawn from real Google search queries, representing natural information-seeking behavior • TriviaQA : A subset of 3,842 examples from the validation set, featuring trivia questions that often require specific factual knowledge • SQuAD : 4,150 examples from the validation set (rc.nocontext), characterized by longer, more complex questions and answers"
+        ],
+        "tasks": [
+            "Other:Question Answering"
+        ],
+        "datasets": [
+            "NQ-Open",
+            "TriviaQA",
+            "SQuAD"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "LLAMA3.1-8B-INSTRUCT",
+            "MISTRAL-7B-INSTRUCT-V0.3"
+        ],
+        "outputs": [
+            "generated answers",
+            "Generated short answers to questions",
+            "generated answers to questions"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Our analysis reveals that even in these contexts, ROUGE can be misleading... To assess whether alternative metrics fare better, we extended our analysis to several others frequently used or proposed for text evaluation, including lexical metrics such as BLEU and semantic metrics such as BERTScore , SummaC , and UniEval-fact... We employ Area Under the Receiver Operating Characteristic curve (AUROC) and Area Under the Precision-Recall curve (PR-AUC) as our primary evaluation metrics...",
+            "...We apply a threshold of 0.3 for this metric... We also evaluate BLEU, BERTScore, SummaC, UniEval-fact...",
+            "We employ Area Under the Receiver Operating Characteristic curve (AUROC) and Area Under the Precision-Recall curve (PR-AUC) as our primary evaluation metrics. AUROC assesses the ability of a hallucination detection method to correctly rank positive and negative instances (hallucinations vs. non-hallucinations). PR-AUC is particularly valuable when dealing with imbalanced datasets, which is often the case in hallucination detection, where non-hallucinated responses might be more frequent."
+        ],
+        "automatic_metrics": [
+            "ROUGE",
+            "BLEU",
+            "BERTScore",
+            "SummaC",
+            "UniEval-fact",
+            "AUROC",
+            "PR-AUC",
+            "ROUGE-L",
+            "Perplexity",
+            "Length-Normalized Entropy",
+            "Semantic Entropy",
+            "EigenScore",
+            "LogDet",
+            "eRank"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "LLM-as-Judge methods have shown strong agreement with human judgments in QA tasks, offering a more reliable alternative... we utilize two complementary approaches: LLM-as-Judge for semantic assessment, following the methodology outlined in and using a prompt adapted from... This approach classifies generated responses into three categories: 'correct,' 'incorrect,' or 'refuse'...",
+            "...LLM-as-Judge leverages ... This approach classifies generated responses into three categories: \"correct,\" \"incorrect,\" or \"refuse\"...",
+            "To obtain reliable ground truth labels for evaluating the correctness of generated responses, we utilize two complementary approaches: LLM-as-Judge leverages  for semantic assessment, following the methodology outlined in  and using a prompt adapted from . This approach classifies generated responses into three categories: \"correct,\" \"incorrect,\" or \"refuse\" (with \"refuse\" being treated as a hallucination)."
+        ],
+        "models": [
+            "LLM-as-Judge",
+            "LLM-as-Judge (e.g., ChatGPT)"
+        ],
+        "methods": [
+            "prompt-based classification",
+            "prompt-based correctness evaluation",
+            "classification into correct/incorrect/refuse"
+        ],
+        "criteria": [
+            "factual correctness",
+            "correctness",
+            "semantic equivalence"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "To illustrate this, we conducted a comprehensive human evaluation study. We randomly selected 200 question-answer pairs from the Mistral answers on the NQ-Open dataset... Each answer was independently assessed by three annotators using standardized guidelines from , classifying responses as correct, incorrect, or refuse...",
+            "...We randomly selected 200 question-answer pairs ... each answer was independently assessed by three annotators ... The high inter-annotator agreement (Cohen's Kappa = 0.799)...",
+            "We randomly selected 200 question-answer pairs from the Mistral answers on the NQ-Open dataset, ensuring a balanced representation of cases where ROUGE and LLM-as-Judge yield conflicting hallucination assessments. Each answer was independently assessed by three annotators using standardized guidelines from , classifying responses as correct, incorrect, or refuse (we then classify model refusal as incorrect)."
+        ],
+        "guideline": [
+            "standardized guidelines classifying responses as correct, incorrect, or refuse",
+            "...using standardized guidelines from ...",
+            "classifying responses as correct, incorrect, or refuse"
+        ],
+        "criteria": [
+            "factual correctness",
+            "correct",
+            "incorrect",
+            "refuse"
+        ]
+    }
+}

@@ -1,0 +1,182 @@
+{
+  "paper_id": "2025.emnlp-main.1205",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Factuality Evaluation"
+    ],
+    "datasets": [
+      "FACTSCORE",
+      "LFQA (ELI5)"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o mini",
+      "GPT-3.5-turbo-instruct",
+      "LLaMA 7B"
+    ],
+    "outputs": [
+      "Generated biographies",
+      "Generated QA responses",
+      "Decomposed subclaims",
+      "Decontextualized subclaims"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Generated biographies",
+          "Generated QA responses",
+          "Decomposed subclaims",
+          "Decontextualized subclaims"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Biography Generation",
+          "Other:Long-form QA",
+          "Other:biography generation",
+          "Other:QA response generation"
+        ],
+        "datasets": [
+          "FACTSCORE generated biographies",
+          "LFQA (Explain Like I'm Five)",
+          "LFQA"
+        ],
+        "models": [
+          "Inst-LLAMA (LLaMA 7B)",
+          "Inst-LLAMA",
+          "LLAMA 7B"
+        ],
+        "outputs": [
+          "Decomposed subclaims and decontextualized claims for fact verification",
+          "subclaims, decontextualized subclaims, factuality scores (FACTSCORE, DNDSCORE, DECOMPSCORE)",
+          "generated biographies and QA responses"
+        ]
+      },
+      "normalized": {
+        "gpt-3.5-turbo-instruct": "GPT-3.5-turbo-instruct",
+        "LLAMA 7B": "LLaMA 7B",
+        "ELI5": "LFQA (ELI5)"
+      },
+      "explanation": "Removed NLG task descriptions that were actually evaluation targets rather than tasks performed by the paper. Consolidated datasets and models to main evaluation targets. Normalized model names to standard format."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "DECOMPSCORE",
+      "FACTSCORE",
+      "DNDSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "All extracted metrics are correct and properly named. These are the three main automatic metrics used in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "LLaMA 7B"
+    ],
+    "methods": [
+      "Factuality verification via True/False questioning"
+    ],
+    "criteria": [
+      "factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "LLaMA 7B"
+        ],
+        "methods": [
+          "Factuality verification via True/False questioning"
+        ],
+        "criteria": [
+          "factuality"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Inst-LLAMA (LLaMA 7B)",
+          "Inst-LLAMA",
+          "GPT-4o mini"
+        ],
+        "methods": [
+          "NLI-based claim verification",
+          "prompted fact-checking",
+          "prompt-based factuality verification (True/False questioning)",
+          "FACTSCORE",
+          "DNDSCORE"
+        ],
+        "criteria": [
+          "truthfulness"
+        ]
+      },
+      "normalized": {
+        "Inst-LLAMA (LLaMA 7B)": "LLaMA 7B",
+        "truthfulness": "factuality"
+      },
+      "explanation": "Only LLaMA 7B is used specifically as LLM judge. Simplified method description to core evaluation approach. Consolidated criterion to 'factuality' as primary evaluation focus."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators assess subclaim and decontextualized subclaim truthfulness given grounding document",
+      "Annotators indicate if subclaims contain sufficient information for judgment"
+    ],
+    "criteria": [
+      "truthfulness",
+      "information sufficiency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators assess subclaim and decontextualized subclaim truthfulness given grounding document",
+          "Annotators indicate if subclaims contain sufficient information for judgment"
+        ],
+        "criteria": [
+          "truthfulness",
+          "information sufficiency"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Annotators assessed: (1) subclaim truthfulness given grounding document (2) decontextualized subclaim truthfulness (3) subclaim sufficiency for judgment (4) decontextualized subclaim sufficiency",
+          "Annotators answer True/False/Not enough information for subclaims and decontextualized subclaims and indicate whether each contains enough information to judge.",
+          "For each subclaim and decontextualized subclaim we ask the annotator: 1. Given the grounding document, is the subclaim from the passage True or False? (options: True/False/Not enough information) 2. Given the grounding document, is the decontextualized subclaim from the passage True or False? (options: True/False/Not enough information) 3. Does the subclaim contain enough information to correctly judge it as true/false? (options: Yes/No) 4. Does the decontextualized subclaim contain enough information to correctly judge it as true/false? (options: Yes/No)"
+        ],
+        "criteria": [
+          "Truthfulness",
+          "Information sufficiency",
+          "truthfulness",
+          "information sufficiency",
+          "sufficiency of information"
+        ]
+      },
+      "normalized": {
+        "Truthfulness": "truthfulness",
+        "Information sufficiency": "information sufficiency"
+      },
+      "explanation": "Condensed detailed guideline to key evaluation points. Deduplicated and normalized criteria to main evaluation dimensions."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on factuality evaluation methodology rather than NLG generation. It evaluates existing generated outputs (biographies and QA responses) rather than generating new content. The extraction was generally accurate but contained some redundant items and minor normalization issues."
+}

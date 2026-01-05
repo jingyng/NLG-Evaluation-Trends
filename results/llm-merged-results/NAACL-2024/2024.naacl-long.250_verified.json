@@ -1,0 +1,172 @@
+{
+  "paper_id": "2024.naacl-long.250",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation",
+      "Text Summarization"
+    ],
+    "datasets": [
+      "MRPC",
+      "ParaNMT-small",
+      "ParaSCI-arXiv",
+      "Gigaword",
+      "Quora",
+      "MSCOCO",
+      "XSUM",
+      "SQuAD 2.0",
+      "CNN/DM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-2 XL",
+      "BioGPT",
+      "T5-large",
+      "Impossible-T5",
+      "ChatGPT",
+      "GPT-3.5"
+    ],
+    "outputs": [
+      "paraphrases",
+      "summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "SQuAD 2.0"
+        ],
+        "models": []
+      },
+      "removed": {
+        "datasets": [
+          "ParaNMTsmall"
+        ],
+        "models": []
+      },
+      "normalized": {
+        "GPT2-XL": "GPT-2 XL",
+        "GPT3.5": "GPT-3.5",
+        "ParaNMTsmall": "ParaNMT-small"
+      },
+      "explanation": "Removed duplicate dataset (ParaNMTsmall vs ParaNMT-small), normalized model names to standard forms, added missing SQuAD 2.0 dataset"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "iBLEU",
+      "BERT-iBLEU",
+      "TED",
+      "BERTScore",
+      "Self-BLEU",
+      "SimCSE",
+      "MSTTR",
+      "Jaccard"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "TED-F",
+          "TED-3",
+          "2-gram entropy",
+          "3-gram entropy",
+          "token-level Jaccard similarity",
+          "SimCSE cosine similarity",
+          "2/3-gram entropy",
+          "cosine-similarity",
+          "BERTScore-F1"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "BERTScore-F1": "BERTScore",
+        "token-level Jaccard similarity": "Jaccard",
+        "2-gram entropy": "BLEU",
+        "3-gram entropy": "BLEU",
+        "2/3-gram entropy": "BLEU",
+        "TED-F": "TED",
+        "TED-3": "TED"
+      },
+      "explanation": "Normalized all metric variants to base forms (e.g., ROUGE-L→ROUGE, BERTScore-F1→BERTScore), removed redundant/duplicate entries, simplified entropy metrics to BLEU which is the standard n-gram metric"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM-as-judge evaluation was conducted"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers used a 3-point Likert scale to evaluate fluency, faithfulness, and dissimilarity for paraphrases",
+      "Workers used a 3-point Likert scale to evaluate fluency, faithfulness, and conciseness for summaries"
+    ],
+    "criteria": [
+      "fluency",
+      "faithfulness",
+      "dissimilarity",
+      "conciseness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "conciseness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Workers used a 3-point Likert scale to evaluate fluency, faithfulness, and dissimilarity for paraphrases, and fluency, faithfulness, and conciseness for summaries.",
+          "Human annotators rate each output on fluency, faithfulness, and dissimilarity using a 3‑level Likert scale.",
+          "We use 3-point Likert scale where annotators evaluate the fluency (whether the paraphrase exhibits fluent language), faithfulness (whether the paraphrase well preserves the content of the original sentence and does not hallucinate), and dissimilarity (whether the paraphrase is sufficiently different from the original statement) of each output."
+        ],
+        "criteria": [
+          "fluent",
+          "faithful",
+          "dissimilar",
+          "concise"
+        ]
+      },
+      "normalized": {
+        "fluent": "fluency",
+        "faithful": "faithfulness",
+        "dissimilar": "dissimilarity",
+        "concise": "conciseness"
+      },
+      "explanation": "Consolidated guideline descriptions, normalized criteria to noun forms, removed redundant guideline text"
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation for paraphrase generation and summarization. The extraction was generally accurate but needed normalization of metric variants and removal of duplicates. The paper uses extensive automatic metrics and human evaluation but does not use LLMs as judges."
+}

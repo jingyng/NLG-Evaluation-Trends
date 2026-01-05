@@ -1,0 +1,128 @@
+{
+  "paper_id": "2024.acl-long.770",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "FAITHDIAL",
+      "BEGIN",
+      "HALUEVAL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2",
+      "doha",
+      "crtl"
+    ],
+    "outputs": [
+      "dialogue responses",
+      "dialogue responses with varying levels of hallucination",
+      "dialogue responses containing hallucinations or confabulations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "ELECTRA-large",
+          "RoBERTa",
+          "RoBERTa-large"
+        ],
+        "outputs": []
+      },
+      "normalized": {},
+      "explanation": "Removed ELECTRA-large and RoBERTa models as they are evaluation models, not generation models. Kept only the actual NLG models (GPT-2, DoHA, CRTL)."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "NARRATIVITY",
+      "DEAM"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Beta regression analysis",
+          "logistic regression",
+          "beta regression",
+          "narrativity score (ELECTRA-large)",
+          "Narrativity score (ELECTRA-large classifier)",
+          "DEAM coherence metric"
+        ]
+      },
+      "normalized": {
+        "narrativity": "Narrativity",
+        "DEAM": "DEAM"
+      },
+      "explanation": "Simplified to base metric names (Narrativity, DEAM) and removed statistical analysis methods that are not evaluation metrics themselves."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleared all metadata since the paper does not use LLMs as judges. The evaluation is done with classifier models (ELECTRA, RoBERTa), not LLM judges."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators were asked to assign each response a label indicating whether it was a hallucination or a truthful (ground‑truth) response."
+        ],
+        "criteria": [
+          "hallucination vs. truthful label"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed annotation guidelines that refer to the original benchmark creation, not new human evaluations conducted by the authors. The paper explicitly states human evaluation is planned for future work."
+    }
+  },
+  "overall_notes": "The paper focuses on analyzing hallucinated vs factual dialogue responses using narrativity and coherence metrics. It uses existing benchmarks with pre-existing annotations but does not conduct new human evaluations. The evaluation is done with classifier models (ELECTRA, RoBERTa) rather than LLM-as-judge approaches."
+}

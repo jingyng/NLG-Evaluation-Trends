@@ -1,0 +1,69 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We decode sequences with two models, 125M and 30B, using different configurations of λ1 and λ2. We take the first 5 tokens of a subset of validation documents as prompts and generate 50 tokens conditioned on them.",
+            "For sequence-level generation ( §4), we study the distribution shift at a document level (50-500 tokens) by decoding sequences that small/large models favor more than the other."
+        ],
+        "tasks": [
+            "Other:Open-ended Text Generation",
+            "Other:Sequence-Level Generation"
+        ],
+        "datasets": [
+            "OPT validation set",
+            "Gutenberg PG-19",
+            "Wikipedia",
+            "opensubtitles",
+            "The Pile",
+            "BIG-Bench"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "OPT-125M",
+            "OPT-30B",
+            "OPT",
+            "GPT Neo"
+        ],
+        "outputs": [
+            "Generated text sequences of varying lengths (50, 100, 500 tokens) for analysis.",
+            "The paper generates sequences using greedy search and nucleus sampling from interpolated distributions of small and large models, particularly focusing on texts favored by smaller models over larger ones."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We evaluate the texts decoded from each configuration as follows: 1) we measure the text perplexity at final checkpoints of different-sized models to understand its scaling trend; 2) we measure the text perplexity at all intermediate checkpoints to understand how the perplexity evolves as training progresses. ... To have a better understanding of the overall quality of the generated sequences, we evaluate these sequences decoded with each configuration in Figure 6 using MAUVE scores.",
+            "We evaluate these sequences ... using MAUVE scores ... and report perplexity as the major metric throughout the study.",
+            "To have a better understanding of the overall quality of the generated sequences, we evaluate these sequences decoded with each configuration in Figure 6 using MAUVE scores."
+        ],
+        "automatic_metrics": [
+            "Perplexity",
+            "MAUVE",
+            "perplexity"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": [
+            "Human texts present expected scaling patterns in that they are best modeled by larger (or longer trained) models. However, to our surprise, large models are better at modeling less human-like texts which contain synthetic noise and factually incorrect prompts."
+        ],
+        "guideline": [
+            "The paper mentions human texts as a reference point and evaluates generated texts in terms of how they compare to human-authored texts, particularly noting that large models are better at modeling less human-like texts. The analysis includes manual inspection of generated examples for properties like hallucination and semantic plausibility."
+        ],
+        "criteria": [
+            "fluency",
+            "coherence",
+            "hallucination",
+            "semantic plausibility"
+        ]
+    }
+}

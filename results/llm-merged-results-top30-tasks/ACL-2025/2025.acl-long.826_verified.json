@@ -1,0 +1,179 @@
+{
+  "paper_id": "2025.acl-long.826",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Long Form Question Answering"
+    ],
+    "datasets": [
+      "eli5 WEBGPT",
+      "EXPERTQA",
+      "HAGRID",
+      "CLAPNQ",
+      "QUOTESUM",
+      "FRONT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b",
+      "llama_2_13b",
+      "llama_2_70b",
+      "gpt_4o",
+      "gpt_4o_mini",
+      "llama_3.1_8b_instruct",
+      "llama_3.1_70b_instruct",
+      "mistral_nemo_12b_instruct",
+      "mistral_series"
+    ],
+    "outputs": [
+      "Long-form question answering responses",
+      "Paragraph-length answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "FRONT"
+        ],
+        "languages": [],
+        "models": [
+          "Llama-2-70B",
+          "Llama-3.1-8B-Instruct"
+        ],
+        "outputs": [
+          "Long-form question answering responses"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Long-form Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-2",
+          "Llama-3.1"
+        ],
+        "outputs": [
+          "long-form responses",
+          "Paragraph-length long-form answers generated for information-seeking questions",
+          "paragraph-length responses"
+        ]
+      },
+      "normalized": {
+        "Other:Long-Form Question Answering": "Other:Long-Form Question Answering"
+      },
+      "explanation": "Consolidated duplicate task entry, added missing models (Llama-2-70B, Llama-3.1-8B-Instruct) and dataset (FRONT) used for training, normalized output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "CLAIM RECALL",
+      "SEMQA",
+      "MINICHECK"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "FaithScore (via MiniCheck)",
+          "MiniCheck (FaithScore)",
+          "FaithScore"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "FaithScore": "MiniCheck",
+        "MiniCheck": "MiniCheck"
+      },
+      "explanation": "Simplified metric variants to base forms (ROUGE-L → ROUGE), removed redundant mentions of FaithScore since it's calculated using MiniCheck"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Bespoke-MiniCheck-7B",
+      "chatgpt"
+    ],
+    "methods": [
+      "NLI-based evaluation",
+      "claim decomposition"
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Entailment"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "claim decomposition"
+        ],
+        "criteria": [
+          "faithfulness"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "consistency assessment"
+        ],
+        "criteria": [
+          "support"
+        ]
+      },
+      "normalized": {
+        "Bespoke-MiniCheck-7B": "Bespoke-MiniCheck-7B",
+        "ChatGPT": "ChatGPT",
+        "faithfulness": "faithfulness",
+        "entailment": "entailment"
+      },
+      "explanation": "Removed 'support' criterion as it's covered by faithfulness/entailment, clarified that claim decomposition is used for ELI5-WebGPT evaluation specifically"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators rated 200 generations from four systems using 5-point Likert scale for faithfulness and completeness"
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators rated 200 generations from four systems using 5-point Likert scale for faithfulness and completeness"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Rated on a 5-point Likert scale for faithfulness and completeness",
+          "Annotators rate generated responses on faithfulness and completeness using a 5‑point Likert scale.",
+          "For faithfulness, we selected the outputs from four systems' across the five datasets in GroundBench: GPT-4o, Llama-3.1-70B-Instruct, SFT-Llama-2-13B, and RHIO-13B, resulting in a total of 200 generations."
+        ],
+        "criteria": [
+          "Faithfulness",
+          "Completeness"
+        ]
+      },
+      "normalized": {
+        "faithfulness": "faithfulness",
+        "completeness": "completeness"
+      },
+      "explanation": "Consolidated guideline information into a single clear description, normalized criteria to lowercase for consistency"
+    }
+  },
+  "overall_notes": "Paper focuses on improving contextual faithfulness in Long-Form Question Answering using retrieval heads. The extraction was generally accurate but contained some duplicates and missing model names. Paper uses both automatic metrics (ROUGE, MiniCheck, etc.) and human evaluation with clear protocols. LLMs are used both as generation models and as evaluators (ChatGPT for claim decomposition, MiniCheck for faithfulness evaluation)."
+}

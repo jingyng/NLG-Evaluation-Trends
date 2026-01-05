@@ -1,0 +1,54 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We propose long-tail evaluation have impressive performance . Following Sap et al. ( ), we structure inferential knowledge as if-then relations with variables, written in a premise, conclusion format (Table ). First, we make long-tail inferential knowledge generation possible. We propose a novel and lightweight long-tail inferential knowledge generation framework, Logic-Induced-Knowledge-Search (LINK ) ( § 2), a variable-wise prompting framework grounded on symbolic rules. This framework enables us to obtain long-tail knowledge statements from existing LLMs.",
+        "tasks": [
+            "Other:Knowledge Statement Generation"
+        ],
+        "datasets": [
+            "LINT"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "ChatGPT",
+            "GPT4",
+            "InstructGPT",
+            "llama-7B",
+            "Flan-T5-XXL"
+        ],
+        "outputs": "long-tail knowledge statements in premise, conclusion format"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "Following Godbole and Jia (2022)'s definition of long-tail statements, we use the most capable LLM that was producing log likelihood at the time of experiments (text-davinci-003) to assign likelihood to generated data.",
+        "automatic_metrics": [
+            "log likelihood",
+            "δ = mean(D(H)) - mean(D(L))"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We use huggingface default implementation of Flan-T5-XXL , an instructiontuned model that can be used zero-shot, as the critic that checks data type conformity and factual correctness of the values. We ask the model to output yes/no on the correctness of a given statement.",
+        "models": [
+            "Flan-T5-XXL"
+        ],
+        "methods": [
+            "zero-shot verification of data type and factual correctness"
+        ],
+        "criteria": [
+            "data type conformity",
+            "factual correctness"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We sample 4,000 statements from LINT for human evaluation, of which 2,025 are from head distribution and 1,975 are from longtail distribution. We take 3 annotations for each statement and take the majority vote.",
+        "guideline": "For data type conformity, we ask an AMT worker Is {variable} a {data type}? for each variable in the symbolic rule. For factual correctness, we ask an AMT worker Does the premise entail the conclusion?",
+        "criteria": [
+            "data type conformity",
+            "factual correctness"
+        ]
+    }
+}

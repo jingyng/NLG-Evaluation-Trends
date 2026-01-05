@@ -1,0 +1,122 @@
+{
+  "paper_id": "2022.acl-long.32",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Style Transfer"
+    ],
+    "datasets": [
+      "Yelp",
+      "IMDB",
+      "Political",
+      "Amazon Reviews"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ARAE",
+      "ARAE seq2seq",
+      "ARAE seq2seq + CONTRA",
+      "ARAE seq2seq + CLF",
+      "ARAE seq2seq + CLF+CONTRA",
+      "DRG"
+    ],
+    "outputs": [
+      "Transferred sentences with target style and preserved constraints",
+      "Text with changed attributes (sentiment, political slant) while maintaining lexical, syntactic and domain-specific constraints"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Amazon Reviews"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Text with changed attributes (sentiment, political slant) while maintaining lexical, syntactic and domain-specific constraints"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text Style Transfer"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "contrastive loss",
+          "cooperative classifier",
+          "LSTM encoder-decoder"
+        ],
+        "outputs": [
+          "Transferred sentences in the target domain (e.g., changing sentiment or political slant) while preserving constraints like length, pronouns, and domain-specific nouns."
+        ]
+      },
+      "normalized": {
+        "Other:Text Style Transfer": "Text Style Transfer",
+        "YELP": "Yelp",
+        "POLITICAL": "Political",
+        "Transferred sentences with preserved content and changed attributes": "Text with changed attributes (sentiment, political slant) while maintaining lexical, syntactic and domain-specific constraints"
+      },
+      "explanation": "Normalized task name from 'Other:Text Style Transfer' to 'Text Style Transfer'. Added Amazon Reviews dataset used in domain adaptation experiment. Removed 'contrastive loss' and 'cooperative classifier' from models list as they are components/methods, not standalone models. Improved output descriptions to be more accurate."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Semantic Similarity",
+      "Transfer Accuracy",
+      "Fluency",
+      "AGG"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "Semantic Similarity (SIM)": "Semantic Similarity",
+        "Transfer Accuracy (ACC)": "Transfer Accuracy",
+        "Fluency (FL)": "Fluency"
+      },
+      "explanation": "Normalized metric names by removing abbreviations in parentheses. All metrics are correctly extracted and relevant."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper. The extraction correctly identified this."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rate each generated sentence on Fluency (1-3 scale), Semantic Similarity (1-3 scale), and Accuracy (1-3 scale) comparing source and target sentences"
+    ],
+    "criteria": [
+      "fluency",
+      "semantic similarity",
+      "accuracy"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "Fluency": "fluency",
+        "Similarity": "semantic similarity",
+        "Accuracy": "accuracy"
+      },
+      "explanation": "Normalized criteria to lowercase and standardized 'Similarity' to 'semantic similarity'. The guidelines and criteria are correctly extracted from the human evaluation section."
+    }
+  },
+  "overall_notes": "The paper focuses on constrained unsupervised text style transfer with explicit constraints preservation. The extraction quality is generally good with minor normalization needed. The paper uses LSTM-based encoder-decoders (not transformers) with GAN framework. Human evaluation was conducted with clear guidelines and inter-annotator agreement reported (Krippendorff's alpha)."
+}

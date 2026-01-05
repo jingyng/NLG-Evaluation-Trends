@@ -1,0 +1,147 @@
+{
+  "paper_id": "2025.naacl-long.550",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Math Reasoning Generation"
+    ],
+    "datasets": [
+      "MATH",
+      "Olympic-Arena",
+      "JEE-Bench",
+      "Gaokao-Mathcloze",
+      "SAT-Math",
+      "NuminaMath-CoT",
+      "PRM800K"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "Llama-3-8B",
+      "GPT-4o-mini",
+      "Command-R",
+      "Llama-3-70B-Instruct",
+      "GPT-3.5-turbo"
+    ],
+    "outputs": [
+      "chain-of-thought solutions for math problems",
+      "step-by-step reasoning solutions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "NuminaMath-CoT",
+          "PRM800K"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "step-by-step reasoning solutions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Math Reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Math Reasoning Generation": "Other:Math Reasoning Generation",
+        "solutions to math reasoning problems": "chain-of-thought solutions for math problems"
+      },
+      "explanation": "Added missing datasets mentioned in paper (NuminaMath-CoT, PRM800K). Removed duplicate task 'Other:Math Reasoning'. Expanded output descriptions to be more precise about the chain-of-thought nature."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "Outcome Error Rate",
+      "Step-wise Error Rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "outcome error rate": "Outcome Error Rate",
+        "step-wise error rate": "Step-wise Error Rate",
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Removed duplicate 'accuracy' metric (already had 'Accuracy'). Normalized metric names to consistent capitalization."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o-mini"
+    ],
+    "methods": [
+      "correctness verification"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed. GPT-4o-mini is used for supervision synthesis and solution verification during data preparation, not as a judge for evaluating generated outputs after training."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluation conducted on 60 hard full tasks and 87 easy subtasks assessing three dimensions: (1) checking correct solutions for completeness and correctness, (2) checking incorrect solutions reach wrong final results with detailed process, (3) checking quality and appropriateness of subtasks based on three criteria"
+    ],
+    "criteria": [
+      "correctness",
+      "completeness",
+      "detailed reasoning",
+      "well-definedness",
+      "not overly simple",
+      "not too similar to original"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "correctness of correct solutions",
+          "correctness of incorrect solutions",
+          "quality and appropriateness of subtasks"
+        ]
+      },
+      "normalized": {
+        "correctness of correct solutions": "correctness",
+        "correctness of incorrect solutions": "correctness"
+      },
+      "explanation": "Simplified criteria list by removing redundant descriptors while keeping the core evaluation dimensions. Consolidated the guideline description into a more coherent summary."
+    }
+  },
+  "overall_notes": "This paper primarily focuses on math reasoning generation using chain-of-thought solutions. The evaluation uses accuracy as the main metric, with human evaluation for data quality validation. The use of GPT-4o-mini is for data preparation/synthesis, not as a judge for evaluating generated outputs post-training."
+}

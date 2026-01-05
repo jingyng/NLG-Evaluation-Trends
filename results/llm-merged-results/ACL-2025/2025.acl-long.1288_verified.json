@@ -1,0 +1,132 @@
+{
+  "paper_id": "2025.acl-long.1288",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other: Rationale Generation"
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH",
+      "ECQA",
+      "HellaSwag",
+      "ProofWriter",
+      "ARC",
+      "MMLU-Pro"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMa-3-8B-Instruct",
+      "GPT-4"
+    ],
+    "outputs": [
+      "Implicit rationales",
+      "Reasoning steps",
+      "Chain-of-thought rationales"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other: Reasoning Step Generation",
+          "Other:Reasoning Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "LLaMa-3-8B-Instruct": "LLaMa-3-8B-Instruct",
+        "chain-of-thought rationales, implicit rationales, reasoning steps": "Chain-of-thought rationales"
+      },
+      "explanation": "Removed redundant task categories and normalized outputs. The paper primarily evaluates rationale generation as an NLG task."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Exact Match Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "exact match accuracy": "Exact Match Accuracy"
+      },
+      "explanation": "Normalized metric name to standard form. The paper uses exact match accuracy to evaluate reasoning performance."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "LLaMa-3-8B-Instruct",
+      "GPT-4"
+    ],
+    "methods": [
+      "Reranking partial reasoning trajectories"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "Correctness"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Correctness assessment": "Correctness",
+        "rerank partial reasoning trajectories": "Reranking partial reasoning trajectories"
+      },
+      "explanation": "Added explicit criteria and normalized methods. The paper uses LLMs to rerank reasoning steps based on correctness."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Human annotators evaluated whether the generated rationales were accurate and helpful for reasoning.",
+          "We set the threshold τ f to ensure that 95% of the filtered rationales are accurate."
+        ],
+        "criteria": [
+          "accuracy",
+          "helpfulness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The human evaluation was conducted during development/filtering of training data, not for evaluating the final generated outputs. The paper states they conducted manual annotation for rationale filtering during training, but no human evaluation of the final model's outputs is reported."
+    }
+  },
+  "overall_notes": "The paper focuses on reasoning enhancement through rationale generation rather than direct NLG evaluation. While rationale generation is an NLG task, the evaluation primarily measures reasoning accuracy rather than NLG quality. Human evaluation was used for training data filtering but not for final output evaluation."
+}

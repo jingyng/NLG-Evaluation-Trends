@@ -1,0 +1,145 @@
+{
+  "paper_id": "2025.acl-long.1371",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering",
+      "Other:Knowledge Unlearning"
+    ],
+    "datasets": [
+      "ELUDe",
+      "Alpaca-GPT4",
+      "ARC-Challenge",
+      "CommonsenseQA",
+      "HellaSwag",
+      "LAMBADA",
+      "MMLU",
+      "OpenBookQA",
+      "PIQA",
+      "Winogrande",
+      "TOFU",
+      "RWKU",
+      "WMDP"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-3.1-8B-Instruct",
+      "Phi-3.5-Mini-Instruct",
+      "GPT-4"
+    ],
+    "outputs": [
+      "generated responses to QA pairs",
+      "model responses to questions after unlearning",
+      "responses under adversarial prompts"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "LAMBADA",
+          "OpenBookQA"
+        ],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "datasets": [
+          "Lambada",
+          "OpenbookQA"
+        ],
+        "models": [
+          "GPT-4o"
+        ],
+        "outputs": [
+          "Generated answers to QA pairs (question answering)",
+          "The outputs include generated QA pairs for forget and retain sets, model responses to questions after unlearning, and responses under adversarial prompts."
+        ]
+      },
+      "normalized": {
+        "Lambada": "LAMBADA",
+        "OpenbookQA": "OpenBookQA",
+        "GPT-4o": "GPT-4"
+      },
+      "explanation": "Normalized dataset names to standard forms (LAMBADA, OpenBookQA). Simplified GPT-4o to GPT-4 for consistency. Consolidated output descriptions for clarity."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Probability",
+      "ROUGE",
+      "Truth Ratio"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L recall",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L recall": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE variants to base form 'ROUGE' as per guidelines. The paper uses ROUGE-L recall specifically, but we simplify to ROUGE."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is conducted in this paper. The paper uses LLMs (GPT-4) for data generation, but not for evaluating generated outputs after unlearning."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Evaluators coordinated standards before starting annotation and rated all instances independently"
+    ],
+    "criteria": [
+      "relevance",
+      "diversity",
+      "factual accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Evaluators coordinated standards before starting annotation and rated all instances independently"
+        ],
+        "criteria": [
+          "relevance",
+          "diversity",
+          "factual accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added human evaluation details found in the paper. The authors mention having paper authors judge training instances for entity-level evaluation, with criteria including relevance, diversity, and factual accuracy of generated QA pairs."
+    }
+  },
+  "overall_notes": "The paper focuses on entity-level unlearning for LLMs, primarily evaluating through question answering tasks. While the main NLG task is question answering, the paper also involves generation of QA pairs using GPT-4. The human evaluation is mentioned but not extensively detailed - it appears to be for dataset quality assessment rather than comprehensive output evaluation. The paper uses multiple standard NLG benchmarks for evaluation."
+}

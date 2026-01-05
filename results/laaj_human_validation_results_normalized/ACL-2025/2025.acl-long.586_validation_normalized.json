@@ -1,0 +1,213 @@
+{
+  "paper_id": "2025.acl-long.586",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-as-a-judge against human evaluation through multiple quantitative comparisons including cosine similarity, Cohen's kappa, Krippendorff's alpha, and agreement metrics on sampled dialogues"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "gpt_4o",
+      "claude_3_opus"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Multiple detailed prompt templates provided in Appendix F for character, style, emotion, relationship, personality, human-likeness, role choice, and coherence evaluation"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's Alpha and Cohen's Kappa",
+      "value": 0.74,
+      "interpretation": "high consistency",
+      "per_criterion": [
+        {
+          "criterion": "Character",
+          "metric": "Krippendorff's Alpha",
+          "value": 0.72
+        },
+        {
+          "criterion": "Style",
+          "metric": "Krippendorff's Alpha",
+          "value": 0.74
+        },
+        {
+          "criterion": "Emotion",
+          "metric": "Krippendorff's Alpha",
+          "value": 0.92
+        },
+        {
+          "criterion": "Relationship",
+          "metric": "Krippendorff's Alpha",
+          "value": 0.9
+        },
+        {
+          "criterion": "Personality",
+          "metric": "Krippendorff's Alpha",
+          "value": 0.74
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Evaluation guidelines and examples provided in Appendix C with detailed scoring criteria and validation procedures"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Cosine similarity",
+      "Cohen's Kappa",
+      "Krippendorff's Alpha",
+      "Accuracy",
+      "F1 Score",
+      "Jaccard Similarity"
+    ],
+    "shared_criteria": [
+      "Character",
+      "Style",
+      "Emotion",
+      "Relationship",
+      "Personality",
+      "Human-likeness",
+      "Role Choice",
+      "Coherence",
+      "Validity"
+    ],
+    "sample_size": {
+      "total_generated": 300,
+      "validated_by_both": 100,
+      "notes": "300 independent bilingual evaluations per model, with 100 dialogue evaluations sampled for human validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Cosine similarity",
+        "value": 0.96,
+        "criterion": "Character",
+        "llm_model": "gpt_4o",
+        "significance": "N/A",
+        "notes": "Auto-Generation validation"
+      },
+      {
+        "metric": "Cosine similarity",
+        "value": 0.94,
+        "criterion": "Style",
+        "llm_model": "gpt_4o",
+        "significance": "N/A",
+        "notes": "Auto-Generation validation"
+      },
+      {
+        "metric": "Cosine similarity",
+        "value": 0.94,
+        "criterion": "Emotion",
+        "llm_model": "gpt_4o",
+        "significance": "N/A",
+        "notes": "Auto-Generation validation"
+      },
+      {
+        "metric": "Cosine similarity",
+        "value": 0.99,
+        "criterion": "Relationship",
+        "llm_model": "gpt_4o",
+        "significance": "N/A",
+        "notes": "Auto-Generation validation"
+      },
+      {
+        "metric": "Cosine similarity",
+        "value": 0.98,
+        "criterion": "Personality",
+        "llm_model": "gpt_4o",
+        "significance": "N/A",
+        "notes": "Auto-Generation validation"
+      },
+      {
+        "metric": "Cosine similarity",
+        "value": 0.78,
+        "criterion": "Humanness",
+        "llm_model": "gpt_4o",
+        "significance": "N/A",
+        "notes": "Auto-Evaluation validation - lower agreement noted due to human bias"
+      },
+      {
+        "metric": "Cohen's Kappa",
+        "value": 0.85,
+        "criterion": "Character",
+        "llm_model": "gpt_4o",
+        "significance": "N/A",
+        "notes": "Auto-Evaluation validation"
+      },
+      {
+        "metric": "Cohen's Kappa",
+        "value": 0.77,
+        "criterion": "Style",
+        "llm_model": "gpt_4o",
+        "significance": "N/A",
+        "notes": "Auto-Evaluation validation"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.94,
+        "criterion": "Character",
+        "llm_model": "gpt_4o",
+        "significance": "N/A",
+        "notes": "Auto-Evaluation validation"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.93,
+        "criterion": "Style",
+        "llm_model": "gpt_4o",
+        "significance": "N/A",
+        "notes": "Auto-Evaluation validation"
+      },
+      {
+        "metric": "F1 Score",
+        "value": 0.94,
+        "criterion": "Character",
+        "llm_model": "gpt_4o",
+        "significance": "N/A",
+        "notes": "Auto-Evaluation validation"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong alignment except for human-likeness",
+      "threshold_used": "Cosine similarity > 0.9 considered strong alignment",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4o evaluations show strong alignment with human judgments across most dimensions (cosine similarity \u22650.94), except for Human-likeness (0.78) where human biases affect consistency. High inter-rater agreement metrics support reliability."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Qualification Rate"
+    ],
+    "human_only_criteria": [
+      "Win-Rate"
+    ],
+    "shared_criteria": [
+      "Character",
+      "Style",
+      "Emotion",
+      "Relationship",
+      "Personality",
+      "Humanness",
+      "Choice",
+      "Coherence",
+      "Validity"
+    ],
+    "notes": "LLM evaluates all criteria automatically while human evaluation focuses on pairwise comparison (Win-Rate) and validation of automated metrics"
+  }
+}

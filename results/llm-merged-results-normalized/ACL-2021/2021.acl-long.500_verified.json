@@ -1,0 +1,184 @@
+{
+  "paper_id": "2021.acl-long.500",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Story Generation"
+    ],
+    "datasets": [
+      "ROCSTORIES",
+      "WRITINGPROMPTS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "seq_2seq",
+      "fusion",
+      "plan&write",
+      "gpt_2",
+      "knowledge_enhanced_gpt_2"
+    ],
+    "outputs": [
+      "stories"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:story generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "KG-GPT-2"
+        ],
+        "outputs": [
+          "generated stories"
+        ]
+      },
+      "normalized": {
+        "Other:story generation": "Other:Story Generation",
+        "generated stories": "stories"
+      },
+      "explanation": "Normalized task name capitalization (story generation → Story Generation), removed duplicate task entry, normalized 'generated stories' to simpler 'stories', removed 'KG-GPT-2' as it's the same as 'KnowledGe-enhanced GPT-2'"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "BERTSCORE",
+      "MOVERSCORE",
+      "PERPLEXITY",
+      "UNION",
+      "RUBER",
+      "ADEM",
+      "BLEURT",
+      "GRADE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "MoverScore",
+          "ADEM",
+          "BLEURT",
+          "GRADE",
+          "RUBER"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L",
+          "BERTScore-F1",
+          "Ru-BERT",
+          "R u -BERT",
+          "PPL (GPT-2)",
+          "perplexity",
+          "PPL (F)",
+          "PPL (P)",
+          "RUBER-BERT"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "BERTScore-F1": "BERTScore",
+        "ROUGE": "ROUGE",
+        "BERTScore": "BERTScore",
+        "MoverScore": "MoverScore",
+        "perplexity": "Perplexity",
+        "UNION": "UNION",
+        "RUBER-BERT": "RUBER",
+        "Ru-BERT": "RUBER",
+        "R u -BERT": "RUBER",
+        "RUBER": "RUBER",
+        "ADEM": "ADEM",
+        "BLEURT": "BLEURT",
+        "GRADE": "GRADE",
+        "PPL (GPT-2)": "Perplexity",
+        "PPL (F)": "Perplexity",
+        "PPL (P)": "Perplexity"
+      },
+      "explanation": "Simplified all metric variants to base forms (ROUGE-L → ROUGE, BERTScore-F1 → BERTScore, etc.), normalized 'perplexity' variations to 'Perplexity', added missing metrics mentioned in the paper (MoverScore, ADEM, BLEURT, GRADE, RUBER)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-2"
+        ],
+        "methods": [
+          "perplexity calculation"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed GPT-2 and perplexity calculation as these are used as metrics (Question 2) not as LLM judges evaluating outputs after generation. The paper does not use LLMs as evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate each story on a 1-5 overall quality scale using a point-deduction policy based on identified error types (repetitive plots, unrelated events, conflicting logic, chaotic scenes)"
+    ],
+    "criteria": [
+      "Quality",
+      "Repetitiveness",
+      "Event",
+      "Logic",
+      "Scenes"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Rate each story in 1-5 range and choose reasons based on error types.",
+          "Rate each story on a 1‑5 overall quality scale using a point‑deduction policy based on identified error types (repetitive plots, unrelated events, conflicting logic, chaotic scenes).",
+          "Rate each story in 1-5 range (5 is the best). And choose your Reasons."
+        ],
+        "criteria": [
+          "global errors",
+          "Overall Quality",
+          "Repetitive plots",
+          "Unrelated events",
+          "Conflicting logic",
+          "Chaotic scenes"
+        ]
+      },
+      "normalized": {
+        "Overall Quality": "overall quality",
+        "Repetitive plots": "repetitive plots",
+        "Unrelated events": "unrelated events",
+        "Conflicting logic": "conflicting logic",
+        "Chaotic scenes": "chaotic scenes"
+      },
+      "explanation": "Consolidated redundant guideline entries into a single clear description, normalized criteria names to consistent lowercase, removed duplicate/abstract criteria (global errors)"
+    }
+  },
+  "overall_notes": "The paper presents OpenMEVA, a comprehensive benchmark for evaluating story generation metrics. It focuses on evaluating NLG evaluation metrics rather than generating stories itself. The extraction was generally good but needed normalization of metric names and consolidation of similar entries. The paper conducts extensive experiments comparing various automatic metrics and uses human evaluations as the gold standard."
+}

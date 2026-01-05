@@ -1,0 +1,144 @@
+{
+  "paper_id": "2020.acl-main.4",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "DAILYDIALOG",
+      "PERSONACHAT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "s_2s",
+      "attentional_s_2s",
+      "hred",
+      "adem",
+      "ruber",
+      "roberta"
+    ],
+    "outputs": [
+      "dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "RoBERTa"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "RoBERTa-large"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "S2S": "S2S",
+        "attentional S2S": "Attentional S2S",
+        "HRED": "HRED",
+        "RoBERTa-large": "RoBERTa"
+      },
+      "explanation": "Normalized model names for consistency (capitalization) and simplified RoBERTa-large to RoBERTa since the paper consistently uses RoBERTa as the base model"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "Average",
+      "EXTREMA",
+      "GREEDY",
+      "ADEM",
+      "RUBER",
+      "ROBERTA EVAL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Average",
+          "Extrema",
+          "Greedy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-2",
+          "NSP"
+        ]
+      },
+      "normalized": {
+        "BLEU-2": "BLEU",
+        "RoBERTa-eval": "RoBERTa-eval"
+      },
+      "explanation": "Added missing automated metrics mentioned in Table 3, removed NSP (which is a training task, not an evaluation metric), and normalized BLEU-2 to BLEU"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa",
+          "RoBERTa-large"
+        ],
+        "methods": [
+          "regression-based score prediction",
+          "reference‑free evaluation via MLP scoring"
+        ],
+        "criteria": [
+          "appropriateness",
+          "relevance",
+          "grammatical correctness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "RoBERTa is used as a text encoder in the evaluation model, not as an LLM judge. The paper does not use LLMs for post-generation assessment."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "rate response appropriateness on a 5-point Likert scale"
+    ],
+    "criteria": [
+      "Appropriateness",
+      "Relevance",
+      "Grammaticality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed - the extracted metadata accurately reflects the human evaluation methodology described in the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on building automatic dialogue response evaluators rather than LLM-based evaluation. The main contribution is a reference-free, semi-supervised RoBERTa-based evaluator that correlates well with human judgments. The extraction mostly captured the paper's content accurately, with Question 3 being an important correction since no LLMs are used as judges."
+}

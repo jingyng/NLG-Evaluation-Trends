@@ -1,0 +1,153 @@
+{
+  "paper_id": "2022.acl-long.93",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Machine Translation"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "TAC 2008",
+      "TAC 2009",
+      "TAC 2010",
+      "TAC 2011",
+      "WMT19",
+      "OPENSUBTITLES"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "Czech",
+      "German",
+      "Finnish",
+      "Russian",
+      "Lithuanian",
+      "Kazakh"
+    ],
+    "models": [
+      "bart_base",
+      "bart_large",
+      "mbart",
+      "opus_mt",
+      "bert_base",
+      "roberta_large",
+      "deberta_xlarge",
+      "bert_tiny",
+      "bert_small",
+      "bert_medium"
+    ],
+    "outputs": [
+      "Summaries",
+      "Translations",
+      "Scalar evaluation scores"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "OpenSubtitles"
+        ],
+        "outputs": [
+          "Scalar evaluation scores"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "OpenSubtitle"
+        ]
+      },
+      "normalized": {
+        "OpenSubtitle": "OpenSubtitles",
+        "BERT-Base": "BERT-base",
+        "RoBERTa-Large": "RoBERTa-large",
+        "DeBERTa-XLarge": "DeBERTa-xlarge",
+        "BERT-Tiny": "BERT-tiny",
+        "BERT-Small": "BERT-small",
+        "BERT-Medium": "BERT-medium",
+        "summaries and translations": "Summaries, Translations"
+      },
+      "explanation": "Normalized model names to standard lowercase suffixes, corrected OpenSubtitles spelling, and clarified outputs"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BERTSCORE",
+      "MOVERSCORE",
+      "FRUGALSCORE",
+      "ROUGE",
+      "BLEU",
+      "METEOR"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "All metrics were correctly extracted and properly normalized"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "BERT",
+          "RoBERTa",
+          "DeBERTa"
+        ],
+        "methods": [
+          "pairwise cosine similarity with greedy matching (BERTScore)",
+          "optimal transport / Word Mover's Distance over n‑gram embeddings (MoverScore)"
+        ],
+        "criteria": [
+          "semantic similarity",
+          "content relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper does NOT use LLMs as judges. The BERT-family models are used as the basis for metrics, not as post-generation evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Pyramid Score measures proportion of important semantic units (SCUs) in reference summaries captured by system summary",
+      "Responsiveness reflects content coverage and readability of each summary",
+      "Human ratings assess translation quality for WMT"
+    ],
+    "criteria": [
+      "Pyramid",
+      "Responsiveness",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Translation Quality"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "fluency",
+          "coherence",
+          "content coverage",
+          "readability",
+          "proportion of important semantic units"
+        ]
+      },
+      "normalized": {
+        "Translation Quality": "Translation Quality"
+      },
+      "explanation": "Removed inferred criteria that weren't explicitly mentioned as human evaluation criteria. Kept only the explicitly mentioned Pyramid Score, Responsiveness, and Translation Quality."
+    }
+  },
+  "overall_notes": "The extraction was generally good but had some issues: (1) Incorrectly marked Question 3 as using LLMs as judges when it doesn't, (2) Some model name normalization needed, (3) Added some missing but important details like OpenSubtitles dataset and translation quality criterion."
+}

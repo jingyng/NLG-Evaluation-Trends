@@ -1,0 +1,157 @@
+{
+  "paper_id": "2023.acl-long.428",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Title Generation",
+      "Information Extraction"
+    ],
+    "datasets": [
+      "WEBIE",
+      "MWEBIE",
+      "REBEL",
+      "WIKI NRE"
+    ],
+    "languages": [
+      "English",
+      "French",
+      "Spanish",
+      "Portuguese",
+      "Hindi"
+    ],
+    "models": [
+      "bart",
+      "mbart",
+      "bart_random",
+      "bart_pretrained"
+    ],
+    "outputs": [
+      "linearised triples (<sub> head entity label <rel> relation <obj> tail entity label <et>)",
+      "entity linking output"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BART-random",
+          "BART-pretrained"
+        ],
+        "outputs": [
+          "entity linking output"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BART RAND",
+          "BART PLM",
+          "mBART-50"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "WEBIE": "WebIE",
+        "mWEBIE": "mWebIE",
+        "Other:Triple Generation": "Other:Triple Generation",
+        "Other:Information Extraction": "Other:Information Extraction"
+      },
+      "explanation": "Normalized dataset names (WebIE not WEBIE), normalized model names (BART-random/BART-pretrained instead of BART RAND/BART PLM), added entity linking output as an additional generated output type"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PRECISION",
+      "RECALL",
+      "F1",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "precision",
+          "recall"
+        ]
+      },
+      "normalized": {
+        "precision": "Precision",
+        "recall": "Recall"
+      },
+      "explanation": "Removed duplicate lowercase versions of metrics, kept only capitalized standard forms"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM evaluation was conducted"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Annotators verify head entity (subject) and tail entity (object) linking correctness using Wikipedia title and Wikidata links",
+      "Annotators verify if triple relation is correctly inferred from the sentence using relation descriptions and examples"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators verify head entity (subject) and tail entity (object) linking correctness using Wikipedia title and Wikidata links",
+          "Annotators verify if triple relation is correctly inferred from the sentence using relation descriptions and examples"
+        ],
+        "criteria": [
+          "entity linking correctness",
+          "relation inference correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators are asked to verify if the head entity (subject) and tail entity (object) are linked correctly. For each entity, we provide its Wikipedia title and link to its Wikidata page as additional context. After that, the annotators are asked to verify if the triple relation is correctly inferred from the sentence. Here, we provide the relation descriptions and example use cases of each relation."
+        ],
+        "criteria": [
+          "correctness of entity linking",
+          "correctness of relation inference"
+        ]
+      },
+      "normalized": {
+        "correctness of entity linking": "entity linking correctness",
+        "correctness of relation inference": "relation inference correctness"
+      },
+      "explanation": "Changed answer from No to Yes since the paper clearly describes human annotation of WebIE dataset. Reformatted guidelines into clearer bullet-style descriptions while maintaining original meaning. Normalized criteria names."
+    }
+  },
+  "overall_notes": "The paper focuses on Information Extraction (triple generation) rather than traditional NLG. While it uses generative models (BART/mBART), the generated outputs are structured triples rather than natural language. The human evaluation was conducted for dataset annotation, not for evaluating model outputs. The paper extensively evaluates model performance using automatic metrics."
+}

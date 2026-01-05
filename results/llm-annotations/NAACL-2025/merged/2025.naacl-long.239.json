@@ -1,0 +1,95 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "To demonstrate the effectiveness of the proposed approach we experiment with three LLM families and two constraint-satisfaction tasks -constrained commonsense generation, CommonGen and harmless text generation, HTG (Anthropic HH-RLHF).",
+            "We experiment with three LLM families and two constraint-satisfaction tasks -constrained commonsense generation, CommonGen and harmless text generation, HTG (Anthropic HH-RLHF). ...",
+            "Alignment of LLMs to human preferences is important for their general applicability. Constrained decoding in large language models (LLMs) is an effective method as a post-training step to align LLM generations to human preferences such as harmless text generation, faithful summarization, formatted generation, flow adhering planning, among other use cases."
+        ],
+        "tasks": [
+            "Other: Constrained Commonsense Generation",
+            "Dialogue Generation",
+            "Other:Constrained Commonsense Generation",
+            "Other:Harmless Text Generation"
+        ],
+        "datasets": [
+            "CommonGen",
+            "Anthropic HH-RLHF"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "OPT-13B",
+            "OPT-125M",
+            "OPT-350M",
+            "OPT-1.3B",
+            "Bloomz-7.1B",
+            "Bloomz-560M",
+            "Bloomz-1.7B",
+            "Qwen1.5-7B",
+            "Qwen1.5-0.5B",
+            "Qwen1.5-1.8B",
+            "Qwen-1.5-7B"
+        ],
+        "outputs": [
+            "Generated sequences of text",
+            "generated sentences",
+            "generated text sequences under lexical and semantic constraints"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "For CommonGen, we report two constraint satisfaction metrics -(1) % Soft Constraint Satisfaction: measures the overall percentage of constraints that are satisfied across all data points, (2) % Hard Constraint Satisfaction: measures the percentage of data points where all required concepts are included. For HTG, we measure the percentage of generations that are harmless.",
+            "We report % Soft Constraint Satisfaction and % Hard Constraint Satisfaction for CommonGen, and % harmless for HTG, measured by an external LLM classifier.",
+            "For CommonGen, we report two constraint satisfaction metrics -(1) % Soft Constraint Satisfaction: measures the overall percentage of constraints that are satisfied across all data points, (2) % Hard Constraint Satisfaction: measures the percentage of data points where all required concepts are included. For HTG, we measure the percentage of generations that are harmless."
+        ],
+        "automatic_metrics": [
+            "% Soft Constraint Satisfaction",
+            "% Hard Constraint Satisfaction",
+            "% Harmless Response",
+            "Soft Constraint Satisfaction",
+            "Hard Constraint Satisfaction",
+            "Harmlessness Percentage",
+            "Reward Model Score"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "For evaluating if a generated response is harmless, we use an off-the-shelf LLM, Llama-Guard-3-8B (Llama Team, 2024), which is fine-tuned for content safety classification task to assess the safety of the generated text.",
+            "To evaluate the harmless text generation task, we use an external LLM, Llama-Guard-3-8B (Llama, which is especially fine-tuned for content safety classification task).",
+            "For evaluating if a generated response is harmless, we use an off-the-shelf LLM, Llama-Guard-3-8B (Llama Team, 2024), which is fine-tuned for content safety classification task to assess the safety of the generated text."
+        ],
+        "models": [
+            "Llama-Guard-3-8B"
+        ],
+        "methods": [
+            "classification using a predefined prompt",
+            "content safety classification"
+        ],
+        "criteria": [
+            "harmlessness",
+            "safety"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "To assess the reliability of this LLM judge we perform a meta evaluation. ... Then we randomly sample data points from each of the safe and unsafe buckets and use them for human evaluation. ... The annotators are presented with the same prompt as Llama-Guard ... and are instructed to mark the Assistant response as safe or unsafe.",
+            "We use Amazon SageMaker Ground Truth for the evaluation, where the annotators are presented with the same prompt as Llama-Guard ... and are instructed to mark the Assistant response as safe or unsafe.",
+            "We use Amazon SageMaker Ground Truth for the evaluation, where the annotators are presented with the same prompt as Llama-Guard (as shown in Figure ) along with some positive and negative examples and are instructed to mark the Assistant response as safe or unsafe."
+        ],
+        "guideline": [
+            "Annotators were instructed to mark the Assistant response as safe or unsafe using the same prompt as the LLM judge.",
+            "Annotators were asked to label each generated response as safe or unsafe based on provided examples.",
+            "annotators are instructed to mark the Assistant response as safe or unsafe based on the prompt and provided examples"
+        ],
+        "criteria": [
+            "safety",
+            "safe",
+            "unsafe"
+        ]
+    }
+}

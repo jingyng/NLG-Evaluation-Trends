@@ -1,0 +1,137 @@
+{
+  "paper_id": "2020.acl-main.521",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Open Information Extraction"
+    ],
+    "datasets": [
+      "CARB",
+      "oie2016",
+      "WIKIPEDIA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "imojie",
+      "copyattention",
+      "bert",
+      "lstm",
+      "copyattention+bert",
+      "rnnoie",
+      "spanoie",
+      "openie_4",
+      "clausie"
+    ],
+    "outputs": [
+      "OpenIE tuples (subject, relation, object)",
+      "Subject-relation-object tuples"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "OIE2016"
+        ],
+        "models": [
+          "CopyAttention+BERT"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Wikipedia sentences"
+        ],
+        "outputs": [
+          "triples in (subject, relation, object) format"
+        ]
+      },
+      "normalized": {
+        "IMOJIE": "IMOJIE",
+        "CopyAttention+ BERT": "CopyAttention+BERT"
+      },
+      "explanation": "Removed redundant dataset 'Wikipedia sentences' (covered by 'Wikipedia') and redundant output description. Added missing OIE2016 dataset and normalized model names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "AUC",
+      "PRECISION",
+      "RECALL",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Precision",
+          "Recall",
+          "ROUGE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Optimal F1",
+          "Last F1",
+          "Mean Number of Occurrences",
+          "Intersection Over Union"
+        ]
+      },
+      "normalized": {
+        "Optimal F1": "F1",
+        "Last F1": "F1"
+      },
+      "explanation": "Simplified metric variants to base forms (F1 covers both Optimal F1 and Last F1). Added Precision and Recall which are explicitly used. Added ROUGE which is used in the Score-and-Filter mechanism. Removed redundancy measures that are not standard NLG metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "guideline": [
+          "We identified four major phenomena contributing to errors in the IMOJIE model: (1) Missing information... (2) Incorrect demarcation... (3) Missing conjunction splitting... (4) Grammatically incorrect extractions..."
+        ],
+        "criteria": [
+          "Missing information",
+          "Incorrect demarcation",
+          "Missing conjunction splitting",
+          "Grammatically incorrect extractions",
+          "Redundant extractions",
+          "Miscellaneous errors"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not conduct formal human evaluations. The error analysis mentioned is based on automatic evaluation and qualitative analysis, not human judgment."
+    }
+  },
+  "overall_notes": "The paper focuses on Open Information Extraction (OpenIE), which is an NLG task where models generate structured tuples from unstructured text. While it mentions qualitative analysis and error categorization, these are not formal human evaluations but rather automatic analysis of model outputs. The extraction was generally accurate but needed normalization and simplification of metrics."
+}

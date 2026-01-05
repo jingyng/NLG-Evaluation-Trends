@@ -1,0 +1,140 @@
+{
+  "paper_id": "2024.acl-long.495",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Logical Form Generation",
+      "Code Generation"
+    ],
+    "datasets": [
+      "GRAILQA",
+      "WEBQSP",
+      "GRAPHQ",
+      "MICROSOFT ACADEMIC GRAPH"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4",
+      "gpt_4_0613",
+      "mixtral_8x_7b",
+      "tiara",
+      "pangu",
+      "kb_binder",
+      "gf_llm",
+      "retinaqa"
+    ],
+    "outputs": [
+      "SPARQL queries",
+      "logical forms",
+      "structured queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "RetinaQA"
+        ],
+        "outputs": [
+          "logical forms",
+          "structured queries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Microsoft Academic KG",
+          "MAKG"
+        ],
+        "languages": [],
+        "models": [
+          "Mixtral",
+          "gpt-4-0613",
+          "Mixtral 8x7B Instruct v0.1"
+        ],
+        "outputs": [
+          "Structured queries (SPARQL logical forms) for KBQA"
+        ]
+      },
+      "normalized": {
+        "Mixtral 8x7B Instruct v0.1": "Mixtral 8x7B",
+        "gpt-4-0613": "GPT-4-0613",
+        "Microsoft Academic KG": "Microsoft Academic Graph",
+        "MAKG": "Microsoft Academic Graph",
+        "Structured queries (SPARQL logical forms) for KBQA": "structured queries"
+      },
+      "explanation": "Normalized model names to standard forms, consolidated dataset names (MAKG and Microsoft Academic KG refer to the same dataset), simplified output descriptions, and added RetinaQA which is evaluated in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "EXACT MATCH",
+      "RECALL ERROR RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Exact Match (EM)"
+        ]
+      },
+      "normalized": {
+        "Exact Match (EM)": "Exact Match"
+      },
+      "explanation": "Normalized 'Exact Match (EM)' to 'Exact Match'. All metrics are correctly extracted and relevant."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges/evaluators. LLMs are used for generation and re-ranking, but not for evaluating outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Manual review of SPARQL equivalence when automatic checker returns NO-DECISION."
+        ],
+        "criteria": [
+          "equivalence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'No' (no change in actual answer, but metadata was incorrect). The paper mentions manual review only for SPARQL equivalence checking when automatic methods fail, but this is not a formal human evaluation of NLG outputs. It's part of the automated evaluation pipeline."
+    }
+  },
+  "overall_notes": "The paper focuses on Knowledge Base Question Answering (KBQA) with logical form generation as the main NLG task. The extraction was generally good but needed normalization of model names and consolidation of dataset references. The paper evaluates generated SPARQL queries using automatic metrics (F1, Exact Match) but does not conduct formal human evaluations or use LLMs as judges."
+}

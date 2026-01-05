@@ -1,0 +1,56 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "Our goal is to automatically outline the fallacious reasoning and explain why the claim is incorrect, a crucial aspect of debunking misinformation.",
+        "tasks": [
+            "Other:Fallacious premise generation"
+        ],
+        "datasets": [
+            "MISSCI"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "LLaMA 2 (70B)",
+            "GPT-4"
+        ],
+        "outputs": "fallacious premises and fallacy classes"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "To evaluate the generated fallacious premises, we first match the top-ranked generated premises with the gold premises as reference texts via the predicted fallacy class and cosine similarity... We then report METEOR score... and BERTScore... we additionally compute a symmetric variant (NLI-S)... to account for semantic similarity.",
+        "automatic_metrics": [
+            "METEOR",
+            "BERTScore",
+            "NLI-A",
+            "NLI-S",
+            "P@1",
+            "micro F1-score",
+            "Arg@1",
+            "cosine similarity"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "Finally, we measure the LLM's internal consistency of the generated premise and fallacy class, by prompting the same LLM again to classify the fallacy present in the generated fallacious premise pi given (c, p 0 , pi ).",
+        "models": [
+            "LLaMA 2 (70B)",
+            "GPT-4"
+        ],
+        "methods": [
+            "consistency prompting"
+        ],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We manually evaluated 240 predictions from the main experiments in Table (60 per LLM with (D) and (L) prompts; 50% for correctly and incorrectly classified fallacies based on P@1).",
+        "guideline": "We assess if 1. the LLM outputs a fallacious premise (Q1), 2. the generated premise pi represents an applicable premise within the argument bridges the reasoning gap based on the context provided via s i (if exists) (Q2), 3. Q2 and the generated premise pi applies the predicted fallacy class fi (Q3), 4. the generated premise pi expresses the same fallacious reasoning as the reference p i (Q4).",
+        "criteria": [
+            "applicable premise",
+            "correct fallacy class",
+            "same reasoning flaw"
+        ]
+    }
+}

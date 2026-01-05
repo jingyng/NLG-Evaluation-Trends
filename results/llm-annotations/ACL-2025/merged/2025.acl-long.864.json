@@ -1,0 +1,109 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "the system to understand the evolving user intent and generating pixel-level explanations, and segmentation masks.",
+            "We define the pixel-level reasoning segmentation task as follows: (M, {a1, a2, . . . , aN }) = Model(I, D), where the model simultaneously generates a target segmentation mask M along with a textual reasoning chain {a1, a2, . . . , aN} that captures the complete dialogue history.",
+            "We propose a novel task, Pixel-level Reasoning Segmentation, that aims to achieve fine-grained segmentation through multi-turn conversations."
+        ],
+        "tasks": [
+            "Dialogue Generation"
+        ],
+        "datasets": [
+            "PRIST",
+            "COCO",
+            "Mapillary",
+            "RefCOCO",
+            "LLaVA-Instruct-80k",
+            "COCO Caption"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "MIRAS",
+            "LLaVA-v1.5",
+            "LLaVA-v1.6",
+            "MIRAS (based on LLaVA-v1.6)",
+            "GPT-4o",
+            "InternVL2-8B",
+            "Qwen2-VL-7B",
+            "LLaVA-v1.6-7B"
+        ],
+        "outputs": [
+            "textual reasoning chain {a1, a2, ..., aN} and segmentation mask M",
+            "multi-turn textual reasoning responses and pixel-level segmentation masks",
+            "textual reasoning chain {a 1 , a 2 , . . . , a N } that captures the complete dialogue history, where a i denotes the system's response in the i-th turn"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "For segmentation, we employ the CIoU metric and propose pixel-wise mask precision, recall, and F1 metrics. ... For response, the metrics including BLEU-4, ROUGE-L (Kingma, 2014), Dist-n, and METEOR.",
+            "We adopt the CIoU metric and propose pixel-wise mask precision, recall, and F1 metrics. For response, the metrics including BLEU-4, ROUGE-L, Dist-n, and METEOR are used.",
+            "For response, the metrics including BLEU-4 , ROUGE-L (Kingma, 2014), Dist-n , and ME-TEOR ."
+        ],
+        "automatic_metrics": [
+            "CIoU",
+            "Precision",
+            "Recall",
+            "F1",
+            "BLEU-4",
+            "Dist-1",
+            "Dist-2",
+            "ROUGE-L",
+            "METEOR",
+            "BERTScore",
+            "Pixel-wise Precision",
+            "Pixel-wise Recall",
+            "Pixel-wise F1"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "Considering the subjectivity of reasoning, we introduce LLM as a scoring tool using four metrics: Progressiveness (PR), Logical Coherence (LC), Content Consistency (CC), and Target Relevance (TR), with higher scores reflecting better performance across aspects. Meanwhile, we employ GPT-4o as a judge to assess dialogue reasoning quality.",
+            "We employ GPT-4 as a scoring tool to evaluate the model's reasoning quality using four key metrics: Progressiveness (PR), Logical Coherence (LC), Content Consistency (CC), and Target Relevance (TR). ... We also leverage GPT-4 as a judge to design an adversarial evaluation framework, using Win Rate (%) to assess reasoning quality.",
+            "Considering the subjectivity of reasoning, we introduce LLM as a scoring tool using four metrics: Progressiveness (PR), Logical Coherence (LC), Content Consistency (CC), and Target Relevance (TR), with higher scores reflecting better performance across aspects."
+        ],
+        "models": [
+            "GPT-4o",
+            "GPT-4"
+        ],
+        "methods": [
+            "scoring on a 5-point scale",
+            "Win Rate comparison with human responses",
+            "LLM-based scoring with prompts for four reasoning metrics",
+            "Win Rate adversarial evaluation",
+            "LLM-based scoring with averaged ratings over 5 runs",
+            "adversarial evaluation framework using Win Rate (%)"
+        ],
+        "criteria": [
+            "Progressiveness",
+            "Logical Coherence",
+            "Content Consistency",
+            "Target Relevance"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We randomly select 100 multi-turn conversations from the PRIST test set and invite three experts in computer science to respond ... Finally, the average score from the three experts is used as the human evaluation value for each metric.",
+            "Ten experts, selected through qualification tests, annotate masks and correct any commonsense errors in the dialogues."
+        ],
+        "guideline": [
+            "Human experts scored the model responses using the same four criteria (Progressiveness, Logical Coherence, Content Consistency, Target Relevance) as described for LLM evaluation.",
+            "Experts are organized into five groups, with each group annotating the same set of samples. This set ensures that two annotators independently annotate every sample."
+        ],
+        "criteria": [
+            "Progressiveness",
+            "Logical Coherence",
+            "Content Consistency",
+            "Target Relevance",
+            "IoU",
+            "Cohen's Kappa",
+            "commonsense errors",
+            "accuracy rate"
+        ]
+    }
+}

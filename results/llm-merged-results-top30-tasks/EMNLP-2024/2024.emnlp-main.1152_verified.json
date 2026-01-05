@@ -1,0 +1,177 @@
+{
+  "paper_id": "2024.emnlp-main.1152",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT23",
+      "WMT22"
+    ],
+    "languages": [
+      "Chinese",
+      "English",
+      "German",
+      "Hebrew"
+    ],
+    "models": [
+      "comet",
+      "comet_qe",
+      "comet_qe_mqm",
+      "bleurt_20",
+      "metricx_23",
+      "metricx_23_qe",
+      "metricx_23_xl",
+      "metricx_23_qe_xl",
+      "cometkiwi",
+      "cometkiwi_xl",
+      "xcomet",
+      "xcomet_qe",
+      "matese",
+      "matese_qe",
+      "gemba_mqm",
+      "mbr_metricx_qe"
+    ],
+    "outputs": [
+      "machine-translated text",
+      "translation quality scores"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "outputs": [
+          "translation quality scores"
+        ]
+      },
+      "removed": {
+        "models": [
+          "xCOMET-ENSEMBLE",
+          "xCOMET-QE-ENSEMBLE"
+        ],
+        "outputs": [
+          "Metric quality scores (scalar assessments) for translated sentences"
+        ]
+      },
+      "normalized": {
+        "xCOMET-ENSEMBLE": "xCOMET",
+        "xCOMET-QE-ENSEMBLE": "xCOMET-QE"
+      },
+      "explanation": "Normalized xCOMET ensemble variants to base forms, simplified output descriptions, and removed redundant model variants while maintaining all distinct MT evaluation models"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "COMET",
+      "COMET QE",
+      "COMET QE MQM",
+      "BLEURT",
+      "METRICX",
+      "METRICX 23 QE",
+      "METRICX 23 XL",
+      "METRICX 23 QE XL",
+      "XCOMET",
+      "XCOMET QE",
+      "MATESE",
+      "MATESE QE",
+      "GEMBA MQM",
+      "MBR METRICX QE",
+      "COMETKIWI",
+      "COMETKIWI XL",
+      "BLEU",
+      "CHRF",
+      "F200SPBLEU",
+      "EBLEU",
+      "TOKENGRAM",
+      "BERTSCORE",
+      "SENTINEL CAND",
+      "SENTINEL SRC",
+      "SENTINEL REF",
+      "RANDOM SYSNAME"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BERTScore"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "xCOMET-ENSEMBLE": "xCOMET",
+        "xCOMET-QE-ENSEMBLE": "xCOMET-QE"
+      },
+      "explanation": "Normalized xCOMET ensemble variants to base forms and added BERTScore which was mentioned in the paper. Maintained all other metrics as they are explicitly evaluated."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "quality assessment",
+      "MQM-style evaluation"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "MQM-style evaluation"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "quality assessment metric",
+          "LLM‑based quality assessment via GEMBA‑MQM",
+          "detailed quality assessments"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Simplified method descriptions to focus on the core LLM evaluation approach. No specific criteria were mentioned for GPT-4 evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Multidimensional Quality Metrics (MQM) framework",
+      "Direct Assessments + Scalar Quality Metrics (DA+SQM)"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Direct Assessments + Scalar Quality Metrics (DA+SQM)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Multidimensional Quality Metrics (MQM) framework",
+          "Annotators label each translation error with a category and severity (e.g., Minor, Major) and compute an overall MQM score using a weighting scheme.",
+          "Within the MQM annotation framework, professional annotators identify span-level translation errors and assign each error a category and severity."
+        ],
+        "criteria": [
+          "Error category",
+          "Error severity (Minor, Major)",
+          "MQM overall score",
+          "Error severity",
+          "Category Penalty"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper uses existing human evaluation datasets (WMT23 MQM, WMT23 DA+SQM) but does not conduct new human evaluations. Therefore corrected answer to 'No' and simplified guidelines to describe the existing annotation frameworks used in the datasets."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating machine translation evaluation metrics rather than conducting new NLG generation or human evaluation. It uses existing human-annotated datasets (WMT MQM and DA+SQM) but does not perform new human evaluations. The paper extensively evaluates many MT evaluation metrics across multiple language directions and use cases (data filtering, re-ranking). Metadata extraction was generally accurate but needed clarification on the human evaluation aspect."
+}

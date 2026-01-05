@@ -1,0 +1,138 @@
+{
+  "paper_id": "2022.emnlp-main.558",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Entailment Generation",
+      "Contradiction Generation",
+      "Sentence Pair Generation"
+    ],
+    "datasets": [
+      "MNLI",
+      "SNLI",
+      "c4",
+      "ASKUBUNTU",
+      "CQADUPSTACK",
+      "TWITTER",
+      "PUBMED",
+      "eli5",
+      "GOOAQ",
+      "YAHOO",
+      "cc12m"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_base",
+      "t_5_small",
+      "t_5"
+    ],
+    "outputs": [
+      "entailment sentences",
+      "contradiction sentences",
+      "synthetic entailment sentence pairs",
+      "synthetic contradiction sentence pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [
+          "MNLI+SNLI",
+          "PubMed subset in the Pile"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Entailment and Contradiction Generation": "Other:Entailment Generation, Other:Contradiction Generation",
+        "entailment and contradiction sentences": "entailment sentences, contradiction sentences",
+        "MNLI+SNLI": "MNLI, SNLI",
+        "PubMed subset in the Pile": "PubMed"
+      },
+      "explanation": "Split the combined task into separate generation tasks, removed redundant/merged dataset entries, and clarified output descriptions. Removed 'Paraphrase Generation' as it's not explicitly mentioned as a task."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "SPEARMAN CORRELATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Spearman's correlation"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'Yes' since the paper extensively uses Spearman's correlation on STS benchmark for automatic evaluation of sentence embeddings. No other automatic NLG evaluation metrics are used."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "T5 (generator/discriminator)"
+        ],
+        "methods": [
+          "discriminator confidence threshold filtering"
+        ],
+        "criteria": [
+          "entailment correctness",
+          "contradiction correctness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as these refer to internal model components (generator/discriminator used during training for data filtering), not LLMs used as external judges for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators judged whether each generated sentence pair is a correct entailment or contradiction.",
+          "For each input sentences, we give two samples using over-generation."
+        ],
+        "criteria": [
+          "correctness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' - the paper performs automatic quality analysis of synthetic data but doesn't conduct formal human evaluations with annotators. The text describes automatic comparison methods and mentions 'human judgment' only in a table caption but doesn't detail an actual human evaluation study."
+    }
+  },
+  "overall_notes": "The paper focuses on sentence representation learning using synthesized data, with NLG components primarily serving as intermediate steps for generating training data rather than being the main evaluation target. The main evaluations are on downstream tasks using sentence embeddings, not direct NLG output quality assessment."
+}

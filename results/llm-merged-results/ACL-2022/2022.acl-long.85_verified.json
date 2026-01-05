@@ -1,0 +1,140 @@
+{
+  "paper_id": "2022.acl-long.85",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Explanation Graph Generation",
+      "Other:Temporal Graph Generation"
+    ],
+    "datasets": [
+      "ExplaGraphs",
+      "Temporal Graph Generation (from Madaan and Yang, 2021)"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5",
+      "T5-large",
+      "BART",
+      "RoBERTa"
+    ],
+    "outputs": [
+      "explanation graphs (linearized edge strings representing structured knowledge)",
+      "temporal graphs (linearized edge strings representing temporal relations)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "temporal graphs (linearized edge strings representing temporal relations)"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Machine Translation",
+          "Other:commonsense explanation graph generation",
+          "Other:temporal graph generation"
+        ],
+        "datasets": [
+          "Temporal (from Madaan and Yang, 2021)",
+          "Temporal Graph Generation"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "explanation graphs and temporal graphs",
+          "The models generate structured outputs in the form of explanation graphs and temporal graphs, represented as linearized strings of edges."
+        ]
+      },
+      "normalized": {
+        "Other:commonsense explanation graph generation": "Other:Explanation Graph Generation",
+        "Other:temporal graph generation": "Other:Temporal Graph Generation"
+      },
+      "explanation": "Removed tasks mentioned in background (Text Summarization, Machine Translation) that are not actually evaluated in this paper. Kept only the two graph generation tasks that are actually studied. Simplified task names to remove duplication. Normalized dataset names and combined outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Structural Correctness Accuracy (StCA)",
+      "Semantic Correctness Accuracy (SeCA)",
+      "Graph-BertScore (G-BS)",
+      "Graph Edit Distance (GED)",
+      "Edge Accuracy (EA)",
+      "Stance Accuracy (SA)"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Graph‑BertScore (G‑BS)": "Graph-BertScore (G-BS)"
+      },
+      "explanation": "Removed duplicate Graph‑BertScore entry. All metrics are correctly identified from the paper and properly normalized."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa"
+        ],
+        "methods": [
+          "classification for semantic correctness",
+          "model‑based classification of stance"
+        ],
+        "criteria": [
+          "stance consistency with gold belief"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. RoBERTa is used as part of the semantic correctness evaluation pipeline (SeCA metric), but this is an automated model-based metric, not an LLM-as-judge scenario where an LLM evaluates outputs after generation. LLM-as-judge specifically refers to using large language models as evaluators, which this paper does not do."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators choose which graph is better or if they are mostly similar",
+      "Focus on cases where both models predict correct stance and graphs are structurally correct to isolate semantic quality"
+    ],
+    "criteria": [
+      "overall quality/preference"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Focus on cases where both models predict correct stance and graphs are structurally correct to isolate semantic quality"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added additional guideline detail about the evaluation setup. Kept existing criteria which accurately reflects the paper's human evaluation approach."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main issues were: (1) Question 3 had incorrect 'Yes' answer - paper uses automated model-based evaluation (RoBERTa classifier) but not LLM-as-judge; (2) Some background tasks were incorrectly included as main tasks; (3) Minor normalization needed for consistent naming. The paper focuses on structured graph generation using NLG techniques with comprehensive evaluation including both automatic metrics and human evaluation."
+}

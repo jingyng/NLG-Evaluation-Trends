@@ -1,0 +1,170 @@
+{
+  "paper_id": "2025.acl-long.311",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering"
+    ],
+    "datasets": [
+      "AIRQA REAL",
+      "m3sciqa",
+      "SCIQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4o_mini_2024_07_18",
+      "gpt_4_1106_vision_preview",
+      "llama_3.3_70b_instruct",
+      "qwen_2.5_vl_72b_instruct",
+      "deepseek_r_1"
+    ],
+    "outputs": [
+      "Answers to user questions about PDF content",
+      "Generated answers across text, tables, images, formulas, and metadata"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Generated answers across text, tables, images, formulas, and metadata"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "bge-large-en-v1.5",
+          "clip-vit-base-patch32"
+        ],
+        "outputs": [
+          "The outputs include answers to complex questions over full PDFs, involving text, tables, images, formulas, and metadata, generated through an interactive retrieval and reasoning process."
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Other:Question Answering"
+      },
+      "explanation": "Removed embedding models (bge-large-en-v1.5, clip-vit-base-patch32) as they are not generation models. Simplified outputs description and added more precise description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EVAL BOOL EXACT MATCH",
+      "EVAL FLOAT EXACT MATCH",
+      "EVAL INT EXACT MATCH",
+      "EVAL STRING EXACT MATCH",
+      "EVAL STRUCTURED OBJECT EXACT MATCH",
+      "EVAL ELEMENT INCLUDED",
+      "EVAL ELEMENT LIST INCLUDED",
+      "EVAL ELEMENT LIST OVERLAP",
+      "EVAL PAPER RELEVANCE WITH REFERENCE ANSWER"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "eval_reference_answer_with_llm",
+          "eval_scoring_points_with_llm",
+          "eval_partial_scoring_points_with_llm",
+          "eval_complex_math_formula_with_llm",
+          "eval_conjunction",
+          "eval_disjunction",
+          "eval_negation",
+          "eval_m3sciqa",
+          "eval_scidqa"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed LLM-based evaluation functions and logical operators from automatic metrics list since they are not traditional automatic metrics but rather LLM-as-judge evaluations. Kept only objective evaluation functions that operate without LLM assessment."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o",
+      "gpt_4_0125_preview"
+    ],
+    "methods": [
+      "LLM-based subjective assessment",
+      "LLM-based judgement",
+      "semantic equivalence evaluation"
+    ],
+    "criteria": [
+      "Equivalence"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4o",
+          "gpt-4-0125-preview"
+        ],
+        "methods": [
+          "semantic equivalence evaluation"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4o-mini-2024-07-18",
+          "GPT-4-1106-vision-preview",
+          "Llama-3.3-70B-Instruct",
+          "Qwen2.5-VL-72B-Instruct",
+          "DeepSeek-R1",
+          "gpt-4o-mini"
+        ],
+        "methods": [
+          "eval_reference_answer_with_llm",
+          "LLM evaluations align closely with human judgments"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4o-mini-2024-07-18": "GPT-4o-mini",
+        "gpt-4o-mini": "GPT-4o-mini",
+        "gpt-4-0125-preview": "GPT-4"
+      },
+      "explanation": "Kept only the LLMs specifically mentioned as judges (GPT-4o for subjective assessment, GPT-4 for M3SciQA evaluation). Removed generation models that are not used for evaluation. Simplified and normalized methods descriptions."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "AI researchers independently measure semantic equivalence compared to the reference answer"
+    ],
+    "criteria": [
+      "Equivalence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "AI researchers independently measure semantic equivalence compared to the reference answer"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Measure semantic equivalence compared to the reference answer.",
+          "measure the semantic equivalence compared to the reference answer"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "semantic equivalence": "semantic equivalence"
+      },
+      "explanation": "Cleaned up guideline format and consolidated duplicate descriptions. No changes to criteria as only semantic equivalence is mentioned."
+    }
+  },
+  "overall_notes": "The paper presents NeuSym-RAG, a hybrid neural-symbolic retrieval framework for PDF question answering. While it involves NLG (answer generation), the primary focus is on retrieval and question answering rather than pure text generation evaluation. The extraction was generally accurate but included some models that were not relevant specific questions (e.g., embedding models in NLG tasks, generation models in LLM-as-judge). The paper uses a comprehensive set of custom evaluation functions rather than standard NLG metrics."
+}

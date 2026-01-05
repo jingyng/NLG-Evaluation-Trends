@@ -1,0 +1,51 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "The wide range of tasks captures an array of problems that a generalist agent would encounter, mirroring real-world usability where tasks vary greatly. We conducted light quality control to ensure the validity of the instructions and their annotations. Here are the steps we took: (1) Several task instructions appeared underdefined (pilot experiments for crowdsourcing tasks), so we eliminated them. (2) Certain tasks were missing data artifacts, such as images or videos. We eliminated these tasks if the missing media file was critical for solving the task. (3) Some tasks did not render properly. A subset used older MTurk design conventions that are no longer supported. We manually revised or eliminated these tasks. (4) Finally, we manually spot-checked the task annotations to ensure the quality was not noisy. Ultimately, we put together a collection of 158 crowdsourcing tasks (examples in Figure ). These include but are not limited to language processing tasks (such as paraphrasing, validating factuality, entailment, sentiments, classification, dialogue quality, and rationale generation) and tasks that involve processing images or videos.",
+        "tasks": [
+            "Paraphrase Generation",
+            "Dialogue Generation",
+            "Other:rationale generation"
+        ],
+        "datasets": [
+            "TURKINGBENCH"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT4",
+            "Claude2.1",
+            "Llama3.1-Instruct",
+            "Llama3.2-Instruct",
+            "Llama3.2-Vision",
+            "LLaVA-VL-Vicuna",
+            "InternVL2",
+            "Qwen2"
+        ],
+        "outputs": "The outputs include text responses, checkbox selections, radio button selections, dropdown selections, and range inputs, depending on the field type in the web-based tasks."
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We devise an evaluation metric that is sensitive to the output type: (i) Text fields: For a given text response, we compute ROUGE metric against each label and compute their maximum value. (ii) Radio/select fields: We compute an exact match of the predicted label against the majority vote of gold labels. (iii) Checkbox fields: The results of the checkbox selection is a set. Therefore, we quantify this as intersection over union metric between the two sets (set of predicted labels and the gold labels). (iv) Range fields: The range predictions provide real or integer values. We compute absolute (ℓ 1 ) distance between the prediction and the labels, averaged across the labels. This is normalized by the largest value among the gold labels to normalize it to [0, 1] range.",
+        "automatic_metrics": [
+            "ROUGE",
+            "exact match",
+            "intersection over union",
+            "absolute (ℓ1) distance"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": "",
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We conducted human annotations to better understand the results in Table . This analysis uses predictions from GPT4o (7 demos and \"full\" encoding) as it is one of the highest-performing models. One of the authors reviewed one instance from each of the 16 tasks, totaling 144 responses to the input fields.",
+        "guideline": "The annotator directly evaluated 134 (out of 144) responses that we successfully parsed by our evaluation metric (i.e., no parsing error). The annotator agreed with GPT4o's responses in 60% (80 out of 134) of the cases, reaffirming that our benchmark remains challenging for the models.",
+        "criteria": []
+    }
+}

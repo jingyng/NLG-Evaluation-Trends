@@ -1,0 +1,153 @@
+{
+  "paper_id": "2025.naacl-long.56",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering Generation"
+    ],
+    "datasets": [
+      "ASQA",
+      "SituatedQA",
+      "NQ"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama3-8B-Instruct",
+      "Llama3-70B-Instruct",
+      "GPT-3.5-turbo",
+      "GPT-4",
+      "T5-Large",
+      "PaLM",
+      "Self-RAG-13B"
+    ],
+    "outputs": [
+      "comprehensive responses covering all plausible interpretations of ambiguous questions",
+      "long-form answers for ambiguous QA",
+      "short-form answers for ambiguous QA"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Question Answering Generation"
+        ],
+        "datasets": [
+          "NQ"
+        ],
+        "models": [
+          "Self-RAG-13B"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering",
+          "Other:Open-domain Question Answering"
+        ],
+        "datasets": [],
+        "models": [
+          "GPT-3.5",
+          "T5"
+        ]
+      },
+      "normalized": {
+        "Llama3-8B-Instruct": "Llama3-8B-Instruct",
+        "Llama3-70B-Instruct": "Llama3-70B-Instruct",
+        "GPT-3.5-turbo": "GPT-3.5-turbo",
+        "GPT-4": "GPT-4",
+        "T5-Large": "T5-Large"
+      },
+      "explanation": "Consolidated tasks to single NLG task, added missing NQ dataset, normalized model names to specific versions, removed redundant/incorrect items"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "D-F1",
+      "ROUGE-L",
+      "DR",
+      "MRecall@k",
+      "Recall@5",
+      "EM"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1",
+          "Recall@5",
+          "EM"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Disambiguation-F1 (D-F1)",
+          "ROUGE-L",
+          "DR (geometric mean of D-F1 and ROUGE-L)",
+          "Disambiguation-ROUGE (DR)"
+        ]
+      },
+      "normalized": {
+        "D-F1": "D-F1",
+        "R-L": "ROUGE-L",
+        "DR": "DR"
+      },
+      "explanation": "Simplified metric variants to base forms, removed redundant descriptions, added missing metrics mentioned in paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-3.5",
+          "GPT-4"
+        ],
+        "methods": [
+          "retrieval verification using pseudo-interpretations",
+          "binary label prediction (Yes/No) per interpretation"
+        ],
+        "criteria": [
+          "relevance of passage to each pseudo-interpretation",
+          "coverage of interpretations"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items since LLMs are not used as judges for output evaluation - they're used within the generation pipeline for retrieval diversification and verification"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted - paper only uses automatic metrics"
+    }
+  },
+  "overall_notes": "The paper focuses on RAG for ambiguous question answering with comprehensive response generation. It uses extensive automatic evaluation but no human evaluation or LLM-as-judge evaluation. The extraction was generally accurate but needed normalization and removal of pipeline components mistaken for evaluation methods."
+}

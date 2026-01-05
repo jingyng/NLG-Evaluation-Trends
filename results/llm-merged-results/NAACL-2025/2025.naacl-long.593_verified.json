@@ -1,0 +1,146 @@
+{
+  "paper_id": "2025.naacl-long.593",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation"
+    ],
+    "datasets": [
+      "NAS Parallel Benchmark",
+      "Rodinia Benchmark",
+      "OMP_Serial",
+      "EPCC Benchmark",
+      "PolyBench-OpenACC Benchmark"
+    ],
+    "languages": [
+      "C"
+    ],
+    "models": [
+      "GPT-4",
+      "GPT-3.5",
+      "CodeLlama-34B",
+      "CodeGen"
+    ],
+    "outputs": [
+      "Parallel code with OpenMP directives",
+      "Parallelized OpenMP C code"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "OMP_Serial dataset"
+        ],
+        "languages": [
+          "English"
+        ],
+        "models": [
+          "GNN",
+          "CodeGen-16B"
+        ],
+        "outputs": [
+          "parallel OpenMP code from sequential C code"
+        ]
+      },
+      "normalized": {
+        "OMP_Serial dataset": "OMP_Serial",
+        "Parallelized OpenMP C code (loops with appropriate directives and clauses)": "Parallelized OpenMP C code"
+      },
+      "explanation": "Removed 'English' as generated outputs are code not natural language. Removed 'GNN' as it's not an NLG model but a context generator. Consolidated datasets and output descriptions for clarity."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CodeBERTScore",
+      "OMPSCORE",
+      "ParaBLEU",
+      "BLEU",
+      "ROUGE",
+      "Accuracy",
+      "Speedup"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEU",
+          "ROUGE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ParaBLEU (modified)",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "CodeBERTScore": "CodeBERTScore",
+        "OMPSCORE": "OMPSCORE",
+        "ParaBLEU": "ParaBLEU",
+        "Speedup (runtime)": "Speedup",
+        "Accuracy": "Accuracy",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric names to base forms as per guidelines. Added BLEU and ROUGE as they are mentioned as underlying metrics for ParaBLEU and OMPScore. Simplified metric variants."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. LLMs were only used for generation, not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Observers assign scores 0-5 based on edit operations needed to transform generated directives to ground truth",
+      "Each modification operation deducts 1 point",
+      "Average of two independent observers' scores"
+    ],
+    "criteria": [
+      "Directive correctness (structural similarity)"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Average of two independent observers' scores"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Directive correctness (measured by number of required edits)": "Directive correctness (structural similarity)"
+      },
+      "explanation": "Clarified and rephrased the guideline for better clarity. Normalized the criteria description to be more precise."
+    }
+  },
+  "overall_notes": "The paper focuses on code generation (specifically OpenMP parallelization) using LLMs with GNN guidance. Evaluation uses both automatic metrics (CodeBERTScore, OMPScore, etc.) and human evaluation. The extraction was generally accurate but needed some normalization and removal of non-NLG elements."
+}

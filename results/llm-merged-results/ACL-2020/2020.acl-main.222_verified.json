@@ -1,0 +1,162 @@
+{
+  "paper_id": "2020.acl-main.222",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Other:knowledge grounding",
+      "Other:image grounding"
+    ],
+    "datasets": [
+      "ConvAI2",
+      "DailyDialog",
+      "Wizard of Wikipedia",
+      "Empathetic Dialogues",
+      "Cornell Movie",
+      "LIGHT",
+      "ELI5",
+      "Ubuntu",
+      "Twitter",
+      "pushshift.io Reddit",
+      "Image Chat",
+      "IGC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BERT baseline",
+      "Image+Seq2Seq transformer",
+      "ResNeXt-IG-3.5B image encoder"
+    ],
+    "outputs": [
+      "dialogue responses",
+      "generated responses conditioned on dialogue context, images, and external knowledge"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Empathetic Dialog"
+        ],
+        "languages": [],
+        "models": [
+          "Image+Seq2Seq",
+          "BERT"
+        ],
+        "outputs": [
+          "natural dialogue responses grounded in text, knowledge, and images"
+        ]
+      },
+      "normalized": {
+        "Empathetic Dialog": "Empathetic Dialogues",
+        "Wiz. of Wikipedia": "Wizard of Wikipedia",
+        "bleu": "BLEU"
+      },
+      "explanation": "Removed duplicate 'Empathetic Dialog' (normalized to 'Empathetic Dialogues'), removed redundant model variants ('Image+Seq2Seq' and 'BERT' are already covered by other entries), simplified output descriptions, and normalized dataset names to canonical forms."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "perplexity",
+      "BLEU",
+      "ROUGE",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "Perplexity (PPL)"
+        ]
+      },
+      "normalized": {
+        "bleu": "BLEU",
+        "rouge-1": "ROUGE",
+        "rouge-2": "ROUGE",
+        "rouge-l": "ROUGE",
+        "Perplexity (PPL)": "perplexity"
+      },
+      "explanation": "Normalized all ROUGE variants to base 'ROUGE' form as per guidelines. Removed redundant 'Perplexity (PPL)' since 'perplexity' is already listed."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values as the paper does not use LLMs as judges. The paper uses human evaluation and automatic metrics, but no LLM-based evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Pairwise comparison using ACUTE-Eval procedure",
+      "For Image Chat: choose 'the more engaging response'",
+      "For Wizard of Wikipedia: choose 'Who would you prefer to talk to for a long conversation?'"
+    ],
+    "criteria": [
+      "engagement",
+      "preference for long conversation"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Pairwise comparison using ACUTE-Eval procedure"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Pairwise comparison using ACUTE-Eval: for Image Chat, choose 'the more engaging response'; for WoW, choose 'Who would you prefer to talk to for a long conversation?'",
+          "Crowdworkers compare model outputs pairwise, selecting the more engaging response (Image Chat) or the preferred conversational partner for a long conversation (Wizard of Wikipedia).",
+          "crowdworkers are then used to compare models pairwise following the ACUTE-Eval procedure, where they are asked to choose which is 'the more engaging response' for Image Chat and 'Who would you prefer to talk to for a long conversation?' for WoW."
+        ],
+        "criteria": [
+          "engaging response"
+        ]
+      },
+      "normalized": {
+        "WoW": "Wizard of Wikipedia",
+        "engaging response": "engagement"
+      },
+      "explanation": "Consolidated and normalized the guideline descriptions into clear, concise statements. Removed redundant information and normalized criteria to base forms."
+    }
+  },
+  "overall_notes": "The paper focuses on dialogue generation with knowledge and image grounding across 12 diverse tasks. It uses standard automatic metrics (perplexity, BLEU, ROUGE, F1) and human evaluation with pairwise comparisons. The extraction was generally accurate but needed normalization and removal of duplicates/redundancies. No LLM-as-judge evaluation is present."
+}

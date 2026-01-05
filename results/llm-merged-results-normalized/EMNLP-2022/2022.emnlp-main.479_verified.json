@@ -1,0 +1,157 @@
+{
+  "paper_id": "2022.emnlp-main.479",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Machine Translation",
+      "Paraphrase Generation",
+      "Data2Text"
+    ],
+    "datasets": [
+      "SUMMEVAL",
+      "REALSUMM",
+      "rank19",
+      "Q CNN",
+      "Q XSUM",
+      "BAGEL",
+      "SFRES",
+      "SFHOT",
+      "WMT19",
+      "GLUE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "deberta_v_3",
+      "bart",
+      "deberta_v_3_large",
+      "paratag",
+      "bart_large",
+      "bert_base"
+    ],
+    "outputs": [
+      "NLG evaluator scores",
+      "generated paraphrases for data augmentation"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "WMT19"
+        ],
+        "outputs": [
+          "NLG evaluator scores",
+          "generated paraphrases for data augmentation"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "RE-ALSumm"
+        ],
+        "outputs": [
+          "evaluation scores for NLG outputs and paraphrase generation for data augmentation",
+          "The models generate paraphrased sentences, evaluate NLG outputs, and serve as data augmentation for downstream tasks."
+        ]
+      },
+      "normalized": {
+        "Other:Data2Text": "Other:Data2Text",
+        "ParaTag": "ParaTag"
+      },
+      "explanation": "Removed duplicate dataset (RE-ALSumm), simplified output descriptions, added missing WMT19 dataset"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SPEARMAN",
+      "PEARSON",
+      "ACCURACY",
+      "KENDALL S TAU",
+      "ROUGE",
+      "BLEU",
+      "BERTSCORE",
+      "MOVERSCORE",
+      "PRISM",
+      "BARTSCORE",
+      "BLEURT",
+      "COMET",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BARTScore",
+          "BLEURT",
+          "COMET",
+          "F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ParaBank-BARTScore",
+          "ParaTag-BARTScore",
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "ParaBank-BARTScore": "BARTScore",
+        "ParaTag-BARTScore": "BARTScore"
+      },
+      "explanation": "Normalized ROUGE variants to base form, removed redundant BARTScore variants, added missing metrics mentioned in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper; GPT-3 was used for data generation only"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Highlight spans in each sentence that the other sentence cannot paraphrase",
+      "If sentences have completely different meaning, highlight whole sentences",
+      "If sentences are paraphrases, no highlights needed"
+    ],
+    "criteria": [
+      "Factuality",
+      "Coherence",
+      "Informativeness",
+      "Fluency",
+      "Coverage"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Highlight spans in each sentence that the other sentence cannot paraphrase",
+          "If sentences have completely different meaning, highlight whole sentences",
+          "If sentences are paraphrases, no highlights needed"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "compare evaluator scores to human judgments on benchmark datasets."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Replaced vague guideline with actual human annotation instructions from the paper, kept criteria unchanged"
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation using fine-grained paraphrase tagging. It uses ParaTag dataset for training NLG evaluators and paraphrase generators. The extraction was generally good but needed normalization of metrics and clarification of human evaluation guidelines."
+}

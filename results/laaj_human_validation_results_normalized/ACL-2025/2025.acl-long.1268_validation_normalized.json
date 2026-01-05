@@ -1,0 +1,120 @@
+{
+  "paper_id": "2025.acl-long.1268",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper conducts both LLM and human evaluations on the same sets of question pairs, compares their performance using accuracy metrics, and discusses the relationship between LLM and human evaluation results"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Step 1 and Step 2 prompts are shown in Appendix A.1, but full evaluation prompts are not provided verbatim"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Annotators were given definitions of each dimension and the desirable trait R_d as specified in \u00a74.1"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Accuracy",
+      "Consistent Accuracy"
+    ],
+    "shared_criteria": [
+      "Difficulty",
+      "Discrimination",
+      "Efficiency"
+    ],
+    "sample_size": {
+      "total_generated": 120,
+      "validated_by_both": 120,
+      "notes": "60 pairs of human-written questions and 60 pairs of machine-generated questions were evaluated by both LLM and human annotators"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Accuracy",
+        "value": 78.33,
+        "criterion": "overall_human_written",
+        "llm_model": "human",
+        "significance": null,
+        "notes": "Human performance on human-written question pairs"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 90.48,
+        "criterion": "Difficulty",
+        "llm_model": "human",
+        "significance": null,
+        "notes": "Human performance on difficulty dimension"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 53.33,
+        "criterion": "discrimination",
+        "llm_model": "human",
+        "significance": null,
+        "notes": "Human performance on discrimination dimension"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 87.5,
+        "criterion": "Efficiency",
+        "llm_model": "human",
+        "significance": null,
+        "notes": "Human performance on distractor efficiency dimension"
+      },
+      {
+        "metric": "Accuracy",
+        "value": null,
+        "criterion": "overall",
+        "llm_model": "QG-SMS",
+        "significance": null,
+        "notes": "QG-SMS achieves second-highest accuracy overall, closest to human performance"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong_alignment",
+      "threshold_used": "Not explicitly stated, but QG-SMS described as achieving 'state-of-the-art alignment with human judgment'",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "QG-SMS shows strong alignment with human judgment, achieving the highest accuracy on generated questions and the second-highest overall, closely matching human performance on difficulty and efficiency while surpassing humans on discrimination evaluation"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Coverage"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Difficulty",
+      "Discrimination",
+      "Efficiency"
+    ],
+    "notes": "Both LLM and human evaluate the same three dimensions (DF, DC, DE) on the validation set, while topic coverage (TC) was only evaluated by LLM methods"
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "paper_id": "2023.acl-long.634",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "SummaC",
+      "TRUE",
+      "XSumFaith",
+      "SummEval",
+      "QAGS-XSum",
+      "QAGS-CNNDM",
+      "FRANK",
+      "SamSum",
+      "CogenSum",
+      "Polytope",
+      "MNBM",
+      "BEGIN",
+      "Q2",
+      "DialFact",
+      "PAWS",
+      "FEVER",
+      "VitaminC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ALIGNSCORE-base",
+      "ALIGNSCORE-large",
+      "RoBERTa-base",
+      "RoBERTa-large"
+    ],
+    "outputs": [
+      "factual consistency scores (alignment scores) for context-claim pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated texts such as summaries and dialogue responses"
+        ]
+      },
+      "normalized": {
+        "ALIGNSCORE-base": "ALIGNSCORE-base",
+        "ALIGNSCORE-large": "ALIGNSCORE-large"
+      },
+      "explanation": "Removed duplicate 'generated texts' output description as AlignScore is an evaluation metric, not a text generation system"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ALIGNSCORE",
+      "QAFactEval",
+      "QuestEval",
+      "FEQA",
+      "ROUGE",
+      "BLEU",
+      "BERTScore",
+      "NER-Overlap",
+      "SimCSE",
+      "BLEURT",
+      "MNLI",
+      "DAE",
+      "SummaC-ZS",
+      "SummaC-CONV",
+      "UniEval",
+      "CTC",
+      "BARTScore",
+      "FactCC",
+      "BLANC",
+      "GPTScore",
+      "G-EVAL",
+      "ChatGPT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "MNLI"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "ROUGE-1/2/L"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "ALIGNSCORE-base": "ALIGNSCORE",
+        "ALIGNSCORE-large": "ALIGNSCORE"
+      },
+      "explanation": "Consolidated ROUGE variants into single 'ROUGE' metric; added MNLI which was mentioned but missing; removed duplicate ALIGNSCORE-base/large variants"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "ChatGPT",
+      "GPT-3.5",
+      "GPT-4"
+    ],
+    "methods": [
+      "log probability scoring",
+      "chain-of-thought prompting",
+      "form-filling"
+    ],
+    "criteria": [
+      "factual consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "factual consistency"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "replacement of human annotators"
+        ],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "relevance",
+          "helpfulness"
+        ]
+      },
+      "normalized": {
+        "GPT3.5": "GPT-3.5",
+        "GPT4": "GPT-4"
+      },
+      "explanation": "Changed answer from 'No' to 'Yes' since paper explicitly compares with LLM-based metrics (GPTScore, G-EVAL, ChatGPT); added 'factual consistency' as the main evaluation criterion; removed irrelevant criteria"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- assigns binary labels based on whether the entire claim is factually consistent with the context"
+        ],
+        "criteria": [
+          "factual consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed extracted metadata as this describes automated evaluation setup (TRUE benchmark), not human evaluation. The paper uses existing benchmarks with human annotations but does not conduct new human evaluations."
+    }
+  },
+  "overall_notes": "The paper proposes AlignScore, a factual consistency evaluation metric for NLG outputs. It extensively benchmarks against many automatic metrics including LLM-based ones. The extraction was mostly accurate but needed some normalization and correction for Q3 where LLM-as-judge usage was missed."
+}

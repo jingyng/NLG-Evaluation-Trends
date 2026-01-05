@@ -1,0 +1,86 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "The output is represented in YAML format and encodes either binary outcomes (with event counts and totals for intervention and comparator groups) or continuous outcomes (with group-wise means, standard deviations, and sample sizes). The model learns to generate these structured summaries conditioned on the corresponding textual evidence.",
+            "We propose a structured pipeline that extracts interpretable numerical evidence from full-text studies via a numeric data extraction model, and infers study-level conclusions using transparent rules through an effect estimate component—eschewing reliance on implicit textual signals."
+        ],
+        "tasks": [
+            "Other: Structured Numerical Extraction",
+            "Other:Numeric Data Extraction",
+            "Other:Study Conclusion Generation"
+        ],
+        "datasets": [
+            "COCHRANEFORESTEXT",
+            "COCHRANEFOREST",
+            "RCTs"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Qwen2.5-7B-SFT",
+            "Qwen2.5-7B-RL",
+            "Qwen2.5-7B",
+            "Llama-3.1-405B",
+            "GPT-4-0125",
+            "DeepSeek-R1"
+        ],
+        "outputs": [
+            "Structured YAML outputs encoding numerical evidence for binary or continuous outcomes",
+            "structured YAML outputs encoding binary or continuous outcomes, and study-level conclusions derived from confidence intervals"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We report a range of metrics to assess both end-to-end performance and intermediate reasoning accuracy. For the end-to-end task of predicting the final conclusion label of each study, we report accuracy and F1 score. Following Yun et al. ( ), we also evaluate the quality of numerical extraction using exact match (EM), EM@1 (at least one positional match), as well as the mean squared error (MSE) of the computed point estimate derived from the extracted values. In addition, we measure the Error Impact Rate (EIR), defined as the ratio between the number of extraction errors that lead to a flipped conclusion and the number of total extraction errors at the study level.",
+            "We report a range of metrics to assess both end-to-end performance and intermediate reasoning accuracy. For the end-to-end task of predicting the final conclusion label of each study, we report accuracy and F1 score. ... we also evaluate the quality of numerical extraction using exact match (EM), EM@1 (at least one positional match), as well as the mean squared error (MSE) of the computed point estimate ... we measure the Error Impact Rate (EIR), defined as ...",
+            "We report a range of metrics to assess both end-to-end performance and intermediate reasoning accuracy. For the end-to-end task of predicting the final conclusion label of each study, we report accuracy and F1 score. ... we also evaluate the quality of numerical extraction using exact match (EM), EM@1 (at least one positional match), as well as the mean squared error (MSE) of the computed point estimate derived from the extracted values."
+        ],
+        "automatic_metrics": [
+            "Accuracy",
+            "F1 score",
+            "Exact Match (EM)",
+            "EM@1",
+            "Mean Squared Error (MSE)",
+            "Error Impact Rate (EIR)",
+            "F1",
+            "accuracy",
+            "exact match (EM)",
+            "mean squared error (MSE)"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "To this end, we manually annotate the outputs of both models on 30 biomedical studies, for which human annotators had previously identified the sources of the correct numbers (see Appendix C), assigning a single label to each reasoning process.",
+            "We manually annotate the outputs of both models on 30 biomedical studies, for which human annotators had previously identified the sources of the correct numbers (see Thought Process Reasoning Label). ... annotators assigned a single label to each reasoning process, distinguishing correct reasoning with/without traceability, incorrect numbers, hallucinations, etc.",
+            "Annotation Instances. Two master's degree students in NLP and co-authors of this work annotated 30 studies paired with outcomes from the COCHRANEFOREST dataset. ... For each study, the annotators were instructed to locate and mark all textual or tabular spans that contained the numerical evidence supporting the reported outcomes."
+        ],
+        "guideline": [
+            "Labels distinguish whether the reasoning correctly supports the individual number, whether it enables traceability to the source, and whether it hallucinates or lacks explanation.",
+            "Annotators assigned a single label to each reasoning process, categorising it according to predefined categories (e.g., correct reasoning with traceability, hallucinated).",
+            "For each study, the annotators were instructed to locate and mark all textual or tabular spans that contained the numerical evidence supporting the reported outcomes. In the case of binary outcomes, this involved identifying four values: the event count and total group size for both the intervention and comparator arms. For continuous outcomes, six values were annotated: the mean, standard deviation, and group size for each group. Each annotated number was linked to one or more corresponding spans from the original study, enabling fine-grained traceability."
+        ],
+        "criteria": [
+            "Reasoning correctness",
+            "Traceability",
+            "Hallucination",
+            "correct reasoning with traceability",
+            "correct reasoning without traceability",
+            "correct reasoning, incorrect number",
+            "correct number, incorrect reasoning",
+            "copy without reasoning",
+            "hallucinated",
+            "missing reasoning"
+        ]
+    }
+}

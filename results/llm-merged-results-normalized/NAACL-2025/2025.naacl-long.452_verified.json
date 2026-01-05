@@ -1,0 +1,149 @@
+{
+  "paper_id": "2025.naacl-long.452",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Instruction Following"
+    ],
+    "datasets": [
+      "NATURAL QUESTIONS",
+      "TriviaQA",
+      "MIXINSTRUCT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4",
+      "newbing",
+      "llama_3_8b_instruct",
+      "llama_3_70b_instruct"
+    ],
+    "outputs": [
+      "Model-generated answers for question answering tasks",
+      "Model-generated responses for instruction following tasks",
+      "Outputs augmented with epistemic markers (strengtheners and weakeners)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Outputs augmented with epistemic markers (strengtheners and weakeners)"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "MixInstruct"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-4o",
+          "GPT-3.5-turbo",
+          "GPT-4-turbo"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "MIXINSTRUCT": "MIXINSTRUCT"
+      },
+      "explanation": "Removed GPT-4o, GPT-3.5-turbo, GPT-4-turbo from models list as these are judges, not generation models being evaluated. Kept GPT-4 and Newbing as these are the reader/generator models. Removed duplicate MixInstruct (kept MIXINSTRUCT). Added clearer description of augmented outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "VERDICT SWITCH RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "C2I",
+          "I2C"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "Verdict Switch Rate": "Verdict Switch Rate"
+      },
+      "explanation": "Normalized 'accuracy' to 'Accuracy'. Removed C2I and I2C as these are components/directions of Verdict Switch Rate, not separate metrics. Kept Accuracy and Verdict Switch Rate as the main automated evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_3.5_turbo",
+      "gpt_4_turbo",
+      "gpt_4o",
+      "llama_3_8b_instruct",
+      "llama_3_70b_instruct"
+    ],
+    "methods": [
+      "single evaluation",
+      "pairwise evaluation"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "reference-guided single evaluation"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "single evaluation": "single evaluation",
+        "pairwise evaluation": "pairwise evaluation"
+      },
+      "explanation": "Removed 'reference-guided single evaluation' as redundant with 'single evaluation'. Kept all models as they are explicitly used as LLM judges. Criteria remains 'correctness' as this is the main evaluation criterion."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human judges evaluate correctness of model outputs in reference-guided question answering task",
+      "Judges assess whether output is correct given question and reference answer"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human judges evaluate correctness of model outputs in reference-guided question answering task"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- reference-guided question answering task"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "correctness": "correctness"
+      },
+      "explanation": "Improved guideline description to be more informative. Kept 'correctness' as the single evaluation criterion explicitly mentioned for human evaluation."
+    }
+  },
+  "overall_notes": "The paper clearly addresses NLG evaluation with a focus on how epistemic markers affect LLM-based judgments. The extraction was generally good but needed clarification between generation models (GPT-4, Newbing) and judge models (GPT-3.5-turbo, GPT-4-turbo, GPT-4o, Llama-3 models). The paper uses both automated metrics (Accuracy, VSR) and human evaluation with clear criteria."
+}

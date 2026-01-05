@@ -1,0 +1,140 @@
+{
+  "paper_id": "2024.emnlp-main.1099",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "MEASURING HATE SPEECH MHS",
+      "MULTI DOMAIN AGREEMENT MDA",
+      "HATECHECK"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_chat_7b",
+      "mistral_7b_instruct",
+      "mixtral_8x_7b_instruct"
+    ],
+    "outputs": [
+      "paraphrased social media posts",
+      "paraphrased hate speech and non-hateful content"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [],
+        "tasks": []
+      },
+      "removed": {
+        "datasets": [
+          "Multi-Domain Agreement dataset (MDA)"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "paraphrased texts"
+        ],
+        "tasks": []
+      },
+      "normalized": {
+        "Multi-Domain Agreement dataset (MDA)": "Multi-Domain Agreement (MDA)",
+        "paraphrased texts": "paraphrased social media posts"
+      },
+      "explanation": "Removed duplicate dataset entry and normalized output description to be more specific"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "macro-F1",
+          "minority class F1"
+        ]
+      },
+      "normalized": {
+        "macro-F1": "F1",
+        "minority class F1": "F1"
+      },
+      "explanation": "Changed answer from No to Yes since the paper uses F1 scores to evaluate classifiers trained on synthetic data. Normalized both metric variants to base F1 form."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper - LLMs were only used for generation, not evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators assess realism by identifying if text is human or LLM-generated",
+      "Annotators evaluate grammaticality, world knowledge/plausibility, hate speech presence, and identity mentions following detailed guidelines",
+      "Two-step annotation process: 500 mixed texts for realism assessment, then 3,000 synthetic texts for detailed evaluation"
+    ],
+    "criteria": [
+      "Realism",
+      "Grammaticality",
+      "Knowledge",
+      "Presence",
+      "Identity",
+      "Failure"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Two-step annotation process: 500 mixed texts for realism assessment, then 3,000 synthetic texts for detailed evaluation"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "hate speech label preservation",
+          "identity representation",
+          "hateful content preservation",
+          "representation of target identities"
+        ]
+      },
+      "normalized": {
+        "hate speech label preservation": "hate speech presence",
+        "hateful content preservation": "hate speech presence",
+        "identity representation": "identity presence",
+        "representation of target identities": "identity presence"
+      },
+      "explanation": "Consolidated similar criteria and removed redundant entries. Added description of the two-step annotation process to guidelines."
+    }
+  },
+  "overall_notes": "This paper primarily focuses on evaluating the quality and characteristics of synthetic data (paraphrased social media posts) for hate speech detection, rather than evaluating NLG outputs per se. However, it does involve generation (paraphrasing) and human evaluation of the generated outputs, so it qualifies as NLG evaluation research. The automatic metrics (F1) are used to evaluate classifiers trained on the synthetic data, not directly to evaluate the generated text quality."
+}

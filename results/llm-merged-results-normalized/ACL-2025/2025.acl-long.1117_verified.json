@@ -1,0 +1,196 @@
+{
+  "paper_id": "2025.acl-long.1117",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Pun Generation",
+      "Pun Resolution",
+      "Pun Comprehension"
+    ],
+    "datasets": [
+      "PHUNNY"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "o_3_mini",
+      "gemini_2.0_flash_thinking",
+      "llama_3.3_70b",
+      "gpt_4o",
+      "phi_4_14b",
+      "gemini_2.0_flash",
+      "gpt_4o_mini",
+      "llama_3.1_8b",
+      "phi_3.5_3b"
+    ],
+    "outputs": [
+      "generated puns",
+      "punchline answers",
+      "explanations for pun comprehension"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Pun Comprehension"
+        ],
+        "models": [
+          "Gemini-2.0-Flash-Thinking"
+        ],
+        "outputs": [
+          "punchline answers"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Phi-3.5 (3B)"
+        ],
+        "outputs": [
+          "generated puns, punchline answers, explanations",
+          "generated puns, punchlines, and explanations for comprehension"
+        ]
+      },
+      "normalized": {
+        "Gemini-2.0-FT": "Gemini-2.0-Flash-Thinking",
+        "Phi-3.5 (3B)": "Phi-3.5-3B"
+      },
+      "explanation": "Added Pun Comprehension as it's a core task evaluated; normalized model names to standard formats; merged redundant output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "COHERENT PUN ACCURACY",
+      "MISLEADING PUN ACCURACY",
+      "VALID PREFIX ACCURACY",
+      "EXISTING WORD ACCURACY",
+      "CREATIVITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Coherent Pun Accuracy",
+          "Misleading Pun Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Proportion of unique subjects",
+          "Proportion of unique answers",
+          "exact match",
+          "derivative match",
+          "substring match",
+          "Accuracy (ACC)",
+          "Valid Prefix Accuracy (VPA)",
+          "Existing Word Accuracy (EWA)",
+          "Creativity (C_S, C_A)"
+        ]
+      },
+      "normalized": {
+        "CPA": "Coherent Pun Accuracy",
+        "MPA": "Misleading Pun Accuracy",
+        "VPA": "Valid Prefix Accuracy",
+        "EWA": "Existing Word Accuracy",
+        "C_S": "Creativity",
+        "C_A": "Creativity",
+        "ACC": "Accuracy"
+      },
+      "explanation": "Simplified to base metric names rather than specific variants; removed implementation details like exact/substring match which are scoring methods, not metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gemini_1.5_flash"
+    ],
+    "methods": [
+      "semantic equivalence evaluation",
+      "contamination detection",
+      "word derivation validation",
+      "meaning association validation"
+    ],
+    "criteria": [
+      "Equivalence",
+      "Correctness",
+      "Derivation",
+      "Association"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "word derivation validation",
+          "meaning association validation"
+        ],
+        "criteria": [
+          "punchline derivation relationship",
+          "meaningful association"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "LLM-as-a-judge",
+          "contamination check"
+        ],
+        "criteria": [
+          "whether the model's explanation is semantically equivalent to the gold rationale",
+          "whether the pun appears in the retrieved documents",
+          "whether X Z derives from X",
+          "whether X Z is meaningfully associated with Y"
+        ]
+      },
+      "normalized": {
+        "semantic equivalence check": "semantic equivalence evaluation",
+        "LLM-as-a-judge via semantic equivalence comparison": "semantic equivalence evaluation"
+      },
+      "explanation": "Consolidated similar LLM-as-judge methods into clear categories; transformed specific criteria into generalized evaluation criteria"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants followed same instructions as models",
+      "Tasks were timed (20-60 minutes depending on task)",
+      "30 instances sampled per participant",
+      "Evaluation based on criteria from Section 5.2"
+    ],
+    "criteria": [
+      "Accuracy",
+      "Creativity",
+      "Correctness",
+      "Diversity",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Participants followed same instructions as models",
+          "Tasks were timed (20-60 minutes depending on task)",
+          "30 instances sampled per participant"
+        ],
+        "criteria": [
+          "grounded and relevant explanations"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Results were evaluated based on the criteria outlined in Section 5.2."
+        ],
+        "criteria": [
+          "semantic equivalence to gold rationale",
+          "validity of wordplay"
+        ]
+      },
+      "normalized": {
+        "correctness of punchline": "correctness of punchline",
+        "diversity of generated puns": "diversity of generated puns"
+      },
+      "explanation": "Extracted specific evaluation guidelines from the text; removed criteria that were actually part of LLM-as-judge evaluation rather than human evaluation"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate but needed some normalization of model names (Gemini-2.0-FT → Gemini-2.0-Flash-Thinking) and consolidation of metrics. Pun Comprehension is a key NLG task that was missing from the original extraction. The paper provides detailed methodologies for both automatic and human evaluation procedures."
+}

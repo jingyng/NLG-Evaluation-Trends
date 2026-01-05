@@ -1,0 +1,157 @@
+{
+  "paper_id": "2025.acl-long.1595",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Visual Question Answering",
+      "Visual Instruction Following",
+      "OCR"
+    ],
+    "datasets": [
+      "SAIL-Caption",
+      "DetailCaps-4870",
+      "DetailCaps-4870-EN",
+      "DetailCaps-4870-CN",
+      "IDL-WDS",
+      "DocStruct",
+      "SynthText",
+      "SynthDog-EN",
+      "SynthDog-ZH",
+      "SAIL-Instruction"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "SAIL-VL-2B",
+      "SAIL-VL-8B"
+    ],
+    "outputs": [
+      "Generated captions",
+      "OCR outputs",
+      "Responses to visual instructions",
+      "Visual question answering responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "OCR"
+        ],
+        "outputs": [
+          "Visual question answering responses"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Visual Question Answering",
+          "Other:Visual Instruction Following"
+        ]
+      },
+      "normalized": {
+        "Other:Visual Question Answering": "Visual Question Answering",
+        "Other:Visual Instruction Following": "Visual Instruction Following"
+      },
+      "explanation": "Normalized 'Other:' prefix tasks to standard forms and added 'OCR' as an explicit task since OCR evaluation is a major focus. Simplified outputs to be clearer."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "GPT Evaluation",
+      "ANLS"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "GPT-based evaluation",
+          "BMK Score"
+        ]
+      },
+      "normalized": {
+        "GPT-based evaluation": "GPT Evaluation"
+      },
+      "explanation": "Removed 'BMK Score' as it's not a standardized metric but rather refers to benchmark averages. Kept only the specific automatic metrics used: GPT Evaluation and ANLS score."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4O"
+    ],
+    "methods": [
+      "Quality scoring",
+      "Pairwise evaluation"
+    ],
+    "criteria": [
+      "Precision",
+      "Recall",
+      "Hallucination",
+      "Inaccuracy",
+      "Omission",
+      "Language Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "Pairwise evaluation"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT4-O-20240513",
+          "Azure GPT-4O",
+          "Azure GPT4O"
+        ],
+        "methods": [
+          "prompt-based scoring"
+        ],
+        "criteria": [
+          "visual elements"
+        ]
+      },
+      "normalized": {
+        "GPT4-O-20240513": "GPT-4O",
+        "Azure GPT-4O": "GPT-4O",
+        "Azure GPT4O": "GPT-4O"
+      },
+      "explanation": "Normalized all GPT-4O model references to standard form. Added 'Pairwise evaluation' as the GSB judgment method. Removed redundant criteria and kept the specific evaluation dimensions."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Each image is paired with two captions, rate them based on hallucination, inaccuracy, omission, and language fluency criteria",
+      "First compare captions using GSB (Good-Same-Bad) judgment",
+      "Then assign absolute scores (1-5) to each caption independently"
+    ],
+    "criteria": [
+      "Hallucination",
+      "Inaccuracy",
+      "Omission",
+      "Language Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "First compare captions using GSB (Good-Same-Bad) judgment",
+          "Then assign absolute scores (1-5) to each caption independently"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "GSB judgment"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Streamlined the guideline into clear bullet points describing the two-step evaluation process. Removed 'GSB judgment' from criteria as it's a method, not a quality criterion."
+    }
+  },
+  "overall_notes": "The paper focuses on vision-language model evaluation with strong emphasis on NLG tasks like image captioning and visual instruction following. Metadata extraction was generally accurate with minor normalization needed. The paper uses both GPT-based automated evaluation and rigorous human evaluation with clear guidelines."
+}

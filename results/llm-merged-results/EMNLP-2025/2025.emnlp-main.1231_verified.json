@@ -1,0 +1,137 @@
+{
+  "paper_id": "2025.emnlp-main.1231",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Counterfactual Explanation Generation"
+    ],
+    "datasets": [
+      "Income",
+      "House Prices",
+      "Heart Disease"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Gemma 2 27B",
+      "Llama 3.3 70B",
+      "DeepSeek-R1 32B",
+      "DeepSeek-R1 70B",
+      "Claude Sonnet 3.7",
+      "GPT-4.1",
+      "o3"
+    ],
+    "outputs": [
+      "counterfactual explanations modifying input features to flip predictions",
+      "self-generated counterfactual explanations in natural language"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Self-generated counterfactual explanations"
+        ],
+        "datasets": [
+          "House prices",
+          "Heart disease"
+        ],
+        "languages": [],
+        "models": [
+          "DeepSeek-R1 Qwen 32B",
+          "DeepSeek-R1 Llama 70B"
+        ],
+        "outputs": [
+          "Natural-language counterfactual explanations describing feature changes that would flip the model's prediction"
+        ]
+      },
+      "normalized": {
+        "House prices": "House Prices",
+        "Heart disease": "Heart Disease",
+        "Other:Self-generated counterfactual explanations": "Other:Counterfactual Explanation Generation"
+      },
+      "explanation": "Consolidated duplicate task descriptions, normalized dataset names to title case, removed duplicate/alternative model names that refer to the same models"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Validity",
+      "Excess Distance",
+      "Exact Match"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Gower's Distance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'Gower's Distance' as it's a distance function used for calculation, not an evaluation metric. The three main metrics used are Validity, Excess Distance, and Exact Match."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Gemma 2 27B",
+          "Llama 3.3 70B",
+          "DeepSeek-R1 32B",
+          "DeepSeek-R1 70B",
+          "Claude Sonnet 3.7",
+          "GPT-4.1",
+          "o3"
+        ],
+        "methods": [
+          "prediction re-evaluation",
+          "re-evaluation of model prediction on generated counterfactual"
+        ],
+        "criteria": [
+          "prediction flip (validity)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses LLMs to generate counterfactuals, but evaluation is done through automatic re-evaluation of the same model's predictions, not by using LLMs as judges to assess quality. The models listed are generation models, not evaluation judges."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper"
+    }
+  },
+  "overall_notes": "This paper evaluates self-generated counterfactual explanations (SCEs) as a form of NLG. The evaluation is primarily automatic, measuring validity and minimality through re-evaluation of model predictions. The key finding is a validity-minimality trade-off where LLMs struggle to produce counterfactuals that are both valid and minimal. The extraction was generally good but incorrectly classified the automatic re-evaluation as LLM-as-judge evaluation."
+}

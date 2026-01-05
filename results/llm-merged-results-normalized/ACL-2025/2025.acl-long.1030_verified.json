@@ -1,0 +1,153 @@
+{
+  "paper_id": "2025.acl-long.1030",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Generation",
+      "Essay Generation",
+      "Poetry Generation",
+      "Paper Abstract Generation"
+    ],
+    "datasets": [
+      "KATFISH"
+    ],
+    "languages": [
+      "Korean"
+    ],
+    "models": [
+      "gpt_4o",
+      "solar",
+      "qwen_2",
+      "llama_3.1",
+      "exaone_3.5"
+    ],
+    "outputs": [
+      "Korean essays in three educational levels",
+      "Korean poetry for different age groups",
+      "Korean research paper abstracts",
+      "LLM-generated Korean text across three genres"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Generation"
+        ],
+        "models": [],
+        "outputs": [
+          "Korean essays in three educational levels",
+          "Korean poetry for different age groups",
+          "Korean research paper abstracts"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Other:Argumentative Essay Generation"
+        ],
+        "models": [
+          "Qwen2 72B",
+          "Llama3.1 70B"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Llama3.1": "Llama-3.1",
+        "Exaone 3.5": "Exaone-3.5",
+        "Generated essays, poetry, and paper abstracts in Korean": "LLM-generated Korean text across three genres"
+      },
+      "explanation": "Added 'Text Generation' as primary task, consolidated redundant task names, removed incorrect 'Text Summarization' task, normalized model names with consistent hyphenation, and clarified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "AUC ROC"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Log-Likelihood",
+          "Entropy",
+          "Log-Rank",
+          "LRR",
+          "NPR",
+          "BARTScore"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all baseline metrics that were used by OTHER detection methods being compared against (not to evaluate the generated outputs themselves). The paper's KatFishNet method is evaluated using AUC-ROC only for the detection task."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "Exaone 3.5"
+        ],
+        "methods": [
+          "Paraphrasing with similarity scoring (BARTScore)",
+          "Prompting classification (binary label)",
+          "LLM Prompting"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The LLMs mentioned (Exaone 3.5) are used as BASELINE detection methods, not as judges to evaluate the quality of generated text. This paper is about detecting LLM-generated text, not about evaluating the quality of generated outputs using LLM judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Multi-genre evaluation rubric with 3-point scale ratings",
+      "Genre-specific criteria: essays (Language, Organization, Content), poetry (Poetic Diction, Organization, Content, Creativity), abstracts (Language, Organization, Content)",
+      "Evaluation by 3 native Korean experts (Korean literature/language education)",
+      "Blinded evaluation without knowing text authorship"
+    ],
+    "criteria": [
+      "Language",
+      "Organization",
+      "Content",
+      "Diction",
+      "Creativity",
+      "Grammaticality",
+      "Sentence",
+      "Structure",
+      "Clarity",
+      "Results",
+      "Imagery",
+      "Devices",
+      "Emotion",
+      "Evidence",
+      "Comprehension",
+      "Extension"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Multi-genre evaluation rubric with 3-point scale ratings",
+          "Evaluation by 3 native Korean experts (Korean literature/language education)",
+          "Blinded evaluation without knowing text authorship"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "Grammatical Accuracy": "Grammatical Accuracy",
+        "Sentence Cohesion": "Sentence Cohesion"
+      },
+      "explanation": "Enhanced guideline descriptions to better capture the evaluation methodology while keeping criteria list comprehensive but normalized"
+    }
+  },
+  "overall_notes": "This paper is primarily about DETECTING LLM-generated Korean text (detection task), not about evaluating the quality of generated text. The human evaluation is conducted to compare human-written vs LLM-generated text characteristics, not to evaluate the quality of generated outputs. Automatic metrics like AUC-ROC are used for detection performance evaluation, not for NLG quality assessment. The extraction incorrectly interpreted the detection methods as evaluation methods."
+}

@@ -1,0 +1,200 @@
+{
+  "paper_id": "2024.naacl-long.191",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Causal Relation Extraction",
+      "Other:Story Quality Evaluation",
+      "Other:Story Video-Text Alignment"
+    ],
+    "datasets": [
+      "COPES",
+      "GLUCOSE",
+      "OpenMEVA",
+      "SyMoN",
+      "YMS",
+      "ROCStories",
+      "WritingPrompt"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama2-13B-chat",
+      "Falcon-instruction-40B",
+      "Yi-34B-chat",
+      "ChatGPT-3.5-turbo"
+    ],
+    "outputs": [
+      "causal graphs",
+      "story quality scores",
+      "video-text alignments"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Story Video-Text Alignment"
+        ],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:story generation",
+          "Other:story understanding"
+        ],
+        "models": [
+          "ChatGPT-3.5-turbo-0631",
+          "ChatGPT-3.5"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "story generation": "Other:story generation",
+        "story understanding": "Other:story understanding",
+        "ChatGPT-3.5-turbo-0631": "ChatGPT-3.5-turbo",
+        "ChatGPT-3.5": "ChatGPT-3.5-turbo"
+      },
+      "explanation": "Removed 'story generation' and 'story understanding' as they are not the main NLG tasks being evaluated. Normalized ChatGPT versions to consistent naming. Added 'Story Video-Text Alignment' as it's a key evaluation task."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "F1",
+      "Precision",
+      "Recall",
+      "BLEU",
+      "BERTScore",
+      "Pearson Correlation",
+      "Spearman Correlation",
+      "Kendall's Tau",
+      "Clip Accuracy",
+      "Sentence IoU",
+      "BERT Similarity",
+      "BARTScore",
+      "BLEURT",
+      "Perplexity",
+      "UNION",
+      "NCELoss",
+      "Dynamic Time Warping"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Micro F1",
+          "Macro F1",
+          "Spearman rank correlation",
+          "F1 score",
+          "BARTScore+CNN+Para",
+          "Accuracy"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "Micro F1": "F1",
+        "Macro F1": "F1",
+        "precision": "Precision",
+        "recall": "Recall",
+        "Pearson correlation": "Pearson Correlation",
+        "Spearman correlation": "Spearman Correlation",
+        "Kendall's tau": "Kendall's Tau",
+        "BERTScore": "BERTScore",
+        "BERT Similarity": "BERT Similarity",
+        "BARTScore+CNN+Para": "BARTScore",
+        "perplexity": "Perplexity",
+        "Spearman rank correlation": "Spearman Correlation",
+        "F1 score": "F1"
+      },
+      "explanation": "Normalized metric variants to base forms (e.g., F1 variants to just F1), removed redundant metrics, and standardized capitalization."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "ChatGPT-3.5-turbo"
+    ],
+    "methods": [
+      "two-stage prompting for story quality scoring",
+      "scoring prompt with causal graph",
+      "zero-shot evaluation",
+      "in-domain few-shot evaluation",
+      "cross-domain few-shot evaluation"
+    ],
+    "criteria": [
+      "causal connections",
+      "grammar",
+      "understandability",
+      "consistency with beginning",
+      "overall story quality",
+      "causal consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "zero-shot evaluation",
+          "in-domain few-shot evaluation",
+          "cross-domain few-shot evaluation"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "ChatGPT-3.5",
+          "ChatGPT-3.5-turbo-0631"
+        ],
+        "methods": [
+          "prompt-based star rating",
+          "two-stage prompting method"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "ChatGPT-3.5": "ChatGPT-3.5-turbo",
+        "ChatGPT-3.5-turbo-0631": "ChatGPT-3.5-turbo",
+        "prompt-based star rating": "two-stage prompting for story quality scoring",
+        "two-stage prompting method": "two-stage prompting for story quality scoring"
+      },
+      "explanation": "Normalized ChatGPT model names and method descriptions. Added specific evaluation settings mentioned in the paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rate each generated story on a 1-5 star scale where 1=nonsense, 2=some connections but not understandable, 3=understandable with causal connections, 4=causally consistent with minor grammar issues, 5=perfect causal connections and grammar"
+    ],
+    "criteria": [
+      "story quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "story quality"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "story quality score (1-5 stars)",
+          "overall story quality"
+        ]
+      },
+      "normalized": {
+        "story quality score (1-5 stars)": "story quality",
+        "overall story quality": "story quality"
+      },
+      "explanation": "Consolidated criteria to 'story quality' as the main evaluation dimension. The guideline already contains detailed rating scale."
+    }
+  },
+  "overall_notes": "Paper focuses on using event causality for story understanding tasks. Main NLG contributions are in evaluation (story quality assessment using LLMs) rather than generation. The paper does study story generation systems indirectly through evaluation but doesn't generate stories itself. Human evaluation uses OpenMEVA dataset with pre-collected human ratings. LLM evaluation is comprehensive with multiple settings and comparison to human ratings."
+}

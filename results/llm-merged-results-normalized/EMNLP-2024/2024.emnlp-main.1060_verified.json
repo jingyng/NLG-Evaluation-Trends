@@ -1,0 +1,133 @@
+{
+  "paper_id": "2024.emnlp-main.1060",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Dialogue Policy Generation"
+    ],
+    "datasets": [
+      "SGD",
+      "ABCD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3.5_turbo",
+      "gpt_4_turbo",
+      "llama_3.1_70b_instruct",
+      "text_davinci_003",
+      "p_tuned_llm_43b"
+    ],
+    "outputs": [
+      "dialogue policies expressed as sequences of canonical forms"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [
+          "Schema Guided Dialogue (SGD)"
+        ],
+        "languages": [],
+        "models": [
+          "p‑tuned LLM",
+          "Llama3-70B-Instruct"
+        ],
+        "outputs": [
+          "Dialogue policies expressed as sequences of canonical forms (user and bot intents)",
+          "dialogue policies as sequences of canonical forms"
+        ]
+      },
+      "normalized": {
+        "p‑tuned LLM": "p-tuned LLM (43B)",
+        "Llama3-70B-Instruct": "LLaMA-3.1-70B-Instruct",
+        "gpt-4-turbo": "GPT-4-turbo",
+        "gpt-3.5-turbo": "GPT-3.5-turbo"
+      },
+      "explanation": "Removed 'Text Summarization' as the paper only mentions it as an analogy, not as a task being performed. Removed duplicate dataset entry. Consolidated and normalized model names. Merged duplicate output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "BERTSCORE",
+      "LCS",
+      "PRECISION",
+      "RECALL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BERTSCORE": "BERTScore"
+      },
+      "explanation": "Normalized BERTScore capitalization. All metrics are correctly extracted and relevant to NLG evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper. LLMs are used for generation (canonical form extraction) but not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators map each canonical form to a conversation turn and rate its relevance (score 1 for fully covered, 0.5 for partially covered)"
+    ],
+    "criteria": [
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- annotators were also asked to rate how relevant the canonical form was to that turn. A score of 1 implied that the canonical form described the user utterance comprehensively, and a score of 0.5 meant that certain details in the utterance were not captured by the canonical form.",
+          "annotators were asked to map each step in the dialogue flow to a corresponding turn in the conversation and rate how relevant the canonical form was to that turn"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant guideline descriptions into a single clear statement. The criteria is correctly identified as 'relevance'."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on dialogue policy generation using a hybrid LLM+graph approach. Key findings: Fattest-width Dijkstra algorithm outperforms prompting-based methods, and automatic metrics (BLEU, ROUGE, etc.) correlate well with human evaluation. The human evaluation involved 8 annotators with substantial inter-rater agreement (Cohen's κ=0.71)."
+}

@@ -1,0 +1,130 @@
+{
+  "paper_id": "2021.emnlp-main.8",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "SAMSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart_base",
+      "bart_large",
+      "ctrlsum"
+    ],
+    "outputs": [
+      "abstractive dialogue summaries",
+      "summaries conditioned on personal named entity planning"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BART"
+        ],
+        "outputs": [
+          "natural language summaries",
+          "abstractive summaries conditioned on personal named entity planning"
+        ]
+      },
+      "normalized": {
+        "BART": "BART-Base/BART-Large",
+        "abstractive summaries conditioned on personal named entity planning": "summaries conditioned on personal named entity planning"
+      },
+      "explanation": "Removed duplicate 'BART' (covered by BART-Base/BART-Large), normalized output descriptions for clarity"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE variants to base form, removed 'Accuracy' as it's not a standard automatic metric for NLG evaluation (it's for the factual consistency classifier)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BERT-base-uncased"
+        ],
+        "methods": [
+          "binary classification",
+          "binary classification of factual consistency"
+        ],
+        "criteria": [
+          "factual consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "BERT is used as a fine-tuned classifier for factual consistency detection, not as an LLM judge in the modern sense. This doesn't qualify as 'LLM as judge' evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Summaries were scored on a scale of [-1, 0, 1] where -1 means not factually consistent or failed to extract relevant information, 0 means average, and 1 means could be regarded as human-written output"
+    ],
+    "criteria": [
+      "Factuality",
+      "Informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Summaries were scored of [-1, 0, 1], where -1 means a summary was not factually consistent or failed to extract relevant information, 1 means it could be regarded as a human-written output, and factual consistency and informativeness were used to measure how accurate and comprehensive the extracted information is according to the source content.",
+          "Summaries were scored of [-1, 0, 1], where -1 means a summary was not factually consistent or failed to extract relevant information, 1 means it could be regarded as a human‑written output",
+          "factual consistency and informativeness were used to measure how accurate and comprehensive the extracted information is according to the source content."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated duplicate guideline descriptions into one clear statement, kept criteria as extracted"
+    }
+  },
+  "overall_notes": "The paper is clearly about NLG evaluation (dialogue summarization) with both automatic (ROUGE) and human evaluations. The key correction was for Question 3 - while BERT is used for factual consistency classification, this is a fine-tuned model for a specific detection task, not an LLM used as a general-purpose judge. The paper demonstrates a comprehensive evaluation framework for controllable dialogue summarization."
+}

@@ -1,0 +1,171 @@
+{
+  "paper_id": "2025.acl-long.1327",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-as-a-judge against human evaluation through correlation analysis comparing LLM ratings with human ratings on the same NLG outputs, reporting Pearson and Spearman correlation coefficients"
+  },
+  "llm_judge_details": {
+    "num_models": 16,
+    "models": [
+      "gpt_4o",
+      "gpt_4o_mini",
+      "gpt_4_turbo",
+      "gpt_3.5_turbo",
+      "deepseek_v_3",
+      "llama_3.1_70b",
+      "qwen_2.5_72b",
+      "gemma_2_27b",
+      "phi_4_14b",
+      "auto_j_13b",
+      "critiquellm_6b",
+      "prometheus_13b",
+      "prometheus_2_7b",
+      "prometheus_2_8x_7b",
+      "themis_8b",
+      "compassjudger_32b"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper mentions using prompts with elaborate instructions and references appendix tables for prompts, but does not provide full prompt text in the main text"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper describes human evaluation using 5-point Likert scale and references tables in appendix showing evaluation aspects and sub-aspects decomposition (e.g., coherence with 5 sub-aspects)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "coherence",
+      "consistency",
+      "fluency",
+      "relevance",
+      "understandability",
+      "naturalness",
+      "context",
+      "interestingness",
+      "knowledge"
+    ],
+    "sample_size": {
+      "total_generated": 15400,
+      "validated_by_both": 15400,
+      "notes": "Validation uses entire datasets: SummEval (6000 global-perspective + 6400 local-perspective = 12400) and Topical-Chat (3000 + 2400 = 5400) targets, totaling 15,400 instances"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.625,
+        "criterion": "overall",
+        "llm_model": "GPT-4 Turbo",
+        "significance": null,
+        "notes": "Ranked 1st among LLMs"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.513,
+        "criterion": "overall",
+        "llm_model": "GPT-4 Turbo",
+        "significance": null,
+        "notes": "Ranked 3rd among LLMs"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.562,
+        "criterion": "overall",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Ranked 4th among LLMs"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.522,
+        "criterion": "overall",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Ranked 2nd among LLMs"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.521,
+        "criterion": "overall",
+        "llm_model": "GPT-4o mini",
+        "significance": null,
+        "notes": "Ranked 7th among LLMs"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.507,
+        "criterion": "overall",
+        "llm_model": "GPT-4o mini",
+        "significance": null,
+        "notes": "Ranked 4th among LLMs"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.523,
+        "criterion": "overall",
+        "llm_model": "Llama-3.1-70B",
+        "significance": null,
+        "notes": "Ranked 6th among LLMs"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.491,
+        "criterion": "overall",
+        "llm_model": "Llama-3.1-70B",
+        "significance": null,
+        "notes": "Ranked 5th among LLMs"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM evaluation shows varying correlation strength with human judgments (Pearson r=0.521-0.625, Spearman \u03c1=0.491-0.522), with different LLMs excelling in different correlation metrics, though the paper notes limitations in traditional correlation-based validation approaches"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Quality",
+      "intent",
+      "utterance"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Coherence",
+      "Consistency",
+      "Fluency",
+      "Relevance",
+      "Understandability",
+      "Naturalness",
+      "Context",
+      "Interestingness",
+      "Knowledge"
+    ],
+    "notes": "LLM evaluates broader set of criteria including quality, intent, and utterance, while focusing on the same core NLG evaluation aspects as human evaluation"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "paper_id": "2022.naacl-main.336",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue State Tracking"
+    ],
+    "datasets": [
+      "Schema-Guided Dialogue (SGD)",
+      "MultiWOZ 2.1"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5-base",
+      "T5-large",
+      "T5-XXL"
+    ],
+    "outputs": [
+      "dialogue states (slot-value pairs)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "T5-base",
+          "T5-large",
+          "T5-XXL"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation"
+        ],
+        "datasets": [
+          "Schema-guided Dataset (SGD)"
+        ],
+        "languages": [],
+        "models": [
+          "T5"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Schema-guided Dialogue (SGD)": "Schema-Guided Dialogue (SGD)",
+        "T5-*": "T5-base/T5-large/T5-XXL"
+      },
+      "explanation": "Removed 'Dialogue Generation' as the paper focuses on DST, not text generation. Normalized dataset names and specified exact T5 model variants used. Kept only explicitly evaluated NLG task (DST output generation)."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Joint Goal Accuracy (JGA)",
+      "Schema Sensitivity (SS JGA)"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "JGA",
+          "SS JGA",
+          "Dif f rel"
+        ]
+      },
+      "normalized": {
+        "JGA": "Joint Goal Accuracy (JGA)",
+        "SS JGA": "Schema Sensitivity (SS JGA)"
+      },
+      "explanation": "Normalized metric names to full forms and removed redundant/abbreviated entries. 'Dif f rel' appears to be a formatting artifact, not a metric name."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper. T5 models were used for generation, not for post-hoc evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was mentioned in the paper; evaluation was purely automatic using JGA and SS JGA metrics."
+    }
+  },
+  "overall_notes": "The paper focuses on dialogue state tracking using T5 models with example-based prompting. While it evaluates generated slot-value pairs, this is more of a structured prediction task than traditional free-form NLG. The extraction was generally accurate but included some redundant items and one incorrect task label."
+}

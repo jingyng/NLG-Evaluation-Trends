@@ -1,0 +1,140 @@
+{
+  "paper_id": "2021.naacl-main.34",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Argument Generation"
+    ],
+    "datasets": [
+      "UKP Sentential Argument Mining Corpus",
+      "Common Crawl",
+      "Reddit",
+      "Debate portal reference data"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Arg-CTRL",
+      "CTRL",
+      "BERT",
+      "MT-DNN"
+    ],
+    "outputs": [
+      "single-sentence arguments generated with topic, stance, and aspect control"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "UKP-Corpus",
+          "Common-Crawl",
+          "Reddit comments"
+        ],
+        "languages": [],
+        "models": [
+          "Arg-CTRL CC",
+          "Arg-CTRL REDDIT"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "UKP-Corpus": "UKP Sentential Argument Mining Corpus",
+        "Common-Crawl": "Common Crawl"
+      },
+      "explanation": "Normalized dataset names to standard forms (UKP Sentential Argument Mining Corpus instead of UKP-Corpus). Removed model variants (Arg-CTRL CC/Arg-CTRL REDDIT) since Arg-CTRL is the main model. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "METEOR",
+      "ROUGE",
+      "F1",
+      "Precision",
+      "Recall",
+      "Cosine similarity",
+      "Edit distance",
+      "Argument quality score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1",
+          "Precision",
+          "Recall"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1 macro",
+          "argument quality score (WA)"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "WA": "Argument quality score"
+      },
+      "explanation": "Simplified metric variants to base forms (ROUGE-L → ROUGE). Added standard metric names (F1, Precision, Recall). Normalized 'argument quality score (WA)' to 'Argument quality score'."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BERT BASE"
+        ],
+        "methods": [
+          "quality prediction with BERT"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed BERT BASE as it's used for automatic quality prediction, not as an LLM judge. The paper does not use LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Fluency evaluated as binary grammatical correctness",
+      "Persuasiveness evaluated by comparing pairs of generated vs. reference arguments"
+    ],
+    "criteria": [
+      "fluency",
+      "persuasiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed - existing extraction accurately captures the human evaluation methodology."
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive NLG evaluation with both automatic metrics and human evaluation. The extraction was mostly accurate, requiring only minor normalization and consolidation. The paper focuses on controlled argument generation with aspect-level control, which is a specific NLG task."
+}

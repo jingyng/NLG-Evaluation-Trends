@@ -1,0 +1,113 @@
+{
+  "paper_id": "2025.naacl-long.460",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation",
+      "Other:Watermark Scrubbing Attack"
+    ],
+    "datasets": [
+      "C4-RealNewsLike",
+      "C4"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-2-7B",
+      "Llama-3-70B",
+      "Qwen2-72B",
+      "Gemma-2-2B",
+      "Qwen2-0.5B",
+      "Gemma-2-2B-IT",
+      "T5-XXL"
+    ],
+    "outputs": [
+      "adversarial texts generated to remove watermarks while preserving semantic fidelity",
+      "watermarked text and scrubbed (adversarial) text",
+      "adversarial samples through paraphrasing watermarked text to remove watermark patterns while preserving semantics"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "C4"
+        ],
+        "models": [
+          "T5-XXL"
+        ]
+      },
+      "removed": {
+        "datasets": [],
+        "models": [
+          "paraphraser ϕ"
+        ]
+      },
+      "normalized": {
+        "C4-Realnewslike": "C4-RealNewsLike",
+        "Gemma-2-2B-it": "Gemma-2-2B-IT"
+      },
+      "explanation": "Normalized dataset and model names to standard capitalization. Added C4 dataset explicitly mentioned in experiments. Added T5-XXL model used in DIPPER baseline. Removed 'paraphraser ϕ' as it's a generic reference to paraphrase models, not a specific model name."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "P-SP",
+      "ROC-AUC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "AUC@f"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'AUC@f' as it's not a distinct metric but rather ROC-AUC measured at specific fidelity thresholds. P-SP and ROC-AUC are the actual automatic metrics used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is used in this paper. The LLMs mentioned are used for generation/distillation, not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. All evaluation relies on automatic metrics."
+    }
+  },
+  "overall_notes": "The paper focuses on watermark scrubbing attacks for LLM-generated text, which involves paraphrasing as the core NLG task. The evaluation is entirely automatic using P-SP for semantic preservation and ROC-AUC for watermark detection efficacy. No human or LLM-as-judge evaluations are conducted. The extraction was reasonably accurate with minor normalization needed."
+}

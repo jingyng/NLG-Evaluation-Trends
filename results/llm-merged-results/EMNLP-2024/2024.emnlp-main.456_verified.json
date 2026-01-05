@@ -1,0 +1,140 @@
+{
+  "paper_id": "2024.emnlp-main.456",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CROSS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Mistral-7B-Instruct-v0.2",
+      "Mixtral-8x7B-MoE",
+      "Vicuna-7B-v1.5-16k",
+      "Vicuna-13B-v1.5-16k",
+      "Qwen1.5-7B-Chat",
+      "Qwen1.5-14B-Chat",
+      "Qwen1.5-72B-Chat",
+      "GPT-3.5-Turbo",
+      "GPT-4-Turbo",
+      "Claude-3-Sonnet"
+    ],
+    "outputs": [
+      "character profiles",
+      "structured character profiles containing attributes, relationships, events, and personality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Claude-3-Sonnet"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Llama-3-70B"
+        ],
+        "datasets": [
+          "CROSS (Character Profiles from SuperSummary)"
+        ]
+      },
+      "normalized": {
+        "vicuna-7b-v1.5-16k": "Vicuna-7B-v1.5-16k",
+        "vicuna-13b-v1.5-16k": "Vicuna-13B-v1.5-16k",
+        "Claude3-Sonnet": "Claude-3-Sonnet"
+      },
+      "explanation": "Removed Llama-3-70B as it's used for evaluation, not generation. Removed duplicate dataset name. Added Claude-3-Sonnet which was missing. Normalized model names to consistent capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Consistency Score",
+      "Accuracy",
+      "ROUGE",
+      "BLEU",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Consistency Score (LLM-based)",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Removed redundant metric names and simplified ROUGE-L to ROUGE base form. All metrics mentioned in paper are correctly included."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Llama-3-70B"
+    ],
+    "methods": [
+      "scoring on a scale of 1-5",
+      "Factual Consistency Examination (FCE)"
+    ],
+    "criteria": [
+      "factual consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "Factual Consistency Examination (FCE)"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "LLM-based Consistency Scoring"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Added the formal method name FCE. Removed redundant method description. Kept only Llama-3-70B as the evaluator model."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators assigned a score from 1 to 5 reflecting the factual consistency of the generated profile with the reference",
+      "Human annotators were asked to answer motivation recognition multiple-choice questions, selecting the correct option",
+      "The decision must be made by the selected character",
+      "Questions should ask directly or indirectly about the character's motivation for making the decision",
+      "The decision must be meaningful within the story context",
+      "Leaking questions is prohibited"
+    ],
+    "criteria": [
+      "factual consistency",
+      "accuracy on motivation recognition"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "accuracy on motivation recognition"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "fluency",
+          "coherence",
+          "consistency score (1-5)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed criteria not explicitly mentioned in human evaluation (fluency, coherence). Added motivation recognition accuracy as a human evaluation criterion. Kept factual consistency as the main human evaluation criterion."
+    }
+  },
+  "overall_notes": "The paper focuses on character profiling as a text summarization task for fictional characters. The extraction was generally accurate but needed minor normalization and removal of redundant/incorrect items. The paper uses both automatic metrics and human evaluation, with LLM-as-judge being a key component of their evaluation framework."
+}

@@ -1,0 +1,200 @@
+{
+  "paper_id": "2025.acl-long.405",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Multimodal Safety Evaluation",
+      "Safety Alignment"
+    ],
+    "datasets": [
+      "VLSBENCH",
+      "JAILBREAKV",
+      "VL SAFE",
+      "MM SAFETYBENCH",
+      "SAFEBENCH",
+      "HARMBENCH MM",
+      "MME",
+      "MMMU",
+      "MMSTAR",
+      "MM VET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llava_v_1.5_7b",
+      "llava_v_1.5_13b",
+      "qwen_2_vl_7b",
+      "gpt_4o",
+      "gemini_1.5_pro",
+      "claude_3.5_sonnet",
+      "internvl_2.5",
+      "llamaguard_3",
+      "llama_3.2_vision",
+      "minicpm_v",
+      "glm_4v_9b"
+    ],
+    "outputs": [
+      "Text responses to image-text queries categorized as safe with refusal, safe with warning, or unsafe",
+      "Model responses evaluated for safety in multimodal dialogue settings"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Multimodal Safety Evaluation"
+        ],
+        "datasets": [
+          "MME",
+          "MMMU",
+          "MMStar",
+          "MMVet"
+        ],
+        "models": [
+          "Llama-3.2-Vision",
+          "MiniCPM-V",
+          "GLM-4v-9B"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Safety Alignment",
+          "Other:Dialogue Generation"
+        ],
+        "datasets": [
+          "VLSafe"
+        ],
+        "models": [
+          "LLaVA",
+          "Qwen2-VL",
+          "Llama3.2-Vision",
+          "InternVL2.5"
+        ]
+      },
+      "normalized": {
+        "Other: Multimodal Response Generation": "Dialogue Generation",
+        "Other:Safety Alignment": "Other:Safety Alignment",
+        "Claude3.5-sonnet": "Claude-3.5-sonnet"
+      },
+      "explanation": "Consolidated tasks to focus on core NLG evaluation aspects. Removed duplicate/redundant entries and normalized model names. Added missing datasets and models explicitly used for evaluation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SAFETY RATE",
+      "HARMFUL RATE",
+      "REFUSAL RATE",
+      "WARNING RATE",
+      "MME",
+      "MMMU",
+      "MMSTAR",
+      "MM VET"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Harmful Rate",
+          "Refusal Rate",
+          "Warning Rate"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "safety rate (%)",
+          "MMStar score",
+          "MMVet score",
+          "MME score"
+        ]
+      },
+      "normalized": {
+        "safety rate": "Safety Rate",
+        "harmful rate": "Harmful Rate",
+        "refusal rate": "Refusal Rate",
+        "warning rate": "Warning Rate"
+      },
+      "explanation": "Normalized metric names to standard forms and removed redundant entries. Added missing safety metrics explicitly used in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o",
+      "llamaguard_3",
+      "LlamaGuard3-Vision"
+    ],
+    "methods": [
+      "Classification",
+      "Pairwise Evaluation"
+    ],
+    "criteria": [
+      "Safety"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "Pairwise Evaluation"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "classification prompt"
+        ]
+      },
+      "normalized": {
+        "classification": "Classification",
+        "safe with refusal": "Safe with refusal",
+        "safe with warning": "Safe with warning",
+        "unsafe": "Unsafe"
+      },
+      "explanation": "Normalized criteria names and methods. Added pairwise evaluation method mentioned in the paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Assign each response to one of three labels: refusal, warning, unsafe",
+      "Verify textual queries are harmless without safety information from images",
+      "Ensure textual queries are relevant and not contradictory to images"
+    ],
+    "criteria": [
+      "Refusal",
+      "Warning",
+      "Safety",
+      "Harmlessness",
+      "Relevance",
+      "Contradictory"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Verify textual queries are harmless without safety information from images",
+          "Ensure textual queries are relevant and not contradictory to images"
+        ],
+        "criteria": [
+          "Harmless query",
+          "Relevance to image",
+          "Not contradictory"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "refusal accuracy",
+          "warning accuracy",
+          "unsafe accuracy"
+        ]
+      },
+      "normalized": {
+        "refusal": "Refusal",
+        "warning": "Warning",
+        "unsafe": "Unsafe"
+      },
+      "explanation": "Added explicit human evaluation criteria from the paper. Removed accuracy metrics that were not part of human evaluation criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on multimodal safety evaluation of MLLMs, with strong emphasis on NLG evaluation through safety classification of generated responses. The extraction was generally accurate but needed normalization and consolidation of duplicate entries. The paper extensively evaluates both automatic metrics and human/LLM-based evaluation methods."
+}

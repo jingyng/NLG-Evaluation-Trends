@@ -1,0 +1,96 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Responses to these questions are collected from a set of LLM-based systems that produce attributions for their answers",
+            "The revised answers we collect can be used for improving and evaluating future models on longform question answering.",
+            "Having experts in the loop allows us to model a more realistic information-seeking scenario that helps us understand how people in different fields use LLMs and where their capabilities fall short."
+        ],
+        "tasks": [
+            "Other:Long-form Question Answering"
+        ],
+        "datasets": [
+            "EXPERTQA"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-4",
+            "BingChat",
+            "FlanT5-11B",
+            "Alpaca-7B",
+            "Vicuna-7B",
+            "Llama2-7B-Chat",
+            "Llama2-70B-Chat",
+            "retrieve-and-read (rr_gs_gpt4, rr_sphere_gpt4)",
+            "post-hoc (post_hoc_sphere_gpt4, post_hoc_gs_gpt4)",
+            "LLaMa2-7B-Chat"
+        ],
+        "outputs": [
+            "Generated answers with in-line citations for expert questions",
+            "Long-form answers with in-line citations and attributed evidence",
+            "The paper evaluates generated responses in the form of attributed long-form answers to expert-curated questions, including claim-level annotations and revised factual answers."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Prior work has proposed automatic methods to predict attribution and factuality of claims. We evaluate how reliably these methods reflect the expert labels in our collected data.",
+            "We consider metrics based on similarity to a reference answer, i.e., ROUGE and those focused on evaluating factual consistency through QA pairs generated with a reference answer, i.e., QAFactEval.",
+            "We evaluate the effectiveness of these methods for claims in EXPERTQA."
+        ],
+        "automatic_metrics": [
+            "AutoAIS",
+            "FActScore",
+            "ROUGE",
+            "QAFactEval"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "The atomic claim and the evidence passages are then used to prompt gpt-3.5-turbo to say whether the atomic claim is True or False.",
+            "We first break down each claim into fine-grained atomic claims using few-shot prompting with text-davinci-003. We then retrieve the top-3 relevant passages ... and prompt gpt-3.5-turbo to say whether the atomic claim is True or False.",
+            "We use FActScore ... where the atomic claim and the evidence passages are then used to prompt gpt-3.5-turbo to say whether the atomic claim is True or False."
+        ],
+        "models": [
+            "gpt-3.5-turbo",
+            "text-davinci-003"
+        ],
+        "methods": [
+            "Prompting for factuality judgement",
+            "few-shot claim decomposition",
+            "prompted truth classification",
+            "atomic claim factuality prediction"
+        ],
+        "criteria": [
+            "factuality",
+            "truthfulness"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "Experts judge each claim for its informativeness to the question, its citeworthiness, and factuality.",
+            "In this stage of annotation, experts validate responses to their own questions on several dimensions of quality. Experts judge each claim for its informativeness to the question, its citeworthiness, and factuality.",
+            "Participants are recruited through Prolific and are qualified as experts if they have i) received formal education, as well as, ii) at least 3 years of work experience in their field."
+        ],
+        "guideline": [
+            "Experts are asked to judge each claim for informativeness, citeworthiness, factuality, faithfulness to evidence, and reliability of source.",
+            "Experts were asked to evaluate claims on informativeness, citeworthiness, factuality, faithfulness to evidence, and reliability of the evidence source.",
+            "Experts judge each claim for its informativeness to the question, its citeworthiness, and factuality. They are also asked to judge how faithful the claim is to an accompanying evidence and rate the reliability of the evidence's source."
+        ],
+        "criteria": [
+            "informativeness",
+            "citeworthiness",
+            "factuality",
+            "faithfulness",
+            "reliability",
+            "faithfulness to evidence",
+            "source reliability",
+            "usefulness",
+            "support from evidence"
+        ]
+    }
+}

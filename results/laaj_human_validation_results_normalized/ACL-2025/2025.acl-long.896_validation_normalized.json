@@ -1,0 +1,79 @@
+{
+  "paper_id": "2025.acl-long.896",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates Retrieval-Augmented Factuality Scorer (RAFS) against human expert judgments on the same set of MedQA statements, reporting quantitative agreement metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "LLaMA 3.1"
+    ],
+    "prompts": {
+      "provided": "no",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Figure 5 shows the RAFS workflow but exact prompts are not provided; RAFS evaluates statements in four steps: splitting, query generation, retrieval, and rating"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage agreement",
+      "value": 86.49,
+      "interpretation": "high inter-annotator agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Medical experts labeled each statement as Correct or Incorrect based on alignment with medical knowledge; expert qualifications (passed USMLE) are specified but detailed scoring rubric is not provided"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "percentage agreement"
+    ],
+    "shared_criteria": [
+      "factuality"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "10 medical questions from MedQA generated approximately 100 individual statements that were evaluated by both RAFS and human experts"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "percentage agreement",
+        "value": 85.14,
+        "criterion": "Factuality",
+        "llm_model": "LLaMA 3.1",
+        "significance": "not_reported",
+        "notes": "Average agreement across both annotators (87.84% with Annotator 1 and 82.43% with Annotator 2)"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong alignment",
+      "threshold_used": "not_specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "RAFS achieves strong alignment with human judgments (85.14% agreement), demonstrating reliability in factual assessment, though slight variability exists between annotators suggesting subjectivity in borderline cases."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Factuality"
+    ],
+    "notes": "Both RAFS and human experts evaluate factuality/alignment of reasoning statements using equivalent labeling (Supported/Not Supported for RAFS vs Correct/Incorrect for humans)"
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "paper_id": "2023.acl-long.218",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Factual Question Answering",
+      "Question Answering"
+    ],
+    "datasets": [
+      "ENTAILMENTBANK",
+      "WORLDTREE",
+      "OBQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_large",
+      "deberta_large",
+      "gpt_3",
+      "chatgpt",
+      "sentence_transformers"
+    ],
+    "outputs": [
+      "entailment trees and answers",
+      "entailment trees and selected answer options"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "T5-large (controller)",
+          "T5-large (entailment module)",
+          "DeBERTa-large (step verifier)",
+          "all-mpnet-base-v2"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "T5-large (controller)": "T5-large",
+        "T5-large (entailment module)": "T5-large",
+        "DeBERTa-large (step verifier)": "DeBERTa-large",
+        "all-mpnet-base-v2": "Sentence Transformers"
+      },
+      "explanation": "Removed redundant model specifications (controller/entailment module are the same T5-large model) and normalized model names. Kept only distinct model types."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "F1",
+      "ALLCORRECT",
+      "BLEURT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Leaves F1",
+          "Step Structures F1",
+          "Intermediates F1",
+          "AllCorrect (Leaves)",
+          "AllCorrect (Step Structures)",
+          "AllCorrect (Intermediates)",
+          "Overall AllCorrect",
+          "leaf F1",
+          "step structure F1",
+          "intermediate BLEURT",
+          "answer accuracy",
+          "F1 score"
+        ]
+      },
+      "normalized": {
+        "Leaves F1": "F1",
+        "Step Structures F1": "F1",
+        "Intermediates F1": "F1",
+        "AllCorrect (Leaves)": "AllCorrect",
+        "AllCorrect (Step Structures)": "AllCorrect",
+        "AllCorrect (Intermediates)": "AllCorrect",
+        "leaf F1": "F1",
+        "step structure F1": "F1",
+        "intermediate BLEURT": "BLEURT",
+        "answer accuracy": "Accuracy",
+        "F1 score": "F1"
+      },
+      "explanation": "Normalized all metric variants to their base forms (F1, AllCorrect, Accuracy, BLEURT) and removed duplicates"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "LLMs (GPT-3, ChatGPT) are used as baseline models for comparison, not as evaluators/judges. The paper does not use LLMs to assess generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three dimensions: Fact Validity (leaf facts correctness), Step Validity (entailment validity), Hypothesis Faithfulness (conclusion supports answer). Overall score is 1 if all facts and steps are valid and conclusion supports answer."
+    ],
+    "criteria": [
+      "Validity",
+      "Faithfulness",
+      "Overall"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- We evaluate along three dimensions. Fact Validity (FV): Are the leaf facts correct in the real world? Step Validity (SV): Are the intermediate steps valid entailments? Hypothesis Faithfulness (HF): Can the conclusion support the selected answer? Overall: The overall score is 1 if all the facts and steps are valid and the conclusion supports the answer.",
+          "Evaluation along three dimensions: Fact Validity, Step Validity, Hypothesis Faithfulness.",
+          "We evaluate along three dimensions. Fact Validity (FV): Are the leaf facts correct in the real world? Step Validity (SV): Are the intermediate steps valid entailments? A step is considered invalid if its conclusion does not follow from the premises or trivially repeats one of the premises. Hypothesis Faithfulness (HF): Can the conclusion support the selected answer (even if the answer is not the correct option)? Overall: The overall score is 1 if all the facts and steps are valid and the conclusion supports the answer."
+        ],
+        "criteria": [
+          "fact validity",
+          "step validity",
+          "hypothesis faithfulness",
+          "overall"
+        ]
+      },
+      "normalized": {
+        "fact validity": "Fact Validity",
+        "step validity": "Step Validity",
+        "hypothesis faithfulness": "Hypothesis Faithfulness"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement and normalized criteria to title case"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main changes involved normalizing model names (removing redundant specifications), simplifying metric variants to base forms, and consolidating human evaluation criteria. The paper focuses on faithful question answering with entailment tree generation, which is clearly an NLG task. The evaluation methodology is comprehensive with both automatic metrics and human evaluation."
+}

@@ -1,0 +1,142 @@
+{
+  "paper_id": "2023.acl-long.302",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Counterfactual Example Generation",
+      "Other:Counterfactual Data Generation"
+    ],
+    "datasets": [
+      "SNLI",
+      "WANLI",
+      "Human-CAD",
+      "MNLI",
+      "FEVER",
+      "ANLI",
+      "QNLI",
+      "HANS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3",
+      "GPT-3 (text-davinci-002)",
+      "DeBERTa-v2",
+      "RoBERTa-large"
+    ],
+    "outputs": [
+      "counterfactual examples (perturbed premises)",
+      "counterfactual text perturbations for Natural Language Inference"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "MNLI",
+          "FEVER",
+          "ANLI",
+          "QNLI",
+          "HANS"
+        ],
+        "models": [
+          "GPT-3 (text-davinci-002)"
+        ]
+      },
+      "removed": {
+        "datasets": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "GPT-3 (text-DaVinci-002)": "GPT-3 (text-davinci-002)"
+      },
+      "explanation": "Added missing datasets mentioned in the paper that were used for training/evaluation. Added specific GPT-3 model version for completeness. Normalized 'DaVinci' to 'davinci' for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Self-BLEU",
+      "OTDD",
+      "Label Flip Rate",
+      "Soft Label Flip Rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Flip Rate Score",
+          "Soft Flip Rate Score"
+        ]
+      },
+      "normalized": {
+        "Self-BLEU": "Self-BLEU"
+      },
+      "explanation": "Removed 'Flip Rate Score' and 'Soft Flip Rate Score' as these appear to be column headers from Table 1 rather than distinct metrics - the actual metrics are Label Flip Rate and Soft Label Flip Rate."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "DeBERTa-v2"
+        ],
+        "methods": [
+          "probability shift filtering"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed DeBERTa-v2 and probability shift filtering since these are used for filtering generations during data creation, not for post-generation evaluation/judgment of outputs. The paper does not use LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators label new premise-hypothesis pairs with {Entailment, Contradiction, Neutral}",
+      "Three annotators per example with majority voting",
+      "Only shown new sentence pairs to avoid bias from original examples"
+    ],
+    "criteria": [
+      "label correctness",
+      "label flip"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Only shown new sentence pairs to avoid bias from original examples"
+        ],
+        "criteria": [
+          "label correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Label Flip Rate",
+          "Soft Label Flip Rate"
+        ]
+      },
+      "normalized": {
+        "label flip": "label flip"
+      },
+      "explanation": "Added missing guideline detail about showing only new pairs. Added 'label correctness' as a human evaluation criterion based on the annotation protocol. Removed automatic metrics (Label Flip Rate, Soft Label Flip Rate) from human criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on generating counterfactual data augmentation examples rather than traditional NLG tasks. The extraction was generally accurate but missed some datasets used in experiments. The paper clearly conducts both automatic and human evaluations of generated counterfactual examples."
+}

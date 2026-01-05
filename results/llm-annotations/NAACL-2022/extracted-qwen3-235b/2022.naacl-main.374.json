@@ -1,0 +1,64 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "ST2MO It requires generating the moral of a given story. We regard the original story as input and the original moral as target output. MO2ST It requires generating a story to convey a given moral.",
+        "tasks": [
+            "Other:Story-Moral Generation"
+        ],
+        "datasets": [
+            "STORAL-ZH",
+            "STORAL-EN"
+        ],
+        "languages": [
+            "English",
+            "Chinese"
+        ],
+        "models": [
+            "ConvS2S",
+            "Fusion",
+            "GPT2",
+            "T5",
+            "RA-RoBERTa",
+            "RA-T5"
+        ],
+        "outputs": "For ST2MO: moral statements; For MO2ST: coherent stories"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "For generation tasks, we do not use perplexity since perplexity scores are not comparable among models with different vocabularies. We adopt the following metrics for automatic evaluation: (1) BLEU (B-n): It is used to measure n-gram overlaps (n = 1, 2) between generated and ground-truth texts. (2) BERTScore-F1 (BS): It is used to measure the semantic similarity between generated and ground-truth texts. (3) Repetition (R-n): It calculates the ratio of texts that repeat at least one n-gram in all generated texts. (4) Distinct (D-n): It measure the diversity using the percentage of distinct n-grams to all n-grams in generated texts.",
+        "automatic_metrics": [
+            "BLEU-1",
+            "BLEU-2",
+            "BERTScore-F1",
+            "Repetition-2",
+            "Repetition-4",
+            "Distinct-2",
+            "Distinct-4",
+            "Coverage",
+            "Order"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We follow to train a learnable metric to evaluate moral faithfulness. Specifically, we fine-tune RoBERTa BASE as a classifier to distinguish whether a story matches a moral.",
+        "models": [
+            "RoBERTa"
+        ],
+        "methods": [
+            "fine-tuned classifier"
+        ],
+        "criteria": [
+            "faithfulness"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "For each text we require three annotators to rate its quality along with the input using a binary score in three following aspects: (1) linguistic fluency: correctness in grammaticality; (2) coherence: reasonable relations between sentences regarding relatedness, causality and temporal orders; and (3) moral faithfulness: exhibition of a faithful moral to the input.",
+        "guideline": "Three aspects are independently evaluated. We decided the final score of a text through majority voting.",
+        "criteria": [
+            "fluency",
+            "coherence",
+            "moral faithfulness"
+        ]
+    }
+}

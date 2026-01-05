@@ -1,0 +1,139 @@
+{
+  "paper_id": "2023.acl-long.47",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT21",
+      "WMT20"
+    ],
+    "languages": [
+      "English",
+      "Russian"
+    ],
+    "models": [
+      "comet_da_2020",
+      "comet_mqm_2021",
+      "comet_mqm_qe_2021"
+    ],
+    "outputs": [
+      "machine translation hypotheses",
+      "system-level translation outputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "WMT20 benchmark"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "MQM scores"
+        ],
+        "languages": [
+          "..."
+        ],
+        "models": [],
+        "outputs": [
+          "translation hypotheses",
+          "MT translation hypotheses (system outputs) evaluated by metrics",
+          "The paper evaluates machine translation outputs, specifically focusing on system hypotheses compared to references and source inputs."
+        ]
+      },
+      "normalized": {
+        "MQM scores": "WMT21 Metrics Task"
+      },
+      "explanation": "Removed 'MQM scores' as a dataset (it's an evaluation framework, not a dataset), removed placeholder '...' from languages, simplified and normalized output descriptions. Added WMT20 benchmark mentioned in experimental setup."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "CHRF",
+      "TER",
+      "BERTSCORE",
+      "COMET",
+      "PEARSON CORRELATION",
+      "PAIRWISE ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "COMET-DA",
+          "COMET-MQM",
+          "COMET-MQM-QE"
+        ]
+      },
+      "normalized": {
+        "BERTSCORE": "BERTScore",
+        "CHRF": "CHRF"
+      },
+      "explanation": "Removed specific COMET variants (COMET-DA, COMET-MQM, COMET-MQM-QE) as they are models being evaluated, not separate metrics. Kept 'COMET' as the general metric. Normalized BERTSCORE to BERTScore."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleaned up placeholder 'None' values. The paper does not use LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- focuses on explicit errors",
+          "Human experts assign MQM error annotations and severity scores to system outputs; metrics are compared against these human scores.",
+          "The MQM framework focuses on explicit errors and uses human annotators to assign scores based on error counts, with segment-level scores ranging from -25 to 0."
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'Yes' to 'No' because the authors use existing MQM human evaluations as ground truth but do not conduct new human evaluations themselves. Removed all guideline and criteria information as it pertains to existing benchmarks, not new human evaluation conducted by the authors."
+    }
+  },
+  "overall_notes": "The paper focuses on improving neural metrics for machine translation evaluation through test-time adaptation. Key findings: The original extraction incorrectly marked human evaluation as 'Yes' - the authors use existing human evaluations (MQM) as ground truth but don't conduct new human evaluations. The paper is primarily methodological, proposing TAU (Test-time Adaptation by Uncertainty minimization) for neural metrics."
+}

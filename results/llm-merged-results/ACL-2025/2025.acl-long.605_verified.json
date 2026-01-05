@@ -1,0 +1,146 @@
+{
+  "paper_id": "2025.acl-long.605",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "CoALM-IT",
+      "MultiWOZ 2.4",
+      "API-Bank",
+      "BFCL V3",
+      "SNIPS",
+      "SGD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "CoALM 8B",
+      "CoALM 70B",
+      "CoALM 405B",
+      "Llama 3.1",
+      "Llama 3.3",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "System responses in multi-turn dialogues with reasoning steps and API calls",
+      "Generated dialogues with ReAct-style reasoning and function calls",
+      "Dialogue state tracking outputs",
+      "Function call JSON structures"
+    ],
+    "changes_made": {
+      "added": {
+        "outputs": [
+          "Dialogue state tracking outputs",
+          "Function call JSON structures"
+        ]
+      },
+      "removed": {
+        "outputs": [
+          "generated multi-turn dialogues with reasoning steps and function-call JSON structures",
+          "multi-turn dialogues with reasoning steps, API calls, and system responses"
+        ]
+      },
+      "normalized": {
+        "Llama 3.1": "Llama 3.1",
+        "Llama 3.3": "Llama 3.3",
+        "GPT-4o": "GPT-4o"
+      },
+      "explanation": "Consolidated outputs descriptions and normalized model names"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Success Rate",
+      "Joint Goal Accuracy",
+      "ROUGE",
+      "MMLU",
+      "ARC",
+      "GSM8K",
+      "HellaSwag"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "L-1 (API-Bank)",
+          "L-2 (API-Bank)",
+          "AST accuracy (BFCL V3)",
+          "Executable Function Accuracy (BFCL V3)",
+          "Joint Goal Accuracy",
+          "AST Accuracy",
+          "Executable Function Accuracy",
+          "Rouge-L1",
+          "Abstract Syntax Tree (AST) accuracy",
+          "Level 1 (L-1)",
+          "Level 2 (L-2)"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L1": "ROUGE",
+        "L-1 (API-Bank)": "API-Bank specific metrics (removed due to being dataset-specific)",
+        "L-2 (API-Bank)": "API-Bank specific metrics (removed due to being dataset-specific)",
+        "AST accuracy (BFCL V3)": "BFCL-specific metrics (removed due to being dataset-specific)",
+        "Executable Function Accuracy (BFCL V3)": "BFCL-specific metrics (removed due to being dataset-specific)"
+      },
+      "explanation": "Removed dataset-specific metrics and simplified to general metric categories. ROUGE variants normalized to ROUGE. Kept standard academic benchmarks."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges for evaluation in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluation of 100 randomly selected dialogue instances across four quality dimensions using binary scoring (1 for no errors, 0 for detected issues) with mandatory feedback"
+    ],
+    "criteria": [
+      "Undefined Function Call",
+      "Incorrect Argument Type",
+      "Argument Hallucination",
+      "Low-Quality Reasoning and Planning"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human evaluation of 100 randomly selected dialogue instances across four quality dimensions using binary scoring (1 for no errors, 0 for detected issues) with mandatory feedback"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Evaluators checked each dialogue for undefined function calls, incorrect argument types, argument hallucinations, and low-quality reasoning/planning.",
+          "- We asked for a binary score (1 for no errors, 0 for detected issues) for each generated dialogue and provided mandatory feedback for any errors."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated and structured the guideline description while keeping the criteria unchanged"
+    }
+  },
+  "overall_notes": "The paper focuses on conversational agents with multi-turn dialogue generation and API calling capabilities. Extracted metadata was generally accurate but needed normalization for metrics and consolidation of output descriptions. The paper extensively evaluates on TOD and function calling benchmarks with both automatic and human evaluation."
+}

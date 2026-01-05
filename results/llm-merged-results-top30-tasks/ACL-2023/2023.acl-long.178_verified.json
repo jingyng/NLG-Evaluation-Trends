@@ -1,0 +1,186 @@
+{
+  "paper_id": "2023.acl-long.178",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "MSCOCO",
+      "flickr30k",
+      "flickr8k EXPERT",
+      "flickr8k CF",
+      "COMPOSITE",
+      "PASCAL 50s",
+      "THUMB 1 0",
+      "NOCAPS",
+      "CAPTOKENEVAL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "up_down",
+      "unified_vlp",
+      "vinvl_base",
+      "vinvl_large",
+      "clip",
+      "uniter",
+      "infometic",
+      "infoclip",
+      "clip_s",
+      "bert_s",
+      "bert_s++",
+      "vilbertscore",
+      "tiger",
+      "reo",
+      "bert",
+      "vilbert"
+    ],
+    "outputs": [
+      "natural language captions describing image contents",
+      "generated image captions",
+      "natural language sentences to describe image contents"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "CapTokenEval"
+        ],
+        "models": [
+          "BERT",
+          "ViLBERT"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Flickr8k"
+        ],
+        "models": [
+          "Bottom-Up",
+          "SpaCy"
+        ]
+      },
+      "normalized": {
+        "Flickr8k-Expert": "Flickr8k-Expert",
+        "Flickr8k-CF": "Flickr8k-CF",
+        "THumB 1.0": "THumB 1.0",
+        "NoCaps": "NoCaps",
+        "CapTokenEval": "CapTokenEval"
+      },
+      "explanation": "Removed Bottom-Up and SpaCy as they are tools/preprocessing methods, not NLG models being evaluated. Added CapTokenEval dataset explicitly mentioned in the paper. Added BERT and ViLBERT which are foundational models for metrics mentioned."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "INFOMETIC",
+      "METEOR",
+      "CIDER",
+      "SPICE",
+      "BLEU",
+      "ROUGE",
+      "BERT",
+      "BERT S++",
+      "REO",
+      "TIGER",
+      "VILBERTSCORE",
+      "FAIER",
+      "UMIC",
+      "CLIP",
+      "CLIP S TUNE",
+      "INFOCLIP",
+      "INFOCLIP TUNE",
+      "REFCLIP"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "FAIEr",
+          "RefCLIP-S"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "InfoMetIC_R",
+          "InfoMetIC_P"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "CLIP-S tune": "CLIP-S tune",
+        "InfoCLIP tune": "InfoCLIP tune"
+      },
+      "explanation": "Normalized BLEU-4 to BLEU and ROUGE-L to ROUGE following simplification rules. Removed duplicate InfoMetIC_R/InfoMetIC_P variants. Added FAIEr and RefCLIP-S metrics mentioned in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators identify which tokens in the caption are incorrect and which regions are mentioned by the caption",
+      "If caption mentions an object without details, detailed component regions should not be classified as 'Mentioned'",
+      "Annotators judge which textual tokens are incorrect (irrelevant) and which image regions are mentioned"
+    ],
+    "criteria": [
+      "Precision",
+      "Recall",
+      "Correctness",
+      "Mention",
+      "Relevance",
+      "Regions"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "If caption mentions an object without details, detailed component regions should not be classified as 'Mentioned'"
+        ],
+        "criteria": [
+          "word relevance"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "incorrect vs correct tokens",
+          "mentioned vs unmentioned"
+        ]
+      },
+      "normalized": {
+        "word relevance (incorrect vs correct tokens)": "word relevance",
+        "region mention (mentioned vs unmentioned)": "region mention"
+      },
+      "explanation": "Consolidated criteria by removing redundant phrasing. Added missing guideline about detail-level annotation. Normalized criteria names for consistency."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating image captioning metrics, specifically proposing InfoMetIC for reference-free evaluation. The extraction was generally accurate but needed normalization of metric names and removal of non-NLG models/tools. Human evaluation was conducted for fine-grained token-level assessment."
+}

@@ -1,0 +1,129 @@
+{
+  "paper_id": "2025.emnlp-main.776",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Multiple-Choice QA",
+      "Other:Open-Ended Generation"
+    ],
+    "datasets": [
+      "Alpaca",
+      "MMLU-Pro",
+      "Big-Bench-Hard"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-2-7B-Chat",
+      "Llama-3.1-8B-Instruct",
+      "Mistral-7B-Instruct",
+      "Gemma-7B-it",
+      "Qwen-2.5-7B-Instruct",
+      "Qwen-2.5-32B"
+    ],
+    "outputs": [
+      "Multiple-choice answers",
+      "Open-ended text generations",
+      "Model predictions on benchmark test items"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Multiple-Choice QA"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Multiple-choice answers"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Open-Ended Generation",
+          "Other:Open-ended generation",
+          "Other:open-ended generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Open-Ended Generation": "Other:Open-Ended Generation",
+        "Other:Open-ended generation": "Other:Open-Ended Generation",
+        "Other:open-ended generation": "Other:Open-Ended Generation"
+      },
+      "explanation": "Added 'Other:Multiple-Choice QA' as a task since the paper evaluates both multiple-choice and open-ended generation. Normalized task naming consistency. Kept all models as they are explicitly evaluated."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "Accuracy",
+      "False Positive Rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "false positive rate (FPR)",
+          "backdoor effectiveness (r_atk)",
+          "clean accuracy",
+          "backdoor accuracy"
+        ]
+      },
+      "normalized": {
+        "false positive rate (FPR)": "False Positive Rate"
+      },
+      "explanation": "Changed answer from No to Yes because the paper uses accuracy metrics to evaluate model performance. Simplified metrics to base forms - 'false positive rate' becomes 'False Positive Rate', and various accuracy measures are normalized to 'Accuracy'. Removed 'backdoor effectiveness (r_atk)' as it's an analysis metric rather than an evaluation metric for generated outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper. GPT-4o is only used to generate backdoor triggers, not to evaluate outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. All evaluations are automated."
+    }
+  },
+  "overall_notes": "This paper introduces DyePack, a method for detecting test set contamination in LLMs using backdoor attacks. While it evaluates NLG tasks (multiple-choice QA and open-ended generation), the primary focus is on contamination detection rather than traditional NLG evaluation. The paper uses accuracy metrics but not standard NLG evaluation metrics like BLEU or ROUGE. The extraction was generally accurate but needed normalization and clarification of task types."
+}

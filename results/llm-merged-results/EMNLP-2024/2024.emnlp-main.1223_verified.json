@@ -1,0 +1,173 @@
+{
+  "paper_id": "2024.emnlp-main.1223",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT MQM Human Evaluation",
+      "Eval4NLP",
+      "distillation dataset (14M examples)"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "German",
+      "Russian",
+      "Spanish"
+    ],
+    "models": [
+      "OPUS-MT",
+      "NLLB",
+      "xCOMET-XL",
+      "xCOMET-XXL",
+      "xCOMET-lite",
+      "BLEURT-20",
+      "COMET-22",
+      "mDeBERTa v3"
+    ],
+    "outputs": [
+      "machine translations (hypotheses)",
+      "segment-level quality scores",
+      "token-level error span annotations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "segment-level quality scores",
+          "token-level error span annotations"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WMT MQM"
+        ],
+        "languages": [],
+        "models": [
+          "Word Drop",
+          "Word Replacement with MLM",
+          "Backtranslation",
+          "Backtranslation + MLM"
+        ],
+        "outputs": [
+          "translation hypotheses, segment-level quality scores, token-level error span annotations"
+        ]
+      },
+      "normalized": {
+        "WMT MQM Human Evaluation dataset": "WMT MQM Human Evaluation",
+        "machine translations": "machine translations (hypotheses)"
+      },
+      "explanation": "Removed corruption algorithms (Word Drop, etc.) as they are data augmentation methods, not models. Consolidated duplicate dataset references. Clarified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "xCOMET",
+      "xCOMET-lite",
+      "BLEURT-20",
+      "COMET-22",
+      "BLEU",
+      "chrF",
+      "BERTScore",
+      "MoverScore",
+      "MetricX",
+      "GEMBA-MQM"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEU",
+          "chrF",
+          "BERTScore",
+          "MoverScore",
+          "MetricX",
+          "GEMBA-MQM"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPTQ quantized models",
+          "pruned models"
+        ]
+      },
+      "normalized": {
+        "BERTScore": "BERTScore",
+        "MoverScore": "MoverScore"
+      },
+      "explanation": "Added traditional metrics mentioned in the paper (BLEU, chrF, BERTScore, MoverScore, MetricX, GEMBA-MQM) that were missing. Removed 'GPTQ quantized models' and 'pruned models' as these are compressed versions of xCOMET, not separate metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "xCOMET-XXL",
+      "GPT-4"
+    ],
+    "methods": [
+      "pseudo-label generation",
+      "few-shot prompting"
+    ],
+    "criteria": [
+      "segment-level quality",
+      "error spans (critical, major, minor, no-error)"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "metric scoring"
+        ],
+        "criteria": [
+          "error categories"
+        ]
+      },
+      "normalized": {
+        "error span categories (critical, major, minor, no-error)": "error spans (critical, major, minor, no-error)",
+        "translation error spans": "error spans (critical, major, minor, no-error)"
+      },
+      "explanation": "Consolidated error span criteria. Removed 'metric scoring' as it's too vague. GEMBA-MQM uses GPT-4 for error span detection via few-shot prompting, qualifying as LLM-as-judge."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [
+      "MQM annotation guidelines"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "overall quality",
+          "critical",
+          "major",
+          "minor",
+          "no-error"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed criteria as they are used for automatic metric training/evaluation (xCOMET predicts these), not for human evaluation. The paper uses existing human annotations from WMT but does not conduct new human evaluations."
+    }
+  },
+  "overall_notes": "The paper focuses on compressing MT evaluation metrics (xCOMET) using distillation, quantization, and pruning. It evaluates on existing human-annotated datasets but does not conduct new human evaluations. The LLM-as-judge aspect is limited to GEMBA-MQM's use of GPT-4 and xCOMET's pseudo-label generation."
+}

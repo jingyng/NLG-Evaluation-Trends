@@ -1,0 +1,155 @@
+{
+  "paper_id": "2022.acl-long.234",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Text Generation",
+      "Other:Toxic Language Generation",
+      "Other:Implicit Toxic Language Generation"
+    ],
+    "datasets": [
+      "TOXIGEN"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3",
+      "ALICE",
+      "GPT-2",
+      "HateBERT",
+      "RoBERTa"
+    ],
+    "outputs": [
+      "Toxic and benign statements about minority groups",
+      "Implicit hate speech and benign text"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Implicit hate speech and benign text"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT‑3"
+        ],
+        "outputs": [
+          "Generated statements (toxic or benign) about minority identity groups"
+        ]
+      },
+      "normalized": {
+        "GPT‑3": "GPT-3",
+        "Other: Toxic language generation": "Other:Toxic Language Generation"
+      },
+      "explanation": "Removed duplicate GPT-3 entry and normalized task naming. Added more descriptive output description to capture the implicit nature of the generated content."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Perplexity",
+      "Classifier toxicity probability",
+      "Implicitness rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "perplexity"
+        ]
+      },
+      "normalized": {
+        "Implicitness rate (percentage of profanity‑free samples)": "Implicitness rate",
+        "Classifier toxicity probability": "Classifier toxicity probability"
+      },
+      "explanation": "Removed duplicate perplexity entry and simplified the implicitness rate description. The paper uses perplexity (via GPT-2), classifier probabilities, and implicitness rate as automatic metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges/evaluators. LLMs (GPT-3) are used for generation, but not for evaluation. Human evaluation is used instead."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators were asked to identify whether text was written by human or AI",
+      "Annotators rated harmfulness on a 1-5 scale (1=benign, 5=offensive) for both AI-written and human-written scenarios",
+      "Annotators assessed harmful intent, presence of positive stereotypes, lewdness, group references, group framing, and whether statements were factual or opinion"
+    ],
+    "criteria": [
+      "Human vs AI author identification",
+      "Harmfulness rating",
+      "Harmful intent",
+      "Positive stereotype presence",
+      "Lewdness",
+      "Group reference",
+      "Group framing",
+      "Fact vs opinion"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators rated harmfulness on a 1-5 scale (1=benign, 5=offensive) for both AI-written and human-written scenarios"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators were asked questions about perceived hatefulness (on a scale), whether the author is human or AI, harmful intent, positive stereotypes, lewdness, group references, group framing, and fact or opinion.",
+          "- Annotators answered a series of questions about each statement, including author identity (human or AI), harmfulness if written by AI or human, intended harmfulness, presence of positive stereotypes, lewdness, which group is referenced, and whether the claim is factual or opinion.",
+          "- We ask annotators various questions, described below, that take into account multiple dimensions of how toxic machine-generated language presents a potential harm to readers."
+        ],
+        "criteria": [
+          "HUMANORAI",
+          "HARMFULIFAI",
+          "HARMFULIFHUMAN",
+          "HARMFULINTENT",
+          "POSSTEREO",
+          "LEWD",
+          "WHICHGROUP",
+          "GROUPFRAMING",
+          "FACTOROPINION"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated the verbose guideline descriptions into clear, concise statements. Removed the technical variable names and kept the human-readable criteria. Added clarification about the 1-5 harmfulness scale."
+    }
+  },
+  "overall_notes": "The paper is primarily about generating and evaluating toxic/benign text using GPT-3. The extraction was generally accurate but contained some duplicates and overly technical variable names. The paper focuses on text generation (NLG) with comprehensive human evaluation but does not use LLMs as judges. Automatic metrics are used but are domain-specific (toxicity classification, perplexity) rather than standard NLG metrics like BLEU/ROUGE."
+}

@@ -1,0 +1,127 @@
+{
+  "paper_id": "2020.emnlp-main.59",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Embodied Visual Dialog"
+    ],
+    "datasets": [
+      "WHERE ARE YOU WAY"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "lingunet_skip",
+      "bilstm",
+      "glove"
+    ],
+    "outputs": [
+      "Observer's natural language descriptions of surroundings",
+      "Dialog utterances between Observer and Locator",
+      "Navigation actions for Observer agent"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WAY"
+        ],
+        "languages": [],
+        "models": [
+          "ResNet18"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Embodied Visual Dialog": "Other:Embodied Visual Dialog",
+        "WHERE ARE YOU? (WAY)": "WHERE ARE YOU? (WAY)",
+        "BLEU": "BLEU"
+      },
+      "explanation": "Removed 'ResNet18' as it's a vision encoder, not primarily an NLG model. Removed duplicate 'WAY' dataset entry. Updated outputs to be more accurate descriptions of what's generated."
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": false,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU",
+          "Structural Similarity",
+          "nDTW",
+          "text similarity metrics"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all automatic metrics because they are mentioned as possibilities for future work ('Generated text can be evaluated against human responses using existing text similarity metrics') but are NOT actually used in this paper to evaluate generated outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are mentioned or used as judges in this paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Workers were given written instructions and walk-through video on role performance",
+      "Locator makes prediction by clicking spot on top-down map",
+      "Dialog continues until Locator makes prediction"
+    ],
+    "criteria": [
+      "Localization",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Dialog continues until Locator makes prediction"
+        ],
+        "criteria": [
+          "localization error",
+          "accuracy at threshold"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "The Locator interface also included the option to make their prediction by clicking a spot on the top-down map - terminating the dialog.": "Locator makes prediction by clicking spot on top-down map"
+      },
+      "explanation": "Changed answer from 'No' to 'Yes' because humans (AMT workers) were used to collect the dataset and establish performance baselines. The paper explicitly mentions human Locator performance compared to models. Added more specific evaluation criteria used for human performance."
+    }
+  },
+  "overall_notes": "This paper focuses on localization tasks using dialog rather than traditional NLG evaluation. While it involves language generation tasks, the primary evaluation is localization accuracy rather than text quality metrics. The extracted metadata had several issues where future possibilities were mistakenly included as current implementations."
+}

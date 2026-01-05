@@ -1,0 +1,212 @@
+{
+  "paper_id": "2023.emnlp-main.105",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Paraphrase Generation",
+      "Fact Verification"
+    ],
+    "datasets": [
+      "TRUE",
+      "SCREENEVAL",
+      "FRANK",
+      "SUMMEVAL",
+      "MNBM",
+      "QAGS CNNDM",
+      "QAGS XSUM",
+      "BEGIN",
+      "q2",
+      "DIALFACT",
+      "FEVER",
+      "VITAMINC",
+      "PAWS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "human",
+      "longformer",
+      "gpt_4",
+      "flan_t_5",
+      "chatgpt",
+      "qafacteval",
+      "unieval",
+      "bertscore",
+      "rouge"
+    ],
+    "outputs": [
+      "Summaries",
+      "Dialogue responses",
+      "Paraphrases",
+      "Factual consistency scores"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "ScreenEval",
+          "FRANK",
+          "SummEval",
+          "MNBM",
+          "QAGS-CNNDM",
+          "QAGS-XSum",
+          "BEGIN",
+          "Q2",
+          "DialFact",
+          "FEVER",
+          "VitaminC",
+          "PAWS"
+        ],
+        "languages": [],
+        "models": [
+          "BERTScore",
+          "ROUGE"
+        ],
+        "outputs": [
+          "Factual consistency scores"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "TRUE benchmark (FRANK, SummEval, MNBM, QAGS-CNNDM, QAGS-XSum, BE-GIN, Q2, DialFact, FEVER, VitaminC, PAWS)"
+        ],
+        "languages": [],
+        "models": [
+          "Flan-T5 (base, XL, XXL) as backbone for SCALE",
+          "Flan-T5"
+        ],
+        "outputs": [
+          "Summaries and generated sentences from dialogues",
+          "generated text such as summaries, dialogue responses, and paraphrases"
+        ]
+      },
+      "normalized": {
+        "BE-GIN": "BEGIN",
+        "Chat-GPT": "ChatGPT"
+      },
+      "explanation": "Normalized dataset names by removing redundant 'TRUE benchmark (subdatasets)' and breaking out individual dataset names. Simplified model names by removing redundant Flan-T5 specifications. Added missing baseline models mentioned in experiments."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROC AUC",
+      "PEARSON",
+      "KENDALL S TAU",
+      "F1",
+      "ECE",
+      "BERTSCORE",
+      "BLEURT",
+      "FACTCC",
+      "BARTSCORE",
+      "CTC",
+      "ANLI",
+      "SUMMAC",
+      "Q2",
+      "QUESTEVAL",
+      "QAFACTEVAL",
+      "ROUGE",
+      "UNIEVAL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEURT",
+          "FactCC",
+          "BARTScore",
+          "CTC",
+          "ANLI",
+          "QuestEval",
+          "ROUGE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Super-Pal"
+        ]
+      },
+      "normalized": {
+        "Expeected Caliberation Error (ECE)": "ECE",
+        "Kendall_Tau correlation": "Kendall_Tau",
+        "Pearson correlation": "Pearson",
+        "Expected Calibration Error (ECE)": "ECE"
+      },
+      "explanation": "Normalized metric names to base forms without 'correlation' or 'score'. Removed 'Super-Pal' as it's a retrieval model, not an evaluation metric. Added metrics explicitly mentioned as baselines in the experiments."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "chatgpt",
+      "gpt_4"
+    ],
+    "methods": [
+      "Binary classification via prompting LLM for factual consistency judgments"
+    ],
+    "criteria": [
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Chat-GPT"
+        ],
+        "methods": [
+          "black-box evaluation",
+          "discrete scoring of factual inconsistency"
+        ],
+        "criteria": [
+          "factual inconsistency"
+        ]
+      },
+      "normalized": {
+        "Chat-GPT": "ChatGPT"
+      },
+      "explanation": "Simplified methods to focus on the core LLM-as-judge approach. Removed redundant criteria ('factual inconsistency') since the paper focuses on 'factual consistency'. Normalized model name spelling."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators classify factual inconsistency of each summary sentence",
+      "Identify relevant supporting utterances for factually consistent sentences"
+    ],
+    "criteria": [
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "classify the factual inconsistency of each summary sentence and identify relevant supporting utterances",
+          "Annotators label each summary sentence as factually consistent or inconsistent and select the source utterance that supports a consistent label"
+        ],
+        "criteria": [
+          "factual inconsistency",
+          "relevance of supporting utterances"
+        ]
+      },
+      "normalized": {
+        "factual inconsistency": "Factual consistency"
+      },
+      "explanation": "Consolidated redundant guideline descriptions and normalized criteria to focus on 'Factual consistency' as the primary evaluation criterion."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on factual inconsistency detection as an evaluation task rather than generation itself. SCALE is presented as an evaluation method for NLG outputs. The extraction was generally good but contained some redundancy and inconsistent naming conventions that needed normalization."
+}

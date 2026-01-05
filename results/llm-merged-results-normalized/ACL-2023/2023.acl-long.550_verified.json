@@ -1,0 +1,158 @@
+{
+  "paper_id": "2023.acl-long.550",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Constrained Sentence Generation"
+    ],
+    "datasets": [
+      "CSK PN"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "text_curie_001",
+      "text_davinci_001",
+      "text_davinci_002",
+      "text_davinci_003",
+      "chatgpt",
+      "instructgpt",
+      "codex"
+    ],
+    "outputs": [
+      "Sentences generated from input triples (e.g., 'lions don't live in the ocean')",
+      "Boolean answers (yes/no) to commonsense questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Boolean answers (yes/no) to commonsense questions"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "text-curie-001",
+          "GPT-3"
+        ],
+        "outputs": [
+          "short factual sentences (with or without negation) based on given keywords",
+          "lions don't live in the ocean"
+        ]
+      },
+      "normalized": {
+        "GPT-3": "GPT-3 (text-curie-001)",
+        "text-curie-001": "GPT-3 (text-curie-001)"
+      },
+      "explanation": "Removed duplicate model entries and normalized model names. Added Boolean answers as they are also generated outputs from the QA task. Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "NEGATION DETECTION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Detection of negation cues",
+          "Negation cue detection",
+          "RoBERTa token classifier for unmatched negation cues",
+          "negation cue detection",
+          "RoBERTa-based token classification"
+        ]
+      },
+      "normalized": {
+        "Detection of negation cues": "Negation Detection",
+        "Negation cue detection": "Negation Detection",
+        "RoBERTa token classifier for unmatched negation cues": "Negation Detection",
+        "negation cue detection": "Negation Detection",
+        "RoBERTa-based token classification": "Negation Detection"
+      },
+      "explanation": "Consolidated all negation detection variants into 'Negation Detection'. Added 'Accuracy' as the primary metric used for both TP and TN evaluation. Removed implementation details to focus on the core metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {
+        "None": ""
+      },
+      "explanation": "The paper does not use LLMs as judges/evaluators. LLMs are used for generation tasks only, not for post-generation evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Sentences must make common sense and adhere to keyword constraints",
+      "Only sentences that are factually correct according to commonsense knowledge and respect keyword constraints are accepted as true"
+    ],
+    "criteria": [
+      "Factuality",
+      "Adherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Sentences that make common sense and adhere to the keywords constraints are accepted as true.",
+          "Human annotators judge whether each generated sentence is factually correct according to commonsense knowledge and respects the keyword constraints.",
+          "Only the sentences that make common sense and adhere to the keywords constraints are accepted as true during manual annotation."
+        ],
+        "criteria": [
+          "factuality",
+          "adherence to constraints",
+          "adherence to keywords",
+          "correct use of negation"
+        ]
+      },
+      "normalized": {
+        "factuality": "Factuality",
+        "adherence to constraints": "Adherence to constraints",
+        "adherence to keywords": "Adherence to constraints",
+        "correct use of negation": "Factuality"
+      },
+      "explanation": "Consolidated guidelines into clear statements. Simplified criteria to core concepts (factuality and constraint adherence). 'Correct use of negation' is covered under factuality."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating LLMs' ability to generate text grounded in negative commonsense knowledge. The extraction was generally accurate but needed normalization and consolidation. The paper uses both automatic metrics (negation detection + accuracy) and human evaluation. LLMs are used as generators, not as evaluators/judges."
+}

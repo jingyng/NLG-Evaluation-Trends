@@ -1,0 +1,182 @@
+{
+  "paper_id": "2025.emnlp-main.1008",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Clue Generation",
+      "Other:Language Comprehension",
+      "Other:Language Production"
+    ],
+    "datasets": [
+      "WavelengthEval"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-3-3B",
+      "Llama-3-8B",
+      "Llama-3-70B",
+      "Gemma-3-4B",
+      "Gemma-3-12B",
+      "Gemma-3-27B",
+      "Qwen-3-4B",
+      "Qwen-3-8B",
+      "Qwen-3-32B",
+      "DeepSeek-V3",
+      "Gemini-2.0-Flash",
+      "Claude-3.7-Sonnet",
+      "GPT-4.1"
+    ],
+    "outputs": [
+      "clues (single words or short phrases) that communicate a target value on a scale between two opposite concepts",
+      "numeric guess values (0-100) representing interpretations of clues on conceptual scales"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Language Comprehension"
+        ],
+        "models": [],
+        "outputs": [
+          "numeric guess values (0-100) representing interpretations of clues on conceptual scales"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "models": [
+          "Llama3",
+          "Gemma3",
+          "Qwen3",
+          "Llama3 3B",
+          "Llama3 8B",
+          "Llama3 70B",
+          "Gemma3 4B",
+          "Gemma3 12B",
+          "Gemma3 27B",
+          "Qwen3 4B",
+          "Qwen3 8B",
+          "Qwen3 32B"
+        ],
+        "outputs": [
+          "Other:Clue Generation",
+          "Other:Language Production",
+          "single-word or short-phrase clues and numeric guess values (0-100)"
+        ]
+      },
+      "normalized": {
+        "Llama3": "Llama-3",
+        "Gemma3": "Gemma-3",
+        "Qwen3": "Qwen-3",
+        "Llama3 3B": "Llama-3-3B",
+        "Llama3 8B": "Llama-3-8B",
+        "Llama3 70B": "Llama-3-70B",
+        "Gemma3 4B": "Gemma-3-4B",
+        "Gemma3 12B": "Gemma-3-12B",
+        "Gemma3 27B": "Gemma-3-27B",
+        "Qwen3 4B": "Qwen-3-4B",
+        "Qwen3 8B": "Qwen-3-8B",
+        "Qwen3 32B": "Qwen-3-32B"
+      },
+      "explanation": "Normalized model names to consistent hyphenated format ('Llama-3-70B' instead of 'Llama3 70B'), added Language Comprehension as it's a core task, and restructured outputs to be more descriptive"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Absolute Difference",
+      "Wasserstein Distance",
+      "Pearson Correlation",
+      "RMSE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "absolute difference",
+          "Pearson correlations",
+          "Wasserstein distance"
+        ]
+      },
+      "normalized": {
+        "absolute difference": "Absolute Difference",
+        "Pearson correlations": "Pearson Correlation",
+        "Pearson correlation": "Pearson Correlation",
+        "Wasserstein distance": "Wasserstein Distance"
+      },
+      "explanation": "Fixed capitalization for consistency and removed duplicates while keeping all valid metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Qwen-3-32B",
+      "Llama-3-70B"
+    ],
+    "methods": [
+      "model-as-listener evaluation (LLM predicts target value from clue)",
+      "listener performance evaluation using absolute difference"
+    ],
+    "criteria": [
+      "absolute difference to target"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "listener performance evaluation using absolute difference"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "predicting target value and computing absolute error"
+        ],
+        "criteria": [
+          "accuracy in guessing target value"
+        ]
+      },
+      "normalized": {
+        "Qwen3 32B": "Qwen-3-32B",
+        "Llama3 70B": "Llama-3-70B"
+      },
+      "explanation": "Normalized model names and refined method/criteria descriptions for clarity while removing redundant entries"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants guess the target value given the clue and compute average absolute difference",
+      "Human participants are shown a clue and asked to guess the target value on a slider; the average absolute difference from the true target is used as evaluation metric"
+    ],
+    "criteria": [
+      "absolute difference to target value"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Participants were asked to guess a value between 0 and 100 (in increments of 5) that best represents where the clue falls on the scale between the two concepts, or to generate a clue that best represents the target value's position on the scale"
+        ],
+        "criteria": [
+          "guess accuracy (absolute difference)",
+          "proximity to target value",
+          "informativeness of clue"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed redundant guideline text and consolidated criteria to focus on the primary evaluation metric (absolute difference)"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main changes involved normalizing model names to consistent format (Llama-3-70B instead of Llama3 70B), consolidating similar entries, and clarifying task descriptions. The paper clearly addresses NLG tasks (clue generation), uses automatic metrics, employs LLMs as judges, and conducts human evaluations."
+}

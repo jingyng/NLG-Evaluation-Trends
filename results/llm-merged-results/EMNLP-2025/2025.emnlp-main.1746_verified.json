@@ -1,0 +1,123 @@
+{
+  "paper_id": "2025.emnlp-main.1746",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Entity Description Generation"
+    ],
+    "datasets": [
+      "AIDA-CoNLL",
+      "TempEL",
+      "MSNBC",
+      "AQUAINT",
+      "ACE2004",
+      "WNED-CWEB",
+      "WNED-WIKI"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5-large",
+      "Flan-T5-large",
+      "SmolLM2-360M",
+      "Llama-3.2-1B",
+      "E5"
+    ],
+    "outputs": [
+      "entity titles and definitions"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "WNED-WIKI"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "AIDA",
+          "AIDA CoNLL-YAGO"
+        ]
+      },
+      "normalized": {
+        "E5-base retriever": "E5",
+        "entity titles and definitions (opening sentences)": "entity titles and definitions",
+        "entity titles and definitions (descriptions)": "entity titles and definitions"
+      },
+      "explanation": "Removed duplicate dataset entries (AIDA/AIDA CoNLL-YAGO are redundant with AIDA-CoNLL). Normalized E5 model naming and output descriptions to consistent phrasing."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "Semantic Similarity (SIM)",
+      "BERTScore",
+      "Factual-NLI (F-NLI)",
+      "InKB Micro F1"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "SIM": "Semantic Similarity (SIM)",
+        "F-NLI": "Factual-NLI (F-NLI)"
+      },
+      "explanation": "Removed duplicate SIM and F-NLI metrics (already covered by full names)."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Phi-3.5-mini-instruct"
+    ],
+    "methods": [
+      "pairwise comparison"
+    ],
+    "criteria": [
+      "linguistic fluency",
+      "semantic coherence",
+      "relevance",
+      "factual correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "linguistic fluency",
+          "semantic coherence"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "pairwise evaluation"
+        ],
+        "criteria": [
+          "alignment with context"
+        ]
+      },
+      "normalized": {
+        "pairwise evaluation": "pairwise comparison"
+      },
+      "explanation": "Added explicit criteria mentioned in the paper. Removed redundant method and vague criterion ('alignment with context' is covered by 'relevance')."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation conducted according to the paper text."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Minor normalization and deduplication were needed for datasets, metrics, and criteria. The paper clearly addresses NLG (entity description generation) and uses both automatic metrics and LLM-as-judge evaluation."
+}

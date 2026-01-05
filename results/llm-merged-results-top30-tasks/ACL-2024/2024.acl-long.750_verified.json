@@ -1,0 +1,158 @@
+{
+  "paper_id": "2024.acl-long.750",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "TEST SETS OF SEARCH QUERIES IN 25 SECONDARY LANGUAGES",
+      "WMT",
+      "IN HOUSE SEARCH QUERY LOGS",
+      "FLORES 200",
+      "IN HOUSE SEARCH QUERY DOMAIN DATA"
+    ],
+    "languages": [
+      "English",
+      "French",
+      "Czech",
+      "Dutch",
+      "Polish",
+      "Turkish",
+      "Portuguese",
+      "Bengali",
+      "Hindi",
+      "Kannada",
+      "Malayalam",
+      "Marathi",
+      "Tamil",
+      "Telugu",
+      "Japanese",
+      "Chinese",
+      "Swedish",
+      "German",
+      "Spanish",
+      "Hebrew",
+      "Korean"
+    ],
+    "models": [
+      "amazon_translate",
+      "in_house_mt_systems",
+      "transformer",
+      "bart",
+      "bpe_variant_mt_models"
+    ],
+    "outputs": [
+      "Translated search queries",
+      "Ranked product search results"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Ranked product search results"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "Russian",
+          "Urdu"
+        ],
+        "models": [
+          "Transformer (Sockeye)",
+          "In‑house MT systems",
+          "BPE‑variant MT models (32k, 16k, 8k, 4k, 2k, 0 operations)",
+          "BART spelling‑correction model",
+          "in-house MT systems"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "WMT corpora (e.g., 2013 ES‑EN, 2015 FR‑EN, 2020 TA‑EN, 2023 HE‑EN, EN‑DE, EN‑JA)": "WMT corpora",
+        "In‑house search‑query logs with rightly and wrongly spelled pairs": "In-house search query logs",
+        "in-house data sets representing the search-query domain": "In-house search query domain data",
+        "Translated queries (y_r, y_w) and derived ranked product ID lists for search results": "Ranked product search results",
+        "machine-translated search queries": "Translated search queries"
+      },
+      "explanation": "Removed languages not mentioned in paper (Russian, Urdu). Consolidated model variants into normalized names. Simplified dataset names for clarity."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CHRF",
+      "CONSISTENCY",
+      "PSEUDO SUCCESS",
+      "EQUAL OUTPUT",
+      "NDCG",
+      "BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Pseudo‑Success"
+        ]
+      },
+      "normalized": {
+        "Pseudo‑Success": "Pseudo-Success"
+      },
+      "explanation": "Deduplicated 'Pseudo-Success' which appeared twice in different forms. All metrics are correctly identified from the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The extracted metadata was already correct (empty)."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "verify that it was in the expected secondary language and that the query's intent was understandable; second, to record whether the query was misspelled or not; and third, to provide a correctly spelled version if necessary."
+        ],
+        "criteria": [
+          "language correctness",
+          "intent understandability",
+          "spelling correctness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "While the paper mentions human annotation for test set creation (verifying language, intent, and spelling correctness), this was for data preparation, not for evaluating generated NLG outputs. Therefore, the answer should be 'No' for human evaluation of generated outputs."
+    }
+  },
+  "overall_notes": "The paper focuses on Machine Translation robustness to spelling errors in e-commerce search queries. It uses automatic metrics (chrF, BLEU, etc.) but does not use LLM judges or human evaluation of generated outputs. The extraction was mostly accurate but included some languages not mentioned in the paper and had some duplication in metrics."
+}

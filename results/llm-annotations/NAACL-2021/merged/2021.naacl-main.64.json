@@ -1,0 +1,91 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "a reinforcement learning system that incorporates large-scale language modeling and the above commonsense-based pretraining",
+            "... we have trained agents that act consistently and speak naturally with respect to their motivations ...",
+            "We present a dataset of quests for LIGHT and demonstrations of humans playing these quests... To complete these quests, an agent must reason about potential actions and utterances based on incomplete descriptions of the locations, objects, and other characters."
+        ],
+        "tasks": [
+            "Dialogue Generation"
+        ],
+        "datasets": [
+            "LIGHT-Quests",
+            "LIGHT-original",
+            "ATOMIC-LIGHT",
+            "Reddit",
+            "LIGHT"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Transformer-based encoder with dialogue policy network",
+            "Poly‑encoder transformer (partner agent)",
+            "12‑layer transformer encoder (256M parameters)",
+            "BERT‑large (domain‑adapted for ATOMIC‑LIGHT)",
+            "A2C reinforcement learning agent",
+            "transformer",
+            "poly-encoder",
+            "ATOMIC-LIGHT",
+            "Adaptive model"
+        ],
+        "outputs": [
+            "Dialogue utterances and templated actions",
+            "Natural language utterances (dialogue) and textual action commands",
+            "The agent generates both actions (e.g., 'get shield') and natural language utterances (e.g., 'Next time I'll hit you with this shield!') in pursuit of goals within a fantasy text-adventure environment."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "the DM returns a reward r u of 1/(2n) if an utterance was in the demonstration ... and ... scored as being within the top-k most likely utterances by the DM",
+            "The DM returns a reward r_u of 1/2n if an utterance was in the demonstration ... a further 1/2n is given each time the utterance is scored as being within the top‑k most likely utterances by the DM. ... Act goals and speech goals are as described in Section 4.1.",
+            "Given the dialogue portion of a human quest demonstration of length n, the DM returns a reward r u of 1 2n if an utterance was in the demonstration... A further 1 2n is given each time the utterance is scored as being within the top-k most likely utterances by the DM."
+        ],
+        "automatic_metrics": [
+            "DM-based naturalness score",
+            "Act goal completion",
+            "Speech goal completion",
+            "Act goal completion rate",
+            "Speech goal completion rate",
+            "Act & Speech goal completion rate",
+            "Hits@1",
+            "Hits@5",
+            "Hits@10",
+            "top-k likelihood",
+            "reward from Dungeon Master (DM) model"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [
+            "The DM used here is a poly‑encoder model trained on collected human quest demonstrations as well as the original conversations in LIGHT. It is conditioned on quests and motivations and thus able to provide a (noisy) indication of how natural the agent's dialogue utterances are given its immediate context."
+        ],
+        "models": [
+            "Dungeon Master (poly‑encoder transformer)"
+        ],
+        "methods": [
+            "Reward scoring based on matching demonstration utterances",
+            "Top‑k likelihood scoring by the DM"
+        ],
+        "criteria": [
+            "naturalness"
+        ]
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": [
+            "Players were given a role-playing score on a scale of 1-5 through a Dungeon Master (DM), a learned model that ranks how likely their utterances are given the current context. Once they have accumulated a score reaching a certain threshold, they are allowed to perform actions. We employ this gamification mechanism to encourage players to role-play their character persona and its motivations, leading to improved user experience and data quality."
+        ],
+        "guideline": [
+            "Players receive a score based on how well their utterances align with the context, persona, and motivations; only after reaching a threshold can they perform actions. They are further rewarded if their actions match the timeline of the quest."
+        ],
+        "criteria": [
+            "role-playing quality",
+            "alignment with persona",
+            "motivation consistency",
+            "action correctness"
+        ]
+    }
+}

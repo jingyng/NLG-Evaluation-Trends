@@ -1,0 +1,161 @@
+{
+  "paper_id": "2021.acl-long.498",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Text Simplification"
+    ],
+    "datasets": [
+      "Newsela",
+      "WikiLarge",
+      "WikiSmall",
+      "Simple Wikipedia"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "KiS",
+      "ACCESS",
+      "Unsup NTS",
+      "Finetune Baseline",
+      "GPT-2-medium",
+      "RoBERTa"
+    ],
+    "outputs": [
+      "Simplified paragraphs",
+      "Text simplifications"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-2-medium",
+          "RoBERTa"
+        ],
+        "outputs": [
+          "Text simplifications"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Newsela (paired)"
+        ],
+        "languages": [],
+        "models": [
+          "GPT2-medium (generator)",
+          "RoBERTa discriminator"
+        ],
+        "outputs": [
+          "simplified text paragraphs"
+        ]
+      },
+      "normalized": {
+        "WikiLarge": "WikiLarge",
+        "WikiSmall": "WikiSmall",
+        "Simple Wikipedia": "Simple Wikipedia",
+        "GPT2-medium": "GPT-2-medium",
+        "ACCESS": "ACCESS",
+        "Unsup NTS": "Unsup NTS",
+        "Finetune Baseline": "Finetune Baseline",
+        "KiS": "KiS"
+      },
+      "explanation": "Normalized model names (GPT-2-medium, RoBERTa), removed redundant dataset entry ('Newsela (paired)' duplicates 'Newsela'), consolidated output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SARI",
+      "BLEU",
+      "FKGL",
+      "Lexile",
+      "Compression Rate",
+      "Coverage"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "FKGL improvement %",
+          "Lexile improvement %",
+          "Compression rate",
+          "%FKGL",
+          "%Lexile"
+        ]
+      },
+      "normalized": {
+        "FKGL": "FKGL",
+        "Compression Rate": "Compression Rate",
+        "Coverage": "Coverage"
+      },
+      "explanation": "Removed percentage/variant metrics since paper reports FKGL, Lexile, and compression as base metrics. The percentages are just ways of reporting improvements, not separate metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The paper uses traditional automatic metrics and human evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants read simplified texts and answer multiple-choice comprehension questions",
+      "Time taken to complete questions is recorded",
+      "Number of submissions needed for all correct answers is recorded",
+      "Participants must resubmit until all answers are correct"
+    ],
+    "criteria": [
+      "Completion time",
+      "Number of submissions"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Participants must resubmit until all answers are correct"
+        ],
+        "criteria": [
+          "Number of submissions"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "show readers a text and ask them to answer multiple-choice questions, evaluating the texts based on time and retries needed to select the correct answer"
+        ],
+        "criteria": [
+          "number of submissions to correctness"
+        ]
+      },
+      "normalized": {
+        "completion time": "Completion time",
+        "number of submissions": "Number of submissions"
+      },
+      "explanation": "Consolidated and normalized evaluation criteria, removed redundant guideline descriptions"
+    }
+  },
+  "overall_notes": "The paper focuses on unsupervised text simplification using reinforcement learning with a comprehensive reward function. The extraction was generally accurate but needed some normalization of model names and consolidation of metric variants. The paper uses both automatic metrics (SARI, BLEU, readability scores) and a well-designed human evaluation task measuring reading efficiency."
+}

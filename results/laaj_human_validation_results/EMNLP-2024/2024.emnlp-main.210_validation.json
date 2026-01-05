@@ -1,0 +1,102 @@
+{
+  "paper_id": "2024.emnlp-main.210",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-as-judge against human evaluation through correlation analysis between benchmark scores and both intent-wise user satisfaction ratings and pairwise human annotations"
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "GPT-4",
+      "Claude-3-opus",
+      "Qwen-max",
+      "GLM-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full evaluation prompt provided including intent-aware criteria, chain-of-thought reasoning steps, scoring standards, and reference materials structure"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 5,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluation followed Chatbot Arena methodology - annotators blind to LLM identities choosing preferred answer from paired comparisons or marking as equal/undeterminable"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Bradley-Terry scores"
+    ],
+    "shared_criteria": [
+      "overall_preference"
+    ],
+    "sample_size": {
+      "total_generated": 1024,
+      "validated_by_both": 400,
+      "notes": "Validation used 400 paired comparisons from the 1024-case benchmark for human evaluation validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.95,
+        "criterion": "user_satisfaction_across_intents",
+        "llm_model": "GPT-4",
+        "significance": "not_reported",
+        "notes": "Correlation between average benchmark score and user-reported satisfaction across different intents"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.94,
+        "criterion": "pairwise_preference",
+        "llm_model": "GPT-4",
+        "significance": "not_reported",
+        "notes": "Correlation between benchmark scores and Bradley-Terry scores from human pairwise comparisons"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Correlation > 0.9 considered strong alignment",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM-as-judge benchmarks show high correlation (0.94-0.95) with human preferences, confirming the automated evaluation method aligns well with human judgments."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Factuality",
+      "Clarity",
+      "Completeness",
+      "Logical Coherence",
+      "Fairness and Responsibility",
+      "Richness",
+      "Engagement",
+      "Appropriateness"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "User Satisfaction",
+      "Overall Preference"
+    ],
+    "notes": "LLM evaluation uses multi-criteria scoring while humans focus on overall preference judgment, with User Satisfaction being the overlapping criterion"
+  }
+}

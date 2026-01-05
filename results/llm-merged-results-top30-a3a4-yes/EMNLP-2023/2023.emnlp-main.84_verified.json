@@ -1,0 +1,167 @@
+{
+  "paper_id": "2023.emnlp-main.84",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "BAD",
+      "OFFENSIVE TWITTER",
+      "LATENT HATRED",
+      "TOXIGEN"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3.5_turbo",
+      "llama_13b",
+      "llama_1.3b",
+      "gpt_3"
+    ],
+    "outputs": [
+      "Implicit toxic textual responses",
+      "Dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-3"
+        ],
+        "outputs": [
+          "Dialogue responses"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "GPT-3.5-turbo generated data"
+        ],
+        "languages": [],
+        "models": [
+          "Davinci003"
+        ],
+        "outputs": [
+          "Implicit toxic responses that evade toxicity classifiers"
+        ]
+      },
+      "normalized": {
+        "GPT-3.5-turbo": "GPT-3.5-turbo",
+        "Davinci003": "GPT-3",
+        "implicit toxic responses": "Implicit toxic textual responses"
+      },
+      "explanation": "Normalized model names (Davinci003 → GPT-3), removed GPT-3.5-turbo from datasets (it's a model, not a dataset), and simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ATTACK SUCCESS RATE ASR",
+      "TOXIC CONFIDENCE",
+      "DISTINCT",
+      "REWARD",
+      "ANNOTATED TOXIC PROBABILITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Reward Score"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Reward": "Reward Score",
+        "Distinct-n": "Distinct-N",
+        "Attack Success Rate": "Attack Success Rate",
+        "Toxic Confidence": "Toxic Confidence",
+        "Annotated Toxic Probability": "Annotated Toxic Probability"
+      },
+      "explanation": "Normalized metric names for consistency (Distinct-n → Distinct-N, Reward → Reward Score)"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_3.5_turbo",
+      "gpt_3"
+    ],
+    "methods": [
+      "Zero-shot prompting for toxicity classification",
+      "Three-class toxicity labeling"
+    ],
+    "criteria": [
+      "Toxicity"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Three-class toxicity labeling"
+        ],
+        "criteria": [
+          "Toxicity (three-class: non-toxic, explicit toxic, implicit toxic)"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "pairwise comparison labeling"
+        ],
+        "criteria": [
+          "implicit toxicity",
+          "toxicity"
+        ]
+      },
+      "normalized": {
+        "Davinci003": "GPT-3",
+        "zero-shot prompting for toxicity classification": "Zero-shot prompting for toxicity classification",
+        "implicit toxicity": "Toxicity (three-class: non-toxic, explicit toxic, implicit toxic)"
+      },
+      "explanation": "Normalized model names and criteria. Added explicit three-class taxonomy for clarity. Removed 'pairwise comparison labeling' as the paper primarily uses direct classification."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluate toxicity (toxic vs non-toxic)",
+      "Classify toxic type if toxic",
+      "Three-class toxicity scale: 1=non-toxic, 2=explicit toxic, 3=implicit toxic"
+    ],
+    "criteria": [
+      "Toxicity",
+      "User",
+      "Unfairness",
+      "Topic"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three-class toxicity scale: 1=non-toxic, 2=explicit toxic, 3=implicit toxic"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "toxicity (toxic vs non-toxic)"
+        ]
+      },
+      "normalized": {
+        "toxicity": "Toxicity",
+        "toxic type": "Toxic Type"
+      },
+      "explanation": "Enhanced guideline description to include the explicit three-class scale used in human evaluation. Normalized criteria names for consistency."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating dialogue generation systems for safety/toxicity detection. It uses both automatic metrics (attack success rate, toxic confidence) and human evaluation. LLMs are used both as generators and evaluators. The extraction was generally accurate, requiring minor normalization and clarification of the toxicity classification schema."
+}

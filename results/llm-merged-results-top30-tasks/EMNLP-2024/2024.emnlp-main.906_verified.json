@@ -1,0 +1,150 @@
+{
+  "paper_id": "2024.emnlp-main.906",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "COUNTERFACT",
+      "ZSRE",
+      "MQUAKE T"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b",
+      "llama_2_13b",
+      "llama_2_7b_chat",
+      "llama_2_13b_chat",
+      "gpt_j_6b"
+    ],
+    "outputs": [
+      "Generated dialogue responses",
+      "Knowledge recall responses",
+      "Edited model outputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-13B",
+          "Llama-2-13B-chat",
+          "GPT-4",
+          "Vicuna-33B",
+          "Chat-GPT",
+          "Vicuna-7B",
+          "ChatGLM-6B",
+          "GLM-4"
+        ],
+        "outputs": [
+          "Generated dialogue responses and question answers",
+          "Generated model responses in multi‑turn dialogues (edited LLM outputs)",
+          "dialogue responses, knowledge recall, hallucinated content, confusion behaviors"
+        ]
+      },
+      "normalized": {
+        "Llama-13B": "Llama-2-13B",
+        "Llama-2-13B-chat": "Llama-2-13B-chat"
+      },
+      "explanation": "Removed models that are not the primary edited models being evaluated (role-playing models like GPT-4 or auxiliary models used for generation like Vicuna-33B). Simplified output descriptions to focus on core NLG tasks evaluated."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "REVERSION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "reversion": "Reversion"
+      },
+      "explanation": "Normalized metric names to standard capitalization. Metrics are clearly defined in the paper as automatic evaluation measures for generated outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "role-playing as a user in dialogue",
+          "inducing confusion through related knowledge questions"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "GPT-4 is used for generating dialogue prompts, not for evaluating the outputs. The paper does not use LLMs as judges to assess the quality of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators judge based on criteria for confusion and hallucination, focusing on factual quality",
+      "Evaluate each dialogue turn for signs of confusion and hallucination"
+    ],
+    "criteria": [
+      "Originality",
+      "Negation",
+      "Fictional",
+      "Knowledge"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Evaluate each dialogue turn for signs of confusion and hallucination"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "confusion",
+          "hallucination"
+        ]
+      },
+      "normalized": {
+        "reversion to original knowledge": "Reversion to original knowledge",
+        "negation for the target knowledge": "Negation for the target knowledge",
+        "negation for previous output from itself": "Negation for previous output from itself",
+        "fake fictional entities": "Fake fictional entities",
+        "untruth contents of the target knowledge": "Untruth contents of the target knowledge",
+        "untruth contents of the other knowledge": "Untruth contents of the other knowledge"
+      },
+      "explanation": "Normalized criteria capitalization. Removed redundant high-level categories ('confusion', 'hallucination') since they are composed of the specific criteria listed."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating the robustness of LLM editing methods through NLG evaluation. The extraction was generally accurate, but needed refinement to focus only on the core edited models being evaluated rather than all mentioned models. The human evaluation criteria are well-documented and specific."
+}

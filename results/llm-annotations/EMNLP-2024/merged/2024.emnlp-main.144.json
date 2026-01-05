@@ -1,0 +1,94 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We design three tests based on UNPIE to study how models can exploit visual context to aid pun understanding. We first consider an English-only task pun grounding that challenges machines to identify the specific phrase in a sentence that forms a pun. Next, we formulate a multilingual challenge of pun disambiguation where models must choose the translation that best matches the image provided as a pun disambiguator. The final test, pun reconstruction, is a comprehensive task where models should recreate the original English pun sentence using a translated version with potentially no ambiguity.",
+            "...We design three tests based on UNPIE to study how models can exploit visual context to aid pun understanding. ...We formulate a cooperative framework between machines and humans for pun translation...the model should produce a translation of the sentence into a target language (e.g. German)...",
+            "We pose three multimodal pun understanding tasks on the collected annotations to test models' capability to use visual context in addressing lexical ambiguity, as illustrated in Figure . Each task evaluates different aspects: the easier Pun Grounding task can be solved without image input. It is aimed at determining if less advanced models, which might not fully resolve such challenges, can enhance their performance with added visual information. The second task of pun disambiguation is designed to necessitate the usage of visual context. Finally, the pun reconstruction task replicates a practical multimodal literacy scenario."
+        ],
+        "tasks": [
+            "Machine Translation",
+            "Other: Pun Grounding",
+            "Other: Pun Reconstruction",
+            "Other:Pun Reconstruction",
+            "Other:Pun Grounding",
+            "Other:Pun Disambiguation"
+        ],
+        "datasets": [
+            "UNPIE"
+        ],
+        "languages": [
+            "English",
+            "German",
+            "French",
+            "Korean"
+        ],
+        "models": [
+            "Vicuna",
+            "Qwen-VL",
+            "LLaVA",
+            "GPT-4",
+            "BLIP-2",
+            "Socratic Models"
+        ],
+        "outputs": [
+            "generated pun phrases, translations, and reconstructed English sentences",
+            "generated translations, identified pun phrases, reconstructed English pun sentences",
+            "pun phrase, translation, reconstructed sentence"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We report the exact match accuracy of the generated pun phrase. We use BERTScore to measure the text similarity... we report on common text evaluation metrics, such as Bleu-4 and METEOR.",
+            "...We use BERTScore to measure the text similarity following the human evaluation results in appendix C...We also report BLEU-4 and METEOR scores for the pun reconstruction task...",
+            "We use BERTScore  to measure the text similarity following the human evaluation results in appendix C."
+        ],
+        "automatic_metrics": [
+            "Exact Match",
+            "BERTScore",
+            "Bleu-4",
+            "METEOR",
+            "BLEU-4",
+            "Rouge-L",
+            "exact match"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "To tackle this, we use a machine-based evaluation method with [GPT-4] to determine if the puns in both sentences are equivalent.",
+            "...We use a machine-based evaluation method with GPT-4 to determine if the puns in both sentences are equivalent. To ensure the validity of this approach, known as GPTEval, we further compare it with human annotations...",
+            "We use a machine-based evaluation method with  to determine if the puns in both sentences are equivalent."
+        ],
+        "models": [
+            "GPT-4"
+        ],
+        "methods": [
+            "binary decision on pun equivalence",
+            "GPTEval (LLM-based binary equivalence check)",
+            "GPTEval"
+        ],
+        "criteria": [
+            "pun equivalence (match / no match)"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "Given the generation output of a VLM (LLaVA) or a Socratic Model (GPT4), we ask human annotators for a ternary classification: Match, No Match, and Invalid.",
+            "...We conduct a comparative analysis with human assessments. This involved manually annotating 100 sample outputs from a multimodal approach (GPT-4 with image captions) and a text-only approach (GPT-4)...",
+            "To ensure the validity of this approach, known as GPTEval, we further compare it with human annotations in appendix D."
+        ],
+        "guideline": [
+            "Annotators classify outputs as Match, No Match, or Invalid based on alignment with the intended translation target.",
+            "Human annotators were asked to classify each model output as Match, No Match, or Invalid.",
+            "Given the generation output of a VLM (LLaVA) or a Socratic Model (GPT4), we ask human annotators for a ternary classification: Match, No Match, and Invalid."
+        ],
+        "criteria": [
+            "Match",
+            "No Match",
+            "Invalid"
+        ]
+    }
+}

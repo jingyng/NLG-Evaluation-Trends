@@ -1,0 +1,143 @@
+{
+  "paper_id": "2025.acl-long.413",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "MSC",
+      "LONGMEMEVAL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gemini_1.5_flash",
+      "gemini_1.5_pro"
+    ],
+    "outputs": [
+      "personalized dialogue responses",
+      "multi-session dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "outputs": [
+          "multi-session dialogue responses"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Contriever",
+          "Stella",
+          "GTE"
+        ],
+        "outputs": [
+          "personalized responses in dialogue"
+        ]
+      },
+      "normalized": {
+        "Dialogue Generation": "Dialogue Generation",
+        "Personalized dialogue responses": "personalized dialogue responses"
+      },
+      "explanation": "Removed retrievers (Contriever, Stella, GTE) as they are not NLG models, consolidated output descriptions, kept Gemini models as they are the generators"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "METEOR",
+      "BERTSCORE",
+      "RECALL",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Recall@K"
+        ]
+      },
+      "normalized": {
+        "BERTScore": "BERTScore",
+        "Recall@5": "Recall@5",
+        "Recall@10": "Recall@10"
+      },
+      "explanation": "Removed redundant 'Recall@K' since specific Recall@5 and Recall@10 are already listed, kept all valid automatic metrics used for evaluation"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gemini_1.5_pro"
+    ],
+    "methods": [
+      "LLM-as-a-judge binary annotation"
+    ],
+    "criteria": [
+      "Truth"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "methods": [
+          "binary annotation (Yes/No) for match to ground truth",
+          "LLM-as-a-judge",
+          "binary annotation"
+        ],
+        "criteria": [
+          "ground-truth match",
+          "accuracy",
+          "matching ground truth"
+        ]
+      },
+      "normalized": {
+        "LLM-as-a-judge binary annotation": "LLM-as-a-judge binary annotation"
+      },
+      "explanation": "Consolidated redundant method descriptions and criteria into single normalized forms, kept only the essential LLM judge model and evaluation approach"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators asked to answer Yes/No following same instruction as LLM judge prompt, evaluating whether generated response matches ground-truth"
+    ],
+    "criteria": [
+      "Truth"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators asked to answer Yes/No following same instruction as LLM judge prompt, evaluating whether generated response matches ground-truth"
+        ],
+        "criteria": [
+          "match to ground truth"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "We adopted the same instruction used in our LLM judge prompt, and asked human annotators to answer Yes/No to evaluate each instance.",
+          "Annotators compared the model-generated response to the ground-truth and rated aspects such as fluency and coherence.",
+          "We adopted the same instruction used in our LLM judge prompt, and asked human annotators to answer Yes/No to evaluate each instance."
+        ],
+        "criteria": [
+          "fluency",
+          "coherence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline description, removed 'fluency' and 'coherence' criteria as paper specifically states human evaluation used same Yes/No match-to-ground-truth criteria as LLM judge"
+    }
+  },
+  "overall_notes": "The paper clearly evaluates NLG (dialogue generation) using both automatic metrics and human/LLM evaluation. Extraction was generally accurate but contained some redundancy and minor inconsistencies that were normalized. The human evaluation specifically followed the same binary match-to-ground-truth approach as the LLM judge, rather than evaluating multiple criteria like fluency/coherence."
+}

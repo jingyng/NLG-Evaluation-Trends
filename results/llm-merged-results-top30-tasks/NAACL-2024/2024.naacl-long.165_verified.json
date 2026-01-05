@@ -1,0 +1,160 @@
+{
+  "paper_id": "2024.naacl-long.165",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation",
+      "Text Summarization",
+      "Machine Translation"
+    ],
+    "datasets": [
+      "SST 2",
+      "AMAZON",
+      "YELP",
+      "IMDB"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "chatgpt",
+      "bart",
+      "mbart"
+    ],
+    "outputs": [
+      "Poisoned text samples generated via paraphrasing, summarization, or back-translation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "Chinese",
+          "German"
+        ],
+        "models": [
+          "Llama2",
+          "BERT",
+          "BiLSTM"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Poisoned samples generated via paraphrasing, summarization, or machine translation": "Poisoned text samples generated via paraphrasing, summarization, or back-translation",
+        "poisoned text samples (paraphrased, summarized, or back‑translated sentences) used as triggers for backdoor attacks": "Poisoned text samples generated via paraphrasing, summarization, or back-translation",
+        "poisoned samples generated via paraphrasing, summarization, and machine translation": "Poisoned text samples generated via paraphrasing, summarization, or back-translation"
+      },
+      "explanation": "Removed Chinese/German as they are intermediate translation languages, not output languages. Removed Llama2/BERT/BiLSTM as they are victim classifiers, not NLG models. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SENTENCE PERPLEXITY",
+      "GRAMMAR ERROR NUMBERS",
+      "COLA",
+      "SENTIMENT MAINTAINING RATIO",
+      "BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEU"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Cross‑Entropy (style)",
+          "Cross‑Entropy (syntax)",
+          "PPL",
+          "GE",
+          "CoLA",
+          "SentM"
+        ]
+      },
+      "normalized": {
+        "Sentence Perplexity": "Sentence Perplexity",
+        "Grammar Error Numbers": "Grammar Error Numbers",
+        "CoLA score": "CoLA Score",
+        "Sentiment Maintaining ratio": "Sentiment Maintaining Ratio",
+        "PPL": "Sentence Perplexity",
+        "GE": "Grammar Error Numbers",
+        "CoLA": "CoLA Score",
+        "SentM": "Sentiment Maintaining Ratio"
+      },
+      "explanation": "Normalized metric names to consistent capitalization. Removed Cross-Entropy as it measures feature distribution shift, not NLG quality. Added BLEU for MT evaluation. Consolidated duplicates."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_3.5_turbo",
+      "GPTZero",
+      "gpt_2_xl"
+    ],
+    "methods": [
+      "2-shot in-context learning classification",
+      "perplexity-based detection"
+    ],
+    "criteria": [
+      "Consistency",
+      "Detection"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "machine-generated detection"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "DetectGPT scoring"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "gpt-3.5-turbo": "GPT-3.5-turbo",
+        "DetectGPT (GPT‑2 XL)": "GPT-2 XL",
+        "2-shot in-context-learning": "2-shot in-context learning classification",
+        "2‑shot in‑context learning classification": "2-shot in-context learning classification",
+        "semantic maintaining judgment": "semantic consistency",
+        "Sentiment Maintaining": "sentiment consistency",
+        "semantic consistency (same vs different)": "semantic consistency",
+        "machine‑generated vs human‑written": "machine-generated detection"
+      },
+      "explanation": "Normalized model names and methods. Consolidated criteria to broader categories. Removed DetectGPT as method name since it's the same as GPT-2 XL detection."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted - paper explicitly uses GPT-3.5-turbo as alternative for human evaluation"
+    }
+  },
+  "overall_notes": "The paper focuses on backdoor attacks using NLG models to generate poisoned samples. While it uses NLG tasks extensively, the primary focus is security/evaluation rather than NLG quality improvement. All evaluations are automated (including LLM-as-judge), with no human evaluation conducted."
+}

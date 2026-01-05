@@ -1,0 +1,173 @@
+{
+  "paper_id": "2025.naacl-long.253",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "XSUM",
+      "NEWSROOM",
+      "bbc2024"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "litellama",
+      "bloom_560m",
+      "gpt_neo_1.3b",
+      "gpt_neo_2.7b",
+      "llama_3.2_1b",
+      "pegasus_large",
+      "llama_3.2_3b",
+      "minicpm",
+      "tinyllama",
+      "internlm_2_1.8b",
+      "internlm_2_1.8b_chat",
+      "qwen_2_0.5b_ins",
+      "qwen_2_0.5b",
+      "brio",
+      "phi_2",
+      "gemma_1.1",
+      "qwen_2_1.5b",
+      "qwen_2_1.5b_ins",
+      "llama_3.2_1b_ins",
+      "phi_3_mini",
+      "llama_3.2_3b_ins"
+    ],
+    "outputs": [
+      "News summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Bloom‑560M",
+          "GPT‑Neo‑1.3B",
+          "GPT‑Neo‑2.7B",
+          "Qwen2‑0.5B",
+          "Qwen2‑0.5B‑Ins",
+          "Qwen2‑1.5B",
+          "Qwen2‑1.5B‑Ins",
+          "InternLM2‑1.8B",
+          "InternLM2‑1.8B‑Chat",
+          "Gemma‑1.1",
+          "Llama3.2‑1B",
+          "Llama3.2‑3B",
+          "Phi‑2",
+          "Phi‑3‑Mini",
+          "Pegasus‑Large",
+          "Phi3-Mini"
+        ],
+        "outputs": [
+          "Generated news article summaries (short textual abstracts).",
+          "news summaries"
+        ]
+      },
+      "normalized": {
+        "Phi3-Mini": "Phi-3-Mini"
+      },
+      "explanation": "Removed duplicate model entries that were variations of the same models (with different formatting/hyphens). Normalized 'Phi3-Mini' to 'Phi-3-Mini' for consistency. Consolidated outputs to 'News summaries'."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BERTSCORE",
+      "HHEM 2 1 OPEN",
+      "SUMMARY LENGTH",
+      "ROUGE",
+      "BLEURT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "ROUGE",
+          "BLEURT"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "summary length"
+        ]
+      },
+      "normalized": {
+        "BertScore": "BERTScore",
+        "RougeL": "ROUGE",
+        "Summary Length": "Summary Length"
+      },
+      "explanation": "Added ROUGE and BLEURT which are mentioned as reference-based metrics used in the paper. Normalized metric names to standard forms. Removed duplicate 'summary length' entry."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Qwen1.5-72B-Chat",
+          "Llama2-70B-Chat"
+        ],
+        "methods": [
+          "generate reference summaries",
+          "average scores from multiple LLMs"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since LLMs are used to generate reference summaries for evaluation, not as judges/scorers of the generated outputs. The paper explicitly states they use reference-based evaluation, not LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators scored the relevance of news summaries on a 1-5 scale based on the original news articles"
+    ],
+    "criteria": [
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators scored the relevance of news summaries on a 1-5 scale based on the original news articles"
+        ],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators scored the relevance of the news summaries on a scale of 1 to 5.",
+          "- Annotators rated each generated summary for relevance on a 1‑5 scale based on the original news article.",
+          "- scored on a 1-5 scale, with higher scores indicating greater relevance"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated multiple guideline descriptions into a single clear statement. Confirmed that only 'relevance' was explicitly mentioned as the evaluation criterion."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating Small Language Models (SLMs) for news summarization. It uses reference-based automatic metrics (BERTScore, HHEM-2.1-Open, Summary Length) with LLM-generated references, but does NOT use LLMs as judges/scorers. The human evaluation was limited in scale (20 news instances, 6 annotators) and focused only on relevance. The extraction was generally good but contained many duplicate entries that needed consolidation."
+}

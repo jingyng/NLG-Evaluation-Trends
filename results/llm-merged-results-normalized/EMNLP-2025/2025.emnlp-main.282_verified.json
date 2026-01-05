@@ -1,0 +1,131 @@
+{
+  "paper_id": "2025.emnlp-main.282",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Mathematical Reasoning Generation"
+    ],
+    "datasets": [
+      "NUMINAMATH 1 5",
+      "MATH",
+      "GSM8K",
+      "math500",
+      "OLYMPIADBENCH",
+      "MINERVA MATH",
+      "COLLEGE MATH",
+      "amc23",
+      "aime24"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_2.5_3b",
+      "deepseek_math_7b",
+      "phi_3.5_mini_instruct",
+      "qwen_2.5_7b",
+      "qwen_2.5_math_7b"
+    ],
+    "outputs": [
+      "step-by-step reasoning responses to math problems"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Mathematical Reasoning"
+        ],
+        "datasets": [],
+        "languages": [
+          "Chinese"
+        ],
+        "models": [
+          "Qwen-2.5 3B",
+          "Skywork-PRM-7B"
+        ],
+        "outputs": [
+          "stepwise solutions for math problems"
+        ]
+      },
+      "normalized": {
+        "Qwen-2.5 3B": "Qwen2.5-3B",
+        "stepwise solutions for math problems": "step-by-step reasoning responses to math problems"
+      },
+      "explanation": "Removed 'Other:Mathematical Reasoning' as redundancy, normalized model names, removed 'Chinese' language (only mentioned as source of some problems, not generation language), removed Skywork-PRM-7B (used as reward model, not generation model), normalized output description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PASS",
+      "Avg@32"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed - metrics are correctly extracted and capitalized"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Skywork-PRM-7B"
+        ],
+        "methods": [
+          "reward-guided estimation",
+          "process reward model (PRM) scoring",
+          "reward-guided difficulty estimation"
+        ],
+        "criteria": [
+          "reasoning process quality",
+          "answer accuracy"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' because Skywork-PRM-7B is used as a process reward model DURING generation/sampling, not as a judge AFTER generation to evaluate outputs. The PRM scores are used for difficulty estimation and response ranking during the self-training process, not for final evaluation of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes - paper does not conduct human evaluation"
+    }
+  },
+  "overall_notes": "The paper focuses on mathematical reasoning generation through self-training with hierarchical sampling. It uses automatic evaluation metrics but does not use LLMs as judges after generation - the Skywork-PRM-7B is used as a process reward model during the generation/sampling phase. The paper is well-aligned with NLG evaluation research but primarily focuses on optimization of self-training rather than comprehensive output evaluation methodologies."
+}

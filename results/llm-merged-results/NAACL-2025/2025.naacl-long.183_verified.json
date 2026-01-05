@@ -1,0 +1,147 @@
+{
+  "paper_id": "2025.naacl-long.183",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Biography Generation",
+      "Other:Plot Generation",
+      "Other:Multiple Choice QA",
+      "Other:Short-form QA"
+    ],
+    "datasets": [
+      "WikiBios",
+      "WikiPlots",
+      "MMLU",
+      "TriviaQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama2-7B",
+      "Mistral-7B",
+      "GPT-3.5"
+    ],
+    "outputs": [
+      "long-form text biographies",
+      "long-form text plot summaries",
+      "multiple-choice answers",
+      "short-form question answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Multiple Choice QA",
+          "Other:Short-form QA"
+        ],
+        "datasets": [
+          "MMLU",
+          "TriviaQA"
+        ],
+        "outputs": [
+          "multiple-choice answers",
+          "short-form question answers"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:biography generation",
+          "Other:book/movie plot generation",
+          "Other:Plot Generation",
+          "Other:film/book plot generation"
+        ],
+        "datasets": [],
+        "outputs": [
+          "Long-form text such as biographies and plot summaries",
+          "long-form text generations such as biographies and book/movie plots"
+        ]
+      },
+      "normalized": {
+        "Other:Biography Generation": "Other:Biography Generation",
+        "Other:Plot Generation": "Other:Plot Generation",
+        "Llama2 7B": "Llama2-7B",
+        "GPT-3.5": "GPT-3.5",
+        "long-form text": "long-form text biographies"
+      },
+      "explanation": "Added missing datasets (MMLU, TriviaQA) and tasks (Multiple Choice QA, Short-form QA) that are extensively studied in the paper. Removed duplicate task entries and normalized naming. Kept all main NLG tasks that were empirically evaluated."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "FActScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "FActScore (true facts count, false facts count)"
+        ]
+      },
+      "normalized": {
+        "FActScore": "FActScore"
+      },
+      "explanation": "Simplified FActScore metric to base form, removing the parenthetical explanation which is not part of the metric name itself."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-3.5"
+    ],
+    "methods": [
+      "fact decomposition and factuality scoring"
+    ],
+    "criteria": [
+      "factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "decomposition and factuality scoring",
+          "Automated factuality scoring via FActScore",
+          "fact decomposition and factuality prediction"
+        ],
+        "criteria": [
+          "true fact count",
+          "false fact count"
+        ]
+      },
+      "normalized": {
+        "GPT-3.5": "GPT-3.5",
+        "fact decomposition and factuality scoring": "fact decomposition and factuality scoring"
+      },
+      "explanation": "Normalized methods descriptions to a single consistent description. Removed redundant methods and criteria that were not explicitly stated as LLM evaluation criteria but rather as components of FActScore pipeline. Kept 'factuality' as the main criterion used by GPT-3.5 in FActScore."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluations were mentioned in the paper - all evaluations were automated using FActScore and model predictions."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation, specifically factuality in long-form generation tasks. It uses FActScore (which employs GPT-3.5 as an evaluator) as the main evaluation metric. The extraction was generally good but missed some key datasets and tasks that were central to the paper's experiments."
+}

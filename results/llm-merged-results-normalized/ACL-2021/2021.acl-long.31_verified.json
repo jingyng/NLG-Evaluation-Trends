@@ -1,0 +1,113 @@
+{
+  "paper_id": "2021.acl-long.31",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "NYT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "differsum",
+      "bertsumext",
+      "summarunner",
+      "match_sum"
+    ],
+    "outputs": [
+      "extractive summaries",
+      "extractive summaries by selecting sentences from the source document"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "NYT"
+        ],
+        "models": [
+          "SummaRuNNer",
+          "MATCH-SUM"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "CNN/DM"
+        ],
+        "models": [
+          "ALBERT",
+          "ALBERT-xxlarge-v2"
+        ]
+      },
+      "normalized": {
+        "CNN/DM": "CNN/DailyMail",
+        "Match-Sum": "MATCH-SUM"
+      },
+      "explanation": "Normalized dataset names (CNN/DM → CNN/DailyMail), removed ALBERT variants as they are implementation details rather than evaluated models, added missing baseline models mentioned in comparisons"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Simplified ROUGE variants to base form as per normalization guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants rank summaries based on informativeness and fluency",
+      "Each document is annotated by three different participants separately",
+      "Participants are presented with one original document and summaries from different models"
+    ],
+    "criteria": [
+      "Informativeness",
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Each document is annotated by three different participants separately",
+          "Participants are presented with one original document and summaries from different models"
+        ]
+      },
+      "removed": {},
+      "normalized": {},
+      "explanation": "Added missing details about the human evaluation procedure to provide complete context"
+    }
+  },
+  "overall_notes": "The paper focuses on extractive summarization using a novel differential amplifier approach. The extraction was generally accurate, but needed normalization of dataset names and simplification of ROUGE metrics. The paper does not use LLM-as-judge evaluation, only traditional automatic metrics (ROUGE) and human evaluation."
+}

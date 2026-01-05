@@ -1,0 +1,92 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Synthesizing reasoning trajectories and using them for training has proven to be an effective approach to enhancing their reasoning capabilities.",
+            "We propose FastMCTS, an MCTS-inspired sample strategy for efficient data synthesis... generate multi-step reasoning data for training large language models.",
+            "Large language models (LLMs) have achieved remarkable performance across various domains. Reasoning capability plays a crucial role in this success and serves as the foundation for further extending their application scope. For complex problems, LLMs typically require multi-step reasoning to arrive at final solutions."
+        ],
+        "tasks": [
+            "Other:Reasoning Trajectory Generation",
+            "Other:Mathematical Reasoning",
+            "Other:Multi-step Reasoning"
+        ],
+        "datasets": [
+            "Chinese high school math",
+            "AIME",
+            "CN High School Math Hard",
+            "EN Math Hard",
+            "Chinese High School Math",
+            "CN High School Math",
+            "GSM8K",
+            "Gaokao Bench Math",
+            "SAT-Math",
+            "AMC23",
+            "MATH-500",
+            "Olympiad Bench",
+            "OmniMath",
+            "CMATH"
+        ],
+        "languages": [
+            "English",
+            "Chinese"
+        ],
+        "models": [
+            "Qwen2.5-72B-Instruct",
+            "Qwen2.5-7B",
+            "Llama-3.2-3bbase",
+            "Qwen2.5-3b-base"
+        ],
+        "outputs": [
+            "Reasoning trajectories (step-by-step solutions)",
+            "multi-step reasoning trajectories (chain-of-thought) with explicit step labels",
+            "multi-step reasoning trajectories with explicit intermediate steps labeled as Step 1, Step 2, etc."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Problem Solving Rate refers to the average probability of generating at least one correct reasoning trajectories for a query.",
+            "Problem Solving Rate refers to the average probability of generating at least one correct reasoning trajectories for a query. Average Correct Paths... Effective Token Rate...",
+            "We then compared the efficiency of both methods in generating correct problem instances... Problem Solving Rate refers to the average probability of generating at least one correct reasoning trajectories for a query. Average Correct Paths refers to the average number of correct reasoning trajectories generated for a query. Effective Token Rate refers to the proportion of generated tokens that belong to correct reasoning trajectories."
+        ],
+        "automatic_metrics": [
+            "Problem Solving Rate",
+            "Average Correct Paths",
+            "Effective Token Rate",
+            "Pass Rate"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "Instead of relying solely on rule-based answer matching, we use a LLM to evaluate the correctness of reasoning paths against the ground-truth answer.",
+            "We use a LLM to evaluate the correctness of reasoning paths against the ground-truth answer. Additionally, we employ Qwen2.5-72B-Instruct as a LLM judger to verify the solutions.",
+            "we use a LLM to evaluate the correctness of reasoning paths against the ground-truth answer. Additionally, we require the LLM to verify the correctness of intermediate steps within each path, aiming to identify logical errors and exclude trajectories that are guessed answers"
+        ],
+        "models": [
+            "Qwen2.5-72B-Instruct"
+        ],
+        "methods": [
+            "Majority voting with multiple trials for answer verification",
+            "LLM verification with majority voting",
+            "majority voting",
+            "LLM judge with prompt template"
+        ],
+        "criteria": [
+            "Match to standard answer",
+            "Guessing detection",
+            "final answer correctness",
+            "intermediate step correctness",
+            "correctness of final answer",
+            "correctness of intermediate steps",
+            "whether answer is guessed"
+        ]
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": [],
+        "guideline": [],
+        "criteria": []
+    }
+}

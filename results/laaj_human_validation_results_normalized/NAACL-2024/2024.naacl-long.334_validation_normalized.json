@@ -1,0 +1,104 @@
+{
+  "paper_id": "2024.naacl-long.334",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares GPT-4 evaluation results with human judgments using correlation analysis on the same MT outputs"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The exact meta-prompt for GPT-4 prompting is provided in Figure 20 showing detailed adequacy evaluation guidelines with scoring rubric"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "minimum 2 per translation (bilingual native speakers)",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Pearson correlation",
+      "value": "0.797 for adequacy, 0.748 for fluency",
+      "interpretation": "strong consistency among evaluators",
+      "per_criterion": [
+        {
+          "criterion": "adequacy",
+          "metric": "Pearson correlation",
+          "value": 0.797
+        },
+        {
+          "criterion": "fluency",
+          "metric": "Pearson correlation",
+          "value": 0.748
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text and appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Simplified MQM guidelines with DA scoring (0-100 scale), error highlighting categories, and scoring rubric with critical points at 0, 34, 67, 100"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Spearman-rank correlation",
+      "Pearson correlation",
+      "Kendall-rank correlation"
+    ],
+    "shared_criteria": [
+      "adequacy"
+    ],
+    "sample_size": {
+      "total_generated": "13 language pairs with 270 dev + 250 devtest sentences each",
+      "validated_by_both": "All evaluated instances",
+      "notes": "GPT-4 and human evaluations conducted on the same MT outputs across all 13 African language pairs"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman-rank correlation",
+        "value": 0.383,
+        "criterion": "Adequacy",
+        "llm_model": "GPT-4",
+        "significance": "Statistical significance tested via Perm-Input hypothesis test (p=0.05)",
+        "notes": "GPT-4 shows comparable or superior results to baseline metrics for some language pairs"
+      },
+      {
+        "metric": "Spearman-rank correlation",
+        "value": 0.441,
+        "criterion": "Adequacy",
+        "llm_model": "AfriCOMET-MTL (benchmark)",
+        "significance": "Statistical significance tested via Perm-Input hypothesis test (p=0.05)",
+        "notes": "AfriCOMET-MTL achieves highest correlation with human judgments"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "moderate to high correlation",
+      "threshold_used": "Not explicitly stated, but values around 0.44 considered promising",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "AfriCOMET-MTL achieves Spearman correlation of 0.441 with human judgments, outperforming GPT-4 (0.383) and showing the feasibility of transfer learning for MT evaluation in under-resourced African languages."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Fluency",
+      "error categories (addition, omission, mistranslation, untranslated, grammar, spelling, typography, unintelligible)"
+    ],
+    "shared_criteria": [
+      "Adequacy"
+    ],
+    "notes": "GPT-4 evaluates only adequacy, while human evaluation covers both adequacy and fluency with detailed error analysis"
+  }
+}

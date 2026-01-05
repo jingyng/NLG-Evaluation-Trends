@@ -1,0 +1,144 @@
+{
+  "paper_id": "2024.acl-long.417",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-based evaluation metrics against human evaluation results through correlation analysis on the same 100 dialogue sessions from the test set"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "LLM"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "figure_and_appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed prompt templates provided in figures (Figure 13, 16, 17, 18, 19, 20, 21, 22) showing scoring criteria and evaluation processes for different metrics"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 5,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Intraclass Correlation Coefficient (ICC)",
+      "value": "Various values per criterion",
+      "interpretation": "High consistency observed for StiGQ, Es, Flu, Inf; moderate for Et and Con; poor for StiD",
+      "per_criterion": [
+        {
+          "criterion": "StiGQ",
+          "value": "High ICC"
+        },
+        {
+          "criterion": "Es",
+          "value": "High ICC"
+        },
+        {
+          "criterion": "Et",
+          "value": "Moderate ICC"
+        },
+        {
+          "criterion": "Con",
+          "value": "Moderate ICC"
+        },
+        {
+          "criterion": "Flu",
+          "value": "High ICC"
+        },
+        {
+          "criterion": "Inf",
+          "value": "High ICC"
+        },
+        {
+          "criterion": "StiD",
+          "value": "Poor ICC (<0.4)"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Complete human evaluation questionnaire with detailed description and scoring criteria for each metric provided in appendix (Figure 14)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation",
+      "Kendall correlation"
+    ],
+    "shared_criteria": [
+      "Empathy-Text",
+      "Empathy-Multimodal",
+      "Consistency",
+      "Ranking",
+      "f-MMr"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "Validation performed on 100 dialogue sessions randomly selected from STICKERCONV test set, evaluated by both LLM and human evaluators"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.87,
+        "criterion": "Consistency (CON)",
+        "llm_model": "LLM",
+        "significance": "Not specified",
+        "notes": "Correlation between LLM CON metric and human Con metric"
+      },
+      {
+        "metric": "Kendall correlation",
+        "value": 0.74,
+        "criterion": "Consistency (CON)",
+        "llm_model": "LLM",
+        "significance": "Not specified",
+        "notes": "Correlation between LLM CON metric and human Con metric"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.9,
+        "criterion": "f-MMr",
+        "llm_model": "LLM",
+        "significance": "Not specified",
+        "notes": "f-MMr matched with average of Con, Flu, Inf, and StiD"
+      },
+      {
+        "metric": "Kendall correlation",
+        "value": 0.8,
+        "criterion": "f-MMr",
+        "llm_model": "LLM",
+        "significance": "Not specified",
+        "notes": "f-MMr matched with average of Con, Flu, Inf, and StiD"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "High consistency and substantial alignment",
+      "threshold_used": "Not explicitly specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-based metrics show strong correlation with human evaluations (Spearman: 0.87-0.90, Kendall: 0.74-0.80), demonstrating that with carefully designed prompts, LLM can effectively evaluate empathy tasks and align with human perceptions"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Sticker Generation Quality (StiGQ)",
+      "Fluency (Flu)",
+      "Informativity (Inf)",
+      "Sticker Diversity (StiD)"
+    ],
+    "shared_criteria": [
+      "Empathy-Text (EMP-txt/Et)",
+      "Empathy-Multimodal (EMP-mm/Es)",
+      "Consistency (CON/Con)"
+    ],
+    "notes": "LLM Rank metric corresponds to average of all human scores; f-MMr corresponds to average of multiple human metrics (Con, Flu, Inf, StiD)"
+  }
+}

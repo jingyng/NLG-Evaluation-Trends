@@ -1,0 +1,171 @@
+{
+  "paper_id": "2022.acl-long.228",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Controlled Text Generation",
+      "Paraphrase Generation",
+      "Style Transfer",
+      "Data Augmentation"
+    ],
+    "datasets": [
+      "ONTONOTES 5 0",
+      "STYLEPTB",
+      "SNLI",
+      "BoolQ",
+      "SQuAD",
+      "UD ENGLISH",
+      "MATRES",
+      "HANS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_base",
+      "gpt_2",
+      "roberta_base"
+    ],
+    "outputs": [
+      "Controlled perturbed sentences with semantic changes",
+      "Contrast set instances for evaluation",
+      "Augmented training data"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Controlled Text Generation",
+          "Data Augmentation"
+        ],
+        "datasets": [
+          "HANS"
+        ],
+        "outputs": [
+          "Contrast set instances for evaluation",
+          "Augmented training data"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Style Transfer"
+        ],
+        "outputs": [
+          "Perturbed sentences matching target semantic attributes (e.g., tense, voice, keyword changes)",
+          "perturbed sentences with specific semantic changes"
+        ]
+      },
+      "normalized": {
+        "Other:Style Transfer": "Style Transfer"
+      },
+      "explanation": "Added main tasks (Controlled Text Generation, Data Augmentation) and missing dataset (HANS). Removed redundant output descriptions and normalized task names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "PERPLEXITY",
+      "CYCLE CONSISTENCY",
+      "F1",
+      "LIKELIHOOD RATIO"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Perplexity Ratio (using GPT-2)",
+          "Cycle Consistency (SRL-based)",
+          "Likelihood ratio (language modeling loss)",
+          "Controllability (cycle consistency)",
+          "Closeness (weighted F1)",
+          "language modeling loss ratio",
+          "cycle consistency",
+          "weighted F1 score"
+        ]
+      },
+      "normalized": {
+        "Perplexity Ratio (using GPT-2)": "Perplexity",
+        "Likelihood ratio (language modeling loss)": "Likelihood Ratio",
+        "Cycle Consistency (SRL-based)": "Cycle Consistency",
+        "Closeness (weighted F1)": "F1 Score",
+        "BLEU Score": "BLEU"
+      },
+      "explanation": "Normalized all metric variants to their base forms and removed redundant/descriptive versions. Kept the 5 distinct automatic metrics used in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values. The paper does not use LLMs as judges after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators label perturbations as valid if they change the groundtruth answer while being fluent or requiring only minor fixes",
+      "Manual validation of generated spans for semantic role adherence"
+    ],
+    "criteria": [
+      "Validity",
+      "Fluency",
+      "Adherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual validation of generated spans for semantic role adherence"
+        ],
+        "criteria": [
+          "Role Adherence"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Label perturbations as valid based on fluency and whether they change the groundtruth answer.",
+          "Annotators label each perturbed instance as valid when it changes the original answer, is fluent, or needs only minor fixes; they also assess whether generated spans follow the specified semantic roles.",
+          "labeled an instance to be valid if there is at least one perturbation that changes the groundtruth answer while being fluent or requiring only minor fixes"
+        ],
+        "criteria": [
+          "Validity (answer change)",
+          "Minor fixes",
+          "validity",
+          "controllability"
+        ]
+      },
+      "normalized": {
+        "fluency": "Fluency",
+        "Minor fixes": "Fluency",
+        "validity": "Validity",
+        "controllability": "Role Adherence"
+      },
+      "explanation": "Consolidated guidelines into clear descriptions and normalized criteria. Added missing 'Role Adherence' criterion from the manual validation of semantic role following."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main improvements: normalized metric variants to base forms, added missing but important items (HANS dataset, Role Adherence criterion), and consolidated redundant descriptions. The paper focuses on controlled text generation using semantic representations for perturbation and evaluation."
+}

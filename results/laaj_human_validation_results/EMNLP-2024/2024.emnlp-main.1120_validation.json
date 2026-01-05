@@ -1,0 +1,63 @@
+{
+  "paper_id": "2024.emnlp-main.1120",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM evaluation (G-Eval using GPT-4) and human evaluation but does not explicitly compare or correlate results between LLM and human judgments. The evaluations assess related but distinct aspects and occur independently without quantitative comparison metrics."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "The paper mentions using GPT-4 with chain-of-thought prompting for factual alignment assessment (G-Eval) but does not provide the exact prompt text. Appendix D indicates the prompt is attached there but it is not reproduced in the provided text."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.73,
+      "interpretation": "higher agreement",
+      "per_criterion": [
+        {
+          "criterion": "edit instructions",
+          "metric": "Cohen's kappa",
+          "value": 0.73
+        },
+        {
+          "criterion": "preference labels",
+          "metric": "Cohen's kappa",
+          "value": 0.74
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Tables 10 and appendices provide detailed annotation guidelines for hallucination/factuality labeling with specific criteria for ADD/OMIT operations, preference evaluation instructions, and examples of human annotations."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "factuality_score"
+    ],
+    "human_only_criteria": [
+      "factuality_improvements",
+      "hallucinations",
+      "preference"
+    ],
+    "shared_criteria": [
+      "factuality"
+    ],
+    "notes": "LLM evaluation focuses on automated factuality scoring (G-Eval), while human evaluation covers detailed hallucination/factuality instruction annotation and preference judgments between summary pairs. Both methods evaluate factuality but use different approaches without overlap validation."
+  }
+}

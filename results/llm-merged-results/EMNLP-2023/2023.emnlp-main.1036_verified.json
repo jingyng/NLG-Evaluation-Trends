@@ -1,0 +1,179 @@
+{
+  "paper_id": "2023.emnlp-main.1036",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "mZPRT",
+      "WMT2022",
+      "TED",
+      "Europarl",
+      "IWSLT TED"
+    ],
+    "languages": [
+      "Chinese",
+      "English",
+      "German",
+      "Russian"
+    ],
+    "models": [
+      "ChatGPT",
+      "GPT-4",
+      "GPT-3.5",
+      "Google Translate",
+      "DeepL",
+      "Tencent TranSmart",
+      "MCN",
+      "G-Trans",
+      "Sent2Sent",
+      "MR-Doc2Doc",
+      "MR-Doc2Sent",
+      "CADec",
+      "DocRepair",
+      "InstructGPT",
+      "CodexGPT"
+    ],
+    "outputs": [
+      "document-level translations",
+      "machine translation outputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "document-level translations",
+          "machine translation outputs"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "contrastive testset",
+          "English⇒Russian contrastive testset",
+          "News",
+          "social media",
+          "web fiction",
+          "Q&A forum",
+          "Chinese⇒English",
+          "English⇒German",
+          "English⇒Russian"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Translated target-language documents (sentence- and document-level translations)",
+          "document-level translations in target languages (e.g., Chinese, German, Russian) from source documents (e.g., English, Chinese)"
+        ]
+      },
+      "normalized": {
+        "IWSLT TED": "IWSLT TED",
+        "GPT-3.5": "GPT-3.5",
+        "GPT-4": "GPT-4"
+      },
+      "explanation": "Simplified datasets to actual named benchmarks, removed language pairs and domain descriptions that aren't datasets themselves. Normalized output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "TER",
+      "COMET",
+      "d-BLEU",
+      "CTT",
+      "AZPT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "sacreBLEU"
+        ]
+      },
+      "normalized": {
+        "sacreBLEU": "BLEU",
+        "bleu": "BLEU"
+      },
+      "explanation": "Normalized sacreBLEU to BLEU since it's the same metric family. Kept all relevant automatic metrics used in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "ChatGPT",
+          "GPT-4"
+        ],
+        "methods": [
+          "contrastive prediction and explanation"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all items as the paper does NOT use LLMs as judges. The contrastive prediction is about the LLMs' generation capabilities, not evaluation of outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Two sets of evaluation criteria: general quality (fluency, adequacy) and discourse-aware quality (consistency, word choice, anaphora)",
+      "Scores assigned 0-5 for each criterion",
+      "Evaluators consider discourse properties beyond single sentences using neighboring sentence windows"
+    ],
+    "criteria": [
+      "fluency",
+      "adequacy",
+      "consistency",
+      "word choice",
+      "anaphora"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Scores assigned 0-5 for each criterion",
+          "Evaluators consider discourse properties beyond single sentences using neighboring sentence windows"
+        ],
+        "criteria": [
+          "fluency",
+          "adequacy",
+          "consistency",
+          "word choice",
+          "anaphora"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- We establish two sets of evaluation criteria: 1) general quality, covering aspects such as fluency and adequacy; 2) discourse-aware quality, including factors such as consistency, word choice, and anaphora.",
+          "Evaluators assign scores (0–5) for general quality (fluency, adequacy) and discourse-aware quality (consistency, word choice, anaphora) based on provided criteria.",
+          "Score General Quality Discourse Awareness 5 Translation passes quality control; the overall translation is excellent. Translation is very fluent with no grammatical errors and has been localized to fit target language. Word choice is accurate with no mistranslations. The translation is a 100% true to the source text. No inconsistency relating to key terms such as names, organization, etc. Linking words or expressions between sentences keeps the logic and language of the passage clear and fluent. Context and tone are consistent throughout. The style of the text conforms to the culture and habit of the target language. ..."
+        ],
+        "criteria": [
+          "coherence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleaned up guideline text to be more concise while preserving key information. Removed 'coherence' as it wasn't explicitly listed in the main criteria but extracted from scoring descriptions. Added explicit criteria list based on paper content."
+    }
+  },
+  "overall_notes": "The paper is a comprehensive evaluation of document-level machine translation using LLMs. Extraction was mostly accurate but needed some cleanup of dataset names and removal of non-evaluator LLM usage. Human evaluation was well-documented with clear criteria and procedures."
+}

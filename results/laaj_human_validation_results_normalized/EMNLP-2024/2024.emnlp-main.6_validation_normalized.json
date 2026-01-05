@@ -1,0 +1,52 @@
+{
+  "paper_id": "2024.emnlp-main.6",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM-based reasoning evaluation (using PaLM2-340B) and human side-by-side evaluations, but these are used for different purposes (reasoning tasks vs. description quality assessment) on different datasets and criteria. There is no direct comparison or validation of LLM judgments against human evaluation results."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "PaLM2-340B"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt provided in Appendix D.8: 'Given the following image description and caption options, choose the most likely OPTION number : IMAGE DESCRIPTION: <DESCRIPTION> OPTIONS: <CHOICES> RESPONSE :' where <DESCRIPTION> is from fine-tuned models and <CHOICES> are from evaluation datasets."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Jaccard similarity",
+      "value": 0.8,
+      "interpretation": "Higher similarity suggests higher inter-annotator agreement as proxy for quality",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Complete annotation guidelines provided in Appendix A. Human side-by-side evaluation uses 5-point scale with specific definitions for each metric (Comprehensiveness, Specificity, Hallucinations, TLDR quality, Human-Likeness). UI examples shown in Appendix B.4."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "vision-language reasoning accuracy"
+    ],
+    "human_only_criteria": [
+      "Comprehensiveness",
+      "Specificity",
+      "Hallucination",
+      "Quality",
+      "Humanness"
+    ],
+    "shared_criteria": [],
+    "notes": "LLM evaluation is used for compositional reasoning tasks (ARO, SVO-Probes, Winoground) where LLM selects correct captions given descriptions. Human evaluation is used for quality assessment of image descriptions via side-by-side comparisons. The two evaluation methods serve completely different purposes and are not directly comparable."
+  }
+}

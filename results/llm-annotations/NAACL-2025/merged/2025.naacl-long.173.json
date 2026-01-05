@@ -1,0 +1,101 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Privacy-Conscious Delegation requires trusted, weaker models to use untrusted, powerful models as tools to fulfill private user requests.",
+            "Privacy-Conscious Delegation requires trusted, weaker models to use untrusted, powerful models as tools to fulfill private user requests ... the system's goal is to produce an output response r of the best possible quality, using one or both LLMs, while revealing as little private information as possible to the untrusted LLM.",
+            "We introduce Privacy-Conscious Delegation, a task that provides new insights into preserving inference-time user privacy when interacting with large language models."
+        ],
+        "tasks": [
+            "Other:Response Generation",
+            "Dialogue Generation",
+            "Other:Privacy-Conscious Delegation"
+        ],
+        "datasets": [
+            "PUPA",
+            "WildChat"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Llama-3.1-8B-Instruct",
+            "GPT-4o-mini",
+            "Mistral-Small-Instruct",
+            "GPT-3.5-turbo",
+            "GPT-4-turbo",
+            "Llama-3-8B-Instruct",
+            "Llama-3.2-3B-Instruct",
+            "Llama-3.2-1B-Instruct",
+            "Mistral-Small-Instruct-2409",
+            "Mistral-7B-Instruct-v0.3"
+        ],
+        "outputs": [
+            "Generated text responses to user queries",
+            "Generated responses to user queries (final output r) after possible delegation to remote LLM",
+            "The paper generates responses to user queries through a pipeline (PAPILLON) that involves prompt creation, remote model querying, and response aggregation, which are natural language outputs."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "we utilize SentenceTransformer all-MiniLM-L6-v2 to compute the sentence embeddings of the final PAPILLON outputs and the proprietary model responses. We then compute pairwise cosine similarity values",
+            "We define metrics for Privacy-Conscious Delegation, measuring (i) how well systems preserve response quality in comparison to using the best-in-class API models and (ii) how much private information systems leak to the API model.",
+            "We employ LLMs as a judge for these two qualities."
+        ],
+        "automatic_metrics": [
+            "Cosine Similarity",
+            "Quality Preservation (binary yes/no judgment)",
+            "Privacy Leakage (percentage of PII units present in prompt)",
+            "Cosine Similarity between final output and proprietary model response",
+            "Quality Preservation",
+            "Privacy Preservation",
+            "Prompt Well-Formedness"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "we employ LLMs as a judge for these two qualities",
+            "We employ LLMs as a judge for these two qualities. We query the LLM judge to directly determine whether the quality of the output ... and we also use an LLM judge to assess privacy leakage in the synthesized prompt.",
+            "Like recent literature, we employ LLMs as a judge for these two qualities."
+        ],
+        "models": [
+            "LLM",
+            "GPT-4o-mini",
+            "GPT-4-turbo",
+            "GPT-3.5-turbo"
+        ],
+        "methods": [
+            "pairwise evaluation with permutation",
+            "pairwise quality judgment (response A vs. response B)",
+            "privacy leakage judgment (presence of PII in prompt)",
+            "pairwise evaluation",
+            "LLM-as-a-judge with binary judgment",
+            "permutation-based judgment to reduce position bias"
+        ],
+        "criteria": [
+            "quality",
+            "privacy leakage",
+            "prompt well-formedness"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "we conduct a human evaluation for our QUAL(A, B) metric on Prolific",
+            "We conduct a human evaluation for our QUAL(A, B) metric on Prolific ... participants are asked to select the better response from the two candidates or mark the two as tied in quality. ... we evaluated how well our privacy leakage metric aligns with human judgment ... participants indicated whether they agree with the privacy leakage score.",
+            "So, we conduct a human evaluation for our QUAL(A, B) metric on Prolific to ensure that our LLM judge preferences still reflect human judgments well in this setting."
+        ],
+        "guideline": [
+            "Participants select the better response or mark as tied for quality; for privacy, participants indicate agreement with leakage judgment",
+            "For quality: participants choose which of two responses is better or mark them as tied. For privacy leakage: participants are given the PII units and the synthesized prompt and indicate whether the prompt leaks any private information.",
+            "Participants are asked to select the better response from the two candidates or mark the two as tied in quality."
+        ],
+        "criteria": [
+            "response quality",
+            "privacy leakage",
+            "quality"
+        ]
+    }
+}

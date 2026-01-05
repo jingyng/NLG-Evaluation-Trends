@@ -1,0 +1,100 @@
+{
+  "paper_id": "2025.acl-long.1445",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-as-judge (GPT-4o) against human annotations on a random sample of 100 outputs, reporting percentage agreement metrics for both answerability and correctness"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt provided in Appendix A.6; uses binary evaluation format checking answerability and correctness against reference answers"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage agreement",
+      "value": null,
+      "interpretation": "86.4% for answerability, 95.3% for correctness",
+      "per_criterion": [
+        {
+          "criterion": "answerability",
+          "metric": "percentage agreement",
+          "value": 86.4
+        },
+        {
+          "criterion": "correctness",
+          "metric": "percentage agreement",
+          "value": 95.3
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human annotators evaluate binary answerability and correctness of question-answer pairs from summaries, but detailed guidelines not explicitly described"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "answerability",
+      "correctness"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": 100,
+      "notes": "100 outputs randomly sampled, equally split between answerable and non-answerable cases; 3 human annotations per sample"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": 86.4,
+        "criterion": "Answerability",
+        "llm_model": "GPT-4o",
+        "significance": "not reported",
+        "notes": "Between LLM-as-judge and human annotations"
+      },
+      {
+        "metric": "Percentage agreement",
+        "value": 95.3,
+        "criterion": "Correctness",
+        "llm_model": "GPT-4o",
+        "significance": "not reported",
+        "notes": "Between LLM-as-judge and human annotations"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": "not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4o as judge shows high agreement with human annotations (86.4% for answerability, 95.3% for correctness), demonstrating reliability of automatic evaluation method."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Answerability",
+      "Correctness"
+    ],
+    "notes": "LLM and human evaluate identical criteria (answerability and correctness) on the same question-answer pairs"
+  }
+}

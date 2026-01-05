@@ -1,0 +1,131 @@
+{
+  "paper_id": "2025.emnlp-main.508",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Entity Generation",
+      "Other:Knowledge Graph Completion"
+    ],
+    "datasets": [
+      "FB15K-237",
+      "WN18RR",
+      "UMLS-PubMed"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o-mini",
+      "SimKGC",
+      "Contriever-MS MARCO",
+      "BGE M3"
+    ],
+    "outputs": [
+      "generated entities",
+      "missing entities in the form of natural language text or triplets"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed - all extracted metadata is accurate and relevant"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MRR",
+      "Hits@1",
+      "Hits@3",
+      "Hits@10",
+      "F1",
+      "Recall"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "factuality score",
+          "consistency score"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'factuality score' and 'consistency score' as these are custom scoring functions rather than standard automatic metrics. The paper uses MRR, Hits@k, F1, and Recall as proper automatic evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "LLM-based correctness assessment",
+      "factuality checking via entailment scoring"
+    ],
+    "criteria": [
+      "factuality",
+      "consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "roberta-large-snli_mnli_fever_anli_R1_R2_R3-nli (as factuality checker)"
+        ],
+        "methods": [
+          "direct LLM evaluation (GPT-4o)",
+          "direct evaluation of fact correctness"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed the specific Roberta model as it's used for factuality checking, not as an LLM judge. Simplified the methods to focus on the core LLM-based evaluation approaches. Kept GPT-4o as the main LLM used for judging."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "evaluate the correctness of triplets",
+      "questionnaires with pairs of input text and generated tail entities",
+      "judge whether each generated fact is correct"
+    ],
+    "criteria": [
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed - the extracted human evaluation metadata accurately reflects the paper's methodology"
+    }
+  },
+  "overall_notes": "The paper focuses on knowledge graph completion using LLMs for entity generation and evaluation. While primarily a KGC paper, it does involve natural language generation aspects through entity generation and uses both automatic metrics and human/LLM evaluations. The extraction was generally accurate with minor refinements needed for metric classification."
+}

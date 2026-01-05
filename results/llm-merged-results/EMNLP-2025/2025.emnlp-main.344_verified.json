@@ -1,0 +1,160 @@
+{
+  "paper_id": "2025.emnlp-main.344",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Vision-Language Question Answering",
+      "Other:Visual Reasoning",
+      "Other:Step-wise Reasoning"
+    ],
+    "datasets": [
+      "ViLBench",
+      "MMStar",
+      "MathVista",
+      "MathVerse",
+      "MMMU Pro",
+      "RealWorldQA",
+      "GeoQA170K",
+      "CLEVR-Math",
+      "A-OKVQA",
+      "ScienceQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ViLPRM",
+      "Qwen2.5-VL-3B",
+      "Qwen2.5-VL-7B",
+      "Qwen2-VL",
+      "Qwen2.5-VL",
+      "InternLM-X2.5",
+      "InternVL-2.5-8B",
+      "InternVL-2.5",
+      "LLaVA-OneVision",
+      "LLaVA-OneVision-7B",
+      "GPT-4o",
+      "GPT-o1",
+      "URSA",
+      "Grok-1.5"
+    ],
+    "outputs": [
+      "Generated reasoning steps and final answers for vision-language tasks",
+      "Step-wise textual reasoning traces"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Step-wise Reasoning"
+        ],
+        "datasets": [
+          "ViLBench"
+        ],
+        "models": [
+          "GPT-o1"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Image Captioning",
+          "Other:vision-language reasoning"
+        ],
+        "datasets": [
+          "ViLReward-73K",
+          "MAVIS-Geo"
+        ],
+        "models": [
+          "InternLM-XComposer2.5-Reward-7B"
+        ]
+      },
+      "normalized": {
+        "Other:Visual Question Answering": "Other:Vision-Language Question Answering",
+        "Qwen2.5-VL-3B": "Qwen2.5-VL-3B",
+        "Qwen2.5-VL-7B": "Qwen2.5-VL-7B",
+        "VL": "Visual Question Answering"
+      },
+      "explanation": "Removed 'Image Captioning' as paper focuses on question answering not captioning. Consolidated similar task descriptions. Added 'Other:Step-wise Reasoning' as key focus. Removed ViLReward-73K as it's training data not evaluation dataset. Normalized model names consistently."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Pearson correlation",
+          "Pearson r",
+          "Mean Square Error (MSE)"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Removed Pearson correlation and MSE as they analyze model correlations, not evaluate generated outputs. Paper primarily uses accuracy to evaluate final answer correctness against ground truth."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "InternLM-X2.5",
+      "LLaVA-OneVision",
+      "Qwen2-VL",
+      "Qwen2.5-VL",
+      "InternVL-2.5",
+      "GPT-4o",
+      "GPT-3.5-turbo"
+    ],
+    "methods": [
+      "Best-of-N candidate selection",
+      "Step-wise scoring with prompt",
+      "LLM-as-a-judge",
+      "Final answer correctness verification"
+    ],
+    "criteria": [
+      "relevance",
+      "coherence",
+      "accuracy",
+      "clarity"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-3.5-turbo"
+        ]
+      },
+      "removed": {
+        "models": [
+          "InternLM-XComposer2.5-Reward",
+          "URSA",
+          "InternVL"
+        ]
+      },
+      "normalized": {
+        "LLaVA-OneVision-7B": "LLaVA-OneVision",
+        "step-wise scoring with prompt": "Step-wise scoring with prompt",
+        "LLM-as-a-judge scoring": "LLM-as-a-judge",
+        "scoring reasoning steps on a 1-5 scale": "Step-wise scoring with prompt"
+      },
+      "explanation": "Consolidated similar method descriptions. Removed models used as baselines but not explicitly as judges. Added GPT-3.5-turbo used for answer extraction verification."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluations mentioned in the paper. All evaluations are automated using LLM-as-judge and accuracy metrics."
+    }
+  },
+  "overall_notes": "Paper focuses on vision-language process reward modeling, evaluating step-wise reasoning generation primarily through automated LLM-as-judge methods. Extraction was generally accurate but included some training data and non-evaluation models that were removed. The paper's main NLG contribution is generating and evaluating multi-step reasoning traces for visual question answering tasks."
+}

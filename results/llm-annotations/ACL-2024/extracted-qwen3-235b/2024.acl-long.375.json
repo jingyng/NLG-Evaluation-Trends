@@ -1,0 +1,52 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We present MALLS (large language Model generAted NL-FOL pairS), a 28K real-world, diverse, and verified sentence-level NL-FOL pairs collected from GPT4.",
+        "tasks": [
+            "Other:NL-FOL translation"
+        ],
+        "datasets": [
+            "MALLS",
+            "LogicNLI",
+            "FOLIO"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT4",
+            "LLaMA2-7B",
+            "LLaMA2-13B",
+            "Mistral-7B",
+            "Mixtral",
+            "Gemini Pro",
+            "GPT3.5"
+        ],
+        "outputs": "first-order logic (FOL) rules from natural language statements"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We use the logical equivalence (LE) introduced §4.3 as the main metric for FOL rules evaluation. Apart from this, it is also preferred that the generated FOL rule has the matching predicate names, so we measure the FOL BLEU between the predicted FOL and the ground-truth FOL.",
+        "automatic_metrics": [
+            "FOL BLEU",
+            "Logical Equivalence (LE)"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": "",
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We annotate a subset of 1K examples uniformly sampled from MALLS. Each sample is rated with respect to a 3-point scale: correct, partial, and incorrect. Each sample is evaluated by 3 annotators and gets the final rating via majority votes. We recruited 6 graduate students in CS/ECE department with a background in FOL.",
+        "guideline": "The annotators were provided with detailed instructions regarding the rating scales, and several examples per rating to clarify further (details in §A).",
+        "criteria": [
+            "Correct: The FOL rule aligns with the meaning of the NL sentence",
+            "Partial: one and only one of the following errors occur - The FOL rule does not align with the NL in some parts but does not explicitly contradict the NL - Missing important predicates, or having obviously irrelevant predicates - Wrong quantifier when the NL has explicit hints such as \"For all...\" or \"Some...\" - Wrong use of variables, such as free/redundant variables, wrong variable association, or redefining variables",
+            "Incorrect: More than one Partial error was found in an example - The FOL rule explicitly contradicts the NL meaning."
+        ]
+    }
+}

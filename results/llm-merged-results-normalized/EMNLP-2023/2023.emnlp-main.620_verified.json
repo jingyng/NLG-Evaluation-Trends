@@ -1,0 +1,148 @@
+{
+  "paper_id": "2023.emnlp-main.620",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text To Table Generation"
+    ],
+    "datasets": [
+      "INSTRUCTIE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "odie",
+      "llama_7b",
+      "chatgpt",
+      "gpt_4",
+      "alpaca",
+      "tülu"
+    ],
+    "outputs": [
+      "structured tables containing extracted information based on user instructions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Information Extraction"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "CHATGPT"
+        ],
+        "outputs": [
+          "structured table",
+          "structured tables"
+        ]
+      },
+      "normalized": {
+        "TÜLU": "TÜLU",
+        "CHATGPT": "ChatGPT"
+      },
+      "explanation": "Removed 'Information Extraction' as it's not an NLG task, consolidated output descriptions, normalized model names"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SEMANTIC SIMILARITY",
+      "ROUGE",
+      "EXACT MATCH"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SentenceBERT cosine similarity",
+          "ROUGE-L F1",
+          "Pearson",
+          "Spearman",
+          "Kendall"
+        ]
+      },
+      "normalized": {
+        "Semantic Similarity (SentenceBERT)": "Semantic Similarity",
+        "ROUGE-L": "ROUGE",
+        "ROUGE-L F1": "ROUGE"
+      },
+      "explanation": "Simplified metrics to base forms (ROUGE instead of ROUGE-L), removed correlation coefficients as they're not evaluation metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Confirmed no LLM-as-judge usage; paper uses LLMs for generation but not for evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rated table headers on a three-level system: correct, partly correct, or completely wrong",
+      "Table contents were rated on a four-level system: valid and satisfying, acceptable with minor errors, relevant with significant errors, or irrelevant/invalid"
+    ],
+    "criteria": [
+      "Correctness",
+      "Accuracy",
+      "Validity",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators rate table headers as correct, partly correct, or wrong, and table contents as valid and satisfying, acceptable with minor errors, relevant with significant errors, or irrelevant/invalid.",
+          "Evaluators are asked to rate the output of four instruction-following models based on whether the extracted information is accurate. For the table headers, we design a three-level rating system: (1) Rating-A: correct, (2) Rating-B: partly correct, or (3) Rating-C: completely wrong. For the table contents, we set up four-level rating standards: (1) Rating-A: valid and satisfying, (2) Rating-B: acceptable but has minor errors or imperfections, (3) Rating-C: relevant to the instruction with significant errors, and (4) Rating-D: irrelevant or completely invalid."
+        ],
+        "criteria": [
+          "header correctness (correct/partial/wrong)",
+          "content quality (valid/satisfying, acceptable with minor errors, relevant with significant errors, irrelevant/invalid)",
+          "minor errors or imperfections"
+        ]
+      },
+      "normalized": {
+        "header correctness (correct/partial/wrong)": "correctness",
+        "content quality (valid/satisfying, acceptable with minor errors, relevant with significant errors, irrelevant/invalid)": "validity"
+      },
+      "explanation": "Consolidated duplicate guideline descriptions and normalized criteria to core evaluation dimensions"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main corrections: normalized metric names to base forms, clarified that information extraction is not an NLG task (the NLG part is the table generation), and confirmed no LLM-as-judge usage. The paper is strong on both automatic and human evaluation methodologies."
+}

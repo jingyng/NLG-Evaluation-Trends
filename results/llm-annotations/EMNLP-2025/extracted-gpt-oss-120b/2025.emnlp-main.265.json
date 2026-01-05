@@ -1,0 +1,46 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We fine-tune DeepSeek-R1-Distill-Llama-8B, a distilled variant of the DeepSeek-R1 model designed for multi-step reasoning, on the R-TOFU dataset to create the target model for unlearning. The model is trained to generate both CoT traces and final answers, minimizing the negative log-likelihood over reasoning and answer tokens.",
+        "tasks": [
+            "Other:Chain-of-Thought Generation"
+        ],
+        "datasets": [],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "DeepSeek-R1-Distill-Llama-8B"
+        ],
+        "outputs": "Generated chain-of-thought (CoT) traces and final answers"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We use the ROUGE-L recall score to measure how much of the ground-truth answer is captured by the model's generated answer. Token Entropy (TE) measures the diversity of tokens in the model's output. Cosine Similarity (CS) measures the semantic similarity between model outputs before and after unlearning. Entailment Score (ES) assesses the factual consistency between the model's output and the ground-truth answer, based on Natural Language Inference (NLI).",
+        "automatic_metrics": [
+            "ROUGE-L",
+            "Token Entropy",
+            "Cosine Similarity",
+            "Entailment Score",
+            "step-wise ROUGE",
+            "step-wise Cosine Similarity"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We adopt a LLM-as-judge, following recent trends in unlearning research. To operationalize this evaluation, we provide GPT-4o with a question, its ground-truth answer, and the generated CoT after unlearning, prompting it to assign a scalar score between 0.0 (complete forgetting) and 1.0 (full retention).",
+        "models": [
+            "GPT-4o"
+        ],
+        "methods": [
+            "LLM-as-judge scoring"
+        ],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": "",
+        "guideline": "",
+        "criteria": []
+    }
+}

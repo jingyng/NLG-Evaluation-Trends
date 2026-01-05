@@ -1,0 +1,154 @@
+{
+  "paper_id": "2025.acl-long.1428",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper systematically compares LLM evaluators' performance with human annotations on the same EditInspector benchmark, reporting quantitative metrics such as accuracy percentages, model precision (MP), and hallucination rate (HR) to assess agreement and alignment."
+  },
+  "llm_judge_details": {
+    "num_models": 8,
+    "models": [
+      "GPT-4",
+      "GPT-4o",
+      "GPT-4 Turbo",
+      "Gemini-Pro-Vision",
+      "Gemini-1.5",
+      "Qwen2.5-VL",
+      "InternVL3",
+      "LLaVA"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompts are listed in Appendix A.7 and A.8, including templates for Yes/No questions (e.g., 'Is Accurate Task', 'Artifacts Task') and generation tasks (e.g., 'Generate all differences caption'). Examples show prompts with placeholders for instructions and captions."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": null,
+      "interpretation": "Agreement levels described as moderate (\u03ba>0.41 for accuracy question), fair (\u03ba=0.21-0.40 for artifacts), and slight (\u03ba=0.01-0.20 for technical precision)",
+      "per_criterion": [
+        {
+          "criterion": "accuracy",
+          "metric": "Fleiss' kappa",
+          "value": ">0.41"
+        },
+        {
+          "criterion": "artifacts",
+          "metric": "Fleiss' kappa",
+          "value": "0.21-0.40"
+        },
+        {
+          "criterion": "technical precision",
+          "metric": "Fleiss' kappa",
+          "value": "0.01-0.20"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text and appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed evaluation framework includes decision trees (e.g., Figure 11 for artifacts), categories (Accuracy Level, Artifacts Level, etc.), and examples in main text and Appendix A.16."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Accuracy",
+      "Model Precision (MP)",
+      "Hallucination Rate (HR)",
+      "Recall",
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "edit accuracy",
+      "artifacts",
+      "technical precision",
+      "visual consistency",
+      "difference caption accuracy",
+      "main difference caption",
+      "all differences caption"
+    ],
+    "sample_size": {
+      "total_generated": 783,
+      "validated_by_both": 783,
+      "notes": "All 783 edits from MagicBrush test set were evaluated by both human annotators and LLM models, with additional evaluation on 100 edits from UltraEdit and Imagen3."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Accuracy",
+        "value": 70.3,
+        "criterion": "edit accuracy",
+        "llm_model": "Gemini-1.5",
+        "significance": null,
+        "notes": "Highest among LLMs for edit accuracy question"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 65.7,
+        "criterion": "artifacts",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Highest artifact detection accuracy but low recall (52.7%)"
+      },
+      {
+        "metric": "Model Precision (MP)",
+        "value": 12,
+        "criterion": "all differences caption",
+        "llm_model": "GPT-4o, Qwen2.5-VL",
+        "significance": null,
+        "notes": "Best MP for all differences caption generation"
+      },
+      {
+        "metric": "Hallucination Rate (HR)",
+        "value": 58,
+        "criterion": "all differences caption",
+        "llm_model": "Qwen2.5-VL",
+        "significance": null,
+        "notes": "Lowest hallucination rate"
+      },
+      {
+        "metric": "Percentage agreement",
+        "value": 39,
+        "criterion": "main difference caption",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Highest accuracy for main difference description"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM evaluators perform poorly compared to humans, with accuracy often near random chance (e.g., 49.9%-70.3% for edit accuracy vs. human agreement of 80%-86%), and significant hallucinations in difference captioning (HR up to 78%)."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "contextual consistency feedback",
+      "technical precision feedback"
+    ],
+    "shared_criteria": [
+      "edit accuracy",
+      "artifacts",
+      "technical precision",
+      "visual consistency",
+      "difference caption accuracy",
+      "main difference caption",
+      "all differences caption"
+    ],
+    "notes": "Both LLMs and humans evaluate the same core criteria, but humans provide detailed textual feedback (e.g., contextual consistency) that is not quantitatively matched by LLMs."
+  }
+}

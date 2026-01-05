@@ -1,0 +1,121 @@
+{
+  "paper_id": "2024.emnlp-main.220",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Text Generation for Training Data"
+    ],
+    "datasets": [
+      "SST-2",
+      "SST-5",
+      "Emotion",
+      "AG News",
+      "NYT-LOC",
+      "TREC",
+      "SNIPS",
+      "TED Talk Summary",
+      "Steam Game Description",
+      "Text Message",
+      "Massive"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-2-7b-hf",
+      "GPT-4",
+      "RoBERTa-Large"
+    ],
+    "outputs": [
+      "Text samples for each label in Python dictionaries for classifier training"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "SNIPS"
+        ],
+        "outputs": [
+          "Text samples for each label in Python dictionaries for classifier training"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text Classification"
+        ],
+        "datasets": [
+          "financial news",
+          "counterfactual reviews",
+          "toxic conversations"
+        ]
+      },
+      "normalized": {
+        "LLaMA-2-7b-hf": "LLaMA-2-7b-hf",
+        "The paper generates training data (text samples) for text classification tasks based on user instructions, which is a form of natural language generation aimed at creating labeled datasets for classifier incubation.": "Text samples for each label in Python dictionaries for classifier training"
+      },
+      "explanation": "Removed 'Other:Text Classification' as it's not an NLG task, removed datasets mentioned only in instruction-tuning phase, added missing SNIPS dataset, simplified outputs description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "Accuracy",
+      "Precision@100"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy",
+          "Precision@100"
+        ]
+      },
+      "removed": {},
+      "normalized": {},
+      "explanation": "Changed answer from No to Yes - the paper clearly uses Accuracy and Precision@100 as automatic evaluation metrics for the generated classifiers"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "Precision@100"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed GPT-4 and Precision@100 - GPT-4 is used for generation/augmentation, not as a judge. Precision@100 is an automatic metric, not LLM-as-judge evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Asked whether the mined texts satisfy the demand with Precision@100 as the metric",
+      "Human evaluation for each result done by 3 professional human annotators with majority decision"
+    ],
+    "criteria": [
+      "satisfaction of demand"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human evaluation for each result done by 3 professional human annotators with majority decision"
+        ]
+      },
+      "removed": {},
+      "normalized": {},
+      "explanation": "Added more details about human evaluation procedure from the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on generating training data for text classification using LLMs (specifically instruction-tuned LLaMA-2 and GPT-4). While the main application is text classification, the core contribution involves NLG (generating text samples for each class). The metadata extraction was generally accurate but needed some refinement to focus on the evaluated datasets rather than all mentioned datasets."
+}

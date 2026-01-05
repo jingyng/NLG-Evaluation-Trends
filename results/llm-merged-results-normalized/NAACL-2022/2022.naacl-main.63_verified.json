@@ -1,0 +1,132 @@
+{
+  "paper_id": "2022.naacl-main.63",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Speech To Speech Translation Generation",
+      "Machine Translation"
+    ],
+    "datasets": [
+      "VOXPOPULI",
+      "EUROPARL ST",
+      "COVOST 2",
+      "COMMON VOICE",
+      "LIBRIVOX",
+      "COMMON VOICE 7 0"
+    ],
+    "languages": [
+      "English",
+      "Spanish",
+      "French"
+    ],
+    "models": [
+      "s_2ut",
+      "hubert",
+      "hifi_gan",
+      "mhubert",
+      "speech_normalizer",
+      "transformer",
+      "transformer_tts",
+      "t_2u"
+    ],
+    "outputs": [
+      "Speech in target language",
+      "Target speech (spectrogram/audio) generated from source speech",
+      "Speech output in target language without intermediate text generation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Speech-to-Speech Translation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "mined S2ST data from LibriVox"
+        ],
+        "languages": [],
+        "models": [
+          "S2UT model",
+          "unit-based HiFi-GAN vocoder"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Speech Normalizer": "Speech Normalizer",
+        "S2UT": "S2UT",
+        "HiFi-GAN": "HiFi-GAN"
+      },
+      "explanation": "Added 'Speech-to-Speech Translation' as primary task. Removed 'mined S2ST data from LibriVox' as it's redundant with 'LibriVox'. Normalized model names for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "UER",
+      "WER"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Unit Error Rate (UER)",
+          "Word Error Rate (WER)",
+          "MOS"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "UER": "UER",
+        "WER": "WER"
+      },
+      "explanation": "Removed verbose metric names ('Unit Error Rate (UER)', 'Word Error Rate (WER)') and normalized to base forms. Removed 'MOS' as it's a human evaluation metric, not automatic."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-based evaluation was used in this paper. The paper uses HuBERT for speech representation learning, not as a judge for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate the naturalness of the speech output on a scale from 1 to 5",
+      "Each sample is rated by 5 raters on a scale of 1 (the worst) to 5 (the best)"
+    ],
+    "criteria": [
+      "Naturalness",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "normalized": {
+        "naturalness": "naturalness",
+        "speech quality": "speech quality"
+      },
+      "explanation": "Removed 'fluency' as it was not explicitly mentioned as an evaluation criterion in the human evaluation section. The paper specifically mentions rating 'naturalness' of the speech output."
+    }
+  },
+  "overall_notes": "The paper focuses on textless speech-to-speech translation using self-supervised units. Evaluation includes both automatic metrics (BLEU, WER, UER) and human evaluation (MOS for naturalness). The paper is well-extracted overall with minor normalization needed."
+}

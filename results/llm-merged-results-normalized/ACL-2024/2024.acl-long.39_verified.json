@@ -1,0 +1,183 @@
+{
+  "paper_id": "2024.acl-long.39",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Clinical Note Generation",
+      "Patient Question Summarization"
+    ],
+    "datasets": [
+      "ACI BENCH",
+      "MIMIC III",
+      "MEQSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3.5_turbo",
+      "gpt_4",
+      "bart",
+      "biobart",
+      "mistral"
+    ],
+    "outputs": [
+      "clinical notes",
+      "radiology report summaries",
+      "patient question summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "models": [
+          "BART"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:clinical note generation"
+        ],
+        "models": [
+          "BART+SAMSum",
+          "BART+SAMSum FT",
+          "BART + SAMSum FT",
+          "TRUE"
+        ]
+      },
+      "normalized": {
+        "Other:Patient Question Summarization": "Other:Patient Question Summarization",
+        "BART+SAMSum": "BART",
+        "BART+SAMSum FT": "BART",
+        "BART + SAMSum FT": "BART"
+      },
+      "explanation": "Normalized tasks to consistent format, removed TRUE as it's an evaluator not generation model, consolidated BART variations, added explicit Text Summarization category"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE",
+      "BLEURT",
+      "MEDCON",
+      "BLEU",
+      "F1 RADGRAPH",
+      "CLAIM RECALL",
+      "CLAIM PRECISION",
+      "CITATION RECALL",
+      "CITATION PRECISION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L",
+          "F1‑RadGraph",
+          "claim recall",
+          "claim precision",
+          "citation recall",
+          "citation precision"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "F1‑RadGraph": "F1-RadGraph",
+        "claim recall": "Claim Recall",
+        "claim precision": "Claim Precision",
+        "citation recall": "Citation Recall",
+        "citation precision": "Citation Precision"
+      },
+      "explanation": "Normalized to base metric forms and consistent capitalization, removed duplicate variations"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "mistral",
+      "TRUE"
+    ],
+    "methods": [
+      "Chain-of-Thought",
+      "Structured JSON output",
+      "binary entailment prediction"
+    ],
+    "criteria": [
+      "Completeness",
+      "Conciseness",
+      "Attribution",
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Factual Consistency"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "Generation with Structure",
+          "JSON output prompting",
+          "prompt‑based binary entailment evaluation",
+          "structured JSON prompting with chain‑of‑thought"
+        ],
+        "criteria": [
+          "entailment",
+          "entailment (claim support)"
+        ]
+      },
+      "normalized": {
+        "Generation with Structure": "Structured JSON output",
+        "Chain-of-Thought": "Chain-of-Thought",
+        "completeness": "Completeness",
+        "conciseness": "Conciseness",
+        "attribution": "Attribution"
+      },
+      "explanation": "Consolidated method variations, normalized criteria capitalization, added Factual Consistency mentioned in paper context"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Medical experts judge percentage of reference claims fully supported by each output",
+      "Medical experts provide subjective preference for which output is more complete"
+    ],
+    "criteria": [
+      "Completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Medical experts judge percentage of reference claims fully supported by each output",
+          "Medical experts provide subjective preference for which output is more complete"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- We ask the medical experts (1) what percent of the claims can be entailed by each output, and (2) which output they think is more complete",
+          "Annotators were asked (1) whether each claim is fully supported by each generated note, and (2) which note they think is more complete.",
+          "Judge whether each claim is fully supported by the two notes, and which note they subjectively think is more complete (i.e., covers more information in the reference note)."
+        ],
+        "criteria": [
+          "subjective preference",
+          "claim coverage (full support)",
+          "completeness (subjective preference)"
+        ]
+      },
+      "normalized": {
+        "completeness": "Completeness"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into clear statements, removed redundant criteria keeping only 'Completeness' as the main evaluation focus"
+    }
+  },
+  "overall_notes": "The paper presents DocLens, a comprehensive medical text evaluation framework. The extraction was generally accurate but contained duplicates and inconsistent formatting. Major changes include normalizing metric/task names, consolidating BART model variations, and clarifying human evaluation guidelines. The paper strongly fits all four categories with extensive NLG evaluation using both automatic metrics and LLM/human judges."
+}

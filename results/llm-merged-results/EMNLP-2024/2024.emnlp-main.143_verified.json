@@ -1,0 +1,142 @@
+{
+  "paper_id": "2024.emnlp-main.143",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Conclusion Generation",
+      "Other:Premise Identification",
+      "Other:Prelocalization of Premises"
+    ],
+    "datasets": [
+      "VisArgs"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-3-Instruct",
+      "Mistral-Instruct",
+      "Zephyr",
+      "OFA",
+      "Qwen-VL-Chat",
+      "CogVLM",
+      "Idefics2",
+      "InstructBLIP",
+      "Unified-IO-2",
+      "LLaVA-1.5",
+      "LLaVA-Next",
+      "GPT-4-O"
+    ],
+    "outputs": [
+      "Generated conclusion (C) of the visual argument",
+      "Generated textual conclusions summarizing the argument"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Premise Identification",
+          "Other:Prelocalization of Premises"
+        ],
+        "models": [
+          "OFA"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Deduction of Conclusion"
+        ],
+        "models": [
+          "LLaMA3",
+          "Mistral",
+          "LLaMA-3-Instruct",
+          "Mistral-Instruct"
+        ]
+      },
+      "normalized": {
+        "Other:Conclusion Generation": "Other:Conclusion Generation",
+        "LLaMA3": "LLaMA-3-Instruct",
+        "Mistral": "Mistral-Instruct",
+        "Generated conclusion C": "Generated conclusion (C) of the visual argument"
+      },
+      "explanation": "Added missing NLG tasks (premise identification, localization) that involve text generation. Normalized model names to standard forms. Removed redundant model listings."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BERTScore",
+      "BLEU",
+      "ROUGE",
+      "CIDEr"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-4",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric variants to base forms (BLEU-4→BLEU, ROUGE-L→ROUGE) according to guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "prompt-based evaluation"
+        ]
+      },
+      "normalized": {},
+      "explanation": "GPT-4 is mentioned only as a generation model, not as a judge. The paper explicitly states that prompt-based evaluation using general reasoners was considered but not used (they chose BERTScore instead)."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Determine if the model's conclusion is semantically similar to the reference conclusion"
+    ],
+    "criteria": [
+      "semantic similarity",
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "criteria": [
+          "semantically similar"
+        ]
+      },
+      "normalized": {
+        "semantically similar": "semantic similarity"
+      },
+      "explanation": "Normalized criteria by removing redundant phrase. The human evaluation focused on binary semantic similarity judgments."
+    }
+  },
+  "overall_notes": "The paper focuses on visual argument understanding with three main tasks, two of which involve natural language generation (conclusion generation and premise identification). The evaluation is robust with both automatic metrics and human evaluation. While many models are tested, GPT-4 is used only for generation, not as a judge. The extraction was generally accurate but missed some NLG tasks and had inconsistent model naming."
+}

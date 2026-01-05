@@ -1,0 +1,161 @@
+{
+  "paper_id": "2024.acl-long.20",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Multiple Choice Question Answering",
+      "Other:Confidence Expression Generation"
+    ],
+    "datasets": [
+      "CommonsenseQA",
+      "QASC",
+      "RiddleSense",
+      "OpenBookQA",
+      "AI2 Reasoning Challenge (ARC)"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3 (text-davinci-001)",
+      "InstructGPT-3 (text-davinci-002)",
+      "InstructGPT-3 + RLHF (text-davinci-003)",
+      "GPT-4 (gpt-4-0613)",
+      "Phi-2-2.7B",
+      "Zephyr-7B"
+    ],
+    "outputs": [
+      "Multiple-choice answer selection",
+      "Verbalized certainty expression (e.g., 'very certain', 'somewhat certain')"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:question answering",
+          "Other:confidence self-evaluation"
+        ],
+        "datasets": [
+          "ARC"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-3",
+          "InstructGPT",
+          "GPT-4",
+          "Microsoft's Phi-2-2.7B",
+          "HuggingFace's Zephyr-7B",
+          "Phi-2-2.7B",
+          "Zephyr-7B",
+          "Microsoft-Phi-2"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Multiple Choice Question Answering": "Other:Multiple Choice Question Answering",
+        "Other:Confidence Expression Generation": "Other:Confidence Expression Generation",
+        "AI2 Reasoning Challenge (ARC)": "AI2 Reasoning Challenge (ARC)",
+        "Phi-2-2.7B": "Phi-2-2.7B",
+        "Zephyr-7B": "Zephyr-7B"
+      },
+      "explanation": "Removed duplicate and generic model names, consolidated tasks to avoid redundancy, removed duplicate ARC dataset, normalized model names to canonical forms"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Spearman's rank correlation coefficient"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "adjusted token probabilities",
+          "internal confidence (P_IC)",
+          "verbalized certainty scores"
+        ]
+      },
+      "normalized": {
+        "Spearman's rank correlation coefficient": "Spearman's rank correlation coefficient"
+      },
+      "explanation": "Removed internal measurement methods that are not evaluation metrics - only kept Spearman's correlation which is the actual automatic evaluation metric used to assess alignment"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4 (gpt-4-0613)",
+      "InstructGPT-3 + RLHF (text-davinci-003)",
+      "InstructGPT-3 (text-davinci-002)",
+      "GPT-3 (text-davinci-001)",
+      "Phi-2-2.7B",
+      "Zephyr-7B"
+    ],
+    "methods": [
+      "Confidence Querying Prompt (CQP)"
+    ],
+    "criteria": [
+      "certainty level"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Microsoft-Phi-2",
+          "GPT-4",
+          "InstructGPT-3 + RLHF"
+        ],
+        "methods": [
+          "Third-Person Perspective (TTP)",
+          "Option Contextualization (OC)",
+          "Likert Scale Utilization (LSU)"
+        ],
+        "criteria": [
+          "certainty",
+          "correctness",
+          "comparative evaluation",
+          "answer verification"
+        ]
+      },
+      "normalized": {
+        "Confidence Querying Prompt (CQP)": "Confidence Querying Prompt (CQP)",
+        "certainty level": "certainty level"
+      },
+      "explanation": "Removed duplicate model names, kept only the main evaluation method (CQP) rather than its components, kept only the primary criterion (certainty level) that the LLM is asked to judge"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed - paper does not conduct human evaluations"
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating confidence-probability alignment in LLMs using multiple-choice question answering as the testbed. The extracted metadata was generally accurate but needed normalization and removal of duplicates. The paper uses the same models for both generation and evaluation (self-evaluation), which fits the LLM-as-judge paradigm."
+}

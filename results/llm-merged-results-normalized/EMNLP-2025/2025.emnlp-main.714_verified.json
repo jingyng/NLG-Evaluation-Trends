@@ -1,0 +1,157 @@
+{
+  "paper_id": "2025.emnlp-main.714",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Tool Using Agent Behavior Generation",
+      "Function Calling"
+    ],
+    "datasets": [
+      "TOOLSAFETY",
+      "TOOLSWORD",
+      "AGENTHARM",
+      "BFCL",
+      "GLAIVE FUNCTION CALLING v2",
+      "TOOLBENCH",
+      "TOOLALPACA"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "Spanish",
+      "German",
+      "French"
+    ],
+    "models": [
+      "llama_3.1_8b_instruct",
+      "qwen_2.5_7b_instruct",
+      "toolllama_2_7b_v_2",
+      "watt_tool_8b",
+      "llama_3_groq_8b"
+    ],
+    "outputs": [
+      "safe refusal responses to harmful queries",
+      "safe refusal responses",
+      "tool call sequences",
+      "normal helpful responses",
+      "multi-step tool interaction trajectories"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "outputs": [
+          "multi-step tool interaction trajectories"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT-4o"
+        ],
+        "outputs": [
+          "Generated function calls",
+          "refusals to harmful requests",
+          "safe responses to indirect harm scenarios"
+        ]
+      },
+      "normalized": {
+        "LLaMA3.1-8B-Instruct": "LLaMA3.1-8B-Instruct",
+        "Qwen2.5-7B-Instruct": "Qwen2.5-7B-Instruct",
+        "GPT-4o": "GPT-4o"
+      },
+      "explanation": "Removed GPT-4o as it's used for evaluation, not generation. Simplified outputs list by removing redundant descriptions and adding missing multi-step trajectories."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "REFUSAL RATE",
+      "HARM",
+      "HELPFULNESS",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "over-refusal rate",
+          "composite score",
+          "benign score"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed over-refusal rate, composite score, and benign score as they are not standard automatic metrics. Added accuracy mentioned for BFCL evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o"
+    ],
+    "methods": [
+      "refusal rate evaluation",
+      "composite score evaluation"
+    ],
+    "criteria": [
+      "Refusal",
+      "Harmfulness",
+      "Completion",
+      "Correctness",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "task completion",
+          "correct tool invocation",
+          "correct order of tool calls",
+          "accurate parameters"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "safety evaluation",
+          "manual evaluation using GPT-4o as judge"
+        ],
+        "criteria": [
+          "helpfulness",
+          "harmfulness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed vague methods and merged criteria. Added specific evaluation criteria from AgentHarm and BFCL benchmarks."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "The query must be harmful, or the tool's response must be harmful, while the final response must be safe. Additionally, it should not contain formatting errors or incorrect symbols."
+    ],
+    "criteria": [
+      "Harmfulness",
+      "Safety",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from No to Yes based on paper's description of manual validation (200 cases checked) during dataset construction."
+    }
+  },
+  "overall_notes": "The paper focuses on safety evaluation of tool-using LLMs, with both automatic metrics and human validation. The extraction was mostly accurate but missed the human evaluation component and included some evaluation models incorrectly as generation models."
+}

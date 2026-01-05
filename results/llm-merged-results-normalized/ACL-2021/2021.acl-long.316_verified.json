@@ -1,0 +1,115 @@
+{
+  "paper_id": "2021.acl-long.316",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Query Context Generation",
+      "Generative Question Answering"
+    ],
+    "datasets": [
+      "NATURAL QUESTIONS",
+      "TriviaQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart_large"
+    ],
+    "outputs": [
+      "Generated query contexts (answers, sentences, titles) for retrieval augmentation",
+      "Generated answers in generative QA setup"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Query Expansion"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Natural Questions (NQ)": "Natural Questions",
+        "TriviaQA (Trivia)": "TriviaQA"
+      },
+      "explanation": "Removed 'Other:Query Expansion' as it's not an NLG task but a retrieval technique. The paper does involve NLG through query context generation and generative QA. Normalized dataset names by removing abbreviations."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "TOP K RETRIEVAL ACCURACY",
+      "EXACT MATCH EM"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Consolidated ROUGE variants into the base 'ROUGE' metric as per normalization rules. The paper uses all these metrics to evaluate generated query contexts and QA outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper. LLMs (specifically BART) are used for generation, but not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. All evaluations are automated using metrics like ROUGE, EM, and retrieval accuracy."
+    }
+  },
+  "overall_notes": "This paper primarily focuses on retrieval-augmented QA rather than pure NLG evaluation. The NLG components are: (1) generating query contexts (answers, sentences, titles) to augment retrieval, and (2) generative QA setup. The main contribution is the retrieval method (GAR), with NLG serving as a means to improve retrieval performance. The extraction was generally accurate but included one non-NLG task (Query Expansion)."
+}

@@ -1,0 +1,148 @@
+{
+  "paper_id": "2022.naacl-main.184",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "DUC 2007",
+      "DUC 2006",
+      "CNN/DailyMail"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "m_summ",
+      "m_sugg",
+      "s_2"
+    ],
+    "outputs": [
+      "extractive summaries",
+      "suggested queries"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "S2"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "models": [
+          "M Summ",
+          "M Sugg",
+          "baseline S2"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "M Summ": "M_Summ",
+        "M Sugg": "M_Sugg",
+        "baseline S2": "S2"
+      },
+      "explanation": "Normalized model names for consistency, removed duplicate/redundant entries, added baseline model S2 for completeness"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "QSIM"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1 recall",
+          "ROUGE-1 F1",
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "LEXSIM",
+          "SEMSIM",
+          "area under the recall curve (AUC)"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1 recall": "ROUGE",
+        "ROUGE-1 F1": "ROUGE",
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "LEXSIM": "QSIM",
+        "SEMSIM": "QSIM",
+        "area under the recall curve (AUC)": "ROUGE"
+      },
+      "explanation": "Collapsed ROUGE variants to base form, combined LEXSIM and SEMSIM into QSIM (query similarity metric), retained AUC as part of ROUGE evaluation methodology"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges for evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Users rated query-responsiveness on a 1-5 scale",
+      "Users answered UMUX-Lite questionnaire assessing system capability and ease of use",
+      "Goal: produce informative summary draft for journalistic overview"
+    ],
+    "criteria": [
+      "Responsiveness",
+      "Usability",
+      "Effectiveness",
+      "Use"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Goal: produce informative summary draft for journalistic overview"
+        ],
+        "criteria": [
+          "usability",
+          "effectiveness",
+          "ease of use"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "system usability",
+          "query‑responsiveness"
+        ]
+      },
+      "normalized": {
+        "query‑responsiveness": "query-responsiveness",
+        "system usability": "usability"
+      },
+      "explanation": "Added missing evaluation goal, normalized criteria names, removed criteria not explicitly mentioned in evaluation protocol (fluency/coherence were not part of user evaluation)"
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive evaluation using both automatic metrics (ROUGE, QSIM) and human evaluation. The human evaluation follows a structured protocol with clear criteria. The extraction was generally accurate but needed normalization of metric variants and removal of inferred criteria not explicitly used."
+}

@@ -1,0 +1,154 @@
+{
+  "paper_id": "2024.emnlp-main.857",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Mathematical Reasoning",
+      "Instruction Following"
+    ],
+    "datasets": [
+      "ECQA",
+      "QASC",
+      "OPENBOOKQA",
+      "STRATEGYQA",
+      "GSM8K",
+      "MATH",
+      "MAWPS",
+      "TABMWP",
+      "ALPACAEVAL 2 0",
+      "ARENA HARD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b",
+      "gpt_4o"
+    ],
+    "outputs": [
+      "Generated responses for question answering",
+      "Generated solutions for mathematical reasoning",
+      "Generated responses following human instructions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "alpaca",
+          "UltraFeedback",
+          "MetaMathQA",
+          "alpaca dataset"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-4",
+          "gpt-3.5-turbo"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering",
+        "Other:Mathematical Reasoning": "Mathematical Reasoning",
+        "Other:Instruction Following": "Instruction Following"
+      },
+      "explanation": "Removed training datasets (alpaca, UltraFeedback, MetaMathQA) that were used for fine-tuning but not for evaluation. Removed models that were only used as judges (GPT-4, gpt-3.5-turbo) since they weren't evaluated for generation. Normalized task names from 'Other:' prefixes."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "WIN RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy",
+          "win rate (GPT-3.5-turbo judge)"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "win rate (GPT-3.5-turbo judge)": "Win Rate"
+      },
+      "explanation": "Normalized metric names to standard forms and removed duplicates. Kept both Accuracy (for QA and math tasks) and Win Rate (for instruction following tasks)."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_3.5_turbo"
+    ],
+    "methods": [
+      "Pairwise evaluation"
+    ],
+    "criteria": [
+      "Model"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Pairwise evaluation"
+        ],
+        "criteria": [
+          "Win rate over backbone model"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "pairwise evaluation",
+          "pairwise win-rate evaluation"
+        ],
+        "criteria": [
+          "win rate"
+        ]
+      },
+      "normalized": {
+        "gpt-3.5-turbo": "GPT-3.5-turbo",
+        "pairwise evaluation": "Pairwise evaluation",
+        "pairwise win-rate evaluation": "Pairwise evaluation",
+        "win rate": "Win rate over backbone model"
+      },
+      "explanation": "Normalized model name capitalization, merged similar method descriptions, and clarified the criteria based on paper description ('win rate over the backbone model')"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper states 'we employ gpt-3.5-turbo as the judge model' and does not mention human evaluation. Removed placeholder values."
+    }
+  },
+  "overall_notes": "The paper focuses on LLM alignment methods with experiments on generation tasks. Extracted metadata was generally accurate but needed normalization and removal of training-only datasets/models. Paper uses automatic metrics (Accuracy, Win Rate) and LLM-as-judge (GPT-3.5-turbo) for evaluation, but no human evaluation."
+}

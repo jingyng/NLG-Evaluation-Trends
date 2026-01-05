@@ -1,0 +1,156 @@
+{
+  "paper_id": "2023.emnlp-main.1018",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "XSum",
+      "SamSum",
+      "RoSE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BARTSummarizationModel",
+      "T0",
+      "DeBERTa",
+      "BERT",
+      "BERT-large",
+      "BERT-base"
+    ],
+    "outputs": [
+      "system-generated summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BARTSummarizationModel",
+          "BERT-large",
+          "BERT-base"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Machine Translation"
+        ],
+        "datasets": [
+          "WMT19",
+          "STS",
+          "WMT19 Metrics Shared Task"
+        ],
+        "models": [
+          "RoBERTa"
+        ],
+        "outputs": [
+          "system-generated summaries and translations"
+        ]
+      },
+      "normalized": {
+        "Machine Translation": "removed (not main focus)",
+        "WMT19": "removed (not main NLG dataset)",
+        "RoBERTa": "removed (BERTScore variant, not NLG model)"
+      },
+      "explanation": "Removed Machine Translation as it's only briefly mentioned in evaluation, not the main NLG task. Removed evaluation-only datasets (WMT19, STS, etc.) as they're used for testing metrics, not NLG generation. Added specific BART summarization model mentioned for generating candidate summaries."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "A²CU",
+      "A³CU",
+      "ROUGE",
+      "BLEU",
+      "BERTScore",
+      "MoverScore",
+      "BARTScore",
+      "QAEval",
+      "LitePyramid",
+      "SimCSE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "SimCSE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "A2CU",
+          "A3CU",
+          "Lite 3 Pyramid",
+          "A^2CU",
+          "A^3CU"
+        ]
+      },
+      "normalized": {
+        "A2CU": "A²CU",
+        "A3CU": "A³CU",
+        "Lite 3 Pyramid": "LitePyramid",
+        "Lite Pyramid": "LitePyramid"
+      },
+      "explanation": "Normalized all metric names to their consistent canonical forms. Merged duplicate entries for the same metrics. Added SimCSE which is mentioned as a baseline in the evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "DeBERTa NLI model",
+          "BERT scoring model"
+        ],
+        "methods": [
+          "Natural Language Inference",
+          "direct score prediction"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as the paper does NOT use LLMs as judges. The models mentioned are used for automatic metrics (NLI for content unit checking, BERT for scoring), not as LLM judges evaluating generated outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluation protocol using Atomic Content Units (ACUs) as simple facts for comparing text sequences"
+    ],
+    "criteria": [
+      "information recall"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "uses atomic content units, or ACUs, as the simple facts for comparing text sequences": "Human evaluation protocol using Atomic Content Units (ACUs) as simple facts for comparing text sequences"
+      },
+      "explanation": "Normalized the guideline description to be more precise. The paper uses human evaluations based on ACU protocol from Liu et al. (2023) with information recall as the main criterion."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on developing automatic evaluation metrics for text summarization. The extraction was mostly accurate but included some evaluation-only datasets and minor variants that needed normalization. The paper does NOT use LLMs as judges - the models mentioned are part of the automatic metric pipelines."
+}

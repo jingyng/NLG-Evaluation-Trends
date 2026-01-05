@@ -1,0 +1,128 @@
+{
+  "paper_id": "2024.naacl-long.72",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT21 German↔English",
+      "WMT21 Chinese↔English",
+      "WMT20",
+      "WMT19",
+      "Europarl v10",
+      "ParaCrawl v7.1",
+      "Common Crawl",
+      "News Commentary v16",
+      "Wiki Titles v3",
+      "Tilde Rapid",
+      "WikiMatrix",
+      "UN Parallel Corpus v1.0",
+      "CCMT",
+      "News Crawl"
+    ],
+    "languages": [
+      "German",
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "Transformer Big",
+      "Deep Encoder Shallow Decoder",
+      "Nearest-Neighbor",
+      "MEGA",
+      "LASER",
+      "mBART",
+      "M2M-100",
+      "NLLB",
+      "FAIR WMT21",
+      "BLOOMZ",
+      "mT0"
+    ],
+    "outputs": [
+      "translated sentences",
+      "pseudo-labels for student model training"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT-2",
+          "IBM model 3"
+        ]
+      },
+      "normalized": {
+        "GPT-2": "Removed (not an LLM judge)",
+        "IBM model 3": "Removed (alignment model, not NLG model)",
+        "pseudo‑labels (translated sentences) used for training student and teacher models": "pseudo-labels for student model training",
+        "Translated text": "translated sentences"
+      },
+      "explanation": "Removed GPT-2 and IBM model 3 as they are not NLG models being evaluated (GPT-2 used as language model scorer, IBM model 3 for alignments). Normalized outputs to be more concise."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "chrF",
+      "COMET22"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "COMET22": "COMET22"
+      },
+      "explanation": "All metrics were correctly extracted and properly normalized. Paper uses BLEU, chrF, and COMET22 for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "BLOOMZ",
+          "mT0",
+          "mBART",
+          "M2M-100",
+          "NLLB"
+        ],
+        "methods": [
+          "log-linear n-best reranking",
+          "scoring of hypotheses"
+        ],
+        "criteria": [
+          "plausibility of hypothesis",
+          "fluency",
+          "alignment quality"
+        ]
+      },
+      "normalized": {
+        "BLOOMZ, mT0, mBART, M2M-100, NLLB": "Removed (used as scoring models, not LLM judges)",
+        "log-linear n-best reranking, scoring of hypotheses": "Removed (generation methodology, not LLM evaluation)",
+        "plausibility, fluency, alignment quality": "Removed (scoring criteria, not LLM judge criteria)"
+      },
+      "explanation": "Removed all metadata as the paper does not use LLMs as judges. These models are used as scoring components in the n-best reranking system, not as post-generation evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Paper relies solely on automatic metrics (BLEU, chrF, COMET22) with no mention of human evaluation."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The main issue was with Question 3 where models used as scoring components in the n-best reranking system were incorrectly interpreted as LLM judges. The paper focuses on knowledge distillation for machine translation using diverse scoring models to select optimal pseudo-labels from n-best lists, with evaluation via standard automatic metrics."
+}

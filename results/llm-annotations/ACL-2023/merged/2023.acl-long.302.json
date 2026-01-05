@@ -1,0 +1,79 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We then employ a large teacher NLI model to conservatively filter the over-generations as a fully-automatic alternative to the human filtering used in WANLI.",
+            "In this paper, we introduced the DISCO framework for distilling high-quality counterfactual data from large language models (LLMs) using a task-specific teacher model for NLI."
+        ],
+        "tasks": [
+            "Other:Counterfactual Example Generation",
+            "Other:Counterfactual Data Generation"
+        ],
+        "datasets": [
+            "SNLI",
+            "WANLI",
+            "Human-CAD"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-3 (text-DaVinci-002)",
+            "GPT-3",
+            "DeBERTa-v2",
+            "RoBERTa-large"
+        ],
+        "outputs": [
+            "counterfactual examples (perturbed premises)",
+            "counterfactual text perturbations for Natural Language Inference"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Following other work on CAD (Wu et al., 2021), we use Self-BLEU (Zhu et al., 2018) to measure the diversity of the generated counterfactual examples.",
+            "We use Self-BLEU (Zhu et al., 2018) to measure the diversity of the generated counterfactual examples... We also calculate the dataset distance via OTDD... The Label Flip Rate (LFR) calculates the percentage of new examples that flip the original label to the target label.",
+            "We use Self-BLEU (Zhu et al., 2018) to measure the diversity of the generated counterfactual examples."
+        ],
+        "automatic_metrics": [
+            "Self-BLEU",
+            "OTDD",
+            "Label Flip Rate",
+            "Soft Label Flip Rate",
+            "Flip Rate Score",
+            "Soft Flip Rate Score"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [
+            "we then employ a large teacher NLI model to conservatively filter the over-generations as a fully-automatic alternative to the human filtering used in WANLI."
+        ],
+        "models": [
+            "DeBERTa-v2"
+        ],
+        "methods": [
+            "probability shift filtering"
+        ],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We use Amazon Mechanic Turk to conduct human evaluations, asking annotators to label a random subset of our data following the standard annotation process for the NLI task.",
+            "We use Amazon Mechanical Turk to conduct human evaluations, asking annotators to label a random subset of our data... We assigned three annotators for each example and did majority voting on the annotated labels.",
+            "We recruit human workers on Amazon Mechanic Turk to annotate labels for the two datasets."
+        ],
+        "guideline": [
+            "label the new premise-hypothesis pair with one of {Entailment, Contradiction, Neutral}",
+            "Annotators label the new sentence pairs following the standard annotation process for the NLI task.",
+            "We assigned three annotators for each example and did majority voting on the annotated labels. We only give annotators the new sentence pairs to avoid bias from the original example."
+        ],
+        "criteria": [
+            "label correctness",
+            "label flip",
+            "Label Flip Rate",
+            "Soft Label Flip Rate"
+        ]
+    }
+}

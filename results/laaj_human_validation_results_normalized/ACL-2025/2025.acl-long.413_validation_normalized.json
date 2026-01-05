@@ -1,0 +1,87 @@
+{
+  "paper_id": "2025.acl-long.413",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-as-a-judge with human evaluation on the same 100 instances from MSC dataset, reports Cohen's kappa agreement metrics between LLM and human annotators"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "Gemini-1.5-Pro"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt for LLM judge is presented in Appendix D.3, following methodology from prior work"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's Kappa",
+      "value": 0.82,
+      "interpretation": "Substantial agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators followed the same instruction used in the LLM judge prompt, evaluating whether generated response matches ground truth as binary Yes/No"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Cohen's Kappa"
+    ],
+    "shared_criteria": [
+      "Truth"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "100 randomly sampled instances from MSC dataset used for both LLM and human evaluation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Cohen's Kappa",
+        "value": 0.71,
+        "criterion": "Truth",
+        "llm_model": "Gemini-1.5-Pro",
+        "significance": "Not reported",
+        "notes": "Agreement between LLM and Human A"
+      },
+      {
+        "metric": "Cohen's Kappa",
+        "value": 0.69,
+        "criterion": "Truth",
+        "llm_model": "Gemini-1.5-Pro",
+        "significance": "Not reported",
+        "notes": "Agreement between LLM and Human B"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "Substantial agreement",
+      "threshold_used": "Cohen's Kappa interpretation standard (0.61-0.80 considered substantial)",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-as-a-judge shows substantial agreement with human evaluations (\u03ba=0.69-0.71), comparable to human-human agreement (\u03ba=0.82), demonstrating reliable validation of LLM judgments against human annotations."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Truth"
+    ],
+    "notes": "Both LLM and human evaluated the same Truth criterion (whether generated response matches ground truth) using identical binary Yes/No scale"
+  }
+}

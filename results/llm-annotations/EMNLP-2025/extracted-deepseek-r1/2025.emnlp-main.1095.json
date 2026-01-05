@@ -1,0 +1,63 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "Retrieval-Augmented Generation (RAG) enables large language models (LLMs) to access and reason over external knowledge by retrieving relevant documents and conditioning generation on them.",
+        "tasks": [
+            "Other:Question Answering"
+        ],
+        "datasets": [
+            "Natural Questions",
+            "TriviaQA",
+            "PopQA",
+            "HotpotQA",
+            "2WikiMultihopQA",
+            "Musique",
+            "MedQA-US",
+            "MedMCQA",
+            "PubMedQA",
+            "BioASQ-Y/N",
+            "MMLU-Med"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Qwen2.5-7b-Instruct",
+            "Qwen2.5-14b-Instruct",
+            "Claude-3-Haiku"
+        ],
+        "outputs": "generated answers to questions"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We measure performance using Generation Accuracy, which combines a fast span-matching test with a lightweight LLM-based correctness check.",
+        "automatic_metrics": [
+            "Generation Accuracy",
+            "exact match"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "If the span check fails, this fallback invokes a frozen LLM to assess whether the prediction semantically entails any gold answer. The LLM is prompted to respond with a binary judgment (\"yes\" or \"no\").",
+        "models": [
+            "Qwen2.5-14B-Instruct-GPTQ-Int4",
+            "Claude-3-Haiku"
+        ],
+        "methods": [
+            "binary judgment prompt"
+        ],
+        "criteria": [
+            "correctness"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "To assess the alignment of our primary evaluation metric, Generation Accuracy, with human judgment, we conducted a human annotation study. We randomly sampled 1,000 answer generations from the general-domain QA test set. Each sample was labeled as Correct (1) or Incorrect (0) by human annotators...",
+        "guideline": "You are an evaluator for question-answering systems. Your task is to determine whether the system-generated answer aligns with the provided gold (reference) answers. Evaluation Criteria: An answer should be marked as correct (1) if it: \u2022 Contains the same key information as the golden answers; \u2022 Expresses the same meaning, even if using different wording; \u2022 Is factually consistent with the golden answers.",
+        "criteria": [
+            "key information match",
+            "semantic equivalence",
+            "factual consistency"
+        ]
+    }
+}

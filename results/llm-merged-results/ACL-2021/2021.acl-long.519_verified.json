@@ -1,0 +1,111 @@
+{
+  "paper_id": "2021.acl-long.519",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering",
+      "Other:Open-domain Question Answering"
+    ],
+    "datasets": [
+      "Natural Questions",
+      "TriviaQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5-base",
+      "T5-large",
+      "BERT-base",
+      "BERT-large"
+    ],
+    "outputs": [
+      "Answers to questions in string form",
+      "Generated answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BERT-large"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "T5",
+          "BERT"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "T5": "T5-base",
+        "BERT": "BERT-base"
+      },
+      "explanation": "Normalized model names to include size specifications (base/large) for consistency and accuracy. Added BERT-large which is explicitly mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Exact Match"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "The extracted answer and metric are correct. The paper uses Exact Match (EM) to evaluate answer extraction performance."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges/evaluators. LLMs are used as components of the system (T5 as reader) but not for evaluation purposes."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not conduct human evaluations. All evaluations are based on automatic metrics (Exact Match for answer extraction, top-k accuracy for retrieval)."
+    }
+  },
+  "overall_notes": "The paper focuses on Open-domain Question Answering with a two-stage pipeline (retriever + reader). The main contributions are improving retriever training through unsupervised pre-training and supervised fine-tuning, and exploring end-to-end training approaches. The paper evaluates primarily on retrieval accuracy (top-k metrics) and answer extraction (Exact Match). The extraction was generally accurate, with minor normalization needed for model names."
+}

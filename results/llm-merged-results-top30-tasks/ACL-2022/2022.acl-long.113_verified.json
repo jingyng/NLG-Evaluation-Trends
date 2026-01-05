@@ -1,0 +1,137 @@
+{
+  "paper_id": "2022.acl-long.113",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Data To Text Generation"
+    ],
+    "datasets": [
+      "DART",
+      "NATURAL QUESTIONS",
+      "WEBQUESTIONS WEBQ"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_large"
+    ],
+    "outputs": [
+      "Natural language passages describing structured data (tables and knowledge base sub-graphs)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:data-to-text generation",
+          "Other:Data-to-Text Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "DPR",
+          "UnitedQA-E"
+        ],
+        "outputs": [
+          "natural language passages describing tables or KB sub-graphs",
+          "natural language passage P"
+        ]
+      },
+      "normalized": {
+        "Other:Data-to-text Generation": "Other:Data-to-Text Generation"
+      },
+      "explanation": "Removed redundant task entries and normalized case. Removed DPR and UnitedQA-E as they are retrieval/QA models, not NLG models. Consolidated output descriptions into one comprehensive description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "TER",
+      "MOVERSCORE",
+      "BERTSCORE",
+      "BLEURT",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE-1 to base form ROUGE according to simplification guidelines. All other metrics were already in correct normalized form."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper. The extracted metadata was already empty, which is correct."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual analysis of 100 examples comparing verbalized vs raw table formats",
+      "Annotation to determine which format successfully provided answer evidence",
+      "Focus on retrieved table chunks where only one format yielded correct answer"
+    ],
+    "criteria": [
+      "Effectiveness",
+      "Structural"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual analysis of 100 examples comparing verbalized vs raw table formats",
+          "Annotation to determine which format successfully provided answer evidence",
+          "Focus on retrieved table chunks where only one format yielded correct answer"
+        ],
+        "criteria": [
+          "Answer reasoning effectiveness",
+          "Structural information preservation"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Annotate examples to determine which format (verbalized or raw) successfully provided the answer and why, focusing on retrieved table chunks.",
+          "We then manually annotated 100 examples where only 1 format of knowledge successfully answered the question (50 for each format), and we select examples where at least 1 table chunk is marked as positive by the retriever."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated and cleaned up the guideline descriptions. Added criteria based on the manual analysis objectives described in the paper section analyzing verbalized vs raw tables impact on ODQA."
+    }
+  },
+  "overall_notes": "The paper focuses on data-to-text generation as a means for encoding structured knowledge for open-domain QA. The NLG evaluation is primarily intrinsic (automatic metrics) with some downstream extrinsic evaluation via QA performance. The human evaluation is limited to manual analysis of system behavior rather than comprehensive output quality assessment. The extraction was generally accurate but needed some normalization and removal of non-NLG components."
+}

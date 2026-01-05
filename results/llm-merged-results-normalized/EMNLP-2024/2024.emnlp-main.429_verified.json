@@ -1,0 +1,176 @@
+{
+  "paper_id": "2024.emnlp-main.429",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Text Summarization",
+      "Legal Reasoning And Calculation",
+      "Safe Dialogues",
+      "Legal Event Understanding"
+    ],
+    "datasets": [
+      "ARTICLE QA",
+      "LEGAL IE",
+      "EVENT SUMMARY",
+      "MRC",
+      "REASONING",
+      "CALCULATION",
+      "ETHICS",
+      "CONTAMINATION"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "baichuan_2_7b_chat",
+      "qwen_1.8b_chat",
+      "qwen_7b_chat",
+      "alora",
+      "lora"
+    ],
+    "outputs": [
+      "Generated legal consultation responses",
+      "Reasoning chains with legal calculations",
+      "Safe dialogue responses with legal references",
+      "Legal event summaries",
+      "Machine reading comprehension answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Legal IE",
+          "Event Summary",
+          "MRC"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Legal event summaries",
+          "Machine reading comprehension answers"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Reasoning and Calculation",
+          "Other:Understanding to Legal Events"
+        ],
+        "datasets": [
+          "Reasoning and Calculation",
+          "Safe Dialogues",
+          "Understanding to Legal Events"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Reasoning and Calculation": "Other:Legal Reasoning and Calculation",
+        "Other:Understanding to Legal Events": "Other:Legal Event Understanding",
+        "Generated text responses to legal queries, including reasoning, calculation, and summaries.": "Generated legal consultation responses"
+      },
+      "explanation": "Consolidated task names, removed redundant dataset names that were actually task types, added missing datasets mentioned in experiments"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU R",
+          "Safety",
+          "Score E",
+          "Average"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Removed non-standard metrics (Safety, Score E are GPT-4 evaluation scores, not automatic metrics). BLEU R is a variant of BLEU but should be normalized to base form."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "Safety scoring",
+      "Article correctness scoring",
+      "Correlation analysis with human evaluation"
+    ],
+    "criteria": [
+      "Safety",
+      "Legality",
+      "Identification"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Correlation analysis with human evaluation"
+        ],
+        "criteria": [
+          "Identification of contamination errors"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "LLM scoring via GPT-4 prompts",
+          "evaluation prompts for Ethic and Contamination",
+          "Pearson correlation with human evaluation"
+        ],
+        "criteria": [
+          "correctness",
+          "safety"
+        ]
+      },
+      "normalized": {
+        "safety": "Safety",
+        "correctness of article reference": "Correctness of legal article references"
+      },
+      "explanation": "Consolidated method descriptions and normalized criteria names"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Human raters assessed the model outputs and the scores were compared with GPT-4 judgments to compute correlation.",
+          "Human evaluators assessed model responses on safety and correctness in handling unethical queries and contaminated inputs, with comparison to GPT-4 judgments."
+        ],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "relevance",
+          "correctness",
+          "safety"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper only mentions correlation analysis with existing human evaluations but does not conduct new human evaluations. It sampled 30 instances to measure correlation between GPT-4 and human judgments, but doesn't describe conducting human evaluations."
+    }
+  },
+  "overall_notes": "The paper focuses on legal domain NLG with Chinese language. Key finding: human evaluation answer was incorrect - paper only does correlation analysis with existing human judgments but doesn't conduct new human evaluations. The paper introduces GCI (General Capabilities Integration) as a new challenge beyond catastrophic forgetting."
+}

@@ -1,0 +1,105 @@
+{
+  "paper_id": "2022.acl-long.229",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates GPT-judge (LLM evaluator) against human evaluation by fine-tuning GPT-3-6.7B on human evaluations and comparing accuracy percentages on held-out validation sets across different model families."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-3-6.7B"
+    ],
+    "prompts": {
+      "provided": "no",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "no",
+      "notes": "No specific prompt templates shown; mentions fine-tuning procedure using triples of (question, answer, label) format where label is true/false based on human evaluation."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "authors_only",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed evaluation procedure described in Appendix D: evaluators blinded to model/prompt, use 13 qualitative labels mapping to scalar truth scores, verify answers using reliable sources, similar process for informativeness with specific labels and examples."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Accuracy"
+    ],
+    "shared_criteria": [
+      "Truthfulness",
+      "Informativeness"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": "training_set_includes_6.9k_reference_answers_plus_15.5k_human_evaluated_examples",
+      "notes": "Validation uses held-out model families; GPT-judge fine-tuned on all other families except the one being validated."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Accuracy",
+        "value": 0.9,
+        "criterion": "Truthfulness",
+        "llm_model": "GPT-3-6.7B",
+        "significance": null,
+        "notes": "90-96% accuracy on held-out models"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.9,
+        "criterion": "Truthfulness",
+        "llm_model": "GPT-3-6.7B",
+        "significance": null,
+        "notes": "90% validation accuracy on UnifiedQA when fine-tuned only on GPT families"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.895,
+        "criterion": "Truthfulness",
+        "llm_model": "GPT-3-6.7B",
+        "significance": null,
+        "notes": "89.5% predictive accuracy on human baseline"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.863,
+        "criterion": "Informativeness",
+        "llm_model": "GPT-3-6.7B",
+        "significance": null,
+        "notes": "86.3% on UnifiedQA for informativeness evaluation"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-judge achieves 90-96% accuracy predicting human truthfulness evaluations and generalizes well to different model families, providing a reliable automated alternative to costly human evaluation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Truthfulness",
+      "Informativeness"
+    ],
+    "notes": "Both LLM and human evaluate the same criteria (truthfulness and informativeness) using the same evaluation framework."
+  }
+}

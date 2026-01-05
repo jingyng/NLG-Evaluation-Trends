@@ -1,0 +1,147 @@
+{
+  "paper_id": "2024.emnlp-main.953",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM judgments against human evaluations using correlation analysis on the same set of 97 stories, reporting Spearman correlations for each PDS component across multiple LLM models"
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "Llama-3-8B",
+      "Llama-3-70B",
+      "GPT-3.5",
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Appendix A.7 shows the five persona prompts used for Mixture-of-Personas prompting, tailored to each PDS component (e.g., 'You are a helpful AI who specializes in evaluating the genuineness and believability of characters, dialogue, and scenarios in stories.')"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 5,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": 0.72,
+      "interpretation": "substantial agreement",
+      "per_criterion": [
+        {
+          "criterion": "Authenticity",
+          "value": 0.71
+        },
+        {
+          "criterion": "Empathy",
+          "value": 0.74
+        },
+        {
+          "criterion": "Engagement",
+          "value": 0.7
+        },
+        {
+          "criterion": "Emotion Provocation",
+          "value": 0.71
+        },
+        {
+          "criterion": "Narrative Complexity",
+          "value": 0.74
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Appendix A.5 shows tutorial instructions and annotation layout with clear rating scales for each component (1-5 Likert scale)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "Authenticity",
+      "Empathy",
+      "Engagement",
+      "Emotion Provocation",
+      "Narrative Complexity"
+    ],
+    "sample_size": {
+      "total_generated": 97,
+      "validated_by_both": 97,
+      "notes": "Used stratified sampling method to create dataset of 97 stories (balanced across prompts, authorship, generation strategies) that both LLM and human evaluators assessed"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.51,
+        "criterion": "overall",
+        "llm_model": "GPT-4o",
+        "notes": "Average correlation across all components with Mixture-of-Personas prompting"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.68,
+        "criterion": "Empathy",
+        "llm_model": "Llama-3-70B",
+        "notes": "Highest observed correlation across all components and models"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.62,
+        "criterion": "Narrative Complexity",
+        "llm_model": "Llama-3-70B",
+        "notes": ""
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.57,
+        "criterion": "Emotion Provocation",
+        "llm_model": "Llama-3-70B",
+        "notes": ""
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.3175,
+        "criterion": "Authenticity",
+        "llm_model": "Llama-3-8B",
+        "notes": "Improved from 0.0786 with vanilla prompting (304% increase)"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.6793,
+        "criterion": "Empathy",
+        "llm_model": "Llama-3-70B",
+        "notes": "Improved from 0.5790 with vanilla prompting"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "moderate to strong",
+      "threshold_used": "Correlations range from 0.51-0.68 depending on component and model",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM judgments show moderate to strong correlations with human evaluations (Spearman \u03c1=0.51-0.68), with Mixture-of-Personas prompting improving correlation by 20.43% on average. No single LLM excels across all components, suggesting component-specific model selection is optimal."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Authorship"
+    ],
+    "shared_criteria": [
+      "Authenticity",
+      "Empathy",
+      "Engagement",
+      "Emotion Provocation",
+      "Narrative Complexity"
+    ],
+    "notes": "Both LLM and human evaluators assessed identical PDS components on the 1-5 Likert scale. Only human evaluators assessed authorship likelihood (human vs LLM)."
+  }
+}

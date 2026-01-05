@@ -1,0 +1,51 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "Inspired by , who introduce a scalable workflow for generating VQA benchmarks from image captions, we use LMs to transform teachers' descriptions into synthetic QAs.",
+        "tasks": [
+            "Other:Question Generation"
+        ],
+        "datasets": [
+            "DrawEduMath"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Claude-3.5 Sonnet",
+            "GPT-4o"
+        ],
+        "outputs": "synthetic question-answer pairs"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "To compare VLMs' answers against gold ones, we explore three automatic metrics: (i) ngram matching via ROUGE-L , (ii) answer embedding similarity via BERTSCORE ¶ , and (iii) LM-based similarity judgements using Mixtral 8x22B .",
+        "automatic_metrics": [
+            "ROUGE-L",
+            "BERTSCORE",
+            "LM-based similarity judgements using Mixtral 8x22B"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "To scale up the evaluation, we employed a LM to assess the similarity of answers. We prompted the Mixtral 8x22B model to compare the two answers and provide a similarity score on a Likert scale.",
+        "models": [
+            "Mixtral 8x22B"
+        ],
+        "methods": [
+            "similarity rating on a Likert scale"
+        ],
+        "criteria": [
+            "similarity between answers"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "5 authors annotated a random sample of 500 QA responses, where 50% are teacher-written QA, 25% are Claude-generated QA, and 25% are GPT-4o-generated QA.",
+        "guideline": "First, given a question and a VLM's answer, we ask: Is the provided answer correct? Second, given the gold answer and the VLM's answer, we ask: Do these two answers match?",
+        "criteria": [
+            "correctness of answer",
+            "match between answers"
+        ]
+    }
+}

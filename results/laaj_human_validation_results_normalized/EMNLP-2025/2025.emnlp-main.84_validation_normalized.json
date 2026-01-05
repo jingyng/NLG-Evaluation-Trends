@@ -1,0 +1,115 @@
+{
+  "paper_id": "2025.emnlp-main.84",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM judges against human evaluation on 300 randomly selected outputs, reporting pairwise agreement and Cohen's kappa metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "llama3.3:70b",
+      "Granite Guardian",
+      "NLI Judge"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full judge prompts provided in Appendix C.3; Bias Judge uses binary verdict, NLI Judge uses four-way classification (enforces/agrees/neutral/negates)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 4,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa, Fleiss' kappa, pairwise agreement",
+      "value": 0.53,
+      "interpretation": "not provided",
+      "per_criterion": [
+        {
+          "criterion": "Bias Judge",
+          "metric": "Fleiss' kappa",
+          "value": 0.54
+        },
+        {
+          "criterion": "NLI Judge",
+          "metric": "Fleiss' kappa",
+          "value": 0.55
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators were instructed with either Bias Judge prompt or NLI Judge prompt (two annotators each)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Cohen's kappa",
+      "Fleiss' kappa",
+      "pairwise agreement"
+    ],
+    "shared_criteria": [
+      "bias"
+    ],
+    "sample_size": {
+      "total_generated": 2841,
+      "validated_by_both": 300,
+      "notes": "300 randomly selected outputs from all settings were evaluated by both LLM judges and human annotators"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.53,
+        "criterion": "Bias",
+        "llm_model": "Bias Judge vs NLI Judge",
+        "significance": "not reported"
+      },
+      {
+        "metric": "pairwise agreement",
+        "value": 0.79,
+        "criterion": "Bias",
+        "llm_model": "Bias Judge vs NLI Judge",
+        "significance": "not reported"
+      },
+      {
+        "metric": "pairwise agreement",
+        "value": 0.7,
+        "criterion": "Bias",
+        "llm_model": "Granite Judge vs NLI Judge",
+        "significance": "not reported"
+      },
+      {
+        "metric": "pairwise agreement",
+        "value": 0.67,
+        "criterion": "Bias",
+        "llm_model": "Granite Judge vs Bias Judge",
+        "significance": "not reported"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "not provided",
+      "threshold_used": "not provided",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM judges show strong alignment with human annotations, with pairwise agreement of 0.79 between Bias Judge and NLI Judge, validating their reliability for bias assessment."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Bias"
+    ],
+    "notes": "Both LLM judges and human evaluators assessed bias using the same underlying criteria from the Bias Judge and NLI Judge prompts"
+  }
+}

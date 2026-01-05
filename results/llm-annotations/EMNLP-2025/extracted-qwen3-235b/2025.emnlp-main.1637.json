@@ -1,0 +1,64 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "Free-text clinical notes hold significant potential for NLP applications in healthcare, as they contain extensive patient information crucial to providing care and conducting research.",
+        "tasks": [
+            "Other:De-identification"
+        ],
+        "datasets": [
+            "MIMIC-III",
+            "AHS",
+            "n2c2 (originally i2b2)"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Llama-3.3",
+            "ClinicalBERT",
+            "Deidentify",
+            "Presidio"
+        ],
+        "outputs": "De-identified clinical notes with personally identifiable information removed while preserving clinical content"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We used existing evaluation metrics (accuracy, precision, recall, and F1 score).",
+        "automatic_metrics": [
+            "accuracy",
+            "precision",
+            "recall",
+            "F1 score",
+            "JSC",
+            "NSDCG",
+            "CIRE"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "Paired chunks are presented to a Llama 3 model which is prompted to classify \"whether the deidentified sentence chunk has altered any clinically meaningful information\"",
+        "models": [
+            "Llama-3.3",
+            "Qwen-72B",
+            "Qwen-32B",
+            "Llama-3.1-8B"
+        ],
+        "methods": [
+            "sentence-level classification via prompting"
+        ],
+        "criteria": [
+            "Adding, removing, or modifying a medication, diagnosis, procedure, test result, clinical instruction, or patient history",
+            "Altering the patient's age",
+            "Any change that would affect medical interpretation or decision-making"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "Each change was manually reviewed by a computer scientist and a physician to determine whether its removal resulted in CRC",
+        "guideline": "A change was considered high severity if it resulted in loss of clinically meaningful information that could possibly affect diagnosis or management. Changes which would not affect diagnosis or management were annotated as low impact/severity.",
+        "criteria": [
+            "clinically relevant changes",
+            "severity of change (high or low)"
+        ]
+    }
+}

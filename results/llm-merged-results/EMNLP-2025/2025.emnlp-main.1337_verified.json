@@ -1,0 +1,152 @@
+{
+  "paper_id": "2025.emnlp-main.1337",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Code Generation",
+      "Other:Extraction",
+      "Other:Self-correction"
+    ],
+    "datasets": [
+      "CNN/DM",
+      "MT-Bench",
+      "HumanEval",
+      "GSM8K",
+      "MT-Redundant"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Qwen2.5-72B",
+      "Qwen2.5-32B",
+      "Qwen2.5-7B",
+      "Llama3.1-70B",
+      "Llama3.1-8B",
+      "Vicuna-v1.3-13B",
+      "Vicuna-v1.3-7B"
+    ],
+    "outputs": [
+      "Model-generated text/code (summaries, multi-turn dialogues, Python solutions)",
+      "Generated text tokens"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Vicuna-v1.3-13B",
+          "Vicuna-v1.3-7B"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Vicuna-v1.3",
+          "Vicuna-7B",
+          "Vicuna-13B"
+        ]
+      },
+      "normalized": {
+        "Other:Extraction": "Other:Extraction",
+        "Other:Self-correction": "Other:Self-correction",
+        "generated text tokens": "Generated text tokens"
+      },
+      "explanation": "Consolidated redundant Vicuna model variants and normalized wording"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "Accuracy",
+      "Tokens/Second"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-4 Score"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "Tokens/sec": "Tokens/Second",
+        "Accuracy": "Accuracy"
+      },
+      "explanation": "Simplified metric variants to base form as per guidelines - GPT-4 Score is not an automatic metric itself but uses GPT-4 as evaluator"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "GPT-4 scoring"
+    ],
+    "criteria": [
+      "Score",
+      "Accuracy",
+      "Relevance",
+      "Helpfulness",
+      "Detail"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "Detail"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT-4 (0613 checkpoint)"
+        ],
+        "methods": [
+          "pairwise evaluation",
+          "Rating with GPT-4"
+        ],
+        "criteria": [
+          "ROUGE-L",
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "GPT-4 (0613 checkpoint)": "GPT-4",
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Consolidated GPT-4 variants, removed ROUGE-L (automatic metric), and added explicit evaluation criteria mentioned in examples"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Rate responses based on accuracy, detail, and relevance to the user request"
+        ],
+        "criteria": [
+          "accuracy",
+          "detail",
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed extracted human evaluation metadata since the paper does not conduct human evaluations - the extracted content appears to be from MT-Bench rating criteria used by GPT-4 evaluation"
+    }
+  },
+  "overall_notes": "The paper focuses on accelerating LLM inference through speculative copying rather than NLG quality evaluation. While it uses NLG tasks for benchmarking, the evaluations are primarily focused on speed (tokens/sec) rather than output quality. GPT-4 is used as an evaluator for quality assessment alongside automatic metrics like ROUGE and accuracy."
+}

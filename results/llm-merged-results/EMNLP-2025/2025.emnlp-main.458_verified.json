@@ -1,0 +1,187 @@
+{
+  "paper_id": "2025.emnlp-main.458",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation"
+    ],
+    "datasets": [
+      "Slide2Code",
+      "SLIDESBENCH",
+      "Zenodo10k"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "SlideMaster",
+      "GPT-4o",
+      "Gemini-2.0-Flash",
+      "Qwen2.5-VL-7B-Instruct"
+    ],
+    "outputs": [
+      "Python code that generates editable PPTX slides (using python-pptx library)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Python code that generates editable PPTX slides (using python-pptx library)"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Python code that generates slides (pptx files)",
+          "Python code (python-pptx script) that builds an editable PPTX slide",
+          "Python code for generating slides using python-pptx library"
+        ]
+      },
+      "normalized": {
+        "Gemini-2.0-flash": "Gemini-2.0-Flash",
+        "Qwen2.5-VL-7B-Instruct": "Qwen2.5-VL-7B-Instruct"
+      },
+      "explanation": "Consolidated multiple similar output descriptions into one canonical form and normalized model capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CLIP",
+      "SSIM",
+      "Execution Success Rate",
+      "Overall Score",
+      "Reconstruction Ratio"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Reconstruction Ratio"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "content similarity",
+          "position similarity",
+          "Content similarity",
+          "Position similarity"
+        ]
+      },
+      "normalized": {
+        "Execution success rate": "Execution Success Rate"
+      },
+      "explanation": "Added 'Reconstruction Ratio' which is explicitly used in §5.3. Removed 'content similarity' and 'position similarity' as they appear to be descriptors rather than named metrics; the paper uses CLIP, SSIM, Execution Success Rate, and Overall Score as the primary metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge is used. The paper uses LLMs for generation (SlideCoder framework) but not for post-hoc evaluation. Removed placeholder 'None' entries."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluators scored slides on three dimensions (number of shapes, diversity of shape types, element coverage ratio) using a 0-100 scale.",
+      "Error analysis categorized outputs into nine error types (six atomic: Content, Position, Style, Missing Element, Size, Spurious Element; three composite: Out-of-Bound, Incomplete, Globally Irrelevant Slide).",
+      "User-centric evaluation compared human-created slides vs. SlideMaster outputs on multiple metrics."
+    ],
+    "criteria": [
+      "Number of Shapes",
+      "Diversity of Shape Types",
+      "Element Coverage Ratio",
+      "Content Error",
+      "Position Error",
+      "Style Error",
+      "Missing Element",
+      "Size Error",
+      "Spurious Element",
+      "Out-of-Bound Element",
+      "Incomplete Element",
+      "Globally Irrelevant Slide"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Evaluators scored slides on three dimensions (number of shapes, diversity of shape types, element coverage ratio) using a 0-100 scale.",
+          "User-centric evaluation compared human-created slides vs. SlideMaster outputs on multiple metrics."
+        ],
+        "criteria": [
+          "Number of Shapes",
+          "Diversity of Shape Types",
+          "Element Coverage Ratio"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- six atomic element errors (Content Error, Position Error, Style Error, Missing Element, Size Error, and Spurious Element) and three composite structural errors (Out-of-Bound Element, Incomplete Element, and Globally Irrelevant Slide)",
+          "Annotators scored each slide on number of shapes, diversity of shape types, and element coverage ratio.",
+          "The annotators were instructed to score each slide from the perspective of three dimensions: the number of shapes, the diversity of shape types, and the level of element coverage. The scoring range was 0-100, following the protocol in Appendix D."
+        ],
+        "criteria": [
+          "\"Content Error\"",
+          "\"Position Error\"",
+          "\"Style Error\"",
+          "\"Missing Element\"",
+          "\"Size Error\"",
+          "\"Spurious Element\"",
+          "\"Out-of-Bound Element\"",
+          "\"Incomplete Element\"",
+          "\"Globally Irrelevant Slide\"",
+          "\"Number of shapes\"",
+          "\"Diversity of shape types\"",
+          "\"Element coverage ratio\"",
+          "number of shapes",
+          "diversity of shape types",
+          "level of element coverage"
+        ]
+      },
+      "normalized": {
+        "Content Error": "Content Error",
+        "Position Error": "Position Error",
+        "Style Error": "Style Error",
+        "Missing Element": "Missing Element",
+        "Size Error": "Size Error",
+        "Spurious Element": "Spurious Element",
+        "Out-of-Bound Element": "Out-of-Bound Element",
+        "Incomplete Element": "Incomplete Element",
+        "Globally Irrelevant Slide": "Globally Irrelevant Slide",
+        "number of shapes": "Number of Shapes",
+        "diversity of shape types": "Diversity of Shape Types",
+        "element coverage ratio": "Element Coverage Ratio"
+      },
+      "explanation": "Consolidated and normalized the guideline descriptions. Removed quotation marks and duplicates from criteria list, applying title case normalization. Added the explicit scoring dimensions from the SCM human study and the comparative user study mentioned in the appendices."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on a specific NLG task (Reference Image to Slide Generation via Code Generation). It uses a mix of automatic metrics and human evaluation, including detailed error analysis. No LLM-as-judge is employed. Metadata normalization involved standardizing capitalization and removing redundant/descriptive entries."
+}

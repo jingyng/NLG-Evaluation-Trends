@@ -1,0 +1,83 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Large language models (LLMs) often generate factual errors, especially when the task requires less widely-known knowledge.",
+            "We evaluate various baselines on GRANOLA-EQ, including greedy decoding and methods that abstain from answering in cases of uncertainty ... DRAG uses temperature sampling to obtain a set of candidate responses, and then answers the original question based on an aggregation of these responses.",
+            "We introduce GRANOLA, a new QA evaluation setting that considers both the accuracy and informativeness of predicted answers."
+        ],
+        "tasks": [
+            "Other:Question Answering"
+        ],
+        "datasets": [
+            "ENTITYQUESTIONS",
+            "GRANOLA-EQ",
+            "GRANOLA-EQ (derived from ENTITYQUESTIONS)"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "PaLM 2-L",
+            "PaLM 2-M"
+        ],
+        "outputs": [
+            "generated answers to factual questions",
+            "Generated factual answers to open-domain questions",
+            "Generated answers to factual questions with varying levels of granularity"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We introduce GRANOLA Accuracy, which checks if there was a match against any of the answers, and GRANOLA informativeness, which is a weighted score prioritizing fine-grained correct answers over their coarse-grained counterparts.",
+            "GRANOLA accuracy is defined as 1[i =⊥]. Informativeness is defined as exp(-λ • (i -1)) ... we also report standard accuracy, exact‑match and token‑F1 scores.",
+            "We use GRANOLA accuracy and informativeness as described in Definition 1."
+        ],
+        "automatic_metrics": [
+            "GRANOLA Accuracy",
+            "GRANOLA Informativeness",
+            "exact-match",
+            "token-F1",
+            "Exact Match",
+            "Token F1",
+            "Standard Accuracy",
+            "BLEURT"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "the final output is the most informative response that is consistent with the set of sampled responses. This can be implemented in different ways, e.g. via prompting an LLM.",
+            "we prompt an LLM (with 5 few-shot demonstrations of the intended behaviour) to determine whether the description is consistent ('Yes' or 'No')"
+        ],
+        "models": [
+            "PaLM 2-L"
+        ],
+        "methods": [
+            "response aggregation via prompting",
+            "consistency checking",
+            "forming multigranular answers",
+            "response aggregation"
+        ],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We manually evaluate the quality of a generated answer a with respect to a question q from GRANOLA-EQ across the following axes: • Correctness: ... • Informativeness: ... • Granularity: ...",
+            "We manually evaluate the quality of a generated answer a with respect to a question q from GRANOLA-EQ across the following axes: Correctness, Informativeness, Granularity ... We manually evaluate a sample of 1% of the data (124 questions and their corresponding 358 answers).",
+            "We manually evaluate the quality of a generated answer a with respect to a question q from GRANOLA-EQ across the following axes: • Correctness: We use WikiData to verify whether a is a factually correct answer to q. • Informativeness: We verify that a is a nontrivial answer to q. • Granularity: We assess whether a is coarser than the answers preceding it."
+        ],
+        "guideline": [
+            "evaluate based on correctness, informativeness, and granularity",
+            "Human annotators assess each generated answer for correctness, informativeness, and granularity.",
+            "Correctness, Informativeness, Granularity"
+        ],
+        "criteria": [
+            "Correctness",
+            "Informativeness",
+            "Granularity"
+        ]
+    }
+}

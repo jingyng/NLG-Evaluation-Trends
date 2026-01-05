@@ -1,0 +1,160 @@
+{
+  "paper_id": "2024.emnlp-main.594",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Knowledge Graph To Text Generation"
+    ],
+    "datasets": [
+      "WEBQSP",
+      "MINTAKA",
+      "WEBQUESTIONS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3.5_turbo",
+      "flan_t_5_xl",
+      "llama_2_7b_chat",
+      "efsum_prompt",
+      "efsum_distill"
+    ],
+    "outputs": [
+      "evidence-focused fact summaries",
+      "knowledge graph verbalizations",
+      "free-form textual descriptions of KG triples"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Knowledge Graph to Text"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "EFSum_prompt",
+          "EFSum_distill"
+        ],
+        "outputs": [
+          "knowledge graph verbalizations"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "an open-source LLM",
+          "open-source LLM (distilled)"
+        ],
+        "outputs": [
+          "evidence-focused summaries of knowledge graph facts",
+          "fact summaries that highlight evidence and filter out noise for question answering"
+        ]
+      },
+      "normalized": {
+        "Flan-T5-XL": "Flan-T5-XL",
+        "Llama2-7B-Chat": "Llama2-7B-Chat"
+      },
+      "explanation": "Added 'Knowledge Graph to Text' as a more specific task description. Replaced generic model descriptions with specific model names (EFSum_prompt, EFSum_distill). Consolidated output descriptions for clarity."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "FAITHFULNESS",
+      "HALLUCINATION RATE",
+      "COMPRESSION RATIO"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Hallucination Rate"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "QA accuracy (summary‑level accuracy)"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "Faithfulness (1 - hallucination rate)": "Faithfulness",
+        "Compression rate": "Compression Rate"
+      },
+      "explanation": "Normalized metric names to standard capitalization. Added 'Hallucination Rate' as an explicit metric used for faithfulness calculation. Removed redundant 'QA accuracy' since it's encompassed by 'Accuracy'."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "gpt_3.5_turbo"
+    ],
+    "methods": [
+      "G-Eval",
+      "Helpfulness Filter",
+      "Faithfulness Filter"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Faithfulness",
+      "Correctness",
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Flan‑T5‑XL",
+          "Llama2‑7B‑Chat"
+        ],
+        "methods": [
+          "helpfulness filter",
+          "faithfulness filter"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-3.5-turbo": "GPT-3.5-turbo",
+        "GPT-4 (for G‑Eval)": "GPT-4",
+        "helpfulness filter (generate answer with LLM and compare to gold)": "Helpfulness Filter",
+        "faithfulness filter (LLM‑based factual consistency check via G‑Eval)": "Faithfulness Filter",
+        "faithfulness": "Faithfulness",
+        "answer correctness": "Answer Correctness",
+        "factual consistency": "Factual Consistency",
+        "helpfulness": "Helpfulness"
+      },
+      "explanation": "Normalized all items to standard capitalization. Removed Flan-T5-XL and Llama2-7B-Chat as they are not used as judges (only as QA models). Consolidated duplicate method and criteria entries."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The paper relies entirely on automatic metrics and LLM-as-judge evaluations."
+    }
+  },
+  "overall_notes": "The paper focuses on knowledge graph verbalization for question answering augmentation. EFSum is the main contribution - a framework for generating summaries from KG triples. Evaluation is primarily through QA accuracy and faithfulness metrics, using LLMs as evaluators through G-Eval and custom filters. The extraction was generally accurate but needed normalization and removal of some redundant/incorrect items."
+}

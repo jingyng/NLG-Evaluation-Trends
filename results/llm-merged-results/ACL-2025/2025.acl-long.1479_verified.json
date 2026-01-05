@@ -1,0 +1,132 @@
+{
+  "paper_id": "2025.acl-long.1479",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Other:Medical Question Answering",
+      "Other:Text Classification"
+    ],
+    "datasets": [
+      "Medical Dialogue Dataset",
+      "AG's News",
+      "Yahoo Answers"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "Qwen2.5-7B-Instruct",
+      "Llama3.1-8B-Instruct",
+      "Qwen2.5-3B-Instruct",
+      "Qwen2.5-14B-Instruct"
+    ],
+    "outputs": [
+      "Generated responses for medical questions",
+      "Generated classification labels",
+      "Generated refusal responses to harmful queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Text Classification"
+        ],
+        "datasets": [
+          "AG's News",
+          "Yahoo Answers"
+        ],
+        "models": [
+          "Qwen2.5-3B-Instruct",
+          "Qwen2.5-14B-Instruct"
+        ],
+        "outputs": [
+          "Generated classification labels",
+          "Generated refusal responses to harmful queries"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text Generation"
+        ]
+      },
+      "normalized": {
+        "Medical Question Answering": "Other:Medical Question Answering",
+        "Text Generation": "Dialogue Generation"
+      },
+      "explanation": "Added NLG tasks explicitly evaluated (text classification, medical QA), added all models tested, clarified generated outputs. Changed 'Text Generation' to 'Dialogue Generation' to be more specific to the medical dialogue task."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE-L to ROUGE following the guideline to simplify metric variants to base form"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Llama-Guard3-8B"
+    ],
+    "methods": [
+      "safety classification",
+      "refusal rate measurement"
+    ],
+    "criteria": [
+      "safety"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "methods": [
+          "refusal rate evaluation"
+        ],
+        "criteria": [
+          "refusal"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed redundant 'refusal rate evaluation' and 'refusal' criteria since refusal rate is the measurement method, not the evaluation criterion. The actual criterion being evaluated is 'safety'."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluations are mentioned in the paper; all evaluations are automated using metrics and LLM judges"
+    }
+  },
+  "overall_notes": "The paper focuses on safety alignment for LLMs through low-rank safety subspace fusion. While the primary contribution is safety restoration, they do evaluate NLG tasks (medical dialogue QA, text classification) using automatic metrics (BLEU, ROUGE) and LLM judges (Llama-Guard3-8B for safety evaluation). No human evaluations were conducted. The extraction was generally accurate but needed some refinement and additional context from the full paper."
+}

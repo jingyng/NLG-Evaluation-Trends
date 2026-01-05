@@ -1,0 +1,132 @@
+{
+  "paper_id": "2025.acl-long.752",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Review Generation"
+    ],
+    "datasets": [
+      "Laptop14",
+      "Restaurant14",
+      "Restaurant15",
+      "Restaurant16",
+      "Book",
+      "Clothing"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3.5 Turbo",
+      "GPT-4",
+      "Llama-3-8B-Instruct"
+    ],
+    "outputs": [
+      "synthetic review texts with aspect-sentiment labels"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Laptop14",
+          "Restaurant14",
+          "Restaurant15",
+          "Restaurant16"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation",
+          "Other:Data Synthesis",
+          "Other:Aspect-based sentiment analysis"
+        ],
+        "datasets": [
+          "Lap14",
+          "Res14",
+          "Res15",
+          "Res16"
+        ],
+        "languages": [],
+        "models": [
+          "TAG-BERT",
+          "T5-base",
+          "Tk-instruct-large"
+        ],
+        "outputs": [
+          "aspect-sentiment pairs such as (battery life, positive)"
+        ]
+      },
+      "normalized": {
+        "Lap14": "Laptop14",
+        "Res14": "Restaurant14",
+        "Res15": "Restaurant15",
+        "Res16": "Restaurant16",
+        "synthetic reviews and aspect-sentiment labels": "synthetic review texts with aspect-sentiment labels"
+      },
+      "explanation": "Removed non-NLG tasks (ABSA is analysis, not generation). Kept only LLMs used for generation. Normalized dataset names to full forms. Simplified output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "macro-F1"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed macro-F1 since all F1 scores in the paper refer to standard F1 for aspect-sentiment pair extraction, not macro-average across classes."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs used as judges/evaluators in this paper. LLMs are only used for data generation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted in this paper. Only automatic evaluation using F1 scores."
+    }
+  },
+  "overall_notes": "This paper focuses on synthetic data generation for ABSA training rather than NLG evaluation. The main NLG task is review generation using LLMs. Evaluation is through downstream ABSA performance (F1 scores) rather than direct NLG quality assessment. The extraction was generally accurate but included some analysis-focused elements that don't belong in NLG evaluation metadata."
+}

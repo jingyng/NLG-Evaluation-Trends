@@ -1,0 +1,171 @@
+{
+  "paper_id": "2024.emnlp-main.1070",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Empathetic Response Generation",
+      "Speech Emotion Recognition"
+    ],
+    "datasets": [
+      "SPEECHALPACA",
+      "IEMOCAP",
+      "LIBRISPEECH",
+      "COMMON VOICE",
+      "GIGASPEECH",
+      "WENETSPEECH",
+      "MELD",
+      "CMU MOSEI",
+      "MEAD",
+      "ESD",
+      "RAVDESS",
+      "MEBENCH",
+      "AESDD",
+      "CAFE",
+      "RESD",
+      "ALPACA 52k"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "blsp_emo",
+      "whisper_large_v_2",
+      "qwen_7b_chat",
+      "blsp",
+      "blsp_ser",
+      "blsp_chatgpt",
+      "blsp_multitask"
+    ],
+    "outputs": [
+      "empathetic responses",
+      "conversation turns",
+      "text continuations",
+      "speech emotion recognition"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Speech Emotion Recognition"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BLSP-ChatGPT",
+          "BLSP-MultiTask"
+        ],
+        "outputs": [
+          "speech emotion recognition"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "SpeechAlpaca (synthetic)",
+          "CommonVoice 13.0",
+          "GigaSpeech M set"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "text continuations and empathetic responses",
+          "text continuations that are aligned with those the LLM would produce if provided with the same linguistic content and emotion label"
+        ]
+      },
+      "normalized": {
+        "Other:empathetic response generation": "Other: Empathetic Response Generation",
+        "CommonVoice 13.0": "CommonVoice",
+        "GigaSpeech M set": "GigaSpeech"
+      },
+      "explanation": "Added Speech Emotion Recognition as a secondary task, normalized dataset names, simplified output descriptions, and added ablation study models mentioned in the paper"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "ACCURACY",
+      "SER ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy",
+          "SER Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy",
+          "SER accuracy",
+          "GPT-4 scores on quality and empathy"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "SER accuracy": "SER Accuracy"
+      },
+      "explanation": "GPT-4 scores are LLM-as-judge evaluations, not automatic metrics. The paper uses speech emotion recognition accuracy (SER accuracy) as an automatic metric to evaluate model performance"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "Independent Scoring",
+      "Pairwise Comparison"
+    ],
+    "criteria": [
+      "Quality",
+      "Empathy"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "fluency",
+          "coherence"
+        ]
+      },
+      "normalized": {
+        "independent scoring": "Independent Scoring",
+        "pairwise comparison": "Pairwise Comparison",
+        "GPT-4 scoring (0-10)": "Independent Scoring",
+        "pairwise evaluation": "Pairwise Comparison",
+        "quality": "Quality",
+        "empathy": "Empathy"
+      },
+      "explanation": "Removed 'fluency' and 'coherence' as they were not explicitly mentioned criteria. GPT-4 evaluates specifically on 'quality' and 'empathy' using 0-10 scoring and pairwise comparisons"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted according to the paper text; evaluation was done using automatic metrics and GPT-4 as judge"
+    }
+  },
+  "overall_notes": "The paper focuses on empathetic speech-language models that generate text responses to speech inputs. While it uses NLG tasks (dialogue generation, empathetic responses), the evaluation focuses primarily on speech emotion recognition accuracy and LLM-based evaluation rather than traditional NLG metrics. The extraction was mostly accurate but needed normalization and clarification on what constitutes automatic metrics vs LLM-as-judge evaluation."
+}

@@ -1,0 +1,71 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "Large language models (LLMs) have the potential to be trained as specialized role-playing agents (RPA). Users provide a predefined character profile to stimulate the RPA's human-like simulation abilities. The RPA's responses include the expected character style, knowledge, or behavior, which can support broader interdisciplinary NPC applications.",
+        "tasks": [
+            "Dialogue Generation"
+        ],
+        "datasets": [
+            "RoleKE-Bench"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-4o",
+            "GPT-3.5",
+            "LLaMA3-8b",
+            "Qwen2-7b",
+            "DeepSeek-v2",
+            "DeepSeek-R1",
+            "QwQ-32B",
+            "ERNIE4",
+            "Yi-Large",
+            "GLM-4",
+            "Mixtral-7×8B-",
+            "LLaMA3-70b",
+            "Qwen2-72b",
+            "CharacterGLM",
+            "Baichuan-NPC",
+            "MiniMax",
+            "Xingchen-Plus"
+        ],
+        "outputs": "The generated outputs are role-playing agent responses to queries containing known or unknown knowledge errors, aiming to either correct known knowledge errors (KKE) or express doubt/refusal for unknown knowledge errors (UKE)."
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "Accuracy is the ratio of yes responses over all queries three times along with the standard error of the mean (SEM).",
+        "automatic_metrics": [
+            "Accuracy"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "Inspired by the \"LLMs as Judges\", we provide LLM as evaluator. LLMs take the character profile p_c and the query q_error as inputs to infer and produce the response. The evaluator takes the open-ended responses of the LLMs when playing a specific character, along with the memory modification explanations, as input, and assesses whether the LLM correctly identifies (for KKE) or expresses doubt/refuses (for UKE) the character error in the query.",
+        "models": [
+            "DeepSeek-v2"
+        ],
+        "methods": [
+            "LLMs as Judges",
+            "evaluation prompt with rationale and yes/no judgment"
+        ],
+        "criteria": [
+            "correct identification of KKE",
+            "expression of doubt/refusal for UKE"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We also conduct a human evaluation experiment to validate the rationale behind the above selections, with details provided in Appendix E.",
+        "guideline": "The human evaluators were trained and selected based on data annotation experience, and filtering specifications included binary actions (retain/delete), checking for hallucinations, word limits, identifiability of events, and correct memory categorization. Evaluators reviewed data in multiple stages with intersection-based consensus.",
+        "criteria": [
+            "presence of hallucinations",
+            "correct memory category label",
+            "key details in memory",
+            "conciseness (<30 words)",
+            "single error in query",
+            "error type conformity (KKE/UKE)",
+            "character's era and cognition"
+        ]
+    }
+}

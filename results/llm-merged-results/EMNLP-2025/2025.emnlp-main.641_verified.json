@@ -1,0 +1,140 @@
+{
+  "paper_id": "2025.emnlp-main.641",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Text Generation with Detoxification"
+    ],
+    "datasets": [
+      "RealToxicityPrompts",
+      "ParaDetox"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-2 Small",
+      "Gemma-2-2B",
+      "Gemma-2-2B-IT"
+    ],
+    "outputs": [
+      "text continuations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Detoxification",
+          "Dialogue Generation",
+          "Other:content moderation",
+          "Other:social simulations"
+        ],
+        "datasets": [
+          "LM Harness"
+        ],
+        "models": [
+          "gpt2-small",
+          "gemma-2-2b"
+        ],
+        "outputs": [
+          "Generated text continuations",
+          "model continuations (temperature=0.0, max_tokens=20)"
+        ]
+      },
+      "normalized": {
+        "GPT2-small": "GPT-2 Small",
+        "Gemma-2-2B": "Gemma-2-2B",
+        "Gemma-2-2B-IT": "Gemma-2-2B-IT"
+      },
+      "explanation": "Removed tasks that are not NLG tasks being evaluated (detoxification is the goal, not a task; dialogue/content moderation/social simulations are mentioned as applications but not evaluated). Removed LM Harness as it's an evaluation framework, not a dataset. Normalized model names to standard forms."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Detoxify",
+      "Perspective API",
+      "LM Harness"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-4o-mini",
+          "Detoxify toxicity score",
+          "Fluency rating (0‑2) by gpt-4o-mini",
+          "LM Harness benchmark accuracy",
+          "Perplexity",
+          "EleutherAI LM Harness"
+        ]
+      },
+      "normalized": {
+        "EleutherAI LM Harness": "LM Harness"
+      },
+      "explanation": "Removed GPT-4o-mini (LLM judge, not automatic metric), removed descriptive phrases keeping only metric names. Kept LM Harness as it's used for automatic capability evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o-mini"
+    ],
+    "methods": [
+      "fluency scoring"
+    ],
+    "criteria": [
+      "fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "prompt-based fluency rating",
+          "LLM‑based fluency rating prompt",
+          "LLM judge"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "gpt-4o-mini": "GPT-4o-mini",
+        "fluency rating (0‑2) by gpt-4o-mini": "fluency scoring"
+      },
+      "explanation": "Normalized model name and simplified method description. The paper explicitly uses GPT-4o-mini to evaluate fluency on a 0-2 scale."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper."
+    }
+  },
+  "overall_notes": "The paper focuses on detoxification of text generation using sparse autoencoders. It evaluates generated text continuations using automatic toxicity metrics (Detoxify, Perspective API) and capability metrics (LM Harness), and uses GPT-4o-mini as an LLM judge for fluency evaluation. The extraction was generally accurate but included some items that were either not NLG tasks being evaluated or were descriptive phrases rather than metric names."
+}

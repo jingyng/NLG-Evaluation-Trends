@@ -1,0 +1,144 @@
+{
+  "paper_id": "2024.acl-long.511",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM evaluation results against human evaluation results on the same 80 Vicuna Benchmark instances, reporting accuracy and kappa correlation coefficients between LLM judgments and the majority voting of human annotations"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4",
+      "ChatGPT"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper provides exact prompts including the SCORING template: '[Question] {Q} [The Start of Assistant 1's response] {R1} [The End of Assistant 1's response] [The Start of Assistant 2's response] {R2} [The End of Assistant 2's response] [System] We would like to request your feedback on the performance of two AI assistants in response to the user question displayed above. Please rate the helpfulness, relevance, accuracy, level of details of their responses. Each assistant receives an overall score on a scale of 1 to 10, where a higher score indicates better overall performance. Please first output a single line containing only two values indicating the scores for Assistant 1 and 2, respectively. The two scores are separated by a space. In the subsequent line, please provide a comprehensive explanation of your evaluation, avoiding any potential bias and ensuring that the order in which the responses were presented does not affect your judgment.' and the Evidence Calibration template: '[Question] {Q} [The Start of Assistant 1's response] {R1} [The End of Assistant 1's response] [The Start of Assistant 2's response] {R2} [The End of Assistant 2's response] [System] ... Please first provide a comprehensive explanation of your evaluation, avoiding any potential bias and ensuring that the order in which the responses were presented does not affect your judgment. Then, output two lines indicating the scores for Assistant 1 and 2, respectively. Output with the following format: Evaluation evidence: <evaluation explanation here> The score of Assistant 1: <score> The score of Assistant 2: <score>'"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.54,
+      "interpretation": "Average agreement among three human annotators",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human evaluators assessed responses from Vicuna-13B and ChatGPT on four perspectives (helpfulness, relevance, accuracy, and level of detail) following the same template as the original Vicuna benchmark, with responses presented in random order"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Accuracy",
+      "Cohen's kappa"
+    ],
+    "shared_criteria": [
+      "helpfulness",
+      "relevance",
+      "accuracy",
+      "detail"
+    ],
+    "sample_size": {
+      "total_generated": 80,
+      "validated_by_both": 80,
+      "notes": "All 80 Vicuna Benchmark questions were evaluated by both LLM evaluators and human annotators"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Accuracy",
+        "value": 0.527,
+        "criterion": "overall",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "VANILLA evaluation method"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.24,
+        "criterion": "overall",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "VANILLA evaluation method"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.625,
+        "criterion": "overall",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "MEC (k=3) + BPC (k=3)"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.37,
+        "criterion": "overall",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "MEC (k=3) + BPC (k=3)"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.444,
+        "criterion": "overall",
+        "llm_model": "ChatGPT",
+        "significance": null,
+        "notes": "VANILLA evaluation method"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.06,
+        "criterion": "overall",
+        "llm_model": "ChatGPT",
+        "significance": null,
+        "notes": "VANILLA evaluation method"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.588,
+        "criterion": "overall",
+        "llm_model": "ChatGPT",
+        "significance": null,
+        "notes": "MEC (k=3) + BPC (k=3)"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.31,
+        "criterion": "overall",
+        "llm_model": "ChatGPT",
+        "significance": null,
+        "notes": "MEC (k=3) + BPC (k=3"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "The proposed calibration methods (MEC+BPC) significantly improve LLM-human alignment, with GPT-4 achieving 62.5% accuracy (vs 52.7% baseline) and ChatGPT achieving 58.8% accuracy (vs 44.4% baseline) when compared to human majority voting results."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Helpfulness",
+      "Relevance",
+      "Accuracy",
+      "Detail"
+    ],
+    "notes": "Both LLM evaluators and human annotators assessed the same four criteria (helpfulness, relevance, accuracy, and level of detail) using the same evaluation template"
+  }
+}

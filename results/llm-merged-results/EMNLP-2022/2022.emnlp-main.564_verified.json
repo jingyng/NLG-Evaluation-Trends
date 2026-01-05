@@ -1,0 +1,170 @@
+{
+  "paper_id": "2022.emnlp-main.564",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Abductive Reasoning Generation",
+      "Other:Deductive Reasoning Generation"
+    ],
+    "datasets": [
+      "EntailmentBank",
+      "Everyday Norms: Why Not?"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5-3B",
+      "DeBERTa-v3-Large",
+      "DeBERTa-Large",
+      "EBEntail-Active"
+    ],
+    "outputs": [
+      "natural language premises",
+      "natural language conclusions",
+      "natural language entailment trees",
+      "missing premises"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "DeBERTa-Large"
+        ],
+        "outputs": [
+          "natural language premises",
+          "natural language conclusions",
+          "natural language entailment trees",
+          "missing premises"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Abductive Reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "T5",
+          "DeBERTa",
+          "T5 3B"
+        ],
+        "outputs": [
+          "generated missing premises, intermediate deduction steps, full entailment proof trees",
+          "natural language proof trees, missing premises, and intermediate reasoning steps"
+        ]
+      },
+      "normalized": {
+        "EntailmentBank": "EntailmentBank",
+        "Everyday Norms: Why Not? (ENWN)": "Everyday Norms: Why Not?",
+        "T5-3B": "T5-3B",
+        "DeBERTa-v3 Large": "DeBERTa-v3-Large",
+        "EBEntail-Active": "EBEntail-Active"
+      },
+      "explanation": "Removed 'Other:Abductive Reasoning' as it's redundant with 'Abductive Reasoning Generation'. Simplified model names to standard forms, removed duplicates. Changed outputs to more precise descriptions of generated content."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "Entailment Score",
+      "Coverage Recall",
+      "Deductive Agreement Score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Entailment model probability",
+          "entailment scoring",
+          "deductive agreement score",
+          "harmonic mean of ROUGE-1 and entailment"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "Coverage recall (E ≥ 0.7)": "Coverage Recall",
+        "Entailment Score": "Entailment Score",
+        "Deductive agreement score": "Deductive Agreement Score"
+      },
+      "explanation": "Simplified metric variants to base forms (ROUGE-1→ROUGE). Removed redundant/descriptive entries, keeping only the core metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "DeBERTa"
+        ],
+        "methods": [
+          "entailment probability scoring"
+        ],
+        "criteria": [
+          "entailment"
+        ]
+      },
+      "normalized": {},
+      "explanation": "DeBERTa is used as part of the generation/validation pipeline, not as a post-hoc LLM judge. The paper does not use LLMs as evaluators after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators labeled steps as Y (valid), N (invalid), or VND (valid but not deductive)",
+      "Annotators judged whether generated premises recovered missing premises based on mutual entailment or specific entailment relations"
+    ],
+    "criteria": [
+      "validity",
+      "soundness",
+      "premise recovery",
+      "mutual entailment",
+      "specific entailment"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "validity",
+          "soundness",
+          "premise recovery",
+          "mutual entailment",
+          "specific entailment"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "true new premise",
+          "forward validation",
+          "validity of abductive step",
+          "deductive consistency"
+        ]
+      },
+      "normalized": {
+        "mutual entailment": "mutual entailment",
+        "specific entailment": "specific entailment",
+        "premise recovery (mutual entailment / specificity)": "premise recovery"
+      },
+      "explanation": "Consolidated criteria to focus on the main evaluation dimensions mentioned: step validity/soundness and premise recovery based on entailment relations."
+    }
+  },
+  "overall_notes": "The paper focuses on natural language generation for abductive and deductive reasoning tasks. Automatic metrics are used for premise recovery evaluation, with human evaluation for step validity. The extracted metadata was reasonably accurate but needed normalization and minor adjustments for precision."
+}

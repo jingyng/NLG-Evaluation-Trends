@@ -1,0 +1,187 @@
+{
+  "paper_id": "2025.acl-long.775",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Instruction Following"
+    ],
+    "datasets": [
+      "TriviaQA",
+      "IFEVAL",
+      "CELLO",
+      "RM BENCH",
+      "JUDGEBENCH",
+      "IF BENCH",
+      "MMLU",
+      "TruthfulQA",
+      "MT-Bench",
+      "ULTRAFEEDBACK",
+      "MMLU PRO"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_8b_instruct",
+      "gpt_4o",
+      "rewardagent",
+      "armorm",
+      "gpt_4o_mini",
+      "qwen_2.5_coder_7b",
+      "zephyr_7b"
+    ],
+    "outputs": [
+      "Generated responses to instructions or questions, evaluated for factuality and constraint adherence"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Instruction Following Generation",
+          "Other:Factuality Question Answering"
+        ],
+        "datasets": [
+          "IFBench"
+        ],
+        "languages": [],
+        "models": [
+          "REWARDAGENT MINI",
+          "REWARDAGENT LLAMA"
+        ],
+        "outputs": [
+          "generated responses for instructions",
+          "The paper generates responses to instructions in tasks such as factuality QA and constrained instruction following, and evaluates them using reward models and verification agents."
+        ]
+      },
+      "normalized": {
+        "Other:Instruction Following Generation": "Other:Instruction Following",
+        "IFBench": "IF-Bench"
+      },
+      "explanation": "Removed redundant task descriptions, consolidated duplicate dataset names (IFBench → IF-Bench), and removed model variants that are not distinct models but implementations of the same REWARDAGENT framework"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "EXACT MATCH"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "MMLU Score",
+          "MMLU-Pro Score",
+          "TriviaQA Accuracy",
+          "TruthfulQA Score",
+          "IFEval Score",
+          "CELLO Score",
+          "MT-Bench Score",
+          "accuracy",
+          "exact match",
+          "micro‑averaged accuracy",
+          "micro-averaged accuracy",
+          "exact match accuracies",
+          "average accuracy",
+          "average score"
+        ]
+      },
+      "normalized": {
+        "MMLU Score": "Accuracy",
+        "MMLU-Pro Score": "Accuracy",
+        "TriviaQA Accuracy": "Accuracy",
+        "TruthfulQA Score": "Accuracy",
+        "IFEval Score": "Accuracy",
+        "CELLO Score": "Accuracy",
+        "MT-Bench Score": "Accuracy",
+        "micro-averaged accuracy": "Accuracy",
+        "exact match accuracies": "Exact Match",
+        "average accuracy": "Accuracy",
+        "average score": "Accuracy"
+      },
+      "explanation": "Normalized all specific benchmark scores to their underlying metric types (Accuracy, Exact Match) as they are all variations of accuracy-based metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o_mini",
+      "llama_3_8b_instruct",
+      "qwen_2.5_coder_7b",
+      "gpt_4o"
+    ],
+    "methods": [
+      "Pairwise verification",
+      "Constraint verification",
+      "Weighted-sum integration"
+    ],
+    "criteria": [
+      "Factuality",
+      "Instruction",
+      "Humanness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Qwen2.5-Coder 7B",
+          "GPT-4o"
+        ],
+        "methods": [
+          "Constraint verification"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "ArmoRM",
+          "DeepSeek-R1",
+          "R1 distilled Llama3-8B"
+        ],
+        "methods": [
+          "verification agents scoring",
+          "pairwise evaluation",
+          "generative reward modeling"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "pairwise verification": "Pairwise verification",
+        "instruction‑following": "Instruction-following",
+        "human preference": "Human preference",
+        "weighted‑sum integration": "Weighted-sum integration"
+      },
+      "explanation": "Removed models not used as judges (ArmoRM is the base reward model, not an LLM judge). Added missing LLM judges. Normalized method names to be more descriptive of the actual verification processes used."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted as explicitly stated in the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on developing REWARDAGENT, a framework that combines traditional reward models with LLM-based verification agents for factuality and instruction-following. It extensively evaluates NLG outputs but does not conduct human evaluations. The extraction was generally accurate but needed normalization and removal of redundant/incorrect items."
+}

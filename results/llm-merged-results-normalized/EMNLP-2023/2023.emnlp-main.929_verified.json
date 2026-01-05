@@ -1,0 +1,149 @@
+{
+  "paper_id": "2023.emnlp-main.929",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Open Ended Text Generation"
+    ],
+    "datasets": [
+      "WIKITEXT 103",
+      "PG 19"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "knn_lm",
+      "trime",
+      "gpt_2",
+      "gpt_2_small"
+    ],
+    "outputs": [
+      "open-ended text completions",
+      "text continuations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-2-small"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:open-ended text generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "baseline LM (GPT-2)",
+          "GPT-2 (baseline)",
+          "GPT-3 (perplexity evaluator)"
+        ],
+        "outputs": [
+          "text completions",
+          "generated text continuations (open‑ended completions)"
+        ]
+      },
+      "normalized": {
+        "Other:open-ended text generation": "Other:Open-ended Text Generation",
+        "GPT-2 (baseline)": "GPT-2",
+        "baseline LM (GPT-2)": "GPT-2"
+      },
+      "explanation": "Normalized task name capitalization, consolidated duplicate GPT-2 model references, removed GPT-3 from generation models (it's only used for evaluation), added GPT-2-small mentioned for PG-19 experiments, normalized output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MAUVE",
+      "RANKGEN",
+      "GPT 2 PERPLEXITY",
+      "ENTITY F1",
+      "SEQ REP"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "All metrics are correctly extracted and properly named"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-3"
+        ],
+        "methods": [
+          "perplexity computation"
+        ],
+        "criteria": [
+          "fluency",
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because GPT-3 is only used for perplexity calculation, not as a 'judge' in the typical sense of evaluating quality with reasoning or scoring. The paper doesn't use LLMs to assess outputs based on criteria like fluency or relevance."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators were given a prefix and two continuations (one from baseline LM, one from retrieval-augmented LM) and asked to pick the better one",
+      "Annotators indicated whether the choice was difficult",
+      "Annotators provided justification in 3-4 sentences"
+    ],
+    "criteria": [
+      "Grammaticality",
+      "Fluency",
+      "Consistency",
+      "Logic"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "decide which continuation is better, indicate whether it was hard to choose, and justify their choice in 3 to 4 sentences"
+        ],
+        "criteria": [
+          "grammaticality",
+          "fluency",
+          "consistency",
+          "logical coherence"
+        ]
+      },
+      "normalized": {
+        "grammaticality": "grammatical",
+        "fluency": "fluent",
+        "consistency": "consistent",
+        "logical coherence": "logical"
+      },
+      "explanation": "Consolidated guideline descriptions into clearer bullet points, normalized criteria to adjective forms matching the paper's explicit wording"
+    }
+  },
+  "overall_notes": "The paper is well-focused on evaluating open-ended text generation quality. The extraction was generally good, but Question 3 was misinterpreted - using GPT-3 for perplexity calculation doesn't constitute 'LLM-as-judge' evaluation. The human evaluation section is particularly well-documented with clear criteria and procedures."
+}

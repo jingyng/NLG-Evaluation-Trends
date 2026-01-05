@@ -1,0 +1,134 @@
+{
+  "paper_id": "2024.acl-long.613",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Generative Commonsense Inference",
+      "Commonsense Generation"
+    ],
+    "datasets": [
+      "COM 2",
+      "COMET M",
+      "PARACOMET",
+      "COMET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2_large",
+      "llama_2_7b",
+      "deberta_v_3_large",
+      "flan_t_5",
+      "unifiedqa_v_2",
+      "car",
+      "hykas"
+    ],
+    "outputs": [
+      "generated commonsense inferences",
+      "generated commonsense inference sentences",
+      "generated commonsense inferences for multi-event and paragraph-level scenarios"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "COMET-M",
+          "ParaCOMET",
+          "COMET"
+        ],
+        "outputs": [
+          "generated commonsense inference sentences"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "COM 2"
+        ]
+      },
+      "normalized": {
+        "COM 2": "COM^2"
+      },
+      "explanation": "Normalized dataset name COM 2 to COM^2, added missing datasets COMET-M, ParaCOMET, and COMET that are used for evaluation, and added an additional output description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "CIDER",
+      "BERTSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BLEU-2": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metrics to base forms (BLEU-2→BLEU, ROUGE-L→ROUGE) as per guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in the paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual inspection to categorize outputs as plausible, partially correct (1-hop), or false",
+      "Randomly sampled 60 queries covering each query type",
+      "Each question annotated by three workers on Amazon Mechanical Turk",
+      "Workers select correct answer among options including 'None of the answers are correct' or 'The context doesn't make sense or is meaningless'"
+    ],
+    "criteria": [
+      "Plausibility",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Randomly sampled 60 queries covering each query type",
+          "Each question annotated by three workers on Amazon Mechanical Turk"
+        ],
+        "criteria": [
+          "partial correctness"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "1-hop partial correctness"
+        ]
+      },
+      "normalized": {
+        "1-hop partial correctness": "partial correctness"
+      },
+      "explanation": "Enhanced guideline descriptions based on paper details and normalized criteria term"
+    }
+  },
+  "overall_notes": "The paper focuses on complex commonsense reasoning through generative tasks. The extraction was generally accurate with minor normalization needed. The paper conducts comprehensive automatic and human evaluations but does not use LLMs as judges."
+}

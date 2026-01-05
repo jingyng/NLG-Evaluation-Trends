@@ -1,0 +1,141 @@
+{
+  "paper_id": "2025.emnlp-main.285",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates FQ-Score (which includes LLM-as-a-judge components) against human evaluation through two clinician reader studies, reporting quantitative correlations and agreement metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "no",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "Prompts for LLM evaluation are mentioned as being available in Appendix A.5 but not shown in the provided text"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "5 in first study, 2 in second study",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "ICC (Intraclass Correlation Coefficient)",
+      "value": "First study: 0.406 (95% CI: 0.21 to 0.65); Second study: 0.539 (95% CI: 0.16 to 0.78)",
+      "interpretation": "First study: considerable variability; Second study: moderate to substantial reliability",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines adapted from prior clinical NLP works; clinicians evaluated factual correctness per step (yes/no), relevance/usefulness per step (0-10), overall logical consistency (0-10)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation",
+      "Mean Absolute Error (MAE)"
+    ],
+    "shared_criteria": [
+      "correctness",
+      "completeness",
+      "logical flow"
+    ],
+    "sample_size": {
+      "total_generated": 40,
+      "validated_by_both": "First study: 20 ToQ samples; Second study: CoT, CoQ, and ToQ outputs (exact size unspecified but based on same 20 samples)",
+      "notes": "Two reader studies with clinicians on MedQA samples"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.866,
+        "criterion": "Quality",
+        "llm_model": "GPT-4",
+        "significance": "p < 0.001",
+        "notes": "First reader study - FQ-Score vs clinician mean opinion scores"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.758,
+        "criterion": "overall comparison",
+        "llm_model": "GPT-4",
+        "significance": "p = 0.138",
+        "notes": "CoT in second reader study"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.918,
+        "criterion": "overall comparison",
+        "llm_model": "GPT-4",
+        "significance": "p = 0.028",
+        "notes": "CoQ in second reader study"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.889,
+        "criterion": "overall comparison",
+        "llm_model": "GPT-4",
+        "significance": "p = 0.044",
+        "notes": "ToQ in second reader study"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.667,
+        "criterion": "overall comparison",
+        "llm_model": "GPT-4",
+        "significance": "p = 0.219",
+        "notes": "CoT in second reader study"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.8,
+        "criterion": "overall comparison",
+        "llm_model": "GPT-4",
+        "significance": "p = 0.104",
+        "notes": "CoQ in second reader study"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.99,
+        "criterion": "overall comparison",
+        "llm_model": "GPT-4",
+        "significance": "p = 0.001",
+        "notes": "ToQ in second reader study"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Not explicitly stated, but r=0.866 is described as 'strong correlation'",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "FQ-Score shows strong correlation (r=0.866) with clinician judgments, with ToQ achieving the highest alignment (\u03c1=0.990, p=0.001) among all prompting methods evaluated."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "step-wise attribution quality (SAQ)",
+      "semantic similarity assessment"
+    ],
+    "human_only_criteria": [
+      "factual correctness per step (yes/no)"
+    ],
+    "shared_criteria": [
+      "Correctness",
+      "Completeness",
+      "Logic",
+      "Relevance",
+      "Usefulness"
+    ],
+    "notes": "LLM evaluates additional technical metrics while human focuses on clinical judgment aspects, but both evaluate core quality dimensions"
+  }
+}

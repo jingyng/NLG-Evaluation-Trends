@@ -1,0 +1,129 @@
+{
+  "paper_id": "2024.emnlp-main.1016",
+  "answer_1": {
+    "answer": "No",
+    "answer_changed": true,
+    "tasks": [],
+    "datasets": [],
+    "languages": [],
+    "models": [],
+    "outputs": [],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Image Captioning"
+        ],
+        "datasets": [
+          "COCO",
+          "Flickr30K",
+          "NoCaps",
+          "OHD-Caps (COCO, Flickr30K, NoCaps)",
+          "Nocaps"
+        ],
+        "languages": [
+          "English"
+        ],
+        "models": [
+          "LLaVA-1.5",
+          "CLIP ViT-B/32",
+          "CLIP ViT-L/14",
+          "MetaCLIP",
+          "SigLIP",
+          "BLIP",
+          "BLIP2",
+          "CLIP",
+          "LLaMA",
+          "Vicuna"
+        ],
+        "outputs": [
+          "image captions and discriminative responses",
+          "selected caption (binary correctness), hallucination detection scores, CHAIR scores",
+          "image captions and responses to visual questions"
+        ]
+      },
+      "normalized": {},
+      "explanation": "This paper does NOT address NLG tasks. It focuses on evaluating and mitigating object hallucinations in CLIP models through discriminative tasks (image-text matching, binary selection). While it mentions LVLMs that perform generation, the paper's own evaluation is entirely discriminative - selecting correct captions from candidates, not generating new text."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CHAIR",
+      "F1 score",
+      "accuracy",
+      "recall",
+      "Cover"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Cover"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "CHAIR S",
+          "CHAIR I",
+          "OHD-Caps selection accuracy",
+          "POPE F1 score",
+          "AMBER discriminative scores",
+          "yes/no response rate"
+        ]
+      },
+      "normalized": {
+        "CHAIR S": "CHAIR",
+        "CHAIR I": "CHAIR",
+        "POPE F1 score": "F1 score"
+      },
+      "explanation": "Simplified CHAIR variants to base form. Removed dataset-specific metric names and kept only the core metric types. Added 'Cover' which was mentioned but missing from original extraction."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper. GPT-4 is mentioned only for data construction (creating negative samples), not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. All evaluations are automatic."
+    }
+  },
+  "overall_notes": "This paper is primarily about evaluating and mitigating object hallucinations in CLIP models through discriminative tasks (selecting correct captions from candidates). While it mentions LVLMs that perform generation, the paper's own experimental work is discriminative, not generative. The key contribution is the OHD-Caps benchmark for image-text matching evaluation of object hallucinations."
+}

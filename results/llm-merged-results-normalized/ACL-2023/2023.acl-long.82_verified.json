@@ -1,0 +1,136 @@
+{
+  "paper_id": "2023.acl-long.82",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "SAMSUM",
+      "DIALOGSUM",
+      "CNN/DailyMail"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart_base",
+      "bart_large",
+      "compo",
+      "dialogpt"
+    ],
+    "outputs": [
+      "abstractive summaries of conversations",
+      "generated conversation summaries",
+      "short, concise, and structured text"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BART"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Generated conversation summaries": "generated conversation summaries"
+      },
+      "explanation": "Removed 'BART' as it's redundant with BART-base and BART-large. Normalized capitalization for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "coherence",
+          "consistency",
+          "fluency",
+          "relevance"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized all ROUGE variants to 'ROUGE' following simplification guidelines. Removed the automatic evaluation dimensions (coherence, consistency, fluency, relevance) as these were part of the automatic evaluator, not base metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rank summaries on a scale of 1 (least preferred) to 3 (most preferred)",
+      "Summaries generated from BART-base, COMPO-sf (self-training), and COMPO-jt (joint-training) are ranked",
+      "Each summary ranked by three workers, aggregated by majority voting",
+      "Workers paid $0.10 per ranking task"
+    ],
+    "criteria": [
+      "Preference"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Summaries generated from BART-base, COMPO-sf (self-training), and COMPO-jt (joint-training) are ranked",
+          "Each summary ranked by three workers, aggregated by majority voting",
+          "Workers paid $0.10 per ranking task"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- annotators ... rank summaries on a scale of 1 (the least preferred) to 3 (the most preferred)",
+          "Annotators rank each summary on a 1‑3 scale indicating their preference."
+        ],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "consistency",
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Simplified guideline descriptions and removed redundant information. Removed specific criteria (fluency, coherence, consistency, relevance) as these were used in automatic evaluation, not human evaluation. Human evaluation used overall preference ranking only."
+    }
+  },
+  "overall_notes": "The paper focuses on abstractive conversation summarization with a compositional data augmentation approach. The extraction was generally accurate, but needed some normalization and removal of metrics/criteria that belonged to different evaluation types. The paper uses standard ROUGE metrics for automatic evaluation and human preference rankings for human evaluation."
+}

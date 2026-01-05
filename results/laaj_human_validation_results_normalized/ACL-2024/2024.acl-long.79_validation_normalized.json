@@ -1,0 +1,59 @@
+{
+  "paper_id": "2024.acl-long.79",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "Both LLM-as-a-judge and human evaluation are conducted, but they are used independently for different purposes without any explicit comparison between LLM and human judgments on the same instances or criteria. Human annotation is used only to create ground truth for WikiRetr datasets, while LLM evaluation is used separately for factuality assessment in the framework."
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "GPT-3.5-Turbo-Instruct",
+      "GPT-4",
+      "TRUE-9B"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Example instruction template shown for NLI-based factuality assessment, but full prompts are stated to be in Appendix A (not fully extracted here)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage agreement",
+      "value": 90.7,
+      "interpretation": "high consistency",
+      "per_criterion": [
+        {
+          "criterion": "factual support",
+          "metric": "percentage agreement",
+          "value": 90.7,
+          "notes": "For FELM dataset, average inter-annotator agreement for labels"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines involve assessing whether original passages support rewritten claims, with consensus resolution for discrepancies. Example annotation provided in Table 9."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "factuality_assessment_using_NLI"
+    ],
+    "human_only_criteria": [
+      "factual_support_annotation"
+    ],
+    "shared_criteria": [
+      "Factuality"
+    ],
+    "notes": "Both methods assess factuality, but LLM evaluates generated responses via NLI, while humans annotate support between original passages and rewritten claims for dataset creation. No direct comparison is made between LLM and human on the same task."
+  }
+}

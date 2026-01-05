@@ -1,0 +1,149 @@
+{
+  "paper_id": "2024.emnlp-main.905",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Explanation Generation",
+      "Answer Verification",
+      "Reasoning In Large Language Models"
+    ],
+    "datasets": [
+      "STRATEGYQA",
+      "ARC CHALLENGE",
+      "DROP"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b",
+      "gpt_4"
+    ],
+    "outputs": [
+      "rationales (explanations) and answers",
+      "solutions consisting of an answer and a reasoning path"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Answer Verification"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Reasoning in Large Language Models": "Other:Reasoning in Large Language Models"
+      },
+      "explanation": "Added 'Other:Answer Verification' as a main task since the paper focuses on answer verification. Kept existing items as they are accurate."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "EXACT MATCH",
+      "RATIONALE ACCURACY",
+      "ANSWER ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Task Performance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'Task Performance' as it's not a standardized metric but rather an evaluation category. Kept the specific accuracy metrics mentioned in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "llama_2_7b"
+    ],
+    "methods": [
+      "binary validity annotation",
+      "pairwise evaluation",
+      "zero-shot evaluation",
+      "majority voting"
+    ],
+    "criteria": [
+      "Factuality",
+      "Logic"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "pairwise comparison",
+          "single evaluation (True/False)"
+        ],
+        "criteria": [
+          "Factual correctness",
+          "Logical coherence"
+        ]
+      },
+      "normalized": {
+        "Logical coherence": "logical consistency",
+        "Factual correctness": "factual correctness"
+      },
+      "explanation": "Consolidated duplicate criteria (factual correctness/logical consistency) and removed redundant method names. Kept core evaluation methods used for LLM-as-judge."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators evaluate factual errors (contradictions with supporting facts) and logical errors (irrelevant explanations or invalid conclusions)"
+    ],
+    "criteria": [
+      "Factuality",
+      "Logic"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators evaluate factual errors (contradictions with supporting facts) and logical errors (irrelevant explanations or invalid conclusions)"
+        ],
+        "criteria": [
+          "factual errors",
+          "logical errors"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "We define factual errors as reasoning that uses information contradicting the supporting facts or passage provided for the question. Logical errors are defined as reasoning that is irrelevant to a valid explanation or draws conclusions that cannot be derived from the preceding steps.",
+          "Human annotators evaluate each generated rationale for factual correctness and logical consistency against supporting facts.",
+          "The explanation should be factually correct based on the given evidence... The explanation should follow a clear and logical chain of reasoning."
+        ],
+        "criteria": [
+          "both factual and logical errors",
+          "other errors",
+          "factual correctness",
+          "logical consistency",
+          "Factual correctness",
+          "Logical coherence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Simplified guideline to a concise description of human evaluation criteria. Kept only the core error types (factual/logical errors) as criteria, removing redundant categories and LLM-specific criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on answer verification and explanation generation in reasoning tasks. The extraction quality was generally good, with minor normalization needed for consistency. The paper uses both human evaluation (manual annotation of 100 random samples) and LLM-as-judge (GPT-4) for evaluation."
+}

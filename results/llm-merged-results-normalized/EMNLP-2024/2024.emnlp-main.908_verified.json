@@ -1,0 +1,143 @@
+{
+  "paper_id": "2024.emnlp-main.908",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Jailbreak Prompt Generation"
+    ],
+    "datasets": [
+      "ADVBENCH HARMFUL BEHAVIORS DATASET",
+      "GPTFUZZER DATASET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "vicuna_13b_v_1.5",
+      "llama_2_7b_chat",
+      "gpt_3.5",
+      "gpt_4"
+    ],
+    "outputs": [
+      "jailbreak templates that integrate malicious queries as auxiliary tasks within complex scenarios to bypass LLM safety alignments",
+      "harmful responses from target LLMs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "harmful responses from target LLMs"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Jailbreak Prompt Generation"
+        ],
+        "datasets": [
+          "AdvBench"
+        ],
+        "models": [
+          "GPT-3.5-0613",
+          "GPT-3.5-1106",
+          "GPT-4-0613"
+        ]
+      },
+      "normalized": {
+        "Other: Jailbreak Prompt Generation": "Other: Jailbreak Prompt Generation",
+        "Other:Jailbreak Prompt Generation": "Other: Jailbreak Prompt Generation"
+      },
+      "explanation": "Removed duplicate task entry and simplified model versions to base names. Removed redundant 'AdvBench' dataset. Added 'harmful responses' to outputs since the paper evaluates both jailbreak template generation and the resulting harmful outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ATTACK SUCCESS RATE ASR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Top-1 ASR",
+          "Top-5 ASR"
+        ]
+      },
+      "normalized": {
+        "Attack Success Rate (ASR)": "Attack Success Rate (ASR)",
+        "Top-1 ASR": "Attack Success Rate (ASR)",
+        "Top-5 ASR": "Attack Success Rate (ASR)"
+      },
+      "explanation": "Normalized Top-1 ASR and Top-5 ASR variants to base ASR metric following simplification guidelines. These are just variations of the same Attack Success Rate metric."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "debertav_3_large",
+      "chatgpt",
+      "gpt_4"
+    ],
+    "methods": [
+      "sentence-pair classification",
+      "binary classification via prompt"
+    ],
+    "criteria": [
+      "Harmfulness",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "DeBERTaV3-large"
+        ],
+        "methods": [
+          "sentence-pair classification"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "sentence‑pair classification prompt",
+          "sentence pair classification with prompt asking if response is harmful and answers the query"
+        ],
+        "criteria": [
+          "whether the response answers the malicious request"
+        ]
+      },
+      "normalized": {
+        "sentence‑pair classification prompt": "sentence-pair classification",
+        "sentence pair classification with prompt asking if response is harmful and answers the query": "binary classification via prompt",
+        "relevance": "relevance to query"
+      },
+      "explanation": "Added DeBERTaV3-large as the primary judgment model. Simplified method descriptions. Normalized criteria and merged 'relevance' with 'relevance to query'. Removed redundant method descriptions."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The paper mentions manual labeling for training the judgment model, but this is for creating the evaluation dataset, not for evaluating the generated outputs."
+    }
+  },
+  "overall_notes": "This paper focuses on jailbreak attack generation rather than traditional NLG tasks. The primary NLG aspect is the generation of jailbreak prompts and the evaluation of resulting harmful responses. The paper uses a fine-tuned DeBERTa model as the primary judge, with GPT models used only for comparison/benchmarking. All evaluations are automatic with no human evaluation of generated outputs."
+}

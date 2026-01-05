@@ -1,0 +1,163 @@
+{
+  "paper_id": "2024.emnlp-main.527",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Other:Question Answering",
+      "Other:Data-to-Text Generation",
+      "Other:Biography Generation"
+    ],
+    "datasets": [
+      "RAGTruth",
+      "FactScore",
+      "Famous-100",
+      "Famous-100-anti",
+      "MS MARCO",
+      "CNN/Daily Mail",
+      "Yelp Open Dataset"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama 2 7B Chat",
+      "Mistral 7B Instruct"
+    ],
+    "outputs": [
+      "Long-form generated responses for tasks like summarization, question answering, data-to-text, and biography generation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Data-to-Text"
+        ],
+        "datasets": [
+          "RAGTruth (QA, Summ, Data2txt)",
+          "factscore benchmark (FS)",
+          "famous-100 (F-100)",
+          "famous-100-anti (F-100-anti)"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-4 Turbo (baseline)",
+          "AutoAIS (faithfulness judge)"
+        ],
+        "outputs": [
+          "Long-form textual responses (sentences and propositions)",
+          "freeform long responses"
+        ]
+      },
+      "normalized": {
+        "FactScore (FS)": "FactScore",
+        "Famous-100 (F-100)": "Famous-100",
+        "Famous-100-anti (F-100-anti)": "Famous-100-anti"
+      },
+      "explanation": "Removed duplicate task entry, normalized dataset names to canonical forms, removed models that are only used for evaluation (not generation), consolidated output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "AUROC",
+      "Faithfulness",
+      "Informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Faithfulness Proportion",
+          "Informativeness Count",
+          "Faithfulness proportion (prop. consistency)",
+          "Informativeness (number of propositions)",
+          "proposition-level contextual consistency"
+        ]
+      },
+      "normalized": {
+        "faithfulness": "Faithfulness",
+        "informativeness": "Informativeness"
+      },
+      "explanation": "Consolidated metric variants to base forms, removed redundant descriptions"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4-Turbo",
+      "Llama 2 13B",
+      "AutoAIS"
+    ],
+    "methods": [
+      "Span extraction for hallucination detection",
+      "Critique token scoring",
+      "AutoAIS proposition-level factchecking"
+    ],
+    "criteria": [
+      "faithfulness",
+      "contextual consistency",
+      "baseless spans",
+      "conflict spans"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "retrieval+llama+npm factcheck model"
+        ],
+        "methods": [
+          "SPANEXTRACT",
+          "CRITICTOK"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "faithfulness / contextual consistency": "contextual consistency"
+      },
+      "explanation": "Normalized method names to descriptive forms, removed redundant entries, consolidated criteria"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotate for baseless and conflict spans indicating unfaithful parts.",
+          "assign each sentence with a faithfulness label based on human-annotated baseless spans and conflict spans"
+        ],
+        "criteria": [
+          "baseless",
+          "conflict",
+          "baseless spans",
+          "conflict spans"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses pre-existing human annotations from RAGTruth dataset but does not conduct new human evaluations. The human annotations are from the original dataset creators, not conducted by this paper."
+    }
+  },
+  "overall_notes": "The paper focuses on faithfulness monitoring and decoding for retrieval-augmented generation. It uses existing human-annotated datasets but does not conduct new human evaluations. The extraction was mostly accurate but needed normalization and removal of evaluation-only models from the generation task list."
+}

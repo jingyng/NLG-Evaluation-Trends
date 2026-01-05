@@ -1,0 +1,143 @@
+{
+  "paper_id": "2022.naacl-main.6",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "DAILYDIALOG",
+      "EMPATHETICDIALOGUES",
+      "CONTEST",
+      "DECTEST"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "dialogpt",
+      "blenderbot_1.0"
+    ],
+    "outputs": [
+      "dialogue responses",
+      "multiple dialogue responses per conversation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Roberta-large MNLI",
+          "Roberta-large Combined",
+          "Roberta-large"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "dialogue generation": "Dialogue Generation",
+        "DialoGPT": "DialoGPT",
+        "BlenderBot 1.0": "BlenderBot 1.0"
+      },
+      "explanation": "Removed NLI models (Roberta variants) as they are used for evaluation metrics, not NLG. Only kept actual dialogue generation models."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "NLI DIVERSITY",
+      "SENT BERT",
+      "DISTINCT",
+      "BLEU",
+      "BERTSCORE",
+      "BERT STS",
+      "COSINE SIMILARITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BERT-STS",
+          "cosine similarity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Bert-STS"
+        ]
+      },
+      "normalized": {
+        "Baseline NLI Diversity": "NLI Diversity",
+        "Neutral NLI Diversity": "NLI Diversity",
+        "Confidence NLI Diversity": "NLI Diversity",
+        "Bert-STS": "BERT-STS",
+        "cos-sim": "cosine similarity",
+        "distinct-n": "distinct-n"
+      },
+      "explanation": "Consolidated NLI variants under 'NLI Diversity', normalized metric names, and added missing metrics mentioned in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Roberta-large (fine-tuned on MNLI)",
+          "Roberta-large (fine-tuned on multiple datasets)"
+        ],
+        "methods": [
+          "NLI classification for response pairs"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The NLI models are used within metrics, not as LLM judges evaluating outputs post-generation. This is automated metric usage, not LLM-as-judge."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rate diversity of response sets on Likert scale from 1 (not diverse at all) to 5 (very diverse)"
+    ],
+    "criteria": [
+      "Diversity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators rate diversity of response sets on Likert scale from 1 (not diverse at all) to 5 (very diverse)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators rate diversity on a Likert scale",
+          "Annotators rate the diversity of a set of responses on a Likert scale from 1 (not diverse at all) to 5 (very diverse).",
+          "annotators rate the diversity of a set of responses on a scale from 1 (not diverse at all) to 5 (very diverse)"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated multiple guideline descriptions into one clear statement. Criteria remains 'diversity' as the paper focuses on evaluating semantic diversity specifically."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating semantic diversity in dialogue generation. Extraction was generally good but included some evaluation models as NLG models. The paper uses human evaluation for diversity but no LLM-as-judge evaluation. Automatic metrics are well-documented and appropriately applied."
+}

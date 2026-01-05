@@ -1,0 +1,115 @@
+{
+  "paper_id": "2021.emnlp-main.267",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT 2019 QE tasks (En-De, En-Ru)",
+      "WMT 2018 En-Lv QE task",
+      "OPUS (OpenOffice, KDE4, EMEA, ada83, GNOME, PHP, Ubuntu)"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Russian",
+      "Latvian"
+    ],
+    "models": [
+      "Self-supervised QE model",
+      "SyntheticQE-MT",
+      "SyntheticQE-MLM",
+      "SyntheticQE-MT+MLM",
+      "uMQE",
+      "BERTScore",
+      "BERTScore++",
+      "NMT-QE",
+      "multilingual BERT"
+    ],
+    "outputs": [
+      "Word-level quality tags (OK/BAD)",
+      "Sentence-level HTER scores",
+      "Quality scores for machine-translated sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "OPUS (ada83, GNOME, PHP, Ubuntu)"
+        ],
+        "outputs": [
+          "Quality scores for machine-translated sentences"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "WMT 2019 QE (En-De, En-Ru)"
+        ],
+        "models": [
+          "Ensemble variants"
+        ]
+      },
+      "normalized": {
+        "Machine translation": "Machine Translation",
+        "multilingual BERT": "multilingual BERT",
+        "WMT 2019 QE tasks (En-De and En-Ru)": "WMT 2019 QE tasks (En-De, En-Ru)"
+      },
+      "explanation": "Consolidated duplicate dataset entries, removed vague 'Ensemble variants', added missing OPUS datasets mentioned in paper, and normalized terminology"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Pearson's correlation",
+      "F1-score"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "F1-score multiplication for OK and BAD classes"
+        ]
+      },
+      "normalized": {
+        "Pearson correlation": "Pearson's correlation",
+        "F1-score (OK/BAD) multiplication": "F1-score"
+      },
+      "explanation": "Simplified metrics to base forms - F1-score multiplication is just F1-score computation, maintained specificity on Pearson's correlation"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "Multilingual BERT"
+        ],
+        "methods": [
+          "Conditional probability calculation for masked token recovery"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since paper does NOT use LLMs as judges - multilingual BERT is used for generation/quality estimation, not evaluation judging"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation conducted in this paper - all evaluation is automated using standard QE metrics"
+    }
+  },
+  "overall_notes": "The paper focuses on Quality Estimation (QE) for Machine Translation, which involves predicting quality scores for MT outputs without references. This is an NLG evaluation method rather than generation itself. All evaluations are automated using standard QE metrics. The metadata extraction was generally accurate but needed consolidation of duplicate entries and removal of incorrect items for Q3."
+}

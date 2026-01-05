@@ -1,0 +1,127 @@
+{
+  "paper_id": "2021.inlg-1.45",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Data To Text Generation",
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "VIGGO",
+      "e2e",
+      "MULTIWOZ"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_small",
+      "t_5_base",
+      "bart_base",
+      "bart_large"
+    ],
+    "outputs": [
+      "Generated utterances from structured meaning representations",
+      "Natural language utterances from dialogue acts and slot-value pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Data-to-Text Generation"
+        ],
+        "outputs": [
+          "Natural language utterances from dialogue acts and slot-value pairs"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT-2"
+        ],
+        "outputs": [
+          "generated utterances (natural language text)"
+        ]
+      },
+      "normalized": {
+        "T5": "T5-small",
+        "BART": "BART-base",
+        "Generated utterances from structured meaning representations.": "Generated utterances from structured meaning representations",
+        "natural-language utterances from structured meaning representations": "Natural language utterances from dialogue acts and slot-value pairs"
+      },
+      "explanation": "Added 'Data-to-Text Generation' as primary task; removed GPT-2 which was only mentioned in passing; normalized model names to include size variants; improved output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE",
+      "CIDER",
+      "SER"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE-L to ROUGE as per simplification rules; kept other metrics as they are correctly identified"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No changes needed - paper does not use LLMs as judges"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators manually labeled slot mention errors as true or false positives",
+      "Calculated precision and inter-annotator agreement for slot error classification"
+    ],
+    "criteria": [
+      "Accuracy",
+      "Mention",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators manually labeled slot mention errors as true or false positives",
+          "Calculated precision and inter-annotator agreement for slot error classification"
+        ],
+        "criteria": [
+          "Semantic accuracy of slot mentions"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- To identify missed, incorrect, and repeated slot mentions",
+          "human annotators manually labeled all of the errors as true or false positives.",
+          "manually label all of the errors as true or false positives"
+        ]
+      },
+      "normalized": {
+        "missed slots": "Missed slot mentions",
+        "incorrect slots": "Incorrect slot mentions",
+        "repeated slots": "Repeated slot mentions",
+        "missed slot mentions": "Missed slot mentions",
+        "incorrect slot mentions": "Incorrect slot mentions",
+        "repeated slot mentions": "Repeated slot mentions"
+      },
+      "explanation": "Consolidated and normalized guideline descriptions; added 'Semantic accuracy of slot mentions' as overarching criterion; normalized all criteria to consistent naming"
+    }
+  },
+  "overall_notes": "The paper presents SEA-GUIDE, a novel decoding method for data-to-text NLG that uses cross-attention mechanisms to improve semantic accuracy. The extraction was generally accurate but needed some normalization and removal of incidental mentions (like GPT-2). The human evaluation was focused on validating their automated slot aligner rather than directly evaluating output quality."
+}

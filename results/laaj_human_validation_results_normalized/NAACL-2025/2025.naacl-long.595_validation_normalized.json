@@ -1,0 +1,119 @@
+{
+  "paper_id": "2025.naacl-long.595",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates their LLM-as-a-judge evaluator against human annotations on a subset of 120 episodes, calculating accuracy of the LLM evaluator against majority vote labels and reporting inter-annotator agreement metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The full prompt is available in Appendix J, contains definitions and examples of truthfulness behaviors, and follows a structured format requiring rationale"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "exact match percentage agreement",
+      "value": 0.73,
+      "interpretation": "strong inter-annotator agreement",
+      "per_criterion": [
+        {
+          "criterion": "Truthfulness classification",
+          "metric": "exact match percentage agreement (fine-grained)",
+          "value": 0.59
+        },
+        {
+          "criterion": "Truthfulness classification",
+          "metric": "exact match percentage agreement (coarse-grained)",
+          "value": 0.73
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed guidelines with definitions and examples of truthful behaviors provided in Appendix C, annotators had omniscient access to episode context"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Accuracy",
+      "F1"
+    ],
+    "shared_criteria": [
+      "coarse-grained truthfulness classification"
+    ],
+    "sample_size": {
+      "total_generated": 2160,
+      "validated_by_both": 120,
+      "notes": "Validation conducted on randomly sampled subset (120 episodes) from all generated interactions"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Accuracy",
+        "value": 0.85,
+        "criterion": "coarse-grained truthfulness classification",
+        "llm_model": "GPT-4o",
+        "significance": "Not reported",
+        "notes": "Overall accuracy against human majority vote"
+      },
+      {
+        "metric": "F1",
+        "value": 0.85,
+        "criterion": "coarse-grained truthfulness classification",
+        "llm_model": "GPT-4o",
+        "significance": "Not reported",
+        "notes": "Public Image category"
+      },
+      {
+        "metric": "F1",
+        "value": 0.8,
+        "criterion": "coarse-grained truthfulness classification",
+        "llm_model": "GPT-4o",
+        "significance": "Not reported",
+        "notes": "Benefits category"
+      },
+      {
+        "metric": "F1",
+        "value": 0.66,
+        "criterion": "coarse-grained truthfulness classification",
+        "llm_model": "GPT-4o",
+        "significance": "Not reported",
+        "notes": "Emotion category"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong/reliable",
+      "threshold_used": "85% accuracy considered reliable",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "The LLM evaluator achieves 85% accuracy against human majority vote, indicating it can be reliably used for quantitative truthfulness assessment with strong agreement across most scenarios."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "fine-grained distinction between concealment and equivocation"
+    ],
+    "shared_criteria": [
+      "truthful",
+      "partial lie",
+      "falsification"
+    ],
+    "notes": "Human evaluation used fine-grained classification while LLM used coarse-grained; validation was performed using coarse-grained categories where partial lie combined concealment and equivocation"
+  }
+}

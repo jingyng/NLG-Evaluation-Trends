@@ -1,0 +1,154 @@
+{
+  "paper_id": "2023.acl-long.76",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "SAMSUM",
+      "CONVOSUMM",
+      "TWEETSUMM",
+      "MULTIWOZ",
+      "DIALOGSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "dionysus",
+      "t_5v_1.1",
+      "pegasus",
+      "gsg*",
+      "summary_helper"
+    ],
+    "outputs": [
+      "abstractive summaries of dialogues",
+      "extractive summaries of dialogues"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "MultiWOZ",
+          "DialogSum"
+        ],
+        "languages": [],
+        "models": [
+          "Summary Helper"
+        ],
+        "outputs": [
+          "extractive summaries of dialogues"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "ConvoSumm (NYT, Reddit, StackExchange, Email)",
+          "MultiWoz"
+        ],
+        "languages": [],
+        "models": [
+          "DIONYSUS LARGE",
+          "DIONYSUS BASE",
+          "T5"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "MultiWoz": "MultiWOZ",
+        "Generated abstractive summaries of dialogues": "abstractive summaries of dialogues"
+      },
+      "explanation": "Cleaned up redundant model variants, normalized dataset names, and added missing but mentioned datasets. Also clarified both abstractive and extractive summarization outputs are generated."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "ROUGE-LSum",
+          "ROUGE1-F1",
+          "ROUGE2-F1",
+          "ROUGEL-F1",
+          "ROUGELSum-F1"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "ROUGE-LSum": "ROUGE",
+        "ROUGE1-F1": "ROUGE",
+        "ROUGE2-F1": "ROUGE",
+        "ROUGEL-F1": "ROUGE",
+        "ROUGELSum-F1": "ROUGE"
+      },
+      "explanation": "Normalized all ROUGE variants to the base form 'ROUGE' following the guideline to simplify metric variants to base form."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper. The paper uses automatic metrics and human evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants rate summaries on a scale of 1 to 5, with higher scores indicating better quality"
+    ],
+    "criteria": [
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Rate each generated summary on a 1─5 scale, where higher scores indicate better overall quality.",
+          "Participants are asked to rate the summaries on a scale of 1 to 5, with higher scores indicating better quality."
+        ],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "relevance"
+        ]
+      },
+      "normalized": {
+        "Participants rate summaries on a scale of 1 to 5.": "Participants rate summaries on a scale of 1 to 5, with higher scores indicating better quality"
+      },
+      "explanation": "Consolidated duplicate guideline descriptions and removed criteria that were not explicitly mentioned in the human evaluation section (fluency, coherence, relevance were not specified)."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on dialogue summarization and evaluates both automatically (ROUGE) and with human evaluation. No LLM-as-judge evaluation was conducted. The metadata needed some normalization and cleanup of redundant items."
+}

@@ -1,0 +1,205 @@
+{
+  "paper_id": "2025.emnlp-main.387",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "PUBMED",
+      "LAY SUMMARIZATION",
+      "ARXIV",
+      "ACLSUM",
+      "BIGPATENT",
+      "MULTI LEXSUM",
+      "GOVREPORT",
+      "BILLSUM",
+      "NEWSROOM",
+      "CNN/DailyMail",
+      "GIGAWORD",
+      "XL SUM",
+      "SAMSUM",
+      "DIALOGSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3.1_instruct_8b"
+    ],
+    "outputs": [
+      "generated summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "ACLSumm+"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "LaySumm",
+          "Big Patent",
+          "MultiLexSum",
+          "CNN / Daily-Mail",
+          "BMJ Medical Research",
+          "legal cases from India and UK",
+          "articles of current affairs from Q4 2024"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Generated summaries of articles"
+        ]
+      },
+      "normalized": {
+        "Big Patent": "BigPatent",
+        "CNN/Daily-Mail": "CNN/DailyMail",
+        "Llama 3.1 Instruct (8b)": "Llama 3.1 Instruct (8B)",
+        "generated summaries": "generated summaries"
+      },
+      "explanation": "Removed datasets only mentioned as examples/scraped holdout datasets not used in main experimental setup. Normalized model capitalization and dataset names to consistent forms. Added ACLSumm+ as it's a constructed holdout dataset."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE",
+      "FACTSCORE",
+      "VOCABULARY OVERLAP",
+      "TF IDF OVERLAP",
+      "CONTEXTUAL SIMILARITY",
+      "KL DIVERGENCE",
+      "SYNTACTIC DIFFICULTY",
+      "SHANNON ENTROPY",
+      "DOMAIN VOCABULARY OVERLAP"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Domain Vocabulary Overlap"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Coherence (GPT-4)",
+          "Readability (GPT-4)",
+          "Relevance (GPT-4)",
+          "Fluency (GPT-4)",
+          "GPT-4o-mini Coherence",
+          "GPT-4o-mini Relevance",
+          "GPT-4o-mini Readability",
+          "GPT-4o-mini Fluency",
+          "GPT-4-based evaluations"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "BERTScore Precision": "BERTScore",
+        "BERTScore Recall": "BERTScore",
+        "BERTScore F1": "BERTScore",
+        "FActScore": "FActScore",
+        "Vocabulary Overlap": "Vocabulary Overlap",
+        "TF-IDF-weighted Overlap": "TF-IDF-weighted Overlap",
+        "Contextual Similarity": "Contextual Similarity",
+        "KL Divergence": "KL Divergence",
+        "Syntactic Difficulty": "Syntactic Difficulty",
+        "Shannon Entropy": "Shannon Entropy"
+      },
+      "explanation": "Normalized metric variants to base forms (e.g., ROUGE variants to ROUGE). Removed GPT-4 based evaluation metrics as those are LLM-as-judge evaluations, not automatic metrics. Added Domain Vocabulary Overlap which was mentioned in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o_mini"
+    ],
+    "methods": [
+      "prompt-based evaluation"
+    ],
+    "criteria": [
+      "Coherence",
+      "Relevance",
+      "Readability",
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "prompt-based evaluation inspired by G-Eval",
+          "prompt-based evaluation using GPT-4o-mini (LLM-as-judge)"
+        ],
+        "criteria": [
+          "Coherence",
+          "Readability",
+          "Relevance",
+          "Fluency"
+        ]
+      },
+      "normalized": {
+        "GPT-4o-mini": "GPT-4o-mini",
+        "prompt-based evaluation": "prompt-based evaluation",
+        "Coherence": "coherence",
+        "Readability": "readability",
+        "Relevance": "relevance",
+        "Fluency": "fluency"
+      },
+      "explanation": "Simplified method descriptions and normalized criteria to lowercase. Kept only the core LLM judge model and evaluation approach."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators assigned scores between -1 and +1 reflecting summary quality relative to a reference",
+      "Annotators selected preference labels (fine-tuned, ICL, or zero-shot) based on comparative assessment"
+    ],
+    "criteria": [
+      "Quality",
+      "Preference"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "preference"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Annotators assigned scores reflecting quality relative to a reference summary and recommendation labels based on comparative assessment of summaries.",
+          "Annotators scored generated summaries on a -1 to +1 quality scale relative to a reference and selected a preference label among fine-tuned, ICL, or zero-shot summaries.",
+          "Each annotator was asked to assign a score between -1 and +1, reflecting the quality of a summary relative to a provided reference."
+        ],
+        "criteria": [
+          "overall quality score (-1 to +1)",
+          "preference label (fine-tuned, ICL, zero-shot)",
+          "quality of a summary relative to a provided reference"
+        ]
+      },
+      "normalized": {
+        "overall quality score (-1 to +1)": "overall quality",
+        "preference label (fine-tuned, ICL, zero-shot)": "preference"
+      },
+      "explanation": "Consolidated guideline descriptions into concise statements and simplified criteria names while preserving the evaluation approach described in the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on performance prediction for text summarization under domain shift and instruct-tuning. The extraction quality was generally good, but needed normalization of metrics variants and clarification between automatic metrics vs. LLM-as-judge evaluations. The paper uses both automatic metrics and LLM/human evaluations to validate their performance prediction methodology."
+}

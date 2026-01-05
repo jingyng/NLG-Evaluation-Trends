@@ -1,0 +1,61 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We focus on fine-tuning smaller language models using text annotated with causal and effect spans for causal event extraction.",
+        "tasks": [
+            "Other:Causal Event Extraction"
+        ],
+        "datasets": [
+            "FCR",
+            "FinCausal",
+            "SCITE"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "FLAN-T5",
+            "GPT-3.5",
+            "GPT-4",
+            "DeBERTa"
+        ],
+        "outputs": "Structured cause and effect spans in a tagged format"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "Traditional metrics such as exact match (EM) and token F1 rely on the idea that a correct extraction is one that completely matches the annotation. There are other automated metrics such as ROUGE, BLEU, BLEURT and BERTScore that attempt to solve this problem.",
+        "automatic_metrics": [
+            "Exact Match",
+            "Precision",
+            "Recall",
+            "F1",
+            "ROUGE-L",
+            "BLEU",
+            "BLEURT",
+            "BertScore"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "In addition, we use GPT-3.5 with or without self-consistency as additional automated evaluators for the causal event extraction task.",
+        "models": [
+            "GPT-3.5"
+        ],
+        "methods": [
+            "assess validity of extractions",
+            "self-consistency"
+        ],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We sample event extraction results from GPT-3.5 and a fine-tuned model, inviting human annotators to label the correctness of these extractions as 'valid' or 'invalid'.",
+        "guideline": "Only entries where both Cause and Effect satisfy all conditions should be considered as valid. Wording may differ between Reference and Model Output. This is fine, as long as the Model tokens come from the source text. There are no significant discrepancy between Model Output and Reference, such as numbers, subjects, time. If Cause and Effect happened to be in the same sentence but not overlapping, make sure the tokens in Cause are not included in the Effect and vice versa. In the rare cases where the Reference is obviously incorrect, ignore it and analyse the Model Output with relation to the source text only.",
+        "criteria": [
+            "tokens from source text",
+            "no significant discrepancies",
+            "non-overlapping tokens",
+            "correctness relative to source text"
+        ]
+    }
+}

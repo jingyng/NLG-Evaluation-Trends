@@ -1,0 +1,146 @@
+{
+  "paper_id": "2025.acl-long.1017",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM auto-rater judgments with both expert and user human evaluations on the same 155 conversation transcripts using Intraclass Correlation Coefficients (ICC)"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "Gemini 2.0 Flash"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full evaluation prompt template provided in appendix A.4 with detailed scoring instructions and rating scale definitions"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 31,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": "Not reported",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed survey questions and rating scales provided in appendix A.5.1; expert evaluation guidelines based on six coaching insights (I1-I6)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Intraclass Correlation Coefficient (ICC)"
+    ],
+    "shared_criteria": [
+      "Chatbot Usability (CUQ)",
+      "Working Alliance (WAI)",
+      "Client Evaluation of Motivational Interviewing (CEMI)",
+      "SMART Goal Setting"
+    ],
+    "sample_size": {
+      "total_generated": 155,
+      "validated_by_both": 155,
+      "notes": "All 155 conversation transcripts were evaluated by LLM auto-rater, human experts, and users"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Intraclass Correlation Coefficient",
+        "value": 0.52,
+        "criterion": "CUQ (Usability)",
+        "llm_model": "Gemini 2.0 Flash",
+        "significance": "Not reported",
+        "notes": "Expert vs User agreement"
+      },
+      {
+        "metric": "Intraclass Correlation Coefficient",
+        "value": 0.21,
+        "criterion": "CUQ (Usability)",
+        "llm_model": "Gemini 2.0 Flash",
+        "significance": "Not reported",
+        "notes": "Auto-rater vs User agreement"
+      },
+      {
+        "metric": "Intraclass Correlation Coefficient",
+        "value": 0.48,
+        "criterion": "WAI (Working Alliance)",
+        "llm_model": "Gemini 2.0 Flash",
+        "significance": "Not reported",
+        "notes": "Expert vs User agreement"
+      },
+      {
+        "metric": "Intraclass Correlation Coefficient",
+        "value": 0.16,
+        "criterion": "WAI (Working Alliance)",
+        "llm_model": "Gemini 2.0 Flash",
+        "significance": "Not reported",
+        "notes": "Auto-rater vs User agreement"
+      },
+      {
+        "metric": "Intraclass Correlation Coefficient",
+        "value": 0.25,
+        "criterion": "CEMI (Motivational Interviewing)",
+        "llm_model": "Gemini 2.0 Flash",
+        "significance": "Not reported",
+        "notes": "Expert vs User agreement"
+      },
+      {
+        "metric": "Intraclass Correlation Coefficient",
+        "value": 0.26,
+        "criterion": "CEMI (Motivational Interviewing)",
+        "llm_model": "Gemini 2.0 Flash",
+        "significance": "Not reported",
+        "notes": "Auto-rater vs User agreement"
+      },
+      {
+        "metric": "Intraclass Correlation Coefficient",
+        "value": 0.48,
+        "criterion": "SMART (Goal Setting)",
+        "llm_model": "Gemini 2.0 Flash",
+        "significance": "Not reported",
+        "notes": "Expert vs User agreement"
+      },
+      {
+        "metric": "Intraclass Correlation Coefficient",
+        "value": 0.41,
+        "criterion": "SMART (Goal Setting)",
+        "llm_model": "Gemini 2.0 Flash",
+        "significance": "Not reported",
+        "notes": "Auto-rater vs User agreement"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "fair agreement for ICC > 0.4, poor for < 0.4",
+      "threshold_used": "Numbers above 0.4 signify fair agreement",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM auto-raters show lower agreement with users (ICC: 0.16-0.41) compared to expert-user agreement (ICC: 0.48-0.52), performing better on objective SMART goal metrics but poorly on subjective evaluations like motivational interviewing"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Satisfaction",
+      "agent rankings",
+      "specific coaching insights (I1-I6)",
+      "preference dimensions"
+    ],
+    "shared_criteria": [
+      "Chatbot Usability (CUQ)",
+      "Alliance",
+      "Client Evaluation of Motivational Interviewing (CEMI)",
+      "SMART Goal Setting"
+    ],
+    "notes": "LLM auto-rater evaluates specific metrics (19 CUQ/WAI/CEMI/SMART questions) while human evaluation includes broader qualitative assessments and agent preference rankings not covered by LLM"
+  }
+}

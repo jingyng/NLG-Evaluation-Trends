@@ -1,0 +1,125 @@
+{
+  "paper_id": "2025.emnlp-main.1360",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM and human evaluation results on the same instances, reporting quantitative metrics of agreement and analyzing the relationship between LLM and human judgments"
+  },
+  "llm_judge_details": {
+    "num_models": 6,
+    "models": [
+      "GPT-4",
+      "PaLM2",
+      "Mistral (7B)",
+      "Llama 3 (8B)",
+      "GPT-4o",
+      "Gemini-1.5-Flash"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt templates shown in Figure in appendix; four different prompts used per model with varied terminology (premise-hypothesis, document-statement framings)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 5,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": 0.85,
+      "interpretation": "expert-level agreement after reconciliation",
+      "per_criterion": [
+        {
+          "criterion": "overall",
+          "metric": "Fleiss' kappa",
+          "value": 0.85,
+          "notes": "Experts after reconciliation"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Annotation platform layout shown in Figure; experts used Label Studio with examples presented in random order without LLM predictions"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Accuracy",
+      "F1-score",
+      "ROC AUC",
+      "Krippendorff's alpha"
+    ],
+    "shared_criteria": [
+      "factual consistency",
+      "relevance",
+      "fluency",
+      "coherence",
+      "consistency"
+    ],
+    "sample_size": {
+      "total_generated": 640,
+      "validated_by_both": 640,
+      "notes": "640 examples from four TRUE datasets (160 per dataset) formed evaluation set reannotated by both experts and LLMs"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "F1-score",
+        "value": 0.83,
+        "criterion": "overall",
+        "llm_model": "Ensemble",
+        "significance": "compared to 0.72 with original labels",
+        "notes": "With gold labels as reference"
+      },
+      {
+        "metric": "Fleiss' kappa",
+        "value": 0.706,
+        "criterion": "overall",
+        "llm_model": "GPT-4",
+        "significance": "similar to experts' reported kappa"
+      },
+      {
+        "metric": "Fleiss' kappa",
+        "value": 0.75,
+        "criterion": "overall",
+        "llm_model": "PaLM2",
+        "significance": "approaching expert-level agreement"
+      },
+      {
+        "metric": "Krippendorff's alpha",
+        "value": 0.57,
+        "criterion": "overall",
+        "llm_model": "LLMs",
+        "notes": "For SummEval ordinal labels"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong agreement",
+      "threshold_used": "High IAA scores approaching expert levels",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLMs show strong agreement with experts (\u03ba=0.706-0.75), significantly outperforming crowd workers (\u03ba=0.07), with ensemble LLMs achieving 83% F1-score when validated against expert gold labels."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Factuality",
+      "Relevance",
+      "Fluency",
+      "Coherence",
+      "Consistency"
+    ],
+    "notes": "Both LLM and human evaluation assessed the same criteria across datasets"
+  }
+}

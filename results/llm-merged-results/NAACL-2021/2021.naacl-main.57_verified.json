@@ -1,0 +1,123 @@
+{
+  "paper_id": "2021.naacl-main.57",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN-DailyMail",
+      "XSum",
+      "Reddit_tifu",
+      "BigPatent"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART",
+      "BART-large",
+      "WikiTransfer",
+      "Pegasus"
+    ],
+    "outputs": [
+      "abstractive summaries",
+      "extractive summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "CNNDM"
+        ],
+        "languages": [
+          "German",
+          "Russian"
+        ],
+        "models": [],
+        "outputs": [
+          "summaries"
+        ]
+      },
+      "normalized": {
+        "CNNDM": "CNN-DailyMail",
+        "abstractive and extractive summaries": "abstractive summaries, extractive summaries"
+      },
+      "explanation": "Removed 'CNNDM' as it's a duplicate of CNN-DailyMail. Removed German and Russian as they are only used for data augmentation (round-trip translation) but the generated outputs are in English. Split 'abstractive and extractive summaries' into separate items for clarity."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized all ROUGE variants (ROUGE-1, ROUGE-2, ROUGE-L) to the base form 'ROUGE' following the simplification rule."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges for evaluation. The paper uses human evaluation and automatic metrics, but no LLM-based evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators see the source article and randomly-ordered model outputs and rate each summary for relevance and consistency on a Likert scale from 1 to 5, with 5 being the best score"
+    ],
+    "criteria": [
+      "relevance",
+      "consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The extracted metadata is accurate. The paper explicitly describes human evaluation with two annotators rating summaries on relevance and consistency using a 1-5 Likert scale."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on abstractive text summarization using the WikiTransfer method with BART models. It evaluates on four datasets using ROUGE metrics and conducts human evaluation on relevance and consistency. The paper mentions German and Russian only for round-trip translation data augmentation, but the generated summaries are in English."
+}

@@ -1,0 +1,127 @@
+{
+  "paper_id": "2025.emnlp-main.1187",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation"
+    ],
+    "datasets": [
+      "RECCEVAL",
+      "CCEVAL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "codet_5p_220m",
+      "qwen_3_8b",
+      "qwen_3_0.6b",
+      "codegen_350m",
+      "santacoder_1.1b",
+      "starcoder_2_3b",
+      "qwen_2.5_coder_7b"
+    ],
+    "outputs": [
+      "code snippets",
+      "code completions"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "CodeGen-350M",
+          "SantaCoder-1.1B",
+          "StarCoder2-3B",
+          "Qwen2.5-Coder-7B"
+        ],
+        "outputs": [
+          "code completions"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "CodeT5p-220m": "CodeT5p-220M",
+        "Qwen3-0.6B": "Qwen3-0.6B",
+        "generated code snippets": "code snippets",
+        "code snippets/completions": "code snippets"
+      },
+      "explanation": "Normalized model capitalization (e.g., 'CodeT5p-220M'), added missing code LLM models used for generation, and consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT MATCH",
+      "EDIT SIMILARITY",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Identifier Exact Match (EM)",
+          "Identifier F1"
+        ]
+      },
+      "normalized": {
+        "Identifier Exact Match (EM)": "Exact Match",
+        "Identifier F1": "F1",
+        "ES": "Edit Similarity",
+        "EM": "Exact Match"
+      },
+      "explanation": "Removed redundant 'Identifier' variants since identifiers are part of overall code matching; simplified to base metric names."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [
+      "qwen_3_8b"
+    ],
+    "methods": [
+      "BESTFIT reranking"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "heap sort with LLM as comparator"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed 'heap sort with LLM as comparator' as it's an implementation detail, not a distinct method. The LLM (Qwen3-8B) is used for reranking retrieved code pieces, not for judging generated outputs after completion, so answer remains 'No'."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on repository-level code completion using retrieval-augmented generation. All evaluations are automatic using code match metrics. The LLM (Qwen3-8B) is used for reranking during retrieval, not for judging generated outputs post-generation."
+}

@@ -1,0 +1,143 @@
+{
+  "paper_id": "2024.emnlp-main.352",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Entity Matching With Explanation Generation"
+    ],
+    "datasets": [
+      "ABT BUY",
+      "AMAZON GOOGLE",
+      "WALMART AMAZON",
+      "BEER",
+      "ITUNES AMAZON",
+      "WDC COMPUTERS",
+      "WDC CAMERAS",
+      "WDC WATCHES",
+      "WDC SHOES"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "flan_t_5_base",
+      "mistral_7b_instruct",
+      "alpaca",
+      "gpt_4"
+    ],
+    "outputs": [
+      "classification labels (match/no match) with natural language explanations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Entity Matching Generation",
+          "Other:Entity Matching"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Mistral-7B",
+          "DITTO",
+          "Flan-T5"
+        ],
+        "outputs": [
+          "binary match label (\"Match\"/\"Not\") and natural language explanation (rationale) for each entity pair",
+          "match or no match with natural language explanations"
+        ]
+      },
+      "normalized": {
+        "Other:Entity Matching and Explanation Generation": "Other:Entity Matching with Explanation Generation",
+        "Flan-T5": "Flan-T5-base"
+      },
+      "explanation": "Consolidated tasks to single entity matching with explanation generation, removed non-generative models (DITTO), normalized model names, simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F-1 score"
+        ]
+      },
+      "normalized": {
+        "F-1": "F1",
+        "F-1 score": "F1"
+      },
+      "explanation": "Normalized F-1 variations to F1, kept only the main automatic metric used"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges for evaluation - they were only used for generating explanations during training"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators were asked two factuality questions: (1) Is the explanation fully derivable from the input entities and their corresponding matching label? (Intrinsic Errors) (2) Does the explanation contain information in excess of the entity descriptions and their corresponding matching labels? (Extrinsic Errors)"
+    ],
+    "criteria": [
+      "Factuality",
+      "Error"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "factuality"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "intrinsic errors",
+          "extrinsic errors",
+          "Intrinsic Errors",
+          "Extrinsic Errors"
+        ]
+      },
+      "normalized": {
+        "intrinsic errors": "intrinsic errors",
+        "extrinsic errors": "extrinsic errors",
+        "Intrinsic Errors": "intrinsic errors",
+        "Extrinsic Errors": "extrinsic errors"
+      },
+      "explanation": "Added 'factuality' as overarching criterion, normalized error types to lowercase, consolidated redundant descriptions"
+    }
+  },
+  "overall_notes": "The paper focuses on entity matching as a conditional generation task where models generate both match/no-match labels and natural language explanations. The main NLG contribution is the explanation generation aspect. Human evaluation focused on factuality of generated explanations. The extraction was reasonably accurate but needed some consolidation and normalization."
+}

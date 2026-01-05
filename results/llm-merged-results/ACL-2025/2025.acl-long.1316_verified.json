@@ -1,0 +1,184 @@
+{
+  "paper_id": "2025.acl-long.1316",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Generation",
+      "Other:Question Answering",
+      "Other:Instruction Generation",
+      "Code Generation"
+    ],
+    "datasets": [
+      "LongMIT",
+      "LongBench",
+      "HotpotQA",
+      "MuSiQue",
+      "2WikiMQA",
+      "NQ",
+      "DuReader",
+      "IFEval",
+      "ArenaHard"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "Qwen2-72B-Instruct",
+      "InternLM2-20B",
+      "GPT-4o",
+      "GPT-4o-mini",
+      "Gemini-1.5-Pro",
+      "LLaMA3-8B"
+    ],
+    "outputs": [
+      "multi-hop question-answer pairs",
+      "instruction-tuning data",
+      "code generation queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Code Generation"
+        ],
+        "outputs": [
+          "code generation queries"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Instruction Tuning"
+        ],
+        "outputs": [
+          "instruction data including questions and answers",
+          "The paper generates multi-hop question-answer pairs and instruction-tuning data for long-context scenarios, including code-related QA pairs."
+        ]
+      },
+      "normalized": {
+        "Other:Instruction Generation": "Other:Instruction Generation",
+        "Other:Question Generation": "Other:Question Generation",
+        "Other:Question Answering": "Other:Question Answering"
+      },
+      "explanation": "Removed 'Other:Instruction Tuning' as it's not a generation task but a training method. Added 'Code Generation' based on explicit mention in Appendix G. Simplified output descriptions to be more concise."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "precision",
+      "kappa coefficient",
+      "retention ratio",
+      "average score",
+      "accuracy",
+      "multi-hop ratio",
+      "high-quality ratio",
+      "non-duplicative ratio",
+      "Token F1"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "kappa",
+          "retention rate"
+        ]
+      },
+      "normalized": {
+        "kappa": "kappa coefficient",
+        "retention rate": "retention ratio",
+        "Kappa coefficient": "kappa coefficient"
+      },
+      "explanation": "Consolidated duplicate metrics (kappa/kappa coefficient, retention ratio/retention rate) and removed redundant entries."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "InternLM2-20B",
+      "Qwen2-72B-Instruct",
+      "GPT-4o",
+      "GPT-4o-mini",
+      "Gemini-1.5-Pro"
+    ],
+    "methods": [
+      "scoring",
+      "classification",
+      "rationale-based evaluation"
+    ],
+    "criteria": [
+      "relevance to document",
+      "clarity",
+      "factual accuracy",
+      "logical coherence",
+      "complexity",
+      "commonsense logic",
+      "in-document verification",
+      "multi-hop reasoning"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "multi-hop reasoning"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "relevance": "relevance to document",
+        "in-document verification": "in-document verification"
+      },
+      "explanation": "Added 'multi-hop reasoning' criterion based on explicit mention in the quality verification prompt. Kept all other criteria as they are explicitly mentioned."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluate samples based on diversity, multi-hop reasoning, and high-quality standards",
+      "Annotators rate overall data quality based on logical rationality and fluency, question complexity, and answer clarity (0-10 scale)",
+      "Annotators judge sample precision and reliability, minimizing errors"
+    ],
+    "criteria": [
+      "diversity",
+      "multi-hop",
+      "high-quality",
+      "logical rationality",
+      "fluency",
+      "question complexity",
+      "answer clarity",
+      "precision",
+      "reliability"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "precision",
+          "reliability"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "High-quality",
+          "Diversity",
+          "Multi-hop",
+          "relevance",
+          "clarity",
+          "factual accuracy",
+          "logical coherence",
+          "complexity",
+          "commonsense logic"
+        ]
+      },
+      "normalized": {
+        "logical rationality and fluency": [
+          "logical rationality",
+          "fluency"
+        ]
+      },
+      "explanation": "Removed criteria that were actually part of LLM-as-judge evaluation (from Q3) and kept only human evaluation criteria. Added 'precision' and 'reliability' based on human evaluation description."
+    }
+  },
+  "overall_notes": "The paper focuses on generating high-quality multi-hop instruction data using a multi-agent framework. It extensively evaluates both the data generation process and the resulting models using automatic metrics, LLM-as-judge evaluation, and human evaluation. The extraction was generally accurate but needed some normalization and separation of evaluation criteria between human and LLM evaluation."
+}

@@ -1,0 +1,179 @@
+{
+  "paper_id": "2022.emnlp-main.715",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "ConvAI2",
+      "DailyDialog",
+      "Controllable Dialogue",
+      "FED",
+      "DSTC9",
+      "ActDial"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "RoBERTa-large",
+      "ActBERT",
+      "DialoGPT",
+      "DialoGPT-large",
+      "BERT"
+    ],
+    "outputs": [
+      "dialogues",
+      "dialogue evaluation scores",
+      "segment act annotations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "ActDial"
+        ],
+        "languages": [],
+        "models": [
+          "BERT"
+        ],
+        "outputs": [
+          "segment act annotations",
+          "dialogue evaluation scores"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Controllable Dialogue dataset",
+          "FED dataset",
+          "DSTC9 dataset"
+        ],
+        "languages": [],
+        "models": [
+          "three generative models (unspecified)"
+        ],
+        "outputs": [
+          "generated dialogues"
+        ]
+      },
+      "normalized": {
+        "DialoGPT-large": "DialoGPT-large",
+        "ConvAI2": "ConvAI2",
+        "DailyDialog": "DailyDialog"
+      },
+      "explanation": "Added ActDial dataset created in the paper. Removed redundant dataset names with 'dataset' suffix. Removed vague 'three generative models' and replaced with specific models mentioned. Added BERT which is used for feature extraction. Normalized outputs to be more precise about what the paper generates and evaluates."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "BERTScore",
+      "FlowEval",
+      "FED",
+      "DynaEval",
+      "Flow",
+      "METEOR",
+      "Consensus-BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Flow score",
+          "FED metric"
+        ]
+      },
+      "normalized": {
+        "FED metric": "FED",
+        "Flow score": "Flow",
+        "Consensus BERTScore": "Consensus-BERTScore"
+      },
+      "explanation": "Normalized 'Flow score' to 'Flow' and 'FED metric' to 'FED' for consistency. Merged 'Consensus BERTScore' variants."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa-large",
+          "ActBERT",
+          "DialoGPT-large"
+        ],
+        "methods": [
+          "BERTScore",
+          "FlowEval scoring",
+          "Consensus BERTScore"
+        ],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "segment act consistency",
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as the paper does NOT use LLMs as judges. The models listed are used for feature extraction and generation, not for evaluation judgments. The criteria mentioned were not used by LLMs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Crowd-workers evaluate full multi-turn conversations on Amazon Mechanical Turk",
+      "Evaluation includes binary-choice questions for specific aspects and Likert scale for overall quality",
+      "Turkers must pass qualification criteria and read detailed guidelines"
+    ],
+    "criteria": [
+      "relevancy",
+      "avoiding contradiction",
+      "avoiding repetition",
+      "persona consistency",
+      "overall quality",
+      "topic shift"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Turkers must pass qualification criteria and read detailed guidelines"
+        ],
+        "criteria": [
+          "topic shift"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "irrelevant response",
+          "contradiction",
+          "repetitive response",
+          "topic shifts"
+        ]
+      },
+      "normalized": {
+        "avoiding contradiction": "avoiding contradiction",
+        "avoiding repetition": "avoiding repetition",
+        "persona consistency": "persona consistency",
+        "topic shifts": "topic shift"
+      },
+      "explanation": "Consolidated criteria names and removed redundant variations. Added missing guideline details about qualification process. Normalized 'topic shifts' to 'topic shift'."
+    }
+  },
+  "overall_notes": "The paper focuses on dialogue evaluation framework development rather than generation model improvement. The NLG aspect comes from evaluating dialogues generated by various models. The extraction was generally accurate but needed normalization and removal of some incorrect items for Question 3. The human evaluation section is well-documented with clear criteria."
+}

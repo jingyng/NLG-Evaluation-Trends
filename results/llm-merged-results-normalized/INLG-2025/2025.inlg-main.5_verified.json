@@ -1,0 +1,167 @@
+{
+  "paper_id": "2025.inlg-main.5",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Counterfactual Generation"
+    ],
+    "datasets": [
+      "AG NEWS",
+      "sst2",
+      "SNLI"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_2.5_14b",
+      "qwen_2.5_32b",
+      "llama_3_8b",
+      "llama_3_70b",
+      "fizle",
+      "flare"
+    ],
+    "outputs": [
+      "counterfactual examples"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Qwen2.5-{14B,32B}",
+          "Llama3-{8B,70B}"
+        ],
+        "outputs": [
+          "generated counterfactual texts"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'Paraphrase Generation' as paper focuses specifically on counterfactual generation. Removed abbreviated model notations like 'Qwen2.5-{14B,32B}' and simplified outputs to 'counterfactual examples' for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "LABEL FLIP RATE",
+      "F1",
+      "ACCURACY",
+      "SPEARMAN CORRELATION",
+      "COHEN"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1",
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Classification Accuracy",
+          "Spearman correlation coefficient",
+          "label flip rate (LFR)"
+        ]
+      },
+      "normalized": {
+        "Label Flip Rate (LFR)": "Label Flip Rate",
+        "classification accuracy": "Accuracy",
+        "Spearman correlation coefficient": "Spearman correlation"
+      },
+      "explanation": "Normalized metric names to base forms, added F1 and Accuracy mentioned in downstream evaluation, and removed duplicate metric references."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "bert",
+      "roberta",
+      "phi_4_14b",
+      "Mistral-Large-Instruct",
+      "deepseek_r_1_distill_qwen",
+      "DeepSeek-R1-Distill-Llama",
+      "gemini_1.5_pro",
+      "llama_3_8b",
+      "llama_3_70b",
+      "qwen_2.5_14b",
+      "qwen_2.5_32b",
+      "qwen_2.5_72b"
+    ],
+    "methods": [
+      "classification via prompting",
+      "zero-shot prompting",
+      "majority voting"
+    ],
+    "criteria": [
+      "Detection"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Qwen2.5-72B"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "DeepSeek-R1-Distill-{Qwen,Llama}"
+        ],
+        "methods": [
+          "prompt-based classification of counterfactuals to predict their label"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "DeepSeek-R1-Distill-{Qwen,Llama}": "DeepSeek-R1-Distill-Qwen, DeepSeek-R1-Distill-Llama"
+      },
+      "explanation": "Expanded abbreviated model name, simplified method description, and added Qwen2.5-72B explicitly mentioned as a judge model."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Select the optimal label for the counterfactual from the predefined labels of the dataset",
+      "For AG News: classify into world, sports, business, or science/technology",
+      "For SST2: classify into positive or negative",
+      "For SNLI: classify into neutral, contradiction, or entailment",
+      "Each counterfactual evaluated by at least two annotators"
+    ],
+    "criteria": [
+      "Selection"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Each counterfactual evaluated by at least two annotators"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "You're given an input from the AG News dataset for article topic classification. You should classify it into one of the following categories: 'world', 'sports', 'business', or 'science/technology'. Output the category only!"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "Annotators were instructed to read each counterfactual and choose the most appropriate label from the predefined set; annotation guidelines and instructions were provided in Appendix E": "Select the optimal label for the counterfactual from the predefined labels of the dataset"
+      },
+      "explanation": "Consolidated guideline descriptions, removed redundant prompt examples, and added information about multiple annotators per instance."
+    }
+  },
+  "overall_notes": "Extraction was generally accurate but included some redundant items and abbreviated notations. The paper focuses on counterfactual generation for data augmentation, with comprehensive evaluation using both automatic metrics and human studies. All yes/no answers were verified as correct."
+}

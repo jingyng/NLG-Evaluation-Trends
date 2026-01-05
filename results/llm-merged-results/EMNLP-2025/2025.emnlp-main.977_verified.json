@@ -1,0 +1,189 @@
+{
+  "paper_id": "2025.emnlp-main.977",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Molecular Captioning",
+      "Machine Translation"
+    ],
+    "datasets": [
+      "CHEBI-20",
+      "MolErr2Fix"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o",
+      "O3-mini",
+      "Claude-3.7-Sonnet",
+      "Gemini-1.5",
+      "MolT5-HIGH",
+      "ChemLLM-chat",
+      "LlaSMol",
+      "GPT-4",
+      "Qwen1-72B",
+      "Gemini-2.0-Flash",
+      "DeepSeek-chat",
+      "Grok-3",
+      "O4-mini",
+      "DeepSeek-reasoner",
+      "ChemLLM-chat-DPO"
+    ],
+    "outputs": [
+      "molecular descriptions from SMILES representations",
+      "error detection predictions",
+      "localized error spans",
+      "error explanations",
+      "corrected molecular descriptions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-4",
+          "Qwen1-72B",
+          "Gemini-2.0-Flash",
+          "DeepSeek-chat",
+          "Grok-3",
+          "O4-mini",
+          "DeepSeek-reasoner",
+          "ChemLLM-chat-DPO"
+        ],
+        "outputs": [
+          "error detection predictions",
+          "localized error spans",
+          "error explanations"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Molecular captioning",
+          "Other:molecular captioning"
+        ],
+        "datasets": [
+          "MolCap-Arena"
+        ],
+        "languages": [],
+        "models": [
+          "MOLT5-HIGH",
+          "gpt-4o"
+        ],
+        "outputs": [
+          "textual molecular descriptions, error spans, explanations, corrected captions"
+        ]
+      },
+      "normalized": {
+        "CLAUDE-SONNET 3.7": "Claude-3.7-Sonnet",
+        "GEMINI 1.5": "Gemini-1.5",
+        "o3-mini": "O3-mini",
+        "o4-mini": "O4-mini",
+        "MOLERR2FIX": "MolErr2Fix",
+        "Molecular descriptions, error explanations, corrections.": "molecular descriptions from SMILES representations",
+        "textual descriptions of molecules from SMILES representations": "molecular descriptions from SMILES representations"
+      },
+      "explanation": "Consolidated tasks to remove duplicates, removed MolCap-Arena (mentioned but not used for evaluation), normalized model names, added missing models from evaluation section, clarified outputs to include all NLG tasks evaluated"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Precision",
+      "Recall",
+      "F1 Score",
+      "Intersection-over-Union",
+      "BLEU",
+      "GPT Score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Intersection-over-Union"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Recall@IoU≥0.5",
+          "Recall@IoU≥0.7",
+          "Average IoU",
+          "GPTScore",
+          "F1",
+          "IoU",
+          "ROUGE",
+          "Recall@IoU≥ τ"
+        ]
+      },
+      "normalized": {
+        "Intersection-over-Union (IoU)": "Intersection-over-Union"
+      },
+      "explanation": "Simplified IoU variants to base form, removed F1 and IoU as redundant duplicates, removed ROUGE (mentioned but not used in evaluation), kept only metrics actually used for NLG output evaluation"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "semantic equivalence evaluation"
+    ],
+    "criteria": [
+      "semantic equivalence"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "semantic equivalence evaluation using GPT-4o",
+          "GPTScore",
+          "semantic equivalence assessment"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "semantic equivalence evaluation using GPT-4o": "semantic equivalence evaluation"
+      },
+      "explanation": "Consolidated methods to remove redundant descriptions, kept only GPT-4o as explicit LLM judge"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [
+      "annotation workflow for expert verification of chemical accuracy"
+    ],
+    "criteria": [
+      "Error Localization",
+      "Error Classification",
+      "Error Explanation",
+      "Error Correction"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "annotation workflow for expert verification of chemical accuracy"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Guided by predefined annotation criteria and workflows, these experts systematically analyzed the LLM-generated captions against the corresponding molecular structures. For each identified discrepancy, their annotation pipeline comprised of the four key tasks: Error Localization, Error Classification, Error Explanation, and Error Correction."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Simplified guideline to concise description, kept criteria as is since they represent the evaluation dimensions used during dataset annotation (not evaluation of generated outputs)"
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating LLMs' chemical reasoning through error detection and correction tasks in molecular captioning. Human evaluations were used for dataset creation and validation, but not for evaluating the generated outputs from LLMs. The paper extensively uses automatic metrics and GPT-4o as an evaluator for semantic correctness."
+}

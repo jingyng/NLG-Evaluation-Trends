@@ -1,0 +1,178 @@
+{
+  "paper_id": "2024.naacl-long.462",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Llm Response Evaluation",
+      "Constrained Story Generation",
+      "Llm Evaluation"
+    ],
+    "datasets": [
+      "MT-Bench",
+      "COMMONGEN"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b_chat",
+      "vicuna_33b",
+      "llama_2_70b_chat",
+      "gpt_4"
+    ],
+    "outputs": [
+      "LLM response evaluations",
+      "Constrained stories with specific concepts",
+      "Preference judgments between LLM responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "CommonGen variant"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Constrained Text Generation": "Other:Constrained Story Generation",
+        "Other:Story Generation": "Other:Constrained Story Generation",
+        "LLaMA-2-70B-c": "LLaMA-2-70B-chat"
+      },
+      "explanation": "Normalized task names to be more specific, removed duplicate dataset reference, and standardized model naming"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "LLM HUMAN AGREEMENT",
+      "POSITION BIAS",
+      "LENGTH BIAS",
+      "SELF ENHANCEMENT BIAS",
+      "ALL PRESENT",
+      "MISSING CONCEPTS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Metrics were correctly extracted. These are task-specific metrics rather than standard NLG metrics like BLEU or ROUGE."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "llama_2_70b_chat",
+      "llama_2_7b_chat",
+      "vicuna_33b"
+    ],
+    "methods": [
+      "Branch-Solve-Merge",
+      "pairwise evaluation",
+      "per-criterion scoring",
+      "zero-shot prompting",
+      "plan&solve prompting",
+      "self-consistency"
+    ],
+    "criteria": [
+      "Relevance",
+      "Clarity",
+      "Engagement",
+      "Accuracy",
+      "Originality",
+      "Grammaticality",
+      "Coherence",
+      "Correctness",
+      "Readability",
+      "Efficiency",
+      "Completeness",
+      "Adherence",
+      "Fluency",
+      "Helpfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Branch-Solve-Merge"
+        ],
+        "criteria": [
+          "grammaticality",
+          "coherence",
+          "fluency",
+          "helpfulness"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "branch/solve/merge evaluation"
+        ],
+        "criteria": [
+          "creativity",
+          "grammar",
+          "readability"
+        ]
+      },
+      "normalized": {
+        "branch/solve/merge evaluation": "Branch-Solve-Merge",
+        "LLaMA-2-70B-c": "LLaMA-2-70B-chat",
+        "creativity": "originality",
+        "grammar": "grammaticality"
+      },
+      "explanation": "Normalized the main method name to 'Branch-Solve-Merge', standardized model naming, consolidated similar criteria (creativity→originality, grammar→grammaticality), and added missing criteria from the evaluation prompts"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Expert human judges evaluate which of two LLM responses is better or if it's a tie",
+      "Human judgments based on criteria such as relevance, clarity, engagement, accuracy, and originality"
+    ],
+    "criteria": [
+      "Relevance",
+      "Clarity",
+      "Accuracy",
+      "Correctness",
+      "Creativity",
+      "Engagement",
+      "Originality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "accuracy",
+          "code correctness",
+          "creativity"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "creativity": "originality"
+      },
+      "explanation": "Added missing criteria mentioned in the paper and normalized creativity to originality for consistency"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper evaluates LLMs as evaluators of NLG outputs (meta-evaluation) and also evaluates constrained story generation. The automatic metrics used are task-specific rather than traditional NLG metrics. The paper uses both human evaluation and LLM-as-judge methodologies extensively."
+}

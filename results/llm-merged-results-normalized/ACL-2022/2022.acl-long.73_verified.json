@@ -1,0 +1,147 @@
+{
+  "paper_id": "2022.acl-long.73",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "DUCLARIFYDIAL"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "ubar",
+      "mintl",
+      "plato",
+      "plato_mt"
+    ],
+    "outputs": [
+      "dialogue responses",
+      "dialog states",
+      "dialog acts"
+    ],
+    "changes_made": {
+      "added": {
+        "outputs": [
+          "dialog states",
+          "dialog acts"
+        ]
+      },
+      "removed": {
+        "outputs": [
+          "generated dialog responses",
+          "generated dialog responses / utterances",
+          "dialog responses"
+        ]
+      },
+      "normalized": {
+        "Dialogue Generation": "Dialogue Generation"
+      },
+      "explanation": "Added missing NLG outputs mentioned in the paper (dialog states and dialog acts) and consolidated output descriptions. The yes/no answer was correct."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "CIDER",
+      "DISTINCT",
+      "SLOT ACCURACY",
+      "JOINT GOAL ACCURACY",
+      "DIALOG ACT ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Slot Acc.",
+          "Joint Acc.",
+          "Act Acc.",
+          "BLEU-1",
+          "BLEU-2",
+          "BLEU-1/2",
+          "CIDER",
+          "Distinct-1",
+          "Distinct-2"
+        ]
+      },
+      "normalized": {
+        "BLEU-1": "BLEU",
+        "BLEU-2": "BLEU",
+        "BLEU-1/2": "BLEU",
+        "CIDER": "CIDEr",
+        "Distinct-1": "Distinct",
+        "Distinct-2": "Distinct",
+        "Slot Acc.": "Slot Accuracy",
+        "Joint Acc.": "Joint Goal Accuracy",
+        "Act Acc.": "Dialog Act Accuracy"
+      },
+      "explanation": "Normalized all metric variants to their base forms (BLEU-1/2 → BLEU, Distinct-1/2 → Distinct, CIDER → CIDEr) and used full names for accuracy metrics. The yes/no answer was correct."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was used in this paper. The paper only uses LLMs as generation models, not for evaluation. The yes/no answer was correct."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three annotators evaluated generated responses at turn-level for appropriateness and informativeness, and at dialog-level for hallucination and success"
+    ],
+    "criteria": [
+      "Appropriateness",
+      "Informativeness",
+      "Hallucination",
+      "Success"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three annotators evaluated generated responses at turn-level for appropriateness and informativeness, and at dialog-level for hallucination and success"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "dialog success"
+        ]
+      },
+      "normalized": {
+        "dialog success": "success"
+      },
+      "explanation": "Added a clear guideline description based on the paper text and normalized criteria by removing redundancy. The yes/no answer was correct."
+    }
+  },
+  "overall_notes": "The original extraction was generally accurate. The paper evaluates dialogue generation (both end-to-end and modular approaches) using both automatic metrics and human evaluation. Key contributions include the DuClarifyDial dataset and the PLATO-MT model with prompt-based continual learning. No LLM-as-judge evaluation was used."
+}

@@ -1,0 +1,158 @@
+{
+  "paper_id": "2020.acl-main.456",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Stylistic Headline Generation"
+    ],
+    "datasets": [
+      "NEW YORK TIMES NYT",
+      "CNN",
+      "BOOKCORPUS HUMOR AND ROMANCE",
+      "THE EXAMINER SPAMCLICKBAIT NEWS CLICKBAIT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "titlestylist",
+      "mass",
+      "nhg",
+      "nst",
+      "fine_tuned",
+      "multitask"
+    ],
+    "outputs": [
+      "Headlines with controlled styles (humorous, romantic, clickbait)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Fine-Tuned",
+          "Multitask"
+        ],
+        "outputs": [
+          "Headlines with controlled styles (humorous, romantic, clickbait)"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "NYT (56K abstracts‑headlines)",
+          "CNN (90K abstracts‑headlines)",
+          "Humor corpus (500K sentences from BookCorpus)",
+          "Romance corpus (500K sentences from BookCorpus)",
+          "Clickbait corpus (500K headlines from Examiner‑SpamClickBait)"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-2 (medium) for fluency evaluation"
+        ],
+        "outputs": [
+          "headlines",
+          "headlines"
+        ]
+      },
+      "normalized": {
+        "Other:Stylistic Headline Generation": "Other: Stylistic Headline Generation",
+        "BookCorpus (for humor and romance)": "BookCorpus (humor and romance)",
+        "The Examiner -SpamClickBait News dataset": "The Examiner-SpamClickBait News (clickbait)"
+      },
+      "explanation": "Removed redundant dataset specifications (details like corpus sizes are not needed), normalized names, added other baseline models mentioned in experiments, and clarified output description. GPT-2 was only used for evaluation, not generation, so removed from models list."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE",
+      "CIDER",
+      "PERPLEXITY PPL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "PPL"
+        ]
+      },
+      "normalized": {
+        "Perplexity (PPL)": "Perplexity (PPL)",
+        "PPL": "Perplexity (PPL)"
+      },
+      "explanation": "Consolidated duplicate PPL entries and normalized metric names to standard forms."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Correctly indicates no LLM-as-judge usage. Removed placeholder 'None' entries as they are not valid items."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluated relevance, attractiveness, and fluency on a Likert scale from 1 to 10",
+      "For style strength, annotators selected headlines conforming to target styles",
+      "Human raters were native English speakers"
+    ],
+    "criteria": [
+      "Relevance",
+      "Attractiveness",
+      "Fluency",
+      "Strength"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human raters were native English speakers"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "human raters are asked to evaluate these outputs on the first three aspects, relevance, attractiveness, and language fluency on a Likert scale from 1 to 10 (integer values)... another independent human evaluation task about the style strength - we present the generated headlines from TitleStylist and baselines to the human judges and let them choose the one that most conforms to the target style such as humor."
+        ],
+        "criteria": [
+          "language fluency"
+        ]
+      },
+      "normalized": {
+        "language fluency": "fluency"
+      },
+      "explanation": "Consolidated and normalized guideline descriptions, normalized 'language fluency' to 'fluency', and added information about annotators being native speakers."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper clearly addresses NLG (headline generation with style control), uses standard automatic metrics, conducts extensive human evaluation, but does not use LLMs as judges (published in 2020 before this practice became common). The main improvements were normalizing names, removing redundant details, and ensuring terminology consistency."
+}

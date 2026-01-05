@@ -1,0 +1,115 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We conduct experiments with five LLMs on five benchmarks to validate the generalizability of MARKERGEN, covering cross-task (summarization, story generation, QA, heuristic generation), cross-scale (from 10+ to 1000+ words), cross-lingual (English and Chinese) and crossgranularity (precise and rough constraints) settings.",
+            "We conduct experiments with five LLMs on five benchmarks to validate the generalizability of MARKERGEN, covering cross-task (summarization, story generation, QA, heuristic generation)...",
+            "As a fundamental attribute of text generation, ensuring controllability over text length is of great importance."
+        ],
+        "tasks": [
+            "Text Summarization",
+            "Other:Story Generation",
+            "Other:Question Answering",
+            "Other:Heuristic Generation",
+            "Other:story generation",
+            "Other:QA",
+            "Other:heuristic generation"
+        ],
+        "datasets": [
+            "CNN/DailyMail",
+            "HANNA",
+            "TruthfulQA",
+            "Heuristic Generation",
+            "GAOKAO-Bench",
+            "HelloBench",
+            "GAOKAO"
+        ],
+        "languages": [
+            "English",
+            "Chinese"
+        ],
+        "models": [
+            "Qwen2.5-7B-Instruct",
+            "Qwen2.5-14B-Instruct",
+            "Qwen2.5-32B-Instruct",
+            "Llama-3.1-8B-Instruct",
+            "Llama-3.1-70B-Instruct",
+            "Qwen2.5-7B/14B/32B-Instruct",
+            "Llama-3.1-8B/70B-Instruct",
+            "GPT-4o mini",
+            "Gemini-2.0 Flash"
+        ],
+        "outputs": [
+            "Generated text (summaries, stories, answers, etc.) with controlled length",
+            "Generated texts that satisfy precise or range-based length constraints",
+            "generated summaries, stories, answers to open-ended questions, and heuristic texts with controlled length"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Experimental results demonstrate that under precise length constraints, MARKERGEN re-duces length errors by 12.57% compared to baselines (with an average absolute error of 5.57%) ... In range-based length constraints, MARKERGEN achieves a 99% acceptance rate...",
+            "We use GPT-4o mini as the judge to evaluate text quality, reporting S (quality score) and E (length error rate). We also define Precise Match (PM) and Flexible Match (FM) as evaluation metrics.",
+            "We experiment under coarse-grained length constraints on the Openended QA subset of HelloBench and assess the LCTG error rate under precise length constraints on other benchmarks, following Eq. ( )."
+        ],
+        "automatic_metrics": [
+            "Length Error (E)",
+            "Violation Rate (E_r)",
+            "Precise Match (PM)",
+            "Flexible Match (FM)",
+            "Acceptance Rate",
+            "E (length error rate)",
+            "S (quality score)",
+            "Precise Match",
+            "Flexible Match",
+            "win-rate",
+            "LCTG error rate",
+            "absolute error in word count",
+            "acceptance rate"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "To evaluate the text quality, we use GPT-4o mini ... we report point-wise quality scores evaluated by three different LLMs: GPT-4o, Gemini-2.0-Flash (thinking-exp), and GPT-4o-mini.",
+            "We adopt the pairwise evaluation framework from AlpacaEval 2.0, using GPT-4o-mini as the automatic judge. We also complement our main evaluation protocol with a win-rate based assessment and multi-LLM judgment analysis.",
+            "We adopt the pairwise evaluation framework from AlpacaEval 2.0 , using GPT-4o-mini as the automatic judge."
+        ],
+        "models": [
+            "GPT-4o",
+            "Gemini-2.0-Flash",
+            "GPT-4o-mini"
+        ],
+        "methods": [
+            "point-wise scoring",
+            "pairwise evaluation",
+            "win-rate based assessment",
+            "Multiple Regression model for debiasing",
+            "LLM-as-a-judge with length-controlled AlpacaEval"
+        ],
+        "criteria": [
+            "truthfulness",
+            "logical coherence",
+            "adherence to prompt and instructions",
+            "faithfulness",
+            "alignment"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We randomly sampled 200 pairwise comparisons and observed a strong Spearman's correlation coefficient of 0.8794 between GPT-4o-mini judgments and human annotations...",
+            "We conducted a human agreement study. We randomly sampled 200 pairwise comparisons and observed a strong Spearman's correlation ... indicating high consistency.",
+            "To further confirm the reliability of using LLMs as judges, we conducted a human agreement study. We randomly sampled 200 pairwise comparisons and observed a strong Spearman's correlation co- efficient of 0.8794 between GPT-4o-mini judgments and human annotations, indicating high consistency."
+        ],
+        "guideline": [
+            "Randomly sample pairwise comparisons and compute Spearman's correlation between human annotations and LLM judgments.",
+            "You are tasked with evaluating the quality of a generated answer plan for a TruthfulQA question. The evaluation should focus on the truthfulness, logical coherence, and adherence to the given prompt and instructions. Rate the answer plan on a 5-point scale as follows..."
+        ],
+        "criteria": [
+            "truthfulness",
+            "logical coherence",
+            "adherence to prompt and instructions"
+        ]
+    }
+}

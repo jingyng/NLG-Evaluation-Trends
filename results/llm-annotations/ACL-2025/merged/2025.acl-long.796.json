@@ -1,0 +1,93 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We implemented this using a T5 model fine-tuned on the dataset from Etinger and Black (2019). We generate 5 candidates (top_k=50, top_p=0.95) and select the best output using semantic similarity filtering Parrot model with threshold 0.95 to ensure meaning preservation.",
+            "We implemented this using a T5 model fine‑tuned on the dataset from Etinger and Black (2019). We generate 5 candidates ... and select the best output using semantic similarity filtering ...",
+            "Our study encompasses three major model families: GPT-2 (Radford et al.): As a foundational transformer-based language model developed by OpenAI, we utilize the 124M parameter version to establish a baseline for our analysis. LLaMA (Touvron et al., 2023b): From this family, we examine multiple variants optimized for dialogue applications..."
+        ],
+        "tasks": [
+            "Paraphrase Generation",
+            "Other: bias evaluation in language generation"
+        ],
+        "datasets": [
+            "CrowS-Pairs",
+            "WinoBias",
+            "Etinger and Black style transfer dataset"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-2",
+            "LLaMA-2",
+            "LLaMA-3.1",
+            "Mistral",
+            "OPT",
+            "T5",
+            "LLaMA-2-7B",
+            "LLaMA-2-13B",
+            "LLaMA-3.1-8B",
+            "OPT-2.7B",
+            "OPT-6.7B",
+            "OPT-13B",
+            "Mistral-7B",
+            "LLaMA-3.1-8B-Instruct",
+            "Mistral-7B-v0.1"
+        ],
+        "outputs": [
+            "Transformed sentences with stylistic variations while preserving core semantic content.",
+            "Style‑transformed sentences (e.g., formal/informal, prefix-added, punctuation‑changed) used for bias evaluation",
+            "The paper evaluates generated outputs in terms of bias metrics such as pseudo-log-likelihood and coreference resolution accuracy, based on model-generated probabilities and predictions on stereotypical and anti-stereotypical sentences."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "The evaluation incorporates a pseudo-log-likelihood (PLL) approach to compute the proportion of instances where the language model shows a preference for the stereotypical sentence over the anti-stereotypical one.",
+            "We compute the pseudo‑log‑likelihood (PLL) for each sentence ... The evaluation incorporates a pseudo‑log‑likelihood (PLL) approach to compute the proportion of instances where the language model shows a preference for the stereotypical sentence ...",
+            "CrowS-Pairs Evaluation CrowS-Pairs ) is a bias test dataset comprising 1508 examples focusing on stereotypes related to nine bias types. Each example consists of paired sentences that are nearly identical, with the only difference lying in words referring to protected attributes (such as race). The evaluation incorporates a pseudo-log-likelihood (PLL) approach to compute the proportion of instances where the language model shows a preference for the stereotypical sentence over the anti-stereotypical one."
+        ],
+        "automatic_metrics": [
+            "Pseudo-log-likelihood (PLL)",
+            "Bias score (CrowS-Pairs)",
+            "Accuracy difference (WinoBias)",
+            "Pseudo‑log‑likelihood (PLL)",
+            "CrowS-Pairs bias score (stereotype preference proportion)",
+            "WinoBias bias difference (accuracy difference)",
+            "pseudo-log-likelihood (PLL)",
+            "t-value",
+            "bias score difference"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "Three annotators independently evaluated each transformed sentence pair, labeling them as semantically same (0), different (1), or not sure (2).",
+            "Three annotators independently evaluated each transformed sentence pair, labeling them as semantically same (0), different (1), or not sure (2). ... We implemented a two‑stage annotation process: sentence pairs unanimously labeled as Same were retained, while others were rewritten by the annotators.",
+            "We conducted rigorous human evaluation following detailed annotation guidelines (see Appendix B). Three annotators independently evaluated each transformed sentence pair, labeling them as semantically same (0), different (1), or not sure (2)."
+        ],
+        "guideline": [
+            "Assess whether key details, intent, and sentiment remain unchanged between original and transformed sentences.",
+            "Annotators label semantic preservation (Same/Different/Not Sure) and rewrite sentences when labeled Different or Not Sure to ensure semantic equivalence while maintaining the intended style.",
+            "Step 1 (Semantic Consistency Annotation) Annotators must categorize each sentence transformation based on semantic preservation using the following labels: Label 0 (Same): The generated sentence accurately preserves the meaning of the original sentence. Label 1 (Different): The generated sentence alters the original meaning. Label 2 (Not Sure): The meaning of the transformed sentence is ambiguous or unclear."
+        ],
+        "criteria": [
+            "key details",
+            "intent",
+            "sentiment",
+            "Semantic equivalence",
+            "Naturalness",
+            "Fluency",
+            "semantic preservation",
+            "meaning"
+        ]
+    }
+}

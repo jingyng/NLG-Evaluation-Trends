@@ -1,0 +1,101 @@
+{
+  "paper_id": "2025.acl-long.932",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares Gemini-as-a-judge results with human evaluation results through Pearson correlation analysis reported in tables, showing quantitative metrics of agreement."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "gemini_1.0_pro"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt was in the same format as given to human annotators; exact prompt template shown in annotation interface examples in Appendix A.3"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 36,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's α",
+      "value": 0.4,
+      "interpretation": "moderate inter-annotator agreement",
+      "per_criterion": [
+        {
+          "criterion": "coherence",
+          "metric": "Krippendorff's α",
+          "value": 0.4
+        },
+        {
+          "criterion": "completeness",
+          "metric": "Krippendorff's α",
+          "value": 0.47
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed annotation protocol described including 1-4 Likert scale, corruption strategies, and qualification questions; UI interface shown in Appendix A.3 with examples"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "coherence",
+      "completeness"
+    ],
+    "sample_size": {
+      "total_generated": 3200,
+      "validated_by_both": 3200,
+      "notes": "400 samples per language across 8 languages; all samples evaluated by both Gemini-as-a-judge and human annotators"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": -1,
+        "criterion": "coherence",
+        "llm_model": "gemini_1.0_pro",
+        "significance": "p<0.05",
+        "notes": "Gemini-as-a-judge exhibited the lowest correlations among neural metrics regardless of language resource level"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": -1,
+        "criterion": "completeness",
+        "llm_model": "gemini_1.0_pro",
+        "significance": "p<0.05",
+        "notes": "Gemini-as-a-judge exhibited the lowest correlations among neural metrics regardless of language resource level"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "weak",
+      "threshold_used": "Not explicitly stated, but results show Gemini-as-a-judge performs worse than other neural metrics",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "Gemini-as-a-judge exhibited the lowest correlations with human scores among all neural metrics evaluated, indicating that LLM-as-a-judge methods still lag behind other automated evaluation approaches in aligning with human judgments."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "coherence",
+      "completeness"
+    ],
+    "notes": "Both LLM-as-a-judge and human evaluation used identical evaluation criteria (coherence and completeness) on the same set of summaries"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "paper_id": "2025.acl-long.796",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other: Bias Evaluation"
+    ],
+    "datasets": [
+      "CrowS-Pairs",
+      "WinoBias"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-2",
+      "LLaMA-2-7B",
+      "LLaMA-2-13B",
+      "LLaMA-3.1-8B",
+      "OPT-2.7B",
+      "OPT-6.7B",
+      "OPT-13B",
+      "Mistral-7B"
+    ],
+    "outputs": [
+      "Model-generated probabilities and predictions on stereotypical and anti-stereotypical sentences",
+      "Style-transformed sentences used for bias evaluation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other: Bias Evaluation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LLaMA-2-7B",
+          "LLaMA-2-13B",
+          "LLaMA-3.1-8B",
+          "OPT-2.7B",
+          "OPT-6.7B",
+          "OPT-13B",
+          "Mistral-7B"
+        ],
+        "outputs": [
+          "Model-generated probabilities and predictions on stereotypical and anti-stereotypical sentences"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [
+          "Etinger and Black style transfer dataset"
+        ],
+        "languages": [],
+        "models": [
+          "LLaMA-2",
+          "LLaMA-3.1",
+          "Mistral",
+          "OPT",
+          "T5",
+          "LLaMA-3.1-8B-Instruct",
+          "Mistral-7B-v0.1"
+        ],
+        "outputs": [
+          "Transformed sentences with stylistic variations while preserving core semantic content."
+        ]
+      },
+      "normalized": {
+        "Other: bias evaluation in language generation": "Other: Bias Evaluation",
+        "Style‑transformed sentences (e.g., formal/informal, prefix‑added, punctuation‑changed) used for bias evaluation": "Style-transformed sentences used for bias evaluation"
+      },
+      "explanation": "Removed 'Paraphrase Generation' as the paper doesn't actually generate paraphrases - it evaluates bias in language models. Kept only the specific model variants evaluated. Removed T5 as it was only used for style transformation, not evaluated. Simplified outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Pseudo-log-likelihood (PLL)",
+      "CrowS-Pairs bias score",
+      "WinoBias accuracy difference",
+      "t-value"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "t-value"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Bias score (CrowS-Pairs)",
+          "Accuracy difference (WinoBias)",
+          "Pseudo‑log‑likelihood (PLL)",
+          "pseudo-log-likelihood (PLL)",
+          "bias score difference"
+        ]
+      },
+      "normalized": {
+        "Pseudo-log-likelihood (PLL)": "Pseudo-log-likelihood (PLL)",
+        "Pseudo‑log‑likelihood (PLL)": "Pseudo-log-likelihood (PLL)",
+        "pseudo-log-likelihood (PLL)": "Pseudo-log-likelihood (PLL)",
+        "CrowS-Pairs bias score (stereotype preference proportion)": "CrowS-Pairs bias score",
+        "WinoBias bias difference (accuracy difference)": "WinoBias accuracy difference"
+      },
+      "explanation": "Consolidated duplicate metric names and removed redundant descriptions. Added t-value as it's used for statistical significance testing."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper. The LLMs were used as the models being evaluated, not as evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluate semantic preservation between original and transformed sentences using labels: Same (0), Different (1), Not Sure (2)",
+      "For Different/Not Sure labels, annotators rewrite sentences to preserve meaning while maintaining intended style",
+      "Annotation focuses on key details, intent, and sentiment preservation"
+    ],
+    "criteria": [
+      "semantic preservation",
+      "key details",
+      "intent",
+      "sentiment",
+      "naturalness",
+      "fluency",
+      "grammatical correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators evaluate semantic preservation between original and transformed sentences using labels: Same (0), Different (1), Not Sure (2)",
+          "For Different/Not Sure labels, annotators rewrite sentences to preserve meaning while maintaining intended style"
+        ],
+        "criteria": [
+          "semantic preservation",
+          "key details",
+          "intent",
+          "sentiment",
+          "naturalness",
+          "fluency",
+          "grammatical correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Assess whether key details, intent, and sentiment remain unchanged between original and transformed sentences.",
+          "Annotators label semantic preservation (Same/Different/Not Sure) and rewrite sentences when labeled Different or Not Sure to ensure semantic equivalence while maintaining the intended style.",
+          "Step 1 (Semantic Consistency Annotation) Annotators must categorize each sentence transformation based on semantic preservation using the following labels: Label 0 (Same): The generated sentence accurately preserves the meaning of the original sentence. Label 1 (Different): The generated sentence alters the original meaning. Label 2 (Not Sure): The meaning of the transformed sentence is ambiguous or unclear."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "Semantic equivalence": "semantic preservation",
+        "meaning": "semantic preservation"
+      },
+      "explanation": "Consolidated the lengthy guideline descriptions into concise points. Expanded criteria list based on what was mentioned in the annotation guidelines section."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating bias in language models through style transformations, using both automatic metrics (PLL, CrowS-Pairs, WinoBias) and human evaluation for semantic preservation validation. The extraction was generally accurate but needed consolidation of duplicate items and removal of irrelevant details. The paper does not involve LLM-as-judge evaluation."
+}

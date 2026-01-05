@@ -1,0 +1,133 @@
+{
+  "paper_id": "2022.acl-long.354",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Claim Generation",
+      "Fact Verification"
+    ],
+    "datasets": [
+      "FAVIQ",
+      "FEVER",
+      "SNOPES",
+      "SCIFACT",
+      "fm2",
+      "BOOLQ FV",
+      "NATURAL QUESTIONS",
+      "AMBIGQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_3b",
+      "t_5_large",
+      "bart",
+      "dpr"
+    ],
+    "outputs": [
+      "natural language claims",
+      "support/refute statements",
+      "fact verification claims"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "NQ"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:claim generation": "Other:Claim Generation",
+        "Other:Claim Generation": "Other:Claim Generation",
+        "Other:Fact Verification": "Other:Fact Verification"
+      },
+      "explanation": "Removed duplicate 'Other:Claim Generation' and normalized 'claim generation' to 'Claim Generation'. Removed 'NQ' as it's the same as 'Natural Questions' (abbreviation)."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "EXACT MATCH"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "exact match": "Exact Match"
+      },
+      "explanation": "Normalized 'exact match' to 'Exact Match' for consistency. The paper uses accuracy and exact match for evaluating claim generation and fact verification."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges for evaluation. The paper uses T5 and BART for generation/training, but not as post-hoc evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate naturalness on three-point scale (perfect, minor issues but comprehensible, incomprehensible)",
+      "Predict truth label (support or refute) for each claim"
+    ],
+    "criteria": [
+      "Naturalness",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Rate naturalness on three-point scale (perfect, minor issues but comprehensible, incomprehensible)",
+          "Predict truth label (support or refute) for each claim"
+        ],
+        "criteria": [
+          "naturalness",
+          "label prediction accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "label prediction": "label prediction accuracy"
+      },
+      "explanation": "Consolidated and normalized the guideline descriptions. Simplified criteria to 'naturalness' and 'label prediction accuracy' to capture the essence of the human evaluation."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on fact verification and claim generation rather than traditional NLG tasks. The human evaluation was well-documented with clear guidelines. The extraction was generally accurate but needed some normalization and consolidation of duplicate/redundant items."
+}

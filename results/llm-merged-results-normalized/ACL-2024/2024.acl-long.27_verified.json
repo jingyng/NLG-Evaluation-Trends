@@ -1,0 +1,170 @@
+{
+  "paper_id": "2024.acl-long.27",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Extractive Question Answering",
+      "Instruction Following Text Embedding"
+    ],
+    "datasets": [
+      "11 ABSTRACTIVE QA DATASETS",
+      "banking77",
+      "STS BENCHMARK",
+      "NYT CLUSTERING",
+      "FEWNERD",
+      "FEWREL",
+      "FEWEVENT",
+      "RATEMYPROF",
+      "FEEDBACKS",
+      "YELP REVIEWS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "roberta_large",
+      "opt_1.3b",
+      "opt_2.7b",
+      "llama_2_7b",
+      "flan_t_5_xl",
+      "llama_2_13b_chat",
+      "e_5_large_v_2",
+      "instructor"
+    ],
+    "outputs": [
+      "Short answers to questions based on input paragraphs",
+      "Text embeddings generated from answer representations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Instruction-Following Text Embedding"
+        ],
+        "datasets": [
+          "STS Benchmark",
+          "Yelp Reviews"
+        ],
+        "models": [
+          "E5-large-v2",
+          "Instructor"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "200,000 paragraph-question-answer triplets",
+          "STSb",
+          "NYT"
+        ],
+        "models": [
+          "roberta-large",
+          "opt-1.3b",
+          "opt-2.7b",
+          "llama-2-7b",
+          "flan-t5-xl",
+          "llama-2-13b-chat"
+        ]
+      },
+      "normalized": {
+        "STSb": "STS Benchmark",
+        "NYT": "NYT Clustering",
+        "roberta-large": "RoBERTa-large",
+        "opt-1.3b": "OPT-1.3b",
+        "opt-2.7b": "OPT-2.7b",
+        "llama-2-7b": "Llama-2-7b",
+        "flan-t5-xl": "FLAN-T5-XL",
+        "llama-2-13b-chat": "Llama-2-13b-chat"
+      },
+      "explanation": "Normalized model and dataset names to standard forms. Added missing models used for comparison (E5, Instructor). Added Yelp Reviews dataset mentioned in qualitative analysis. Changed '200,000 paragraph-question-answer triplets' to just '11 abstractive QA datasets' since it's more accurate."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "SPEARMAN CORRELATION",
+      "V MEASURE",
+      "HARMONIC",
+      "PRECISION",
+      "COSINE SIMILARITY",
+      "SUCCESS RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "success rate"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "harmonic mean of success rates"
+        ]
+      },
+      "normalized": {
+        "harmonic mean of success rates": "harmonic mean",
+        "mean average precision (MAP)": "mean average precision"
+      },
+      "explanation": "Changed answer from 'No' to 'Yes' since the paper clearly uses multiple automatic metrics. Simplified metric names to base forms and added 'success rate' which is used in triplet evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "dataset creation",
+      "annotation selection",
+      "triplet generation"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "dataset creation",
+          "annotation selection",
+          "triplet generation"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "paraphrase generation",
+          "instruction generation"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {
+        "paraphrase generation": "dataset creation",
+        "instruction generation": "dataset creation",
+        "triplet creation": "triplet generation"
+      },
+      "explanation": "GPT-4 is used for dataset creation and preprocessing, not as a judge to evaluate generated outputs. Removed 'None' from criteria since it's not needed. Consolidated methods under broader categories."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. The paper relies entirely on automatic metrics and qualitative analysis. Removed 'None' entries."
+    }
+  },
+  "overall_notes": "The paper focuses on instruction-following text embeddings rather than traditional NLG evaluation. While it involves answer generation, the primary contribution is using generated answers to create embeddings, not evaluating the quality of generated text itself. The automatic metrics are used to evaluate embedding quality, not generation quality. The paper is more about representation learning than NLG evaluation per se."
+}

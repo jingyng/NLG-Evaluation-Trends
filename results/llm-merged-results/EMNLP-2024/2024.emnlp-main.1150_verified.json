@@ -1,0 +1,168 @@
+{
+  "paper_id": "2024.emnlp-main.1150",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Other:Instruction Following"
+    ],
+    "datasets": [
+      "Anthropic-HH",
+      "AlpacaFarm",
+      "Vicuna-Bench",
+      "AlpacaEval",
+      "MT-Bench",
+      "SuperNI",
+      "ToxiGen"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-2-7B",
+      "Vicuna-7B-v1.5",
+      "Vicuna-13B-v1.5",
+      "StarlingRM-34B",
+      "UltraRM-13B",
+      "SteamSHP-XL",
+      "OASST"
+    ],
+    "outputs": [
+      "Generated responses to queries",
+      "Model-generated responses to instruction prompts",
+      "Responses to open-ended and closed-ended queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Vicuna-7B-v1.5",
+          "Vicuna-13B-v1.5"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:open-ended query response",
+          "Other:closed-ended query response"
+        ],
+        "datasets": [
+          "Super-NaturalInstructions"
+        ],
+        "languages": [],
+        "models": [
+          "Vicuna-{7,13}B-v1.5"
+        ],
+        "outputs": [
+          "The generated outputs include responses to open-ended and closed-ended queries, evaluated for helpfulness, relevance, consistency, and instruction-following ability."
+        ]
+      },
+      "normalized": {
+        "Vicuna-{7,13}B-v1.5": "Vicuna-7B-v1.5, Vicuna-13B-v1.5",
+        "Super-NaturalInstructions": "SuperNI"
+      },
+      "explanation": "Removed redundant task descriptions and consolidated 'Super-NaturalInstructions' to 'SuperNI'. Split 'Vicuna-{7,13}B-v1.5' into separate models. Removed verbose output description that was already covered by simpler entries."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Pearson Correlation",
+      "Spearman Correlation",
+      "ROUGE-L",
+      "Self-BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Relevant Sentence Ratio",
+          "Average number of tokens",
+          "4-gram repetitions",
+          "PearsonR",
+          "SpearmanR",
+          "4-gram Repetitions",
+          "Avg #Tokens",
+          "4-gram Rep.",
+          "% Rel. Sent"
+        ]
+      },
+      "normalized": {
+        "PearsonR": "Pearson Correlation",
+        "SpearmanR": "Spearman Correlation"
+      },
+      "explanation": "Removed non-standard metrics that are not widely recognized automatic evaluation metrics (e.g., 'Relevant Sentence Ratio', 'Average number of tokens', '4-gram repetitions'). Kept only standard correlation metrics and ROUGE-L/Self-BLEU which are proper automatic evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "Pairwise evaluation",
+      "Single-turn scoring",
+      "Sentence-level relevance judgment"
+    ],
+    "criteria": [
+      "Relevance",
+      "Helpfulness",
+      "Instruction-following"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "Instruction-following"
+        ]
+      },
+      "removed": {
+        "models": [
+          "proprietary LLMs used in Vicuna-Bench, AlpacaEval, MT-Bench"
+        ],
+        "methods": [
+          "single judgment manner",
+          "sentence-level relevance scoring"
+        ],
+        "criteria": [
+          "relevancy",
+          "fluency",
+          "coherence",
+          "factuality"
+        ]
+      },
+      "normalized": {
+        "relevancy": "Relevance",
+        "sentence-level relevance judgment": "Sentence-level relevance judgment"
+      },
+      "explanation": "Removed vague model references and consolidated methods. Removed criteria not explicitly mentioned as being evaluated by LLM judges. Added 'Instruction-following' which is explicitly evaluated in SuperNI benchmark."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper - only automatic metrics and LLM-as-judge evaluations were used."
+    }
+  },
+  "overall_notes": "The paper focuses on reverse reward engineering for LLM alignment using interpretable features. It evaluates NLG outputs primarily through automatic correlation metrics and LLM-as-judge benchmarks. The extraction was generally accurate but included some non-standard metrics that were removed. The paper uses GPT-4 for sentence-level relevance judgments and various proprietary LLMs for benchmark evaluations."
+}

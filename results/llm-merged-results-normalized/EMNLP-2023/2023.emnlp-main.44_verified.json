@@ -1,0 +1,160 @@
+{
+  "paper_id": "2023.emnlp-main.44",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Data Generation",
+      "Commonsense Reasoning Example Generation"
+    ],
+    "datasets": [
+      "XCOPA",
+      "XWINOGRAD",
+      "XSTORYCLOZE"
+    ],
+    "languages": [
+      "English",
+      "Estonian",
+      "Haitian Creole",
+      "Indonesian",
+      "Italian",
+      "Quechua",
+      "Swahili",
+      "Tamil",
+      "Thai",
+      "Turkish",
+      "Vietnamese",
+      "Chinese",
+      "French",
+      "Japanese",
+      "Portuguese",
+      "Russian",
+      "Spanish",
+      "Arabic",
+      "Hindi",
+      "Telugu",
+      "Basque",
+      "Burmese"
+    ],
+    "models": [
+      "dolly_v_2",
+      "stablevicuna",
+      "chatgpt",
+      "gpt_4"
+    ],
+    "outputs": [
+      "synthetic training examples for commonsense reasoning tasks",
+      "multilingual commonsense reasoning examples with premises, questions, and alternatives",
+      "story completion examples with correct and wrong endings"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Commonsense Reasoning Example Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "story completion examples with correct and wrong endings"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Commonsense Alternative Generation",
+          "Other:Pronoun Resolution Generation",
+          "Other:Story Ending Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "mBERT",
+          "XLMR-base",
+          "XLMR-large",
+          "XLM-R"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "XLMR-base": "XLM-R-base",
+        "XLMR-large": "XLM-R-large",
+        "synthetic examples for commonsense reasoning datasets": "synthetic training examples for commonsense reasoning tasks"
+      },
+      "explanation": "Removed evaluation models (mBERT, XLM-R) as they are not NLG models but models fine-tuned on generated data. Consolidated task descriptions to be more accurate. Added missing output type for story completion."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "GENERATION SUCCESS RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'Yes' to 'Yes' (no actual change in value but marked as changed due to verification); kept 'Generation Success Rate' as the only automatic metric used to evaluate generation quality."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators - only for data generation. Human evaluation was conducted instead."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluated Text Naturalness (natural, awkward but understandable, not understandable) and Logic Soundness (correct option more plausible, both equally plausible, both implausible, wrong option more plausible)",
+      "For XWinograd, additional evaluation of pronoun interchangeability requirement"
+    ],
+    "criteria": [
+      "Naturalness",
+      "Soundness",
+      "Consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "logical soundness",
+          "naturalness"
+        ]
+      },
+      "normalized": {
+        "fluency": "Text Naturalness",
+        "coherence": "Logic Soundness",
+        "logical soundness": "Logic Soundness",
+        "naturalness": "Text Naturalness"
+      },
+      "explanation": "Normalized criteria to use the explicit terms from the paper (Text Naturalness, Logic Soundness, Pronoun Consistency) rather than synonyms. Consolidated guideline description."
+    }
+  },
+  "overall_notes": "The paper focuses on using LLMs for multilingual data augmentation for commonsense reasoning tasks, with comprehensive human evaluation but limited automatic metrics. The extraction was generally accurate but needed refinement in distinguishing generation models from evaluation models."
+}

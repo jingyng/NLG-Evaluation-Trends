@@ -1,0 +1,150 @@
+{
+  "paper_id": "2021.naacl-main.64",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "LIGHT-Quests",
+      "LIGHT",
+      "ATOMIC-LIGHT",
+      "Reddit"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Transformer-based encoder",
+      "Poly-encoder transformer",
+      "BERT-large",
+      "A2C reinforcement learning agent"
+    ],
+    "outputs": [
+      "Dialogue utterances and templated actions in natural language"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "LIGHT-original"
+        ],
+        "languages": [],
+        "models": [
+          "12-layer transformer encoder (256M parameters)",
+          "transformer",
+          "poly-encoder",
+          "ATOMIC-LIGHT",
+          "Adaptive model"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Dialogue Generation": "Dialogue Generation",
+        "LIGHT-original": "LIGHT"
+      },
+      "explanation": "Removed redundant model specifications and normalized dataset names. 'LIGHT-original' appears to be the same as 'LIGHT' based on paper context."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Act goal completion",
+      "Speech goal completion",
+      "Hits@1",
+      "Hits@5",
+      "Hits@10"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "DM-based naturalness score",
+          "Act goal completion rate",
+          "Speech goal completion rate",
+          "Act & Speech goal completion rate",
+          "top-k likelihood",
+          "reward from Dungeon Master (DM) model"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Simplified metrics to core evaluation measures. Removed redundant rate specifications and implementation details that are not distinct metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Dungeon Master (poly-encoder transformer)"
+        ],
+        "methods": [
+          "Reward scoring based on matching demonstration utterances",
+          "Top-k likelihood scoring by the DM"
+        ],
+        "criteria": [
+          "naturalness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items since the paper does not use LLMs as judges. The DM model is a specialized evaluator, not a general LLM judge."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Players receive role-playing scores based on utterance likelihood given context",
+      "Players must reach threshold score before performing actions",
+      "Players are rewarded for actions matching quest timeline"
+    ],
+    "criteria": [
+      "role-playing quality",
+      "alignment with persona",
+      "motivation consistency",
+      "action correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Players receive role-playing scores based on utterance likelihood given context",
+          "Players must reach threshold score before performing actions",
+          "Players are rewarded for actions matching quest timeline"
+        ],
+        "criteria": [
+          "role-playing quality",
+          "alignment with persona",
+          "motivation consistency",
+          "action correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Corrected answer from No to Yes. The paper clearly conducts human evaluations through the quest completion system with human players being evaluated on multiple criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on goal-driven dialogue generation in fantasy text-adventure games. It uses a combination of automatic metrics (goal completion rates) and human evaluations. The extraction was mostly accurate except for missing the human evaluation component. The paper introduces novel datasets (LIGHT-Quests, ATOMIC-LIGHT) and evaluates both action and dialogue generation capabilities."
+}

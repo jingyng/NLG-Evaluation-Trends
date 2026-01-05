@@ -1,0 +1,114 @@
+{
+  "paper_id": "2023.acl-long.228",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-based evaluation metrics (GPTScore and G-Eval variants) against human evaluation results using correlation analysis on the same set of summaries, reporting quantitative correlation metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "text_davinci_003",
+      "GPT-3.5",
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompts provided in Appendix E.2 including scoring scales and evaluation instructions for both GPTScore (text-filling) and G-Eval (5-point rating) methods"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "multiple_crowdsourced",
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": 0.7571,
+      "interpretation": "high agreement compared to prior collections (RealSumm: 0.66, SummEval: 0.49)",
+      "per_criterion": [
+        {
+          "criterion": "ACU matching",
+          "metric": "Krippendorff's alpha",
+          "value": 0.7528
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text_and_appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed ACU annotation protocol described in \u00a73 including ACU writing and matching procedures with examples provided in Table 13 and Appendix D.1"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation",
+      "Kendall's tau"
+    ],
+    "shared_criteria": [
+      "salience",
+      "coverage",
+      "recall"
+    ],
+    "sample_size": {
+      "total_generated": 22000,
+      "validated_by_both": 22000,
+      "notes": "Validation conducted across entire RoSE benchmark consisting of 22,000 summary-level annotations over three datasets (CNNDM, XSum, SamSum)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.273,
+        "criterion": "Salience",
+        "llm_model": "GPTScore-text-davinci-003",
+        "significance": "not_reported",
+        "notes": "System-level correlation on CNNDM"
+      },
+      {
+        "metric": "Kendall's correlation",
+        "value": -0.273,
+        "criterion": "Salience",
+        "llm_model": "G-Eval-3.5",
+        "significance": "not_reported",
+        "notes": "System-level correlation with GPT-3.5 sampling variant"
+      },
+      {
+        "metric": "Kendall's correlation",
+        "value": 0.091,
+        "criterion": "Salience",
+        "llm_model": "G-Eval-4",
+        "significance": "not_reported",
+        "notes": "System-level correlation with GPT-4"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "weak_to_moderate",
+      "threshold_used": "not_explicitly_stated",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM-based evaluation metrics (GPTScore and G-Eval variants) cannot outperform traditional metrics like ROUGE on the RoSE benchmark, showing weak to moderate correlations with human ACU annotations across datasets."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Preference",
+      "Similarity",
+      "Length"
+    ],
+    "shared_criteria": [
+      "Salience",
+      "Coverage",
+      "Recall"
+    ],
+    "notes": "Human evaluation uses ACU protocol for salience measurement across all protocols, while LLM metrics are specifically validated against ACU-based human annotations for salience/coverage criteria"
+  }
+}

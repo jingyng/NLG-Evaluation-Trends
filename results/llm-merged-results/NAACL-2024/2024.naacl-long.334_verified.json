@@ -1,0 +1,187 @@
+{
+  "paper_id": "2024.naacl-long.334",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "FLORES-200",
+      "AFRIMTE",
+      "WMT Others",
+      "WMT African",
+      "MLQE-PE"
+    ],
+    "languages": [
+      "English",
+      "French",
+      "Darija",
+      "Egyptian Arabic",
+      "Hausa",
+      "Igbo",
+      "Kikuyu",
+      "Luo",
+      "Somali",
+      "Swahili",
+      "Twi",
+      "isiXhosa",
+      "Yoruba"
+    ],
+    "models": [
+      "NLLB-200",
+      "M2M-100",
+      "AfriCOMET-STL",
+      "AfriCOMET-MTL",
+      "AfriCOMET-QE-STL",
+      "AfriCOMET-QE-MTL",
+      "COMET22",
+      "AfriCOMET",
+      "AfriCOMET-QE",
+      "AfroXLM-R-L",
+      "InfoXLM-L",
+      "XLM-R-L",
+      "GPT-4"
+    ],
+    "outputs": [
+      "machine translations",
+      "predicted DA adequacy scores (0-100)",
+      "predicted DA fluency scores (0-100)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "COMET22"
+        ],
+        "outputs": [
+          "predicted DA fluency scores (0-100)"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "Arabic"
+        ],
+        "models": [
+          "COMET"
+        ],
+        "outputs": [
+          "machine translation outputs for African languages"
+        ]
+      },
+      "normalized": {
+        "COMET": "COMET22",
+        "AfriCOMET": "AfriCOMET",
+        "AfriCOMET-QE": "AfriCOMET-QE"
+      },
+      "explanation": "Removed 'Arabic' as it's redundant with 'Egyptian Arabic'. Added 'COMET22' as the specific version mentioned. Removed generic 'COMET'. Clarified outputs to include both adequacy and fluency scores."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SacreBLEU",
+      "chrF++",
+      "BERTScore",
+      "COMET22",
+      "GPT-4",
+      "AfriCOMET-STL",
+      "AfriCOMET-MTL",
+      "AfriCOMET-QE-STL",
+      "AfriCOMET-QE-MTL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Sacre-BLEU",
+          "chrf++",
+          "AfriCOMET"
+        ]
+      },
+      "normalized": {
+        "Sacre-BLEU": "SacreBLEU",
+        "chrf++": "chrF++",
+        "AfriCOMET": "AfriCOMET-STL, AfriCOMET-MTL"
+      },
+      "explanation": "Normalized metric names to standard forms. Split 'AfriCOMET' into its specific variants. Removed duplicates."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "LLM prompting with meta-prompt"
+    ],
+    "criteria": [
+      "adequacy"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "prompting with meta-prompt",
+          "LLM prompting",
+          "Prompting GPT-4 with meta-prompt"
+        ],
+        "criteria": [
+          "translation quality"
+        ]
+      },
+      "normalized": {
+        "prompting with meta-prompt": "LLM prompting with meta-prompt",
+        "LLM prompting": "LLM prompting with meta-prompt",
+        "Prompting GPT-4 with meta-prompt": "LLM prompting with meta-prompt",
+        "translation quality": "adequacy"
+      },
+      "explanation": "Consolidated method descriptions into a single normalized form. Simplified criteria to 'adequacy' as the specific evaluation dimension mentioned."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Simplified MQM guidelines combined with Direct Assessment (DA) scoring for adequacy and fluency",
+      "Two-dimensional approach: error highlighting and overall DA scoring",
+      "Score scale: 0-100 with critical points at 0, 34, 67, 100"
+    ],
+    "criteria": [
+      "adequacy",
+      "fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Score scale: 0-100 with critical points at 0, 34, 67, 100"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "error highlighting"
+        ]
+      },
+      "normalized": {
+        "error highlighting": "adequacy, fluency"
+      },
+      "explanation": "Added scoring scale details. Moved 'error highlighting' from criteria to guideline description as it's part of the methodology rather than an evaluation criterion."
+    }
+  },
+  "overall_notes": "The paper focuses on machine translation evaluation for African languages. The extraction was generally accurate but needed normalization of metric/model names and consolidation of similar items. The paper extensively evaluates both automatic metrics and human evaluations, with GPT-4 used as an evaluator for comparison purposes."
+}

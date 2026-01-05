@@ -1,0 +1,174 @@
+{
+  "paper_id": "2022.emnlp-main.460",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Poem Generation",
+      "Poetry Generation"
+    ],
+    "datasets": [
+      "POETRY TRANSLATION CORPUS",
+      "R OCPOETRY",
+      "R POETRY",
+      "GUTENBERG",
+      "DMDMQ",
+      "R HAIKU",
+      "INSTRUCTION POEM DATASET 873 574 PAIRS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_3b",
+      "t_5_11b",
+      "t_0_3b",
+      "davinci",
+      "t_0pp"
+    ],
+    "outputs": [
+      "Poem lines",
+      "Poetic sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Instruction-Poem dataset (873,574 pairs)"
+        ],
+        "languages": [],
+        "models": [
+          "InstructGPT (davinci)",
+          "T0pp"
+        ],
+        "outputs": [
+          "Poetic sentences"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Reddit r/Poetry"
+        ],
+        "languages": [],
+        "models": [
+          "T5-3B-poem",
+          "T5-11B-poem",
+          "T0-3B-poem",
+          "InstructGPT"
+        ],
+        "outputs": [
+          "poem lines (single verse sentences)"
+        ]
+      },
+      "normalized": {
+        "Other:Poetry Generation": "Other:Poetry Generation",
+        "Poem lines": "Poem lines"
+      },
+      "explanation": "Removed redundant model variants (poem-tuned versions are just fine-tuned versions of base models), normalized output descriptions, removed duplicate dataset reference"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SUCCESS RATE",
+      "ROUGE",
+      "PERPLEXITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "ROUGE-L",
+          "Perplexity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Success rate (constraint satisfaction)",
+          "success rate",
+          "Rouge-L recall"
+        ]
+      },
+      "normalized": {
+        "Rouge-L recall": "ROUGE-L",
+        "Perplexity (GPT-2)": "Perplexity"
+      },
+      "explanation": "Normalized metric names to standard forms (ROUGE-L instead of Rouge-L recall), removed redundant success rate variants"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges after generation - removed placeholder 'None' values"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate fluency of each verse on a scale of 1-5",
+      "Does verse adequately satisfy the instruction? (Yes/No)",
+      "Which verse is more creative/interesting while coherent and satisfying instruction?",
+      "Is poem relevant/descriptive interpretation of title?",
+      "Which poem is preferred based on coherence, overall quality, and style?"
+    ],
+    "criteria": [
+      "Fluency",
+      "Instruction",
+      "Creativity",
+      "Relevance",
+      "Coherence",
+      "Quality",
+      "Style",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Is poem relevant/descriptive interpretation of title?",
+          "Which poem is preferred based on coherence, overall quality, and style?"
+        ],
+        "criteria": [
+          "coherence",
+          "overall quality",
+          "style"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "preference",
+          "satisfaction"
+        ]
+      },
+      "normalized": {
+        "instruction satisfaction": "instruction satisfaction",
+        "accuracy": "accuracy"
+      },
+      "explanation": "Added missing human evaluation criteria from poem comparison task, normalized criteria names"
+    }
+  },
+  "overall_notes": "The paper clearly focuses on NLG evaluation for poem generation. The extraction was generally accurate but needed some normalization and removal of redundant entries. The paper uses both automatic metrics (success rate, ROUGE-L, perplexity) and extensive human evaluation, but does not use LLMs as judges."
+}

@@ -1,0 +1,52 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "To validate our method's effectiveness for downstream speech generation, we use our neural audio codec as the speech tokenizer for VALL-E, which predicts the first layer of speech tokens autoregressively and the remaining tokens non-autoregressively.",
+        "tasks": [
+            "Other:zero-shot text-to-speech (TTS)"
+        ],
+        "datasets": [
+            "LibriTTS",
+            "MLS"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "VALL-E",
+            "SpeechGPT",
+            "SpeechTokenizer-based USLM",
+            "AnyGPT",
+            "VoiceCraft",
+            "XTTS v2"
+        ],
+        "outputs": "synthesized speech"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We use Whisper model to transcribe the generated speech and calculate the WER. To evaluate speaker similarity, we firstly use 3D-speaker toolkit to extract speaker embeddings from the generated speech and reference speech, and then compute the cosine similarity between the normalized embeddings. We also employ UT-MOS as an automatic Mean Opinion Score (MOS) prediction system to assess the naturalness of the speech.",
+        "automatic_metrics": [
+            "WER",
+            "SIM",
+            "UTMOS",
+            "ViSQOL",
+            "PESQ"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": "",
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We randomly select 50 audio samples from the LibriTTS test set to conduct MOS and Similarity Mean Opinion Score (SMOS) test.",
+        "guideline": "MOS assesses the naturalness of the generated speech, while SMOS measures the similarity between the generated speech and the original speaker's voice.",
+        "criteria": [
+            "naturalness",
+            "similarity"
+        ]
+    }
+}

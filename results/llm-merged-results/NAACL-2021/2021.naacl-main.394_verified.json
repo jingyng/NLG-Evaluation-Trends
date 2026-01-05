@@ -1,0 +1,140 @@
+{
+  "paper_id": "2021.naacl-main.394",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Argument Reframing",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "Change My View subreddit",
+      "Hyper-partisan News",
+      "Appeal to Fear or Prejudice dataset",
+      "Multi-NLI"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "RoBERTa-large",
+      "BART",
+      "RoBERTa-NLI",
+      "BERT"
+    ],
+    "outputs": [
+      "Reframed arguments with altered connotation but preserved denotation",
+      "Reframed arguments with same denotation but improved connotation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "ChangeMyView premises",
+          "Appeal to Fear/Prejudice dataset (182 fragments)",
+          "NRC Emotion Lexicon"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Argument Reframing": "Argument Reframing",
+        "RoBERTa": "RoBERTa-large",
+        "RoBERTa NLI": "RoBERTa-NLI"
+      },
+      "explanation": "Normalized task names and model versions. Removed 'NRC Emotion Lexicon' as it's a tool/resource rather than a dataset. Removed redundant/overly specific dataset names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Sentence-BERT similarity"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Semantic Similarity (using SBERT)",
+          "Entailment score (RoBERTa NLI)",
+          "Semantic Similarity using SENTENCE BERT(SBERT)"
+        ]
+      },
+      "normalized": {
+        "Semantic Similarity (using SBERT)": "Sentence-BERT similarity",
+        "Semantic Similarity using SENTENCE BERT(SBERT)": "Sentence-BERT similarity"
+      },
+      "explanation": "Consolidated all SBERT semantic similarity variants into 'Sentence-BERT similarity'. Removed 'Entailment score' as it was used for model selection/internal ranking rather than final evaluation metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper. The extracted metadata was empty and correctly indicates this."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate fluency: 'How fluent and grammatical are the utterances?'",
+      "Rate meaning preservation: 'How well does the reframed argument capture the same denotative meaning as the input argument?'",
+      "For partisan arguments: rate trustworthiness",
+      "For appeal-to-fear arguments: rate presence of fear"
+    ],
+    "criteria": [
+      "Fluency",
+      "Meaning Preservation",
+      "Trustworthiness",
+      "Presence of Fear"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "fluency",
+          "meaning preservation",
+          "trustworthiness",
+          "presence of fear"
+        ]
+      },
+      "normalized": {
+        "fluency": "Fluency",
+        "meaning preservation": "Meaning Preservation",
+        "trustworthiness": "Trustworthiness",
+        "presence of fear": "Presence of Fear"
+      },
+      "explanation": "Normalized criteria to title case and consolidated duplicate entries. The guidelines accurately capture the human evaluation procedure described in the paper."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Paper introduces ENTRUST method for argument reframing using controllable generation with entailment constraints. Uses human evaluation with clear criteria. Automatic evaluation uses semantic similarity. No LLM-as-judge evaluation used."
+}

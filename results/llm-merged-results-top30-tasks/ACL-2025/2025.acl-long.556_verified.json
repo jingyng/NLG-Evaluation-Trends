@@ -1,0 +1,178 @@
+{
+  "paper_id": "2025.acl-long.556",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "COVOST 2",
+      "MUST C",
+      "MSLT"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "German"
+    ],
+    "models": [
+      "llms",
+      "whisper_base",
+      "whisper_small",
+      "whisper_medium",
+      "qwen_2_audio_instruct",
+      "qwen_2.5_72b_instruct"
+    ],
+    "outputs": [
+      "translated text in target language"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Speech Large Language Models (LLMs)",
+          "Whisper-base",
+          "Whisper-small",
+          "Whisper-medium",
+          "Qwen2-Audio-Instruct",
+          "Qwen2.5-72B-Instruct"
+        ],
+        "outputs": [
+          "translated text in target language"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "speech encoder SE"
+        ],
+        "outputs": [
+          "text in the target language",
+          "text in the target language (e.g., Chinese or German translation of the spoken English utterance)",
+          "translated text in the target language from source speech"
+        ]
+      },
+      "normalized": {
+        "Machine Translation": "Machine Translation",
+        "CoVoST2": "CoVoST2",
+        "MuST-C": "MuST-C",
+        "MSLT": "MSLT",
+        "English": "English",
+        "Chinese": "Chinese",
+        "German": "German"
+      },
+      "explanation": "Removed 'speech encoder SE' as it's not an NLG model but a component used for retrieval preprocessing. Consolidated output descriptions to single entry."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "TERM SUCCESS RATE TSR",
+      "COMET",
+      "HIT@N"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Hits@1",
+          "Hits@5",
+          "Hits@10"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "Term Success Rate (TSR)": "Term Success Rate (TSR)",
+        "COMET": "COMET",
+        "Hits@1": "Hits@N",
+        "Hits@5": "Hits@N",
+        "Hits@10": "Hits@N"
+      },
+      "explanation": "Consolidated Hits@1, Hits@5, Hits@10 into generic 'Hits@N' as they're variants of the same retrieval metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators - Qwen2.5-72B-Instruct was only used for terminology extraction during dataset construction, not for output evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Experts verify extracted terms for meaningfulness and correct translation",
+      "Experts check TTS-generated audio for terminology presence, pronunciation accuracy, and naturalness",
+      "Experts verify audio localization accuracy for ground truth terminology"
+    ],
+    "criteria": [
+      "Meaningfulness",
+      "Correctness",
+      "Accuracy",
+      "Naturalness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Experts verify extracted terms for meaningfulness and correct translation",
+          "Experts check TTS-generated audio for terminology presence, pronunciation accuracy, and naturalness",
+          "Experts verify audio localization accuracy for ground truth terminology"
+        ],
+        "criteria": [
+          "meaningfulness of entity names",
+          "correctness of translation",
+          "pronunciation accuracy",
+          "naturalness of speech",
+          "accuracy of terminology localization"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Their work involves three main tasks. First, they verify whether the terms extracted by the LLM are reasonable, ensuring they are meaningful entity names and correctly translated. ... Finally, they verify whether the audio located by our method contains the ground truth terminology",
+          "Verify whether the terms extracted by the LLM are reasonable, check if the TTS-generated audio includes the terms with accurate pronunciation and naturalness, and verify whether the located audio contains the ground truth terminology."
+        ],
+        "criteria": [
+          "meaningfulness of entity names",
+          "correctness of translation",
+          "accuracy of terminology localization",
+          "pronunciation",
+          "naturalness",
+          "correctness of terminology translation",
+          "presence of terminology in audio"
+        ]
+      },
+      "normalized": {
+        "pronunciation": "pronunciation accuracy",
+        "naturalness": "naturalness of speech",
+        "accuracy of terminology localization": "accuracy of terminology localization",
+        "correctness of translation": "correctness of translation"
+      },
+      "explanation": "Restructured guidelines into clear bullet points and normalized criteria names. Removed redundant criteria and consolidated related items."
+    }
+  },
+  "overall_notes": "Paper focuses on speech-to-text translation with terminology handling. The NLG evaluation is for machine translation outputs. Human evaluation was primarily for dataset validation and component validation, not direct NLG output quality assessment (which used automatic metrics). Extraction was generally accurate with minor normalization needed."
+}

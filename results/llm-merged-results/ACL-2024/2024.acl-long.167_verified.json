@@ -1,0 +1,162 @@
+{
+  "paper_id": "2024.acl-long.167",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation"
+    ],
+    "datasets": [
+      "Ubuntu Repository",
+      "CCSD",
+      "CodeSearchNet",
+      "UbuntuDocstring",
+      "VirtualAssembly"
+    ],
+    "languages": [
+      "C",
+      "C++",
+      "Python",
+      "Go",
+      "PHP",
+      "JavaScript",
+      "Ruby",
+      "Java"
+    ],
+    "models": [
+      "CodeLlama",
+      "Virtual Compiler (ViC)",
+      "CodeLlama-34B",
+      "roformer-base",
+      "sentence-transformers"
+    ],
+    "outputs": [
+      "assembly code",
+      "generated assembly code for given source functions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "English",
+          "Golang"
+        ],
+        "models": [
+          "ViC virtual compiler"
+        ],
+        "outputs": [
+          "Generated assembly code for given source functions"
+        ]
+      },
+      "normalized": {
+        "CodeLlama 34B": "CodeLlama-34B",
+        "Golang": "Go",
+        "ViC virtual compiler": "Virtual Compiler (ViC)",
+        "Generated assembly code for given source functions": "generated assembly code for given source functions"
+      },
+      "explanation": "Removed 'English' as it's not a programming language being generated; normalized 'Golang' to 'Go'; removed duplication in models; normalized model names for consistency"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "BINSIM",
+      "Runtime similarity"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L",
+          "BINSIM (via CLAP)",
+          "RUNTIME"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "BINSIM (via CLAP)": "BINSIM",
+        "RUNTIME": "Runtime similarity"
+      },
+      "explanation": "Simplified metrics to base forms: ROUGE-L → ROUGE, removed redundant 'BINSIM (via CLAP)' since both refer to same metric"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper; the LLM (CodeLlama) is used for generation, not evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual categorization of assembly code mismatches into predefined types (address differences, alternate operation expressions, register allocation variances, stack allocation discrepancies)",
+      "Reverse engineers manually crafted natural-language queries for evaluation dataset",
+      "Manual inspection of generated assembly code for correctness across multiple dimensions"
+    ],
+    "criteria": [
+      "address handling correctness",
+      "operation equivalence",
+      "register usage correctness",
+      "stack management correctness",
+      "semantic equivalency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "semantic equivalency"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "missing or extra instructions"
+        ]
+      },
+      "normalized": {
+        "address differences": "address handling correctness",
+        "alternate operation expressions": "operation equivalence",
+        "register allocation variances": "register usage correctness",
+        "stack allocation discrepancies": "stack management correctness"
+      },
+      "explanation": "Refined criteria to be more consistent evaluation dimensions; added 'semantic equivalency' as a key overarching criterion mentioned in the paper"
+    }
+  },
+  "overall_notes": "The paper primarily focuses on assembly code generation from source code using a virtual compiler approach. While the main NLG task is code generation, the evaluation includes both automatic metrics and manual analysis. Human evaluation was conducted by reverse engineering professionals for both query creation and code inspection. The extraction was generally accurate with minor normalization needed."
+}

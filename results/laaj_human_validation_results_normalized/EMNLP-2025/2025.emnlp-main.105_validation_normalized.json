@@ -1,0 +1,88 @@
+{
+  "paper_id": "2025.emnlp-main.105",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares GPT-4 LLM judgments against human evaluation results for the Multi-turn Dialogue Induction task, reporting quantitative agreement metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts provided in Appendix A.2 for both Multi-turn Dialogue Induction and Fairness-Factuality Balance tasks, including specific evaluation criteria"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 4,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed quality control questions and annotation guidelines provided in Appendices A-B"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "biased_attribution_in_dialogue"
+    ],
+    "sample_size": {
+      "total_generated": 2568,
+      "validated_by_both": 256,
+      "notes": "Randomly selected 10% of FEIs (256 out of 2568 instances) for GPT-4 vs human comparison"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": 97.27,
+        "criterion": "biased_attribution_in_dialogue",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Agreement rate between GPT-4 and human evaluators on Multi-turn Dialogue Induction task"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "High agreement rate",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 achieved 97.27% agreement with human evaluators, demonstrating strong reliability as an LLM judge for fairness evaluation"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "factuality_scoring_0_10"
+    ],
+    "human_only_criteria": [
+      "grammatical_accuracy",
+      "factual_accuracy",
+      "applicability_to_tasks",
+      "demographic_appropriateness"
+    ],
+    "shared_criteria": [
+      "biased_attribution_in_dialogue",
+      "bias_introduction",
+      "association_between_groups_attributes"
+    ],
+    "notes": "Human evaluators assessed broader data quality aspects, while LLM focused on fairness violations in specific tasks; both evaluated bias-related criteria"
+  }
+}

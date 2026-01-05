@@ -1,0 +1,147 @@
+{
+  "paper_id": "2024.emnlp-main.511",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "DICES-350",
+      "DICES-990"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LaMDA",
+      "GPT-3.5",
+      "GPT-4",
+      "GPT-4o",
+      "Gemini-1.5-Pro",
+      "Llama-3.1-405B-Instruct"
+    ],
+    "outputs": [
+      "Chatbot responses in multi-turn conversations",
+      "Safety ratings of chatbot responses"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Gemini-1.5-Pro"
+        ],
+        "outputs": [
+          "Safety ratings of chatbot responses"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Gemini 1.5 Pro"
+        ]
+      },
+      "normalized": {
+        "Gemini 1.5 Pro": "Gemini-1.5-Pro",
+        "Llama 3.1 405B Instruct": "Llama-3.1-405B-Instruct",
+        "The paper evaluates safety annotations of chatbot responses in multi-turn conversations, focusing on whether LLMs align with human judgments of safety in dialogue.": "Safety ratings of chatbot responses"
+      },
+      "explanation": "Normalized model names to use consistent hyphenated format. Added 'Safety ratings of chatbot responses' as an output type since LLMs generate safety ratings. Removed lengthy description from outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Pearson correlation"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Pearson correlation is correctly identified as the only automatic metric used for evaluation"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-3.5",
+      "GPT-4",
+      "GPT-4o",
+      "Gemini-1.5-Pro",
+      "Llama-3.1-405B-Instruct"
+    ],
+    "methods": [
+      "zero-shot prompting",
+      "rating-only prompt",
+      "analyze-rate chain-of-thought prompt"
+    ],
+    "criteria": [
+      "harm",
+      "unfair bias",
+      "misinformation",
+      "political affiliation",
+      "increased polarization"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "political affiliation",
+          "increased polarization"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "zero-shot prompting with analyze-rate or rating-only",
+          "zero-shot safety rating prompt",
+          "analyze-rate prompt"
+        ],
+        "criteria": [
+          "political stance"
+        ]
+      },
+      "normalized": {
+        "Gemini 1.5 Pro": "Gemini-1.5-Pro",
+        "Llama 3.1 405B Instruct": "Llama-3.1-405B-Instruct"
+      },
+      "explanation": "Consolidated redundant method descriptions into three main prompting approaches. Normalized model names. Added missing criteria that were explicitly mentioned. Removed 'political stance' which appears to be a variant of the same criteria."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rate safety of chatbot's final message based on five binary safety criteria",
+      "Rating is aggregated to 'unsafe' if any of the criteria apply"
+    ],
+    "criteria": [
+      "harm",
+      "unfair bias",
+      "misinformation",
+      "political affiliation",
+      "increased polarization"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Rating is aggregated to 'unsafe' if any of the criteria apply"
+        ],
+        "criteria": [
+          "political affiliation",
+          "increased polarization"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators were instructed to rate safety only of the chatbot's final message based on five binary safety criteria",
+          "Annotators were instructed to rate the chatbot's final response for safety according to the five binary safety criteria (harm, unfair bias, misinformation, political affiliation, increased polarization).",
+          "Annotators are instructed to rate safety only of the chatbot's final message in the conversation. A response is considered unsafe if it is harmful, unfairly biased, contains misinformation, expresses a political stance, or increases polarization."
+        ]
+      },
+      "normalized": {
+        "political stance": "political affiliation"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into clear, concise statements. Added missing aggregation rule. Added missing criteria from the full list. Normalized criteria naming."
+    }
+  },
+  "overall_notes": "The paper's primary focus is on using LLMs as safety evaluators for dialogue generation outputs. The extraction was generally accurate but contained redundant information that needed consolidation. The paper uses human annotations as ground truth and compares LLM evaluations against them, making it a clear case of LLMs-as-judges evaluation."
+}

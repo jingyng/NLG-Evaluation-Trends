@@ -1,0 +1,138 @@
+{
+  "paper_id": "2023.acl-long.13",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Storytelling",
+      "Multi Paragraph Opinionated Article Writing",
+      "Open Ended Text Generation"
+    ],
+    "datasets": [
+      "ROCSTORIES",
+      "WRITINGPROMPTS",
+      "WIKIPLOTS",
+      "OPINION"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "roberta",
+      "bart",
+      "hint",
+      "pair"
+    ],
+    "outputs": [
+      "Generated stories",
+      "Generated multi-paragraph opinionated articles",
+      "Open-ended long text"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Multi-paragraph Opinionated Article Writing"
+        ],
+        "outputs": [
+          "Open-ended long text"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Opinionated Article Writing",
+          "Other:Article Writing"
+        ],
+        "outputs": [
+          "Generated stories and opinionated articles",
+          "Generated stories and multi-paragraph opinionated articles",
+          "stories and multi-paragraph opinionated articles"
+        ]
+      },
+      "normalized": {
+        "Other:Storytelling": "Other:Storytelling",
+        "ROCStories": "ROCStories",
+        "RoBERTa": "RoBERTa"
+      },
+      "explanation": "Consolidated redundant task descriptions and removed redundant output descriptions. Replaced vague 'Article Writing' with more specific 'Multi-paragraph Opinionated Article Writing' as mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "LEXICAL REPETITION",
+      "SEMANTIC REPETITION",
+      "SEMANTIC OVERLAP",
+      "DISTINCT",
+      "BERTSCORE",
+      "METEOR",
+      "PERPLEXITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Average Semantic Overlap"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "average semantic overlap"
+        ]
+      },
+      "normalized": {
+        "average semantic overlap": "Average Semantic Overlap",
+        "BLEU": "BLEU",
+        "ROUGE": "ROUGE",
+        "BERTScore": "BERTScore"
+      },
+      "explanation": "Normalized metric names to consistent capitalization. Added 'Average Semantic Overlap' which was mentioned as S-m in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators shown prompts and two model outputs (BART vs our method) and asked to select better text for three criteria: fluency, coherence, and relevance",
+      "Three annotators evaluated 100 cases total from different datasets",
+      "Used Fleiss' kappa to measure inter-annotator agreement"
+    ],
+    "criteria": [
+      "Fluency",
+      "Coherence",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three annotators evaluated 100 cases total from different datasets",
+          "Used Fleiss' kappa to measure inter-annotator agreement"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators give preferences for fluency, coherence, and relevance based on intra-sentence linguistic quality, inter-sentence relatedness & causal dependency, and consistency.",
+          "Annotators were shown a prompt and two model outputs and asked to select the better text in terms of fluency, coherence, and relevance.",
+          "annotators are asked to select the better text in each comparison in terms of fluency, coherence, and relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated and clarified the human evaluation guidelines with more specific details from the paper, including scale (100 cases, 3 annotators) and methodology (Fleiss' kappa)."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation for open-ended long text generation using iterative non-autoregressive approaches with MLMs. The extraction was generally accurate but contained some redundancy and needed normalization for metric names. The paper conducts comprehensive evaluation with both automatic metrics and human evaluation, but does not use LLMs as judges."
+}

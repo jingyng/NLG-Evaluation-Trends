@@ -1,0 +1,111 @@
+{
+  "paper_id": "2025.emnlp-main.811",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM judgments against human annotations by randomly sampling 100 conversation pairs, having both LLM and PhD-level annotators evaluate the same pairs across the same nine dimensions, and reporting match rates at both coarse-grained (Exploration, Insight, Action) and fine-grained dimension levels"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "o_1_mini"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Appendix mentions prompts for role construction and judgment, with Figure 6 showing an example judge prompt. The judge LLM is instructed to (i) reason before judging and (ii) output a verdict (A|B|tie) for pairwise comparisons across nine rubric dimensions anchored in Hill's E-I-A counseling model"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "",
+      "value": "",
+      "interpretation": "",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Table 2 provides detailed definitions for all nine evaluation dimensions. Human annotators were given the same rubric definitions as the LLM judge and asked to determine winning model or tie for each dimension"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "Empathic Understanding",
+      "Encouragement of Emotional Expression",
+      "Exploration of Thoughts and Narratives",
+      "Establish a Trusting Foundation",
+      "Assess Readiness for Insight",
+      "Use Gentle Challenges and Interpretations",
+      "Clarify the Desired Change",
+      "Ensure Readiness and Collaboration",
+      "Brainstorm and Evaluate Options"
+    ],
+    "sample_size": {
+      "total_generated": 375,
+      "validated_by_both": 100,
+      "notes": "Out of 375 total conversation pairs, 100 pairs were randomly sampled for validation. Each pair was evaluated across 9 dimensions, resulting in 900 human annotation instances"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": 0.86,
+        "criterion": "Exploration",
+        "llm_model": "o_1_mini",
+        "significance": "",
+        "notes": "Aggregated from fine-grained Exploration dimensions"
+      },
+      {
+        "metric": "Percentage agreement",
+        "value": 0.83,
+        "criterion": "Insight",
+        "llm_model": "o_1_mini",
+        "significance": "",
+        "notes": "Aggregated from fine-grained Insight dimensions"
+      },
+      {
+        "metric": "Percentage agreement",
+        "value": 0.85,
+        "criterion": "Action",
+        "llm_model": "o_1_mini",
+        "significance": "",
+        "notes": "Aggregated from fine-grained Action dimensions"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "ESC-Judge achieves human-level reliability with match rates of 86% for Exploration, 83% for Insight, and 85% for Action categories, demonstrating strong agreement with PhD-level annotators."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Empathic Understanding",
+      "Encouragement of Emotional Expression",
+      "Exploration of Thoughts and Narratives",
+      "Establish a Trusting Foundation",
+      "Assess Readiness for Insight",
+      "Use Gentle Challenges and Interpretations",
+      "Clarify the Desired Change",
+      "Ensure Readiness and Collaboration",
+      "Brainstorm and Evaluate Options"
+    ],
+    "notes": "Both LLM and human evaluators used exactly the same nine-dimensional rubric derived from Hill's E-I-A counseling framework"
+  }
+}

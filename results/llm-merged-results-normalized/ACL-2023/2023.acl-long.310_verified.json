@@ -1,0 +1,148 @@
+{
+  "paper_id": "2023.acl-long.310",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text To Image Generation"
+    ],
+    "datasets": [
+      "COCO",
+      "LAION 5b",
+      "PHRASECUT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "stable_diffusion_2.0",
+      "clip",
+      "mask_r_cnn",
+      "queryinst",
+      "mask_2former",
+      "clipseg",
+      "stego",
+      "picie+h"
+    ],
+    "outputs": [
+      "Generated images",
+      "DAAM attribution maps"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "LAION-5B"
+        ],
+        "models": [
+          "CLIP"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "LAION 5billion"
+        ],
+        "models": [
+          "PiCIE + H"
+        ]
+      },
+      "normalized": {
+        "LAION 5billion": "LAION-5B",
+        "PiCIE + H": "PiCIE+H",
+        "Generated images and DAAM attribution maps": "Generated images, DAAM attribution maps"
+      },
+      "explanation": "Normalized dataset name to standard form 'LAION-5B', normalized model name 'PiCIE+H', simplified outputs description. Added CLIP model which is explicitly mentioned as part of Stable Diffusion architecture."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MIOU",
+      "PIXEL ACCURACY",
+      "DICE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "mean intersection over union (mIoU)",
+          "mean Intersection over Union (mIoU)",
+          "mIoU 80",
+          "mIoU ∞"
+        ]
+      },
+      "normalized": {
+        "mean intersection over union (mIoU)": "mIoU",
+        "mean Intersection over Union (mIoU)": "mIoU",
+        "mIoU 80": "mIoU",
+        "mIoU ∞": "mIoU"
+      },
+      "explanation": "Consolidated all mIoU variants to base form 'mIoU' as per normalization rules. Removed redundant entries."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {
+        "None": ""
+      },
+      "explanation": "Removed placeholder 'None' values since no LLM evaluation was conducted."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators selected which objects were present in the image from a predefined list",
+      "Workers rated the relevance of the heat map to the target word using categories: bad, poor, fair, good, excellent",
+      "Workers could flag abstract words or poor images as uninterpretable"
+    ],
+    "criteria": [
+      "Presence",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Workers could flag abstract words or poor images as uninterpretable"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "fair",
+          "good",
+          "excellent",
+          "bad",
+          "poor"
+        ]
+      },
+      "normalized": {
+        "Rate how well the highlighting reflects the word using a five-point Likert scale: bad, poor, fair, good, excellent; also option to declare image too poor or word too abstract": "Workers rated the relevance of the heat map to the target word using categories: bad, poor, fair, good, excellent"
+      },
+      "explanation": "Removed rating scale values from criteria (they are part of the guideline, not criteria themselves). Added missing guideline about flagging uninterpretable content. Consolidated guideline descriptions."
+    }
+  },
+  "overall_notes": "The paper focuses on interpreting Stable Diffusion using cross-attention maps (DAAM). While it involves text-to-image generation, the primary contribution is interpretability/attribution analysis rather than NLG system development. The extraction was generally accurate, with minor normalization needed for consistency. Human evaluation was well-documented with clear guidelines."
+}

@@ -1,0 +1,148 @@
+{
+  "paper_id": "2025.naacl-long.207",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Frame Generation",
+      "Cloze Task"
+    ],
+    "datasets": [
+      "MLLMU BENCH"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llava_1.5_7b",
+      "idefics_2_8b"
+    ],
+    "outputs": [
+      "Generated text answers to profile-based questions",
+      "Generated descriptions of profile attributes",
+      "Cloze task completions for profile information"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Cloze Task"
+        ],
+        "datasets": [
+          "MLLMU-Bench"
+        ],
+        "outputs": [
+          "Cloze task completions for profile information"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Profile Generation"
+        ],
+        "datasets": [
+          "Forget Set",
+          "Test Set",
+          "Retain Set",
+          "Real Celebrity Set"
+        ],
+        "outputs": [
+          "The model generates descriptions or answers related to forgotten profiles. If the generated output contains factual inconsistencies or a lack of information about the forgotten profile, the unlearning process is considered effective."
+        ]
+      },
+      "normalized": {
+        "LLaVA‑1.5‑7B": "LLaVA-1.5-7B",
+        "Idefics2‑8B": "Idefics2-8B",
+        "Other:free-generation": "Other:Free-generation",
+        "MLLMU‑Bench": "MLLMU-Bench"
+      },
+      "explanation": "Consolidated tasks to focus on actual NLG tasks evaluated (free-generation and cloze), removed dataset subsets in favor of main benchmark name, normalized model names and dataset references"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "FACTUALITY",
+      "CLOZE ACCURACY",
+      "CLASSIFICATION ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Classification Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE‑L",
+          "Cloze Acc",
+          "Classification Acc"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "Cloze Acc": "Cloze Accuracy",
+        "Classification Acc": "Classification Accuracy"
+      },
+      "explanation": "Normalized metric names to base forms and simplified variants, added Classification Accuracy which is also used for evaluation"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o"
+    ],
+    "methods": [
+      "Few-shot prompted evaluation"
+    ],
+    "criteria": [
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "Few-shot prompted evaluation"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT‑4o"
+        ],
+        "methods": [
+          "few-shot prompting for factual scoring",
+          "factuality scoring via prompted LLM"
+        ]
+      },
+      "normalized": {
+        "GPT‑4o": "GPT-4o",
+        "factuality": "Factuality",
+        "factual accuracy": "Factuality"
+      },
+      "explanation": "Consolidated model references and methods, normalized criteria to standard form"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Human experts defined evaluation scales and created few-shot examples illustrating how answers should be evaluated based on factuality compared to the ground truth, with justifications."
+        ],
+        "criteria": [
+          "factuality"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all human evaluation metadata since the paper does not conduct human evaluations of generated outputs - human involvement was for dataset creation/validation only"
+    }
+  },
+  "overall_notes": "The paper focuses on multimodal machine unlearning evaluation with NLG components. Human experts were involved in dataset creation and validation, but not in evaluating the actual model outputs. The LLM-as-judge (GPT-4o) was used for factuality scoring of generated text."
+}

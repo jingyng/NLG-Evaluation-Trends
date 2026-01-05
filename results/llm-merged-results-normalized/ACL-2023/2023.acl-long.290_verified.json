@@ -1,0 +1,151 @@
+{
+  "paper_id": "2023.acl-long.290",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Multi Document Non Factoid Question Answering",
+      "Question Answering"
+    ],
+    "datasets": [
+      "WIKIHOWQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "dpr+bart",
+      "text_davinci_003"
+    ],
+    "outputs": [
+      "Long-form answers to non-factoid questions",
+      "Long-form instructional answers",
+      "Passage-level answers to \"how to\" questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Other:Instruction Following"
+        ],
+        "datasets": [
+          "WIKIHOWQA"
+        ],
+        "models": [
+          "DPR",
+          "BART-large"
+        ]
+      },
+      "normalized": {
+        "Other:Multi-document Non-factoid QA": "Other:Multi-document Non-factoid QA",
+        "WikiHowQA": "WikiHowQA",
+        "DPR + BART": "DPR+BART"
+      },
+      "explanation": "Removed 'Text Summarization' and 'Other:Instruction Following' as these are not the main tasks evaluated. Removed duplicate dataset name 'WIKIHOWQA'. Consolidated 'DPR + BART' into single model name 'DPR+BART'. Removed individual components 'DPR' and 'BART-large' as they were used together."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE",
+      "NOVEL N GRAM PERCENTAGE",
+      "COVERAGE",
+      "DENSITY",
+      "COMPRESSION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BertScore",
+          "Rouge-X"
+        ]
+      },
+      "normalized": {
+        "ROUGE": "ROUGE",
+        "BERTScore": "BERTScore",
+        "Novel N-Gram Percentage": "Novel N-Gram Percentage",
+        "coverage": "Coverage",
+        "density": "Density",
+        "compression": "Compression"
+      },
+      "explanation": "Normalized metric names to standard forms. Removed duplicates ('BertScore' vs 'BERTScore', 'Rouge-X' vs 'ROUGE'). Used title case for dataset characterization metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The paper only uses LLMs (GPT-3) for generation, not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Question category classification as attentiveness check",
+      "Usefulness rating on 5-point Likert scale",
+      "Highlighting useful/misleading spans in answers",
+      "A/B comparison of model vs reference answers",
+      "Document relevance rating on 5-point Likert scale",
+      "Highlighting relevant passages in supporting documents"
+    ],
+    "criteria": [
+      "Usefulness",
+      "Factuality",
+      "Identification",
+      "Relevance",
+      "Familiarity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Question category classification as attentiveness check",
+          "A/B comparison of model vs reference answers",
+          "Document relevance rating on 5-point Likert scale",
+          "Highlighting relevant passages in supporting documents"
+        ],
+        "criteria": [
+          "Familiarity"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "usefulness": "Usefulness",
+        "factual consistency": "Factual Consistency",
+        "identification of misleading spans": "Identification of Misleading Spans",
+        "relevance": "Relevance"
+      },
+      "explanation": "Added missing human evaluation procedures mentioned in the paper. Normalized criteria names to title case. The paper conducted multiple human evaluation studies with different guidelines."
+    }
+  },
+  "overall_notes": "The paper focuses on multi-document non-factoid question answering, specifically 'how-to' instructional questions. It introduces the WikiHowQA benchmark and evaluates baseline models using both automatic metrics and human evaluation. The human evaluation framework is a key contribution, using highlighted relevant passages to improve factual consistency assessment."
+}

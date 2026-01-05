@@ -1,0 +1,164 @@
+{
+  "paper_id": "2025.naacl-long.375",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Mathematical Problem Solving",
+      "Mathematical Reasoning"
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH",
+      "GAOKAO 2023 EN",
+      "OLYMPIADBENCH",
+      "COLLEGE MATH",
+      "MMLU STEM",
+      "aime24",
+      "amc23",
+      "MATH ODYSSEY",
+      "GPQA DIAMOND",
+      "GSM HARD",
+      "math500"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3.1_8b_instruct",
+      "gemma_2_2b_instruct",
+      "meta_llama_3.1_70b_instruct",
+      "qwen_2_7b_instruct",
+      "qwen_2_72b_instruct",
+      "qwen_2_math_7b_instruct",
+      "deepseekmath_7b_rl",
+      "internlm_2_math_plus_7b",
+      "mathstral_7b_v_0.1",
+      "numinamath_7b_cot",
+      "numinamath_72b_cot",
+      "qwen_2_math_72b_instruct"
+    ],
+    "outputs": [
+      "Mathematical solutions (reasoning paths and answers)",
+      "textual mathematical solution explanations and reasoning paths",
+      "generated solutions to mathematical problems"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "InternLM2-math-plus-7b",
+          "Qwen2-Math-7B-Instruct",
+          "Qwen2-Math-72B-Instruct"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Meta-Llama-3.1-8B-Instruct"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Mathematical Reasoning": "Other: Mathematical Reasoning",
+        "Internlm2-math-plus-7b": "InternLM2-math-plus-7b",
+        "Gemma2-2B-Instruct": "Gemma2-2B-Instruct"
+      },
+      "explanation": "Normalized spacing in task names, fixed capitalization of model names, removed duplicate Meta-Llama-3.1-8B-Instruct entry, and added missing Qwen2-Math models that were referenced in the paper"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MAJOR",
+      "RM",
+      "SOLVED RATE OF PROBLEMS",
+      "EXACT MATCH",
+      "NUMERIC TOLERANCE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "exact match",
+          "numeric tolerance"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "solved rate"
+        ]
+      },
+      "normalized": {
+        "solved rate of problems": "solved rate of problems"
+      },
+      "explanation": "Added explicit evaluation criteria mentioned in the grading section (exact match, numeric tolerance), removed redundant 'solved rate' since it's covered by 'solved rate of problems'. All metrics are correctly extracted from the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gemma_2_2b_instruct"
+    ],
+    "methods": [
+      "pairwise evaluation",
+      "preference prediction",
+      "question-answering task"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "correctness"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Gemma2-2B-Instruct (used as PPRM)"
+        ],
+        "methods": [
+          "pairwise preference scoring via PPRM"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "pairwise preference scoring via PPRM": "pairwise evaluation",
+        "question-answering task: 'For Question Q, is solution a 1 better than solution a 2 ?'": "question-answering task"
+      },
+      "explanation": "Simplified method descriptions to their core concepts, removed redundant model specification, and added 'correctness' as the explicit evaluation criterion used by the PPRM model to compare mathematical solutions"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Confirmed no human evaluation is conducted in the paper. All evaluations use automatic metrics and PPRM-based evaluation. Removed placeholder 'None' values."
+    }
+  },
+  "overall_notes": "Paper focuses on mathematical reasoning generation and evaluation. The PPRM (Pairwise Preference Reward Model) serves as an LLM-as-judge system that compares generated mathematical solutions. All automatic metrics are properly extracted, and the paper clearly uses LLM-based evaluation via the PPRM model. No human evaluation is conducted. Extraction was reasonably accurate with minor normalization needed."
+}

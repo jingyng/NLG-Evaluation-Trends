@@ -1,0 +1,108 @@
+{
+  "paper_id": "2021.emnlp-main.201",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Generation"
+    ],
+    "datasets": [
+      "SQuAD",
+      "MARCO"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Iterative Graph Network-based Decoder (IGND)",
+      "Graph2Seq",
+      "BERT"
+    ],
+    "outputs": [
+      "natural language questions",
+      "question-answer pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Graph2Seq"
+        ]
+      },
+      "removed": {
+        "models": [
+          "relational-graph encoder"
+        ]
+      },
+      "normalized": {
+        "MARCO": "MARCO"
+      },
+      "explanation": "Removed 'relational-graph encoder' as it's part of the model architecture rather than a distinct model. Added 'Graph2Seq' as it's explicitly mentioned as the base architecture. Kept 'Other:Question Generation' as it's the primary NLG task studied."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE-L"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-1",
+          "BLEU-2",
+          "BLEU-3",
+          "BLEU-4"
+        ]
+      },
+      "normalized": {
+        "bleu": "BLEU",
+        "rouge-l": "ROUGE-L"
+      },
+      "explanation": "Normalized all BLEU variants to just 'BLEU' following simplification rules. The paper reports BLEU-1 through BLEU-4 but these are all variants of the same base metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs were used as judges for evaluation. The paper uses BERT as part of the generation model architecture, not as an evaluator post-generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three annotators scored generated questions on a 0-5 scale for Fluency, Relevancy, and Answerability"
+    ],
+    "criteria": [
+      "Fluency",
+      "Relevancy",
+      "Answerability"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "criteria": [
+          "fluency",
+          "relevancy",
+          "answerability"
+        ]
+      },
+      "normalized": {
+        "fluency": "Fluency",
+        "relevancy": "Relevancy",
+        "answerability": "Answerability"
+      },
+      "explanation": "Normalized criteria to title case and removed duplicates. The evaluation used consistent criteria: Fluency (grammatical and fluent), Relevancy (relevant to input context), and Answerability (can be answered by given answer)."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper clearly focuses on question generation as an NLG task, uses both automatic metrics (BLEU, ROUGE-L) and human evaluation, but does not use LLMs as judges. The human evaluation methodology is well described with clear criteria. The main corrections were normalizing metric names and clarifying model architecture components."
+}

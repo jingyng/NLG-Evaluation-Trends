@@ -1,0 +1,167 @@
+{
+  "paper_id": "2024.acl-long.201",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Automatic Subtitling"
+    ],
+    "datasets": [
+      "MUST CINEMA",
+      "EUROPARL ST",
+      "COVOST 2",
+      "COMMON VOICE",
+      "LIBRISPEECH",
+      "TED LIUM v3",
+      "VOXPOPULI",
+      "EC SHORT CLIPS",
+      "EP INTERVIEWS",
+      "IWSLT 2023 SUBTITLING TRACK"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Spanish",
+      "French",
+      "Italian",
+      "Dutch",
+      "Portuguese",
+      "Romanian"
+    ],
+    "models": [
+      "direct_autoregressive_encoder_decoder_model",
+      "conformer_encoder",
+      "transformer_decoder",
+      "joint_ctc_attention_framework"
+    ],
+    "outputs": [
+      "Subtitles with segmented translations and timestamps"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Subtitle Generation"
+        ],
+        "datasets": [
+          "European Commission Short Clips",
+          "European Parliament Interviews"
+        ],
+        "languages": [],
+        "models": [
+          "Direct speech-to-text translation (ST) model",
+          "direct autoregressive encoder-decoder model"
+        ],
+        "outputs": [
+          "Generated subtitles (segmented translations) with start and end timestamps",
+          "subtitles with segmented translations and timestamps"
+        ]
+      },
+      "normalized": {
+        "Other:Subtitle Generation": "Other:Automatic Subtitling",
+        "European Commission Short Clips": "EC Short Clips",
+        "European Parliament Interviews": "EP Interviews"
+      },
+      "explanation": "Consolidated duplicate datasets and model descriptions, normalized task name to be more precise"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SUBER",
+      "SUBSONAR",
+      "BLEU",
+      "CPL",
+      "CPS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "AS-BLEU",
+          "CPS conformity",
+          "CPL conformity"
+        ]
+      },
+      "normalized": {
+        "AS-BLEU": "BLEU"
+      },
+      "explanation": "Removed redundant metric variants and conformity metrics that are not evaluation metrics but compliance percentages"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleared all metadata since the paper does not use LLMs as judges"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Check if source language speech and corresponding translated subtitles are synchronized",
+      "Move timestamp of subtitle if timing is wrong to match audio timing",
+      "Adjust start, end, or both timestamps for synchronization",
+      "Do not change subtitle content, only modify timestamps"
+    ],
+    "criteria": [
+      "Synchronization",
+      "Accuracy",
+      "Magnitude"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Do not change subtitle content, only modify timestamps"
+        ],
+        "criteria": [
+          "Time shift magnitude"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Annotators were asked to adjust the start, end, or both timestamps to achieve synchronization between subtitle text and audio, following detailed annotation guidelines."
+        ],
+        "criteria": [
+          "start/end timestamp correctness"
+        ]
+      },
+      "normalized": {
+        "start/end timestamp correctness": "Timestamp accuracy"
+      },
+      "explanation": "Consolidated guideline descriptions and normalized criteria names"
+    }
+  },
+  "overall_notes": "The paper is well-extracted overall. Main issues were duplicate dataset names and some redundant model descriptions. The paper focuses on automatic subtitling with strong evaluation using both automatic metrics and detailed human evaluation of timestamp synchronization."
+}

@@ -1,0 +1,165 @@
+{
+  "paper_id": "2025.acl-long.801",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "SEASUMM v1",
+      "GLOBESUMM"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "Malay",
+      "Indonesian"
+    ],
+    "models": [
+      "seallm_v_2",
+      "qwen_2.5_instruct",
+      "gpt_4",
+      "gpt_3.5",
+      "gpt_4o"
+    ],
+    "outputs": [
+      "summaries of multilingual news clusters",
+      "news cluster summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "GLOBESUMM"
+        ],
+        "models": [
+          "GPT-4o"
+        ],
+        "outputs": [
+          "news cluster summaries"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "CLUST-MCMS evaluation set"
+        ],
+        "models": [
+          "GPT4",
+          "GPT3.5",
+          "GPT-4"
+        ],
+        "outputs": [
+          "summaries"
+        ]
+      },
+      "normalized": {
+        "GPT4": "GPT-4",
+        "GPT3.5": "GPT-3.5",
+        "summaries of news clusters": "summaries of multilingual news clusters"
+      },
+      "explanation": "Normalized model names to standard format, removed 'CLUST-MCMS evaluation set' (not a formal dataset name), removed duplicate/generic entries, added missing GLOBESUMM dataset"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "EVE COV",
+      "ENT FAITH",
+      "CLUST ROUGE",
+      "NMI"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "Event Coverage (Eve-Cov)",
+          "Entity Faithfulness (Ent-Faith)",
+          "NMIe"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "Event Coverage (Eve-Cov)": "Eve-Cov",
+        "Entity Faithfulness (Ent-Faith)": "Ent-Faith"
+      },
+      "explanation": "Consolidated ROUGE variants into single metric, simplified metric names, removed NMIe (variant of NMI)"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "gpt_4o"
+    ],
+    "methods": [
+      "event sentence identification",
+      "silver-standard summary generation"
+    ],
+    "criteria": [
+      "Redundancy",
+      "Omission",
+      "Conflict"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "silver-standard summary generation"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT4"
+        ],
+        "methods": [
+          "automated Eve-Cov evaluation using GPT4o",
+          "protocol-guided prompting"
+        ],
+        "criteria": [
+          "event coverage"
+        ]
+      },
+      "normalized": {
+        "GPT4": "GPT-4",
+        "GPT4o": "GPT-4o"
+      },
+      "explanation": "Limited to actual LLM-as-judge usage: GPT-4o was used for event sentence identification with high agreement validation. Removed methods/criteria that weren't part of LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual evaluation assigning scores 0-5 for each aspect of event coverage and faithfulness"
+    ],
+    "criteria": [
+      "Coverage",
+      "Faithfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual evaluation assigning scores 0-5 for each aspect of event coverage and faithfulness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- evaluated event coverage and faithfulness",
+          "Assign a score from 0 to 5 for each aspect to assess coverage and faithfulness of the generated summary.",
+          "assigning a score from 0 to 5 for each aspect, obtaining ... for ours, ordered according to the aspects"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline description into a single clear statement, kept criteria as extracted"
+    }
+  },
+  "overall_notes": "Paper focuses on event-centric news cluster summarization pipeline with strong multilingual component. Extracted metadata was generally accurate but needed normalization and removal of duplicates/variants. LLM-as-judge usage was minimal (GPT-4o for event identification validation), while human evaluation was conducted with clear scoring guidelines."
+}

@@ -1,0 +1,166 @@
+{
+  "paper_id": "2023.acl-long.549",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "COCHRANE",
+      "ms2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ittc_1",
+      "ittc_2",
+      "bart_large",
+      "scispace",
+      "led_base_16k",
+      "bart",
+      "primera",
+      "bigbird_pegasus",
+      "longformer_encoder_decoder"
+    ],
+    "outputs": [
+      "medical literature review summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Longformer-Encoder-Decoder"
+        ],
+        "outputs": [
+          "medical literature review summaries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "MS^2",
+          "MSˆ2"
+        ],
+        "languages": [],
+        "models": [
+          "Longformer",
+          "BigBird",
+          "LED"
+        ],
+        "outputs": [
+          "summaries"
+        ]
+      },
+      "normalized": {
+        "MS2": "MS2",
+        "BART (baseline)": "BART",
+        "BigBird PEGASUS": "BigBird-PEGASUS",
+        "Longformer Encoder-Decoder (LED)": "Longformer-Encoder-Decoder"
+      },
+      "explanation": "Normalized dataset names (MS2 instead of variations), consolidated model names (removed redundant terms like 'LED'), and clarified output description. Added Longformer-Encoder-Decoder as it's a distinct model architecture used."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE",
+      "DELTA EI",
+      "CLAIMVER",
+      "NLI",
+      "STS",
+      "PIO OVERLAP"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "ROUGE": "ROUGE",
+        "BERTScore": "BERTScore",
+        "Delta-EI": "Delta-EI",
+        "ClaimVer": "ClaimVer",
+        "NLI": "NLI",
+        "STS": "STS",
+        "PIO-Overlap": "PIO-Overlap"
+      },
+      "explanation": "All metrics were correctly extracted and normalized. ROUGE variants (ROUGE-1, ROUGE-2, ROUGE-L) were already simplified to ROUGE as required."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Confirmed no LLM-as-judge evaluation in this paper. The paper evaluates models but doesn't use LLMs as evaluators. Removed placeholders."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Facet-based evaluation with 8 questions covering fluency, PIO alignment, effect direction, and strength of claim",
+      "Pairwise comparisons asking 'Which of A or B more accurately reflects the content of the target summary?'"
+    ],
+    "criteria": [
+      "Fluency",
+      "Population",
+      "Intervention",
+      "Outcome",
+      "Direction",
+      "Claim",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Facet-based evaluation with 8 questions covering fluency, PIO alignment, effect direction, and strength of claim"
+        ],
+        "criteria": [
+          "Effect-direction",
+          "Strength-of-claim",
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Effect-target",
+          "Effect-generated",
+          "Strength-target",
+          "Strength-generated"
+        ]
+      },
+      "normalized": {
+        "fluency": "Fluency",
+        "population": "Population",
+        "intervention": "Intervention",
+        "outcome": "Outcome",
+        "pairwise preference": "Accuracy",
+        "effect direction": "Effect-direction",
+        "strength of claim": "Strength-of-claim"
+      },
+      "explanation": "Consolidated facet criteria (target/generated variants into unified concepts), normalized capitalization, and added missing criteria. The pairwise evaluation fundamentally measures accuracy in reflecting target content."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main improvements: normalized dataset/model names, consolidated human evaluation criteria, and clarified output descriptions. The paper provides comprehensive human evaluation protocols focused on medical literature review summarization quality."
+}

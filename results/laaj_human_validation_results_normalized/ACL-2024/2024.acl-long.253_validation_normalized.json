@@ -1,0 +1,72 @@
+{
+  "paper_id": "2024.acl-long.253",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates GPT-4 judgments against human evaluation on the same set of instances from the OKTest dataset, reporting that GPT-4's judgments closely approximate human judgments"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full refusal/compliance classification prompt provided in Appendix A.3 with detailed rubric including full refusal, partial refusal, and compliance categories"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluators used the same refusal/compliance classification criteria as GPT-4, with three individuals unrelated to the paper assessing refusal rates"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "agreement_analysis"
+    ],
+    "shared_criteria": [
+      "refusal"
+    ],
+    "sample_size": {
+      "total_generated": 300,
+      "validated_by_both": "subset of OKTest dataset (specific size not specified)",
+      "notes": "Validation conducted on a subset of the OKTest dataset containing safe questions with harmful words, tested on three models: LlaMa2-7B, Vicuna-7B, and Mistral-7B"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "high agreement",
+      "threshold_used": "Not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4's judgments closely approximate human judgments with quite high consistency, demonstrating reliable LLM-as-a-judge performance for refusal classification"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Helpfulness"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Refusal"
+    ],
+    "notes": "Both LLM and human evaluate refusal classification on the same instances. LLM additionally evaluates helpfulness on a 5-point scale, but human evaluation was only conducted for refusal classification."
+  }
+}

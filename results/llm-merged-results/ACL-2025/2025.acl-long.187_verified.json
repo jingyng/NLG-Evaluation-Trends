@@ -1,0 +1,173 @@
+{
+  "paper_id": "2025.acl-long.187",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Other:Question Answering",
+      "Other:Long Document QA"
+    ],
+    "datasets": [
+      "LongBench-Chat",
+      "LongBench",
+      "MT-Bench",
+      "AlpacaEval2"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "Llama-3.1-8B",
+      "GLM-4-9B"
+    ],
+    "outputs": [
+      "model responses to long-context queries",
+      "question answering responses",
+      "summarization outputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "question answering responses",
+          "summarization outputs"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:question-answering"
+        ],
+        "datasets": [
+          "SFT long-context dataset"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "responses to queries in QA and summarization tasks"
+        ]
+      },
+      "normalized": {
+        "Other:question-answering": "Other:Question Answering",
+        "responses to queries in QA and summarization tasks": "model responses to long-context queries"
+      },
+      "explanation": "Removed duplicate 'question-answering' task variant and SFT dataset (not an evaluation dataset). Added more specific output descriptions. Consolidated task names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "GPT-4o",
+      "FactScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "GPT-4o rating": "GPT-4o"
+      },
+      "explanation": "Normalized 'GPT-4o rating' to 'GPT-4o' for consistency. No major changes needed."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GLM-4"
+    ],
+    "methods": [
+      "CoT-based scoring",
+      "break-and-check",
+      "divide-and-conquer",
+      "LongReward scoring",
+      "Direct Preference Optimization (DPO)",
+      "pairwise preference generation"
+    ],
+    "criteria": [
+      "helpfulness",
+      "logicality",
+      "faithfulness",
+      "completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "multi-dimensional scoring with Chain-of-Thought"
+        ],
+        "criteria": [
+          "Helpfulness",
+          "Logicality",
+          "Faithfulness",
+          "Completeness"
+        ]
+      },
+      "normalized": {
+        "CoT-based scoring for helpfulness and logicality": "CoT-based scoring",
+        "Helpfulness": "helpfulness",
+        "Logicality": "logicality",
+        "Faithfulness": "faithfulness",
+        "Completeness": "completeness"
+      },
+      "explanation": "Removed duplicate criteria with different capitalization. Consolidated method descriptions. The main LLM judge is GLM-4 as specified in the paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluate responses on four dimensions: helpfulness, logicality, faithfulness, and completeness",
+      "Determine win/ties/losses against baseline"
+    ],
+    "criteria": [
+      "helpfulness",
+      "logicality",
+      "faithfulness",
+      "completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Evaluate responses on four dimensions: helpfulness, logicality, faithfulness, and completeness",
+          "Determine win/ties/losses against baseline"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Evaluate responses on four dimensions: helpfulness, logicality, faithfulness, and completeness, and determine win/ties/losses against baseline",
+          "evaluate model responses on dimensions such as helpfulness, logicality, faithfulness, and completeness",
+          "We report the proportion of wins, ties, and losses of the DPO model on each dimension"
+        ],
+        "criteria": [
+          "Helpfulness",
+          "Logicality",
+          "Faithfulness",
+          "Completeness"
+        ]
+      },
+      "normalized": {
+        "Helpfulness": "helpfulness",
+        "Logicality": "logicality",
+        "Faithfulness": "faithfulness",
+        "Completeness": "completeness"
+      },
+      "explanation": "Consolidated guideline descriptions into clear statements. Removed duplicate criteria with different capitalization. The human evaluation follows the same four dimensions as the LLM evaluation."
+    }
+  },
+  "overall_notes": "The paper is well-extracted overall. Main changes involved normalizing capitalization and removing duplicates. The paper focuses on long-context NLG evaluation using AI feedback (LongReward) with both automatic and human evaluation. All yes/no answers were correctly extracted."
+}

@@ -1,0 +1,102 @@
+{
+  "paper_id": "2025.naacl-long.57",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM judgments against human evaluation by computing annotation correlation (Pearson's correlation) between LLM and human annotations on the same set of responses across all eight pedagogical dimensions."
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "Prometheus2",
+      "Llama-3.1-8B"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "figure",
+      "rubric_or_examples_shown": "no",
+      "notes": "The paper states 'We also performed annotations using Prometheus2 and Llama-3.1-8B as critic LLMs' and mentions using a specific prompt template adapted from prior work, shown in Figure 2."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 4,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.71,
+      "interpretation": "substantial agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper mentions 'comprehensive training, including an interactive training document' and 'a comprehensive set of annotation guidelines', with examples shown in appendix figures."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "Identification",
+      "Location",
+      "Answer",
+      "Guidance",
+      "Actionability",
+      "Coherence",
+      "Tone",
+      "Humanness"
+    ],
+    "sample_size": {
+      "total_generated": 1596,
+      "validated_by_both": 1596,
+      "notes": "All 1,596 responses from the MRBench benchmark were annotated by both human evaluators and LLM judges."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": -0.0,
+        "criterion": "All dimensions except Human-likeness",
+        "llm_model": "Prometheus2 and Llama-3.1-8B",
+        "significance": "Not reported",
+        "notes": "Most correlation scores are negative across both LLMs, indicating unreliable judgments for pedagogical dimensions"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": "slightly positive",
+        "criterion": "Humanness",
+        "llm_model": "Prometheus2 and Llama-3.1-8B",
+        "significance": "Not reported",
+        "notes": "Human-likeness dimension shows slightly better correlation but remains low"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "weak/unreliable",
+      "threshold_used": "Not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM judgments show negative correlation with human annotations for most pedagogical dimensions, indicating that current LLMs are unreliable as evaluators for complex pedagogical assessment tasks."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Identification",
+      "Location",
+      "Answer",
+      "Guidance",
+      "Actionability",
+      "Coherence",
+      "Tone",
+      "Humanness"
+    ],
+    "notes": "Both LLM and human evaluators assessed the same eight pedagogical dimensions using the same three-tier labeling system."
+  }
+}

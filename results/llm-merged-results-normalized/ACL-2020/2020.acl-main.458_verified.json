@@ -1,0 +1,154 @@
+{
+  "paper_id": "2020.acl-main.458",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "STANFORD UNIVERSITY HOSPITAL RADIOLOGY REPORTS",
+      "RHODE ISLAND HOSPITAL RIH RADIOLOGY REPORTS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "background_augmented_pointer_generator_network",
+      "lexrank",
+      "banditsum"
+    ],
+    "outputs": [
+      "radiology report summaries",
+      "clinical impression summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "clinical impression summaries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Stanford University Hospital dataset",
+          "RIH dataset",
+          "Stanford radiology reports",
+          "RIH radiology reports",
+          "Stanford University Hospital",
+          "Rhode Island Hospital (RIH)"
+        ],
+        "languages": [],
+        "models": [
+          "PG baseline",
+          "RL R",
+          "RL C",
+          "RL R+C"
+        ],
+        "outputs": [
+          "generated summaries of radiology reports",
+          "Generated radiology impression summaries (short textual summaries of findings)",
+          "summarize the salient and clinically significant findings in x"
+        ]
+      },
+      "normalized": {
+        "Stanford University Hospital dataset": "Stanford University Hospital radiology reports",
+        "Rhode Island Hospital (RIH) dataset": "Rhode Island Hospital (RIH) radiology reports"
+      },
+      "explanation": "Consolidated duplicate dataset names, removed model variants (RL R, RL C, RL R+C are training strategies, not distinct models), normalized output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "FACTUAL F1",
+      "PERPLEXITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE variants to base ROUGE metric following simplification guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values and kept empty lists since no LLM evaluation was used"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Radiologists ranked summaries based on fluency, factual correctness and completeness, and overall quality, with ties allowed"
+    ],
+    "criteria": [
+      "Fluency",
+      "Factuality",
+      "Completeness",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- radiologists ranked summaries based on fluency, factual correctness and completeness, and overall quality, with ties allowed.",
+          "Radiologists ranked each system's summary on fluency, factual correctness/completeness, and overall quality, allowing ties.",
+          "We asked the radiologists to compare them based on the following three metrics: (1) fluency, (2) factual correctness and completeness, and (3) overall quality."
+        ],
+        "criteria": [
+          "factual correctness and completeness"
+        ]
+      },
+      "normalized": {
+        "factual correctness and completeness": "factual correctness",
+        "completeness": "completeness"
+      },
+      "explanation": "Consolidated redundant guideline descriptions and normalized criteria by separating 'factual correctness and completeness' into distinct criteria"
+    }
+  },
+  "overall_notes": "The paper focuses on abstractive summarization of radiology reports with a novel reinforcement learning approach combining factual correctness and ROUGE rewards. Metadata extraction was generally accurate but needed normalization of metric variants and consolidation of duplicate entries. The human evaluation was conducted by board-certified radiologists, making it highly domain-specific."
+}

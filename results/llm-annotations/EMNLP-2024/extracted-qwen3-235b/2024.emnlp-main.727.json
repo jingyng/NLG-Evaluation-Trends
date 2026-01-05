@@ -1,0 +1,59 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "The task we consider is writing a biography of an entity or summary of an event.",
+        "tasks": [
+            "Other:Biography Generation"
+        ],
+        "datasets": [
+            "Researcher",
+            "Wiki-Ent",
+            "Wiki-Event",
+            "News Events"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "text-bison-001",
+            "text-unicorn-001",
+            "Mistral-7B-Instruct"
+        ],
+        "outputs": "Biographies of people and descriptions of events"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We segment the language models' output into sentences and evaluate whether a sentence can be attributed to any of the context passages (retrieved snippets and QA model answers). We report 3 variants of the metric based on aggregation. Strict AIS measures what fraction of the model outputs have all sentences correctly attributed. Macro AIS reports what fraction of the output sentences per query can be attributed on average. Micro AIS reports what fraction of all output sentences across all prompts are attributable to the context.",
+        "automatic_metrics": [
+            "Strict AIS",
+            "Macro AIS",
+            "Micro AIS",
+            "ROUGE-1",
+            "ROUGE-2",
+            "ROUGE-Lsum",
+            "Length"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We use an automated metric that approximates the Attributable to Identified Sources (AIS) metric of [citation]. This metric uses a natural language inference (NLI) model to determine whether a given context passage supports a claim.",
+        "models": [
+            "NLI model"
+        ],
+        "methods": [
+            "sentence-level entailment scoring"
+        ],
+        "criteria": [
+            "attribution"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "In order to test whether plan-based retrieval and generation leads to degradation in other qualitative aspects of the output, we conduct additional evaluations beyond attribution quality.",
+        "guideline": "Instruction for fluency: For every pair of model generations, label which generation is more fluent or label \"no preference\" if the fluency is not noticeably different. Consider the following when judging fluency: • Does the generation present information in a coherent manner? • Does it switch back and forth between aspects? As an example, does it present biographical events in shuffled order? • Does the generation present appropriate information to the query? • Does the generation repeat information? • Do not base your judgement on the \"ground truth\" correctness of stated facts. Instruction for informativeness: For every pair of model generations, label which generation is provides more relevant information or label \"no preference\" if the informativeness is not noticeably different. Consider the following when judging informativeness: • Which generation provides more information \"nuggets\" while remaining relevant to the query? • You may disregard small differences in the number of list-like facts. For example, when writing about an actor, if one generation lists 3 movies while the other lists 5 movies, do not consider this a significant difference. • Do give importance to facts that provide a more comprehensive description of the query topic. For example, if system A generates: \"X was taught by Y.\" and model B generates: \"X was taught by Y but would surpass Y in 1991.\", then we would consider system B as more informative. • Do not base your judgement on the \"ground truth\" correctness of stated facts.",
+        "criteria": [
+            "fluency",
+            "informativeness"
+        ]
+    }
+}

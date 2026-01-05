@@ -1,0 +1,138 @@
+{
+  "paper_id": "2023.emnlp-main.753",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "UBUNTU FORUM CORPUS",
+      "NYC FORUM CORPUS",
+      "bc3 EMAIL SUMMARIZATION CORPUS",
+      "STACKEXCHANGE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "chatgpt",
+      "bart_large",
+      "pegasus",
+      "brio",
+      "bart",
+      "t_5"
+    ],
+    "outputs": [
+      "summaries",
+      "synthetic summaries of forum and email conversations",
+      "summaries of online messaging conversations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "StackExchange"
+        ],
+        "languages": [],
+        "models": [
+          "T5"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Ubuntu",
+          "NYC",
+          "BC3"
+        ],
+        "languages": [],
+        "models": [
+          "ChatGPT (gpt-3.5-turbo)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Ubuntu forum corpus": "Ubuntu forum corpus",
+        "NYC forum corpus": "NYC forum corpus",
+        "BC3 email summarization corpus": "BC3 email summarization corpus"
+      },
+      "explanation": "Added StackExchange dataset which is the main training corpus. Removed redundant model name variant. Normalized dataset names to full canonical forms."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "SHANNON"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "Shannon Score": "Shannon Score"
+      },
+      "explanation": "Simplified ROUGE variants to base form as per normalization rules. Shannon Score is maintained as a distinct metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-2"
+        ],
+        "methods": [
+          "Shannon Score",
+          "reference‑free summary evaluation (Shannon Score)"
+        ],
+        "criteria": [
+          "conversation‑summary relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "GPT-2 is used COMPUTATIONALLY within the Shannon Score metric to measure information difference, but it's not used as a judge to evaluate generated summaries after generation. Shannon Score is an automatic metric, not an LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted according to the paper text."
+    }
+  },
+  "overall_notes": "The paper focuses on knowledge distillation for text summarization using automatic metrics (ROUGE and Shannon Score). The extraction was generally accurate except for Question 3, where GPT-2 usage was misinterpreted as LLM-as-judge evaluation when it's actually part of an automatic metric computation. The paper does not conduct human evaluation."
+}

@@ -1,0 +1,167 @@
+{
+  "paper_id": "2025.naacl-long.1",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Explainable Visual Entailment",
+      "Other:Explanation Generation"
+    ],
+    "datasets": [
+      "V-FLUTE",
+      "HAIVMet",
+      "IRFL",
+      "MuSE",
+      "MemeCap",
+      "NYCartoons"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaVA-1.6-7B",
+      "LLaVA-1.6-34B",
+      "GPT-4",
+      "Claude-3 Opus",
+      "Gemini-Pro",
+      "LLaVA-7B-eViL+VF",
+      "ChatGPT",
+      "Mistral-7B",
+      "Yi-34B"
+    ],
+    "outputs": [
+      "textual explanations",
+      "entailment labels",
+      "visual entailment rationales"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "HAIVMet",
+          "IRFL",
+          "MuSE",
+          "MemeCap",
+          "NYCartoons"
+        ],
+        "languages": [],
+        "models": [
+          "ChatGPT",
+          "Mistral-7B",
+          "Yi-34B"
+        ],
+        "outputs": [
+          "entailment labels"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Gemini-Pro Vision",
+          "LLaVA-1.6"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "GeminiPro": "Gemini-Pro",
+        "textual explanations justifying entailment or contradiction between image and caption": "textual explanations",
+        "textual explanations (rationales) for visual entailment": "visual entailment rationales",
+        "Other:Explainable Visual Entailment": "Other:Explainable Visual Entailment"
+      },
+      "explanation": "Added source datasets mentioned in the paper, normalized model names using canonical forms, removed duplicates, and added additional models used in the paper. Normalized output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "BERTScore",
+      "BLEURT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1@ExplanationScore",
+          "ExplanationScore"
+        ]
+      },
+      "normalized": {
+        "F1@ExplanationScore": "F1",
+        "ExplanationScore": "BERTScore"
+      },
+      "explanation": "Removed composite metrics (F1@ExplanationScore) and kept only the base metrics. ExplanationScore is based on BERTScore, so simplified to just BERTScore."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The paper uses human evaluation for assessing explanation quality."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Experts evaluate explanation adequacy (accurate, correct, complete, concise)",
+      "Identify error types when inadequate: hallucination, unsound reasoning, incomplete reasoning, verbosity"
+    ],
+    "criteria": [
+      "adequacy",
+      "accuracy",
+      "correctness",
+      "completeness",
+      "conciseness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Experts evaluate explanation adequacy (accurate, correct, complete, concise)",
+          "Identify error types when inadequate: hallucination, unsound reasoning, incomplete reasoning, verbosity"
+        ],
+        "criteria": [
+          "adequacy",
+          "accuracy",
+          "correctness",
+          "completeness",
+          "conciseness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "error type (hallucination, unsound reasoning, incomplete reasoning, verbosity)"
+        ]
+      },
+      "normalized": {
+        "accurate": "accuracy",
+        "correct": "correctness",
+        "complete": "completeness",
+        "concise": "conciseness",
+        "adequate (accuracy, correctness, completeness, conciseness)": "adequacy"
+      },
+      "explanation": "Normalized guideline into clearer descriptions and extracted distinct criteria from the adequacy definition. Removed error types as separate criteria since they are part of the guideline for when explanations are inadequate."
+    }
+  },
+  "overall_notes": "This paper primarily focuses on explainable visual entailment for figurative language understanding. The main NLG task is explanation generation for visual entailment decisions. The paper uses both automatic metrics (F1, BERTScore, BLEURT) and human evaluation with linguistic experts. No LLM-as-judge evaluation was conducted. Metadata extraction was reasonably accurate but needed normalization and addition of source datasets mentioned in the paper."
+}

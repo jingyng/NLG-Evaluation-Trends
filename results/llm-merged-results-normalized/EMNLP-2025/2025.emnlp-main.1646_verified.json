@@ -1,0 +1,179 @@
+{
+  "paper_id": "2025.emnlp-main.1646",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Medical Question Answering",
+      "Medical Fact Checking"
+    ],
+    "datasets": [
+      "MEDFACT",
+      "WEBMEDQA"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "yi_large_turbo",
+      "deepseek_v_2.5",
+      "glm_4_long",
+      "gpt_4o",
+      "qwen_3_30b_a_3b",
+      "qwen_3_32b",
+      "glm_4_32b",
+      "deepseek_v_3",
+      "qwen_2.5_7b",
+      "meditron_3_qwen_2.5_7b",
+      "qwen_3_4b",
+      "qwen_3_8b",
+      "internlm_3",
+      "glm_4_9b"
+    ],
+    "outputs": [
+      "LLM-generated medical responses to questions",
+      "extracted medical claims for verification"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Medical Response Generation"
+        ],
+        "datasets": [
+          "CoVERT",
+          "HealthFC",
+          "SciFact",
+          "HEALTHVER"
+        ],
+        "models": [],
+        "outputs": [
+          "LLM‑generated medical responses",
+          "claims and veracity labels"
+        ]
+      },
+      "normalized": {
+        "MEDFACT": "MEDFACT",
+        "Yi‑Large‑Turbo": "Yi-Large-Turbo",
+        "DeepSeek‑V2.5": "DeepSeek-V2.5",
+        "GLM‑4‑Long": "GLM-4-Long"
+      },
+      "explanation": "Removed 'Other:Medical Response Generation' as it's not a distinct task from question answering. Kept only datasets actually used (MEDFACT, webMedQA) and removed those only mentioned in related work. Consolidated outputs and normalized model names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "PRECISION",
+      "RECALL",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "macro precision": "Precision",
+        "macro recall": "Recall",
+        "macro F1-score": "F1"
+      },
+      "explanation": "Normalized metric names to base forms following guidelines (removed 'macro' prefix)."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "glm_4_long",
+      "deepseek_v_2.5"
+    ],
+    "methods": [
+      "veracity labeling via prompting",
+      "check-worthiness detection via prompting"
+    ],
+    "criteria": [
+      "Worthiness",
+      "Veracity"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "check-worthiness detection via prompting"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "LLM‑then‑Human labeling",
+          "prompted binary classification for check‑worthiness",
+          "veracity labeling with LLM-then-Human"
+        ],
+        "criteria": [
+          "Supported",
+          "Partially Supported",
+          "Refuted",
+          "Uncertain",
+          "Not Applicable"
+        ]
+      },
+      "normalized": {
+        "GLM‑4‑Long": "GLM-4-Long",
+        "DeepSeek‑V2.5": "DeepSeek-V2.5"
+      },
+      "explanation": "Removed LLM-then-Human methods as human involvement makes it hybrid, not pure LLM-as-judge. Removed veracity labels as they are label definitions, not evaluation criteria. Added check-worthiness detection as a separate LLM judging method."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluation of decomposition and claim extraction accuracy on 100 questions",
+      "Human refinement of veracity labels after LLM preliminary labeling"
+    ],
+    "criteria": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human evaluation of decomposition and claim extraction accuracy on 100 questions",
+          "Human refinement of veracity labels after LLM preliminary labeling"
+        ],
+        "criteria": [
+          "accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- evaluating accuracy of decomposed statements and extracted claims",
+          "Human annotators assessed the correctness of decomposition, claim extraction, and veracity labeling, measuring accuracy and agreement.",
+          "Please determine the relationship between the following claim and evidence, and assign an appropriate label: The labels include: 1. Supported: Evidence fully supports 2. Partially Supported: Partial support with uncertainties 3. Refuted: Evidence contradicts 4. Uncertain: Evidence is insufficient or does not clearly indicate the truthfulness of the claim 5. Not Applicable: Irrelevant evidence"
+        ],
+        "criteria": [
+          "Supported",
+          "Partially Supported",
+          "Refuted",
+          "Uncertain",
+          "Not Applicable"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline into clear descriptions of actual human evaluation procedures. Removed veracity labels as they are classification labels, not evaluation criteria. Kept only 'accuracy' as the explicit human evaluation metric."
+    }
+  },
+  "overall_notes": "The paper focuses on medical fact-checking of LLM-generated responses, with strong NLG components. Extraction was generally good but included some items from related work rather than main contributions. Normalization focused on standard naming conventions and removing hybrid LLM-human methods from pure LLM-as-judge categorization."
+}

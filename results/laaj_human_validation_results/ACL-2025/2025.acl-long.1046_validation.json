@@ -1,0 +1,47 @@
+{
+  "paper_id": "2025.acl-long.1046",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "Both LLM auto-labeling and human evaluation are conducted, but the paper does not explicitly compare LLM judgments with human judgments on the same instances. The auto-labeling pipeline is developed to scale dataset creation but no quantitative metrics (correlation, agreement) comparing LLM vs human judgments are reported."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompts shown in the paper include system prompt ('Your task is to evaluate the faithfulness of claims. Tag the statements enclosed in the empty tag spaces provided by the user.') and user prompt with incorrect/correct annotation examples. Uses '<faithful>', '<hallu>', '<irrelevant>' tags. Also uses contrastive and formative prompting approach."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "Multiple (exact number not specified)",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Inter-Annotator Agreement (percentage agreement)",
+      "value": 96.19,
+      "interpretation": "Sequential Decision Framework achieved 96.19% IAA with reduced QA instances by 48% compared to independent classification (91.51% IAA)",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed multi-stage annotation protocol: identify statement type (factual/cognitive), then assess faithfulness using rational/grounded/unequivocal criteria. Annotators trained comprehensively and must pass test before formal annotation. QA system for ongoing feedback."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "faithfulness",
+      "hallucination_detection"
+    ],
+    "notes": "Both LLM auto-labeling and human evaluation focus on assessing faithfulness and detecting hallucinations in factual and cognitive statements. The LLM auto-labeling pipeline is explicitly validated for its performance (e.g., 'Auto-Labeling can matches human annotators' accuracy making it a reliable proxy'), but no direct LLM vs human comparison metrics are reported."
+  }
+}

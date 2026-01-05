@@ -1,0 +1,145 @@
+{
+  "paper_id": "2025.emnlp-main.1595",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Instruction Following Generation",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "ROBUSTALPACA",
+      "ULTRAFEEDBACK",
+      "MT-Bench",
+      "TINYALPACA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_13b_chat",
+      "llama_3_8b",
+      "mistral_7b_v_0.3"
+    ],
+    "outputs": [
+      "Generated responses to user queries and paraphrased versions",
+      "Instruction-following responses evaluated for robustness"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Instruction-Following Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Other:Instruction-Following Generation"
+        ],
+        "datasets": [
+          "ultrafeedback_binarized",
+          "Open LLM Leaderboard benchmarks"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-4",
+          "GPT-4o-mini"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Instruction-Following Generation": "Instruction-Following Generation",
+        "TinyAlapca": "TinyAlpaca"
+      },
+      "explanation": "Removed Dialogue Generation as it's not evaluated/studied, normalized task names, removed datasets not used for NLG evaluation (Open LLM Leaderboard benchmarks), removed GPT models that are only used as evaluators not NLG models"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ARMORM",
+      "WIN RATE",
+      "L2 DISTANCE",
+      "SPEARMAN CORRELATION"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "ArmoRM reward score",
+          "Spearman's correlation coefficient",
+          "original win-rate",
+          "best win-rate",
+          "worst win-rate",
+          "average win-rate"
+        ]
+      },
+      "normalized": {
+        "ArmoRM reward score": "ArmoRM",
+        "Spearman's correlation coefficient": "Spearman correlation",
+        "original win-rate": "win-rate",
+        "best win-rate": "win-rate",
+        "worst win-rate": "win-rate",
+        "average win-rate": "win-rate"
+      },
+      "explanation": "Consolidated multiple win-rate variants into base 'win-rate' metric and simplified metric names to base forms"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o_mini"
+    ],
+    "methods": [
+      "pairwise preference evaluation"
+    ],
+    "criteria": [
+      "Preference"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "preference judgment"
+        ],
+        "criteria": [
+          "helpfulness"
+        ]
+      },
+      "normalized": {
+        "pairwise evaluation": "pairwise preference evaluation"
+      },
+      "explanation": "Consolidated methods to main evaluation approach and kept only explicitly mentioned criteria"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted in the paper"
+    }
+  },
+  "overall_notes": "Paper focuses on evaluating instruction-following generation robustness using automatic metrics and LLM-as-judge evaluation. Extraction quality was good but needed consolidation of similar metrics and removal of non-evaluated tasks/models."
+}

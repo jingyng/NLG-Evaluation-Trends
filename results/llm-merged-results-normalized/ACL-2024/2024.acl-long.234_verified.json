@@ -1,0 +1,176 @@
+{
+  "paper_id": "2024.acl-long.234",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Simplification",
+      "Question Generation",
+      "Question Answering"
+    ],
+    "datasets": [
+      "INFOLOSSQA",
+      "EVIDENCE INFERENCE 2 0"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4",
+      "mistral_7b",
+      "llama_2_70b",
+      "nli_pipeline"
+    ],
+    "outputs": [
+      "simplified texts",
+      "question-answer pairs describing information loss"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation",
+          "Other:text simplification",
+          "Other:Question Generation",
+          "Other:Text Simplification"
+        ],
+        "datasets": [
+          "Evidence Inference V2.0 RCT abstracts"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "QA pairs that reveal information loss in simplified texts"
+        ]
+      },
+      "normalized": {
+        "Other:text simplification": "Text Simplification",
+        "Other:Question Generation": "Question Generation",
+        "Other:Text Simplification": "Text Simplification",
+        "Evidence Inference V2.0 RCT abstracts": "Evidence Inference v2.0"
+      },
+      "explanation": "Normalized task names to standard forms, removed redundant 'Other:' prefixes. Added 'Question Answering' as a core task since models generate both questions and answers. Normalized dataset name to match paper's exact reference."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "COSINE SIMILARITY",
+      "ENTAILMENT CLASSIFICATION",
+      "LLM BASED EVALUATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "LLM‑based evaluation (prompted scoring by GPT‑4o, Llama3‑70B)",
+          "LLM-based evaluation with GPT-4o and Llama3-70B"
+        ]
+      },
+      "normalized": {
+        "LLM‑based evaluation (prompted scoring by GPT‑4o, Llama3‑70B)": "LLM-based evaluation",
+        "LLM-based evaluation with GPT-4o and Llama3-70B": "LLM-based evaluation"
+      },
+      "explanation": "Consolidated redundant LLM-based evaluation entries into a single normalized form. The paper uses these metrics for span matching and entailment classification, not traditional NLG metrics like BLEU/ROUGE."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o",
+      "llama_3_70b"
+    ],
+    "methods": [
+      "prompt-based evaluation with chain-of-thought"
+    ],
+    "criteria": [
+      "Answerability",
+      "Givenness",
+      "Localization",
+      "Jargon",
+      "Standalone",
+      "Accuracy",
+      "Hallucination",
+      "Recall"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Accuracy‑Evidence": "Accuracy-Evidence",
+        "Accuracy‑Answer": "Accuracy-Answer",
+        "Accuracy -Evidence": "Accuracy-Evidence",
+        "Accuracy -Answer": "Accuracy-Answer"
+      },
+      "explanation": "Normalized criteria names by removing special characters and ensuring consistent formatting. All extracted criteria are valid and explicitly used in the LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Expert judgments based on criteria including Answerability, Answer Accuracy, and Linguistic Suitability",
+      "Models evaluated on three aspects: correctness of QA pairs, linguistic suitability, and recall of human QA"
+    ],
+    "criteria": [
+      "Answerability",
+      "Accuracy",
+      "Givenness",
+      "Rationale",
+      "Jargon",
+      "Standalone",
+      "Recall",
+      "Localization",
+      "Hallucination"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Expert judgments based on criteria including Answerability, Answer Accuracy, and Linguistic Suitability",
+          "Models evaluated on three aspects: correctness of QA pairs, linguistic suitability, and recall of human QA"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Expert judgments based on criteria including Answerability, Answer Accuracy, and Linguistic Suitability.",
+          "Models are evaluated on three aspects: correctness of QA pairs, linguistic suitability, and recall of human QA. Human annotators rate criteria such as Answerability, Givenness, Rationale, Jargon, Standalone, and overall accuracy.",
+          "The evaluation criteria include correctness of QA pairs, linguistic suitability, and recall of human-written QAs."
+        ],
+        "criteria": [
+          "Recall of human QA"
+        ]
+      },
+      "normalized": {
+        "Accuracy‑Evidence": "Accuracy-Evidence",
+        "Accuracy‑Answer": "Accuracy-Answer",
+        "Accuracy -Evidence": "Accuracy-Evidence",
+        "Accuracy -Answer": "Accuracy-Answer",
+        "Recall of human QA": "Recall"
+      },
+      "explanation": "Consolidated guideline descriptions into clearer, non-redundant statements. Normalized criteria names and removed redundant 'Recall of human QA' since 'Recall' covers the same concept. The human evaluation is comprehensive with expert annotators rating 10 quality desiderata."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation through the novel InfoLossQA framework for characterizing information loss in text simplification. It uses both human evaluation and LLM-as-judge approaches, with a strong emphasis on linguistic suitability and correctness of generated QA pairs. The extraction was generally accurate but needed normalization of terminology and removal of redundant entries."
+}

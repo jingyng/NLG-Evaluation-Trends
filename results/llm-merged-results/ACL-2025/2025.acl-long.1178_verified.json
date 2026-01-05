@@ -1,0 +1,129 @@
+{
+  "paper_id": "2025.acl-long.1178",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Report Generation",
+      "Visual Question Answering"
+    ],
+    "datasets": [
+      "Asclepius"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4V",
+      "GPT-4o",
+      "Gemini",
+      "Claude 3.5 Sonnet",
+      "CheXagent",
+      "RadFM",
+      "Med-Flamingo",
+      "XrayGPT",
+      "BiomedGPT"
+    ],
+    "outputs": [
+      "Generated medical reports",
+      "Open-ended responses to medical questions",
+      "Answers to multiple-choice questions",
+      "Answers to yes/no questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Visual Question Answering"
+        ],
+        "outputs": [
+          "Answers to multiple-choice questions",
+          "Answers to yes/no questions"
+        ]
+      },
+      "removed": {
+        "models": [
+          "BiomedGPT-B"
+        ]
+      },
+      "normalized": {
+        "Other:Report Generation": "Other:Report Generation",
+        "Generated medical reports and open-ended responses to medical questions.": "Generated medical reports",
+        "Free‑text radiology reports and open‑ended VQA answers": "Open-ended responses to medical questions"
+      },
+      "explanation": "Added Visual Question Answering as a main task since most questions are VQA format. Consolidated outputs to clearer categories. Removed BiomedGPT-B duplication (BiomedGPT is the correct name)."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "accuracy": "Accuracy",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric names to standard forms. ROUGE-L is simplified to ROUGE as per guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT"
+    ],
+    "methods": [
+      "LLM scoring prompt with binary correctness evaluation"
+    ],
+    "criteria": [
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT-4"
+        ]
+      },
+      "normalized": {
+        "binary correctness scoring": "LLM scoring prompt with binary correctness evaluation",
+        "precision evaluation via scoring prompt": "LLM scoring prompt with binary correctness evaluation",
+        "GPT": "GPT"
+      },
+      "explanation": "Consolidated method descriptions. The paper mentions using GPT (not specifically GPT-4) for evaluating open-ended questions with a binary correctness scoring prompt."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Doctors answered benchmark questions and their performance was measured by accuracy against ground-truth answers",
+      "Three clinical specialists with 4-5 years experience evaluated all questions",
+      "Meta-doctor ensemble created from multiple specialists covering all 15 specialties"
+    ],
+    "criteria": [
+      "accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three clinical specialists with 4-5 years experience evaluated all questions",
+          "Meta-doctor ensemble created from multiple specialists covering all 15 specialties"
+        ],
+        "criteria": [
+          "accuracy"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "Doctors answered the benchmark questions, and their performance was measured by accuracy against the ground‑truth answers.": "Doctors answered benchmark questions and their performance was measured by accuracy against ground-truth answers"
+      },
+      "explanation": "Added more specific details about human evaluation setup and made accuracy explicit as the evaluation criterion."
+    }
+  },
+  "overall_notes": "The paper presents Asclepius, a comprehensive medical multi-modal LLM evaluation benchmark. It evaluates both generation (report generation, open-ended VQA) and discriminative tasks (multiple-choice, yes/no). The evaluation uses automatic metrics (Accuracy, ROUGE) plus human evaluation by medical specialists and LLM-as-judge for open-ended questions. The extraction was generally good but needed some normalization and clarification of task scope."
+}

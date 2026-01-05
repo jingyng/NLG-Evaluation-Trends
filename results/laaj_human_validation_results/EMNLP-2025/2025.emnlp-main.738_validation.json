@@ -1,0 +1,50 @@
+{
+  "paper_id": "2025.emnlp-main.738",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "Both LLM re-ranking and human annotations are used for evaluation, but no direct quantitative comparison, correlation analysis, or agreement metrics are reported between LLM judgments and human judgments. The human annotations are used to create an alternative gold standard, but LLM performance is not validated against this human-created standard."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "gpt_4.1"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompts are provided in tables (Tables 13 and 14). For statutes: 'You are a smart and diligent Indian legal assistant... Analyze the Masked Judgment... Determine Cited Statutes... Return only the relevant IDs...'. For precedents: 'You are a indian legal AI assistant... decide whether the given precedent judgment is cited by the masked query judgment... Return YES if... otherwise NO.'"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 6,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Annotators were asked to try multiple keywords for each query and mark all candidates they judged relevant using a search tool. Setup and purpose are described, but detailed scoring rubric or annotation examples are not shown."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "binary relevance scoring for re-ranking"
+    ],
+    "human_only_criteria": [
+      "relevance judgment via search tool"
+    ],
+    "shared_criteria": [
+      "relevance"
+    ],
+    "notes": "Both LLM and human evaluate relevance, but LLM is used for system evaluation (re-ranking), while human annotation is used to create an alternative broader gold standard. Criteria terminology overlaps but application contexts differ."
+  }
+}

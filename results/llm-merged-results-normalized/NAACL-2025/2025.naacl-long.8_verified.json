@@ -1,0 +1,176 @@
+{
+  "paper_id": "2025.naacl-long.8",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Instruction Following"
+    ],
+    "datasets": [
+      "HH RLHF",
+      "ALPACAEVAL",
+      "ARENA HARD",
+      "ULTRAFEEDBACK"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_7b",
+      "llama_2_7b",
+      "mistral_7b",
+      "llama_3_8b",
+      "tinyllama_1.1b",
+      "gemma_2b",
+      "gemma_7b",
+      "gpt_4",
+      "llama_2_chat",
+      "gpt_3.5_turbo"
+    ],
+    "outputs": [
+      "Dialogue responses",
+      "Instruction-following responses",
+      "Human-preference aligned text"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Instruction Following"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Dialogue responses",
+          "Instruction-following responses",
+          "Human-preference aligned text"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Dialogue Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Gemma-2B/7B",
+          "Mamba-2.8B",
+          "Falcon-Mamba-7B",
+          "Mistral-7B-v0.1"
+        ],
+        "outputs": [
+          "generated text responses to prompts",
+          "generated responses",
+          "generated responses to prompts in dialogue and instruction-following settings"
+        ]
+      },
+      "normalized": {
+        "HH-RLHF": "HH-RLHF",
+        "AlpacaEval": "AlpacaEval",
+        "Arena-Hard": "Arena-Hard",
+        "Ultrafeedback": "UltraFeedback",
+        "LLaMA-3-8B": "LLaMA-3-8B",
+        "LLaMA2-chat": "LLaMA2-chat"
+      },
+      "explanation": "Added 'Instruction Following' as a separate task since it's explicitly evaluated. Removed duplicate 'Other:Dialogue Generation' and consolidated outputs. Normalized dataset names and removed models that are only mentioned in passing or in figures."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "REWARD MODEL",
+      "GPT 4 EVALUATION",
+      "RECIPROCAL RANK",
+      "WIN RATE",
+      "TIE RATE",
+      "LOSE RATE",
+      "LENGTH CONTROLLED WIN RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Win Rate",
+          "Tie Rate",
+          "Lose Rate"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Reward model score",
+          "win/tie/lose rates",
+          "Length-Controlled Win Rates"
+        ]
+      },
+      "normalized": {
+        "Reward Model": "Reward Model Score",
+        "GPT-4": "GPT-4 Evaluation",
+        "Mean Reciprocal Rank (MRR)": "Mean Reciprocal Rank",
+        "Length-Controlled Win Rates": "Length-Controlled Win Rate"
+      },
+      "explanation": "Normalized metric names to base forms and separated win/tie/lose rates into individual metrics for clarity. Used consistent capitalization."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "llama_2_chat"
+    ],
+    "methods": [
+      "Pairwise Comparison",
+      "GPT-4 Evaluation"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Harmlessness",
+      "Quality",
+      "Instruction"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "Instruction Following"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4": "GPT-4",
+        "pairwise evaluation": "Pairwise Comparison",
+        "pairwise comparison": "Pairwise Comparison",
+        "GPT-4 evaluation": "GPT-4 Evaluation",
+        "helpfulness": "Helpfulness",
+        "harmlessness": "Harmlessness",
+        "overall quality": "Overall Quality"
+      },
+      "explanation": "Normalized method names and added 'Instruction Following' as an explicit criterion. Kept only the two LLMs actually used for evaluation (GPT-4 and LLaMA2-chat)."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper - all evaluations used automatic metrics or LLM judges."
+    }
+  },
+  "overall_notes": "The paper proposes ICDPO, a tuning-free method for human preference alignment. It extensively evaluates dialogue generation and instruction following tasks using both reward model scores and LLM judges (GPT-4). The extraction was generally accurate but needed normalization and removal of minor references. The paper focuses on evaluation through automatic metrics and LLM-as-judge approaches rather than human evaluation."
+}

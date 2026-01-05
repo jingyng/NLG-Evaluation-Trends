@@ -1,0 +1,165 @@
+{
+  "paper_id": "2025.emnlp-main.1664",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates GPT-4o judgments against human expert ratings on the same 100 videos, reporting correlation analysis (Pearson, Spearman, Kendall-Tau) for all three evaluation criteria"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper mentions using the G-Eval framework but does not provide the exact prompt text; evaluation follows the same three criteria as human experts"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 5,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": null,
+      "interpretation": "substantial agreement for empathy and comprehensiveness, moderate for applicability",
+      "per_criterion": [
+        {
+          "criterion": "Empathy",
+          "metric": "Cohen's kappa",
+          "value": 0.69
+        },
+        {
+          "criterion": "Comprehensiveness",
+          "metric": "Cohen's kappa",
+          "value": 0.64
+        },
+        {
+          "criterion": "Applicability",
+          "metric": "Cohen's kappa",
+          "value": 0.44
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper provides definition of criteria (applicability, empathy, comprehensiveness) but not detailed scoring rubric"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation",
+      "Kendall-Tau"
+    ],
+    "shared_criteria": [
+      "Applicability",
+      "Empathy",
+      "Comprehensiveness"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "All 100 video responses were evaluated by both GPT-4o and human experts"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.11,
+        "criterion": "Applicability",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": null
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.12,
+        "criterion": "Applicability",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": null
+      },
+      {
+        "metric": "Kendall-Tau",
+        "value": 0.1,
+        "criterion": "Applicability",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": null
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.16,
+        "criterion": "Empathy",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": null
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.17,
+        "criterion": "Empathy",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": null
+      },
+      {
+        "metric": "Kendall-Tau",
+        "value": 0.14,
+        "criterion": "Empathy",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": null
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.19,
+        "criterion": "Comprehensiveness",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": null
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.15,
+        "criterion": "Comprehensiveness",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": null
+      },
+      {
+        "metric": "Kendall-Tau",
+        "value": 0.12,
+        "criterion": "Comprehensiveness",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": null
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "low/weak",
+      "threshold_used": "Not explicitly stated",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "Substantial misalignment between GPT-4o and human experts with consistently low correlations (0.10-0.19), indicating LLM-based evaluation is not reliable for therapy tasks and tends to be overly generous compared to human assessments"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Applicability",
+      "Empathy",
+      "Comprehensiveness"
+    ],
+    "notes": "Both LLM and human experts evaluated the exact same three criteria on the same outputs"
+  }
+}

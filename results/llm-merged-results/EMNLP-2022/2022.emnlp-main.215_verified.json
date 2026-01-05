@@ -1,0 +1,137 @@
+{
+  "paper_id": "2022.emnlp-main.215",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Reddit Small",
+      "Multisession Chat (MSC)",
+      "PersonaChat Personas",
+      "MultiWOZ",
+      "Wizard of Wikipedia (WoW)",
+      "Empathetic Dialogues",
+      "Persuasion For Good",
+      "Blender Human Eval",
+      "R-U-A-Robot Blender2 (RUAR-Blend2)",
+      "R-U-A-Robot"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Blender",
+      "Blender2",
+      "Blender2 2.7B",
+      "GPT-3",
+      "GPT-Neo"
+    ],
+    "outputs": [
+      "dialog responses",
+      "utterances",
+      "dialog system responses"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "R-U-A-Robot"
+        ],
+        "models": [
+          "Blender2 2.7B"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Reddit",
+          "Multisession Chat",
+          "Wizard of Wikipedia"
+        ],
+        "models": [
+          "DeBERTa-Large",
+          "DeBERTa-Base",
+          "BERT-base",
+          "DeBERTa",
+          "BERT"
+        ]
+      },
+      "normalized": {
+        "Personachat Personas": "PersonaChat Personas",
+        "Blender2": "Blender2",
+        "RUAR-Blend2": "R-U-A-Robot Blender2"
+      },
+      "explanation": "Removed classification models (DeBERTa, BERT) as they are not NLG models being evaluated. Removed duplicate/redundant dataset names. Added missing dataset R-U-A-Robot. Added specific Blender2 2.7B model. Models like DeBERTa/BERT are used for classification, not generation evaluation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "accuracy",
+      "precision",
+      "recall",
+      "ROC-AUC",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1"
+        ]
+      },
+      "removed": {},
+      "normalized": {},
+      "explanation": "Changed answer from No to Yes because the paper does use automatic metrics (accuracy, precision, recall, ROC-AUC, F1) to evaluate classifier performance on predicting permissible utterances. F1 is mentioned implicitly through discussions of precision/recall tradeoffs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper. LLMs (GPT-3, GPT-Neo) are used for generation, but human evaluation is used to assess the outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants rate each dialog turn on four criteria using 5-point Likert scale: possibility for machine, possibility for human, comfort with machine, and comfort with human"
+    ],
+    "criteria": [
+      "possibility (machine)",
+      "possibility (human)",
+      "comfort (machine)",
+      "comfort (human)"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "criteria": [
+          "robot possibility",
+          "human possibility",
+          "robot comfort",
+          "human comfort",
+          "possible for machine to truthfully say",
+          "possible for human to say",
+          "comfortable with machine saying",
+          "comfortable with human saying"
+        ]
+      },
+      "normalized": {
+        "possibility (machine)": "possibility (machine)",
+        "possibility (human)": "possibility (human)",
+        "comfort (machine)": "comfort (machine)",
+        "comfort (human)": "comfort (human)"
+      },
+      "explanation": "Removed redundant variations of criteria and normalized to consistent concise forms. The core four criteria are clearly defined in the paper."
+    }
+  },
+  "overall_notes": "Paper focuses on evaluating anthropomorphism in dialogue systems through human evaluation. The automatic metrics are used for classifier performance evaluation, not direct NLG output evaluation. Main contribution is human evaluation study with clear four-criteria rating system."
+}

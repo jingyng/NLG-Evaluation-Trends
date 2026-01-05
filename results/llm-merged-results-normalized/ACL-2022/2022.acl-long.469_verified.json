@@ -1,0 +1,116 @@
+{
+  "paper_id": "2022.acl-long.469",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "PARADETOX",
+      "PARANMT",
+      "JIGSAW",
+      "REDDIT",
+      "TWITTER"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "delete",
+      "condbert",
+      "paragedi"
+    ],
+    "outputs": [
+      "Non-toxic paraphrases of toxic sentences",
+      "detoxified text"
+    ],
+    "changes_made": {
+      "added": {
+        "outputs": [
+          "detoxified text"
+        ]
+      },
+      "removed": {},
+      "normalized": {},
+      "explanation": "Added a more general description of the output to complement the specific ones provided"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "STA",
+      "SIM",
+      "FL",
+      "J"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "Style Accuracy (STA)": "STA",
+        "Content Preservation (SIM)": "SIM",
+        "Fluency (FL)": "FL",
+        "Joint metric (J)": "J",
+        "Style accuracy (STA)": "STA",
+        "Content preservation (SIM)": "SIM"
+      },
+      "explanation": "Normalized multiple variations (STA, SIM, FL, J) to their base forms and removed duplicates"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "RoBERTa"
+        ],
+        "methods": [
+          "classification"
+        ],
+        "criteria": [
+          "toxicity",
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed RoBERTa and related metadata as it refers to a classifier used for automatic evaluation (not as an LLM judge)"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Assessors evaluate sentences on style accuracy, content preservation, and fluency using binary scores (1=good, 0=bad)",
+      "Each sample evaluated by 3 assessors"
+    ],
+    "criteria": [
+      "Accuracy",
+      "Preservation",
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Each sample evaluated by 3 assessors"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "Style Accuracy": "style accuracy",
+        "Content Preservation": "content preservation",
+        "Fluency": "fluency"
+      },
+      "explanation": "Normalized criteria to lowercase consistent form and added additional guideline detail about the evaluation setup"
+    }
+  },
+  "overall_notes": "The extraction quality was generally good. The paper clearly addresses NLG (detoxification via paraphrase generation), uses multiple automatic metrics, conducts human evaluation, but does not use LLMs as judges. Metadata was appropriately normalized and minor additions were made for completeness."
+}

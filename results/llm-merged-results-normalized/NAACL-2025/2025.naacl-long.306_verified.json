@@ -1,0 +1,168 @@
+{
+  "paper_id": "2025.naacl-long.306",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Content Moderation",
+      "Dialogue Safety Classification"
+    ],
+    "datasets": [
+      "aegis2 0",
+      "WILDGUARDMIX",
+      "TOXICHAT",
+      "BEAVERTAILS",
+      "ANTHROPIC HH RLHF",
+      "DO ANYTHING NOW",
+      "AART",
+      "DO NOT ANSWER"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "mistral_7b_v_0.1",
+      "gemma_2_27b",
+      "llama_3.1_8b_instruct",
+      "llama_3.1_aegisguard"
+    ],
+    "outputs": [
+      "Safety classifications for prompts and responses",
+      "Harm category predictions",
+      "Synthetic refusal responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Content Moderation",
+          "Dialogue Safety Classification"
+        ],
+        "datasets": [
+          "Anthropic/hh-rlhf",
+          "Do-Anything-Now",
+          "AART",
+          "Do-Not-Answer"
+        ],
+        "models": [
+          "LLaMA-3.1-AEGISGUARD"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Other:Content Moderation"
+        ],
+        "outputs": [
+          "Generated responses for prompts"
+        ]
+      },
+      "normalized": {
+        "LLAMA3.1-8B-INSTRUCT": "LLaMA-3.1-8B-Instruct",
+        "The paper focuses on generating safety classifications and moderation decisions for prompts and responses in human-LLM interactions, rather than generating natural language content per se. However, it involves NLG through synthetic response generation from unaligned LLMs and refusal responses.": "Safety classifications for prompts and responses"
+      },
+      "explanation": "Changed tasks to reflect that the paper focuses on content moderation and safety classification rather than dialogue generation. Added relevant datasets and models. Simplified outputs description to focus on main evaluation tasks."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "F1 Score": "F1",
+        "F1 score": "F1",
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Normalized metric names to consistent forms and removed duplicates"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Mixtral-8x22B-v0.1",
+      "mistral_nemo",
+      "gemma_2_27b_it"
+    ],
+    "methods": [
+      "Jury-of-LLM Evaluators",
+      "Majority vote ensemble"
+    ],
+    "criteria": [
+      "Safety",
+      "Harmfulness"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "criteria": [
+          "safe/unsafe classification",
+          "harm category prediction",
+          "safe/unsafe prediction",
+          "harm categories"
+        ]
+      },
+      "normalized": {
+        "majority vote on safe/unsafe classification and union of harm categories": "Majority vote ensemble",
+        "majority vote on safe/unsafe classification": "Safe/unsafe classification",
+        "union of harm categories predicted": "Harm category prediction"
+      },
+      "explanation": "Consolidated criteria to avoid duplication and normalized method descriptions"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Provided core categories in taxonomy and list of potential fine-grained categories",
+      "Instructed to use free-text input if content did not belong to predefined categories",
+      "Steps for determining labels based on context, intent, and intonation",
+      "Options for 'Safe', 'Needs Caution', or one or more risk categories"
+    ],
+    "criteria": [
+      "Safety",
+      "Caution"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Unsafe"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "Hate/Identity Hate",
+          "Sexual",
+          "Illegal Activity",
+          "Suicide and Self Harm",
+          "Violence",
+          "Immoral/Unethical",
+          "Guns/Illegal Weapons",
+          "Threat",
+          "Unauthorized Advice",
+          "PII/Privacy",
+          "Sexual Minor",
+          "Political/Misinformation/Conspiracy",
+          "Criminal Planning/Confessions",
+          "Harassment",
+          "Fraud/Deception",
+          "Controlled/Regulated substances",
+          "Profanity",
+          "Copyright/Trademark/Plagiarism",
+          "Other",
+          "High Risk Gov. Decision Making",
+          "Malware",
+          "Manipulation"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from No to Yes because the paper extensively discusses human annotation process with 12 annotators and detailed annotation guidelines. Removed specific harm categories from criteria since those are annotation labels, not human evaluation criteria for generated outputs. The human evaluation criteria are the binary/multi-class safety classifications."
+    }
+  },
+  "overall_notes": "The paper focuses on content moderation and safety classification rather than traditional NLG tasks. It uses human annotations primarily for dataset creation rather than evaluation of generated outputs. The LLM-as-judge is used for response-level safety annotations. The extraction was generally accurate but needed refinement of task definitions and human evaluation criteria."
+}

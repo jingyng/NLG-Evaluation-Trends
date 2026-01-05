@@ -1,0 +1,80 @@
+{
+    "answer_1": {
+        "answer": "No",
+        "quote": [
+            "We experiment with computing distributions over interpretations chosen by a suite of LLMs on questions in our dataset to study divergences in crowdsourced human and model interpretations."
+        ],
+        "tasks": [
+            "Other:Question Answering"
+        ],
+        "datasets": [
+            "r/NoStupidQuestions"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "gpt-4o",
+            "gemma-2-9b",
+            "llama-3-instruct",
+            "phi-3.5-mini-instruct",
+            "Phi-3-medium-128k-instruct",
+            "ministral-8b-instruct-2410",
+            "athene-v2-chat",
+            "gpt-4o-mini-2024-07-18",
+            "granite-3.0-instruct"
+        ],
+        "outputs": [
+            "generated answers to poorly-posed questions"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We compute the entropy (Shannon, 1948) of the distribution, which approximates how uncertain humans were in identifying the question asker's information need... We plot human interpretation distribution entropy ... as measured by 1d(hi, mi) where d is the Jensen-Shannon distance between m_i and h_i.",
+            "We choose to compute the entropy (Shannon, 1948) of the distribution, which approximates how uncertain humans were in identifying the question asker's information need."
+        ],
+        "automatic_metrics": [
+            "entropy",
+            "Jensen-Shannon distance",
+            "cosine similarity"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "we elicit few-shot judgments from llama-3-8b-instruct on replies (R). For each reply R on posts that survived filtering, the model performs a three-way classification: (1) R indicates that an information need was met, (2) not met, or (3) not determinable. ... We use ... flan-t5-xxl ... to match interpretations to human comments.",
+            "We use three in-context examples along with Instruction D.3 to match interpretations to human comments using flan-t5-xxl.",
+            "We elicit few-shot judgments from llama-3-8b-instruct on replies (R). For each reply R on posts that survived filtering, the model performs a three-way classification: (1) R indicates that an information need was met, (2) not met, or (3) not determinable."
+        ],
+        "models": [
+            "llama-3-8b-instruct",
+            "flan-t5-xxl"
+        ],
+        "methods": [
+            "few-shot classification of asker replies",
+            "extractive QA for interpretation matching",
+            "extractive QA matching",
+            "few-shot classification"
+        ],
+        "criteria": [
+            "support for interpretation"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "To assess the soundness of interpretations, we randomly sample 100 (Q, I_n) pairs, and ask two external annotators to judge whether or not I_n reasonably follows from question Q.",
+            "We recruit seven expert linguists from Upwork to annotate 500 (Q, A, R) interactions... Two native English speakers score each interpretation I in S I on a 1-5 scale indicating the likelihood that I aligns with the question asker's information need.",
+            "We recruit seven expert linguists from Upwork to annotate 500 (Q, A, R) interactions, separating them into two groups for two stages of annotation."
+        ],
+        "guideline": [
+            "judge whether the interpretation reasonably follows from the question",
+            "Score each interpretation on a 1-5 Likert scale indicating how likely it matches the asker's information need.",
+            "Stage 1: Reconstructing Answerer Interpretations... write from scratch to remain unbiased (full annotator instructions in Appendix D)."
+        ],
+        "criteria": [
+            "likelihood to match asker's information need"
+        ]
+    }
+}

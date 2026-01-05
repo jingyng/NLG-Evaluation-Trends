@@ -1,0 +1,155 @@
+{
+  "paper_id": "2024.naacl-long.327",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Mathematical Reasoning",
+      "Question Answering"
+    ],
+    "datasets": [
+      "GSM8K",
+      "STRATEGYQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_70b",
+      "llama_13b",
+      "llama_7b",
+      "chatgpt",
+      "gpt_4",
+      "gpt_3.5_turbo",
+      "metamath_7b",
+      "metamath_13b"
+    ],
+    "outputs": [
+      "Generated answers to math word problems and open-domain questions with reasoning steps",
+      "Refined outputs after asking clarification questions",
+      "Final predictions selected from initial generation or refinement"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-3.5-Turbo"
+        ],
+        "outputs": [
+          "Refined outputs after asking clarification questions",
+          "Final predictions selected from initial generation or refinement"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "ChatGPT Turbo"
+        ],
+        "outputs": [
+          "textual answers to math word problems and open‑domain questions",
+          "The customer paid $35 on this shopping trip."
+        ]
+      },
+      "normalized": {
+        "ChatGPT Turbo": "GPT-3.5-Turbo",
+        "Generated answers to math word problems and open-domain questions, including reasoning steps and refinement decisions.": "Generated answers to math word problems and open-domain questions with reasoning steps"
+      },
+      "explanation": "Normalized ChatGPT Turbo to GPT-3.5-Turbo, improved output descriptions to be more comprehensive and removed example-specific output text"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy",
+          "maj1@1"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "maj1@1": "Accuracy"
+      },
+      "explanation": "Normalized all metric variants to 'Accuracy' since maj1@1 is a specific accuracy computation method mentioned in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "llama_7b",
+      "llama_13b"
+    ],
+    "methods": [
+      "Asker model trained to decide when to refine",
+      "Truster model trained to rank initial vs refined output",
+      "Self-refinement baseline comparison"
+    ],
+    "criteria": [
+      "Correctness",
+      "Completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Asker model trained to decide when to refine",
+          "Truster model trained to rank initial vs refined output"
+        ],
+        "criteria": [
+          "correctness of reasoning steps",
+          "completeness of subquestion answers"
+        ]
+      },
+      "removed": {
+        "models": [
+          "LLaMA 70B",
+          "ChatGPT",
+          "GPT-4"
+        ],
+        "methods": [
+          "trained model for decision",
+          "pairwise ranking",
+          "ranking initial vs refined output"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "LLaMA 7B": "LLaMA-7B",
+        "LLaMA 13B": "LLaMA-13B",
+        "self-refinement (baseline)": "Self-refinement baseline comparison"
+      },
+      "explanation": "Removed LLM generation models (70B, ChatGPT, GPT-4) as they're not used as judges, clarified methods to specify trained models, added explicit evaluation criteria mentioned in the paper"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted in the paper - only automatic metrics and LLM-based evaluation"
+    }
+  },
+  "overall_notes": "The paper focuses on using smaller trained models (Asker and Truster) to make refinement decisions for LLM outputs, evaluating primarily through accuracy on mathematical reasoning and question answering tasks. The extraction was generally good but needed clarification on which models serve as judges vs generators."
+}

@@ -1,0 +1,147 @@
+{
+  "paper_id": "2022.emnlp-main.623",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "XSUM",
+      "CNN/DailyMail",
+      "FACTCC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart_large",
+      "unilm",
+      "bottomup",
+      "spanfact",
+      "spanfact_c",
+      "redress",
+      "factpegasus",
+      "compedit",
+      "ccgs"
+    ],
+    "outputs": [
+      "summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "FactCC"
+        ],
+        "models": [
+          "CCGS"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "XSUM"
+        ]
+      },
+      "normalized": {
+        "XSUM": "XSum",
+        "summaries (original, edited, compressed)": "summaries"
+      },
+      "explanation": "Removed duplicate XSUM (normalized to XSum), added missing FactCC dataset and CCGS model, simplified outputs description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "E P SRC",
+      "E R REF",
+      "BS P SRC",
+      "BS F1 REF",
+      "D ARC",
+      "QAFE",
+      "COLA",
+      "EDIT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "R1-c",
+          "Entity Precision (E-P src)",
+          "Entity Recall (E-R ref)",
+          "BERTScore Precision (BS-P src)",
+          "BERTScore F1 (BS-F1 ref)",
+          "Dependency Arc Entailment (D arc)",
+          "QAFactEval (QAFE)",
+          "CoLA grammaticality"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "R1-c": "ROUGE"
+      },
+      "explanation": "Consolidated all ROUGE variants under ROUGE metric family, removed redundant full names that were duplicates of abbreviated metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges for evaluation. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "annotators labeled summaries as factually consistent or inconsistent"
+    ],
+    "criteria": [
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "annotators labeled summaries as factually consistent or inconsistent"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "factually consistent",
+          "factually inconsistent"
+        ]
+      },
+      "normalized": {
+        "factually consistent": "factual consistency",
+        "factually inconsistent": "factual consistency"
+      },
+      "explanation": "Consolidated criteria to 'factual consistency' since both consistent/inconsistent are evaluation outcomes of the same criterion. Added clearer guideline description."
+    }
+  },
+  "overall_notes": "Paper focuses on factual consistency improvement in text summarization through compression-based post-editing. Extraction was generally accurate but needed normalization of metric variants and removal of duplicates. Human evaluation was conducted but focused only on factual consistency criterion."
+}

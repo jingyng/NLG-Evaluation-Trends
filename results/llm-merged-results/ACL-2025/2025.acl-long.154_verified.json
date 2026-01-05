@@ -1,0 +1,122 @@
+{
+  "paper_id": "2025.acl-long.154",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Question Answering",
+      "Other:long-context retrieval",
+      "Other:long-form generation"
+    ],
+    "datasets": [
+      "LongBench",
+      "Proof-Pile"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "OpenLlama-3B-v2",
+      "Llama2-7B",
+      "Llama2-13B",
+      "Mistral-7B-v0.1"
+    ],
+    "outputs": [
+      "Generated text for summarization, question answering, and long-context tasks.",
+      "Models generate outputs for long-context retrieval and generation tasks evaluated on metrics like perplexity and retrieval accuracy."
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "TinyLlama-1.1B-v1.1"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:long-context retrieval": "Other:long-context retrieval",
+        "Other:question answering": "Question Answering",
+        "Other:Long-form Generation": "Other:long-form generation"
+      },
+      "explanation": "Normalized task names to title case, split 'question answering' from 'Other:' category, removed TinyLlama as it's only used for data selection not NLG evaluation"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Perplexity",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Contextual Dependency Score (CDS)",
+          "Pairwise Focus Score (PFS)",
+          "Aggregated Focus Score (AFS)",
+          "retrieval accuracy",
+          "perplexity"
+        ]
+      },
+      "normalized": {
+        "perplexity": "Perplexity"
+      },
+      "explanation": "Removed internal LADM scoring metrics (CDS, PFS, AFS) as they are used for data selection, not NLG output evaluation. Kept only Perplexity and Accuracy which are used to evaluate generated outputs. Consolidated duplicate 'perplexity' entries."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper - the models are used for generation, not for evaluating outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper - all evaluations are automated using perplexity and accuracy metrics."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on data selection methodology (LADM) for improving long-context training of LLMs. NLG evaluation is conducted but is secondary to the main contribution. The paper evaluates NLG capabilities through perplexity and Needle-in-a-Haystack retrieval accuracy, but doesn't include fine-grained NLG evaluation metrics like BLEU/ROUGE or human evaluation."
+}

@@ -1,0 +1,158 @@
+{
+  "paper_id": "2025.emnlp-main.570",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation",
+      "Complex Reasoning"
+    ],
+    "datasets": [
+      "aime24",
+      "amc23",
+      "MINERVA MATH",
+      "LIVECODEBENCH",
+      "OLYMPIADBENCH",
+      "GAOKAO 2024",
+      "MGSM"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "French",
+      "German",
+      "Russian",
+      "Japanese"
+    ],
+    "models": [
+      "openai_o_1",
+      "deepseek_r_1",
+      "deepseek_r_1_distill_qwen_1.5b",
+      "deepseek_r_1_distill_qwen_7b",
+      "qwen_qwq_32b",
+      "phi_4_reasoning",
+      "deepseek_r_1_distill_llama_8b"
+    ],
+    "outputs": [
+      "generated reasoning steps and final answers",
+      "step-by-step thinking process followed by final answer"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Code Generation"
+        ],
+        "datasets": [
+          "GaoKao 2024",
+          "MGSM"
+        ],
+        "languages": [
+          "Chinese",
+          "French",
+          "German",
+          "Russian",
+          "Japanese"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Mathematical Reasoning",
+          "Other:Scientific Problem Solving"
+        ],
+        "datasets": [
+          "LiveCodeBench"
+        ],
+        "models": [
+          "Qwen QwQ 32B"
+        ]
+      },
+      "normalized": {
+        "Other:Complex Reasoning": "Other:Complex Reasoning",
+        "Code Generation": "Code Generation",
+        "LiveCodeBench": "Live-CodeBench",
+        "Qwen QwQ-32B": "Qwen QwQ-32B"
+      },
+      "explanation": "Added missing datasets and languages from cross-linguistic experiments. Removed redundant model variant (Qwen QwQ 32B normalized to Qwen QwQ-32B) and consolidated overlapping datasets. Simplified tasks to Code Generation and Other:Complex Reasoning since mathematical and scientific reasoning fall under complex reasoning."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PASS",
+      "GENERATED TOKEN COUNT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Number of generated tokens",
+          "Token Count",
+          "REP",
+          "REP (Reasoning Efficiency-Performance)",
+          "normalized thinking phase token length"
+        ]
+      },
+      "normalized": {
+        "Pass@1": "Pass@1",
+        "Number of generated tokens": "Generated Token Count",
+        "Token Count": "Generated Token Count",
+        "REP": "REP",
+        "REP (Reasoning Efficiency-Performance)": "REP"
+      },
+      "explanation": "Normalized token-related metrics to 'Generated Token Count'. Removed REP as it's not a standard NLG metric but rather a composite efficiency measure specific to the paper's reasoning analysis."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation methods are described in the paper. Removed placeholder 'None' entries."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted. Removed placeholder 'None' entries."
+    }
+  },
+  "overall_notes": "The paper focuses on reasoning model evaluation through test-time scaling methods, primarily using Pass@1 and token efficiency metrics. While it evaluates generated reasoning outputs (qualifying as NLG), the emphasis is on reasoning accuracy rather than traditional NLG quality aspects like fluency or coherence. The extraction was generally accurate but missed some multilingual experimental details."
+}

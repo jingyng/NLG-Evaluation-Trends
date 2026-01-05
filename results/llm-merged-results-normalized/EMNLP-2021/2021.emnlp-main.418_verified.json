@@ -1,0 +1,146 @@
+{
+  "paper_id": "2021.emnlp-main.418",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Style Transfer",
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "YELP"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gru_encoder_decoder_with_attention"
+    ],
+    "outputs": [
+      "Generated sentences for style transfer",
+      "Generated sentences for dialogue generation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Dialogue Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Generated sentences for dialogue generation"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text Style Transfer",
+          "Paraphrase Generation"
+        ],
+        "datasets": [
+          "Yelp dataset"
+        ],
+        "languages": [],
+        "models": [
+          "PET",
+          "TRT",
+          "GRU Encoder-Decoder"
+        ],
+        "outputs": [
+          "sentences with transferred sentiment (from positive to negative)",
+          "generated sentences"
+        ]
+      },
+      "normalized": {
+        "Yelp dataset": "Yelp",
+        "Other:Text Style Transfer": "Text Style Transfer"
+      },
+      "explanation": "Removed 'Paraphrase Generation' as it's not mentioned in the paper. PET and TRT are training frameworks, not NLG models. Kept only GRU Encoder-Decoder with Attention as the evaluated model. Simplified task names to canonical forms."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "PERPLEXITY",
+      "ROP"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Perplexity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "PPL"
+        ]
+      },
+      "normalized": {
+        "PPL": "Perplexity"
+      },
+      "explanation": "Normalized PPL to Perplexity and added the full name. Kept ROP (Ratio of sentences with profanity) as an automatic metric since it's automatically calculated using reference lists."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges. Removed all metadata as question 3 is answered 'No'."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators were instructed to find sentences with inappropriate expressions, especially those in the profanity reference list (RobertJGabriel)"
+    ],
+    "criteria": [
+      "Profanity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators were instructed to find sentences with inappropriate expressions, especially those in the profanity reference list (RobertJGabriel)"
+        ],
+        "criteria": [
+          "Profanity Detection"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- instructed to find sentences with unappropriated expressions especially the ones in the reference list",
+          "Annotators were instructed to identify sentences containing profanity from the generated outputs using the provided profanity reference list.",
+          "The annotators is instructed to find sentences with unappropriated expressions especially the ones in (RobertJGabriel)"
+        ],
+        "criteria": [
+          "detection of inappropriate expressions",
+          "profanity detection",
+          "profanity"
+        ]
+      },
+      "normalized": {
+        "profanity": "Profanity Detection",
+        "detection of inappropriate expressions": "Profanity Detection",
+        "profanity detection": "Profanity Detection"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement. Normalized criteria to 'Profanity Detection' as the single evaluation criterion mentioned."
+    }
+  },
+  "overall_notes": "The paper focuses on preventing profanity generation in Seq2seq models using a certified robustness framework. The extraction was generally good but needed normalization and removal of some incorrect items. The paper evaluates on text style transfer and mentions dialogue generation as another application area."
+}

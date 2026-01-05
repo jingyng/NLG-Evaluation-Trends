@@ -1,0 +1,165 @@
+{
+  "paper_id": "2022.emnlp-main.33",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Text Summarization",
+      "Other:controlled response generation",
+      "Other:grounded response generation",
+      "Other:dialogue evaluation",
+      "Other:intent detection",
+      "Other:slot filling",
+      "Other:dialogue state tracking",
+      "Other:response selection"
+    ],
+    "datasets": [
+      "Banking77",
+      "MultiWOZ",
+      "DSTC8",
+      "PersonaChat",
+      "DailyDialog",
+      "ConvAI2",
+      "EmpatheticDialogues",
+      "ToxiChat",
+      "SaFeRDialogues",
+      "Restaurant8k",
+      "KVRET",
+      "WOZ",
+      "CamRest676",
+      "MSR-E2E",
+      "TaskMaster",
+      "Schema-Guided"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "DIAL-BART0",
+      "DIAL-T0",
+      "BART0",
+      "T0-3B",
+      "GPT-3"
+    ],
+    "outputs": [
+      "Generated dialogue responses",
+      "Classification labels",
+      "Task-specific sequences in text-to-text format",
+      "Relevance predictions",
+      "Slot values",
+      "Dialogue states"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:dialogue evaluation",
+          "Other:intent detection",
+          "Other:slot filling",
+          "Other:dialogue state tracking",
+          "Other:response selection"
+        ],
+        "datasets": [
+          "Restaurant8k",
+          "KVRET",
+          "WOZ",
+          "CamRest676",
+          "MSR-E2E",
+          "TaskMaster",
+          "Schema-Guided"
+        ],
+        "outputs": [
+          "Relevance predictions",
+          "Slot values",
+          "Dialogue states"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "outputs": []
+      },
+      "normalized": {
+        "controlled, grounded response generation": "Other:controlled response generation, Other:grounded response generation"
+      },
+      "explanation": "Added missing NLG tasks explicitly evaluated in the paper (dialogue evaluation, intent detection, slot filling, dialogue state tracking, response selection). Added missing datasets mentioned in the evaluation sections. Expanded outputs to include all generated content types."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "F1",
+      "GRADE",
+      "accuracy",
+      "Spearman correlation"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BLEU2": "BLEU",
+        "BLEU-2": "BLEU",
+        "ROUGEL": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric variants to base forms (BLEU-2 → BLEU, ROUGE-L → ROUGE). All metrics were correctly extracted and are relevant."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "DIAL-T0"
+        ],
+        "methods": [
+          "binary relevance prediction"
+        ],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper does NOT use LLMs as judges. DIAL-T0 is used for generation, not evaluation. The binary relevance prediction is an automatic evaluation task performed by the model, not using LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Predict if the response is relevant to the context"
+        ],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper does NOT conduct human evaluations. The paper uses existing human ratings from DSTC-10 challenge datasets but does not conduct new human evaluations."
+    }
+  },
+  "overall_notes": "The paper focuses on instruction tuning for dialogue tasks, evaluating both generation and classification tasks. The extraction was generally accurate but missed some important tasks and datasets used in evaluation. No LLM-as-judge or human evaluation was conducted - the paper uses existing human ratings from benchmark datasets for correlation analysis."
+}

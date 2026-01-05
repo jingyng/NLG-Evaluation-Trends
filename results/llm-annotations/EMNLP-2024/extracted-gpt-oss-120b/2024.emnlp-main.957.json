@@ -1,0 +1,66 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We present GPTGEOCHAT, a benchmark of richly annotated multimodal conversations between a human and GPT-4v towards image geolocation.",
+        "tasks": [
+            "Dialogue Generation"
+        ],
+        "datasets": [
+            "GPTGEOCHAT",
+            "GPTGEOCHAT Synthetic",
+            "IM2GPS"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-4v",
+            "LLaVA-1.5-13b",
+            "IDEFICS-80b-instruct",
+            "LLaVA-NeXT-7b",
+            "IDEFICS2-8b"
+        ],
+        "outputs": "textual dialogue responses that may reveal location information at various granularities"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "At the message level, we utilize the standard f1-score metric.",
+        "automatic_metrics": [
+            "F1-score",
+            "Jaccard index",
+            "Leakage proportion",
+            "Wrongly withheld proportion",
+            "Geocoding prediction error (distance)"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We employ both a state-of-the-art closed-source VLM (GPT-4v) as well as open-source models ... prompted using the non-iterative Self-Moderation strategy ... We use a text-based LLM (GPT-3.5-Turbo) to extract the revealed location from each response.",
+        "models": [
+            "GPT-4v",
+            "LLaVA-1.5-13b",
+            "IDEFICS-80b-instruct",
+            "GPT-3.5-Turbo"
+        ],
+        "methods": [
+            "Self-Moderation prompting",
+            "LLM extraction of location via GPT-3.5-Turbo"
+        ],
+        "criteria": [
+            "whether response reveals location at the specified granularity",
+            "privacy violation"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "100 randomly selected dialogues had their messages double annotated for the granularity of location information revealed, from which we calculated a Fleiss' κ (Fleiss, 1971) of 0.76.",
+        "guideline": "Annotators were instructed to select the most specific location granularity (country, city, neighborhood, exact location name, exact GPS coordinates) and provide the corresponding strings or coordinates.",
+        "criteria": [
+            "Country",
+            "City",
+            "Neighborhood",
+            "Exact location name",
+            "Exact GPS coordinates"
+        ]
+    }
+}

@@ -1,0 +1,218 @@
+{
+  "paper_id": "2025.acl-long.792",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation",
+      "Math Problem Solving",
+      "Logical Reasoning"
+    ],
+    "datasets": [
+      "STACK v2",
+      "OPENWEBMATH",
+      "ZYDA 2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3.2_3b",
+      "gpt_4o",
+      "qwen_2.5_72b_instruct"
+    ],
+    "outputs": [
+      "generated code snippets for codewriting tasks",
+      "generated answers for math problem-solving tasks",
+      "generated answers for logic reasoning tasks",
+      "quality scores for text data"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Math Problem Solving",
+          "Logic Reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated answers for math problem-solving tasks",
+          "generated answers for logic reasoning tasks"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:math problem solving",
+          "Other:logic reasoning"
+        ],
+        "datasets": [
+          "Stack v2 (Python subset)"
+        ],
+        "languages": [],
+        "models": [
+          "Qwen2.5-1.5B"
+        ],
+        "outputs": [
+          "selected high-quality subset"
+        ]
+      },
+      "normalized": {
+        "Other:math problem solving": "Math Problem Solving",
+        "Other:logic reasoning": "Logic Reasoning"
+      },
+      "explanation": "Normalized task names to standard forms, removed redundant dataset reference, removed Qwen2.5-1.5B as it's used for scoring not generation, clarified outputs"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "HUMANEVAL",
+      "MBPP",
+      "GSM8K",
+      "SAT MATH",
+      "MATH",
+      "ARC CHALLENGE",
+      "LOGIQA"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "EvalPlus",
+          "OpenCompass",
+          "pass@k",
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "pass@k": "HumanEval/MBPP",
+        "accuracy": "task-specific metrics"
+      },
+      "explanation": "Removed evaluation frameworks (EvalPlus, OpenCompass) and generic terms (pass@k, accuracy), kept specific task evaluation metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "gpt_4o",
+      "qwen_2.5_72b_instruct"
+    ],
+    "methods": [
+      "pairwise evaluation",
+      "majority voting",
+      "criteria evolution"
+    ],
+    "criteria": [
+      "Efficiency",
+      "Analysis",
+      "Context",
+      "Educational",
+      "Logic",
+      "Mathematical",
+      "Pedagogical",
+      "Depth",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Qwen2.5-72B-Instruct"
+        ],
+        "methods": [
+          "criteria evolution"
+        ],
+        "criteria": [
+          "algorithm efficiency",
+          "error analysis",
+          "commented context",
+          "educational value",
+          "logical structure",
+          "mathematical rigor",
+          "pedagogical value",
+          "conceptual depth",
+          "technical accuracy"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "reflection on worker performance"
+        ],
+        "criteria": [
+          "quality criteria",
+          "applicability",
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "reflection on worker performance": "criteria evolution"
+      },
+      "explanation": "Added explicit LLM models as judges (Qwen2.5-72B-Instruct), added specific quality criteria from the paper appendix, changed answer from No to Yes since LLMs are used to evaluate data quality"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Compare Python code files based on formatting, simplicity, educational value, algorithm quality, readability, and maintainability",
+      "Compare math text based on logical structure, mathematical rigor, pedagogical value, conceptual depth, and technical accuracy",
+      "Compare logic text based on reasoning requirement, contextual integration, and structured interpretation"
+    ],
+    "criteria": [
+      "Formatting",
+      "Simplicity",
+      "Data",
+      "Education",
+      "Solution",
+      "Comment",
+      "Readability",
+      "Maintainability",
+      "Clarity",
+      "Extensibility",
+      "Flexibility",
+      "Containment",
+      "Reusability",
+      "Logic",
+      "Mathematical",
+      "Pedagogical",
+      "Depth",
+      "Accuracy",
+      "Requirement",
+      "Contextual",
+      "Interpretation"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Compare math text based on logical structure, mathematical rigor, pedagogical value, conceptual depth, and technical accuracy",
+          "Compare logic text based on reasoning requirement, contextual integration, and structured interpretation"
+        ],
+        "criteria": [
+          "logical structure",
+          "mathematical rigor",
+          "pedagogical value",
+          "conceptual depth",
+          "technical accuracy",
+          "reasoning requirement",
+          "contextual integration",
+          "structured interpretation"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Other:math problem solving": "math problem solving",
+        "Other:logic reasoning": "logic reasoning"
+      },
+      "explanation": "Added comprehensive human evaluation guidelines and criteria from all three domains covered in the paper, changed answer from No to Yes since human annotators evaluate data quality preferences"
+    }
+  },
+  "overall_notes": "This paper focuses on data quality selection for LLM training rather than direct NLG evaluation. However, it does involve NLG tasks (code generation, math/logic QA) for evaluating the selected data quality through downstream task performance. The human evaluation is for data quality preferences, while LLMs are used as judges for pairwise data quality comparisons. The paper's main contribution is the CritiQ methodology for automated quality criteria mining."
+}

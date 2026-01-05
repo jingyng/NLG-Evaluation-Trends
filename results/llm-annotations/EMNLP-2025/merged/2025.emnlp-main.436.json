@@ -1,0 +1,89 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Our automated pipeline combines Large Language Models (LLMs) and Vision Language Models (VLMs) to generate positive queries which are answerable from the page, then rephrases them into hard negatives that are structurally and semantically similar but unanswerable.",
+            "We adapt the prompt design ... to generate N candidate positive queries per page. ... we use the Qwen2.5-7B-Instruct LLM to generate 12 variants of the positive query ... These are designed to be similar in topic and form but seek different information.",
+            "Retrieval-Augmented Generation (RAG) is a widely adopted framework in which models retrieve external evidence to guide generation."
+        ],
+        "tasks": [
+            "Other:Question Generation",
+            "Other:Retrieval-Augmented Generation"
+        ],
+        "datasets": [
+            "ColPali",
+            "FinTabNet",
+            "ColHNQue",
+            "FinHNQue",
+            "ColPali training set",
+            "ViDoReV2",
+            "Real-MM-RAG"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Pixtral-12B",
+            "Qwen2.5-7B-Instruct",
+            "Qwen2.5-VL-7B-Instruct",
+            "Qwen2.5-7B-Language Model",
+            "Qwen2-VL",
+            "PaliGemma"
+        ],
+        "outputs": [
+            "positive and hard negative queries",
+            "generated positive queries and hard negative queries (questions) for each document page",
+            "The paper generates queries (positive and hard negative) for document pages using LLMs and VLMs as part of a reranking training pipeline."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "The generated negatives show a distribution closely aligned with the positives, indicating both diversity and realism. The Fréchet Distance between the two distributions is also very low (FD = 0.090), confirming statistical similarity.",
+            "The generated negatives show a distribution closely aligned with the positives, indicating both diversity and realism. The Fréchet Distance between the two distributions is also very low (FD = 0.090), confirming statistical similarity.",
+            "We report the standard NDCG@5 as the primary evaluation metric, measuring the quality of the top-ranked retrieved pages. Additional metrics, such as Recall@5 and NDCG@10, are reported in the Appendix (see section A.3)."
+        ],
+        "automatic_metrics": [
+            "Fréchet Distance",
+            "t-SNE visualization",
+            "NDCG@5",
+            "Recall@5",
+            "NDCG@10"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "We use the Qwen2.5-VL-7B-Instruct VLM with a dedicated prompt to validate each query. [...] each candidate query is validated using the Qwen2.5-VL-7B-Instruct VLM [...] Only queries that both prompts classify as unanswerable are kept as valid hard negatives.",
+            "Each candidate query is validated using the Qwen2.5-VL-7B-Instruct VLM. We input the document page along with each negative candidate ... only queries that both prompts classify as unanswerable are kept as valid hard negatives."
+        ],
+        "models": [
+            "Qwen2.5-VL-7B-Instruct"
+        ],
+        "methods": [
+            "VLM-based answerability verification with two prompts",
+            "binary answerability verification via prompts"
+        ],
+        "criteria": [
+            "answerability",
+            "answerability (answerable vs unanswerable)"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "Six annotators were presented with a document page and two to five negative queries (242 queries in total). For each query, they judged whether the page contained an answer.",
+            "Six annotators were presented with a document page and two to five negative queries (242 queries in total). For each query, they judged whether the page contained an answer.",
+            "Six annotators were presented with a document page and two to five negative queries (242 queries in total). For each query, they judged whether the page contained an answer. An equivalent evaluation was performed on our generated positive queries."
+        ],
+        "guideline": [
+            "Judging whether the page contains an answer to the query",
+            "Annotators were asked to judge whether the page contains an answer to each query.",
+            "For each query, they judged whether the page contained an answer."
+        ],
+        "criteria": [
+            "answerability",
+            "answerability correctness"
+        ]
+    }
+}

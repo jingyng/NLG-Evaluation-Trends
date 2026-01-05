@@ -1,0 +1,123 @@
+{
+  "paper_id": "2022.emnlp-main.823",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Question Answering",
+      "Natural Language Inference"
+    ],
+    "datasets": [
+      "GovReport",
+      "SummScreenFD",
+      "QMSum",
+      "Qasper",
+      "NarrativeQA",
+      "QuALITY",
+      "ContractNLI"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART",
+      "Longformer Encoder-Decoder"
+    ],
+    "outputs": [
+      "Generated summaries for summarization tasks",
+      "Generated answer strings for question answering tasks",
+      "Generated entailment labels for natural language inference tasks"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering",
+          "Natural Language Inference"
+        ],
+        "models": [],
+        "outputs": [
+          "Generated answer strings for question answering tasks",
+          "Generated entailment labels for natural language inference tasks"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering",
+          "Other:Natural Language Inference"
+        ],
+        "models": [
+          "BART-base",
+          "Longformer Encoder-Decoder (LED-base)"
+        ],
+        "outputs": [
+          "generated summaries for summarization tasks and generated answers for question answering and natural language inference tasks",
+          "Generated summaries for summarization tasks, answer strings for QA tasks, and entailment labels for NLI tasks"
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering",
+        "Other:Natural Language Inference": "Natural Language Inference",
+        "BART-base": "BART",
+        "Longformer Encoder-Decoder (LED-base)": "Longformer Encoder-Decoder"
+      },
+      "explanation": "Normalized tasks to canonical forms without 'Other:' prefix. Consolidated BART variants under 'BART' and LED variants under 'Longformer Encoder-Decoder'. Simplified outputs to clearer descriptions that match the paper's text-to-text format description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "F1",
+      "EM"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "Exact Match (EM)"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "ROUGE": "ROUGE",
+        "Exact Match (EM)": "EM"
+      },
+      "explanation": "Consolidated all ROUGE variants under 'ROUGE' as per normalization rules. Kept F1 and EM as distinct metrics since they are used differently for QA datasets."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper. The paper focuses on traditional automatic metrics."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The paper only references existing human agreement scores from original dataset papers as ceiling estimates."
+    }
+  },
+  "overall_notes": "The paper introduces SCROLLS, a benchmark for evaluating long-text language models. It evaluates NLG tasks (summarization, QA, NLI) using automatic metrics (ROUGE, F1, EM) but does not conduct human evaluations or use LLMs as judges. The extraction was generally good but needed normalization of task names and consolidation of metric variants."
+}

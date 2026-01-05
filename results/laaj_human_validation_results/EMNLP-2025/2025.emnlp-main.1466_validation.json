@@ -1,0 +1,81 @@
+{
+  "paper_id": "2025.emnlp-main.1466",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper uses LLM-as-a-judge for semantic equivalence checking during back-translation filtering and human evaluation for answer correctness and locale sensitivity verification, but there is no explicit comparison or validation between LLM judgments and human judgments on the same instances."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4.1"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Prompts are described but not shown in full format; the semantic equivalence judgment uses a binary 'yes/no' prompt comparing back-translated English vs original English questions."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Percentage agreement",
+      "value": 88.9,
+      "interpretation": "Majority voting (≥2/3 agreement) used for final labels; average agreement rates per language are provided.",
+      "per_criterion": [
+        {
+          "criterion": "Correctness",
+          "metric": "Percentage agreement (3/3)",
+          "value": 91.2
+        },
+        {
+          "criterion": "Correctness",
+          "metric": "Percentage agreement (≥2/3)",
+          "value": 98.5
+        },
+        {
+          "criterion": "Sensitivity",
+          "metric": "Percentage agreement (3/3)",
+          "value": 88.3
+        },
+        {
+          "criterion": "Sensitivity",
+          "metric": "Percentage agreement (≥2/3)",
+          "value": 96.7
+        },
+        {
+          "criterion": "Average across languages",
+          "metric": "Percentage agreement (3/3)",
+          "value": 88.9
+        },
+        {
+          "criterion": "Average across languages",
+          "metric": "Percentage agreement (≥2/3)",
+          "value": 97.4
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Guidelines mention that annotators determine answer correctness and locale sensitivity based on regional knowledge, cultural prominence, and identity references. Borderline cases resolved by majority voting."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Semantic equivalence"
+    ],
+    "human_only_criteria": [
+      "Correctness",
+      "Evidence support",
+      "Locale sensitivity"
+    ],
+    "shared_criteria": [],
+    "notes": "LLM and human evaluate different criteria without overlap: LLM assesses semantic consistency across translations, while humans validate answer correctness and cultural sensitivity."
+  }
+}

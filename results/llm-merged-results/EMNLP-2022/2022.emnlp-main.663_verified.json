@@ -1,0 +1,154 @@
+{
+  "paper_id": "2022.emnlp-main.663",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "XSUM",
+      "XENT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART-Large",
+      "GOLD",
+      "RL with factuality rewards"
+    ],
+    "outputs": [
+      "abstractive summaries",
+      "single-sentence summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "RL with factuality rewards"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "RL methods (GOLD, factuality-aware RL)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "BART-LARGE": "BART-Large",
+        "RL methods (GOLD, factuality-aware RL)": "GOLD, RL with factuality rewards"
+      },
+      "explanation": "Normalized model names to standard capitalization and clarified RL model descriptions. The paper focuses on abstractive text summarization as the main NLG task."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "FACTCC",
+      "DAE",
+      "ENTFA",
+      "novel n-grams",
+      "coverage"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "Novel n-gram"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "Novel n-gram": "novel n-grams"
+      },
+      "explanation": "Simplified ROUGE variants to base form and normalized 'Novel n-gram' to 'novel n-grams'. All metrics are explicitly used for evaluation in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges for evaluation in this paper. The evaluation uses automatic metrics and human annotators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Read the source completely",
+      "Compare the generations of system 1 with system 2 in terms of level of 'factuality' with respect to the source document",
+      "Consider specific questions about accuracy, consistency, presence of non-inferable information, unfounded expansion, and causal relationships",
+      "Select the summary that is more faithful or mark them equally factual/non-factual"
+    ],
+    "criteria": [
+      "faithfulness",
+      "factuality",
+      "accuracy",
+      "consistency",
+      "avoidance of non-inferable information",
+      "avoidance of unfounded expansion",
+      "consistency of relationships and events"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "accuracy",
+          "avoidance of non-inferable information",
+          "avoidance of unfounded expansion"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "consistency with source",
+          "containment of unfounded facts",
+          "accurate capture of important information",
+          "correctness of salient information"
+        ]
+      },
+      "normalized": {
+        "faithfulness": "faithfulness",
+        "factuality": "factuality",
+        "consistency with source": "consistency",
+        "containment of unfounded facts": "avoidance of unfounded expansion",
+        "accurate capture of important information": "accuracy",
+        "correctness of salient information": "accuracy",
+        "avoidance of meaning expansion": "avoidance of unfounded expansion",
+        "consistency of relationships and events": "consistency of relationships and events"
+      },
+      "explanation": "Normalized and consolidated criteria based on the detailed human evaluation guidelines provided in the paper. The evaluation focuses primarily on factuality/faithfulness aspects."
+    }
+  },
+  "overall_notes": "The extraction quality is generally good. The paper focuses on abstractive text summarization with a specific emphasis on reducing hallucinations and improving factuality. The metadata accurately reflects the paper's contributions, which include a novel rejection learning approach and evaluation using both automatic metrics and human assessments of factuality."
+}

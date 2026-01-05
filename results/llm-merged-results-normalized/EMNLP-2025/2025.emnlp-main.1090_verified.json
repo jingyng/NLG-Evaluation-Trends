@@ -1,0 +1,149 @@
+{
+  "paper_id": "2025.emnlp-main.1090",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Function Calling",
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "ACTIONSTUDIO 98k",
+      "NEXUSRAVEN",
+      "CRM AGENT BENCHMARK"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "actionstudio_mistral_7b_inst_exp",
+      "actionstudio_mistral_latest_12b_inst_exp",
+      "actionstudio_llama_3.1_70b_inst_exp",
+      "actionstudio_llama_3.3_70b_inst_exp",
+      "actionstudio_mixtral_8x_22b_inst_exp",
+      "mixtral_8x_22b_inst"
+    ],
+    "outputs": [
+      "sequences of agent actions including tool calls and natural language reasoning",
+      "agent trajectories consisting of dialogue turns, tool calls, observations, and user feedback",
+      "generated outputs include tool calls, function calls, arguments, and multi-turn agent-user interactions involving reasoning and API usage"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Code Generation",
+          "Other:Tool Use"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Mistral-7B",
+          "Llama-3.3-70B",
+          "Mixtral-8x22B",
+          "GPT-4",
+          "GPT-4o",
+          "Mistral series",
+          "Llama 3 series"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "ACTIONSTUDIO-98K": "actionstudio-98k",
+        "The generated outputs include tool calls, function calls, arguments, and multi-turn agent-user interactions involving reasoning and API usage.": "generated outputs include tool calls, function calls, arguments, and multi-turn agent-user interactions involving reasoning and API usage"
+      },
+      "explanation": "Removed 'Code Generation' and 'Other:Tool Use' tasks as they are not explicitly evaluated NLG tasks in the paper. Removed models that are not evaluated LLMs (commercial models and generic mentions). Normalized dataset name to lowercase."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PRECISION",
+      "RECALL",
+      "F1",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1 Score",
+          "F1-score"
+        ]
+      },
+      "normalized": {
+        "F1 Score": "F1",
+        "F1-score": "F1"
+      },
+      "explanation": "Normalized F1 variants to base 'F1' metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [
+      "GPT-4-class models",
+      "fine-tuned open-source models"
+    ],
+    "methods": [
+      "In-Context Critique Filtering"
+    ],
+    "criteria": [
+      "Correctness",
+      "Hallucination",
+      "tool-use appropriateness",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because LLMs are used for data filtering/critiquing of trajectories before training, not for evaluating generated outputs after generation. Removed 'GPT-4' as it's not explicitly mentioned as used for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators followed the four rubric items defined in §3.1.3 (correctness, hallucination, tool-use appropriateness, overall response quality) and indicated whether ActionStudio's keep/remove decision was correct"
+    ],
+    "criteria": [
+      "Correctness",
+      "Hallucination",
+      "Appropriateness",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes made to human evaluation metadata as it accurately reflects the paper's description of human verification of trajectory filtering decisions."
+    }
+  },
+  "overall_notes": "The paper focuses on framework development for training large action models, with function calling as the primary evaluated NLG task. LLM evaluation is used for data filtering, not output evaluation. Extracted metadata was generally accurate but needed refinement for task specificity and model relevance."
+}

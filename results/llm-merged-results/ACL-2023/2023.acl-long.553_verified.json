@@ -1,0 +1,165 @@
+{
+  "paper_id": "2023.acl-long.553",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "PersonaChat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BERT-over-BERT (BoB)",
+      "Multi-GPT2",
+      "DistilGPT2",
+      "BERT-medium",
+      "BERT-mini",
+      "RoBERTa"
+    ],
+    "outputs": [
+      "dialogue responses",
+      "persona-based dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "RoBERTa"
+        ],
+        "outputs": [
+          "persona-based dialogue responses"
+        ]
+      },
+      "removed": {
+        "models": [
+          "BERT‑over‑BERT (BoB)",
+          "Multi‑GPT2",
+          "BERT‑medium",
+          "BERT‑mini"
+        ],
+        "outputs": [
+          "responses",
+          "responses in persona-based dialogue"
+        ]
+      },
+      "normalized": {
+        "BERT-over-Bert (BoB)": "BERT-over-BERT (BoB)",
+        "BERT‑over‑BERT (BoB)": "BERT-over-BERT (BoB)",
+        "Multi‑GPT2": "Multi-GPT2",
+        "BERT‑medium": "BERT-medium",
+        "BERT‑mini": "BERT-mini"
+      },
+      "explanation": "Removed duplicate model entries, normalized naming consistency, added RoBERTa which is used for evaluation, and consolidated output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Perplexity (PPL)",
+      "Repetition (Rep)",
+      "Distinctness (Dis-1, Dis-2)",
+      "Consistency Score (C)",
+      "TF-IDF Similarity",
+      "Average Score (Avg)",
+      "Average Score with Repetition (Avg-R)"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Average Score (Avg)",
+          "Average Score with Repetition (Avg-R)"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Dis‑1",
+          "Dis‑2",
+          "PPL",
+          "Dis-1",
+          "Dis-2",
+          "Rep",
+          "C",
+          "Avg-R"
+        ]
+      },
+      "normalized": {
+        "TF‑IDF similarity": "TF-IDF Similarity",
+        "Dis-1": "Distinctness (Dis-1, Dis-2)",
+        "Dis-2": "Distinctness (Dis-1, Dis-2)",
+        "C": "Consistency Score (C)",
+        "Rep": "Repetition (Rep)",
+        "Avg": "Average Score (Avg)",
+        "Avg‑R": "Average Score with Repetition (Avg-R)"
+      },
+      "explanation": "Consolidated duplicate metrics into comprehensive names, normalized capitalization and formatting"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa (fine-tuned on DialogueNLI)",
+          "GPT2",
+          "BERT",
+          "RoBERTa"
+        ],
+        "methods": [
+          "entailment probability scoring",
+          "perplexity scoring",
+          "natural language inference (NLI) entailment scoring"
+        ],
+        "criteria": [
+          "consistency",
+          "fluency",
+          "coherence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper uses specialized NLI models (RoBERTa fine-tuned on DialogueNLI) for consistency scoring, but this is not 'LLM as judge' in the modern sense. These are task-specific models, not general-purpose LLMs used for evaluation after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Fluency, coherence, and informativeness are scored on a scale of 1 to 5, where 5 is good, 3 is moderate, and 1 is poor",
+      "Consistency is scored as 0 or 1, where 0 indicates inconsistent/irrelevant to persona sentences, and 1 indicates relevant and consistent"
+    ],
+    "criteria": [
+      "fluency",
+      "coherence",
+      "informativeness",
+      "consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Consistency is scored as 0 or 1, where 0 indicates inconsistent/irrelevant to persona sentences, and 1 indicates relevant and consistent"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Fluency, coherence, and informativeness are scored on a scale of 1 to 5 ... consistency is 0 or 1.",
+          "Responses are rated on fluency, coherence, informativeness (1–5 scale) and consistency (0 or 1)."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated the guideline descriptions into two clear statements and kept the criteria as extracted"
+    }
+  },
+  "overall_notes": "The paper focuses on persona-based dialogue generation using a two-stage approach (over-sampling and post-evaluation). The main correction was for Question 3 - while the paper uses models for evaluation, they are specialized NLI models, not general-purpose LLMs used as judges. The extraction was generally good but had many duplicates that needed consolidation."
+}

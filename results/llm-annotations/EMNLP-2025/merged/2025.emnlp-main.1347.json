@@ -1,0 +1,121 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Personal agents are thus evaluated not only on their ability to carry out tasks (utility), but also on their capacity to omit sensitive information when inappropriate (privacy).",
+            "We evaluate 17 models ranging from 8B to over 600B parameters, grouped by family to reflect shared lineage through distillation. We compare vanilla LLMs, CoT-prompted vanilla models, and Large Reasoning Models."
+        ],
+        "tasks": [
+            "Dialogue Generation",
+            "Other:Contextual privacy evaluation in personal agent tasks"
+        ],
+        "datasets": [
+            "AirGapAgent-R",
+            "AgentDAM"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "DeepSeek-R1",
+            "Llama-3.1",
+            "Llama-3.3",
+            "Qwen 2.5",
+            "Phi-4-mini",
+            "Phi-4",
+            "QwQ",
+            "s1",
+            "s1.1",
+            "Phi-4-mini-reasoning",
+            "Phi-4-reasoning-plus",
+            "OpenAI o4-mini",
+            "Anthropic claude-4-sonnet",
+            "QwQ-32B"
+        ],
+        "outputs": [
+            "Generated responses and reasoning traces",
+            "The models generate reasoning traces and final answers in response to prompts involving personal data handling, task execution, and privacy-sensitive decision-making."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Utility measures the ability of the model to provide the requested data field when contextually appropriate: Utility = Pr[model shares | sharing appropriate]. Privacy measures the ability to keep any contextually sensitive information secret: Privacy = Pr[model does not share | sharing not appropriate].",
+            "Utility = Pr[model shares | sharing appropriate] ... Privacy = Pr[model does not share | sharing not appropriate] ... Sensitive data is detected using a gpt-4o-mini‑based extractor applied to both the final answer and the reasoning trace.",
+            "We use a gpt-4o-mini-based extractor applied to both the final answer and the reasoning trace (prompts in Appendix E)."
+        ],
+        "automatic_metrics": [
+            "Utility",
+            "Privacy",
+            "Exact Match",
+            "Containment Match",
+            "BLEU",
+            "BLEURT",
+            "gpt-4o-mini-based personal data extraction",
+            "exact match",
+            "utility",
+            "privacy",
+            "task success rate",
+            "leakage detection via LLM-as-judge scoring"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "Sensitive data is detected using a gpt-4o-mini-based extractor applied to both the final answer and the reasoning trace.",
+            "We use gpt-4o-mini as an evaluator to extract personal data from model outputs and to score privacy leakage (Evaluation Prompt 1, 2, 3).",
+            "We use a gpt-4o-mini-based personal data extractor applied to both the final answer and the reasoning trace (prompts in Appendix E)."
+        ],
+        "models": [
+            "gpt-4o-mini"
+        ],
+        "methods": [
+            "binary classification scoring",
+            "personal data extraction via structured output prompts",
+            "LLM-as-judge for privacy leakage detection",
+            "structured outputs extraction",
+            "four-shot prompting for evaluation"
+        ],
+        "criteria": [
+            "presence of sensitive data",
+            "presence of personally identifiable information",
+            "contextual appropriateness of data sharing",
+            "privacy compliance"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "All annotations were performed by the authors of this paper, following the guidelines in Appendix H, including a full list of labels with examples.",
+            "We annotated 200 datapoints uniformly sampled across reasoning models... All annotations were performed by the authors of this paper.",
+            "We annotated 200 datapoints, uniformly sampled across reasoning models, composed of 100 with leakage in the RT and 100 with leakage in the answer. All annotations were performed by the authors of this paper, following the guidelines in Appendix H, including a full list of labels with examples (Table  and )."
+        ],
+        "guideline": [
+            "Annotators assign labels to reasoning traces and answers based on predefined leakage patterns (e.g., RECOLLECTION, ANCHORING) following guidelines in Appendix H.",
+            "Annotation guidelines described in Appendix H were used to label leakage types.",
+            "H.1 Objective of the annotation: You will be asked to label model generations produced by reasoning models... Assign the most appropriate label(s) from Table  based only on the reasoning trace. Multiple labels may apply concurrently."
+        ],
+        "criteria": [
+            "Recollection",
+            "Multiple Recollection",
+            "Anchoring",
+            "Wrong Context Understanding",
+            "Relative Sensitivity",
+            "Good Faith",
+            "Repeat Reasoning",
+            "Underspecification",
+            "RECOLLECTION",
+            "MULTIPLE RECOLLECTION",
+            "ANCHORING",
+            "WRONG CONTEXT UNDERSTANDING",
+            "RELATIVE SENSITIVITY",
+            "GOOD FAITH",
+            "REPEAT REASONING",
+            "UNDERSPECIFICATION",
+            "Unfinished Thinking",
+            "Confused Placeholders",
+            "Refuse And Leak",
+            "Others"
+        ]
+    }
+}

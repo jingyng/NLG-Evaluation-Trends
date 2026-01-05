@@ -1,0 +1,193 @@
+{
+  "paper_id": "2025.naacl-long.442",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "MultiNews",
+      "QMSumm",
+      "GovReport",
+      "PubMed",
+      "ArXiv",
+      "SQuALITY",
+      "ChemSumm",
+      "DiverseSumm",
+      "SummHay",
+      "MultiXScience"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3.5",
+      "GPT-4o",
+      "UniSumm",
+      "PEGASUS",
+      "BART",
+      "BART-DPR",
+      "LongT5",
+      "PRIMERA",
+      "Vicuna",
+      "LongChat",
+      "Llama-3.1-8B",
+      "Llama-3.1-70B",
+      "Mixtral-7x8B",
+      "Mixtral-8x22B",
+      "Mixtral-Large",
+      "Claude-3-Opus",
+      "Gemini-1.5-Pro"
+    ],
+    "outputs": [
+      "summaries",
+      "long-form summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-3.1-70B",
+          "Mixtral-Large"
+        ],
+        "outputs": [
+          "long-form summaries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Diversesumm"
+        ],
+        "languages": [],
+        "models": [
+          "MiniCheck",
+          "Claude-Opus",
+          "Mixtral"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Diversesumm": "DiverseSumm",
+        "BARTDPR": "BART-DPR",
+        "Mixtral-7×8B": "Mixtral-7x8B",
+        "Mixtral-8×22B": "Mixtral-8x22B",
+        "Claude3-Opus": "Claude-3-Opus"
+      },
+      "explanation": "Removed evaluator models (MiniCheck) and duplicate dataset (Diversesumm), normalized model names and dataset names, added missing models mentioned in the paper"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MiniCheck",
+      "ROUGE",
+      "Spearman correlation",
+      "Balanced Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-4o-based metric",
+          "GPT-4o‑based entailment metric",
+          "GPT-4o",
+          "Llama-3.1-8B",
+          "balanced accuracy (BACC)",
+          "ROUGE-1/2/L"
+        ]
+      },
+      "normalized": {
+        "Balanced Accuracy (BACC)": "Balanced Accuracy",
+        "balanced accuracy (BACC)": "Balanced Accuracy",
+        "ROUGE-1/2/L": "ROUGE"
+      },
+      "explanation": "Normalized metric names (ROUGE variants to ROUGE, BACC to Balanced Accuracy), removed evaluator models and duplicate entries"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o",
+      "MiniCheck",
+      "Llama-3.1-8B"
+    ],
+    "methods": [
+      "faithfulness evaluation",
+      "entailment-based scoring",
+      "full context evaluation",
+      "document chunking and aggregation",
+      "perturbation analysis",
+      "attribution via maximum faithfulness score"
+    ],
+    "criteria": [
+      "faithfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "faithfulness evaluation",
+          "entailment-based scoring"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "MiniCheck (distilled NLI model)"
+        ],
+        "methods": [
+          "LLM‑based entailment prompting",
+          "Prompted faithfulness evaluation",
+          "entailment-based metrics"
+        ],
+        "criteria": [
+          "entailment",
+          "relevance"
+        ]
+      },
+      "normalized": {
+        "MiniCheck (distilled NLI model)": "MiniCheck"
+      },
+      "explanation": "Simplified and normalized method descriptions, removed redundant criteria, kept only explicitly mentioned evaluation models"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotations converted to binary faithfulness judgments",
+      "Likert scores thresholded at highest rating"
+    ],
+    "criteria": [
+      "faithfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotations converted to binary faithfulness judgments",
+          "Likert scores thresholded at highest rating"
+        ],
+        "criteria": [
+          "faithfulness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- convert different annotation schemes into binary faithfulness judgments. For Likert-based evaluations, we consider a summary to be faithful only if it receives the highest score"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Reformatted guideline into structured descriptions based on paper content, added faithfulness as explicit criterion"
+    }
+  },
+  "overall_notes": "The paper extensively studies long-form summarization evaluation using LLM-based metrics. The extraction was generally good but included some evaluator models in the generation models list and had inconsistent normalization. The paper uses existing human-annotated benchmarks but does not conduct new human evaluations."
+}

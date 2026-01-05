@@ -1,0 +1,63 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We evaluate on six benchmarks covering both multiple-choice and open-ended tasks. The multiple-choice datasets include ARC-Challenge, GPQAdiamond, where answers are selected from discrete options (e.g., A/B/C/D). For these tasks, heuristic evaluation uses log-likelihood scoring over answer options. The open-ended datasets include NarrativeQA, MATH, and SimpleQA, where model responses are free-form.",
+        "tasks": [
+            "Other:Narrative Question Answering",
+            "Other:Mathematical Reasoning",
+            "Other:Factual and Commonsense Reasoning"
+        ],
+        "datasets": [
+            "ARC-Challenge",
+            "GPQA-diamond",
+            "NarrativeQA",
+            "MATH",
+            "SimpleQA"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "LLaMA-3.1-8B-Instruct",
+            "Qwen2-7B-Instruct",
+            "Gemma-2-9B-it",
+            "Ministral-8B-Instruct-v0.2",
+            "GPT-4o-mini",
+            "GPT-4.1-mini",
+            "Gemini 2.0 Flash"
+        ],
+        "outputs": "The outputs include both multiple-choice selections and free-form text responses, evaluated for correctness and semantic match to ground truth."
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "For NarrativeQA and MATH, heuristic evaluation applies format-specific extraction and normalization (see Appendix C). For SimpleQA, no rule-based parser is available, so we report results only under the LLM-as-a-Judge framework.",
+        "automatic_metrics": [
+            "log-likelihood scoring",
+            "word-level F1",
+            "sympy-based equivalence checking",
+            "LaTeX answer extraction"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We adopt LLMs as robust judges. In this approach, an LLM judge is given the original question, the correct answer, and the model's predicted response. The judge is prompted to determine whether the predicted response semantically matches the correct answer",
+        "models": [
+            "Gemini 2.0 Flash",
+            "GPT-4o-mini"
+        ],
+        "methods": [
+            "semantic match judgment",
+            "pairwise evaluation"
+        ],
+        "criteria": [
+            "match with reference answer",
+            "correctness"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We recruit human annotators to manually evaluate answer correctness. For each dataset, we randomly sample 50 questions and collect answers from one model under all 12 prompt templates, yielding 600 answers per dataset-model pair.",
+        "guideline": "Put 1 in the 'human_evaluation' column if the model's answer is correct. Put 0 in the 'human_evaluation' column if the model's answer is wrong.",
+        "criteria": []
+    }
+}

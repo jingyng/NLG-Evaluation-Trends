@@ -1,0 +1,75 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "we introduce Falsesum, a data generation pipeline that produces NLI examples consisting of documents paired with gold summaries as positive examples and automatically generated inconsistent summaries as negative examples.",
+            "We introduce Falsesum, a data generation pipeline that produces NLI examples consisting of documents paired with gold summaries as positive examples and automatically generated inconsistent summaries as negative examples... We run the Falsesum data generation pipeline on the train split of the CNN/DailyMail corpus... We break the summaries down such that each Falsesum example consists of the document text and a single sentence summary.",
+            "Recent advances in conditional text generation and the availability of large-scale datasets have given rise to models which generate highly fluent abstractive summaries."
+        ],
+        "tasks": [
+            "Text Summarization"
+        ],
+        "datasets": [
+            "CNN/DailyMail corpus",
+            "CNN/DailyMail",
+            "XSUM"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "T5-base",
+            "RoBERTa-base"
+        ],
+        "outputs": [
+            "generated summaries",
+            "factually inconsistent (non‑entailed) summaries",
+            "abstractive summaries"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Performance on FactCC, QAGS, and SummEval is measured using balanced accuracy, which is suitable for class imbalanced settings... To measure ranking performance in Ranksum, we calculate the average Precision@1.",
+            "Performance on FactCC, QAGS, and SummEval is measured using balanced accuracy... To measure ranking performance in Ranksum, we calculate the average Precision@1..."
+        ],
+        "automatic_metrics": [
+            "balanced accuracy",
+            "Precision@1"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [
+            "We train an NLI model using positive examples from CNN/DailyMail and Falsesum-generated negative examples. The model receives no premise so must distinguish between entailed and non-entailed hypotheses using semantic plausibility or spurious surface features..."
+        ],
+        "models": [
+            "RoBERTa-base"
+        ],
+        "methods": [
+            "hypothesis-only prediction"
+        ],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "First, we sample 200 generated negative examples and manually verify whether (i) the perturbed summary S - is indeed factually inconsistent; (ii) the type of consistency error follows the specified control code; (iii) the incorrect 'fact' is inserted at the specified missing span.",
+            "We sample 200 generated negative examples and manually verify whether (i) the perturbed summary S- is indeed factually inconsistent; (ii) the type of consistency error follows the specified control code; (iii) the incorrect \"fact\" is inserted at the specified missing span... The authors perform this annotation to avoid high disagreement by crowd annotators in this task.",
+            "We sample 200 generated negative examples and manually verify whether (i) the perturbed summary S -is indeed factually inconsistent; (ii) the type of consistency error follows the specified control code; (iii) the incorrect \"fact\" is inserted at the specified missing span."
+        ],
+        "guideline": [
+            "verify factual inconsistency, error type alignment with control code, and correct span insertion",
+            "Annotators check (i) factual inconsistency of the perturbed summary, (ii) whether the error type matches the control code (intrinsic or extrinsic), and (iii) whether the incorrect fact is inserted at the designated span.",
+            "manually verify whether (i) the perturbed summary S -is indeed factually inconsistent; (ii) the type of consistency error follows the specified control code; (iii) the incorrect \"fact\" is inserted at the specified missing span."
+        ],
+        "criteria": [
+            "factual inconsistency",
+            "error type alignment",
+            "span insertion",
+            "error type correctness",
+            "span insertion correctness",
+            "insertion correctness"
+        ]
+    }
+}

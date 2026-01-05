@@ -1,0 +1,126 @@
+{
+  "paper_id": "2024.acl-long.377",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Edit Generation",
+      "Comment Edit Alignment"
+    ],
+    "datasets": [
+      "ARIES"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "debertav_3_large",
+      "specter_2",
+      "linkbert",
+      "gpt_4",
+      "bm_25"
+    ],
+    "outputs": [
+      "paragraph-level edits addressing reviewer comments",
+      "alignments between comments and edits"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Comment-Edit Alignment"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Scientific Paper Revision",
+          "Other:edit generation"
+        ]
+      },
+      "normalized": {
+        "Other:edit generation": "Other:Edit Generation"
+      },
+      "explanation": "Normalized task names to title case and removed redundant/overly broad task descriptions. Added 'Comment-Edit Alignment' as a core task studied in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "PRECISION",
+      "RECALL",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "micro-F1",
+          "macro-F1",
+          "AO-F1"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'Yes' since the paper extensively uses precision, recall, and F1 scores to evaluate comment-edit alignment. Removed metric variants (micro-F1, macro-F1, AO-F1) as they are just specific forms of F1 measurement."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. GPT-4 was used as a generation model, not for evaluating outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Experts evaluated edits using a rubric with specific factors: Compliance (1-3 scale), Promises (true/false), Paraphrases (true/false), Technical details (true/false), and comprehensiveness comparisons"
+    ],
+    "criteria": [
+      "Compliance",
+      "Promises",
+      "Paraphrase",
+      "Technical",
+      "Comprehensiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "comprehensiveness"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "Compliance",
+          "Promises",
+          "Paraphrases",
+          "Technical details"
+        ]
+      },
+      "normalized": {
+        "Compliance": "compliance",
+        "Promises": "promises",
+        "Paraphrases": "paraphrases",
+        "Technical details": "technical details"
+      },
+      "explanation": "Normalized criteria to lowercase for consistency. Added 'comprehensiveness' as an explicit evaluation criterion used in the human evaluation. Consolidated duplicate criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on scientific paper revision tasks using the ARIES dataset. It evaluates both comment-edit alignment (classification task) and edit generation (NLG task). The automatic evaluation uses standard precision/recall/F1 metrics, and human evaluation uses a detailed rubric. The extraction was generally accurate but needed normalization and some corrections to task descriptions and metrics."
+}

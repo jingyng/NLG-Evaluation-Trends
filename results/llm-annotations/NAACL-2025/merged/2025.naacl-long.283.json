@@ -1,0 +1,91 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "models are guided to return a list of single words or numbers only ... write a concise, one-page summary ... return the summary, without additional explanations ...",
+            "The summarizing task requires the model to summarize and rephrase the key ideas from the given context ...",
+            "We extended the existing summarization task to a high-IC setting. Instead of summarizing the long context all at once, we divided it into smaller text chunks and required models to summarize each chunk individually (e.g., sections in books)."
+        ],
+        "tasks": [
+            "Text Summarization",
+            "Other:Recalling",
+            "Other:Organizing",
+            "Other:Attributing"
+        ],
+        "datasets": [
+            "ETHIC",
+            "Books",
+            "Debates",
+            "Medicine",
+            "Law"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Gemini Pro 1.5",
+            "GPT-4o",
+            "GPT-4o mini",
+            "Phi-3.5mini-instruct",
+            "Qwen2.5-7B-Instruct",
+            "Qwen2.5-72B-Instruct",
+            "GLM4-9B-Chat",
+            "Llama-3.1-8B-Instruct",
+            "Llama-3.1-70B-Instruct",
+            "Phi-3.5-mini-instruct"
+        ],
+        "outputs": [
+            "lists of entities/numbers for Recalling; section summaries for Summarizing; ordered IDs for Organizing; labeled segments/IDs for Attributing",
+            "summaries, entity lists, ordered document IDs, citation segment labels",
+            "The outputs include lists of entity names, summaries of text sections, ordered document IDs, and classified study or segment IDs based on relevance."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "For the recalling task, we used the F1 score ... For the summarizing task, we ... prompting GPT-4o to rate the generated summaries ... For the organizing task, ... we used Longest Common Subsequence (LCS) ... For the attributing task, we used the F1 score ...",
+            "For the recalling task, we used the F1 score ... For the summarizing task, we followed the approach of prompting GPT-4o to rate the generated summaries on consistency, relevance, and faithfulness, using a scale from 1 to 5 ...",
+            "For the recalling task, we used the F1 score to evaluate how well the predicted entities matched the ground truth. For the summarizing task, we followed the approach of , prompting GPT-4o to rate the generated summaries on consistency, relevance, and faithfulness, using a scale from 1 to 5. The final score was calculated by multiplying the probability by the assigned score, similar to the method used by . For the organizing task, we found that models can hardly obtain any scores when evaluated using Exact Match. Therefore, we used Longest Common Subsequence (LCS), which measures the proportion of the longest matching subsequence between the prediction and the ground truth, relative to the total sequence length. Lastly, for the attributing task, we used the F1 score to compare the predicted document IDs with the ground truth."
+        ],
+        "automatic_metrics": [
+            "F1",
+            "GPT-4o rating (consistency, relevance, faithfulness)",
+            "Longest Common Subsequence (LCS)",
+            "Consistency rating",
+            "Relevance rating",
+            "Faithfulness rating",
+            "Rep-n",
+            "Rep-r",
+            "F1 score"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "For the summarizing task, we followed the approach of , prompting GPT-4o to rate the generated summaries on consistency, relevance, and faithfulness, using a scale from 1 to 5.",
+            "We used GPT-4o as the evaluator because of its higher consistency compared to other models ... For the summarizing task, we prompted GPT-4o to rate the generated summaries on consistency, relevance, and faithfulness.",
+            "For the summarizing task, we followed the approach of , prompting GPT-4o to rate the generated summaries on consistency, relevance, and faithfulness, using a scale from 1 to 5."
+        ],
+        "models": [
+            "GPT-4o"
+        ],
+        "methods": [
+            "prompting to rate on a scale",
+            "rating via prompt",
+            "binary necessity classification for IC scoring",
+            "rating generated summaries on consistency, relevance, and faithfulness"
+        ],
+        "criteria": [
+            "consistency",
+            "relevance",
+            "faithfulness",
+            "necessity (0/1)"
+        ]
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": [],
+        "guideline": [],
+        "criteria": []
+    }
+}

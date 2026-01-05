@@ -1,0 +1,141 @@
+{
+  "paper_id": "2025.emnlp-main.797",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Explanation Generation"
+    ],
+    "datasets": [
+      "TripAdvisor hotel review dataset",
+      "Amazon product review dataset"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-2-13B-chat",
+      "Mistral",
+      "Yi-1.5-9B-chat"
+    ],
+    "outputs": [
+      "free-text explanations justifying model predictions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:opinion spam detection"
+        ],
+        "datasets": [
+          "TripAdvisor hotel review",
+          "Amazon product review"
+        ],
+        "models": [
+          "Llama-2",
+          "Yi-1.5"
+        ]
+      },
+      "normalized": {
+        "Llama-2": "Llama-2-13B-chat",
+        "Yi-1.5": "Yi-1.5-9B-chat",
+        "TripAdvisor hotel review": "TripAdvisor hotel review dataset",
+        "Amazon product review": "Amazon product review dataset"
+      },
+      "explanation": "Removed 'opinion spam detection' as it's the classification task, not NLG task. Consolidated dataset names with 'dataset' suffix. Used specific model versions (Llama-2-13B-chat, Yi-1.5-9B-chat) instead of generic names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PEX",
+      "F1",
+      "Kendall rank correlation"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "PEX consistency",
+          "simulation performance"
+        ]
+      },
+      "normalized": {
+        "PEX consistency": "PEX",
+        "simulation performance": "F1"
+      },
+      "explanation": "Consolidated 'PEX consistency' to 'PEX' as the base metric. 'Simulation performance' is measured by F1 score, so kept only F1. Kendall rank correlation is an automatic metric used for prompt robustness evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "language models as student models"
+    ],
+    "methods": [
+      "simulatability-based evaluation"
+    ],
+    "criteria": [
+      "prediction accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "prediction accuracy"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Llama-2",
+          "Mistral",
+          "Yi-1.5",
+          "Llama-2-13B-chat",
+          "Yi-1.5-9B-chat"
+        ],
+        "methods": [
+          "probability-based scoring (weight of evidence)"
+        ],
+        "criteria": [
+          "support for prediction vs negation",
+          "simulation performance"
+        ]
+      },
+      "normalized": {
+        "language models as student models": "language models as student models",
+        "simulatability-based explanation faithfulness evaluation": "simulatability-based evaluation"
+      },
+      "explanation": "Removed generation models (Llama-2, Mistral, Yi-1.5) as they are not used as judges. Kept 'language models as student models' which evaluate explanation quality. Weight of evidence is part of PEX metric, not LLM-as-judge method. 'Support for prediction vs negation' is the PEX metric's purpose, not evaluation criteria. Simplified 'simulatability-based explanation faithfulness evaluation' to 'simulatability-based evaluation'. Added 'prediction accuracy' as the criterion for student model evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted - paper explicitly states human evaluation is 'prohibitively expensive at scale' and uses language models instead for scalable evaluation."
+    }
+  },
+  "overall_notes": "Paper focuses on generating and evaluating free-text explanations using automatic metrics (PEX, F1) and LLM-based simulation. No human evaluation is conducted. The main NLG task is explanation generation for classification predictions."
+}

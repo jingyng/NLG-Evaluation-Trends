@@ -1,0 +1,142 @@
+{
+  "paper_id": "2023.acl-long.479",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "LRS3-T",
+      "CVSS-C",
+      "MUSAN",
+      "CoVoST 2"
+    ],
+    "languages": [
+      "English",
+      "Spanish",
+      "French"
+    ],
+    "models": [
+      "AV-TranSpeech",
+      "AV-HuBERT",
+      "wav2vec 2.0",
+      "mBART",
+      "HiFi-GAN",
+      "mHuBERT"
+    ],
+    "outputs": [
+      "Generated speech in target language",
+      "translated speech in target language without using intermediate text"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "MUSAN",
+          "CoVoST 2"
+        ],
+        "languages": [],
+        "models": [
+          "mHuBERT"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "LRS3‑T",
+          "CVSS‑C"
+        ],
+        "languages": [],
+        "models": [
+          "AV‑TranSpeech",
+          "AV‑HuBERT",
+          "HiFi‑GAN vocoder"
+        ],
+        "outputs": [
+          "generated target speech (waveform) in the destination language"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "AV‑TranSpeech": "AV-TranSpeech",
+        "AV‑HuBERT": "AV-HuBERT",
+        "HiFi‑GAN vocoder": "HiFi-GAN"
+      },
+      "explanation": "Normalized model names and removed duplicates. Added complementary datasets mentioned in the paper (MUSAN for noise, CoVoST 2 as CVSS-C source). Added mHuBERT model used for unit extraction. Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BLEU": "BLEU"
+      },
+      "explanation": "Confirmed BLEU is the only automatic metric used to evaluate translation quality."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-based evaluation was used in this paper. The paper does not mention using LLMs as judges for assessing generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Raters were asked to score naturalness on a scale from 1 to 5 (MOS)",
+      "Conducted crowd-sourced human evaluations via Amazon Mechanical Turk",
+      "Reported with 95% confidence intervals"
+    ],
+    "criteria": [
+      "naturalness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Conducted crowd-sourced human evaluations via Amazon Mechanical Turk",
+          "Reported with 95% confidence intervals"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "normalized": {
+        "fluency": "naturalness"
+      },
+      "explanation": "Consolidated guideline descriptions and removed 'fluency' criterion since the paper explicitly states only naturalness was evaluated in human assessments."
+    }
+  },
+  "overall_notes": "The paper focuses on audio-visual speech-to-speech translation using direct unit-based approach without text intermediates. Evaluation uses BLEU (via ASR transcription) and human MOS ratings for naturalness. The extraction was reasonably accurate, required minor normalization and deduplication."
+}

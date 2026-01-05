@@ -1,0 +1,154 @@
+{
+  "paper_id": "2023.emnlp-main.821",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Simplification"
+    ],
+    "datasets": [
+      "ASSET",
+      "MED EASI",
+      "NEWSELA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5",
+      "flan_t_5",
+      "ul_2",
+      "flan_ul_2",
+      "gpt_j",
+      "gpt_neox",
+      "opt",
+      "opt_iml",
+      "llama",
+      "bloom",
+      "bloomz",
+      "davinci_003",
+      "gpt_3.5_turbo",
+      "muss"
+    ],
+    "outputs": [
+      "simplified sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Flan-T5-large"
+        ],
+        "outputs": [
+          "Simplified sentences"
+        ]
+      },
+      "normalized": {
+        "Paraphrase Generation": "Other:Text Simplification",
+        "Simplified sentences": "simplified sentences"
+      },
+      "explanation": "Removed 'Paraphrase Generation' as the paper focuses specifically on Text Simplification. Removed duplicate 'Flan-T5-large' since 'Flan-T5' already covers the family. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SARI",
+      "BERTSCORE",
+      "FKGL",
+      "LENS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "All metrics were correctly extracted and already in normalized form."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Correctly extracted as 'No' - the paper does not use LLMs as judges/evaluators, only as generators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual qualitative analysis on 300 system outputs checking for valid simplification, failure cases (inappropriate meaning changes, ungrammaticality, hallucinations), and annotation of simplification operations (lexical simplification, deletion, splitting, reordering, paraphrasing)"
+    ],
+    "criteria": [
+      "Validity",
+      "Preservation",
+      "Grammaticality",
+      "Lexical",
+      "Deletion",
+      "Sentence",
+      "Reordering",
+      "Paraphrasing",
+      "Hallucination"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "valid simplification",
+          "meaning preservation",
+          "grammaticality"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Check for valid simplification by identifying failure cases (inappropriate meaning changes, ungrammaticality, hallucinations) and annotate simplification operations (lexical simplification, deletion, splitting, reordering, paraphrasing).",
+          "Annotators inspected each generated sentence for validity as a simplification, then labeled edit operations (lexical simplification, deletion, splitting, reordering, paraphrasing) and noted failure cases (meaning changes, ungrammaticality, hallucinations).",
+          "For our annotations, we select model outputs from the top five systems ranked according to performance on the individual evaluation metrics of SARI, BERTScore, FKGL, and LENS. In each ranking set, we randomly select five complex-simple pairs from all generation settings."
+        ],
+        "criteria": [
+          "inappropriate changes to the meaning",
+          "ungrammatical outputs",
+          "validity as simplification",
+          "inappropriate meaning changes"
+        ]
+      },
+      "normalized": {
+        "inappropriate changes to the meaning": "meaning preservation",
+        "ungrammatical outputs": "grammaticality",
+        "validity as simplification": "valid simplification",
+        "inappropriate meaning changes": "meaning preservation"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into one comprehensive statement. Normalized criteria to remove redundancy and use consistent terminology."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper provides a comprehensive evaluation of LLMs on text simplification using both automatic metrics and human evaluation. Key improvements made: consolidated redundant information, normalized terminology, and removed minor inaccuracies. The paper focuses exclusively on English text simplification across three domains (Wikipedia, medical, news)."
+}

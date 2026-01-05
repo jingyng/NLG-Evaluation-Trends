@@ -1,0 +1,146 @@
+{
+  "paper_id": "2025.acl-long.1473",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering"
+    ],
+    "datasets": [
+      "ARC-challenge",
+      "CommonsenseQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-3.1-8B",
+      "Mistral-7B-v0.3",
+      "Qwen-2.5-7B"
+    ],
+    "outputs": [
+      "Open-ended question answering responses",
+      "Verbalized confidence scores"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Verbalized confidence scores"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:open-ended question answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Answers to open-ended questions generated from instruction prompts and question content.",
+          "The models generate open-ended responses to multiple-choice questions adapted to an open-ended format."
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Other:Question Answering",
+        "Other:open-ended question answering": "Other:Question Answering",
+        "CommonsenseQA": "CommonsenseQA",
+        "ARC-challenge": "ARC-challenge",
+        "Llama-3.1-8B": "Llama-3.1-8B",
+        "Mistral-7B-v0.3": "Mistral-7B-v0.3",
+        "Qwen-2.5-7B": "Qwen-2.5-7B"
+      },
+      "explanation": "Consolidated 'open-ended question answering' into 'Question Answering' task category. Simplified output descriptions to be more concise while preserving meaning. Added 'Verbalized confidence scores' as these are key generated outputs being evaluated."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Brier Score",
+      "Upper Bound Calibration Error",
+      "binnedECE",
+      "Perplexity",
+      "Exact Match"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Perplexity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "n-gram similarity"
+        ]
+      },
+      "normalized": {
+        "Brier Score": "Brier Score",
+        "Upper Bound Calibration Error": "Upper Bound Calibration Error",
+        "binnedECE": "binnedECE",
+        "perplexity": "Perplexity",
+        "exact match": "Exact Match"
+      },
+      "explanation": "Added 'Perplexity' which is mentioned as a key metric in Theorem 2. Removed 'n-gram similarity' as it's not clearly used as a standalone metric but rather as part of evaluation framework. Normalized capitalization for consistency."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Llama-3.1-8B",
+      "Mistral-7B-v0.3",
+      "Qwen-2.5-7B"
+    ],
+    "methods": [
+      "Correctness Classification Token Probability",
+      "Verbalized Confidence with Alternative Answers"
+    ],
+    "criteria": [
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Llama-3.1-8B": "Llama-3.1-8B",
+        "Mistral-7B-v0.3": "Mistral-7B-v0.3",
+        "Qwen-2.5-7B": "Qwen-2.5-7B",
+        "CCTP": "Correctness Classification Token Probability",
+        "VCAA": "Verbalized Confidence with Alternative Answers",
+        "confidence": "correctness"
+      },
+      "explanation": "Expanded abbreviations CCTP and VCAA to full method names for clarity. Changed 'confidence' to 'correctness' as this is the actual criterion being judged (confidence scores predict correctness)."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No evidence of human evaluation in the paper - all evaluation is automated using confidence scoring and calibration metrics."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on calibration metrics for quantized LLMs rather than traditional NLG quality evaluation. The LLM-as-judge aspect is interesting as the models evaluate their own confidence scores rather than external LLM evaluators. The extracted metadata was generally accurate but needed some normalization and clarification."
+}

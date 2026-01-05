@@ -1,0 +1,122 @@
+{
+  "paper_id": "2025.emnlp-main.43",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-as-a-judge (NLI model TRUE) with human evaluation on the same outputs from TTS ⊕ f. method, reporting Spearman and Pearson correlation coefficients between automatic and human judgments"
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "TRUE",
+      "gpt_4o",
+      "mistral_large"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt templates shown in Table in Appendix G (mentioned but not fully extracted in provided text), evaluation uses natural language inference (NLI) for entailment checking"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 6,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Multiple metrics",
+      "value": "Exact match accuracy: 66.6%, Within-one accuracy: 84.9%, Mean absolute error: 0.56",
+      "interpretation": "Acceptable consistency with only minor scoring discrepancies",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full annotation guideline described in Appendix A, includes three qualitative evaluation metrics (Completeness, Conciseness, Traceability) on 5-point Likert scale"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation",
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "Claim Recall"
+    ],
+    "sample_size": {
+      "total_generated": 3500,
+      "validated_by_both": 10,
+      "notes": "Validation conducted on randomly sampled 10 abstracts from test set, involving comparison of automatic vs human evaluation of claim recall"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.612,
+        "criterion": "overall alignment",
+        "llm_model": "TRUE",
+        "significance": "Not reported"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.577,
+        "criterion": "overall alignment",
+        "llm_model": "TRUE",
+        "significance": "Not reported"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.8,
+        "criterion": "overall alignment",
+        "llm_model": "gpt_4o",
+        "significance": "Not reported"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.77,
+        "criterion": "overall alignment",
+        "llm_model": "gpt_4o",
+        "significance": "Not reported"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.71,
+        "criterion": "overall alignment",
+        "llm_model": "mistral_large",
+        "significance": "Not reported"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.7,
+        "criterion": "overall alignment",
+        "llm_model": "mistral_large",
+        "significance": "Not reported"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "moderate positive correlation",
+      "threshold_used": "Not explicitly stated",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-as-a-judge shows moderate-positive correlation with human judgments (TRUE: ρ=0.612, r=0.577; GPT-4o performs best with ρ=0.80, r=0.77), indicating reasonable alignment but room for improvement"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "overall quality",
+      "traceability assessment"
+    ],
+    "shared_criteria": [
+      "claim recall",
+      "completeness",
+      "conciseness"
+    ],
+    "notes": "LLM evaluation focuses on entailment-based metrics (claim recall/precision), while human evaluation uses qualitative 5-point Likert scales covering completeness, conciseness, and traceability"
+  }
+}

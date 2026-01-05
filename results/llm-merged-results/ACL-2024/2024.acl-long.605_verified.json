@@ -1,0 +1,147 @@
+{
+  "paper_id": "2024.acl-long.605",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Other:Visual Question Answering",
+      "Other:Visual Reasoning"
+    ],
+    "datasets": [
+      "VQAv2",
+      "A-OKVQA",
+      "NLVR2",
+      "SEED-Bench",
+      "DEMON",
+      "ScienceQA",
+      "MSVD-QA",
+      "MSRVTT-QA",
+      "ST-VQA",
+      "IconQA",
+      "VSR",
+      "VCR",
+      "MIMIC-IT(CGD)",
+      "iVQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Brote-EX",
+      "Brote-IM",
+      "InstructBLIP",
+      "MMICL",
+      "Otter",
+      "VPG-C",
+      "BLIP-2"
+    ],
+    "outputs": [
+      "Generated image descriptions and question answers",
+      "Target-aware image captions and textual answers to visual questions",
+      "Target-aware image descriptions",
+      "Visual question answering responses",
+      "Visual reasoning outputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Visual Reasoning"
+        ],
+        "datasets": [
+          "MSRVTT-QA"
+        ],
+        "models": [
+          "MMICL",
+          "Otter",
+          "VPG-C",
+          "BLIP-2"
+        ],
+        "outputs": [
+          "Visual question answering responses",
+          "Visual reasoning outputs"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "MSVD QA": "MSVD-QA",
+        "MSRVTT QA": "MSRVTT-QA",
+        "Target-aware image captions and textual answers to visual questions": "Target-aware image captions and textual answers to visual questions"
+      },
+      "explanation": "Added Visual Reasoning task, MSRVTT-QA dataset, and relevant baseline models mentioned in evaluation. Removed generic 'Question Answering' task since paper specifically focuses on visual question answering. Normalized dataset names with hyphens."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "soft-accuracy",
+      "accuracy",
+      "accuracy+",
+      "I4-score"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "All metrics are correctly identified and in standard form."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM-as-judge evaluation was conducted in the paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual assessment for hallucination or minor incorrect information in generated captions by randomly sampling 230 generated captions"
+    ],
+    "criteria": [
+      "hallucination",
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "correctness"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "incorrect information"
+        ]
+      },
+      "normalized": {
+        "incorrect information": "correctness",
+        "detect that 36 (out of 230) captions contain hallucination or minor incorrect information, while the rest 84% are of good quality, containing desired and correct question-aware information.": "Manual assessment for hallucination or minor incorrect information in generated captions by randomly sampling 230 generated captions"
+      },
+      "explanation": "Normalized the guideline to be more concise. Changed 'incorrect information' to 'correctness' for consistency with evaluation criteria terminology."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on multimodal language models for vision-language tasks, specifically addressing multi-image scenarios. While it involves natural language generation (image descriptions, question answering), the NLG aspect is secondary to the multimodal fusion methodology. The human evaluation is limited to caption quality assessment during data construction rather than comprehensive output evaluation. The extraction quality was generally good with minor normalization needed."
+}

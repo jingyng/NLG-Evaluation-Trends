@@ -1,0 +1,160 @@
+{
+  "paper_id": "2022.acl-long.86",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "SPACE",
+      "AMAZON"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Semantic Autoencoder (SemAE)",
+      "Quantized Transformer (QT)",
+      "CopyCat",
+      "MeanSum",
+      "LexRank",
+      "Centroid",
+      "Opinosis",
+      "AceSum"
+    ],
+    "outputs": [
+      "extractive opinion summaries",
+      "aspect-specific summaries",
+      "general summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Centroid",
+          "Opinosis",
+          "AceSum"
+        ],
+        "outputs": [
+          "aspect-specific summaries",
+          "general summaries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "SPACE hotel reviews",
+          "AMAZON product reviews"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "extractive summaries (selected sentences from reviews)",
+          "extractive summaries consisting of selected review sentences",
+          "opinion summaries for entities (hotels, products, etc.)"
+        ]
+      },
+      "normalized": {
+        "SPACE hotel reviews": "SPACE",
+        "AMAZON product reviews": "AMAZON"
+      },
+      "explanation": "Normalized dataset names to standard forms (SPACE, AMAZON). Added models explicitly mentioned in experiments. Simplified output descriptions to match paper terminology."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "Perplexity (PPL)",
+      "Distinct n-grams",
+      "Aspect coverage"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "RL_ASP (ROUGE-L for aspects)",
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "Perplexity (PPL)",
+          "Distinct-2 n-gram",
+          "Aspect coverage (N_ASP)",
+          "RL ASP",
+          "N ASP"
+        ]
+      },
+      "normalized": {
+        "perplexity (PPL)": "Perplexity (PPL)",
+        "distinct n-grams": "Distinct n-grams",
+        "aspect coverage (N_ASP)": "Aspect coverage"
+      },
+      "explanation": "Consolidated all ROUGE variants into 'ROUGE'. Normalized metric names to standard forms. Removed redundant entries and variant specifications."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Pairwise comparison with Best-Worst Scaling scoring (-100 to +100)",
+      "Judges presented summaries in pairwise manner to select better/worse/similar"
+    ],
+    "criteria": [
+      "informativeness",
+      "coherence",
+      "non-redundancy",
+      "aspect informativeness",
+      "aspect specificity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- The judges were presented summaries in a pairwise manner and asked to select which one was better/worse/similar. The scores (-100 to +100) were computed using Best-Worst Scaling.",
+          "Annotators were presented summaries in a pairwise manner and asked to select which one was better/worse/similar based on the specified criteria.",
+          "The judges were presented summaries in a pairwise manner and asked to select which one was better/worse/similar. The scores (-100 to +100) were computed using Best-Worst Scaling."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant guideline descriptions into two clear statements. Kept criteria as extracted since they match the paper exactly."
+    }
+  },
+  "overall_notes": "The paper focuses on unsupervised extractive opinion summarization using a novel Semantic Autoencoder approach. It includes comprehensive evaluations with both automatic metrics (ROUGE, perplexity, distinct n-grams, aspect coverage) and human evaluations using pairwise comparisons. The extraction was generally accurate but contained some redundancy and inconsistent formatting that needed normalization."
+}

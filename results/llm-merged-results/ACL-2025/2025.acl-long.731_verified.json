@@ -1,0 +1,194 @@
+{
+  "paper_id": "2025.acl-long.731",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Crab RP dataset"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-2-7B-Crab",
+      "Llama-3-8B-Crab",
+      "Llama-3.1-8B-Crab"
+    ],
+    "outputs": [
+      "Role-playing multi-turn dialogues"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Crab RP dataset"
+        ],
+        "languages": [],
+        "models": [
+          "Llama-2-7B-Crab",
+          "Llama-3-8B-Crab",
+          "Llama-3.1-8B-Crab"
+        ],
+        "outputs": [
+          "Role-playing multi-turn dialogues"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "our curated dataset with 18,424 distinct roles",
+          "41,631 multi-turn dialogues (comprising 206,444 single-turn) and features 18,424 distinct roles"
+        ],
+        "languages": [],
+        "models": [
+          "Llama-2-7B-chat",
+          "Llama-3-8B-Instruct",
+          "Llama-3.1-8B-Instruct",
+          "ChatGPT",
+          "GPT-4",
+          "GPT-4o",
+          "GPT-3.5"
+        ],
+        "outputs": [
+          "multi-turn dialogues",
+          "multi-turn dialogues in role-playing settings with vivid personalities and consistent role behavior"
+        ]
+      },
+      "normalized": {
+        "Llama-3-8B-Crab": "Llama-3-8B-Crab",
+        "Llama-3.1-8B-Crab": "Llama-3.1-8B-Crab"
+      },
+      "explanation": "Normalized datasets to simplified canonical name 'Crab RP dataset'. Removed baselines and compared models that are not the main evaluated NLG models. Kept only the Crab variants that are the main NLG outputs being evaluated."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "RoleRM"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "RoleRM"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Language Fluency",
+          "Language Relevance",
+          "Role Language",
+          "Role Knowledge",
+          "Emotional Expression",
+          "Interactive Engagement",
+          "ChatGPT evaluation",
+          "PairEval",
+          "G-Eval",
+          "GPTScore",
+          "Spearman correlation",
+          "Pearson correlation",
+          "Mean Absolute Error (MAE)"
+        ]
+      },
+      "normalized": {
+        "RoleRM score": "RoleRM"
+      },
+      "explanation": "Simplified to only include RoleRM as the main automatic metric developed in the paper. The other items are either evaluation criteria (not metrics) or correlation/error measures used for validating RoleRM."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "ChatGPT",
+      "GPT-4",
+      "GPT-4o",
+      "GPT-3.5",
+      "PairEval",
+      "G-Eval",
+      "GPTScore"
+    ],
+    "methods": [
+      "prompt-based scoring"
+    ],
+    "criteria": [
+      "Language Fluency",
+      "Language Relevance",
+      "Role Language",
+      "Role Knowledge",
+      "Emotional Expression",
+      "Interactive Engagement"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4",
+          "GPT-4o",
+          "GPT-3.5",
+          "PairEval",
+          "G-Eval",
+          "GPTScore"
+        ],
+        "methods": [
+          "prompt-based scoring"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoleRM",
+          "RoleRM (based on Llama-3-8B-Instruct)"
+        ],
+        "methods": [
+          "automatic scoring with fine-tuned model",
+          "reward-model evaluation",
+          "instruction-mode-based evaluation with scoring prompt",
+          "pairwise evaluation using LLM as judge"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "ChatGPT evaluation": "ChatGPT",
+        "GPT-4": "GPT-4",
+        "GPT-4o": "GPT-4o",
+        "GPT-3.5": "GPT-3.5"
+      },
+      "explanation": "Removed RoleRM (fine-tuned model) as it's not an LLM-as-judge but a specialized evaluation model. Kept general LLMs used for evaluation. Normalized model names and simplified methods to 'prompt-based scoring' as the main approach."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Test data scored on four-level scale (0-3): 0-Clearly negative performance, 1-Does not address criterion/largely fails, 2-Largely satisfies criterion, 3-Perfectly satisfies criterion"
+    ],
+    "criteria": [
+      "Language Fluency",
+      "Language Relevance",
+      "Role Language",
+      "Role Knowledge",
+      "Emotional Expression",
+      "Interactive Engagement"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Test data scored on four-level scale (0-3): 0-Clearly negative performance, 1-Does not address criterion/largely fails, 2-Largely satisfies criterion, 3-Perfectly satisfies criterion"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Overall"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline description and removed 'Overall' as it's not one of the six main evaluation criteria defined in the human evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on role-playing dialogue generation and evaluation. It introduces Crab framework with configurable RP-LLMs and RoleRM evaluation model. Human evaluation used 4-point scale for six fine-grained criteria. LLM-as-judge comparisons include ChatGPT and other LLM-based evaluators."
+}

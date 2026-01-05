@@ -1,0 +1,177 @@
+{
+  "paper_id": "2023.emnlp-main.622",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Reasoning Chain Evaluation"
+    ],
+    "datasets": [
+      "ENTAILMENTBANK",
+      "GSM8K",
+      "DROP"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "flan_t_5_xxl",
+      "t_5_large",
+      "deberta_v_3_large",
+      "gpt_3.5_turbo",
+      "gpt_2_xl",
+      "llama_7b"
+    ],
+    "outputs": [
+      "reasoning chains",
+      "step-by-step rationales"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "FLAN T5-XXL": "FLAN-T5-XXL",
+        "T5-large": "T5-large",
+        "GPT-3.5-turbo": "GPT-3.5-turbo",
+        "GPT-2 XL": "GPT-2-XL",
+        "LLaMA-7B": "LLaMA-7B",
+        "reasoning chains (textual step‑by‑step rationales)": "step-by-step rationales"
+      },
+      "explanation": "Normalized model names with consistent hyphenation and simplified output description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE",
+      "BARTSCORE",
+      "CTC",
+      "ROSCOE SS",
+      "ROSCOE SA",
+      "ROSCOE LI",
+      "ROSCOE REP",
+      "RECEVAL INTRA CORRECT ENTAIL",
+      "RECEVAL INTRA CORRECT PVI",
+      "RECEVAL INTER CORRECT",
+      "RECEVAL INFO GAIN PVI",
+      "RECEVAL INFO GAIN LL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "ROSCOE-SS",
+          "ROSCOE-SA",
+          "ROSCOE-LI",
+          "ROSCOE-REP"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "intra-correct entail",
+          "intra-correct PVI",
+          "inter-correct",
+          "info-gain PVI",
+          "RECEVAL intra‑correct entail",
+          "RECEVAL inter‑correct",
+          "info‑gain PVI",
+          "RECEVAL",
+          "intra-correct_entail",
+          "info-gain_PVI",
+          "info-gain_LL"
+        ]
+      },
+      "normalized": {
+        "ROUGE-2": "ROUGE",
+        "intra-correct entail": "RECEVAL-intra-correct-entail",
+        "intra-correct PVI": "RECEVAL-intra-correct-PVI",
+        "inter-correct": "RECEVAL-inter-correct",
+        "info-gain PVI": "RECEVAL-info-gain-PVI",
+        "info-gain_LL": "RECEVAL-info-gain-LL"
+      },
+      "explanation": "Simplified ROUGE variants to base form, normalized RECEVAL metric names with consistent prefix, and added missing ROSCOE variants mentioned in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-3.5-turbo"
+        ],
+        "methods": [
+          "prompted scoring",
+          "prompted LLM to output a real-valued score between 0 to 1 as the probability of entailment and the probability of generating the answer"
+        ],
+        "criteria": [
+          "entailment",
+          "informativeness",
+          "entailment probability",
+          "answer likelihood",
+          "answer generation likelihood"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' because while GPT-3.5-turbo is mentioned in a small exploratory study, it's not the primary evaluation method. The paper's main contribution is RECEVAL using NLI models and PVI metrics."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Human annotators rate each reasoning chain on multiple criteria, including overall quality and coherence, using a Likert scale.",
+          "The dataset contains two overall scores measuring the quality (QUAL) and coherence (COH) of the reasoning chain on a Likert scale. Annotations include evaluations for factuality issues (FACT), logical deduction errors (LOGIC), hallucinations (HALL), redundant or irrelevant information (RED), unnecessary paraphrasing (REP), commonsense errors (COM), and arithmetic errors (MATH)."
+        ],
+        "criteria": [
+          "factuality",
+          "logical deduction",
+          "hallucinations",
+          "redundant information",
+          "unnecessary paraphrasing",
+          "commonsense errors",
+          "arithmetic errors",
+          "quality",
+          "coherence",
+          "hallucination",
+          "redundancy",
+          "paraphrasing",
+          "commonsense",
+          "arithmetic"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' because the paper uses existing human-annotated datasets but does not conduct its own human evaluation study. The human annotations are from prior work (Golovneva et al., 2023) that the authors use for meta-evaluation."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on developing and evaluating the RECEVAL framework for assessing reasoning chains. While it mentions LLM evaluation and uses human-annotated data, these are not the main contributions. The extraction was mostly accurate but over-attributed evaluation methods that were not central to the paper's main contributions."
+}

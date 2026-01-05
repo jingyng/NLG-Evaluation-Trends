@@ -1,0 +1,167 @@
+{
+  "paper_id": "2022.naacl-main.418",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "SAMSUM",
+      "DIALOGSUM",
+      "MEDIASUM",
+      "CNN/DailyMail",
+      "XSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "lead_3",
+      "longest_3",
+      "pgn",
+      "transformer",
+      "bart",
+      "pegasus",
+      "unilm",
+      "cods",
+      "convosumm",
+      "mv_bart",
+      "plm_bart",
+      "ctrl_diasumm",
+      "s_bart"
+    ],
+    "outputs": [
+      "dialogue summaries",
+      "summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "CNN/DailyMail",
+          "XSum"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Medi-aSum"
+        ]
+      },
+      "normalized": {
+        "Medi-aSum": "MediaSum"
+      },
+      "explanation": "Normalized 'Medi-aSum' to standard 'MediaSum' and added CNN/DailyMail and XSum which are mentioned in the paper as conventional summarization datasets used for comparison"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "METEOR",
+      "CHRF",
+      "BERTSCORE",
+      "MOVERSCORE",
+      "BARTSCORE",
+      "BLANC",
+      "PPL",
+      "SMS",
+      "EMBEDDING",
+      "VECTOR EXTREMA",
+      "GREEDY MATCHING",
+      "FEQA",
+      "SUMMAQA",
+      "QUESTEVAL",
+      "FACTCC",
+      "DAE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Embedding Average",
+          "Vector Extrema",
+          "Greedy Matching"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "BLEU-1",
+          "BLEU-2",
+          "BLEU-3",
+          "BLEU-4",
+          "Embedding average",
+          "Vector extrema"
+        ]
+      },
+      "normalized": {
+        "Embedding average": "Embedding Average",
+        "Vector extrema": "Vector Extrema",
+        "Greedy matching": "Greedy Matching"
+      },
+      "explanation": "Consolidated metric variants into base forms (e.g., ROUGE-1/2/L → ROUGE, BLEU-1/2/3/4 → BLEU) and added missing embedding-based metrics mentioned in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "BART",
+          "BERT",
+          "GPT-2"
+        ],
+        "methods": [
+          "probability scoring (BARTScore)",
+          "embedding similarity (BERTScore)"
+        ],
+        "criteria": [
+          "coherence",
+          "consistency",
+          "fluency",
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since this paper does NOT use LLMs as judges. The models mentioned (BART, BERT, GPT-2) are used for automatic metric computations, not as evaluators after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rate each generated summary on a 1–5 Likert scale for four dimensions: Coherence, Consistency, Fluency, Relevance"
+    ],
+    "criteria": [
+      "Coherence",
+      "Consistency",
+      "Fluency",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators rate each generated summary on a 1–5 Likert scale for four dimensions: Coherence, Consistency, Fluency, Relevance"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- For each dimension/aspect, annotators were asked to rate the summary on a Likert scale from 1 to 5",
+          "Annotators rate each generated summary on a 1–5 Likert scale for four dimensions: Coherence, Consistency, Fluency, Relevance.",
+          "For each dimension/aspect, annotators were asked to rate the summary on a Likert scale from 1 to 5."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant guideline descriptions into a single clear statement and kept the correct criteria list unchanged"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main issues were: (1) Metric variants needed consolidation into base forms, (2) Question 3 metadata was incorrectly included since the paper doesn't use LLMs as judges (only for automatic metrics), (3) Some datasets mentioned in comparisons were missing. The paper focuses on dialogue summarization evaluation with comprehensive automatic and human evaluation."
+}

@@ -1,0 +1,159 @@
+{
+  "paper_id": "2020.acl-main.516",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "PERSONACHAT",
+      "DNLI"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gdr",
+      "transformer",
+      "gpmn",
+      "deepcopy",
+      "per_cvae",
+      "s_2sa",
+      "per_s_2sa"
+    ],
+    "outputs": [
+      "Persona-consistent dialogue responses",
+      "Persona-consistent conversations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "S2SA",
+          "Per-S2SA"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Transformer‑based generator (G)",
+          "Consistency matching model (D)",
+          "Masked prototype rewriter (R)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Dialogue Generation": "Dialogue Generation",
+        "Persona-Chat": "Persona-Chat",
+        "DNLI": "DNLI",
+        "English": "English",
+        "GDR": "GDR",
+        "Transformer": "Transformer",
+        "GPMN": "GPMN",
+        "DeepCopy": "DeepCopy",
+        "Per-CVAE": "Per-CVAE",
+        "Persona‑consistent responses": "Persona-consistent dialogue responses",
+        "persona consistent dialogues": "Persona-consistent conversations"
+      },
+      "explanation": "Removed component models (G, D, R) since they're parts of the main GDR framework. Added baseline models S2SA and Per-S2SA mentioned in experiments. Normalized output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PERPLEXITY",
+      "DISTINCT",
+      "ENTAILMENT RATIO"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Entailment Ratio (DIIN)",
+          "Entailment Ratio (BERT)",
+          "Entailment ratio (Ent_DIIN)",
+          "Entailment ratio (Ent_BERT)",
+          "Ent diin",
+          "Ent bert"
+        ]
+      },
+      "normalized": {
+        "PPL": "Perplexity",
+        "Dist-1": "Distinct-1",
+        "Dist-2": "Distinct-2"
+      },
+      "explanation": "Consolidated multiple entailment ratio variants into single 'Entailment Ratio' metric. Kept base forms of metrics as per normalization rules."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "DIIN",
+          "BERT"
+        ],
+        "methods": [
+          "entailment prediction",
+          "entailment ratio calculation on generated responses"
+        ],
+        "criteria": [
+          "entailment category",
+          "consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "DIIN and BERT are used as automatic NLI models for entailment ratio calculation, not as LLM judges. This is not LLM-as-judge evaluation but traditional model-based automatic evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators decide whether response is consistent with given persona (0=irrelevant/contradictory, 1=consistent)",
+      "Annotators rate fluency, relevance, and informativeness on 5-point scale (1=unacceptable, 3=moderate, 5=excellent)"
+    ],
+    "criteria": [
+      "Consistency",
+      "Fluency",
+      "Relevance",
+      "Informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Const.": "consistency",
+        "Fluc.": "fluency",
+        "Relv.": "relevance",
+        "Info.": "informativeness"
+      },
+      "explanation": "Consolidated guideline descriptions and normalized criteria abbreviations to full names."
+    }
+  },
+  "overall_notes": "The paper clearly addresses NLG (dialogue generation) and uses both automatic metrics and human evaluation. The key correction was for Question 3 - using DIIN and BERT as automatic NLI models for entailment ratio calculation does not constitute LLM-as-judge evaluation as defined in the guidelines."
+}

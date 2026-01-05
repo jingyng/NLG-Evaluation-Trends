@@ -1,0 +1,98 @@
+{
+  "paper_id": "2025.inlg-main.7",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-as-a-judge against human evaluation by reporting Pearson correlation scores between LLM judgments and human annotations, comparing them on the same set of instances."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "llama_3.3_70b"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper states the prompt was crafted to be as close as possible to the human annotation instructions, but the exact prompt text is not provided in the given text."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": "Not reported",
+      "interpretation": "Not reported",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators spot and highlight accuracy errors on word level using four error categories (incorrect, not checkable, misleading, other). Detailed instructions are in Appendix C."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "Overall correctness (error-based evaluation)"
+    ],
+    "sample_size": {
+      "total_generated": 200,
+      "validated_by_both": 50,
+      "notes": "Human evaluation was conducted on 50 tables per benchmark. The correlation is measured across models and datasets."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.12,
+        "criterion": "Correctness",
+        "llm_model": "TAPAS",
+        "significance": "Not reported",
+        "notes": "Correlation between TAPAS metric and human evaluation"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.11,
+        "criterion": "Correctness",
+        "llm_model": "TAPEX",
+        "significance": "Not reported",
+        "notes": "Correlation between TAPEX metric and human evaluation"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.53,
+        "criterion": "Correctness",
+        "llm_model": "llama_3.3_70b",
+        "significance": "Not reported",
+        "notes": "Correlation between LLM-as-a-judge with Llama 3.3 70B and human evaluation across models and datasets"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "LLM-as-a-judge shows moderate correlation; TAPAS/TAPEX show low correlation",
+      "threshold_used": "Not explicitly stated",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-as-a-judge with Llama 3.3 70B shows moderate correlation (0.53) with human evaluation, while automatic metrics TAPAS and TAPEX show only low correlation (0.12 and 0.11), indicating LLM judges are more reliable."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Correctness",
+      "Checkable",
+      "Misleading",
+      "Other"
+    ],
+    "notes": "Both LLM-as-a-judge and human evaluation use the same four error categories: incorrect, not checkable, misleading, and other."
+  }
+}

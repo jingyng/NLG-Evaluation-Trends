@@ -1,0 +1,57 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "To address the limitations of instruction-tuned LLMs in Lean 4 statement generation, we propose ReLean, a reinforcement learning framework that systematically improves the translation of natural language into formal Lean 4 statements.",
+        "tasks": [
+            "Code Generation"
+        ],
+        "datasets": [
+            "Lean Workbook",
+            "ProofNet",
+            "HERALD"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "LLaMA3-8B",
+            "TheoremLlama",
+            "Herald Translator",
+            "GPT-4o",
+            "InternLM2-Math",
+            "DeepSeek-v1"
+        ],
+        "outputs": "Formal Lean 4 statements (code) generated from natural language mathematical descriptions"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "The automatic accuracy is computed as the percentage of generated Lean 4 statements that can be both compiled and judged semantically correct.",
+        "automatic_metrics": [
+            "Compilation Rate",
+            "Semantic Accuracy via backtranslation"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We first perform a compiler check ... Next, we apply InternLM2Math-Plus-7B to backtranslate the formal statements into natural language. Finally, we use the DeepSeek Chat v2.5 model to compare the back-translated results with the original informal statements, assessing whether the mathematical semantics and intended meaning have been accurately preserved.",
+        "models": [
+            "InternLM2Math-Plus-7B",
+            "DeepSeek Chat v2.5"
+        ],
+        "methods": [
+            "Backtranslation with LLM followed by LLM-based comparison"
+        ],
+        "criteria": [
+            "Semantic correctness",
+            "Meaning preservation"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We randomly selected 50 NL-Lean 4 pairs ... Four annotators (all students familiar with the syntax and semantics of Lean 4) were asked to compare the outputs of our model with those of baseline models. The annotators were blind to the source of each Lean 4 formal statement ... annotators judge each statement as either: (1) Correct ... (2) Incorrect ...",
+        "guideline": "Annotators compare generated Lean 4 statements to the reference and label each as Correct or Incorrect based on semantic match.",
+        "criteria": [
+            "Correctness (semantic match)"
+        ]
+    }
+}

@@ -1,0 +1,161 @@
+{
+  "paper_id": "2024.naacl-long.33",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "AggreFact",
+      "CNN/DM",
+      "XSum",
+      "AggreFact-FTSOTA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "RoBERTa",
+      "AMR-to-Text model",
+      "text-to-AMR parser",
+      "RoBERTa-large",
+      "BARTScore",
+      "BART",
+      "PEGASUS",
+      "AMRFACT"
+    ],
+    "outputs": [
+      "factually inconsistent summaries",
+      "factuality evaluation metrics",
+      "negative training samples"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "negative training samples"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-4 Turbo",
+          "AMR parser",
+          "AMR-to-Text model (Ribeiro et al., 2021)",
+          "ROBERTA"
+        ],
+        "outputs": [
+          "factually inconsistent summaries and factuality evaluation metrics",
+          "factually inconsistent (negative) summaries generated from reference summaries"
+        ]
+      },
+      "normalized": {
+        "AGGREFACT": "AggreFact",
+        "AGGREFACT-FTSOTA": "AggreFact-FTSOTA",
+        "RoBERTa-large (MNLI)": "RoBERTa-large",
+        "BARTSCORE": "BARTScore"
+      },
+      "explanation": "Removed GPT-4 Turbo as it's used for evaluation not generation. Normalized dataset names to standard formats. Consolidated model names (removed redundant specifications). Simplified outputs descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Balanced Accuracy",
+      "BARTScore",
+      "NLI Entailment Score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "NLI Entailment Score"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-4 Turbo coherence rating",
+          "balanced accuracy"
+        ]
+      },
+      "normalized": {
+        "balanced accuracy": "Balanced Accuracy",
+        "BARTSCORE": "BARTScore",
+        "NLI entailment score": "NLI Entailment Score"
+      },
+      "explanation": "Normalized metric names to standard capitalization. Removed GPT-4 rating as it's LLM-as-judge. Added NLI Entailment Score as it's used for data filtering evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4 Turbo",
+      "ChatGPT"
+    ],
+    "methods": [
+      "coherence rating scale 1-5",
+      "error type determination"
+    ],
+    "criteria": [
+      "coherence",
+      "factual error types"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "ChatGPT"
+        ],
+        "methods": [
+          "error type determination"
+        ],
+        "criteria": [
+          "factual error types"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "zero-shot binary rating",
+          "chain-of-thought prompting",
+          "direct numeric assessment",
+          "coherence assessment"
+        ],
+        "criteria": [
+          "factual consistency"
+        ]
+      },
+      "normalized": {
+        "coherence rating on scale 1-5": "coherence rating scale 1-5"
+      },
+      "explanation": "Removed ChatGPT prompting methods that were for factuality detection task, not LLM-as-judge evaluation. Added error type determination as explicit LLM-judge method. Clarified criteria."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "examining a random sample of 50 examples from AGGREFACT-FTSOTA where our model incorrectly labeled factually inconsistent instances"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper mentions 'manual analysis' but this is for error analysis of their model's performance, not formal human evaluation of generated outputs. Therefore no human evaluation was conducted."
+    }
+  },
+  "overall_notes": "Extraction was generally accurate but needed clarification on LLM-as-judge vs. generation models, and correction of human evaluation misunderstanding. Paper focuses on abstractive summarization factuality evaluation using AMR-based negative sample generation. Main contributions are in data generation methodology rather than novel human evaluation protocols."
+}

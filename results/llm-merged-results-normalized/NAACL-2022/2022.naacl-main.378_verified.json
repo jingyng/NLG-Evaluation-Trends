@@ -1,0 +1,124 @@
+{
+  "paper_id": "2022.naacl-main.378",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Question Generation"
+    ],
+    "datasets": [
+      "eli5",
+      "SEC 10 K FILINGS",
+      "R ASKLEGAL",
+      "R ASKECONOMICS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "variant_bart",
+      "pegasus"
+    ],
+    "outputs": [
+      "Generated long-form questions for each paragraph",
+      "aspect-based document navigation"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "PEGASUS"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "AskLegal",
+          "AskEconomics",
+          "SEC Filing"
+        ],
+        "models": [
+          "RoBERTa classifier",
+          "RoBERTa"
+        ]
+      },
+      "normalized": {
+        "Other:Question Generation": "Other:Question Generation",
+        "Generated long-form questions for each paragraph": "Generated long-form questions for each paragraph",
+        "questions and aspect-based document navigation": "aspect-based document navigation"
+      },
+      "explanation": "Removed redundant and non-NLG datasets/models (RoBERTa classifier is for evaluation, not generation), normalized task names, added PEGASUS which was mentioned as a relevant model for the task"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "ANSWERABILITY"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "BLEU": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "Answerability (classifier)": "Answerability",
+        "answerability score": "Answerability"
+      },
+      "explanation": "Normalized metric variants to base forms (ROUGE-L → ROUGE), consolidated answerability metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "Roberta"
+        ],
+        "methods": [
+          "binary classification"
+        ],
+        "criteria": [
+          "answerability"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The Roberta classifier mentioned is not an LLM used as a judge in the LLM-as-judge sense; it's a fine-tuned classifier for answerability, so this doesn't qualify as LLM-as-judge evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants experienced both default and DynamicTOC reading interfaces using a web demo with SEC filings",
+      "Participants rated their experience on a 5-point scale across multiple dimensions including frequency of document encounters, satisfaction with default reading, utility of persona selection, relevance of navigation, and utility of presented questions"
+    ],
+    "criteria": [
+      "Length",
+      "Satisfaction",
+      "Utility",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "persona aid rating": "utility of persona selection",
+        "jump to relevant parts rating": "relevance of jumping to relevant parts",
+        "How satisfied are you with the 'Default' reading experience ?": "satisfaction with default reading experience",
+        "How would you rate the option to choose persona as an aid in reading the document?": "utility of persona selection",
+        "How would you rate jumping to relevant parts of the document?": "relevance of jumping to relevant parts",
+        "How would you rate the utility of presented questions?": "utility of presented questions"
+      },
+      "explanation": "Normalized criterion names to consistent phrasing, removed redundant descriptions"
+    }
+  },
+  "overall_notes": "The paper focuses on NLG for question generation as part of a document navigation system. The extraction was generally accurate but needed normalization and removal of non-NLG components. The paper evaluates NLG outputs using both automatic metrics (BLEU, ROUGE, Answerability) and human evaluation, but does not use LLMs as judges."
+}

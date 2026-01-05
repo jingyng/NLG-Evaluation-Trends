@@ -1,0 +1,163 @@
+{
+  "paper_id": "2022.emnlp-main.294",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Constrained Commonsense Generation",
+      "Other:Counterfactual Explanation Generation",
+      "Other:Commonsense Fact Verification",
+      "Other:Multi-choice Question Answering"
+    ],
+    "datasets": [
+      "CommonGen",
+      "ComVE",
+      "CommonsenseQA1.0",
+      "OpenBookQA",
+      "CommonsenseQA2.0",
+      "CREAK"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "RACO",
+      "FiD",
+      "T5",
+      "BART",
+      "UNICORN",
+      "CALM",
+      "KG-BART",
+      "KFCNet",
+      "MoKGE",
+      "GreaseLM",
+      "KagNet",
+      "GRF",
+      "QA-GNN"
+    ],
+    "outputs": [
+      "Generated coherent sentences describing everyday scenarios from concept sets",
+      "Generated explanations for why counterfactual statements do not make sense",
+      "Generated answers for multi-choice commonsense questions",
+      "Generated true/false classifications for commonsense fact verification"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Commonsense Fact Verification",
+          "Other:Multi-choice Question Answering"
+        ],
+        "datasets": [
+          "CommonsenseQA1.0",
+          "OpenBookQA",
+          "CommonsenseQA2.0",
+          "CREAK"
+        ],
+        "models": [
+          "KG-BART",
+          "KFCNet",
+          "MoKGE",
+          "GreaseLM",
+          "KagNet",
+          "GRF",
+          "QA-GNN"
+        ],
+        "outputs": [
+          "Generated answers for multi-choice commonsense questions",
+          "Generated true/false classifications for commonsense fact verification"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Constrained commonsense generation",
+          "Other:Counterfactual explanation generation"
+        ],
+        "outputs": [
+          "coherent sentences describing everyday scenarios, explanations for why a counterfactual statement does not make sense"
+        ]
+      },
+      "normalized": {
+        "Other:Constrained Commonsense Generation": "Other:Constrained Commonsense Generation",
+        "Other:Counterfactual Explanation Generation": "Other:Counterfactual Explanation Generation"
+      },
+      "explanation": "Added missing NLG tasks and datasets that were evaluated in the paper. Removed duplicate/incorrect task formulations and output descriptions. Kept only distinct models that were compared in the experiments."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "SPICE",
+      "CIDEr",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "SPICE": "SPICE",
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "CIDEr": "CIDEr"
+      },
+      "explanation": "Normalized metric variants to base forms (BLEU-4 → BLEU, ROUGE-L → ROUGE). Added Accuracy metric which was used for classification tasks (CSQA1.0, OBQA, CSQA2.0, CREAK)."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges for evaluation. The paper only uses automatic metrics and human evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Generated outputs are evaluated by fluency and accuracy. Fluency assesses grammatical correctness and readability disregarding input text. Accuracy evaluates whether output is correct and reasonable given input text."
+    ],
+    "criteria": [
+      "fluency",
+      "accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Generated outputs are evaluated by fluency and accuracy. Fluency assesses grammatical correctness and readability disregarding input text. Accuracy evaluates whether output is correct and reasonable given input text."
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- The generated outputs are evaluated by fluency and accuracy. Fluency is assessed on the grammatical correctness and readability of the generated outputs disregarding the input text. Accuracy evaluates whether the output generated is correct and reasonable given the input text of each task.",
+          "Human annotators assess each generated output for grammatical correctness (fluency) and correctness given the input (accuracy).",
+          "The generated outputs are evaluated by fluency and accuracy. Fluency is assessed on the grammatical correctness and readability of the generated outputs disregarding the input text. Besides, accuracy evaluates whether the output generated is correct and reasonable given the input text of each task."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated duplicate guideline descriptions into a single clear statement. Kept the criteria as specified in the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on retrieval-augmented commonsense reasoning across multiple NLG tasks. The extracted metadata was mostly accurate but missed several important evaluation tasks and datasets. The paper comprehensively evaluates on 6 datasets across 4 different commonsense reasoning tasks. Human evaluation was conducted via Amazon Mechanical Turk with clear criteria."
+}

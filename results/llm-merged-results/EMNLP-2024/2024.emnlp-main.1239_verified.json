@@ -1,0 +1,156 @@
+{
+  "paper_id": "2024.emnlp-main.1239",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Text-to-Table Generation"
+    ],
+    "datasets": [
+      "Rotowire",
+      "Wikibio",
+      "WikiTableText",
+      "TOTTO",
+      "DESCTOTTO"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMa-2-7B",
+      "Seq2Seq",
+      "GPT-4",
+      "GPT-3.5-Turbo",
+      "Claude-3-Opus"
+    ],
+    "outputs": [
+      "tables"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Table Generation"
+        ],
+        "datasets": [
+          "E2E"
+        ],
+        "languages": [],
+        "models": [
+          "roberta-large-mnli",
+          "llama-2-7b-chat-hf",
+          "GPT-3.5",
+          "LLaMa-2 IFT",
+          "gpt-4",
+          "gpt-3.5-turbo"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "llama-2-7b-chat": "LLaMa-2-7B",
+        "gpt-4": "GPT-4",
+        "gpt-3.5-turbo": "GPT-3.5-Turbo"
+      },
+      "explanation": "Removed 'Table Generation' as redundant since 'Text-to-Table Generation' is more specific. Removed E2E dataset which is only mentioned in passing as a table-to-text dataset. Consolidated model variants and removed roberta-large-mnli which is used for evaluation, not generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "TABEVAL",
+      "Exact Match",
+      "BERTScore",
+      "chrF"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "chrf",
+          "rescaled BertScore"
+        ]
+      },
+      "normalized": {
+        "BertScore": "BERTScore",
+        "exact match": "Exact Match",
+        "chrf": "chrF"
+      },
+      "explanation": "Normalized metric names to standard forms. Removed 'rescaled BertScore' as it's a variant of BERTScore. Consolidated duplicate entries."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "gpt-4",
+          "Claude-3-Opus"
+        ],
+        "methods": [
+          "TabUnroll",
+          "Chain-of-Thought prompting"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper does NOT use LLMs as judges. The LLMs mentioned (GPT-4, Claude-3-Opus) are used for table unrolling as part of the TABEVAL metric pipeline, not as post-generation evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate generated tables on 1-5 scale for Overall Quality, Completeness, and Correctness/Accuracy against reference table"
+    ],
+    "criteria": [
+      "Overall Quality",
+      "Completeness",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Rate generated tables on 1-5 scale for Overall Quality, Completeness, and Correctness/Accuracy against reference table"
+        ],
+        "criteria": [
+          "Overall Quality",
+          "Completeness",
+          "Correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Rate the generated tables for the following aspects: 1. Overall Quality ... 2. Completeness ... 3. Correctness/Accuracy ...",
+          "Rate the generated tables for Overall Quality, Completeness, and Correctness on a 1-5 scale as described in the survey format.",
+          "Rate the generated tables for the following aspects: 1. Overall Quality: How easily can you understand the contents of the generated table and how does it compare against the ground truth table? (Scale 1-5) 2. Completeness: Does the generated table represent all the information present in the reference table? (Scale 1-5) 3. Correctness/Accuracy: Are only the relevant information from reference table present in the table and is the information present factually correct? (Scale 1-5)"
+        ],
+        "criteria": [
+          "Correctness/Accuracy"
+        ]
+      },
+      "normalized": {
+        "Correctness/Accuracy": "Correctness"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into a single clear statement. Normalized 'Correctness/Accuracy' to 'Correctness' for consistency. Removed duplicate criteria entries."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating text-to-table generation quality. The TABEVAL metric is the main contribution, which uses LLMs for table unrolling but not as post-generation judges. Human evaluation was conducted with clear criteria. The extraction was generally good but included some redundant or evaluation-focused items that needed cleaning."
+}

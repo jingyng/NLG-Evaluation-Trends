@@ -1,0 +1,138 @@
+{
+  "paper_id": "2021.naacl-main.52",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Automatic Revisions",
+      "Other:Claim Extraction",
+      "Other:Factually Consistent Generation"
+    ],
+    "datasets": [
+      "VITAMINC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART-base",
+      "T5-base",
+      "BART",
+      "T5"
+    ],
+    "outputs": [
+      "revised sentences",
+      "short claims"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Factually consistent generation",
+          "Other:Claim extraction"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "revised sentences and short claims",
+          "revised sentences and extracted short claims",
+          "revised sentences and extracted claims"
+        ]
+      },
+      "normalized": {
+        "Other:Factually consistent generation": "Other:Factually Consistent Generation",
+        "Other:Claim extraction": "Other:Claim Extraction"
+      },
+      "explanation": "Removed duplicate task entries and simplified output descriptions. The paper clearly addresses NLG tasks including text generation for revisions and claim extraction."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "BLEURT",
+      "SARI",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "f_verdict",
+          "ROUGE-2",
+          "ROUGE2"
+        ]
+      },
+      "normalized": {
+        "ROUGE-2": "ROUGE",
+        "ROUGE2": "ROUGE"
+      },
+      "explanation": "Removed f_verdict (a classifier, not a generation metric) and normalized ROUGE variants to base form. The paper uses standard NLG evaluation metrics including BLEU, BLEURT, SARI, and ROUGE."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper mentions GPT-3 but only as a baseline generation model, not as a judge/evaluator of generated outputs. No LLM-as-judge methodology is used."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers on Amazon MTurk rated grammaticality and whether the evidence supports the claim"
+    ],
+    "criteria": [
+      "grammaticality",
+      "support"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "workers on Amazon MTurk to rate their grammaticality and whether the evidence s t supports the claim",
+          "Rate grammaticality and evidence support for each generated sentence.",
+          "workers on Amazon MTurk to rate their grammaticality and whether the evidence s t supports the claim"
+        ],
+        "criteria": [
+          "fluency",
+          "coherence"
+        ]
+      },
+      "normalized": {
+        "grammaticality": "grammaticality",
+        "support": "support"
+      },
+      "explanation": "Consolidated guideline description and removed criteria not explicitly mentioned (fluency, coherence). The paper clearly states human evaluation was conducted with specific criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on fact verification and NLG tasks related to Wikipedia revisions. The extraction was generally accurate but contained some duplicates and minor inconsistencies. The paper uses both automatic metrics and human evaluation for NLG tasks, but does not use LLMs as judges. VITAMINC is the main dataset used throughout the paper."
+}

@@ -1,0 +1,87 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Specifically, given an image and a question querying spatial quantities in the image, the model needs to directly output the estimated quantities in text format",
+            "...the model needs to output the estimated quantities in text format... We adopt a consistent output format for every VLM...",
+            "Specifically, given an image and a question querying spatial quantities in the image, the model needs to directly output the estimated quantities in text format"
+        ],
+        "tasks": [
+            "Other: Quantitative Spatial Question Answering",
+            "Other:Visual Question Answering"
+        ],
+        "datasets": [
+            "Q-Spatial Bench",
+            "Q-Spatial-ScanNet",
+            "Q-Spatial++"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Gemini 1.5 Pro",
+            "Gemini 1.5 Flash",
+            "GPT-4V",
+            "GPT-4o",
+            "LLaVA-v1.6-34b",
+            "LLaVA"
+        ],
+        "outputs": [
+            "Text responses with scalar and unit for spatial quantities",
+            "textual answers containing scalar values and distance units",
+            "text responses containing numerical estimates of spatial properties with specific formatting requirements (\\scalar{value} \\distance_unit{unit})"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We measure the performance in success rate by thresholding the maximum ratio between an estimation and a ground truth value",
+            "We measure the performance in success rate by thresholding the maximum ratio between an estimation and a ground truth value... we set the thresholds to 1.25 and 2 and denote the evaluation metrics as δ ≤1.25 and δ ≤2",
+            "We measure the performance in success rate by thresholding the maximum ratio between an estimation and a ground truth value. Given a distance estimation d and a ground truth value d*, the maximum ratios between the estimation and ground truth can be expressed as... Following existing works, we set the thresholds to 1.25 and 2 and denote the evaluation metrics as δ ≤1.25 and δ ≤2, respectively."
+        ],
+        "automatic_metrics": [
+            "Success rate δ ≤2",
+            "Success rate δ ≤1.25",
+            "Spearman correlation (reference usage vs success)",
+            "δ ≤1.25",
+            "δ ≤2"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "To do this, we feed the sampled GPT-4o responses to a separate GPT-4o instance which we prompt to determine if a model response uses any reference object as guidance",
+            "we feed the sampled GPT-4o responses to a separate GPT-4o instance which we prompt to determine if a model response uses any reference object as guidance",
+            "To quantify the above observation, we first count the number of instances where the GPT-4o output involves reasoning via a reference object to answer the question. To do this, we feed the sampled GPT-4o responses to a separate GPT-4o instance which we prompt to determine if a model response uses any reference object as guidance (see Appendix C for details)."
+        ],
+        "models": [
+            "GPT-4o"
+        ],
+        "methods": [
+            "Binary classification for reference object usage",
+            "LLM classification of reference object usage via prompting",
+            "reference object detection"
+        ],
+        "criteria": [
+            "reference object usage",
+            "uses reference objects"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "To gauge the difficulty of the introduced benchmark, Q-Spatial Bench, we ask three humans to perform quantitative spatial reasoning. Each human answer a sampled set of 40 quantitative spatial reasoning questions",
+            "We ask three humans to perform quantitative spatial reasoning... Table show the success rate δ ≤2 of 3 humans.",
+            "To gauge the difficulty of the introduced benchmark, Q-Spatial Bench, we ask three humans to perform quantitative spatial reasoning. Each human answer a sampled set of 40 quantitative spatial reasoning questions randomly draw from both splits. Table  show the success rate δ ≤2 of 3 humans."
+        ],
+        "guideline": [
+            "Humans answered spatial questions and success rate was measured using δ ≤2",
+            "Humans answered a sampled set of 40 quantitative spatial questions randomly drawn from both splits, and their answers were compared against ground truth using the δ ≤2 success metric.",
+            "success rate δ ≤2 (whether estimated distance is within [0.5×, 2×] the ground truth value)"
+        ],
+        "criteria": [
+            "accuracy (δ ≤2)",
+            "accuracy of spatial estimates"
+        ]
+    }
+}

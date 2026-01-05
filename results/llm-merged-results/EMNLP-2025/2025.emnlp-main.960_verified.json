@@ -1,0 +1,133 @@
+{
+  "paper_id": "2025.emnlp-main.960",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Open-ended QA Generation",
+      "Other:Concept Erasure"
+    ],
+    "datasets": [
+      "MMLU",
+      "Alpaca-Eval",
+      "ConceptVectors"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Gemma-2-2B-it",
+      "Llama-3.1-8B-it"
+    ],
+    "outputs": [
+      "Model responses to open-style questions about target concepts",
+      "Generated answers evaluated for correctness",
+      "Instruction-following text generation"
+    ],
+    "changes_made": {
+      "added": {
+        "outputs": [
+          "Instruction-following text generation"
+        ]
+      },
+      "removed": {
+        "outputs": [],
+        "tasks": []
+      },
+      "normalized": {
+        "Gemma-2-2B-it": "Gemma-2-2B-it",
+        "Llama-3.1-8B-it": "Llama-3.1-8B-it"
+      },
+      "explanation": "Removed repetitive output descriptions and added instruction-following generation based on Alpaca-Eval evaluation"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "Accuracy",
+      "Normalized Accuracy",
+      "Relearning Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy",
+          "Normalized Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "harmonic mean of specificity and coherence metrics"
+        ]
+      },
+      "normalized": {
+        "normalized accuracy": "Normalized Accuracy",
+        "relearning accuracy": "Relearning Accuracy"
+      },
+      "explanation": "Changed answer from No to Yes since the paper uses normalized accuracy as an automatic metric. Removed 'harmonic mean' as it's a composite metric, not a base automatic metric. Added base automatic metrics used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Gemini-2.0-Flash"
+    ],
+    "methods": [
+      "LLM-as-a-Judge for answer correctness evaluation",
+      "LLM scoring of generated answers"
+    ],
+    "criteria": [
+      "accuracy",
+      "instruction-following",
+      "coherence",
+      "correctness of generated answers"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "correctness of generated answers"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "LLM-as-a-Judge"
+        ]
+      },
+      "normalized": {
+        "gemini-2.0-flash": "Gemini-2.0-Flash",
+        "how well the given answer matches the correct answer": "correctness of generated answers"
+      },
+      "explanation": "Normalized model name and criteria. Consolidated duplicate method descriptions and removed redundant entries."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluate whether model's answer matches correct answer for accuracy assessment",
+      "Decide whether to include/exclude candidate features based on alignment and coherence scoring"
+    ],
+    "criteria": [
+      "alignment",
+      "coherence",
+      "accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Evaluate whether model's answer matches correct answer for accuracy assessment"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "whether the model's answer matched the correct one"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Reorganized guidelines for clarity and removed redundant criteria that were already covered by accuracy"
+    }
+  },
+  "overall_notes": "The paper primarily evaluates NLG through concept erasure QA tasks and instruction-following. While it uses automatic metrics like accuracy, the evaluation heavily relies on LLM-as-Judge and human evaluations. The extraction was generally accurate but needed some normalization and consolidation of redundant entries."
+}

@@ -1,0 +1,83 @@
+{
+  "paper_id": "2024.emnlp-main.1106",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper conducts a case study comparing LLM (G-Eval with GPT-4o) and human evaluations on the same set of 50 instances, reporting correlation between human preferences and Rouge-L scores and noting alignment between G-Eval coherence scores and Rouge-L performance."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The prompt for coherence evaluation from G-Eval is provided in Appendix E, including detailed instructions and evaluation criteria for coherence on a 1-5 scale."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "raw/observed agreement",
+      "value": 0.513,
+      "interpretation": "Not provided",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluators were asked to choose preferred summary and rate coherence on a 1-5 Likert scale; criteria definitions are provided for coherence as 'collective quality of all sentences' and summary being 'well-structured and well-organized'."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Percentage agreement",
+      "Correlation with Rouge-L"
+    ],
+    "shared_criteria": [
+      "Coherence"
+    ],
+    "sample_size": {
+      "total_generated": 1000,
+      "validated_by_both": 50,
+      "notes": "Validation was conducted on a subset of 50 randomly selected summaries from the test set, evaluated by both human and LLM."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": 55.0,
+        "criterion": "Coherence",
+        "llm_model": "GPT-4o",
+        "significance": "Not reported",
+        "notes": "55% of cases show higher Rouge-L scores aligning with human preferences"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "Not provided",
+      "threshold_used": "Not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "G-Eval coherence scores align with Rouge-L performance, and human preferences correlate with Rouge-L scores in 55% of cases, supporting the use of LLM evaluation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Preference"
+    ],
+    "shared_criteria": [
+      "Coherence"
+    ],
+    "notes": "Both LLM and human evaluated coherence; humans additionally provided preference judgments."
+  }
+}

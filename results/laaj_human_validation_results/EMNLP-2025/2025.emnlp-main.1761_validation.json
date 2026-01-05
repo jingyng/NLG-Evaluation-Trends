@@ -1,0 +1,83 @@
+{
+  "paper_id": "2025.emnlp-main.1761",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-as-Judge against human judgments on a curated subset of 200 question-answer pairs from NQ-Open dataset, reporting comparative performance metrics and discussing alignment"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "None"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full LLM-as-Judge prompt template provided in Listing 3 with correctness classification examples"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's Kappa",
+      "value": 0.799,
+      "interpretation": "high inter-annotator agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Used standardized guidelines from referenced work, classifying responses as correct, incorrect, or refuse (refuse treated as incorrect)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "performance_comparison"
+    ],
+    "validation_metrics": [
+      "Precision",
+      "Recall"
+    ],
+    "shared_criteria": [
+      "Factuality"
+    ],
+    "sample_size": {
+      "total_generated": 200,
+      "validated_by_both": 200,
+      "notes": "200 question-answer pairs from Mistral answers on NQ-Open dataset, curated to include cases where ROUGE and LLM-as-Judge provided conflicting assessments"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Precision",
+        "value": "significantly higher",
+        "criterion": "Factuality",
+        "llm_model": "None",
+        "significance": "",
+        "notes": "ROUGE showed high recall but alarmingly low precision, while LLM-as-Judge achieved significantly higher precision"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "",
+      "threshold_used": "",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-as-Judge aligns more closely with human assessments than ROUGE, showing significantly higher precision in identifying factual errors while ROUGE exhibits alarmingly low precision despite high recall."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Equivalence"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Factuality"
+    ],
+    "notes": "Both LLM-as-Judge and human evaluation focus on factual correctness, with LLM-as-Judge additionally assessing semantic equivalence"
+  }
+}

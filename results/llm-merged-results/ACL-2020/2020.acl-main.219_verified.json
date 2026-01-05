@@ -1,0 +1,139 @@
+{
+  "paper_id": "2020.acl-main.219",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Image-Grounded Dialogue"
+    ],
+    "datasets": [
+      "IMAGE-CHAT",
+      "IGC",
+      "YFCC100M",
+      "PersonaChat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "TransResNet-RET",
+      "TransResNet-GEN",
+      "ResNeXt-IG-3.5B",
+      "ResNet152",
+      "Transformer"
+    ],
+    "outputs": [
+      "dialogue responses",
+      "image-grounded conversations",
+      "style-conditioned utterances"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Image-Grounded Dialogue"
+        ],
+        "datasets": [
+          "YFCC100M"
+        ],
+        "outputs": [
+          "image-grounded conversations",
+          "style-conditioned utterances"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Image Captioning"
+        ],
+        "datasets": [
+          "COCO",
+          "Flickr30k"
+        ]
+      },
+      "normalized": {
+        "TRANSRESNET RET": "TransResNet-RET",
+        "TRANSRESNET GEN": "TransResNet-GEN",
+        "dialogue responses grounded in images and style traits": "dialogue responses"
+      },
+      "explanation": "Removed Image Captioning as it's not evaluated in this paper (only mentioned as related work). Removed COCO and Flickr30k as they're not used for evaluation. Added 'Image-Grounded Dialogue' as the primary task and normalized model names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "Recall@1",
+      "Recall@5"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "R@1/100": "Recall@1",
+        "R@5/100": "Recall@5",
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric variants to base forms as per guidelines (BLEU-4→BLEU, ROUGE-L→ROUGE)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in this 2020 paper (pre-dates common LLM evaluation practices)"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Blind pairwise comparison between human and model utterances",
+      "Evaluators choose the 'more engaging' utterance"
+    ],
+    "criteria": [
+      "engagingness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Blind pairwise comparison between human and model utterances"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "engagement",
+          "engaging"
+        ]
+      },
+      "normalized": {
+        "engaging": "engagingness",
+        "engagement": "engagingness"
+      },
+      "explanation": "Consolidated criteria to 'engagingness' as the primary evaluation dimension. Clarified the guideline description."
+    }
+  },
+  "overall_notes": "The paper focuses on image-grounded dialogue generation with style conditioning. The extraction was generally good but included some related work datasets/tasks that weren't actually evaluated. The paper uses both automatic metrics (BLEU, ROUGE, recall) and human evaluations (engagingness). No LLM evaluation used as this is a 2020 paper."
+}

@@ -1,0 +1,172 @@
+{
+  "paper_id": "2024.emnlp-main.1254",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Feedback Generation For Code Editing",
+      "Code Generation"
+    ],
+    "datasets": [
+      "COFFEE",
+      "HUMANEVAL FIX",
+      "COFFEE TEST"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "deepseek_coder_7b",
+      "gpt_3.5_turbo",
+      "gpt_4_turbo"
+    ],
+    "outputs": [
+      "natural language feedback describing code errors and suggested edits",
+      "edited code"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Code Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "edited code"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Feedback Generation"
+        ],
+        "datasets": [
+          "NumpyEval"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-4 Turbo",
+          "GPT-3.5 Turbo",
+          "GPT-4",
+          "DeepSeekCoder-7B"
+        ],
+        "outputs": [
+          "natural language feedback for code editing and edited code"
+        ]
+      },
+      "normalized": {
+        "GPT-4 Turbo": "GPT-4-Turbo",
+        "GPT-3.5 Turbo": "GPT-3.5-Turbo",
+        "DeepSeekCoder-7B": "DeepSeek-Coder-7B"
+      },
+      "explanation": "Removed duplicate model entries, normalized model names, removed NumpyEval (only mentioned in appendix case study), consolidated output descriptions. Added Code Generation as it's evaluated via edited code outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PASS",
+      "PEARSON CORRELATION",
+      "MSE",
+      "PRECISION",
+      "RECALL",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Pass@k"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Mean Squared Error (MSE)",
+          "G‑Eval Likert score",
+          "COFFEEEVAL score"
+        ]
+      },
+      "normalized": {
+        "Mean Squared Error (MSE)": "MSE"
+      },
+      "explanation": "Normalized metric names, removed COFFEEEVAL score (it's a method/system not a metric), removed G-Eval Likert score (it's an LLM judge method)"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4_turbo",
+      "gpt_3.5_turbo"
+    ],
+    "methods": [
+      "G-Eval"
+    ],
+    "criteria": [
+      "Quality",
+      "Helpfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4 Turbo",
+          "GPT-3.5 Turbo"
+        ],
+        "methods": [
+          "G‑Eval Likert scoring",
+          "pairwise preference evaluation"
+        ],
+        "criteria": [
+          "quality"
+        ]
+      },
+      "normalized": {
+        "GPT-4 Turbo": "GPT-4-Turbo",
+        "GPT-3.5 Turbo": "GPT-3.5-Turbo",
+        "G‑Eval Likert scoring": "G-Eval"
+      },
+      "explanation": "Normalized model names, simplified method description to base G-Eval, removed 'quality' as duplicate criterion since helpfulness is the main quality measure discussed"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators score feedback quality on a Likert scale from Amazon Mechanical Turk"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators score feedback quality on a Likert scale from Amazon Mechanical Turk"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- score the quality of the feedback on a Likert scale",
+          "Raters score each feedback on its helpfulness and informativeness using a Likert‑scale questionnaire.",
+          "We ask human raters from Amazon Mechanical Turk (AMT) to score the quality of the feedback on a Likert scale."
+        ],
+        "criteria": [
+          "helpful",
+          "informative"
+        ]
+      },
+      "normalized": {
+        "helpful": "helpfulness",
+        "informative": "informativeness"
+      },
+      "explanation": "Consolidated guidelines into single description, normalized criteria to noun forms, removed duplicate guideline descriptions"
+    }
+  },
+  "overall_notes": "The paper focuses on natural language feedback generation for code editing. Extraction quality was generally good but needed normalization of model names and removal of duplicates. The paper clearly addresses NLG (feedback generation) and uses both automatic metrics and human evaluation. LLM-as-judge usage is confirmed through G-Eval experiments."
+}

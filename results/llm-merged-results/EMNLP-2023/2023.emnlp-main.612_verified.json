@@ -1,0 +1,161 @@
+{
+  "paper_id": "2023.emnlp-main.612",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "EVA corpus",
+      "KdConv",
+      "DuLeMon",
+      "NaturalConv",
+      "Re3Dial-1B",
+      "Blended Skill Talk",
+      "PersonaChat",
+      "Wizard of Wikipedia"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "BERT-base",
+      "Pegasus-523M",
+      "ChatGLM-66B",
+      "GPT-2 large"
+    ],
+    "outputs": [
+      "dialogue responses",
+      "multi-turn dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "Blended Skill Talk",
+          "PersonaChat",
+          "Wizard of Wikipedia"
+        ],
+        "models": [
+          "Pegasus-523M",
+          "ChatGLM-66B",
+          "GPT-2 large"
+        ],
+        "outputs": [
+          "multi-turn dialogue responses"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Reddit",
+          "Weibo"
+        ],
+        "models": [
+          "UDSR (Unsupervised Dense Session Retriever)"
+        ]
+      },
+      "normalized": {
+        "EVA corpus": "EVA corpus",
+        "Re3Dial-1B": "Re3Dial-1B",
+        "BERT-base": "BERT-base"
+      },
+      "explanation": "Removed Reddit/Weibo (data sources, not evaluation datasets) and UDSR (retrieval model, not NLG model). Added English datasets mentioned in Appendix. Added NLG models used in experiments."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PPL",
+      "BLEU",
+      "ROUGE",
+      "Distinct"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "PPL zero-shot",
+          "BLEU-N",
+          "BLEU-1",
+          "BLEU-2",
+          "ROUGE-L",
+          "Distinct-N",
+          "Distinct-2"
+        ]
+      },
+      "normalized": {
+        "PPL zero-shot": "PPL",
+        "PPL": "PPL",
+        "BLEU-N": "BLEU",
+        "BLEU-1": "BLEU",
+        "BLEU-2": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "Distinct-N": "Distinct",
+        "Distinct-2": "Distinct"
+      },
+      "explanation": "Normalized all metric variants to base forms (BLEU, ROUGE, Distinct, PPL) as per simplification guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleared all fields since no LLM-as-judge was used"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators compare pairs of model responses and judge which is more sensible and which is more informative",
+      "Three annotators per pair, majority voting used for final decisions",
+      "Evaluation conducted on both short-turn and long-turn contexts"
+    ],
+    "criteria": [
+      "sensibleness",
+      "informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Evaluation conducted on both short-turn and long-turn contexts"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Sensibleness measures whether the response is relevant and consistent with the context. Informativeness measures whether the response is informative given the context."
+        ]
+      },
+      "normalized": {
+        "sensibleness": "sensibleness",
+        "informativeness": "informativeness"
+      },
+      "explanation": "Improved guideline formatting and added context about evaluation setup. Criteria remain correct."
+    }
+  },
+  "overall_notes": "Paper focuses on dialogue generation evaluation with comprehensive automatic and human evaluation. Extraction was mostly accurate but needed normalization of metrics and clarification of which models/datasets were actually used for NLG evaluation vs. other purposes."
+}

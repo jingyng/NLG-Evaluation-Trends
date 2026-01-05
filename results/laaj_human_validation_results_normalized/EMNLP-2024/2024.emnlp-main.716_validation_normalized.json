@@ -1,0 +1,60 @@
+{
+  "paper_id": "2024.emnlp-main.716",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "Both LLM and human evaluations are conducted but they are not explicitly compared. Human evaluation is used for dataset annotation quality verification, while LLM evaluation is used for detection performance assessment without direct validation against human judgments."
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4-Turbo",
+      "Llama2-7B"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt templates are described in appendix tables (e.g., Table 12) showing general structure but not full verbatim prompts for all tasks. Examples include conversation-level detection prompts with binary classification (malicious/benign)."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss Kappa",
+      "value": 0.63,
+      "interpretation": "substantial agreement",
+      "per_criterion": [
+        {
+          "criterion": "IsMalicious",
+          "metric": "Fleiss Kappa",
+          "value": 0.63
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed annotation instructions provided in appendix with definitions of maliciousness (binary) and ambiguity (scale 1-3), including example conversations and analysis."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "SI request classification",
+      "SI type identification",
+      "target agent deception analysis"
+    ],
+    "human_only_criteria": [
+      "ambiguity rating",
+      "fine-grained SI annotation"
+    ],
+    "shared_criteria": [
+      "maliciousness detection"
+    ],
+    "notes": "Human evaluation primarily focuses on dataset quality verification (maliciousness, ambiguity, SI requests), while LLM evaluation focuses on detection performance (CSE detection, SI detection, defense rate analysis). Both evaluate maliciousness but at different stages and without direct comparison."
+  }
+}

@@ -1,0 +1,100 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "LONGSAFETY encompasses 6 task types: Question Answering, Generation, Brainstorming, Summarization, Rewrite, Role-playing.",
+            "LONGSAFETY encompasses 6 task types, enriching the diversity of long-context tasks. We adopt 5 tasks derived from prior work, namely Question Answering, Generation, Brainstorming, Summarization and Rewrite, ... we introduce a sixth task type, Role-playing, into the taxonomy.",
+            "We propose LONGSAFETY, the first benchmark to comprehensively evaluate LLM safety in open-ended long-context tasks."
+        ],
+        "tasks": [
+            "Text Summarization",
+            "Paraphrase Generation",
+            "Other:Generation",
+            "Other:Brainstorming",
+            "Other:Role-playing",
+            "Other:Rewrite",
+            "Other:Question Answering"
+        ],
+        "datasets": [
+            "LONGSAFETY"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Claude-3.5-haiku",
+            "Claude-3.5-sonnet",
+            "Gemini-1.5-flash",
+            "Gemini-1.5-pro",
+            "GPT-4-turbo-2024-04-09",
+            "GPT-4o",
+            "GPT-4o mini",
+            "GLM-4-plus",
+            "Qwen2.5-72B-Instruct",
+            "Llama-3.1-70B-Instruct",
+            "Mixtral-8x7B-Instruct",
+            "Qwen2.5-7B-Instruct",
+            "Internlm2.5-7B-Instruct",
+            "GLM-4-9B-Chat",
+            "Llama-3.1-8B-Instruct",
+            "Mistral-7B-Instruct-v0.3"
+        ],
+        "outputs": [
+            "Model responses to safety instructions in long-context tasks",
+            "Safety label (safe/unsafe) for each model response",
+            "The models generate responses to safety-related instructions in long-context scenarios, which are then evaluated for safety."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "SR_long = Num_both_safe / Num_total",
+            "We introduce a new metric, SR long , to evaluate models' safety rate on LONGSAFETY."
+        ],
+        "automatic_metrics": [
+            "Safety Rate (SR_long)",
+            "SR long",
+            "SR short"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "we employ the multi-agent framework proposed in §3.4 as the evaluator and initialize all three agents with GPT-4o mini.",
+            "We propose a multi-agent framework specifically designed for long-context evaluation. The framework encompasses three specialized roles powered by LLMs: Risk Analyzer, Context Summarizer and Safety Judge.",
+            "We introduce a multi-agent framework as the long context evaluator. The framework consists of three distinct roles: Risk Analyzer, Context Summarizer and Safety Judge."
+        ],
+        "models": [
+            "GPT-4o mini"
+        ],
+        "methods": [
+            "multi-agent evaluation with Risk Analyzer, Context Summarizer, Safety Judge",
+            "multi-agent safety evaluation",
+            "multi-agent framework",
+            "Risk Analyzer",
+            "Context Summarizer",
+            "Safety Judge"
+        ],
+        "criteria": [
+            "safety",
+            "relevance to instruction",
+            "presence of unsafe information"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "each test case is then annotated as safe or unsafe by three crowd workers.",
+            "For each context, we test the corresponding three instructions on several LLMs, and check the responses manually and with LlamaGuard3. ... we randomly sample instances ... each test case is then annotated as safe or unsafe by three crowd workers.",
+            "Each test case is then annotated as safe or unsafe by three crowd workers. From these labeled data, we select 500 instances to form the test set, ensuring an equal distribution of safe and unsafe examples."
+        ],
+        "guideline": [
+            "Annotation guidelines for judging response safety, including rules similar to those in the multi-agent evaluator prompt.",
+            "Annotators assess whether the model response is safe or unsafe based on consistency with the context and instruction.",
+            "The label consistency within the workers on this test set is about 82%, and we manually review the cases with inconsistent labels, revising as necessary to assure high data quality."
+        ],
+        "criteria": [
+            "safety"
+        ]
+    }
+}

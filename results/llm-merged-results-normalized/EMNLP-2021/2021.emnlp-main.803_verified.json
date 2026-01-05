@@ -1,0 +1,167 @@
+{
+  "paper_id": "2021.emnlp-main.803",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "MUCOW",
+      "WINOMT",
+      "WMT19"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Russian"
+    ],
+    "models": [
+      "transformer",
+      "big",
+      "small",
+      "mini",
+      "fairseq",
+      "ensemble"
+    ],
+    "outputs": [
+      "machine-translated sentences",
+      "translations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Ensemble"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "SOTA MT systems",
+          "big Transformer (teacher)",
+          "small Transformer (teacher)",
+          "mini Transformer (teacher)",
+          "SeqKD student models",
+          "SeqKD teacher models"
+        ],
+        "outputs": [
+          "target-language translations (sentences)"
+        ]
+      },
+      "normalized": {
+        "Transformer (big, small, mini)": "Transformer",
+        "SeqKD": "Transformer"
+      },
+      "explanation": "Simplified model names to focus on Transformer architecture variants (big, small, mini). Removed redundant model descriptors and added 'Ensemble' which is mentioned as an evaluator model. Consolidated outputs to avoid duplication."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "CONTRASTIVE CONDITIONING",
+      "PATTERN MATCHING",
+      "ACCURACY",
+      "MINIMUM ACCURACY",
+      "UNWEIGHTED ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Contrastive Conditioning",
+          "Minimum Accuracy",
+          "Weighted Accuracy",
+          "Unweighted Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "contrastive conditioning",
+          "pattern-matching",
+          "weighted accuracy",
+          "accuracy",
+          "minimum accuracy",
+          "unweighted accuracy"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "contrastive conditioning": "Contrastive Conditioning",
+        "pattern-matching": "Pattern-matching",
+        "weighted accuracy": "Weighted Accuracy",
+        "minimum accuracy": "Minimum Accuracy",
+        "unweighted accuracy": "Unweighted Accuracy"
+      },
+      "explanation": "Normalized all metric names to standard title case and added missing metrics mentioned in the paper (Minimum Accuracy, Weighted Accuracy, Unweighted Accuracy). Contrastive Conditioning is the novel automated evaluation method proposed in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges. LLMs are only mentioned briefly (RoBERTa) for generating disambiguation cues, not for evaluating outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "For MuCoW samples: 'Is the translation closer to the correct sense cluster than to the wrong one?'",
+      "For WinoMT samples: 'Does the occupation name convey the gender implied by its context?'"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "For WinoMT samples: 'Does the occupation name convey the gender implied by its context?'"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Correct Sense",
+          "Wrong Sense",
+          "Both / Neutral / Ambiguous",
+          "Male",
+          "Female"
+        ],
+        "criteria": [
+          "Correct Sense",
+          "Wrong Sense",
+          "Both / Neutral / Ambiguous",
+          "Male",
+          "Female"
+        ]
+      },
+      "normalized": {
+        "sense correctness": "Sense Correctness",
+        "gender correctness": "Gender Correctness"
+      },
+      "explanation": "Moved specific rating labels to criteria and kept the actual annotation questions in guidelines. Simplified criteria to broader categories. Added missing WinoMT guideline question."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on Machine Translation evaluation, specifically proposing Contrastive Conditioning as a novel automated evaluation method. Human validation was conducted with clear annotation guidelines. No LLM-as-judge evaluation was performed. The main contributions are in MT evaluation methodology, with SeqKD models being the case study rather than the primary NLG contribution."
+}

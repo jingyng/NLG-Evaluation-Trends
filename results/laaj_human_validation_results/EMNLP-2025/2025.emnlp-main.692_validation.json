@@ -1,0 +1,111 @@
+{
+  "paper_id": "2025.emnlp-main.692",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-as-a-judge (GPT-4o and QWEN 2.5 72B) against human evaluations on a gold standard of 1,000 annotated model translations, reporting accuracy and macro F1 scores for comparison."
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4o",
+      "QWEN 2.5 72B"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full evaluation prompt for English-Greek provided verbatim in the text; other language prompts are available from the original data release cited as 'Comandini 2024'. Prompts include exemplar annotations and detailed scoring rubrics."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Dice coefficient",
+      "value": "0.92-0.95",
+      "interpretation": "highly satisfactory",
+      "per_criterion": [
+        {
+          "criterion": "gendered word annotation",
+          "metric": "Dice coefficient",
+          "value": 0.95
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "supplementary",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Comprehensive binary annotation guidelines available in project repository; human evaluators were native speakers following detailed guidelines for neutrality assessment."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Accuracy",
+      "Macro F1"
+    ],
+    "shared_criteria": [
+      "Neutrality"
+    ],
+    "sample_size": {
+      "total_generated": "parameter unclear",
+      "validated_by_both": 1000,
+      "notes": "Gold standard of 1,000 annotated model translations used for validation, consisting of 50 Set-G and 50 Set-N outputs from each of five models per language pair."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Accuracy",
+        "value": 0.92,
+        "criterion": "Neutrality",
+        "llm_model": "GPT-4o",
+        "significance": "None",
+        "notes": "Overall across all languages"
+      },
+      {
+        "metric": "Macro F1",
+        "value": 0.87,
+        "criterion": "Neutrality",
+        "llm_model": "GPT-4o",
+        "significance": "None",
+        "notes": "Overall across all languages"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.85,
+        "criterion": "Neutrality",
+        "llm_model": "QWEN 2.5 72B",
+        "significance": "None",
+        "notes": "Overall across all languages"
+      },
+      {
+        "metric": "Macro F1",
+        "value": 0.8,
+        "criterion": "Neutrality",
+        "llm_model": "QWEN 2.5 72B",
+        "significance": "None",
+        "notes": "Overall across all languages"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "None",
+      "threshold_used": "None",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4o achieves 92% accuracy and 0.87 macro F1 versus human judgments, outperforming QWEN 2.5 72B (85% accuracy, 0.80 macro F1), establishing GPT-4o as a reliable judge for gender neutrality."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Neutrality"
+    ],
+    "notes": "Both LLM and human evaluation focus on binary neutrality classification (Gendered/Neutral)."
+  }
+}

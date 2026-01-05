@@ -1,0 +1,159 @@
+{
+  "paper_id": "2024.emnlp-main.519",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CELLS",
+      "PLABA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4",
+      "llama_2",
+      "claude"
+    ],
+    "outputs": [
+      "plain language summaries",
+      "candidate summaries",
+      "perturbed summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "candidate summaries",
+          "perturbed summaries"
+        ]
+      },
+      "removed": {
+        "languages": [
+          "German"
+        ],
+        "models": [
+          "Llama2"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Llama2": "Llama 2",
+        "plain language summaries (candidate summaries and perturbed variants)": "plain language summaries"
+      },
+      "explanation": "Removed 'German' as it was only used in round-trip translation, not for generated outputs. Normalized 'Llama2' to 'Llama 2' and simplified outputs description. Added more specific output types mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "METEOR",
+      "SARI",
+      "BERTSCORE",
+      "GPT PPL",
+      "LENS",
+      "QAEVAL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SARI score",
+          "Lexical features",
+          "Prompt-based evaluations with GPT-4"
+        ]
+      },
+      "normalized": {
+        "SARI score": "SARI"
+      },
+      "explanation": "Removed 'Lexical features' as they are not standard automatic metrics but rather text features. Removed 'Prompt-based evaluations with GPT-4' as this belongs to LLM-as-judge evaluation. Kept only standard automatic evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "single-criterion scoring",
+      "multi-criterion scoring",
+      "multi-criterion with explanation"
+    ],
+    "criteria": [
+      "Informativeness",
+      "Simplification",
+      "Coherence",
+      "Faithfulness",
+      "overall"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "overall"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Llama 2",
+          "Claude"
+        ],
+        "methods": [
+          "prompt-based evaluation",
+          "single-criterion prompt",
+          "multi-criterion prompt",
+          "multi-criterion with explanation",
+          "all criteria scoring",
+          "all criteria with explanation"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "single criterion scoring": "single-criterion scoring",
+        "all criteria scoring": "multi-criterion scoring",
+        "all criteria with explanation": "multi-criterion with explanation"
+      },
+      "explanation": "Only GPT-4 was used for LLM-as-judge evaluation (Llama 2 and Claude were used for text simplification generation, not evaluation). Normalized method names for consistency. Added 'overall' as an evaluation criterion used in the prompts."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate informativeness, simplification, faithfulness, and coherence on 5-point Likert scale",
+      "Assess content alignment (comparable entities and relations)"
+    ],
+    "criteria": [
+      "Informativeness",
+      "Simplification",
+      "Faithfulness",
+      "Coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Assess content alignment (comparable entities and relations)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated and simplified the guideline descriptions while maintaining the key evaluation criteria. Added content alignment assessment which was explicitly mentioned in the human evaluation protocol."
+    }
+  },
+  "overall_notes": "The paper is a meta-evaluation study focusing on evaluating evaluation metrics for Plain Language Summarization (PLS). It does not generate new summaries but evaluates existing metrics on perturbed versions of extractive summaries. The extraction was generally good but needed some refinement to distinguish between models used for generation vs. evaluation, and to properly categorize different types of metrics."
+}

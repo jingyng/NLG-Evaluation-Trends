@@ -1,0 +1,94 @@
+{
+  "paper_id": "2023.emnlp-main.621",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-based scoring against human evaluation for persuasiveness, and validates LLM-based user simulation against real users for Recall and Persuasiveness metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "text-davinci-003"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts mentioned to be in Appendix C.4 but not fully extracted in provided text. Scoring rules were concatenated as prompts."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.83,
+      "interpretation": "good agreement",
+      "per_criterion": [
+        {
+          "criterion": "persuasiveness",
+          "metric": "Cohen's kappa",
+          "value": 0.83
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Provided scoring rubric for persuasiveness with value range {0, 1, 2} representing unpersuasive, partially persuasive, and highly persuasive"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Cohen's kappa",
+      "Score distribution comparison",
+      "Ranking correspondence"
+    ],
+    "shared_criteria": [
+      "persuasiveness",
+      "recall"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "100 randomly sampled examples used for both LLM and human evaluation of persuasiveness"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.83,
+        "criterion": "persuasiveness",
+        "llm_model": "text-davinci-003",
+        "significance": "not reported",
+        "notes": "Between human annotators for persuasiveness scoring"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "good",
+      "threshold_used": "Cohen's kappa > 0.6 considered good agreement",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-based scorer shows similar score distribution to human annotators for persuasiveness, and LLM-based user simulator produces ranking consistent with real users for both Recall and Persuasiveness metrics."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "relevance",
+      "naturalness",
+      "usefulness"
+    ],
+    "shared_criteria": [
+      "persuasiveness",
+      "recall"
+    ],
+    "notes": "Humans evaluated relevance (explanation to conversation context), naturalness, and usefulness in pairwise comparisons, while LLM and human both evaluated persuasiveness and recall metrics in validation"
+  }
+}

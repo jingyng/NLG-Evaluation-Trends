@@ -1,0 +1,103 @@
+{
+  "paper_id": "2025.naacl-long.352",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-based judgments (Mixtral 8x22B) against human evaluations on the same set of 500 model responses, reporting correlation analysis and accuracy metrics."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "Mixtral 8x22B"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The exact prompt for LLM-as-a-judge is provided in the appendix, showing a Likert scale similarity rating system with examples."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 5,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed human evaluation instructions are provided in Appendix D.2, including specific criteria for judging answer correctness and match."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Spearman correlation",
+      "Accuracy",
+      "F1"
+    ],
+    "shared_criteria": [
+      "answer_match"
+    ],
+    "sample_size": {
+      "total_generated": 500,
+      "validated_by_both": 500,
+      "notes": "500 model responses were evaluated by both human annotators and the LLM judge."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.801,
+        "criterion": "answer_match",
+        "llm_model": "Mixtral 8x22B",
+        "significance": null,
+        "notes": "Correlation between LM-based judgments and human estimates of model performance"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.896,
+        "criterion": "answer_match",
+        "llm_model": "Mixtral 8x22B",
+        "significance": null,
+        "notes": "Accuracy of binarized LLM judgments against human judgments"
+      },
+      {
+        "metric": "F1",
+        "value": 0.907,
+        "criterion": "answer_match",
+        "llm_model": "Mixtral 8x22B",
+        "significance": null,
+        "notes": "F1 score of LLM judgments against human judgments"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LM-based judgments achieve high correlation (\u03c1=0.801) with human evaluations and strong accuracy (0.896) and F1 (0.907), indicating LLM-as-a-judge can reliably replicate human assessments of answer similarity."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Similarity"
+    ],
+    "human_only_criteria": [
+      "Correctness"
+    ],
+    "shared_criteria": [
+      "answer_match"
+    ],
+    "notes": "LLM evaluates answer similarity via Likert scale ratings, while humans evaluate both correctness and match between model and gold answers. Both methods assess answer matching criteria."
+  }
+}

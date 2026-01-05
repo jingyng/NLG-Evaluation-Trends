@@ -1,0 +1,138 @@
+{
+  "paper_id": "2025.acl-long.299",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Knowledge Graph Question Answering"
+    ],
+    "datasets": [
+      "TriviaQA",
+      "SCIQ",
+      "NQ OPEN",
+      "LSQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_8b",
+      "mistral_7b",
+      "llama_3_70b"
+    ],
+    "outputs": [
+      "factual answers to knowledge-based questions",
+      "refusal responses for unknown questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering",
+          "Other:knowledge QA"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated answers to questions",
+          "short factual answers to knowledge QA questions",
+          "generated answers to knowledge-based questions, including factual responses and refusal responses for unknown questions"
+        ]
+      },
+      "normalized": {
+        "Other:Knowledge Question Answering": "Other:Knowledge Question Answering",
+        "TriviaQA": "TriviaQA",
+        "SciQ": "SciQ",
+        "NQ-Open": "NQ-Open",
+        "LSQA": "LSQA",
+        "English": "English",
+        "Llama-3-8B": "Llama-3-8B",
+        "Mistral-7B": "Mistral-7B",
+        "Llama-3-70B": "Llama-3-70B"
+      },
+      "explanation": "Consolidated redundant task descriptions into 'Other:Knowledge Question Answering'. Consolidated output descriptions to be more concise while maintaining accuracy."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PRECISION",
+      "TRUTHFULNESS",
+      "EXACT MATCH",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Positive-Recall-EM (EMPR)",
+          "AUROC"
+        ]
+      },
+      "normalized": {
+        "Exact Matching (EM)": "EM",
+        "Precision": "Precision",
+        "Truthfulness": "Truthfulness"
+      },
+      "explanation": "Added 'Accuracy' which is used for reward model evaluation. Removed EMPR as it's just a variant of EM evaluation. Removed AUROC as it evaluates uncertainty estimation performance, not the generated outputs directly."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper - the LLMs are used for generation and uncertainty estimation, not for evaluating outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluators annotated the correctness of generated answers compared to ground-truth labels to validate Exact Matching variants"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "correctness": "correctness"
+      },
+      "explanation": "The extracted human evaluation information is accurate - humans evaluated correctness of answers to validate evaluation metrics."
+    }
+  },
+  "overall_notes": "The paper focuses on improving factuality in knowledge question answering through uncertainty estimation and RL alignment. The extraction was generally accurate, with minor consolidation needed for task descriptions and metrics clarification. Human evaluation was limited to validating automatic evaluation metrics rather than comprehensive output evaluation."
+}

@@ -1,0 +1,148 @@
+{
+  "paper_id": "2022.emnlp-main.385",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Controlled Text Reduction"
+    ],
+    "datasets": [
+      "DUC 2001",
+      "DUC 2002",
+      "CNN/DailyMail"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Longformer Encoder-Decoder (LED)",
+      "LED H",
+      "LED only-H",
+      "LED NH",
+      "superPAL"
+    ],
+    "outputs": [
+      "coherent summaries covering pre-selected highlighted spans",
+      "coherent reduced text encompassing only highlighted content"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Controlled Text Reduction"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "CNN-DM"
+        ],
+        "languages": [],
+        "models": [
+          "LED base (Longformer Encoder-Decoder)"
+        ],
+        "outputs": [
+          "Coherent reduced text covering only the highlighted content"
+        ]
+      },
+      "normalized": {
+        "CNN-DM": "CNN/DailyMail",
+        "LED base (Longformer Encoder-Decoder)": "Longformer Encoder-Decoder (LED)",
+        "Coherent reduced text covering only the highlighted content": "coherent reduced text encompassing only highlighted content"
+      },
+      "explanation": "Added 'Controlled Text Reduction' as explicit task; normalized dataset name from 'CNN-DM' to 'CNN/DailyMail'; consolidated LED model variants; merged similar output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "Precision",
+      "Recall",
+      "F1",
+      "Intersection-over-Union (IOU)"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "precision",
+          "recall"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "precision": "Precision",
+        "recall": "Recall"
+      },
+      "explanation": "Consolidated ROUGE variants into single 'ROUGE' metric; normalized capitalization for Precision/Recall"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation found in the paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual assessment of faithfulness and coverage using Summary Content Units (SCUs)",
+      "Extract SCUs from system summary and source using Summary Evaluation Environment (SEE)",
+      "Label each summary unit as True Positive (TP) or False Positive (FP) to compute precision and recall"
+    ],
+    "criteria": [
+      "faithfulness",
+      "coverage",
+      "fluency",
+      "coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual assessment of faithfulness and coverage using Summary Content Units (SCUs)",
+          "Extract SCUs from system summary and source using Summary Evaluation Environment (SEE)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- We conducted two manual experiments ... to determine whether the summary unit is mentioned in the document (TP) or not (FP).",
+          "We provide guidelines for the annotator to break up the summary sentence into the facts that it is comprised of."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Refined guideline descriptions to be more precise about the human evaluation methodology; kept criteria as extracted"
+    }
+  },
+  "overall_notes": "Paper focuses on Controlled Text Reduction as a standalone NLG task within summarization. Strong emphasis on human evaluation with detailed methodology using Pyramid/SCU approach. Automatic metrics include ROUGE and standard classification metrics. No LLM-based evaluation used."
+}

@@ -1,0 +1,142 @@
+{
+  "paper_id": "2024.acl-long.60",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering With Rationales",
+      "Free Text Rationale Evaluation"
+    ],
+    "datasets": [
+      "STRATEGYQA",
+      "CommonsenseQA",
+      "ECQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4",
+      "gpt_3.5",
+      "llama_2_7b",
+      "flan_t_5_large",
+      "t_5_base",
+      "deberta_v_3_large",
+      "fasttext",
+      "lstm"
+    ],
+    "outputs": [
+      "free-text rationales",
+      "explanations for QA pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Free-text Rationale Evaluation"
+        ],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Explanation Generation"
+        ],
+        "models": [
+          "fast-text model",
+          "LSTM bi-encoder"
+        ],
+        "outputs": [
+          "rationales"
+        ]
+      },
+      "normalized": {
+        "Llama2-7b": "Llama-2-7B",
+        "Flan-T5 large": "Flan-T5-large",
+        "DeBERTaV3-large": "DeBERTa-V3-large",
+        "free-text rationales (explanations) for QA pairs": "free-text rationales"
+      },
+      "explanation": "Removed 'Other:Explanation Generation' as the main focus is rationale evaluation, not generation. Normalized model names to standard formats. Simplified outputs to avoid redundancy."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "RORA",
+      "REV",
+      "LAS",
+      "RQ"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "RORA ablation"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'RORA ablation' as it is an ablation study variant, not a distinct metric. Kept the four main evaluation metrics used in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The LLMs mentioned (GPT-4, GPT-3.5, etc.) were used to generate rationales, not to evaluate them."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators first provide binary judgment on whether rationale supports target label",
+      "If positive, rate how much new information rationale provides beyond restating question and answer on 5-point scale"
+    ],
+    "criteria": [
+      "Label",
+      "Information"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "new information provided"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "For each rationale, the annotator is first asked to provide a binary judgment on whether the rationale supports the target label. If the answer is positive, the annotators are asked to judge how much new information the rationale provides beyond restating the question and the answer.",
+          "Annotators first decide if the rationale supports the target label (binary). If yes, they rate how much new information the rationale provides beyond restating the question and answer on a 5‑point scale."
+        ],
+        "criteria": [
+          "supports target label (binary)",
+          "new information beyond restating (5‑point scale)",
+          "support for label",
+          "supports the target label",
+          "provides new information beyond restating the question and the answer"
+        ]
+      },
+      "normalized": {
+        "support for label": "support for target label"
+      },
+      "explanation": "Consolidated redundant guideline descriptions and criteria. Normalized to two clear evaluation criteria used in human evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating free-text rationales for QA tasks, proposing RORA metric to address label leakage issues. Human evaluation was conducted with clear criteria. Extraction was generally accurate with minor normalization needed."
+}

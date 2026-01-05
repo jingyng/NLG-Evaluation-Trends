@@ -1,0 +1,155 @@
+{
+  "paper_id": "2025.naacl-long.10",
+  "answer_1": {
+    "answer": "No",
+    "answer_changed": true,
+    "tasks": [
+      "Hate Speech Detection",
+      "Emotion Detection",
+      "Stereotype Analysis"
+    ],
+    "datasets": [
+      "HATECHECK",
+      "GPT-HATECHECK"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "hatebert",
+      "ToxDect-RoBERTa",
+      "perspective_api",
+      "Llama Guard 3"
+    ],
+    "outputs": [
+      "hate speech classification scores",
+      "emotion labels",
+      "stereotype content scores"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other: Hate speech detection",
+          "Other: Emotion detection",
+          "Other: Stereotype analysis"
+        ],
+        "outputs": [
+          "hate speech classification scores",
+          "emotion labels",
+          "stereotype content scores"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Data Generation",
+          "Other:stereotype extraction"
+        ],
+        "models": [
+          "GPT-3.5 Turbo",
+          "GPT-4"
+        ],
+        "outputs": [
+          "synthetic hate and non‑hate test case sentences",
+          "fine-grained emotions and stereotype phrases from hate speech examples"
+        ]
+      },
+      "normalized": {
+        "Other:emotion detection": "Other: Emotion detection",
+        "ToxDect-roberta": "ToxDect-RoBERTa",
+        "Llama Guard 3": "Llama Guard 3"
+      },
+      "explanation": "Changed answer from Yes to No. This paper primarily focuses on hate speech classification and analysis, not natural language generation. GPT models are used for dataset creation and auxiliary analysis, but not as the main NLG task being evaluated. Removed data generation tasks and outputs since the paper doesn't evaluate NLG."
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PRECISION",
+      "RECALL",
+      "F1",
+      "ACCURACY",
+      "EUCLIDEAN DISTANCE",
+      "Kernel Density Estimate",
+      "Mean normalized prediction"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Precision",
+          "Recall",
+          "F1",
+          "Accuracy",
+          "Euclidean distance",
+          "Kernel Density Estimate",
+          "Mean normalized prediction"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "kernel density estimate",
+          "mean normalized prediction"
+        ]
+      },
+      "normalized": {
+        "P/R/F1 scores": "Precision/Recall/F1",
+        "classification accuracy": "Accuracy",
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Normalized metric names and clarified that these are classification metrics, not NLG evaluation metrics. The paper uses classification metrics but not to evaluate generated text outputs since this is not an NLG paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "gpt_4o"
+    ],
+    "methods": [
+      "Prompted emotion classification",
+      "Prompted stereotype phrase extraction"
+    ],
+    "criteria": [
+      "Emotion",
+      "Presence"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "emotion classification": "Prompted emotion classification",
+        "stereotype phrase extraction": "Prompted stereotype phrase extraction",
+        "prompting for emotion detection": "Prompted emotion classification",
+        "prompting for stereotype phrase extraction": "Prompted stereotype phrase extraction",
+        "fine‑grained emotion labels (27 categories)": "Fine-grained emotion labels (27 categories)",
+        "presence of stereotype or counter‑stereotype span": "Presence of stereotype or counter-stereotype text spans"
+      },
+      "explanation": "Normalized method and criteria names. The paper does use LLMs as evaluators to extract emotions and stereotypes from text."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators checked each generated example for validity and consistency with the gold‑standard label."
+        ],
+        "criteria": [
+          "validity",
+          "consistency with gold‑standard label"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed human evaluation metadata. The paper mentions annotators validated the HATECHECK dataset during its creation (not by the authors), but the paper itself does not conduct human evaluations of generated outputs."
+    }
+  },
+  "overall_notes": "This paper is primarily about hate speech classification analysis, not natural language generation. While it mentions GPT models and dataset generation, the main focus is on evaluating hate speech detectors, not evaluating NLG systems. The extracted metadata was initially biased toward interpreting this as an NLG paper, but careful reading shows it's an analysis/classification paper that uses some NLG techniques incidentally."
+}

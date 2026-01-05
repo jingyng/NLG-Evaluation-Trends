@@ -1,0 +1,110 @@
+{
+  "paper_id": "2025.acl-long.725",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-as-Judge (SwiLTra-Judge setups) with human expert scores on the same 400 annotated samples, reports Spearman correlations, conducts statistical significance tests, and evaluates alignment between LLM and human judgments."
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "GPT-4o",
+      "GPT-4o-mini",
+      "Gemini-1.5-Pro",
+      "Gemini-1.5-Flash"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompts shown in Appendix listings 5 (detailed) and 6 (codebook). Tested two absolute grading styles (basic and detailed) and one deduction grading style (codebook)."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": {
+        "laws": 0.56,
+        "headnotes": 0.41
+      },
+      "interpretation": "Moderate agreement for laws (0.56), fair agreement for headnotes (0.41)",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Annotation guidelines with point deduction system provided in Appendix G. Experts used 0-100 scale focusing on completeness and accuracy with predefined deductions for legal terminology errors."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "translation_quality"
+    ],
+    "sample_size": {
+      "total_generated": 400,
+      "validated_by_both": 368,
+      "notes": "Originally 400 samples annotated by human experts, but 32 samples (8%) where experts disagreed by \u226530 points were excluded for higher confidence validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.5,
+        "criterion": "translation_quality",
+        "llm_model": "Gemini-1.5-Flash",
+        "significance": "p=0.0008 vs XCOMET",
+        "notes": "SwiLTra-Judge-Single (Gemini-1.5-Flash with codebook-diverse-deduction)"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.53,
+        "criterion": "translation_quality",
+        "llm_model": "Ensemble (GPT-4o-mini + Gemini-1.5-Flash)",
+        "significance": "p<0.0001 vs SwiLTra-Judge-Single",
+        "notes": "SwiLTra-Judge-Ensemble significantly outperforms single model"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": {
+          "mean": 0.41,
+          "range": "\u00b10.08"
+        },
+        "criterion": "translation_quality",
+        "llm_model": "GPT-4o",
+        "significance": "not specified",
+        "notes": "Average correlation across all tested configurations"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "not explicitly classified",
+      "threshold_used": "not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "SwiLTra-Judge achieves highest correlation with human judgments (0.53) among all tested metrics, significantly outperforming XCOMET (0.48) and other automated metrics. Deduction-style prompting aligns better with human experts than absolute grading."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Clarity",
+      "Fidelity"
+    ],
+    "human_only_criteria": [
+      "legal_conventions"
+    ],
+    "shared_criteria": [
+      "Accuracy",
+      "Completeness"
+    ],
+    "notes": "Both LLM and human evaluate accuracy and completeness, but LLM uses broader criteria while human focuses specifically on legal accuracy and adherence to legal conventions."
+  }
+}

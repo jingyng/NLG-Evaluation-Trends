@@ -1,0 +1,134 @@
+{
+  "paper_id": "2021.emnlp-main.337",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "XSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "roberta_base",
+      "factcc",
+      "factccx",
+      "fec"
+    ],
+    "outputs": [
+      "binary consistency label (Consistent/Inconsistent)",
+      "highlighted error tokens via gradient tracing"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Roberta-base"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "RoBERTa-base": "RoBERTa-base",
+        "Roberta-base": "RoBERTa-base",
+        "marco F1-score": "macro F1-score"
+      },
+      "explanation": "Normalized model names to standard format (RoBERTa-base), removed duplicate Roberta-base entry, and fixed 'marco' to 'macro' F1-score normalization"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "BALANCED ACCURACY",
+      "F1",
+      "TOKEN RECALL",
+      "SPAN RECALL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "macro F1",
+          "marco F1-score"
+        ]
+      },
+      "normalized": {
+        "marco F1-score": "macro F1-score",
+        "macro F1": "macro F1-score"
+      },
+      "explanation": "Consolidated metric variants into base forms and removed duplicates (macro F1 is same as macro F1-score). Kept the core metrics used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Roberta-base"
+        ],
+        "methods": [
+          "binary classification for factual consistency"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper does NOT use LLMs as judges. Roberta-base is used for the evaluation model itself, not as a judge. The binary classification is the model's primary function, not LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Judge factual consistency of summaries",
+      "Assess whether highlighted gradient tokens assist in judgment"
+    ],
+    "criteria": [
+      "Factuality",
+      "Helpfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Judge factual consistency and whether the highlighted tokens assist in judgment."
+        ],
+        "criteria": [
+          "helpfulness"
+        ]
+      },
+      "normalized": {
+        "helpfulness": "helpfulness of highlighted tokens"
+      },
+      "explanation": "Consolidated and clarified the guidelines and criteria. Removed the bullet point format and merged 'helpfulness' into the more specific 'helpfulness of highlighted tokens' criterion."
+    }
+  },
+  "overall_notes": "The paper focuses on factual consistency evaluation for abstractive summarization. It uses RoBERTa-based models for binary classification and gradient-based error tracing. The extraction was generally accurate with minor normalization needed for model names and metric variants. The human evaluation was properly conducted with clear criteria."
+}

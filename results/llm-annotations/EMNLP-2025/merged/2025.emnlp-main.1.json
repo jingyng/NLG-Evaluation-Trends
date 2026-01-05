@@ -1,0 +1,94 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "In conversational AI, undesirable behaviors in agent responses, such as logical inconsistencies or deficiencies in social competence, are commonly referred to as errors. Preventing such errors from reaching users during deployment is essential...",
+            "We prompt Llama-3.1 8B-Instruct to summarize the dialogue context, focusing on information indicative of errors in the last agent utterance... We prompt the model to generate definitions for newly discovered errors.",
+            "In this work, we introduce Automated Error Discovery as a framework for detecting and defining errors in conversational AI, and propose SEEED as an encoder-based approach to its implementation."
+        ],
+        "tasks": [
+            "Dialogue Generation",
+            "Text Summarization",
+            "Other:Error Definition Generation"
+        ],
+        "datasets": [
+            "FEDI",
+            "Soda-Eval",
+            "ABCEval",
+            "CLINC",
+            "BANKING",
+            "StackOverflow",
+            "FEDI-Error"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "SEEED",
+            "SynCID",
+            "LOOP",
+            "KNN-Contrastive",
+            "GPT-4o",
+            "Phi-4",
+            "Llama-3.1 8B-Instruct",
+            "bert-base-uncased"
+        ],
+        "outputs": [
+            "error detection and definition in dialogue contexts",
+            "dialogue summaries, error type definitions, error classification labels",
+            "dialogue summaries and error type definitions"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Evaluation Metrics We evaluate performance using the H-Score, the harmonic mean of accuracy on classes included and excluded during training (i.e., known and unknown error types), denoted Acc-K and Acc-U. For measuring the cluster quality in encoder-based approaches, we use the ARI and NMI scores.",
+            "We use FineSurE with DeepSeek-R1 14B and measure Faithfulness, Completeness, and Conciseness. Evaluation metrics also include H-Score, Acc-K, Acc-U, ARI, and NMI for detection performance.",
+            "We evaluate performance using the H-Score, the harmonic mean of accuracy on classes included and excluded during training (i.e., known and unknown error types), denoted Acc-K and Acc-U. For measuring the cluster quality in encoder-based approaches, we use the ARI and NMI scores."
+        ],
+        "automatic_metrics": [
+            "H-Score",
+            "Acc-K",
+            "Acc-U",
+            "ARI",
+            "NMI",
+            "t-test",
+            "Faithfulness",
+            "Completeness",
+            "Conciseness"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [
+            "We used FineSurE with DeepSeek-R1 14B and measure Faithfulness, Completeness, and Conciseness. Faithfulness assesses how accurately the summary reflects the original dialogue context, for example, whether hallucinations are present."
+        ],
+        "models": [
+            "DeepSeek-R1 14B"
+        ],
+        "methods": [
+            "FineSurE"
+        ],
+        "criteria": [
+            "Faithfulness",
+            "Completeness",
+            "Conciseness"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We perform a manual analysis to evaluate the alignment of generated definitions with ground truth definitions.",
+            "For generation, we consider ten dialogue contexts and their summaries, each associated by SEEED with the corresponding ground truth error types. We find that including summaries has a positive impact, as they provide contextual information that highlights the error exhibited in the last agent utterance."
+        ],
+        "guideline": [
+            "Human annotators compare each generated error definition to the ground‑truth definition and judge how well it captures the error type.",
+            "We perform a manual analysis to evaluate the alignment of generated definitions with ground truth definitions."
+        ],
+        "criteria": [
+            "alignment",
+            "fluency",
+            "informativeness"
+        ]
+    }
+}

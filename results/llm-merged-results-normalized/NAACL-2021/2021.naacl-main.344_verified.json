@@ -1,0 +1,112 @@
+{
+  "paper_id": "2021.naacl-main.344",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "MULTIOPED"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "bert"
+    ],
+    "outputs": [
+      "perspective summaries",
+      "generated perspective summaries"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "outputs": [
+          "abstracted viewpoints",
+          "perspective"
+        ]
+      },
+      "normalized": {
+        "MULTIOPED": "MULTIOPED",
+        "BART": "BART",
+        "BERT": "BERT"
+      },
+      "explanation": "Removed 'abstracted viewpoints' and 'perspective' from outputs as they are redundant with 'perspective summaries'. All other items were correct."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "BERTSCORE": "BERTScore",
+        "ROUGE": "ROUGE"
+      },
+      "explanation": "Normalized metric names to standard forms: 'BERTSCORE' to 'BERTScore' and kept 'ROUGE' as base form."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "BERT"
+        ],
+        "methods": [
+          "classification for stance",
+          "classification for relevance",
+          "relevance and stance classification"
+        ],
+        "criteria": [
+          "stance",
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. BERT is used as a classifier model for stance/relevance prediction during training, not as an LLM judge to evaluate generated outputs after generation. This is part of the multi-task learning setup, not LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Raters ranked summaries by overall quality with four criteria considered: Fluency, Grammatical Correctness, Faithfulness to arguments, Salience; also annotated for relevance and stance correctness."
+    ],
+    "criteria": [
+      "Fluency",
+      "Grammaticality",
+      "Faithfulness",
+      "Salience",
+      "Relevance",
+      "Stance"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "Fluency": "fluency",
+        "Grammatical Correctness": "grammatical correctness",
+        "Faithfulness": "faithfulness",
+        "Salience": "salience",
+        "Faithfulness to the arguments offered in the original abstract": "faithfulness",
+        "stance": "stance",
+        "relevance": "relevance"
+      },
+      "explanation": "Normalized criteria to lowercase and removed duplicates. All criteria mentioned in the paper were correctly extracted."
+    }
+  },
+  "overall_notes": "The paper focuses on perspective summarization from news editorials using the MULTIOPED dataset. The extraction was mostly accurate, except for Question 3 where BERT was incorrectly classified as an LLM judge when it was actually used as part of the training process in a multi-task learning setup. The paper conducts proper human evaluations with clear criteria and uses standard automatic metrics (ROUGE, BERTScore)."
+}

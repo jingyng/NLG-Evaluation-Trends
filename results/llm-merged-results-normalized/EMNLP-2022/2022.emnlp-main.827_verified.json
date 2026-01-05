@@ -1,0 +1,155 @@
+{
+  "paper_id": "2022.emnlp-main.827",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "NIST CHINESE ENGLISH",
+      "WMT14",
+      "WMT20"
+    ],
+    "languages": [
+      "Chinese",
+      "English",
+      "German",
+      "French"
+    ],
+    "models": [
+      "transformer",
+      "convseq_2seq",
+      "rnnsearch"
+    ],
+    "outputs": [
+      "machine-translated sentences",
+      "translated sentences (hypotheses)",
+      "hypotheses from NMT models"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "WMT'20 English-German"
+        ],
+        "languages": [],
+        "models": [
+          "ConvSeq2Seq",
+          "RNNSearch"
+        ],
+        "outputs": [
+          "hypotheses from NMT models"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "NIST Zh-En",
+          "WMT'14 En-De",
+          "WMT'14 En-Fr"
+        ],
+        "languages": [],
+        "models": [
+          "Transformer (base)",
+          "Transformer (big)",
+          "RNN",
+          "Deep Transformer",
+          "Wide Transformer"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "NIST Zh-En": "NIST Chinese-English",
+        "WMT'14 En-De": "WMT'14 English-German",
+        "WMT'14 En-Fr": "WMT'14 English-French"
+      },
+      "explanation": "Normalized dataset names to full forms, removed redundant model variations that are not distinct architectures, added datasets and models explicitly mentioned in the paper"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "CHRF",
+      "BLEURT",
+      "COMET",
+      "COMET QE",
+      "NDCG"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "nDCG"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Sentence-BLEU"
+        ]
+      },
+      "normalized": {
+        "Sentence-BLEU": "BLEU"
+      },
+      "explanation": "Added nDCG which is used for ranking evaluation, normalized Sentence-BLEU to BLEU since it's a variant of the same metric"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges in this paper - all evaluation is done with traditional metrics and human annotators"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rate translations on 0-100 Direct Assessment scale without reference",
+      "Annotators provide overall ranking quality score (1-5) for top-k outputs",
+      "Professional translators evaluate 'how far are the array of translations from perfect ranked outputs'"
+    ],
+    "criteria": [
+      "Quality",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Professional translators evaluate 'how far are the array of translations from perfect ranked outputs'"
+        ],
+        "criteria": [
+          "ranking accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "sentence quality (Direct Assessment score)",
+          "overall ranking of top‑k translations"
+        ]
+      },
+      "normalized": {
+        "sentence quality (Direct Assessment score)": "translation quality",
+        "overall ranking of top‑k translations": "ranking accuracy"
+      },
+      "explanation": "Consolidated criteria into simpler terms and added more specific guideline information from the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating NMT models' hypothesis ranking capabilities using both automatic metrics (BLEU, COMET, ChrF, etc.) and human evaluation. It introduces novel evaluation protocols (kRG, kQRG) based on hypothesis space analysis. The extraction was generally accurate but needed some normalization and addition of missing details from the full paper text."
+}

@@ -1,0 +1,77 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Our approach is to generate explanations in the form of multistep entailment trees... We define and train generative models, called EntailmentWriters, for this task.",
+            "We also define and train generative models, called EntailmentWriters, for this task, adapting earlier techniques for generating deductive proofs.",
+            "Our approach is to generate explanations in the form of multistep entailment trees... We define and train generative models, called EntailmentWriters, for this task, adapting earlier techniques for generating deductive proofs."
+        ],
+        "tasks": [
+            "Other:Entailment Tree Generation",
+            "Other:Explanation Generation",
+            "Other:explanation generation"
+        ],
+        "datasets": [
+            "ENTAILMENTBANK"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "EntailmentWriter (T5-based)",
+            "T5-11B",
+            "EntailmentWriter",
+            "T5"
+        ],
+        "outputs": [
+            "multistep entailment trees with intermediate conclusions",
+            "multistep entailment trees (textual explanations)",
+            "entailment trees encoded as linear sequences of multi-premise entailment steps"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We approach evaluating entailment trees as a two step problem... Our four metrics are: • Leaf Nodes (F1, AllCorrect) • Steps (F1, AllCorrect) • Intermediates (F1, AllCorrect) • Overall Proof (AllCorrect)... generation correctness as 1 if an aligned pair of int pred , int gold gives BLEURT > 0.28.",
+            "We use the F1/BLEURT metrics score elements of the tree (micro-averaging the results), while 'AllCorrect' checks if all the elements are correct.",
+            "We approach evaluating entailment trees as a two step problem. First, nodes in the predicted tree T_pred are aligned with nodes in gold tree T_gold... Once aligned, the aligned tree T_pred is scored against gold tree T_gold using the metrics below."
+        ],
+        "automatic_metrics": [
+            "Leaf F1",
+            "Leaf AllCorrect",
+            "Step F1",
+            "Step AllCorrect",
+            "Intermediate F1",
+            "Intermediate AllCorrect",
+            "Overall AllCorrect",
+            "BLEURT",
+            "F1",
+            "AllCorrect"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We randomly sampled and rated 50 trees on Task 1 and found human judgements estimated Overall AllCorrect at 58%...",
+            "Human judgements estimated Overall AllCorrect at 58% (vs. 35.6% comparing with the gold tree), suggesting the automated evaluation is underestimating true task performance.",
+            "To quantify this further, we randomly sampled and rated 50 trees on Task 1 and found human judgements estimated Overall AllCorrect at 58% (vs. 35.6% comparing with the gold tree, Table ), suggesting the automated evaluation is underestimating true task performance by ≈20% in this case."
+        ],
+        "guideline": [
+            "Human judges rated the overall correctness of generated entailment trees compared to automated metrics.",
+            "Raters were asked to assess whether the generated entailment tree was completely correct (overall correctness).",
+            "We find that a significant number of trees that were scored as invalid are in fact valid, suggesting that our automated metrics underestimate tree validity."
+        ],
+        "criteria": [
+            "overall correctness",
+            "Overall AllCorrect",
+            "validity of entailment trees"
+        ]
+    }
+}

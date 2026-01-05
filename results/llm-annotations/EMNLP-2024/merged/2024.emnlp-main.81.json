@@ -1,0 +1,77 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "we input a pair of entities into LLM and have it predict their relation.",
+            "In this paper, we use datasets WN18RR and FB15K-237 ... The task is knowledge graph reasoning, which is performed by finding missing entities given existing knowledge.",
+            "In the open domain strategy, we adopt prompts in the form of short answer questions to induce knowledge in LLMs. We do not restrict their output to necessarily follow the predefined KG relations and only imply what aspects of knowledge LLMs should focus on. The description of KG domains in prompts ensures that LLMs do not generate aimlessly. All the outputs are added into KGs as enriched relations on edges, without discarding any semantic information in LLMs."
+        ],
+        "tasks": [
+            "Other:Relation Generation",
+            "Other:relation description generation"
+        ],
+        "datasets": [
+            "WN18RR",
+            "FB15K-237"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "ChatGPT",
+            "LLAMA3-70B"
+        ],
+        "outputs": [
+            "Textual relations between entities",
+            "relation descriptions between entities"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "automatic evaluation in the closed and semi-closed domain strategies",
+            "We adopt MRR and Hits@3 as evaluation metrics ... (these are used to assess KG link prediction performance rather than generated text).",
+            "To intuitively illustrate the effectiveness of the knowledge in LLMs, we calculate the accuracy of the three knowledge alignment strategies from the perspective of relation prediction. Specifically, when there is a golden label of the relation in KGs, we check if LLMs pick up the correct option (automatic evaluation in the closed and semi-closed domain strategies) or if the output and the golden label semantically overlap (manual evaluation in the open domain strategy)."
+        ],
+        "automatic_metrics": [
+            "Accuracy",
+            "accuracy"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "we input the names of top-k candidate entities with the highest scores into prompts and utilize the knowledge in LLMs to rerank them based on the probability of semantically holding.",
+            "We input the names of top‑k candidate entities with the highest scores into prompts and utilize the knowledge in LLMs to rerank them.",
+            "After the reasoning of the KGR models, we will get a list of entities sorted by the scores calculated by scoring functions. Traditional structure-aware KGR models mainly reason over the KG connections. In this stage, we recall the correct answers using the reranking ability of LLMs based on the predicted entities of KGR models. Specifically, we input the names of top-k candidate entities with the highest scores into prompts (see Appendix C) and utilize the knowledge in LLMs to rerank them based on the probability of semantically holding."
+        ],
+        "models": [
+            "ChatGPT",
+            "LLAMA3-70B"
+        ],
+        "methods": [
+            "reranking via prompts",
+            "reranking"
+        ],
+        "criteria": [
+            "semantic plausibility"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "manual evaluation in the open domain strategy",
+            "When there is a golden label of the relation in KGs, we check if the output and the golden label semantically overlap (manual evaluation in the open domain strategy).",
+            "when there is a golden label of the relation in KGs, we check if LLMs pick up the correct option (automatic evaluation in the closed and semi-closed domain strategies) or if the output and the golden label semantically overlap (manual evaluation in the open domain strategy). When there are no golden labels, we make judgments based on the real world."
+        ],
+        "guideline": [
+            "checking if output semantically overlaps with golden label",
+            "Human annotators compare LLM‑generated relation descriptions with gold‑standard relations to judge semantic overlap/correctness.",
+            "check if the output and the golden label semantically overlap"
+        ],
+        "criteria": [
+            "semantic overlap",
+            "correctness"
+        ]
+    }
+}

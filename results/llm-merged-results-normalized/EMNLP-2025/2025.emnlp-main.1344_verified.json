@@ -1,0 +1,191 @@
+{
+  "paper_id": "2025.emnlp-main.1344",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Medical Question Answering",
+      "Text Summarization",
+      "Chain Of Thought Generation"
+    ],
+    "datasets": [
+      "REASONMED",
+      "MEDQA",
+      "MMLU",
+      "PUBMEDQA",
+      "MEDMCQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_2.5_7b",
+      "reasonmed_7b",
+      "reasonmed_14b",
+      "qwen_2.5_72b",
+      "deepseek_r_1_distill_llama_70b",
+      "huatuogpt_o_1_70b",
+      "gpt_4o_mini",
+      "gpt_o_1"
+    ],
+    "outputs": [
+      "Chain-of-thought reasoning paths",
+      "Concise answer summaries",
+      "Combined reasoning and summary responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Combined reasoning and summary responses"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Chain-of-Thought Reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Chain-of-Thought Generation": "Other:Chain-of-Thought Generation",
+        "Generated chain-of-thought reasoning paths and concise answer summaries for medical QA.": "Chain-of-thought reasoning paths",
+        "Each entry provides detailed multi-step CoT reasoning alongside a concise answer summary": "Concise answer summaries"
+      },
+      "explanation": "Removed redundant 'Other:Chain-of-Thought Reasoning' task since 'Other:Chain-of-Thought Generation' covers it. Normalized output descriptions for consistency. Added 'Combined reasoning and summary responses' to cover the hybrid approach mentioned."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "TOKEN LENGTH"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Score Evaluator (0-10 scale)",
+          "Score Evaluator rating (0-10)",
+          "token length",
+          "lm_eval framework"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "average token length": "Average token length"
+      },
+      "explanation": "Removed 'Score Evaluator' as it's an LLM-based evaluation method, not a standard automatic metric. Removed 'lm_eval framework' as it's an evaluation framework, not a metric. Kept 'Accuracy' and 'Average token length' as core automatic metrics used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "qwen_2.5_72b",
+      "gpt_4o",
+      "gpt_4o_mini",
+      "gpt_o_1"
+    ],
+    "methods": [
+      "Verifier",
+      "Quality Ranker",
+      "Score Evaluator"
+    ],
+    "criteria": [
+      "Accuracy",
+      "Logic",
+      "Factuality",
+      "Completeness",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "verdict judgment",
+          "scoring rubric",
+          "verification of CoT correctness",
+          "LLM-based quality scoring",
+          "quality ranking"
+        ],
+        "criteria": [
+          "correctness",
+          "clinical accuracy",
+          "Logical reasoning",
+          "Factual correctness",
+          "Completeness"
+        ]
+      },
+      "normalized": {
+        "clinical accuracy": "Clinical accuracy",
+        "logical reasoning": "Logical reasoning",
+        "factual correctness": "Factual correctness",
+        "completeness": "Completeness",
+        "answer correctness": "Answer correctness",
+        "logical coherence": "Logical coherence",
+        "medical factuality": "Medical factuality"
+      },
+      "explanation": "Removed redundant method descriptions and normalized criteria to standard forms. Kept the three main evaluation methods (Verifier, Quality Ranker, Score Evaluator) used in the LLM-as-judge pipeline."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Physicians evaluated structured reasoning, systematic distractor elimination, use of core medical concepts, redundancy/verbosity, presence of external citations, and specificity of clinical details"
+    ],
+    "criteria": [
+      "Reasoning",
+      "Elimination",
+      "Medical",
+      "Verbosity",
+      "External",
+      "Clinical"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Physicians evaluated structured reasoning, systematic distractor elimination, redundancy, lack of citations, and missing clinical specifics.",
+          "Their evaluations align with our automatic scores and surface concrete strengths, such as structured reasoning (87%) and systematic distractor elimination (82%), alongside actionable gaps, including insufficient external citations (68%) and limited clinical specifics (35%)."
+        ],
+        "criteria": [
+          "structured reasoning",
+          "systematic distractor elimination",
+          "redundancy/verbosity",
+          "lack of external validation/citations",
+          "missing clinical specifics",
+          "insufficient external citations",
+          "limited clinical specifics"
+        ]
+      },
+      "normalized": {
+        "structured reasoning": "Structured reasoning",
+        "systematic distractor elimination": "Systematic distractor elimination",
+        "core medical concepts usage": "Core medical concepts usage",
+        "redundancy/verbosity": "Redundancy/verbosity",
+        "external citations": "External citations",
+        "clinical specifics": "Clinical specifics"
+      },
+      "explanation": "Consolidated guideline description and normalized criteria to remove redundancy. Used positive phrasing for criteria (e.g., 'External citations' instead of 'lack of external citations')."
+    }
+  },
+  "overall_notes": "The paper focuses on medical question answering with chain-of-thought generation and summarization. The extraction was generally accurate but contained some redundancy and inconsistent naming. Key contributions include the ReasonMed dataset and multi-agent pipeline for generating and evaluating medical reasoning outputs. The paper uses both automatic metrics and LLM/human evaluation extensively."
+}

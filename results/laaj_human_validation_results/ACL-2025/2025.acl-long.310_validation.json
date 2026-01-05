@@ -1,0 +1,147 @@
+{
+  "paper_id": "2025.acl-long.310",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM judgments against human evaluations by comparing GPT-o1 ratings with human ratings on the same 50 test instances and reporting Fleiss' Kappa agreement scores for each evaluation criterion."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-o1"
+    ],
+    "prompts": {
+      "provided": "no",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "no",
+      "notes": "The paper mentions that instructions for LMM-as-Judge evaluation are provided in Appendix O but does not show the exact prompts in the main text."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' Kappa",
+      "value": 0.787,
+      "interpretation": "substantial level of agreement",
+      "per_criterion": [
+        {
+          "criterion": "Faithfulness",
+          "metric": "Fleiss' Kappa",
+          "value": 0.767
+        },
+        {
+          "criterion": "Relevance",
+          "metric": "Fleiss' Kappa",
+          "value": 0.842
+        },
+        {
+          "criterion": "Informativeness",
+          "metric": "Fleiss' Kappa",
+          "value": 0.721
+        },
+        {
+          "criterion": "Conciseness",
+          "metric": "Fleiss' Kappa",
+          "value": 0.792
+        },
+        {
+          "criterion": "Coherence",
+          "metric": "Fleiss' Kappa",
+          "value": 0.813
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full evaluation instructions are provided in Appendix N; evaluators use a 1-5 Likert scale and provide overall rankings."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Fleiss' Kappa"
+    ],
+    "shared_criteria": [
+      "Faithfulness",
+      "Relevance",
+      "Informativeness",
+      "Conciseness",
+      "Coherence"
+    ],
+    "sample_size": {
+      "total_generated": 1859,
+      "validated_by_both": 50,
+      "notes": "Validation conducted on 50 randomly selected instances from the test set (total test size: 1,859 instances)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Fleiss' Kappa",
+        "value": 0.732,
+        "criterion": "Faithfulness",
+        "llm_model": "GPT-o1",
+        "significance": "Not reported",
+        "notes": "Agreement between GPT-o1 and mean human ratings"
+      },
+      {
+        "metric": "Fleiss' Kappa",
+        "value": 0.803,
+        "criterion": "Relevance",
+        "llm_model": "GPT-o1",
+        "significance": "Not reported",
+        "notes": "Agreement between GPT-o1 and mean human ratings"
+      },
+      {
+        "metric": "Fleiss' Kappa",
+        "value": 0.73,
+        "criterion": "Informativeness",
+        "llm_model": "GPT-o1",
+        "significance": "Not reported",
+        "notes": "Agreement between GPT-o1 and mean human ratings"
+      },
+      {
+        "metric": "Fleiss' Kappa",
+        "value": 0.792,
+        "criterion": "Conciseness",
+        "llm_model": "GPT-o1",
+        "significance": "Not reported",
+        "notes": "Agreement between GPT-o1 and mean human ratings"
+      },
+      {
+        "metric": "Fleiss' Kappa",
+        "value": 0.721,
+        "criterion": "Coherence",
+        "llm_model": "GPT-o1",
+        "significance": "Not reported",
+        "notes": "Agreement between GPT-o1 and mean human ratings"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "substantial",
+      "threshold_used": "Not explicitly stated, but all kappa values > 0.7 suggest substantial agreement",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Human evaluators and GPT-o1 achieve substantial levels of agreement across all five dimensions (Faithfulness: κ=0.732, Relevance: κ=0.803, Informativeness: κ=0.730, Conciseness: κ=0.792, Coherence: κ=0.721), with LLM judgments broadly consistent with human evaluations."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "overall ranking"
+    ],
+    "shared_criteria": [
+      "Faithfulness",
+      "Relevance",
+      "Informativeness",
+      "Conciseness",
+      "Coherence"
+    ],
+    "notes": "Both LLM and human evaluate the same five quality dimensions using Likert scale ratings; human evaluators additionally provide overall rankings."
+  }
+}

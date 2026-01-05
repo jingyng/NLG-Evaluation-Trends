@@ -1,0 +1,136 @@
+{
+  "paper_id": "2022.naacl-main.269",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Update",
+      "Grounded Editing",
+      "Faithfully Reflecting Updated Information In Text Fruit"
+    ],
+    "datasets": [
+      "FRUIT WIKI",
+      "FRUIT WIKI GOLD EVALUATION SET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5",
+      "edit_5",
+      "copy_source"
+    ],
+    "outputs": [
+      "Updated Wikipedia articles reflecting new information",
+      "Text with faithful edits based on external evidence"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "COPY-SOURCE"
+        ],
+        "datasets": [
+          "FRUIT-WIKI (gold evaluation set)"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Copy Source"
+        ],
+        "outputs": [
+          "Updated Wikipedia articles (text with edits)"
+        ]
+      },
+      "normalized": {
+        "Copy Source": "COPY-SOURCE",
+        "Gold evaluation set": "FRUIT-WIKI (gold evaluation set)"
+      },
+      "explanation": "Normalized model names to uppercase, clarified dataset name, removed redundant output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "UPDATEROUGE",
+      "ENTITY PRECISION",
+      "ENTITY RECALL",
+      "UNSUPPORTED ENTITY TOKENS",
+      "SPEARMAN RANK CORRELATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "ROUGE"
+        ]
+      },
+      "removed": {},
+      "normalized": {},
+      "explanation": "Added ROUGE which is explicitly mentioned as a baseline metric alongside UpdateROUGE"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Correctly answered No - paper does not use LLMs as judges. Removed placeholder 'None' values"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators highlight unsupported claims and incorrect reference labels in target articles",
+      "Annotators remove unsupported text and minimally update articles to preserve fluency",
+      "Model outputs categorized into grounded vs ungrounded updates with error sub-categories"
+    ],
+    "criteria": [
+      "Claim",
+      "Correctness",
+      "Fluency",
+      "Additional",
+      "Content",
+      "Evidence",
+      "Hallucination"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "supported claims",
+          "reference label correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Annotators were shown the source article, evidence, and a marked up copy of the target article."
+        ],
+        "criteria": [
+          "unsupported claims",
+          "grounded vs ungrounded updates"
+        ]
+      },
+      "normalized": {
+        "unsupported claims": "supported claims"
+      },
+      "explanation": "Streamlined guidelines and criteria - removed procedural details, focused on evaluation criteria, normalized redundancy"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper clearly addresses NLG (text update/generation task), uses both automatic metrics and human evaluation, but does not use LLMs as judges. The FRUIT task is well-defined and the evaluation methodology is comprehensive."
+}

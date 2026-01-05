@@ -1,0 +1,159 @@
+{
+  "paper_id": "2023.acl-long.646",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Prompt Continuation",
+      "Text To Image Generation"
+    ],
+    "datasets": [
+      "EMPATHETICDIALOGUES",
+      "convai2",
+      "BOT ADVERSARIAL DIALOGUE BAD",
+      "DAILYDIALOG",
+      "REALTOXICITYPROMPTS",
+      "BLOOM ZS",
+      "OPT 66b ZS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "blenderbot_3b",
+      "godel_large",
+      "dialogpt_large",
+      "gpt_3",
+      "stable_diffusion",
+      "gpt_3.5"
+    ],
+    "outputs": [
+      "Dialogue responses",
+      "Text continuations",
+      "Generated images",
+      "Offensive textual responses",
+      "NSFW images"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-3",
+          "Stable Diffusion",
+          "GPT-3.5"
+        ],
+        "outputs": [
+          "Dialogue responses",
+          "Text continuations",
+          "Generated images",
+          "Offensive textual responses",
+          "NSFW images"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:prompt continuation",
+          "Other:text-to-image generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Marv",
+          "Friend chat",
+          "BlenderBot"
+        ],
+        "outputs": [
+          "Responses in dialogue, text continuations, generated images",
+          "dialogue responses, text continuations, images"
+        ]
+      },
+      "normalized": {
+        "Other:Prompt Continuation": "Other:Prompt Continuation",
+        "Other:Text-to-Image Generation": "Other:Text-to-Image Generation",
+        "Bloom ZS": "Bloom ZS",
+        "OPT-66B ZS": "OPT-66B ZS",
+        "GPT-3.5 (Marv, Friend chat)": "GPT-3.5"
+      },
+      "explanation": "Normalized task names to title case, consolidated model names (Marv and Friend chat are GPT-3.5 based), removed redundant outputs, simplified to core NLG tasks and models evaluated"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "RSR",
+      "SELF BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Perplexity"
+        ]
+      },
+      "normalized": {
+        "Self-BLEU (k)": "Self-BLEU"
+      },
+      "explanation": "Simplified Self-BLEU (k) to base form Self-BLEU, removed Perplexity as it was only briefly mentioned in Appendix but not used as main evaluation metric"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges for evaluation - all evaluation is done through automatic metrics or human evaluators"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three evaluators vote on offensiveness of dialogue; test case considered positive if ≥2 evaluators label it offensive"
+    ],
+    "criteria": [
+      "Offensiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three evaluators vote on offensiveness of dialogue; test case considered positive if ≥2 evaluators label it offensive"
+        ],
+        "criteria": [
+          "offensiveness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "For each sampled test case t, we asked three evaluators vote on the offensiveness of a dialogue t  ∥ G θ (t)",
+          "Three annotators vote on whether the dialogue is offensive; a test case is considered positive if at least two annotators label it offensive.",
+          "For each sampled test case t, we asked three evaluators vote on the offensiveness of a dialogue t  ∥ G θ (t). We identified the test case as positive if two or more evaluators vote the dialogue as offensive."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "offensiveness": "offensiveness"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement, included offensiveness as the single criterion used in human evaluation"
+    }
+  },
+  "overall_notes": "The paper focuses on query-efficient black-box red teaming using Bayesian optimization to identify offensive outputs from generative models. The extraction was generally accurate but needed normalization and consolidation of redundant information. The paper evaluates multiple NLG tasks and uses both automatic metrics (RSR, Self-BLEU) and human evaluation (Amazon Mechanical Turk) for assessment."
+}

@@ -1,0 +1,95 @@
+{
+  "paper_id": "2024.acl-long.46",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-based BRI metric against human evaluation by correlating human preference scores with various metrics including BRI, showing BRI has stronger correlation with human judgment"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "ChatGPT",
+      "GPT-3.5"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Chain-of-thought prompts for LLM questioner shown in Appendix A, filtering process prompts described but exact text not fully provided"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 30,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": "Not reported",
+      "interpretation": "Not reported",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed evaluation instructions provided to human testers including scenario description and specific questions about effectiveness and efficiency"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Spearman correlation",
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "system effectiveness",
+      "system efficiency"
+    ],
+    "sample_size": {
+      "total_generated": 60,
+      "validated_by_both": 60,
+      "notes": "60 instances were presented to each of the 30 human testers for evaluation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": "highest among tested metrics",
+        "criterion": "human preference",
+        "llm_model": "BRI metric validation",
+        "significance": "not specified",
+        "notes": "Results presented in Table show BRI is significantly more strongly correlated with human preference than Recall, MRR, NDCG, and Hits metrics"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": "highest among tested metrics",
+        "criterion": "human preference",
+        "llm_model": "BRI metric validation",
+        "significance": "not specified",
+        "notes": "Results presented in Table show BRI is significantly more strongly correlated with human preference than Recall, MRR, NDCG, and Hits metrics"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strongly correlated",
+      "threshold_used": "Compared relative to other metrics",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "BRI metric shows significantly stronger correlation with human preference compared to existing metrics (Recall, MRR, NDCG, Hits), demonstrating better alignment with human judgment for interactive retrieval systems."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "redundancy",
+      "answerability"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "system effectiveness",
+      "system efficiency"
+    ],
+    "notes": "LLMs used for question generation and filtering, while BRI metric (validated against human preference) evaluates overall system performance based on effectiveness and efficiency criteria also evaluated by humans"
+  }
+}

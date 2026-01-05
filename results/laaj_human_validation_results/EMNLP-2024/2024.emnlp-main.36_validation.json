@@ -1,0 +1,141 @@
+{
+  "paper_id": "2024.emnlp-main.36",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-based readability measures (LLM-Score) against human evaluation through correlation analysis on the same concepts, reporting multiple correlation metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4",
+      "Claude 3"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper references OpenAI's pipeline and shows examples of GPT-4 generated explanations in Fig. X (appendix). LLM-Score calculation involves: 1) LLM summarizes natural language explanation for concept given formatted samples, 2) LLM guesses activation given sample text and generated explanation, 3) calculates score based on variance between true and simulated activation"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Kendall's τ",
+      "value": 0.79,
+      "interpretation": "high agreement",
+      "per_criterion": [
+        {
+          "criterion": "input readability",
+          "metric": "Kendall's τ",
+          "value": 0.77
+        },
+        {
+          "criterion": "output readability",
+          "metric": "Kendall's τ",
+          "value": 0.75
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed guidelines provided in appendix including evaluation criteria (semantic, grammatical/syntactic, morphological information), scoring procedure (1-5 scale), and time constraints (5 minutes per concept). Labelers were selected from academic institution with high school English proficiency."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Kendall correlation",
+      "Pearson correlation",
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "readability"
+    ],
+    "sample_size": {
+      "total_generated": 200,
+      "validated_by_both": 200,
+      "notes": "200 concepts evaluated by both LLM and human labelers, with LLM-Score restricted to 200 concepts due to computational cost"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Kendall correlation",
+        "value": 0.54,
+        "criterion": "input readability",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "LLM-Score correlation with human input readability"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.7,
+        "criterion": "input readability",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "LLM-Score correlation with human input readability"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.67,
+        "criterion": "input readability",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "LLM-Score correlation with human input readability"
+      },
+      {
+        "metric": "Kendall correlation",
+        "value": 0.09,
+        "criterion": "output readability",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "LLM-Score correlation with human output readability - low correlation"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.12,
+        "criterion": "output readability",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "LLM-Score correlation with human output readability - low correlation"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.12,
+        "criterion": "output readability",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "LLM-Score correlation with human output readability - low correlation"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "implied",
+      "interpretation": "moderate for input readability, weak for output readability",
+      "threshold_used": "not explicitly defined",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM-Score shows moderate correlation with human input readability (Kendall's τ=0.54, Pearson r=0.70) but very weak correlation with output readability (Kendall's τ=0.09), suggesting LLM evaluation is more effective for input-side assessment than output-side assessment."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "explanation score based on activation variance"
+    ],
+    "human_only_criteria": [
+      "grammatical information",
+      "syntactic information",
+      "morphological information"
+    ],
+    "shared_criteria": [
+      "semantic information",
+      "readability"
+    ],
+    "notes": "LLM-Score evaluates coherence and activation simulation while human evaluation assesses broader aspects including semantic, grammatical, syntactic, and morphological information. Both evaluate semantic coherence aspect of readability."
+  }
+}

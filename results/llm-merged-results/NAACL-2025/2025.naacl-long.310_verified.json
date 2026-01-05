@@ -1,0 +1,113 @@
+{
+  "paper_id": "2025.naacl-long.310",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering"
+    ],
+    "datasets": [
+      "PaperTab",
+      "FetaTab",
+      "SciGraphQA",
+      "SPIQA",
+      "SlideVQA",
+      "VisDoMBench"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Qwen2-VL",
+      "Gemini-1.5-Flash",
+      "ChatGPT-4o",
+      "Qwen2-VL-7B-Instruct"
+    ],
+    "outputs": [
+      "textual answers to user queries",
+      "answers to multi-document multimodal questions"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "VisDoMBench"
+        ],
+        "models": [
+          "Gemini-1.5-Flash"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Pa-perTab",
+          "FeTaTab"
+        ],
+        "models": [
+          "Gemini"
+        ]
+      },
+      "normalized": {
+        "Pa-perTab": "PaperTab",
+        "FeTaTab": "FetaTab",
+        "Gemini": "Gemini-1.5-Flash",
+        "ChatGPT4o": "ChatGPT-4o"
+      },
+      "explanation": "Normalized dataset and model names, removed duplicates, added VisDoMBench as it's the main benchmark"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Word Overlap F1",
+      "ANLCS"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Metrics were correctly extracted and don't need normalization"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "ChatGPT4o"
+        ],
+        "methods": [
+          "consistency evaluation"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper doesn't use LLMs as judges after generation; ChatGPT-4o is used for modality fusion during generation, not as a separate evaluator"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "guideline": [
+          "The rubric guides the annotator to either select one of the five generated questions, retain the original question, or mark all questions (synthetic and actual) as ambiguous, in which case, the data point is discarded."
+        ],
+        "criteria": [
+          "Natural Sounding",
+          "Context Specificity and 1-1 Mapping",
+          "Not Over-Augmented"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since human evaluation was only for dataset preparation (query augmentation), not for evaluating generated outputs"
+    }
+  },
+  "overall_notes": "The paper focuses on multimodal question answering with a novel RAG approach. The extraction was generally accurate, but needed normalization of model/dataset names and clarification that human evaluation was for dataset prep, not output evaluation."
+}

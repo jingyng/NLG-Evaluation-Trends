@@ -1,0 +1,99 @@
+{
+  "paper_id": "2021.acl-long.539",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DM",
+      "XSum"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART-large",
+      "BART-large-xsum",
+      "BART-large-cnn",
+      "PEGASUS",
+      "T5"
+    ],
+    "outputs": [
+      "abstractive summaries",
+      "Generated summary tokens (y1 … yT) produced by the abstractive summarization model"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "PEGASUS",
+          "T5"
+        ]
+      },
+      "removed": {
+        "models": [
+          "bart-large-cnn",
+          "bartlarge-xsum",
+          "BART"
+        ]
+      },
+      "normalized": {
+        "bart-large-cnn": "BART-large-cnn",
+        "bartlarge-xsum": "BART-large-xsum"
+      },
+      "explanation": "Normalized model names to consistent capitalization, removed redundant 'BART' (covered by specific versions), added PEGASUS and T5 which are explicitly mentioned as pre-trained models used for summarization"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "Cross-entropy loss",
+      "L1 distance"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Cross-entropy loss",
+          "L1 distance"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "NLL loss"
+        ]
+      },
+      "normalized": {
+        "NLL loss": "Cross-entropy loss"
+      },
+      "explanation": "Changed answer from No to Yes since the paper uses automatic metrics to evaluate attribution methods. The paper uses cross-entropy loss (NLL loss) and L1 distance between probability distributions to evaluate how well attribution methods identify important input content. Normalized 'NLL loss' to 'Cross-entropy loss' as they are equivalent."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper. The paper focuses on model interpretation techniques, not LLM-based evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. The evaluation is entirely automated using the proposed attribution evaluation framework."
+    }
+  },
+  "overall_notes": "The paper focuses on interpreting abstractive summarization models through ablation and attribution methods, not on evaluating the quality of generated summaries. The automatic metrics mentioned are used to evaluate attribution methods (how well they identify important input content), not to directly evaluate summary quality. The extraction was generally accurate but missed some important details about the evaluation metrics used."
+}

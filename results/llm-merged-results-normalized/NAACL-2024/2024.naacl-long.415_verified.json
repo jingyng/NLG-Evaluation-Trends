@@ -1,0 +1,148 @@
+{
+  "paper_id": "2024.naacl-long.415",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "REDDIT CONTROVERSIAL CONVERSATIONS",
+      "PROSOCIALDIALOG"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "cosmo_xl",
+      "canary+cosmo_xl",
+      "gpt_4",
+      "gpt_3.5"
+    ],
+    "outputs": [
+      "Conversational moderation responses"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "outputs": [],
+        "datasets": [],
+        "languages": [],
+        "tasks": []
+      },
+      "removed": {
+        "models": [
+          "GPT-Baseline",
+          "GPT-NVC",
+          "GPT-Socratic",
+          "Canary"
+        ],
+        "outputs": [
+          "Generated dialogue responses for conversational moderation",
+          "moderator textual responses"
+        ],
+        "datasets": [
+          "Reddit"
+        ],
+        "languages": [],
+        "tasks": []
+      },
+      "normalized": {
+        "Cosmo-XL": "Cosmo-XL",
+        "Canary+Cosmo-XL": "Canary+Cosmo-XL",
+        "GPT-4": "GPT-4",
+        "GPT-3.5": "GPT-3.5"
+      },
+      "explanation": "Removed GPT-Baseline, GPT-NVC, GPT-Socratic as these are prompting variants of GPT-4/GPT-3.5 rather than distinct models. Removed standalone 'Canary' as it's part of Canary+Cosmo-XL. Simplified outputs to single consistent description. Removed 'Reddit' as the conversations are custom-collected from Reddit."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "HUMAN WORD COUNT",
+      "SPEARMAN RANK CORRELATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Human word count"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Spearman's rank correlation coefficient": "Spearman's rank correlation"
+      },
+      "explanation": "Changed answer from 'No' to 'Yes' because the paper uses human word count as an automatic metric to evaluate moderation effectiveness. Spearman's correlation is used to validate metrics but human word count is an evaluation metric itself."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "gpt_3.5"
+    ],
+    "methods": [
+      "Survey question evaluation",
+      "Controversy filtering"
+    ],
+    "criteria": [
+      "Cooperative",
+      "Respectful",
+      "Fairness",
+      "Specificity"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "LLM scoring of survey responses",
+          "GPT-4 as annotator",
+          "survey question answering"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "answering survey questions with Likert scale": "Survey question evaluation"
+      },
+      "explanation": "Consolidated methods to clearer descriptions. GPT-4 is used both for filtering controversial conversations pre-study and for evaluating survey responses post-generation, both qualify as LLM-as-judge applications."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants answer four 5-point Likert scale questions assessing cooperative, respectful, fair, and specific dimensions of moderation effectiveness"
+    ],
+    "criteria": [
+      "Cooperative",
+      "Respectful",
+      "Fairness",
+      "Specificity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Participants answer survey questions on a 5-point Likert scale assessing cooperative, respectful, fair, and specific dimensions.",
+          "Participants are asked to answer four questions that correspond to the metrics in Section 2.2: whether the model was able to change the participant's behavior into facilitating cooperation and preventing abuse, and whether the moderator was fair and specific."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant guideline descriptions into a single clear statement. The criteria list was already correct and complete."
+    }
+  },
+  "overall_notes": "The paper presents a thorough evaluation framework for conversational moderation using NLG. Key findings: prompted LLMs (particularly GPT-4 with Socratic techniques) outperform dialogue models; evaluations differ between first-person (moderated user) and third-person (observer) perspectives; human word count shows weak correlation with cooperative behavior. The extraction was mostly accurate but needed clarification on model distinctions and missing automatic metric."
+}

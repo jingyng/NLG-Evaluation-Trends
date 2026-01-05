@@ -1,0 +1,150 @@
+{
+  "paper_id": "2025.naacl-long.42",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Jailbreak Prompt Generation",
+      "Other:Instruction Response Generation"
+    ],
+    "datasets": [
+      "AdvBench",
+      "HarmBench",
+      "JailbreakBench",
+      "GPTFuzzer"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-2-7B-chat",
+      "LLaMA-3-8B-Instruct",
+      "Gemini-1.5-Pro",
+      "GPT-3.5",
+      "GPT-4",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "Generated jailbreak prompts",
+      "LLM responses to malicious queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-4o"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "AdvBench custom"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "AdvBench custom": "AdvBench",
+        "GPT-3.5-1106": "GPT-3.5",
+        "GPT-3.5-0613": "GPT-3.5",
+        "GPT-4-0613": "GPT-4",
+        "GPT-4o-2024-05-13": "GPT-4o"
+      },
+      "explanation": "Normalized dataset names (AdvBench custom → AdvBench), consolidated model versions, and added GPT-4o which is evaluated in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Attack Success Rate (ASR)"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ASR",
+          "DeBERTaV3-based classifier scores"
+        ]
+      },
+      "normalized": {
+        "ASR": "Attack Success Rate (ASR)"
+      },
+      "explanation": "Consolidated 'ASR' into 'Attack Success Rate (ASR)' as they refer to the same metric. Removed 'DeBERTaV3-based classifier scores' as this is an implementation detail for calculating ASR, not a separate metric."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4",
+      "ChatGPT"
+    ],
+    "methods": [
+      "Prompt-based classification with yes/no response"
+    ],
+    "criteria": [
+      "Harmfulness",
+      "Relevance to query"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "Relevance to query"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "sentence‑pair classification prompt",
+          "Prompt for GPT-based judgement model"
+        ],
+        "criteria": [
+          "harmful",
+          "answers the user's query"
+        ]
+      },
+      "normalized": {
+        "harmfulness": "Harmfulness",
+        "answers the user's query": "Relevance to query",
+        "prompt-based classification with 'Yes'/'No' response": "Prompt-based classification with yes/no response"
+      },
+      "explanation": "Normalized criteria names and consolidated method descriptions. Added 'Relevance to query' as an explicit evaluation criterion mentioned in the paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual labeling for classification of jailbreak success based on whether responses were harmful and fulfilled malicious requests"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual labeling for classification of jailbreak success based on whether responses were harmful and fulfilled malicious requests"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Manual labeling for classification of jailbreak success",
+          "Human annotators manually labeled request‑response pairs to judge whether the generated output was harmful and fulfilled the malicious request.",
+          "Our judgement model is applied to the individual responses of each character rather than directly evaluating the aggregated responses of all characters."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated multiple guideline descriptions into a single clear statement. No explicit criteria were mentioned beyond harmfulness and request fulfillment."
+    }
+  },
+  "overall_notes": "The paper focuses on jailbreak attacks against LLMs, which involves natural language generation (jailbreak prompts and LLM responses). Metadata extraction was generally accurate but needed normalization of model versions and dataset names. The paper evaluates generation outputs using both automatic metrics (ASR) and human evaluation."
+}

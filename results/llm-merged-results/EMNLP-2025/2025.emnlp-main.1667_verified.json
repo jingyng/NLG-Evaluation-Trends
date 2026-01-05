@@ -1,0 +1,152 @@
+{
+  "paper_id": "2025.emnlp-main.1667",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Aggregative Question Answering"
+    ],
+    "datasets": [
+      "WildChat-AQA"
+    ],
+    "languages": [
+      "English",
+      "Spanish",
+      "Chinese",
+      "French",
+      "German",
+      "Russian",
+      "Portuguese",
+      "Turkish",
+      "Arabic",
+      "Italian",
+      "Korean",
+      "Vietnamese",
+      "Polish",
+      "Dutch",
+      "Indonesian",
+      "Tagalog",
+      "Ukrainian",
+      "Latin",
+      "Other"
+    ],
+    "models": [
+      "Gemma3-4B",
+      "Qwen3-8B",
+      "Qwen3-32B",
+      "GPT-4.1-mini",
+      "o4-mini",
+      "Qwen3-8B-think",
+      "Qwen3-32B-think",
+      "GPT-4o",
+      "OpenAI-o1",
+      "o3-mini"
+    ],
+    "outputs": [
+      "dynamic answers to aggregative queries based on large-scale conversational data",
+      "Aggregative answers (ranked candidate answers) to multi-choice questions derived from large-scale conversation data",
+      "The outputs are ranked lists of candidate answers to aggregative questions about large-scale user-chatbot interactions, such as trending topics, demographic-specific concerns, or sentiment shifts."
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "OpenAI-o1",
+          "o3-mini"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Gemma-3B",
+          "Gemma 3-4B"
+        ]
+      },
+      "normalized": {
+        "Gemma 3-4B": "Gemma3-4B",
+        "Qwen3-8B-think": "Qwen3-8B-think",
+        "Qwen3-32B-think": "Qwen3-32B-think"
+      },
+      "explanation": "Removed duplicate model entries (Gemma-3B, Gemma 3-4B) and normalized model names. Added missing LLMs used in the pipeline (OpenAI-o1, o3-mini)."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "NDCG"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "NDCG@1",
+          "NDCG@3",
+          "NDCG@5",
+          "NDCG@10"
+        ]
+      },
+      "normalized": {
+        "NDCG@1": "NDCG",
+        "NDCG@3": "NDCG",
+        "NDCG@5": "NDCG",
+        "NDCG@10": "NDCG"
+      },
+      "explanation": "Normalized all NDCG variants to base form 'NDCG' following simplification guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "o4-mini"
+    ],
+    "methods": [
+      "ranking options by relevance or correctness",
+      "ranking target candidates with and without context",
+      "computing NDCG@10 for contextual improvement"
+    ],
+    "criteria": [
+      "relevance",
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "ranking target candidates with and without context",
+          "computing NDCG@10 for contextual improvement"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "ranking of candidate answers using LLM prompts"
+        ]
+      },
+      "normalized": {
+        "ranking options by relevance or correctness": "ranking options by relevance or correctness"
+      },
+      "explanation": "Removed redundant method description and added missing LLM-as-judge methods from the paper."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators were asked to label topics and subtopics for 100 randomly sampled examples each for level-1 (topic) and level-2 (subtopic) taxonomy labeling, treating each category as an independent binary labeling task."
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation of generated outputs was conducted - only annotation for dataset construction. The answer remains 'No'."
+    }
+  },
+  "overall_notes": "The paper introduces Aggregative Question Answering as a new NLG task focused on generating insights from large-scale conversational data. It uses NDCG as the main evaluation metric and employs LLMs as judges for ranking candidate answers. The human evaluation mentioned was for dataset annotation, not for evaluating generated outputs. Extraction quality was generally good with minor normalization needed."
+}

@@ -1,0 +1,123 @@
+{
+  "paper_id": "2022.emnlp-main.243",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Question Answering"
+    ],
+    "datasets": [
+      "PubMedQA",
+      "DUC",
+      "XSum",
+      "SQuAD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART-large",
+      "prefix-tuning"
+    ],
+    "outputs": [
+      "Query-focused summaries",
+      "Text summaries",
+      "Question answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Text summaries",
+          "Question answers"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "SQUAD 1.1"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "SQUAD 1.1": "SQuAD",
+        "Generated summaries for query-focused summarization": "Query-focused summaries",
+        "Generated query-focused summaries (1–3 sentence answers) for PubMedQA and multi-document summaries for DUC": "Query-focused summaries",
+        "summaries containing 1-3 sentences as an answer to a question based on a medical related document": "Query-focused summaries"
+      },
+      "explanation": "Added 'Question Answering' as a task since both text summarization and QA are used as auxiliary tasks. Normalized SQuAD naming and consolidated output descriptions. The paper studies query-focused summarization (NLG task) using knowledge from summarization and QA tasks."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "R-1": "ROUGE",
+        "R-2": "ROUGE",
+        "R-L": "ROUGE"
+      },
+      "explanation": "Simplified all ROUGE variants to base ROUGE metric per normalization guidelines. The paper clearly uses ROUGE-1, ROUGE-2, and ROUGE-L for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is mentioned in the paper. The paper uses BART for generation but not as an evaluator."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper. Only automatic ROUGE metrics are used for evaluation."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The main improvements were normalizing metric names and adding the 'Question Answering' task since the paper explicitly uses QA as an auxiliary task for knowledge transfer. The paper focuses on query-focused summarization using prefix-merging approach combining summarization and QA knowledge."
+}

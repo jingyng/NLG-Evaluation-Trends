@@ -1,0 +1,184 @@
+{
+  "paper_id": "2025.acl-long.1261",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Code Generation",
+      "Text Generation"
+    ],
+    "datasets": [
+      "Human Chat-GPT Comparison Corpus (HC3)",
+      "Anthropic Persuasion Dataset",
+      "C4",
+      "Stanford Human Preferences (SHP)",
+      "HH-RLHF",
+      "UltraFeedback",
+      "PRISM",
+      "LMSys"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-2",
+      "GPT-4",
+      "Meta-Llama-3-8B-Instruct",
+      "Claude-2.1",
+      "Falcon-40b-instruct",
+      "Mistral-7B-Instruct-v0.1",
+      "Llama-2-13b-chat",
+      "Dolly-v2-12b",
+      "Koala-13b",
+      "GPT-3.5-turbo"
+    ],
+    "outputs": [
+      "LLM-generated text responses to user prompts",
+      "LLM-generated chatbot replies across various domains"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-2-13b-chat"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:code generation",
+          "Other:text completion"
+        ],
+        "datasets": [
+          "HC3",
+          "Persuasion",
+          "SHP",
+          "UF"
+        ],
+        "models": [
+          "Claude",
+          "Llama-2",
+          "Dolly-v2",
+          "Koala",
+          "Falcon",
+          "Mistral",
+          "Aleph",
+          "Anthropic Claude-2.1"
+        ],
+        "outputs": [
+          "instruction-following answers"
+        ]
+      },
+      "normalized": {
+        "Other:code generation": "Code Generation",
+        "Other:text completion": "Text Generation",
+        "UltraFeedback (UF)": "UltraFeedback"
+      },
+      "explanation": "Normalized task names to standard forms, removed duplicate/misspelled datasets and models. Added 'Text Generation' as the main NLG task. Removed 'instruction-following answers' as redundant with existing description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "HUMT",
+      "SOCIOT",
+      "LIWC",
+      "RewardBench",
+      "Pearson's correlation",
+      "t-test",
+      "χ² test"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "LIWC-22"
+        ]
+      },
+      "normalized": {
+        "LIWC-22": "LIWC",
+        "Pearson's correlation r": "Pearson's correlation"
+      },
+      "explanation": "Normalized LIWC from 'LIWC-22' to base form 'LIWC', and simplified metric names. Statistical tests are included as they are used for automatic evaluation of HUMT/SOCIOT scores."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-2"
+    ],
+    "methods": [
+      "computing relative log probability of text given animate vs inanimate prefixes"
+    ],
+    "criteria": [
+      "human-like tone"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "log-likelihood ratio scoring": "computing relative log probability of text given animate vs inanimate prefixes"
+      },
+      "explanation": "The paper uses GPT-2 specifically as an evaluator to compute HUMT scores by comparing probabilities of text following animate vs inanimate pronouns, making this a clear case of LLM-as-judge for human-like tone evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "annotators independently rated whether text comes from an entity that aligns with each dimension",
+      "annotators chose preferred outputs in pairwise comparisons"
+    ],
+    "criteria": [
+      "human-likeness",
+      "social distance",
+      "warmth",
+      "gender",
+      "status",
+      "preference",
+      "friendliness",
+      "personableness",
+      "casualness",
+      "engagement",
+      "clarity",
+      "conciseness",
+      "information density",
+      "authenticity to LLM capabilities"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "human"
+        ]
+      },
+      "normalized": {
+        "human": "human-likeness",
+        "human-likeness judgment": "human-likeness"
+      },
+      "explanation": "Normalized criteria names and removed redundant entries. The human evaluation includes both dimension alignment judgments and pairwise preference comparisons with detailed criteria documented in the paper."
+    }
+  },
+  "overall_notes": "The paper extensively evaluates NLG outputs using both automatic metrics (HUMT/SOCIOT) and human evaluations. Metadata extraction was generally good but needed normalization of names and removal of duplicates. The paper introduces novel metrics HUMT and SOCIOT for evaluating human-like tone in generated text."
+}

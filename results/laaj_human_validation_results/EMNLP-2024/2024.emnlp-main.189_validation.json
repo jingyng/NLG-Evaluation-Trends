@@ -1,0 +1,51 @@
+{
+  "paper_id": "2024.emnlp-main.189",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM-as-a-judge (GPT-4 for pairwise evaluation on topic relevance) and human evaluation (on fluency, informativeness, and relevance), but these evaluations are conducted independently on disjoint criteria without any explicit comparison, correlation analysis, or agreement metrics between LLM and human judgments."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The prompt is described in Appendix F but exact text not shown in main paper. It instructs GPT-4 to compare two model responses and determine which is more relevant to the target utterance's topic."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage agreement",
+      "value": 85,
+      "interpretation": "reliability of the human evaluation",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Guidelines mention human evaluators assign binary scores for fluency, informativeness, and relevance (each scored 0 or 1), then sum to a final score (0-3). Relevance specifically measures alignment with target utterance, but detailed scoring rubric or examples are not provided in main text."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "topic relevance"
+    ],
+    "human_only_criteria": [
+      "fluency",
+      "informativeness"
+    ],
+    "shared_criteria": [
+      "relevance"
+    ],
+    "notes": "LLM (GPT-4) pairwise evaluation specifically focuses on topic relevance comparison between model outputs. Human evaluation covers fluency, informativeness, and relevance (overall alignment with target utterance). Though both include 'relevance', human evaluates it as a binary dimension within a 0-3 scale, while LLM performs pairwise ranking, so criteria are not directly comparable."
+  }
+}

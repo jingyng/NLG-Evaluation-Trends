@@ -1,0 +1,147 @@
+{
+  "paper_id": "2021.acl-long.14",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "PersonaChat",
+      "PersonalDialog"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "BoB",
+      "GPT-2",
+      "LIC",
+      "AttentionRouting",
+      "BERT",
+      "CMAML",
+      "GDR",
+      "Transformer"
+    ],
+    "outputs": [
+      "persona-consistent dialogue responses",
+      "dialogue responses conditioned on persona and query"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Vanilla Transformer"
+        ],
+        "outputs": [
+          "persona consistent response R = r1 , r2 , ..., rm"
+        ]
+      },
+      "normalized": {
+        "GPT2": "GPT-2",
+        "Vanilla Transformer": "Transformer",
+        "BLEU": "BLEU"
+      },
+      "explanation": "Normalized model names (GPT-2 instead of GPT2, Transformer instead of Vanilla Transformer) and removed overly technical output description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Perplexity",
+      "Distinct",
+      "Consistency Score",
+      "Delta Perplexity"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "perplexity",
+          "distinct 1",
+          "distinct 2"
+        ]
+      },
+      "normalized": {
+        "Distinct-1": "Distinct",
+        "Distinct-2": "Distinct",
+        "distinct 1": "Distinct",
+        "distinct 2": "Distinct"
+      },
+      "explanation": "Normalized metric variants to base forms (Distinct-1/2 → Distinct, perplexity → Perplexity)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa"
+        ],
+        "methods": [
+          "consistency prediction",
+          "referee model to predict consistency"
+        ],
+        "criteria": [
+          "consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The RoBERTa model is used as a fine-tuned classifier for consistency scoring, not as an LLM judge in the modern sense. This does not qualify as LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluate dialogue quality on fluency, informativeness, and relevance using five-point scale (1=unacceptable, 3=moderate, 5=perfect)",
+      "Label persona consistency as 1=consistent, 0=irrelevant, -1=contradicted"
+    ],
+    "criteria": [
+      "fluency",
+      "informativeness",
+      "relevance",
+      "persona consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Flue.": "fluency",
+        "Info.": "informativeness",
+        "Relv.": "relevance",
+        "Per.C.": "persona consistency"
+      },
+      "explanation": "Minor normalization of criterion abbreviations to full forms"
+    }
+  },
+  "overall_notes": "The extraction was mostly accurate. Key correction: Question 3 should be 'No' since the RoBERTa model is used as a fine-tuned classifier, not as an LLM judge in the modern prompt-based evaluation sense. The paper focuses on persona-based dialogue generation with strong evaluation methodology combining automatic metrics and human evaluations."
+}

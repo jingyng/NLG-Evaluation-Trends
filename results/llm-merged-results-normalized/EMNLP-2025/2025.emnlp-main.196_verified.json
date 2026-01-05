@@ -1,0 +1,161 @@
+{
+  "paper_id": "2025.emnlp-main.196",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "ULTRACHAT 200k",
+      "ALPACA",
+      "ALPACAEVAL 2 0",
+      "ARENA HARD",
+      "MT-Bench",
+      "SHAREGPT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_8b",
+      "qwen_2_7b",
+      "qwen_2.5_3b",
+      "qwen_2.5_14b"
+    ],
+    "outputs": [
+      "response pairs (chosen and rejected responses) for preference optimization",
+      "instructions for dialogue generation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "instructions for dialogue generation"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Dialogue Generation"
+        ],
+        "datasets": [
+          "UltraChat",
+          "UltraFeedback"
+        ],
+        "languages": [],
+        "models": [
+          "ArmoRM-Llama3-8B-v0.1",
+          "GPT-4 Turbo"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Qwen2.5 3B": "Qwen2.5-3B",
+        "Qwen2.5 14B": "Qwen2.5-14B"
+      },
+      "explanation": "Removed redundant task variant, removed UltraChat (duplicate of UltraChat-200k) and UltraFeedback (used for baseline training but not generation), removed evaluation models (ArmoRM, GPT-4 Turbo) not used for generation, normalized model names with consistent hyphenation"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "WIN RATE",
+      "REWARD",
+      "MT BENCH",
+      "COSINE SIMILARITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "length-controlled win rate",
+          "raw win rate",
+          "overall win rate",
+          "mean reward score (RS)",
+          "mean reward score",
+          "n-gram overlap",
+          "embedding-based contamination"
+        ]
+      },
+      "normalized": {
+        "length-controlled win rate": "win rate",
+        "raw win rate": "win rate",
+        "overall win rate": "win rate",
+        "mean reward score (RS)": "reward score",
+        "mean reward score": "reward score"
+      },
+      "explanation": "Consolidated all win rate variants under 'win rate', consolidated reward score variants, removed technical metrics (n-gram overlap, embedding-based contamination) used for data analysis rather than output evaluation"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4_turbo",
+      "armorm_llama_3_8b_v_0.1"
+    ],
+    "methods": [
+      "pairwise comparison",
+      "reward scoring"
+    ],
+    "criteria": [
+      "Quality",
+      "Helpfulness",
+      "Correctness",
+      "Coherence",
+      "Complexity",
+      "Verbosity",
+      "Instruction",
+      "Truthfulness",
+      "Honesty",
+      "Safety"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "pairwise evaluation"
+        ],
+        "criteria": [
+          "overall_quality"
+        ]
+      },
+      "normalized": {
+        "GPT-4 Turbo": "GPT-4-Turbo",
+        "pairwise evaluation": "pairwise comparison",
+        "instruction_following": "instruction_following"
+      },
+      "explanation": "Normalized model name consistency, consolidated similar evaluation methods, normalized criteria naming"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted in paper, confirmed by full text review"
+    }
+  },
+  "overall_notes": "Paper focuses on preference dataset construction for LLM alignment using inherent regulation. Evaluations are primarily automatic metrics and LLM-as-judge benchmarks like AlpacaEval 2.0 and MT-Bench. No human evaluation mentioned. Metadata extraction was generally good but included some training datasets and evaluation models that weren't part of the NLG output generation process."
+}

@@ -1,0 +1,142 @@
+{
+  "paper_id": "2025.acl-long.1544",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Safety Alignment"
+    ],
+    "datasets": [
+      "PKU SAFERLHF",
+      "BEAVERTAILS",
+      "ALPACA 52k"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b_base",
+      "llama_3_8b_base",
+      "llama_3_70b_base",
+      "alpaca_2_7b",
+      "alpaca_3_8b",
+      "alpaca_3_70b"
+    ],
+    "outputs": [
+      "generated responses to prompts",
+      "question-answer pairs for safety evaluation",
+      "dialogue responses for safety alignment"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Safety Alignment"
+        ],
+        "outputs": [
+          "question-answer pairs for safety evaluation",
+          "dialogue responses for safety alignment"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Dialogue Generation"
+        ]
+      },
+      "normalized": {
+        "PKU-SAFERLHF": "PKU-SAFERLHF",
+        "BEAVER-TAILS": "BEAVER-TAILS",
+        "Alpaca 52K": "Alpaca 52K"
+      },
+      "explanation": "Corrected task from 'Other:Dialogue Generation' to exact duplicate removal and added broader safety alignment task. Enhanced outputs description to better reflect paper scope."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "EXACT MATCH ACCURACY",
+      "FALSE POSITIVE RATE"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Metrics correctly extracted - used for evaluating moderation model performance in harm classification"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "safety assessment",
+      "preliminary quality inspection",
+      "joint human and AI annotation"
+    ],
+    "criteria": [
+      "Harmfulness",
+      "Severity",
+      "Safety"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "safety"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Reward Model (RM)",
+          "Cost Model (CM)"
+        ],
+        "methods": [
+          "pairwise ranking",
+          "pointwise scoring"
+        ],
+        "criteria": [
+          "helpfulness",
+          "harmlessness"
+        ]
+      },
+      "normalized": {
+        "GPT-4": "GPT-4"
+      },
+      "explanation": "Removed Reward Model and Cost Model as they are used during RLHF training, not as evaluators. GPT-4 is correctly used for safety assessment and quality inspection of Q-A pairs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "assess safety of Q-A pairs",
+      "fine-grained annotation for 19 harm categories and 3 severity levels",
+      "quality and clarity evaluation",
+      "helpfulness and harmlessness preferences"
+    ],
+    "criteria": [
+      "Safety",
+      "Harmfulness",
+      "Severity",
+      "Helpfulness",
+      "Harmlessness",
+      "Quality",
+      "Clarity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "quality and clarity evaluation",
+          "helpfulness and harmlessness preferences"
+        ]
+      },
+      "removed": {},
+      "normalized": {},
+      "explanation": "Enhanced guideline description to include all aspects of human evaluation mentioned in the paper"
+    }
+  },
+  "overall_notes": "Paper focuses on safety alignment for LLMs through dialogue generation. Key contributions include the PKU-SAFERLHF dataset with safety annotations and preference data. Human evaluations are comprehensive with detailed guidelines. Automatic metrics are used for moderation model evaluation. GPT-4 is used as an assistant in annotation pipeline but not as primary evaluator."
+}

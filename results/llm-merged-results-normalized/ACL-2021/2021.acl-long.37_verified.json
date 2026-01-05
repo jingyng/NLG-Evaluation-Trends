@@ -1,0 +1,112 @@
+{
+  "paper_id": "2021.acl-long.37",
+  "answer_1": {
+    "answer": "No",
+    "answer_changed": true,
+    "tasks": [],
+    "datasets": [],
+    "languages": [],
+    "models": [],
+    "outputs": [],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [
+          "SST-2",
+          "OLID",
+          "AG's News"
+        ],
+        "languages": [
+          "English"
+        ],
+        "models": [
+          "SCPN"
+        ],
+        "outputs": [
+          "paraphrases (poisoned samples)",
+          "paraphrased sentences with a pre-specified syntactic structure used as poisoned samples for backdoor attacks"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not actually address NLG tasks. While it uses SCPN (a paraphrase generation model) to generate poisoned samples, this is a tool for creating backdoor attacks, not the main focus of evaluation. The paper evaluates backdoor attack success on text classification tasks (sentiment analysis, offensive language identification, news classification), not NLG quality. SCPN is used as a means to an end, not evaluated as an NLG system."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PERPLEXITY",
+      "GRAMMATICAL ERROR NUMBERS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Grammatical Error Count"
+        ]
+      },
+      "normalized": {
+        "perplexity": "Perplexity",
+        "grammatical error numbers": "Grammatical Error Numbers"
+      },
+      "explanation": "Kept Perplexity and Grammatical Error Numbers as valid automatic metrics used to evaluate the quality of generated poisoned samples. Removed duplicate 'Grammatical Error Count' which refers to the same metric as 'Grammatical Error Numbers'. Normalized capitalization."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges in this paper. The paper uses GPT-2 only for calculating perplexity, not as an evaluator of generated text quality."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators classified samples as 'original human-written' or 'machine perturbed' via voting"
+    ],
+    "criteria": [
+      "Humanness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "human‑written vs. machine‑perturbed": "human-written vs. machine-perturbed"
+      },
+      "explanation": "The human evaluation is correctly extracted. Annotators performed binary classification to distinguish original vs. machine-perturbed samples. Normalized hyphen usage in criteria."
+    }
+  },
+  "overall_notes": "This paper is primarily about backdoor attacks in NLP, not NLG evaluation. While it uses an NLG model (SCPN) to generate poisoned samples, the main evaluation focuses on backdoor attack success rates and defense resistance for text classification tasks. The automatic metrics and human evaluation assess the quality/stealth of poisoned samples, not NLG outputs per se. The original extraction incorrectly classified this as an NLG paper."
+}

@@ -1,0 +1,138 @@
+{
+  "paper_id": "2023.acl-long.203",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Event Argument Extraction"
+    ],
+    "datasets": [
+      "GENEVA",
+      "ACE",
+      "ERE",
+      "RAMS",
+      "WIKIEVENTS",
+      "FRAMENET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "tanl",
+      "degree",
+      "gpt_3.5_turbo",
+      "dygie++",
+      "oneie",
+      "bert_qa",
+      "te",
+      "query&extract"
+    ],
+    "outputs": [
+      "Generated event arguments in natural language templates",
+      "Structured event arguments and roles"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "FrameNet"
+        ],
+        "languages": [],
+        "models": [
+          "DyGIE++",
+          "OneIE",
+          "BERT_QA",
+          "TE",
+          "Query&Extract"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "GPT3.5-turbo": "GPT-3.5-turbo"
+      },
+      "explanation": "Added FrameNet as it's a key dataset used for ontology creation. Added all EAE models benchmarked in the paper. Normalized GPT-3.5-turbo naming convention."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "micro F1",
+          "macro F1"
+        ]
+      },
+      "normalized": {
+        "micro F1": "Micro F1",
+        "macro F1": "Macro F1"
+      },
+      "explanation": "Normalized metric naming to consistent capitalization. Removed duplicate lowercase versions."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [
+      "gpt_3.5_turbo"
+    ],
+    "methods": [
+      "In-context learning with 5 examples"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT3.5-turbo": "GPT-3.5-turbo",
+        "in-context learning with 5 examples": "In-context learning with 5 examples"
+      },
+      "explanation": "GPT-3.5-turbo is used for generation, not as a judge/evaluator. The paper uses it as a generation model for EAE, not to evaluate outputs. Normalized naming conventions."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators are provided with a list of frame elements along with their descriptions for each frame in the event ontology. They are also provided with definitions for events and argument roles as discussed in Section 3.1. Based on these definitions, they are asked to annotate each frame element as (a) not argument role, (b) argument role, or (c) merge with existing argument role (and mention the argument role to merge with)."
+        ],
+        "criteria": [
+          "Is Event Argument?",
+          "Is Entity?"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Human annotations were used for dataset/ontology creation, not for evaluating generated NLG outputs. The human evaluations mentioned were for validating the quality of the GENEVA dataset itself, not for evaluating model-generated outputs."
+    }
+  },
+  "overall_notes": "This paper focuses on Event Argument Extraction (EAE) as a generation task, benchmarking various models including generative approaches. The human evaluations described were for dataset creation/validation purposes, not for evaluating NLG model outputs. GPT-3.5-turbo was used as a generation model, not as a judge/evaluator. The paper primarily uses F1 scores for automatic evaluation."
+}

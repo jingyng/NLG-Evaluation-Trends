@@ -1,0 +1,138 @@
+{
+  "paper_id": "2025.emnlp-main.697",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Text Simplification"
+    ],
+    "datasets": [
+      "COCHRANE-SECTIONS",
+      "MULTICOCHRANE",
+      "Cochrane-auto",
+      "CLEAR"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BiLSTM classifier",
+      "Neural CRF aligner",
+      "Sentence Transformer",
+      "BiLSTM+linear layer",
+      "Qwen2.5-32B-Instruct",
+      "Gemma3-27B-it",
+      "Llama3.3-70B-Instruct",
+      "Qwen2.5-72B-Instruct"
+    ],
+    "outputs": [
+      "Simplified PLS sections",
+      "Section-level simplified biomedical abstracts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Section-level simplified biomedical abstracts"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Paraphrase Generation"
+        ],
+        "datasets": [
+          "MC-CLEAN",
+          "MC-NOISY"
+        ],
+        "languages": [
+          "French"
+        ],
+        "models": []
+      },
+      "normalized": {
+        "neural CRF aligner": "Neural CRF aligner",
+        "BiLSTM": "BiLSTM+linear layer"
+      },
+      "explanation": "Removed 'Text Summarization' and 'Paraphrase Generation' as the paper focuses on text simplification. Kept 'Other:Text Simplification'. Removed MC-CLEAN and MC-NOISY as they are component datasets, not main contributions. Removed French as the main work is in English. Normalized model names consistently."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "Weighted F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy",
+          "weighted F1 score"
+        ]
+      },
+      "normalized": {
+        "Weighted F1 score": "Weighted F1",
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Normalized metric names to standard capitalization and removed duplicates"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "LLMs are used as generation models for section labeling, not as judges/evaluators of generated outputs"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotation guidelines to assign section labels based on content alignment from Appendix D"
+    ],
+    "criteria": [
+      "Cohen's kappa inter-annotator agreement",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "annotation guidelines described in Appendix D for labeling each sentence with a section header"
+        ],
+        "criteria": [
+          "Correct section label assignment"
+        ]
+      },
+      "normalized": {
+        "Correct section label assignment": "Accuracy"
+      },
+      "explanation": "Consolidated duplicate guideline descriptions and normalized criteria naming"
+    }
+  },
+  "overall_notes": "The paper focuses on section-level biomedical text simplification and PLS section alignment/dataset creation rather than NLG evaluation. The NLG aspect is derived from enabling future simplification models to use their created dataset. Human evaluation was primarily for section labeling quality assessment rather than simplification output evaluation."
+}

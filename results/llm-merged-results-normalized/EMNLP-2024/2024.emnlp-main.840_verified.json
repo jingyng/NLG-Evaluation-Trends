@@ -1,0 +1,130 @@
+{
+  "paper_id": "2024.emnlp-main.840",
+  "answer_1": {
+    "answer": "No",
+    "answer_changed": true,
+    "tasks": [],
+    "datasets": [],
+    "languages": [],
+    "models": [],
+    "outputs": [],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Generation"
+        ],
+        "datasets": [
+          "LitSearch",
+          "S2ORC"
+        ],
+        "languages": [
+          "English"
+        ],
+        "models": [
+          "GPT-4"
+        ],
+        "outputs": [
+          "literature search questions"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. This paper is about retrieval benchmarking, not NLG. While GPT-4 generates questions, the paper's focus is on evaluating retrieval systems, not evaluating the generated questions themselves as NLG outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "RECALL",
+      "NDCG"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "nDCG@10"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "recall@5",
+          "recall@20"
+        ]
+      },
+      "normalized": {
+        "recall@5": "Recall@5",
+        "recall@20": "Recall@20"
+      },
+      "explanation": "Normalized metric names to standard capitalization. Added nDCG@10 which is mentioned in the paper as being used for comparison with other benchmarks."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "gpt_4o"
+    ],
+    "methods": [
+      "vanilla reranking",
+      "one-hop reranking"
+    ],
+    "criteria": [
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4o"
+        ],
+        "methods": [
+          "vanilla reranking",
+          "one-hop reranking"
+        ],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from No to Yes. The paper uses GPT-4o as a judge to rerank retrieval results based on relevance to the query, which qualifies as LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Specificity 0: Broad (no more than 20 papers fit the question)",
+      "Specificity 1: Specific (no more than 5 papers fit the question)",
+      "Quality 0: Discarded (factually wrong, unrealistic, overly broad/specific, or too easy)",
+      "Quality 1: Acceptable (somewhat out of distribution or relatively easy)",
+      "Quality 2: Good (challenging and meaningful literature search question)"
+    ],
+    "criteria": [
+      "Specificity",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed. The human evaluation guidelines and criteria are correctly extracted and comprehensive."
+    }
+  },
+  "overall_notes": "This paper is primarily a retrieval benchmark paper (LitSearch) focused on scientific literature search, not an NLG evaluation paper. While it involves question generation by GPT-4, the main contribution is evaluating retrieval systems, not evaluating NLG outputs. The automatic metrics and human evaluations are used to assess retrieval performance, not NLG quality. The LLM-as-judge (GPT-4o reranking) is used for retrieval evaluation, not NLG output evaluation."
+}

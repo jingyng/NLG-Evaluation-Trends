@@ -1,0 +1,117 @@
+{
+  "paper_id": "2025.emnlp-main.1413",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares GPT-4o judgments with human direct assessment scores on the same set of translations into African languages, noting inconsistencies and focusing on human evaluation due to reliability concerns"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts provided in Appendix B.5 for fluency, accuracy, and cohesion evaluation with detailed instructions and output formats"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": [
+        0.46,
+        0.57,
+        0.4,
+        0.81,
+        0.54
+      ],
+      "interpretation": "relatively low except for Yorùbá",
+      "per_criterion": [
+        {
+          "criterion": "direct assessment",
+          "metric": "Krippendorff's alpha",
+          "value": 0.46,
+          "language": "Amharic"
+        },
+        {
+          "criterion": "direct assessment",
+          "metric": "Krippendorff's alpha",
+          "value": 0.57,
+          "language": "Hausa"
+        },
+        {
+          "criterion": "direct assessment",
+          "metric": "Krippendorff's alpha",
+          "value": 0.4,
+          "language": "Swahili"
+        },
+        {
+          "criterion": "direct assessment",
+          "metric": "Krippendorff's alpha",
+          "value": 0.81,
+          "language": "Yorùbá"
+        },
+        {
+          "criterion": "direct assessment",
+          "metric": "Krippendorff's alpha",
+          "value": 0.54,
+          "language": "Zulu"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Used error span annotation (ESA) protocol within Appraise Evaluation Framework, with annotators marking spans and rating overall quality on 0-100 scale"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "direct assessment comparison",
+      "qualitative consistency analysis"
+    ],
+    "shared_criteria": [
+      "translation quality"
+    ],
+    "sample_size": {
+      "total_generated": "multiple models × 80 documents per annotator",
+      "validated_by_both": "30 documents shared among all three annotators plus complete model outputs for selected languages",
+      "notes": "Limited to translations into four African languages (excluding Zulu) due to cost constraints, with focus on GPT-3.5, LLaMAX3-SFT1, and LLaMAX3-SFT10 models"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "not applicable",
+      "threshold_used": "not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Human evaluation results aligned closely with d-chrF scores, while GPT-4o's judgments were inconsistent for translations into African languages, showing counterintuitive patterns such as low-fluency models having fewest errors"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "fluency (1-5 scale)",
+      "content errors",
+      "lexical cohesion errors",
+      "grammatical cohesion errors"
+    ],
+    "human_only_criteria": [
+      "direct assessment (0-100 scale)",
+      "error span annotation"
+    ],
+    "shared_criteria": [
+      "translation quality"
+    ],
+    "notes": "LLM evaluated fluency, content errors, and cohesion errors with specific metrics, while humans used direct assessment scores and error span annotation; both methods assessed overall translation quality but with different scoring frameworks"
+  }
+}

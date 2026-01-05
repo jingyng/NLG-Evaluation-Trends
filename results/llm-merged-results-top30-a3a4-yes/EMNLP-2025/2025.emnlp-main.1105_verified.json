@@ -1,0 +1,156 @@
+{
+  "paper_id": "2025.emnlp-main.1105",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "CAPSBENCH",
+      "COMPRECAP",
+      "AMBER",
+      "DPG BENCH",
+      "DCE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_2_vl",
+      "gpt_4o",
+      "rico",
+      "rico_flash",
+      "llava_1.5"
+    ],
+    "outputs": [
+      "refined image captions",
+      "recaptioned image captions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "DCE"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "HuggingFace image dataset",
+          "Hugging Face"
+        ],
+        "languages": [],
+        "models": [
+          "FLUX.1-dev"
+        ],
+        "outputs": [
+          "image captions"
+        ]
+      },
+      "normalized": {
+        "FLUX.1-dev": "FLUX.1-dev",
+        "HuggingFace image dataset": "HuggingFace dataset",
+        "Hugging Face": "HuggingFace dataset"
+      },
+      "explanation": "Removed FLUX.1-dev as it's not an NLG model but a text-to-image model. Removed generic HuggingFace references as they're not specific datasets. Added DCE dataset mentioned in DPO training. Simplified outputs to focus on refined/recaptioned captions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CAPSBENCH",
+      "COMPRECAP",
+      "AMBER",
+      "CAPTURE",
+      "DPG BENCH",
+      "VQASCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "CLIPScore"
+        ]
+      },
+      "normalized": {
+        "CLIPScore": "CLIPScore"
+      },
+      "explanation": "Removed CLIPScore as it's mentioned as a baseline but not actually used for evaluation (VQAScore is used as a robust alternative). All other metrics are correctly extracted."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "question-answering evaluation"
+    ],
+    "criteria": [
+      "Accuracy",
+      "Comprehensiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLM judge (unspecified, used as CapsBench evaluator)",
+          "GPT-4o"
+        ],
+        "methods": [
+          "QA‑based evaluation",
+          "QA-based evaluation"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4": "GPT-4",
+        "question-answering evaluation": "question-answering evaluation",
+        "QA‑based evaluation": "question-answering evaluation",
+        "QA-based evaluation": "question-answering evaluation"
+      },
+      "explanation": "Removed GPT-4o as it's used for generation, not evaluation. Kept GPT-4 as the judge model for CapsBench. Consolidated redundant method descriptions. Criteria remain accurate."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "refine this caption by correcting any errors or ambiguities based on the image, and feel free to add any important details that are missing from the original caption"
+    ],
+    "criteria": [
+      "Correction",
+      "Ambiguity",
+      "Completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "error correction": "error correction",
+        "ambiguity reduction": "ambiguity reduction",
+        "detail completeness": "detail completeness"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement. Criteria accurately reflect the human evaluation instructions."
+    }
+  },
+  "overall_notes": "The paper focuses on image recaptioning using a novel reconstruction-based approach. Extracted metadata was generally accurate but needed some refinement: removed non-NLG models/datasets, consolidated redundant descriptions, and focused on actual evaluation components. The paper uses both automatic metrics and human evaluation, with GPT-4 serving as an LLM judge for CapsBench evaluation."
+}

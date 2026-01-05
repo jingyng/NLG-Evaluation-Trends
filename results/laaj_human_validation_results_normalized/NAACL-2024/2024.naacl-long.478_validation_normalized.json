@@ -1,0 +1,209 @@
+{
+  "paper_id": "2024.naacl-long.478",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM evaluation against human evaluation by computing agreements between LLM-based evaluation methods and expert human evaluation on evaluation group 2 and 3."
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "GPT-3.5",
+      "GPT-4",
+      "text_davinci_003"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt for GPTRank list-wise comparison shown in appendix A.3 with example response format. Prompt for GPTScore uses normalized log-probability. G-Eval prompts are aspect-specific with scoring rubrics."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "Mixed (3 crowd per instance + 3 experts on subset)",
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha with MASI distance",
+      "value": 0.064,
+      "interpretation": "Low agreement, similar to prior work (0.05)",
+      "per_criterion": [
+        {
+          "criterion": "overall",
+          "metric": "Krippendorff's alpha",
+          "value": 0.064
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed aspect definitions (salience, coherence, overall preference) and detailed annotation examples provided in appendix B.1 and Table 10."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Agreement with expert majority vote"
+    ],
+    "shared_criteria": [
+      "salience",
+      "coherence",
+      "overall"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": "Evaluation groups 2 and 3 (specific size not specified)",
+      "notes": "Validation uses expert evaluation majority vote as ground truth for agreement computation."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Agreement with expert majority",
+        "value": 0.241,
+        "criterion": "Salience",
+        "llm_model": "crowd-majority",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": 0.116,
+        "criterion": "Coherence",
+        "llm_model": "crowd-majority",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": 0.166,
+        "criterion": "overall",
+        "llm_model": "crowd-majority",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": -0.214,
+        "criterion": "Salience",
+        "llm_model": "G-EVAL-3.5",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": -0.168,
+        "criterion": "Coherence",
+        "llm_model": "G-EVAL-3.5",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": -0.114,
+        "criterion": "overall",
+        "llm_model": "G-EVAL-3.5",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": -0.082,
+        "criterion": "Salience",
+        "llm_model": "G-EVAL-4",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": -0.143,
+        "criterion": "Coherence",
+        "llm_model": "G-EVAL-4",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": -0.019,
+        "criterion": "overall",
+        "llm_model": "G-EVAL-4",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": -0.115,
+        "criterion": "Salience",
+        "llm_model": "GPTScore",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": -0.021,
+        "criterion": "Coherence",
+        "llm_model": "GPTScore",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": -0.029,
+        "criterion": "overall",
+        "llm_model": "GPTScore",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": 0.036,
+        "criterion": "Salience",
+        "llm_model": "GPT-3.5Rank",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": -0.034,
+        "criterion": "Coherence",
+        "llm_model": "GPT-3.5Rank",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": 0.018,
+        "criterion": "overall",
+        "llm_model": "GPT-3.5Rank",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": 0.191,
+        "criterion": "Salience",
+        "llm_model": "GPT-4Rank",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": 0.051,
+        "criterion": "Coherence",
+        "llm_model": "GPT-4Rank",
+        "significance": null
+      },
+      {
+        "metric": "Agreement with expert majority",
+        "value": 0.105,
+        "criterion": "overall",
+        "llm_model": "GPT-4Rank",
+        "significance": null
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "not_provided",
+      "threshold_used": "not_provided",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GPT-4 with GPTRank outperforms individual crowd-workers on salience agreement (0.191 vs 0.189) but majority voting from crowd-workers still achieves highest agreement. LLMs are not well-aligned with human evaluation and show positional bias and self-inconsistency."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Salience",
+      "Coherence",
+      "overall"
+    ],
+    "notes": "Both LLM and human evaluate the same three criteria: salience, coherence, and overall preference/quality."
+  }
+}

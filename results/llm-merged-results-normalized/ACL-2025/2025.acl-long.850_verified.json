@@ -1,0 +1,181 @@
+{
+  "paper_id": "2025.acl-long.850",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Story Generation",
+      "Question Answering",
+      "Heuristic Generation"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "HANNA",
+      "TruthfulQA",
+      "GAOKAO BENCH",
+      "HELLOBENCH"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "qwen_2.5_7b_instruct",
+      "qwen_2.5_14b_instruct",
+      "qwen_2.5_32b_instruct",
+      "llama_3.1_8b_instruct",
+      "llama_3.1_70b_instruct"
+    ],
+    "outputs": [
+      "Generated text with controlled length (summaries, stories, answers, etc.)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:story generation",
+          "Other:QA",
+          "Other:heuristic generation"
+        ],
+        "datasets": [
+          "Heuristic Generation",
+          "GAOKAO"
+        ],
+        "models": [
+          "Qwen2.5-7B/14B/32B-Instruct",
+          "Llama-3.1-8B/70B-Instruct",
+          "GPT-4o mini",
+          "Gemini-2.0 Flash"
+        ],
+        "outputs": [
+          "Generated texts that satisfy precise or range-based length constraints",
+          "generated summaries, stories, answers to open-ended questions, and heuristic texts with controlled length"
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Other:Question Answering",
+        "Other:Story Generation": "Other:Story Generation",
+        "Other:Heuristic Generation": "Other:Heuristic Generation"
+      },
+      "explanation": "Removed duplicate task entries, removed datasets that were actually metrics names (Heuristic Generation) or duplicates (GAOKAO), removed evaluation-only models (GPT-4o mini, Gemini-2.0 Flash) and consolidated model variants, simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "LENGTH ERROR RATE",
+      "VIOLATION RATE",
+      "PRECISE MATCH PM",
+      "FLEXIBLE MATCH FM",
+      "ACCEPTANCE RATE",
+      "QUALITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Quality Score (S)"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "E (length error rate)",
+          "LCTG error rate",
+          "absolute error in word count",
+          "win-rate"
+        ]
+      },
+      "normalized": {
+        "Length Error (E)": "Length Error Rate (E)",
+        "Violation Rate (E_r)": "Violation Rate (E_r)",
+        "Precise Match (PM)": "Precise Match (PM)",
+        "Flexible Match (FM)": "Flexible Match (FM)",
+        "Acceptance Rate": "Acceptance Rate"
+      },
+      "explanation": "Consolidated different names for the same metrics, removed redundant entries, added explicit Quality Score metric"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o",
+      "gemini_2.0_flash",
+      "gpt_4o_mini"
+    ],
+    "methods": [
+      "Point-wise scoring",
+      "Pairwise evaluation",
+      "Win-rate assessment",
+      "Multiple regression for debiasing"
+    ],
+    "criteria": [
+      "Truthfulness",
+      "Logic",
+      "Adherence",
+      "Faithfulness",
+      "Alignment"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Gemini-2.0 Flash": "Gemini-2.0-Flash",
+        "GPT-4o-mini": "GPT-4o-mini",
+        "point-wise scoring": "Point-wise scoring",
+        "pairwise evaluation": "Pairwise evaluation",
+        "win-rate based assessment": "Win-rate assessment",
+        "truthfulness": "Truthfulness",
+        "logical coherence": "Logical coherence"
+      },
+      "explanation": "Minor normalization of naming conventions, all extracted items are correct and relevant"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Randomly sample 200 pairwise comparisons and compute Spearman's correlation between human annotations and LLM judgments"
+    ],
+    "criteria": [
+      "Truthfulness",
+      "Logic",
+      "Adherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Randomly sample 200 pairwise comparisons and compute Spearman's correlation between human annotations and LLM judgments"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "You are tasked with evaluating the quality of a generated answer plan for a TruthfulQA question..."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "truthfulness": "Truthfulness",
+        "logical coherence": "Logical coherence"
+      },
+      "explanation": "Removed the detailed prompt text from guidelines (kept only the human evaluation validation procedure), capitalized criteria names"
+    }
+  },
+  "overall_notes": "The extracted metadata was generally accurate but contained some duplicates and minor inconsistencies. The paper conducts extensive evaluation using both automatic metrics and LLM-as-judge, with human validation of the LLM judgments. Key contributions include MarkerGen method for length-controllable text generation across multiple NLG tasks."
+}

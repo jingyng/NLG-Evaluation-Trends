@@ -1,0 +1,91 @@
+{
+  "paper_id": "2025.emnlp-main.1468",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-as-a-judge against human evaluation on a subset of 70 queries, reporting Pearson correlation between human ratings and LLM judge scores"
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "Claude-3.5-Sonnet",
+      "GPT-4",
+      "other alternatives"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full evaluation prompt shown in appendix with detailed 5-point rating criteria and examples of LLM judgments"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Pearson correlation",
+      "value": 0.88,
+      "interpretation": "high agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators used the same 5-point rating criteria as the LLM judge, with detailed definitions for each score level"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "misinformation detection and correction quality"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": 70,
+      "notes": "Random subset of 70 queries from the dataset was used for validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.92,
+        "criterion": "misinformation detection and correction quality",
+        "llm_model": "Claude-3.5-Sonnet",
+        "significance": null,
+        "notes": "Highest correlation among tested LLM judges"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.86,
+        "criterion": "misinformation detection and correction quality",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Lower correlation than Claude-3.5-Sonnet"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Claude-3.5-Sonnet achieved the highest correlation with human ratings (r=0.92) and was selected as the primary LLM judge due to its superior performance compared to GPT-4 (r=0.86) and other alternatives."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Misinformation",
+      "Correctness",
+      "accuracy and adequacy of corrections"
+    ],
+    "notes": "Both LLM and human evaluators used identical 5-point rating criteria focusing on three key aspects: detection, correction/reinforcement tendency, and accuracy of explanations"
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "paper_id": "2025.acl-long.378",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other: Game Strategy Generation",
+      "Other: Game Reasoning"
+    ],
+    "datasets": [
+      "Othello",
+      "Pong",
+      "Surround",
+      "Texas Hold'em",
+      "Connect4",
+      "TicTacToe",
+      "Checkers",
+      "Negotiation v2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4",
+      "GPT-4o",
+      "GPT-4o mini",
+      "Claude 3 Sonnet",
+      "Claude 3.5 Sonnet",
+      "Claude 3 Haiku",
+      "Gemini 1.0 Pro",
+      "Gemini 1.5 Pro",
+      "Gemini 1.5 Flash",
+      "LLaMA 3.1-8B",
+      "LLaMA 3.1-70B",
+      "LLaMA 3.1-405B",
+      "Mistral Nemo",
+      "Jamba 1.5 Large",
+      "Jamba 1.5 Mini",
+      "Reka Core",
+      "Reka Flash"
+    ],
+    "outputs": [
+      "Intermediate reasoning steps in structured format '[Intermediate Thinking Result: XXX]'",
+      "Final game actions and moves"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-4o mini",
+          "Claude 3 Haiku",
+          "LLaMA 3.1-8B",
+          "LLaMA 3.1-405B"
+        ],
+        "outputs": [
+          "Intermediate reasoning steps in structured format '[Intermediate Thinking Result: XXX]'",
+          "Final game actions and moves"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Reasoning in strategic games",
+          "Other:Code Generation"
+        ],
+        "datasets": [
+          "GSM8K",
+          "MATH",
+          "HumanEval",
+          "MBPP",
+          "StrategyQA"
+        ],
+        "languages": [],
+        "models": [
+          "GPT",
+          "Claude",
+          "Gemini",
+          "LLaMA",
+          "Mistral"
+        ],
+        "outputs": [
+          "Generated intermediate reasoning steps in structured text format and final game actions.",
+          "The generated outputs include reasoning steps and actions in game environments, such as intermediate thinking results in the format '[Intermediate Thinking Result: XXX]' and final moves in games like TicTacToe, Connect4, Pong, etc."
+        ]
+      },
+      "normalized": {
+        "Tasks": "Other: Game Strategy Generation → Other: Game Strategy Generation",
+        "Check step by step for all horizontal, vertical, or diagonal rows: are there any potential winning moves to form 3 in a row for you or for your opponent? [Example] Generic Prompt Our Curated Prompt The best move for O is to place an O at (0,2) because it doesn't give X an immediate opportunity to win and keeps the top row open for a potential future win for O. Chosen Move: (0,2) Model Output ... For (2,2): (2,0) and (2,1) are both X, (2,2) is a winning move for X. A basic prompt leads the model to make an incorrect move at (0,2), claiming \"it doesn't give X an immediate opportunity to win,\" when, in fact, a winning move for X is available at (2,2). By contrast, with our refined prompt, the model correctly identifies (2,2) as a winning move for both X and O, ultimately winning this match.": "Normalized to appropriate fields"
+      },
+      "explanation": "Removed datasets mentioned only as related work (GSM8K, MATH, etc.). Removed generic model names (GPT, Claude, etc.) in favor of specific model versions. Added missing specific model versions mentioned in the paper. Removed verbose output descriptions and replaced with concise descriptions based on paper content. Focused on game strategy generation as the primary NLG task."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "F1 Score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Reward",
+          "Win rate",
+          "F1",
+          "accuracy",
+          "outcome evaluation metric (R_j / T_j)"
+        ]
+      },
+      "normalized": {
+        "F1 score": "F1 Score",
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Removed game-specific metrics (Reward, Win rate) and simplified to the core evaluation metrics used for intermediate reasoning steps. Kept Accuracy and F1 Score as the main automatic evaluation metrics mentioned in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges - evaluation was done using rule-based algorithms and game outcomes. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No human evaluations were conducted - all evaluation was automated. Removed placeholder 'None' values."
+    }
+  },
+  "overall_notes": "The paper introduces GAMEBoT, a benchmark for evaluating LLM reasoning in game environments. The main NLG task is game strategy generation with structured reasoning outputs. Evaluation is fully automated using rule-based algorithms to validate intermediate reasoning steps against ground truth. The paper evaluates 17 prominent LLMs across 8 different games but does not use LLMs as judges or conduct human evaluations."
+}

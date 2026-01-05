@@ -1,0 +1,144 @@
+{
+  "paper_id": "2025.emnlp-main.796",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates CheckEval against human evaluation through correlation analysis and inter-rater agreement studies, comparing LLM and human judgments on the same instances"
+  },
+  "llm_judge_details": {
+    "num_models": 12,
+    "models": [
+      "gpt_4_turbo",
+      "gpt_4o",
+      "gpt_4o_mini",
+      "llama_3.1_70b",
+      "mistral_large",
+      "qwen_2.5_72b",
+      "mistral_small",
+      "gemma_2_27b",
+      "qwen_2.5_32b",
+      "llama_3.1_8b",
+      "gemma_2_9b",
+      "qwen_2.5_7b"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Evaluation prompts provided in Appendix F, including task overview, dimension definitions, and instructions for SummEval and Topical-Chat datasets"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Exact Match",
+      "value": 0.634,
+      "interpretation": "High agreement between human annotators",
+      "per_criterion": [
+        {
+          "criterion": "overall",
+          "metric": "Exact Match",
+          "value": 0.677
+        },
+        {
+          "criterion": "relevance",
+          "metric": "Fleiss' kappa",
+          "value": 0.53
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed checklist-based evaluation process described, with examples of binary questions shown in tables and case studies"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation",
+      "Kendall's tau",
+      "Fleiss' kappa",
+      "Krippendorff's alpha",
+      "Exact Match"
+    ],
+    "shared_criteria": [
+      "coherence",
+      "consistency",
+      "fluency",
+      "relevance",
+      "naturalness",
+      "engagingness",
+      "groundedness"
+    ],
+    "sample_size": {
+      "total_generated": 1600,
+      "validated_by_both": 20,
+      "notes": "Used stratified sampling from SummEval with 20 summaries for correlation analysis and 100 summaries for relevance agreement analysis"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Correlation",
+        "value": 0.73,
+        "criterion": "overall",
+        "llm_model": "Mistral-Large",
+        "significance": "p<0.01",
+        "notes": "Spearman ρ with human judgments on SummEval"
+      },
+      {
+        "metric": "Correlation",
+        "value": 0.58,
+        "criterion": "overall",
+        "llm_model": "Mistral-Large",
+        "significance": "p<0.001",
+        "notes": "Kendall's τ with human judgments on SummEval"
+      },
+      {
+        "metric": "Fleiss' kappa",
+        "value": 0.49,
+        "criterion": "relevance",
+        "llm_model": "Large models group",
+        "significance": "not reported",
+        "notes": "Agreement between LLMs and humans on relevance dimension"
+      },
+      {
+        "metric": "Fleiss' kappa",
+        "value": 0.67,
+        "criterion": "overall",
+        "llm_model": "Large models group",
+        "significance": "not reported",
+        "notes": "Inter-evaluator agreement among large LLMs on SummEval"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Statistical significance thresholds (p<0.01, p<0.001)",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "CheckEval achieves strong correlation with human judgments (ρ=0.73, p<0.01) and high inter-rater agreement (κ=0.49-0.67), demonstrating reliable alignment between LLM and human evaluation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "coherence",
+      "consistency",
+      "fluency",
+      "relevance",
+      "naturalness",
+      "engagingness",
+      "groundedness"
+    ],
+    "notes": "Both LLM and human evaluators used the same CheckEval framework with binary checklist questions for all dimensions"
+  }
+}

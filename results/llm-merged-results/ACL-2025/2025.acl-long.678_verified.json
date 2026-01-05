@@ -1,0 +1,130 @@
+{
+  "paper_id": "2025.acl-long.678",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Chinese Spelling Correction",
+      "Other:Chinese Character Error Correction"
+    ],
+    "datasets": [
+      "CSCD-NS",
+      "Lemon",
+      "C2EC",
+      "SIGHAN"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "Qwen2.5",
+      "Qwen1.5",
+      "Baichuan2",
+      "InternLM2",
+      "GPT-4",
+      "DeepSeek V3",
+      "DeepSeek R1",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "corrected Chinese sentences with character-level substitutions, insertions, and deletions"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "SIGHAN"
+        ],
+        "models": [
+          "GPT-4o"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "CCTC"
+        ],
+        "models": [
+          "GPT4o-mini"
+        ]
+      },
+      "normalized": {
+        "Other:Chinese Character Error Correction": "Other:Chinese Character Error Correction",
+        "Other:Chinese Spelling Correction": "Other:Chinese Spelling Correction",
+        "GPT4o": "GPT-4o"
+      },
+      "explanation": "Added SIGHAN dataset mentioned in experiments, removed CCTC as it's the source for C2EC dataset construction. Normalized model names to standard capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "Precision",
+      "Recall"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Character-level F1",
+          "character-level correction F1",
+          "sentence-level F1"
+        ]
+      },
+      "normalized": {
+        "F1": "F1",
+        "Precision": "Precision",
+        "Recall": "Recall"
+      },
+      "explanation": "Simplified to base metric forms - all versions are F1, Precision, and Recall metrics at character/sentence level"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "LLMs are used for generation, not as post-hoc evaluators/judges"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Manual verification of dataset quality and annotation consistency"
+    ],
+    "criteria": [
+      "annotation correctness",
+      "grammatical complexity",
+      "ambiguity",
+      "sensitive content"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual verification of dataset quality and annotation consistency"
+        ],
+        "criteria": [
+          "annotation correctness",
+          "grammatical complexity",
+          "ambiguity",
+          "sensitive content"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "incorrect annotation": "annotation correctness",
+        "complex grammatical errors": "grammatical complexity",
+        "ambiguous or difficult to understand sentences": "ambiguity",
+        "sensitive or offensive content": "sensitive content"
+      },
+      "explanation": "The paper did conduct human evaluation during dataset construction - four graduate students manually verified annotations for 16 hours each. Added proper guideline description and normalized criteria."
+    }
+  },
+  "overall_notes": "Paper focuses on Chinese Character Error Correction using LLMs. Strong emphasis on automatic evaluation metrics. Human evaluation was conducted during dataset construction but not for model output evaluation. LLMs are used as generators, not as evaluators."
+}

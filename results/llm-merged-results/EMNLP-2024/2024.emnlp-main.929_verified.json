@@ -1,0 +1,177 @@
+{
+  "paper_id": "2024.emnlp-main.929",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Tool Invocation",
+      "Reasoning",
+      "Text Summarization",
+      "Code Generation"
+    ],
+    "datasets": [
+      "ToolBench",
+      "ToolAlpaca",
+      "MATH",
+      "GSM8K"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-2-chat-7B",
+      "LLaMA-2-chat-13B",
+      "GPT-3.5",
+      "GPT-4",
+      "Claude-2",
+      "ToolLLaMA"
+    ],
+    "outputs": [
+      "rationales",
+      "API call actions",
+      "final answers",
+      "Python code"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Tool Invocation",
+          "Reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Tool Invocation Reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LLaMA-2-chat-7B/13B"
+        ],
+        "outputs": [
+          "rationales, actions (API calls or code), and final answers",
+          "final answers, rationales (thoughts), API call actions, generated code",
+          "The generated outputs include rationales, API calls (actions), and final answers in response to user instructions, as well as Python code for mathematical reasoning tasks."
+        ]
+      },
+      "normalized": {
+        "Other:Tool Invocation Reasoning": "Tool Invocation, Reasoning",
+        "BLEU-1, BLEU-2, BLEU-4": "BLEU"
+      },
+      "explanation": "Split 'Other:Tool Invocation Reasoning' into more specific tasks 'Tool Invocation' and 'Reasoning'. Simplified output descriptions to concise terms. Removed duplicate model notation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Action EM",
+      "Argument F1",
+      "ROUGE-L",
+      "Plan ACC",
+      "Hallu.",
+      "Accuracy",
+      "Pass rate",
+      "Win rate",
+      "Process correctness",
+      "Answer correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Process correctness",
+          "Answer correctness"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "pass rate",
+          "win rate",
+          "Proc. correctness",
+          "Ans. correctness"
+        ]
+      },
+      "normalized": {
+        "Rouge-L": "ROUGE-L",
+        "Hallu.": "Hallu.",
+        "pass rate": "Pass rate",
+        "win rate": "Win rate",
+        "Proc. correctness": "Process correctness",
+        "Ans. correctness": "Answer correctness"
+      },
+      "explanation": "Normalized metric names to standard capitalization. Consolidated duplicate metrics. Added missing metrics from appendix."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-3.5"
+    ],
+    "methods": [
+      "pass rate and win rate judgment"
+    ],
+    "criteria": [
+      "task success (pass)",
+      "relative win rate against baseline"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "task success (pass)",
+          "relative win rate against baseline"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "process correctness",
+          "answer correctness",
+          "pairwise evaluation",
+          "GPT-3.5 evaluator for pass rate and win rate"
+        ],
+        "criteria": [
+          "fluency",
+          "relevance",
+          "helpfulness",
+          "correctness"
+        ]
+      },
+      "normalized": {
+        "GPT-3.5 evaluator for pass rate and win rate": "pass rate and win rate judgment"
+      },
+      "explanation": "Removed GPT-4 as evaluator since only GPT-3.5 is explicitly mentioned for evaluation judgments. Removed criteria not explicitly mentioned in evaluation methodology. Kept only the actual evaluation criteria used."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not mention human evaluation - all evaluations are either automatic metrics or LLM-as-judge. Removed placeholder values."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on tool learning frameworks using LLM agents for API calling and reasoning tasks. Evaluation is conducted through automatic metrics (Action EM, ROUGE-L, etc.) and LLM-as-judge (GPT-3.5 for pass/win rates). No human evaluation is mentioned. The extraction needed significant normalization and removal of speculative criteria not explicitly mentioned."
+}

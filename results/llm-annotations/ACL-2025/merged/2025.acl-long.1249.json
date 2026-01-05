@@ -1,0 +1,94 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Recent research presents a positive case of LLMs' ability to generate novel scientific contributions—be they hypotheses, or proposals or papers.",
+            "We conduct an expert-led evaluation where participants are instead instructed to presume plagiarism and actively search for it in LLM-generated research documents... participants assign similarity scores from 1-5 to each proposal.",
+            "The methodology section is most relevant in identifying plagiarism. Any other sections apart from these 4 are usually irrelevant."
+        ],
+        "tasks": [
+            "Other:Research Proposal Generation"
+        ],
+        "datasets": [
+            "Synthetic plagiarized proposal dataset (480 proposals)",
+            "Expert evaluation set (50 proposals)",
+            "Peer-Read"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Claude 3.5 Sonnet",
+            "GPT-4o",
+            "The AI Scientist"
+        ],
+        "outputs": [
+            "research proposals and papers",
+            "Generated research proposals (title, problem statement, motivation, methodology, etc.)",
+            "research proposals containing a title, problem statement, motivation, proposed method, experiment plan, test cases, and a fall back plan"
+        ]
+    },
+    "answer_2": {
+        "answer": "No",
+        "quote": [
+            "To systematically evaluate automated plagiarism detection methods, we create a synthetic dataset of research proposals intentionally plagiarized from existing papers."
+        ],
+        "automatic_metrics": [
+            "SSAG",
+            "OpenScholar",
+            "Turnitin",
+            "precision",
+            "recall",
+            "accuracy"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "Claude 3.5 Sonnet performs pairwise comparisons between the proposal and each of these top 10 papers. The LLM determines if the proposal and the retrieved paper are substantially similar...",
+            "We design experiments to evaluate these components both separately and together across three approaches. The first approach uses two LLMs (GPT-4o and Claude 3.5 Sonnet) in three distinct scenarios: (a) oracle access, wherein we provide an LLM with both the proposal and its source paper and evaluate its ability to detect plagiarism, (b) parametric knowledge testing, which examines LLMs' ability to both retrieve and determine similarity using only their training data without external tools, and (c) Semantic Scholar Augmented Generation (SSAG), which explicitly separates these steps by first retrieving papers through Semantic Scholar and then determining similarity.",
+            "Claude 3.5 Sonnet performs pairwise comparisons between the proposal and each of these top 10 papers. The LLM determines if the proposal and the retrieved paper are substantially similar, discarding the proposal if they are."
+        ],
+        "models": [
+            "Claude 3.5 Sonnet",
+            "GPT-4o"
+        ],
+        "methods": [
+            "pairwise comparison",
+            "oracle access",
+            "parametric knowledge testing",
+            "Semantic Scholar Augmented Generation (SSAG)",
+            "pairwise evaluation",
+            "SSAG"
+        ],
+        "criteria": [
+            "plagiarism detection (binary)",
+            "similarity assessment",
+            "substantial similarity",
+            "relevance"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "Our expert-led analysis reveals that 14.0% of LLM-generated research documents receive a score of 5 and another 10.0% documents receive a score of 4.",
+            "Participants are asked to assign similarity scores from 1-5 to each proposal, where 5 indicates direct copying and 1 indicates a completely original proposal. They evaluate 3 out of the 5 proposals that align with their domain knowledge.",
+            "Twelve participants each evaluate 3 out of 5 proposals that align with their domain knowledge, resulting in 3 × 12 = 36 total proposals."
+        ],
+        "guideline": [
+            "score on a scale of 1-5, where 5 indicates direct copying—that is, there exists a one-to-one mapping between the LLM proposed methodology and existing methods in one or two closely related prior papers. A score of 4 denotes that a significant portion of the LLM proposed method was borrowed from 2-3 prior works without credit. On the other extreme, a score of 1 is reserved for cases when experts find the proposal to be completely original.",
+            "Score any 3 of the 5 research proposals on a scale of 1-5, where 5 indicates direct copying (one-to-one mapping to existing methods) and 1 indicates a completely original proposal.",
+            "Participants are asked to only consider papers available until April 2024... Using a consistent evaluation rubric (see Table 1), participants assign similarity scores from 1-5 to each proposal."
+        ],
+        "criteria": [
+            "direct copying",
+            "significant borrowing",
+            "partial overlap",
+            "minor similarity",
+            "originality",
+            "similarity/plagiarism score (1-5)",
+            "similarity",
+            "combined borrowing"
+        ]
+    }
+}

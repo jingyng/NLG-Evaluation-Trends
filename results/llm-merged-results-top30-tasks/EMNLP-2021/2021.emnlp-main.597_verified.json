@@ -1,0 +1,140 @@
+{
+  "paper_id": "2021.emnlp-main.597",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering"
+    ],
+    "datasets": [
+      "ESTER"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart_base",
+      "bart_large",
+      "t_5_base",
+      "unifiedqa_base",
+      "unifiedqa_large",
+      "roberta_large"
+    ],
+    "outputs": [
+      "natural language answers in the form of complete text spans",
+      "generated answer spans (event descriptions) from the passage"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "BART-base",
+          "BART-large",
+          "T5-base",
+          "UnifiedQA-base",
+          "RoBERTa-large"
+        ],
+        "outputs": [
+          "generated answer spans (event descriptions) from the passage"
+        ]
+      },
+      "removed": {
+        "models": [
+          "RoBERTa"
+        ],
+        "outputs": [
+          "natural language answers"
+        ]
+      },
+      "normalized": {
+        "BART": "BART-large",
+        "UnifiedQA": "UnifiedQA-large",
+        "natural language answers": "natural language answers in the form of complete text spans"
+      },
+      "explanation": "Normalized model names to include specific versions, removed duplicate model mentions, and consolidated output descriptions to be more specific"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "EXACT MATCH",
+      "HIT"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "F1 (token-based)",
+          "Token F1",
+          "exact-match"
+        ]
+      },
+      "normalized": {
+        "F1 (token-based)": "F1",
+        "Token F1": "F1",
+        "Exact Match": "EM",
+        "exact-match": "EM"
+      },
+      "explanation": "Consolidated duplicate metric names and normalized to base forms (F1, EM, HIT@1)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No LLM judging was used in this paper - only automatic metrics and human evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Two co-authors provide answers for randomly selected questions",
+      "Compare human-provided answers with original answers using F1, HIT@1, and EM metrics",
+      "Co-authors never saw these questions previously"
+    ],
+    "criteria": [
+      "F1",
+      "1",
+      "Em"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "F1",
+          "HIT@1",
+          "EM"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "Token F1",
+          "Exact Match"
+        ]
+      },
+      "normalized": {
+        "Token F1": "F1",
+        "Exact Match": "EM"
+      },
+      "explanation": "Normalized criteria to match the three main metrics used in human evaluation and cleaned up guideline description"
+    }
+  },
+  "overall_notes": "This paper introduces ESTER dataset for event semantic reasoning via question answering. The paper evaluates generative QA models using automatic metrics (F1, EM, HIT@1) and human evaluation. The extraction was generally accurate but needed some normalization of model versions and metric names. No LLM-as-judge evaluation was conducted."
+}

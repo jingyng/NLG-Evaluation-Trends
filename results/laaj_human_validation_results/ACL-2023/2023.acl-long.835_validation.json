@@ -1,0 +1,168 @@
+{
+  "paper_id": "2023.acl-long.835",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-based evaluation against human annotations by comparing both on the same 50 random annotation questions, reporting Spearman correlation with expert judgments."
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "GPT-3.5",
+      "ChatGPT",
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Paper describes method but does not show exact prompts. LLMs evaluated information coverage on 5-point scale using same format as human reference-based task."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 200,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": [
+        "Cohen's Kappa",
+        "Krippendorff's Alpha"
+      ],
+      "value": {
+        "Cohen_Kappa_range": [
+          0.15,
+          0.71
+        ],
+        "Krippendorff_Alpha": 0.534
+      },
+      "interpretation": "moderate to substantial agreement among qualified workers",
+      "per_criterion": [
+        {
+          "criterion": "can2ref_coverage",
+          "metric": "Cohen's Kappa",
+          "value": "0.15-0.71"
+        },
+        {
+          "criterion": "ref2can_coverage",
+          "metric": "Cohen's Kappa",
+          "value": "0.14-0.66"
+        },
+        {
+          "criterion": "combined_score",
+          "metric": "Cohen's Kappa",
+          "value": "0.15-0.68"
+        },
+        {
+          "criterion": "can2ref_coverage",
+          "metric": "Krippendorff's Alpha",
+          "value": 0.558
+        },
+        {
+          "criterion": "ref2can_coverage",
+          "metric": "Krippendorff's Alpha",
+          "value": 0.508
+        },
+        {
+          "criterion": "combined_score",
+          "metric": "Krippendorff's Alpha",
+          "value": 0.534
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed guidelines provided for 6 summarization dimensions (binary scale) and reference-based task (5-point scale for coverage), with definitions and examples."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "information_coverage"
+    ],
+    "sample_size": {
+      "total_generated": 240,
+      "validated_by_both": 50,
+      "notes": "50 random samples selected from reference-based task (30 HITs × 8 questions = 240 total evaluated items)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.03,
+        "criterion": "combined_coverage",
+        "llm_model": "human_pipeline",
+        "significance": "95% CI: (-0.61, 0.65)",
+        "notes": "Pipeline workers (human)"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.1,
+        "criterion": "combined_coverage",
+        "llm_model": "human_MACE",
+        "significance": "95% CI: (-0.56, 0.69)",
+        "notes": "MACE-filtered workers (human)"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.08,
+        "criterion": "combined_coverage",
+        "llm_model": "human_CloudResearch",
+        "significance": "95% CI: (-0.58, 0.67)",
+        "notes": "CloudResearch workers (human)"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.73,
+        "criterion": "combined_coverage",
+        "llm_model": "GPT-3.5",
+        "significance": "95% CI: (0.18, 0.93)",
+        "notes": "Temperature=0, single run"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.73,
+        "criterion": "combined_coverage",
+        "llm_model": "ChatGPT",
+        "significance": "95% CI: (0.20, 0.93)",
+        "notes": "Temperature=1, top_p=1, 5 runs with median"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.83,
+        "criterion": "combined_coverage",
+        "llm_model": "GPT-4",
+        "significance": "95% CI: (0.41, 0.96)",
+        "notes": "Temperature=0, single run"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "partial",
+      "interpretation": "LLMs show strong correlation, human annotators show weak/no correlation",
+      "threshold_used": "Not explicitly stated, but GPT correlations >0.7 indicate strong alignment",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT models correlate well with expert judgments (ρ=0.73-0.83) while pipeline workers show near-zero correlation (ρ=0.03), indicating LLMs better capture expert correctness but pipeline achieves higher inter-annotator agreement."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "understandability",
+      "compactness",
+      "grammaticality",
+      "coherence",
+      "faithfulness",
+      "saliency"
+    ],
+    "shared_criteria": [
+      "information_coverage"
+    ],
+    "notes": "LLMs evaluated only on information coverage (reference-based task), while humans evaluated both coverage and 6 summarization dimensions."
+  }
+}

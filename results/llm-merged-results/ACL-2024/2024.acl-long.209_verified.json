@@ -1,0 +1,139 @@
+{
+  "paper_id": "2024.acl-long.209",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "Synthetic data (sentence-level)",
+      "Synthetic data (document-level)",
+      "WMT22 Zh-En (sentence-level)",
+      "WMT22 Zh-En (document-level)",
+      "WMT17-20 Zh-En"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "Transformer (scaled-down)",
+      "LLaMA2-7B"
+    ],
+    "outputs": [
+      "Translated sentences (sentence-level)",
+      "Translated documents (document-level)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "WMT17-20 Zh-En"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Synthetic (words A,B,C)",
+          "synthetic data"
+        ],
+        "languages": [],
+        "models": [
+          "Scaled-down Transformer (h_dim=128, heads=2, layers=2)",
+          "LLaMA2-7B fine‑tuned on Alpaca and WMT data"
+        ],
+        "outputs": [
+          "translated sentences"
+        ]
+      },
+      "normalized": {
+        "Synthetic sentence-level data": "Synthetic data (sentence-level)",
+        "Synthetic document-level data": "Synthetic data (document-level)",
+        "WMT22 Chinese-to-English test set (sentence-level)": "WMT22 Zh-En (sentence-level)",
+        "Document-level benchmark constructed from WMT22": "WMT22 Zh-En (document-level)",
+        "Transformer (h dim=128, h ffn=256, heads=2, layers=2)": "Transformer (scaled-down)",
+        "LLaMA2-7B": "LLaMA2-7B"
+      },
+      "explanation": "Consolidated synthetic datasets under consistent naming, added WMT17-20 dataset used for fine-tuning, removed redundant model descriptions, normalized outputs"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Length comparison",
+      "BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "sacreBLEU"
+        ]
+      },
+      "normalized": {
+        "sacreBLEU": "BLEU"
+      },
+      "explanation": "Normalized sacreBLEU to BLEU since sacreBLEU is just an implementation of BLEU scoring"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators inspected translations and judged whether each sentence or document exhibited under-translation or over-translation",
+      "Analysis conducted on first 300 sentences from sentence-level test set and first 100 documents from document-level test set"
+    ],
+    "criteria": [
+      "under-translation",
+      "over-translation"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Analysis conducted on first 300 sentences from sentence-level test set and first 100 documents from document-level test set"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Identify under-translation and over-translation errors by comparing source and translation outputs"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "under-translation": "under-translation",
+        "over-translation": "over-translation"
+      },
+      "explanation": "Refined guideline description to be more accurate, kept criteria as extracted"
+    }
+  },
+  "overall_notes": "The paper focuses exclusively on Neural Machine Translation evaluation, specifically addressing under-translation issues. It uses a combination of synthetic and real datasets (WMT22) with both automatic metrics (BLEU, length comparison) and human evaluation. The methods are well-designed with clear experimental setup. The metadata extraction was generally accurate with minor normalization needed."
+}

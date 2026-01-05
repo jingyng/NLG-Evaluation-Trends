@@ -1,0 +1,213 @@
+{
+  "paper_id": "2024.acl-long.51",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "FRANK",
+      "REALSumm",
+      "CNN/DailyMail",
+      "XSum"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Phi-2",
+      "Mixtral-8x7B",
+      "Mixtral-8x7B-Instruct",
+      "Llama-2-70B",
+      "Llama-3-70B-Instruct",
+      "Gemini-1.0-Pro",
+      "GPT-3.5-Turbo",
+      "GPT-4-Turbo",
+      "GPT-4",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "summaries",
+      "generated summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "CNNDM"
+        ],
+        "languages": [],
+        "models": [
+          "Mixtral-8x7B-Inst",
+          "Llama3-70B-Inst",
+          "GPT-4-omni",
+          "GPT-3.5",
+          "Llama3-70B",
+          "Llama-2",
+          "Llama-3"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "CNNDM": "CNN/DailyMail",
+        "Mixtral-8x7B-Inst": "Mixtral-8x7B-Instruct",
+        "Llama3-70B-Inst": "Llama-3-70B-Instruct",
+        "GPT-4-omni": "GPT-4o",
+        "Llama2-70B": "Llama-2-70B",
+        "Llama3-70B": "Llama-3-70B",
+        "Gemini-1-pro": "Gemini-1.0-Pro"
+      },
+      "explanation": "Normalized model names to standard forms, removed duplicates and variants, kept CNN/DailyMail as canonical form for CNNDM"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "METEOR",
+      "BERTScore",
+      "BARTScore",
+      "MoverScore",
+      "SummaC-Conv",
+      "UniEval",
+      "QAFactEval",
+      "G-Eval",
+      "FineSurE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEU",
+          "METEOR",
+          "MoverScore"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Added missing metrics mentioned in the paper (BLEU, METEOR, MoverScore) and normalized ROUGE variants to base form"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4-Turbo",
+      "GPT-4",
+      "GPT-4o",
+      "GPT-3.5-Turbo",
+      "Gemini-1.0-Pro",
+      "Llama-3-70B-Instruct",
+      "Llama-2-70B",
+      "Mixtral-8x7B-Instruct",
+      "Phi-2"
+    ],
+    "methods": [
+      "fact checking",
+      "keyfact alignment",
+      "prompt-based evaluation"
+    ],
+    "criteria": [
+      "faithfulness",
+      "completeness",
+      "conciseness",
+      "coherence",
+      "relevance",
+      "fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "coherence",
+          "relevance",
+          "fluency"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Mixtral-8x7B",
+          "Llama-3",
+          "Llama-2"
+        ],
+        "methods": [
+          "prompt-based scoring"
+        ],
+        "criteria": [
+          "no error",
+          "out-of-context error",
+          "entity error",
+          "predicate error",
+          "circumstantial error",
+          "grammatical error",
+          "coreference error",
+          "linking error",
+          "other error"
+        ]
+      },
+      "normalized": {
+        "Mixtral-8x7B-Inst": "Mixtral-8x7B-Instruct",
+        "Llama3-70B-Inst": "Llama-3-70B-Instruct",
+        "GPT-4-omni": "GPT-4o",
+        "Gemini-1-pro": "Gemini-1.0-Pro"
+      },
+      "explanation": "Removed specific error categories (those are sub-criteria for faithfulness, not main evaluation criteria). Added criteria mentioned in comparison with other methods. Normalized model names."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotations of factuality error types for FRANK and keyfact presence for REALSumm",
+      "Sentence-level binary annotations for factual errors",
+      "Summary-level percentage scores for faithfulness, completeness, conciseness",
+      "System-level rankings of summarization models"
+    ],
+    "criteria": [
+      "faithfulness",
+      "completeness",
+      "conciseness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Sentence-level binary annotations for factual errors",
+          "Summary-level percentage scores for faithfulness, completeness, conciseness",
+          "System-level rankings of summarization models"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotations of factuality error types for FRANK and keyfact presence for REALSumm.",
+          "Human annotators labeled each summary sentence for factual errors (error type or no error) and provided Likert-scale scores for faithfulness, completeness, and conciseness.",
+          "Evaluation Criteria: Completeness (1-5) - the degree to which the summary includes all key information present in the source document. Evaluation Criteria: Conciseness (1-5) - the extent to which the summary presents information succinctly and without unnecessary elaboration."
+        ],
+        "criteria": [
+          "coherence",
+          "relevance",
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Restructured guidelines to be more concise while preserving key information. Removed criteria (coherence, relevance, fluency) that were mentioned in comparison with other methods but not used in the paper's human evaluations."
+    }
+  },
+  "overall_notes": "The paper focuses on developing FineSurE, a fine-grained evaluation framework for text summarization using LLMs as judges. The extraction was generally accurate but needed normalization of model names and metrics. The paper uses both human evaluations (as ground truth) and LLM-based evaluations (as the proposed method)."
+}

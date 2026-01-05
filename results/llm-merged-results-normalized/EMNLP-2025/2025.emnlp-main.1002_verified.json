@@ -1,0 +1,200 @@
+{
+  "paper_id": "2025.emnlp-main.1002",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Visual Question Answering",
+      "Multimodal Dialogue",
+      "Multimodal Question Answering"
+    ],
+    "datasets": [
+      "IMAGE TEXTUALIZATION",
+      "TEXTCAPS",
+      "LLAVA",
+      "ai2d",
+      "sharegpt4v",
+      "LRV NORMAL",
+      "LRV INSTRUCTION",
+      "MME",
+      "OCR VQA",
+      "MM VET",
+      "MATHVISTA",
+      "MMT BENCH",
+      "POPE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_2_vl_7b",
+      "gpt_4o",
+      "gemini_2.5_pro",
+      "doubao_1.5_pro",
+      "lightweight_grpo_critic"
+    ],
+    "outputs": [
+      "revised answers for multimodal questions",
+      "confidence scores",
+      "critique rationales",
+      "final refined answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "AI2D"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "revised answers for multimodal questions",
+          "confidence scores",
+          "critique rationales",
+          "final refined answers"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:visual-language understanding",
+          "Other:multimodal instruction following"
+        ],
+        "datasets": [
+          "AI2D (GPT4V)"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "critiques, revised answers, and fine-tuned model responses",
+          "generated answers/revisions for multimodal questions, confidence scores, rationales",
+          "The paper generates revised multimodal answers through a self-refinement process conditioned on vision priors, expert rationales, and fused scores, aiming to produce high-confidence, hallucination-free responses for instruction tuning."
+        ]
+      },
+      "normalized": {
+        "AI2D (GPT4V)": "AI2D",
+        "Other:Visual Question Answering": "Other:Visual Question Answering",
+        "Other:Multimodal Dialogue": "Other:Multimodal Dialogue",
+        "Other:Multimodal Question Answering": "Other:Multimodal Question Answering"
+      },
+      "explanation": "Removed vague task descriptions and consolidated outputs to specific generated content types. Normalized AI2D dataset name and kept only concrete NLG datasets used for evaluation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "HALLUCINATION RATE",
+      "PEARSON CORRELATION",
+      "KENDALL S TAU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Kendall's τ",
+          "Pearson r",
+          "MME",
+          "OCR-VQA",
+          "MM-Vet",
+          "MathVista",
+          "MMT-bench",
+          "POPE"
+        ]
+      },
+      "normalized": {
+        "Kendall's τ": "Kendall's tau",
+        "Pearson r": "Pearson correlation"
+      },
+      "explanation": "Removed benchmark datasets (these are evaluation tasks, not metrics) and normalized metric names. Kept only actual automatic evaluation metrics used to score generated outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o",
+      "gemini_2.5_pro",
+      "doubao_1.5_pro",
+      "lightweight_grpo_critic"
+    ],
+    "methods": [
+      "Tri-Expert Assessment",
+      "domain-aware score fusion",
+      "GRPO selection"
+    ],
+    "criteria": [
+      "Relevance",
+      "Accuracy",
+      "Logic",
+      "Format"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Tri-Expert Assessment",
+          "domain-aware score fusion",
+          "GRPO selection"
+        ],
+        "criteria": [
+          "format"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "chain-of-thought critique",
+          "numeric scoring",
+          "chain-of-thought critiques",
+          "Tri-Expert Assessment with Shrinkage Fusion"
+        ],
+        "criteria": [
+          "coherence"
+        ]
+      },
+      "normalized": {
+        "chain-of-thought critique": "Tri-Expert Assessment",
+        "numeric scoring": "Tri-Expert Assessment",
+        "chain-of-thought critiques": "Tri-Expert Assessment",
+        "Tri-Expert Assessment with Shrinkage Fusion": "Tri-Expert Assessment",
+        "coherence": "logical coherence"
+      },
+      "explanation": "Consolidated evaluation methods under main procedure names and normalized criteria. Removed redundant method descriptions and merged 'coherence' into 'logical coherence'."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three human annotators independently assign integer quality scores from 0 (worst) to 5 (best)",
+      "Majority vote used as reference label"
+    ],
+    "criteria": [
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three human annotators independently assign integer quality scores from 0 (worst) to 5 (best)",
+          "Majority vote used as reference label"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- assign an integer quality score from 0 (worst) to 5 (best)",
+          "Assign an integer quality score from 0 to 5 for each sample.",
+          "Three human annotators independently assign an integer quality score from 0 (worst) to 5 (best); majority vote is taken as the reference label."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated and normalized guideline descriptions while maintaining the essential evaluation protocol. Kept 'overall quality' as the only explicitly mentioned criterion."
+    }
+  },
+  "overall_notes": "The paper clearly focuses on NLG evaluation through multimodal answer refinement. Extracted metadata was generally accurate but needed normalization and removal of benchmark datasets incorrectly listed as metrics. The paper uses LLMs as judges in a sophisticated multi-expert fusion framework."
+}

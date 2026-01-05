@@ -1,0 +1,135 @@
+{
+  "paper_id": "2023.acl-long.788",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation",
+      "Machine Translation"
+    ],
+    "datasets": [
+      "PARANMT SMALL",
+      "NIST CHINESE ENGLISH",
+      "WMT16",
+      "WMT14"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "German",
+      "Romanian"
+    ],
+    "models": [
+      "transformer",
+      "bart",
+      "syntax_guided_generation"
+    ],
+    "outputs": [
+      "Generated paraphrases",
+      "Generated translations"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "WMT'14 German-English"
+        ],
+        "models": [
+          "Syntax-guided Generation"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "NIST Chinese-English (Zh-En)",
+          "WMT'16 Romanian-English (Ro-En)",
+          "WMT'14 English-German (De-En)",
+          "WMT'14 English-German (En-De)"
+        ],
+        "outputs": [
+          "Generated paraphrases and translations (sentences)",
+          "generated paraphrases and translations"
+        ]
+      },
+      "normalized": {
+        "Transformer_Base": "Transformer",
+        "Syntax-guided Generation (Transformer-based)": "Syntax-guided Generation"
+      },
+      "explanation": "Removed duplicate dataset entries (same datasets listed multiple times), normalized model names, simplified outputs description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "IBLEU",
+      "D LEX",
+      "D SYN"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "D_beam_lex",
+          "D_beam_syn",
+          "self-BLEU"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed beam diversity metrics (D_beam_lex, D_beam_syn) as they are not standard automatic evaluation metrics for generation quality, but rather analysis metrics. Removed self-BLEU as it's mentioned in analysis but not used for primary evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleared all fields since paper does not use LLMs as evaluators. The paper explicitly states future work should include experiments on large language models, confirming LLMs are not used in this work."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators compare outputs side-by-side and vote for which candidate is better based on Fidelity, Novelty, and Diversity"
+    ],
+    "criteria": [
+      "Fidelity",
+      "Novelty",
+      "Diversity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators compare outputs side-by-side and vote for which candidate is better based on Fidelity, Novelty, and Diversity"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- considering Fidelity, Novelty, and Diversity",
+          "Annotators compare outputs side‑by‑side and rate them on Fidelity (semantic equivalence), Novelty (structural modification), and Diversity (difference among beam candidates).",
+          "The annotators are required to decide, which one is better by considering Fidelity, Novelty, and Diversity"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated multiple guideline descriptions into a single clear description. Kept the three criteria as they are explicitly stated in the paper."
+    }
+  },
+  "overall_notes": "The extracted metadata was generally accurate but contained some duplicates and overly specific entries. The paper focuses on syntax-guided generation using constituency parse trees with experiments on paraphrase generation and machine translation. Human evaluation was conducted with clear criteria. No LLM-based evaluation was used. The main contribution is a structured decoding method that follows syntactic grammar rules."
+}

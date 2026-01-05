@@ -1,0 +1,147 @@
+{
+  "paper_id": "2022.emnlp-main.464",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Data To Text Generation"
+    ],
+    "datasets": [
+      "FETAQA",
+      "LOGICNLG",
+      "TOTTO"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_base",
+      "t_5",
+      "r_2d_2",
+      "roberta_large"
+    ],
+    "outputs": [
+      "text sequences describing structured data",
+      "faithful natural language descriptions",
+      "table-to-text generations"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "R2D2"
+        ],
+        "outputs": [
+          "faithful natural language descriptions",
+          "table-to-text generations"
+        ]
+      },
+      "removed": {
+        "models": [
+          "R2D2-FT"
+        ]
+      },
+      "normalized": {
+        "R2D2-FT": "R2D2",
+        "text sequences describing structured data": "text sequences describing structured data",
+        "generated natural language sentences": "faithful natural language descriptions"
+      },
+      "explanation": "Normalized model names (R2D2-FT → R2D2), added more specific output descriptions based on paper focus on faithful generation, and removed duplicate model references"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "NLI ACC",
+      "BLEU",
+      "ROUGE",
+      "TER",
+      "METEOR",
+      "PARENT",
+      "REFERENCE COVERAGE",
+      "REF HIT INPUT HIT",
+      "REF HIT INPUT MISS",
+      "REF MISS INPUT HIT",
+      "REF MISS INPUT MISS"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "sacre-BLEU",
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "sacreBLEU",
+          "RC",
+          "RI",
+          "RM",
+          "MI",
+          "MM"
+        ]
+      },
+      "normalized": {
+        "sacre-BLEU": "BLEU",
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "sacreBLEU": "BLEU",
+        "RC": "Reference Coverage",
+        "RI": "Ref-hit & Input-hit",
+        "RM": "Ref-hit & Input-miss",
+        "MI": "Ref-miss & Input-hit",
+        "MM": "Ref-miss & Input-miss",
+        "Reference coverage (RC)": "Reference Coverage",
+        "Ref‑hit & Input‑hit (RI)": "Ref-hit & Input-hit",
+        "Ref‑miss & Input‑hit (MI)": "Ref-miss & Input-hit",
+        "Ref-hit & Input-miss (RM)": "Ref-hit & Input-miss",
+        "Ref-miss & Input-miss (MM)": "Ref-miss & Input-miss"
+      },
+      "explanation": "Normalized all metric variants to base forms (ROUGE-1/2/L → ROUGE, sacre-BLEU → BLEU), consolidated duplicate metric names, and expanded abbreviations for clarity while maintaining the named entity based metrics as proposed in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges for evaluation - all evaluation is done through automatic metrics and human evaluators"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluators judged faithfulness (all facts entailed by input) and adequacy (same or more facts than reference) for 200 samples per dataset"
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Adequacy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Evaluators judged faithfulness (all facts entailed by input) and adequacy (same or more facts than reference) for 200 samples per dataset"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "adequate",
+          "adequate with respect to reference"
+        ]
+      },
+      "normalized": {
+        "faithful": "faithfulness",
+        "adequate": "adequacy",
+        "adequate with respect to reference": "adequacy"
+      },
+      "explanation": "Normalized criteria to consistent forms (faithful → faithfulness, adequate → adequacy), consolidated guideline description, and removed redundant criteria"
+    }
+  },
+  "overall_notes": "The paper focuses on Data-to-Text generation with strong emphasis on faithfulness evaluation. The extraction was generally accurate but needed normalization of metric variants and clarification of some terminology. The paper uses comprehensive automatic evaluation including both traditional metrics and novel NE-based metrics, plus human evaluation for faithfulness assessment."
+}

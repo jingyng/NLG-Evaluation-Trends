@@ -1,0 +1,147 @@
+{
+  "paper_id": "2025.naacl-long.292",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Code Generation",
+      "Other: Open-ended text generation"
+    ],
+    "datasets": [
+      "Alpaca",
+      "Code-Alpaca",
+      "Aleatoric-List"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Meta-Llama-3-8B-Instruct",
+      "Meta-Llama-3-8B",
+      "Mistral-7B-v0.1",
+      "Llama-2-7b-chat-hf"
+    ],
+    "outputs": [
+      "Generated text responses",
+      "Generated code snippets",
+      "Generated lists"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering"
+        ],
+        "outputs": [
+          "Generated lists"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Machine Translation",
+          "Text Summarization",
+          "Other:question-answering"
+        ],
+        "outputs": [
+          "generated responses to questions, code snippets, and lists"
+        ]
+      },
+      "normalized": {
+        "Other:question-answering": "Question Answering",
+        "generated responses to questions, code snippets, and lists": "Generated text responses, Generated code snippets, Generated lists"
+      },
+      "explanation": "Removed tasks only mentioned in abstract background (MT, summarization). Kept only tasks actually evaluated. Normalized question-answering to standard form. Simplified outputs list."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "E5",
+      "Jaccard Similarity",
+      "all-mpnet-base-v2",
+      "p_repeat"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Semantic similarity (E5 mistral-7b)",
+          "All-mpnet-base-v2 similarity",
+          "Stylistic consistency (classifier)"
+        ]
+      },
+      "normalized": {
+        "E5 mistral-7b": "E5",
+        "all-mpnet-base-v2": "all-mpnet-base-v2"
+      },
+      "explanation": "Normalized metric names to base forms. Removed descriptive phrases that are not metric names. Kept p_repeat as it's a custom metric defined in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt-4o-mini"
+    ],
+    "methods": [
+      "Zero-shot classification",
+      "Semantic similarity scoring"
+    ],
+    "criteria": [
+      "Code snippet presence",
+      "Code snippet position",
+      "Comment inclusion",
+      "Programming language",
+      "Answer terseness",
+      "Bullet point usage",
+      "Bullet point numbering"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Code snippet position"
+        ]
+      },
+      "removed": {
+        "models": [
+          "E5 mistral-7b"
+        ],
+        "criteria": [
+          "contains code snippet",
+          "starts with code",
+          "contains comments",
+          "programming language",
+          "terse",
+          "contains bullet points",
+          "bullet points numerical",
+          "stylistic dimensions (code snippet presence, bullet format, etc.)",
+          "semantic similarity",
+          "includes comments",
+          "terse answer",
+          "bullet points",
+          "numerical bullet points"
+        ]
+      },
+      "normalized": {
+        "gpt-4o mini": "gpt-4o-mini",
+        "zero-shot classification prompt": "Zero-shot classification",
+        "semantic similarity scoring using embedding model": "Semantic similarity scoring"
+      },
+      "explanation": "Removed E5 as it's an embedding model, not an LLM judge. Normalized criteria to descriptive phrases. Removed redundant/overly specific criteria. Added missing 'code snippet position' criterion."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation mentioned in the paper - all evaluation is automatic or using LLM judges."
+    }
+  },
+  "overall_notes": "The paper focuses on a novel decoding method (Gumbel Consistency Sampling) for improving consistency in NLG. Evaluation is comprehensive but entirely automated - using both traditional metrics and LLM-as-judge approaches. The extraction was generally accurate but needed normalization and removal of background mentions that weren't part of the actual evaluation."
+}

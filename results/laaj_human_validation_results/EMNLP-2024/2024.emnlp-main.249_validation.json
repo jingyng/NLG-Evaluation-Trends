@@ -1,0 +1,97 @@
+{
+  "paper_id": "2024.emnlp-main.249",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-as-a-judge against human evaluation by comparing preferences on the same 700 queries using correlation metrics (Pearson Correlation, Cohen's Kappa) and shows strong agreement between model and human judgments"
+  },
+  "llm_judge_details": {
+    "num_models": 5,
+    "models": [
+      "GPT-4-TURBO",
+      "GPT-4-0125-PREVIEW",
+      "GPT-4O",
+      "MIXTRAL-8X22B-INSTRUCT",
+      "LLAMA-3-70B-INSTRUCT"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompts shown in Appendix Tables 13-15; same instruction/rubric structures as human evaluation with minor adaptations for LLM readability; includes chain-of-thought, in-context learning, and HTML tags"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Majority vote",
+      "value": "n/a",
+      "interpretation": "Majority vote used to mitigate biases; if no majority, default to tie",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed guidelines provided in Appendix A.6 and Figs. 5-7 (annotation interface); includes definition of aspects, rating categories, and step-by-step guidelines"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Cohen's kappa"
+    ],
+    "shared_criteria": [
+      "Helpfulness",
+      "Truthfulness",
+      "Completeness"
+    ],
+    "sample_size": {
+      "total_generated": 700,
+      "validated_by_both": 700,
+      "notes": "700 queries subsampled (100 from each of 7 domains) for validation; both LLM and human evaluate identical instances with same criteria"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.52,
+        "criterion": "overall (combined criteria)",
+        "llm_model": "multiple",
+        "significance": "p-values ≪ 0.01",
+        "notes": "Minimum correlation reported; LLM evaluators align well with average human scores"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.43,
+        "criterion": "overall (combined criteria)",
+        "llm_model": "multiple",
+        "significance": "n/a",
+        "notes": "Minimum agreement reported; all correlations show strong agreement"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Not explicitly stated, but correlations >0.5 and kappa >0.4 considered strong agreement",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM evaluators show strong correlation (Pearson r≥0.52) and agreement (kappa≥0.43) with human judgments across three criteria, validating RAG-QA ARENA as an efficient and accurate framework; GPT-4-0125-PREVIEW selected as best evaluator"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Helpfulness",
+      "Truthfulness",
+      "Completeness"
+    ],
+    "notes": "LLM and human evaluations use identical three criteria with same definitions and priorities (Truthfulness as primary criterion)"
+  }
+}

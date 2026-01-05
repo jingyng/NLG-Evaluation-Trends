@@ -1,0 +1,139 @@
+{
+  "paper_id": "2025.emnlp-main.1418",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Synthetic Clinical Note Generation",
+      "Synthetic Ehr Note Generation"
+    ],
+    "datasets": [
+      "SYNTH SBDH"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4"
+    ],
+    "outputs": [
+      "synthetic EHR notes with SBDH annotations including presence, temporality, and rationale"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Synthetic EHR Note Generation"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Synthetic Clinical Data Generation"
+        ],
+        "outputs": [
+          "synthetic clinical notes with SBDH annotations"
+        ]
+      },
+      "normalized": {
+        "Synthetic Clinical Note Generation": "Other:Synthetic Clinical Note Generation",
+        "GPT-4": "GPT-4"
+      },
+      "explanation": "Consolidated task descriptions to focus on EHR note generation, normalized model naming"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "F"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F-score"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "micro F",
+          "macro F",
+          "exact matching"
+        ]
+      },
+      "normalized": {
+        "micro F": "F-score",
+        "macro F": "F-score"
+      },
+      "explanation": "Normalized specific F-score variants (micro, macro) to base F-score metric; removed 'exact matching' since it's an evaluation criterion rather than a distinct metric"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "prompt-based validation",
+      "LLM-LLM alignment evaluation"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "LLM-LLM alignment evaluation"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "LLM evaluation prompt asking GPT-4 to label each annotation as correct or incorrect",
+          "prompting GPT-4 to validate annotations"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4": "GPT-4",
+        "correctness of annotation": "correctness of annotations"
+      },
+      "explanation": "Normalized method descriptions and criteria naming; consolidated redundant method descriptions"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Experts evaluated GPT-4 generated SBDH annotations using keep/update/discard/add actions and rated annotation rationales on a 4-point Likert scale"
+    ],
+    "criteria": [
+      "Correctness",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Experts used keep/update/discard/add actions for each annotation and rated rationales on a 4-point Likert scale",
+          "Experts considered each GPT-4 generated annotation for one of these actions - keep it when the annotation is correct, update it when there is an error, or discard it if the annotation was unnecessary or erroneous. Additionally, the experts were instructed to add missing annotations."
+        ],
+        "criteria": [
+          "correctness",
+          "relevance"
+        ]
+      },
+      "normalized": {
+        "correctness": "annotation correctness",
+        "relevance": "rationale quality"
+      },
+      "explanation": "Consolidated guideline descriptions and normalized criteria names to better reflect the paper's evaluation focus"
+    }
+  },
+  "overall_notes": "The paper primarily focuses on synthetic data generation for SBDH annotation in clinical text rather than traditional NLG tasks. The automatic metrics section was corrected as the paper DOES use F-scores for evaluation. LLM-as-judge evaluation is correctly identified with GPT-4 used to validate annotations. Human evaluation was comprehensive with expert annotation validation."
+}

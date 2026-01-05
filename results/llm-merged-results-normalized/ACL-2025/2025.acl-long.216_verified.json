@@ -1,0 +1,145 @@
+{
+  "paper_id": "2025.acl-long.216",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Mathematical Reasoning"
+    ],
+    "datasets": [
+      "MATH",
+      "epic50k",
+      "prm800k",
+      "MATH SHEPHERD",
+      "math500"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_8b_instruct",
+      "llama_3.1_8b_instruct",
+      "qwen_2_7b_instruct",
+      "qwen_2_math_1.5b_base",
+      "gemma_2_2b_it",
+      "gemma_2_9b_it",
+      "phi_3_mini_instruct"
+    ],
+    "outputs": [
+      "Chain-of-Thought reasoning chains",
+      "Intermediate reasoning steps for mathematical problems"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Mathematical Reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "intermediate reasoning steps and final solution texts"
+        ]
+      },
+      "normalized": {
+        "Other: Mathematical Reasoning": "Other: Mathematical Reasoning",
+        "intermediate reasoning steps and final solution texts": "Chain-of-Thought reasoning chains"
+      },
+      "explanation": "Removed duplicate task entry and normalized output descriptions to focus on the core Chain-of-Thought generation task"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Best-of-N accuracy",
+          "Best-of-128 accuracy",
+          "Best-of-N search accuracy",
+          "MATH500 Test Accuracy"
+        ]
+      },
+      "normalized": {
+        "Best-of-N accuracy": "Accuracy",
+        "Best-of-128 accuracy": "Accuracy",
+        "Best-of-N search accuracy": "Accuracy",
+        "MATH500 Test Accuracy": "Accuracy"
+      },
+      "explanation": "Simplified all accuracy variants to the base 'Accuracy' metric as they all measure the same fundamental accuracy on mathematical problem solving"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "qwen_2_math_1.5b_base",
+      "Process-supervised Reward Model (PRM)"
+    ],
+    "methods": [
+      "PRM weighted Best-of-N search",
+      "Monte Carlo estimation with completers"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLaMA3.1-8B-Instruct",
+          "Qwen2-7B-Instruct"
+        ],
+        "methods": [
+          "minimum PRM score selection",
+          "last step PRM score selection",
+          "rollout generation for correctness estimation",
+          "scoring solutions using PRM"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "scoring solutions using PRM": "PRM weighted Best-of-N search",
+        "minimum PRM score selection": "PRM weighted Best-of-N search",
+        "last step PRM score selection": "PRM weighted Best-of-N search"
+      },
+      "explanation": "Removed models that are used as generators rather than evaluators, and consolidated evaluation method descriptions to focus on the core PRM-based evaluation approach"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper - all evaluations used automatic metrics and LLM-based evaluation"
+    }
+  },
+  "overall_notes": "The paper focuses on mathematical reasoning through Chain-of-Thought generation and uses PRMs (trained LLMs) as evaluators. The extraction was generally accurate but needed normalization of metric variants and removal of generator models from the evaluator list. The paper does not conduct human evaluation, relying entirely on automatic metrics and PRM-based evaluation."
+}

@@ -1,0 +1,83 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "we prompt a language model (LM) to generate a list of goal-related explanations",
+            "We proposed GOALEX, a new formulation for text clustering that adapts to a user's goal and outputs explanations for each cluster. To tackle GOALEX, we developed the Propose-Assign-Select (PAS) algorithm; under automatic evaluation with known references and open-ended applications, PAS can generate accurate and goal-related explanations for the clusters."
+        ],
+        "tasks": [
+            "Other:Clustering Explanation Generation",
+            "Other:Text Clustering with Explanations"
+        ],
+        "datasets": [
+            "AG's News",
+            "DBPedia",
+            "NYT News",
+            "SYNGOALEX",
+            "OPENGOALEX",
+            "DBpedia"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "gpt-3.5-turbo",
+            "flan-t5-xl",
+            "gpt-4",
+            "Claude-v1.3"
+        ],
+        "outputs": [
+            "natural language explanations for clusters",
+            "natural language explanations for clusters, cluster assignments, taxonomies"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We benchmarked PAS in two ways: 1) automatically evaluating its ability to recover known clusters from corpora",
+            "We first compared PAS to prior methods on recovering topic clusters ... we compared 1) the similarity between the reference and the output clusters automatically ... we also report macro F1 scores.",
+            "Following the evaluation protocol from prior works, we evaluated PAS by applying it to corpora that are mixtures of known clusters, treating the known clusters and their explanations as the reference solutions, and checking how well the outputs of PAS can recover the references."
+        ],
+        "automatic_metrics": [
+            "macro F1 score",
+            "Macro F1",
+            "F1 score",
+            "Recall",
+            "Specificity"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [
+            "We prompt a language model (\"assigner\") to determine whether each explanation supports each sample."
+        ],
+        "models": [
+            "gpt-3.5-turbo",
+            "flan-t5"
+        ],
+        "methods": [
+            "pairwise evaluation"
+        ],
+        "criteria": [
+            "support (True/False)"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We evaluated PAS quantitatively with human annotators for the first layer of the taxonomy",
+            "We ran study with Turkers and found that they can choose the corresponding explanation 80% of the time for PAS, outperforming baselines.",
+            "We ran study with Turkers and found that they can choose the corresponding explanation 80% of the time for PAS, outperforming 56% for LDA (p ≈ 10 -9 ) and 71% for Instructor (p < 10 -3 )."
+        ],
+        "guideline": [
+            "For each instance, we present it to three human turkers and consider it correct if the majority of them choose e_k over e_k'.",
+            "Evaluators were asked to choose which explanation is more related to the goal for a given sample.",
+            "Given the sample x, the evaluator needs to choose which one of the explanations (blue, model generated explanation for x, or orange, a random different model generated explanation) is more related."
+        ],
+        "criteria": [
+            "explanation accuracy",
+            "goal-relevance",
+            "explanation relevance"
+        ]
+    }
+}

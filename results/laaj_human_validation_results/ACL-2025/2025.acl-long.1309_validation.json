@@ -1,0 +1,66 @@
+{
+  "paper_id": "2025.acl-long.1309",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "Both LLM and human evaluations are conducted but they are used for different purposes without quantitative comparison; LLM is used for automatic ranking metrics (MRR, HR@1) while human evaluation assesses style control, content preservation, and fluency on separate samples, with no explicit correlation or agreement analysis between the two methods."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The exact prompt for LLM ranking is provided in Appendix Table 10 (mentioned in automatic evaluation section), which includes guidelines for ranking outputs based on style adherence. The prompt for generating stylistic annotations is also shown in Table 9."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": null,
+      "interpretation": "moderate agreement",
+      "per_criterion": [
+        {
+          "criterion": "Style Control",
+          "metric": "Fleiss' kappa",
+          "value": 0.79
+        },
+        {
+          "criterion": "Content Preservation",
+          "metric": "Fleiss' kappa",
+          "value": 0.75
+        },
+        {
+          "criterion": "Fluency",
+          "metric": "Fleiss' kappa",
+          "value": 0.82
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed guidelines provided in Appendix Table 18; evaluators assigned WIN/TIE/LOSE based on SC, CP, FL criteria, with examples shown."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Adherence to target style norms (rank-based metrics)"
+    ],
+    "human_only_criteria": [
+      "Style Control",
+      "Content Preservation",
+      "Fluency"
+    ],
+    "shared_criteria": [],
+    "notes": "LLM evaluation focuses on automatic ranking metrics (MRR, HR@1) for style adherence, while human evaluation uses WIN/TIE/LOSE judgments on separate criteria (SC, CP, FL); no shared criteria or direct comparison between methods."
+  }
+}

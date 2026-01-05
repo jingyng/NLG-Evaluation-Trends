@@ -1,0 +1,136 @@
+{
+  "paper_id": "2024.emnlp-main.893",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Grounded Language Generation",
+      "Other:Action Sequence Generation",
+      "Other:Instruction Generation"
+    ],
+    "datasets": [
+      "gSCAN",
+      "GSRR",
+      "ReaSCAN",
+      "NL-gSCAN"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ICL Transformer",
+      "Bootstrap Transformer",
+      "Instruction Generator",
+      "DemoGen",
+      "Transformer",
+      "LLaMA-3"
+    ],
+    "outputs": [
+      "Sequences of actions (e.g., WALK, PULL, LTURN)",
+      "Generated support instructions for in-context learning"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Grounded Language Generation"
+        ],
+        "models": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Sequence Generation"
+        ],
+        "models": [
+          "GPT-3.5",
+          "BART-like masked language model",
+          "LLaMA3-Instruct",
+          "gpt3.5-turbo",
+          "openai-gpt3.5"
+        ]
+      },
+      "normalized": {
+        "Action Sequence Generation": "Action Sequence Generation",
+        "Instruction Generation": "Instruction Generation",
+        "BART-like masked language model": "Instruction Generator",
+        "GPT-3.5 (for paraphrasing)": "",
+        "DemoGen": "DemoGen"
+      },
+      "explanation": "Added main task 'Grounded Language Generation', removed minor/redundant models, kept only models used for generation being evaluated. GPT-3.5 was only used for dataset paraphrasing, not generation evaluated in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Exact Match",
+      "Success Rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "RMSE",
+          "Zipf distribution fit",
+          "coverage",
+          "similarity (cosine, hamming)",
+          "correlation (r)"
+        ]
+      },
+      "normalized": {
+        "Exact Match (success rate)": "Exact Match",
+        "exact match": "Exact Match",
+        "Success Rate": "Success Rate",
+        "success rate": "Success Rate"
+      },
+      "explanation": "Kept only metrics used to evaluate generated outputs (Exact Match/Success Rate). Removed Zipf fit and diagnostic metrics that were not used for NLG evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "gpt3.5-turbo",
+          "openai-gpt3.5"
+        ],
+        "methods": [
+          "paraphrase generation",
+          "prompting with examples"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all items as GPT-3.5 was only used for dataset preparation/paraphrasing, not as a judge to evaluate generated outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper - only automatic evaluation using exact match/success rate."
+    }
+  },
+  "overall_notes": "The paper focuses on grounded language generation using in-context learning with generated demonstrations. Evaluation is primarily automatic (exact match/success rate) on compositional generalization tasks. GPT-3.5 was used only for dataset paraphrasing, not for generation or evaluation. The extraction was mostly accurate but included some items not directly relevant to NLG evaluation."
+}

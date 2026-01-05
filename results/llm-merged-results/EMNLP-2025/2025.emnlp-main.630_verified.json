@@ -1,0 +1,171 @@
+{
+  "paper_id": "2025.emnlp-main.630",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering",
+      "Other:Embodied Question Answering"
+    ],
+    "datasets": [
+      "CityEQA-EC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "PMA",
+      "GPT-4o",
+      "GPT-4",
+      "Qwen-2.5",
+      "LLaMA-3.1-8B",
+      "DeepSeek-V3",
+      "LLaVA-1.5-7B"
+    ],
+    "outputs": [
+      "Open-vocabulary answers to spatial questions",
+      "Natural language answers to embodied questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "PMA",
+          "LLaVA-1.5-7B"
+        ],
+        "outputs": [
+          "Natural language answers to embodied questions"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "PMA Collector module"
+        ],
+        "outputs": [
+          "The car is red."
+        ]
+      },
+      "normalized": {
+        "LLaMA-v3.1-8b": "LLaMA-3.1-8B",
+        "DeepSeek-v3": "DeepSeek-V3",
+        "natural language answers to open-vocabulary questions": "Natural language answers to embodied questions"
+      },
+      "explanation": "Normalized model names, removed overly specific output example, added main PMA model and missing LLVA model used in experiments"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "QAA",
+      "NE",
+      "MTS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "QAA (LLM-based scoring)",
+          "Question Answering Accuracy (QAA)",
+          "Navigation Error (NE)",
+          "Mean Time Step (MTS)",
+          "LLM-Match mechanism"
+        ]
+      },
+      "normalized": {
+        "QAA": "QAA",
+        "NE": "NE",
+        "MTS": "MTS"
+      },
+      "explanation": "Removed duplicate metric names and LLM-based scoring (which belongs to answer_3), kept only the three main automatic metrics used"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "LLM"
+    ],
+    "methods": [
+      "LLM-based automated scoring",
+      "LLM-Match mechanism"
+    ],
+    "criteria": [
+      "relevance",
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4",
+          "GPT-4o"
+        ],
+        "methods": [
+          "LLM scoring",
+          "LLM as judge scoring"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "LLM scoring": "LLM-based automated scoring",
+        "LLM as judge scoring": "LLM-based automated scoring"
+      },
+      "explanation": "Removed specific model names since the paper refers to 'LLM' generically as evaluator, normalized method names, kept evaluation criteria"
+    }
+  },
+  "answer_4": {
+    "answer": "Human evaluation was conducted for dataset creation and validation but not for NLG output evaluation",
+    "answer_changed": true,
+    "guideline": [
+      "Dataset validation guidelines for answer quality and clarity"
+    ],
+    "criteria": [
+      "correctness",
+      "clarity",
+      "uniqueness",
+      "validity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "correctness",
+          "clarity"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Review policy includes: spelling/grammar check, unique target identification, valid initial pose",
+          "Human evaluators score each answer on a 1‑5 scale using the same prompt as the LLM judges.",
+          "The target object must be uniquely identifiable based on descriptions of landmarks and spatial positions. The initial pose is located at a movable position rather than within an obstacle."
+        ],
+        "criteria": [
+          "accuracy",
+          "uniqueness",
+          "spelling",
+          "grammar",
+          "uniqueness of target object",
+          "accuracy of answer"
+        ]
+      },
+      "normalized": {
+        "accuracy": "correctness",
+        "validity": "validity"
+      },
+      "explanation": "Changed answer to clarify human evaluation was for dataset creation, not NLG output evaluation. Consolidated criteria and simplified guidelines."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on Embodied Question Answering as a multimodal task combining navigation, perception, and language generation. NLG is a component but not the main focus. Human evaluation was conducted during dataset creation/validation, not for evaluating the generated outputs of the models."
+}

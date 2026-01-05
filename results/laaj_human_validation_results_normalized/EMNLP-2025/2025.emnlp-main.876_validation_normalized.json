@@ -1,0 +1,63 @@
+{
+  "paper_id": "2025.emnlp-main.876",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "Both LLM and human evaluations are conducted but they are used independently - LLM evaluation uses information gain metrics to analyze model-generated questions, while human evaluation assesses human question-asking behavior. No direct quantitative comparison between LLM and human judgments is reported."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "Gemini (used as Interpreter)",
+      "LLaMA-3.3 70B",
+      "GPT-4o",
+      "GPT",
+      "Gemini 2.0 Flash-Lite"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt texts provided in Appendix G for Guesser, Oracle, Checker, and Interpreter roles, including example questions and formatting requirements"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 4,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage agreement",
+      "value": 0.88,
+      "interpretation": "high agreement",
+      "per_criterion": [
+        {
+          "criterion": "question type classification",
+          "metric": "percentage agreement",
+          "value": 0.88
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human participants played GuessingGame under standard 50-turn limit protocol but no detailed evaluation rubric provided beyond task instructions"
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Bayesian information gain",
+      "entropy-based information gain",
+      "per-question relevance scoring",
+      "question type classification"
+    ],
+    "human_only_criteria": [
+      "game success rate",
+      "average number of questions",
+      "question-asking behavior"
+    ],
+    "shared_criteria": [],
+    "notes": "LLM evaluation focuses on information gain metrics and relevance scoring, while human evaluation focuses on overall game performance and question-asking behavior. The Bayesian IG metric is applied post-hoc to human dialogues but no human judgment is used to validate the LLM scoring itself."
+  }
+}

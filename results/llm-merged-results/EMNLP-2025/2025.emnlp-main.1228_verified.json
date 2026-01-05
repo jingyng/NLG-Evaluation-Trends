@@ -1,0 +1,128 @@
+{
+  "paper_id": "2025.emnlp-main.1228",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering with False Assumptions"
+    ],
+    "datasets": [
+      "(QA)^2",
+      "CREPE",
+      "FalseQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o",
+      "Llama-3-70B",
+      "Mistral-7B",
+      "RoBERTa-large",
+      "OpenAI o1"
+    ],
+    "outputs": [
+      "Binary classification (contains false assumptions or not)",
+      "Interpretable answers pinpointing false atomic assumptions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "datasets": [
+          "BoolQ",
+          "FEVER"
+        ],
+        "models": [
+          "Llama 3 8B",
+          "Qwen2 7B"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "(QA)2": "(QA)^2",
+        "Llama 3 70B": "Llama-3-70B",
+        "Mistral 7B": "Mistral-7B"
+      },
+      "explanation": "Removed 'Other:Question Answering' as it's redundant with the main task. Removed BoolQ and FEVER datasets as they were only used as auxiliary datasets for related tasks, not for the main NLG evaluation. Removed Llama 3 8B and Qwen2 7B as they were mentioned in appendix but not in main experiments."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed BLEU as the paper explicitly states it's not suitable for this task: 'comparing a single gold answer to the generated one with existing metrics such as BLEU cannot effectively assess correctness'"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4o",
+          "Llama 3 70B",
+          "Mistral 7B"
+        ],
+        "methods": [
+          "atomic assumption validation"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as the paper does not use LLMs as judges/evaluators. The mentioned models are used for generation/identification tasks, not for evaluating outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual annotation of atomic assumption interpretations to check which atomic assumptions are true and false"
+    ],
+    "criteria": [
+      "correctness in pinpointing false assumptions"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No significant changes needed. The human evaluation is clearly described for validating atomic assumption interpretations."
+    }
+  },
+  "overall_notes": "The paper focuses on identifying and answering questions with false assumptions using retrieval-augmented methods and atomic assumption generation/validation. The NLG task is specifically question answering with interpretable outputs. Automatic evaluation uses Accuracy and F1, with human evaluation for fine-grained interpretation validation."
+}

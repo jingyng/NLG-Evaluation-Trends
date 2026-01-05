@@ -1,0 +1,125 @@
+{
+  "paper_id": "2021.naacl-main.13",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Machine Translation"
+    ],
+    "datasets": [
+      "STANFORD SENTIMENT TREEBANK",
+      "IWSLT 2014 GERMAN ENGLISH",
+      "REDDIT COMMENTS",
+      "WIKITEXT 103"
+    ],
+    "languages": [
+      "English",
+      "German"
+    ],
+    "models": [
+      "roberta_base",
+      "transformer_lm_pretrained_on_wikitext_103",
+      "transformer_mt_model"
+    ],
+    "outputs": [
+      "Generated sentences about trigger phrases",
+      "Translated sentences with triggered mistranslations",
+      "Sentiment-controlled generations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Stanford Sentiment Treebank"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Sentiment-controlled generations"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "pushshift.io Reddit comments",
+          "Reddit dialogue comments"
+        ],
+        "languages": [],
+        "models": [
+          "transformer_lm_wiki103",
+          "transformer_iwslt_de_en",
+          "Transformer-based LM pretrained on WikiText-103"
+        ],
+        "outputs": [
+          "Generated dialogue sentences from the LM and translated English sentences from the MT model"
+        ]
+      },
+      "normalized": {
+        "Reddit": "Reddit comments",
+        "Transformer LM pretrained on WikiText-103": "Transformer LM pretrained on WikiText-103",
+        "generated text conditioned on trigger phrases, mistranslations": "Generated sentences about trigger phrases"
+      },
+      "explanation": "Simplified datasets to main ones used (SST, IWSLT, Reddit comments, WikiText-103). Consolidated models to main categories. Normalized output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": false,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "No automatic metrics were used for evaluating NLG outputs - only human evaluation and attack success rate were used."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manually evaluate percentage of samples containing negative sentiment",
+      "Manually check if exact target phrase appears in translations"
+    ],
+    "criteria": [
+      "Sentiment",
+      "Presence"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "Annotators examine generated sentences and judge whether they exhibit negative sentiment (for LM) or contain the exact target phrase (for MT).": "Manually evaluate percentage of samples containing negative sentiment",
+        "negative sentiment": "Negative sentiment",
+        "exact target phrase presence": "Exact target phrase presence"
+      },
+      "explanation": "Normalized the guideline descriptions while preserving the original meaning. Consolidated criteria to standardized forms."
+    }
+  },
+  "overall_notes": "This paper focuses on data poisoning attacks on NLP models across three tasks: sentiment analysis, language modeling/dialogue generation, and machine translation. While sentiment analysis is classification, the paper also evaluates NLG tasks (dialogue generation and MT). Human evaluation was conducted for LM outputs (sentiment judgment) and MT outputs (exact phrase matching), but no automatic metrics or LLM-as-judge methods were used. The extraction was generally accurate but needed some normalization and consolidation."
+}

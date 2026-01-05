@@ -1,0 +1,52 @@
+{
+  "paper_id": "2025.acl-long.1315",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper uses LLMs for preliminary QA generation and human annotators for verification/refinement in a sequential annotation pipeline, but there is no explicit quantitative comparison between LLM judgments and human judgments on the same evaluation criteria."
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "Qwen2-VL-72B",
+      "Qwen2.5-72B",
+      "DeepSeek-V3"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt templates for specific tasks like event summarization and question generation are provided in the main text, but not the complete prompts"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 10,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": "Not reported",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators use a Gradio-based platform to assess correctness, type relevance, and video relevance scores (0-5 scale), with specific handling procedures for borderline cases"
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "CircularEval filtering"
+    ],
+    "human_only_criteria": [
+      "Correctness",
+      "Type Relevance",
+      "Video Relevance"
+    ],
+    "shared_criteria": [],
+    "notes": "LLMs are primarily used for generating initial QA pairs during dataset construction, while humans perform quality assessment using a three-dimensional scoring system. The evaluation criteria differ between the two approaches without overlap."
+  }
+}

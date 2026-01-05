@@ -1,0 +1,133 @@
+{
+  "paper_id": "2025.emnlp-main.307",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Mathematical Reasoning",
+      "Other:Logical Reasoning"
+    ],
+    "datasets": [
+      "GSM8K",
+      "MultiArith",
+      "SVAMP",
+      "MAWPS",
+      "CoinFlips"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Mistral-7B",
+      "Gemma-2-2B",
+      "Phi-1.5"
+    ],
+    "outputs": [
+      "Intermediate reasoning chains and final answers",
+      "Step-by-step thought processes leading to solutions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Logical Reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Step-by-step thought processes leading to solutions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Reasoning Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Gemma2-2b"
+        ],
+        "outputs": [
+          "generated reasoning chains (Chain-of-Thought) and final answers"
+        ]
+      },
+      "normalized": {
+        "Other:Mathematical Reasoning": "Other:Mathematical Reasoning",
+        "Mistral-7b": "Mistral-7B",
+        "Gemma2-2b": "Gemma-2-2B",
+        "Phi-1.5": "Phi-1.5"
+      },
+      "explanation": "Normalized model names to standard capitalization, removed duplicate 'Gemma2-2b', added 'Other:Logical Reasoning' for CoinFlips dataset, simplified task description to be more specific"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "AUC-ROC",
+          "F1-score"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Removed AUC-ROC and F1-score as they were used for classifier performance evaluation, not for evaluating the generated outputs themselves. Only kept Accuracy which is used to evaluate reasoning performance."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "Binary classification labeling"
+    ],
+    "criteria": [
+      "Chain-of-Thought reasoning presence",
+      "Explicit reasoning steps",
+      "Problem breakdown",
+      "Intermediate calculations",
+      "Logical progression"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Chain-of-Thought reasoning presence"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "CoT presence",
+          "reasoning quality"
+        ]
+      },
+      "normalized": {
+        "GPT4o": "GPT-4o",
+        "binary classification": "Binary classification labeling",
+        "binary classification labeling using LLM judge": "Binary classification labeling",
+        "binary classification via prompting": "Binary classification labeling"
+      },
+      "explanation": "Normalized model name to GPT-4o, consolidated methods to 'Binary classification labeling', simplified and normalized criteria to focus on the core CoT evaluation criteria"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper"
+    }
+  },
+  "overall_notes": "The paper focuses on improving reasoning performance through classifier-guided exploration of LLM thought spaces. It evaluates mathematical and logical reasoning generation using accuracy metrics. LLM-as-judge is used only for dataset construction (labeling CoT vs non-CoT responses), not for direct evaluation of the main method outputs. The extraction was generally accurate but needed normalization and removal of classifier evaluation metrics that weren't used for output evaluation."
+}

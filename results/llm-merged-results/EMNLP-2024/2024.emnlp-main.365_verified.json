@@ -1,0 +1,151 @@
+{
+  "paper_id": "2024.emnlp-main.365",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Report Generation"
+    ],
+    "datasets": [
+      "Healthcare",
+      "Environmental Sustainability",
+      "Urban Housing",
+      "Criminal Justice",
+      "Education",
+      "Legal and Judicial",
+      "Socioeconomic",
+      "Business"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Mistral-7B",
+      "Mixtral-8x7B",
+      "GPT-4"
+    ],
+    "outputs": [
+      "natural language reports",
+      "textual reports",
+      "fluent, coherent, and factual reports grounded in structured data"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "healthcare": "Healthcare",
+        "environmental sustainability": "Environmental Sustainability",
+        "urban housing": "Urban Housing",
+        "criminal justice": "Criminal Justice",
+        "education": "Education",
+        "legal and judicial": "Legal and Judicial",
+        "socioeconomic": "Socioeconomic",
+        "business": "Business"
+      },
+      "explanation": "Normalized dataset names to title case for consistency"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "UniEval"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "UniEval (fluency)",
+          "UniEval (coherence)"
+        ]
+      },
+      "normalized": {
+        "UniEval (fluency)": "UniEval",
+        "UniEval (coherence)": "UniEval"
+      },
+      "explanation": "Simplified UniEval variants to base metric name only, as UniEval is used to evaluate both fluency and coherence"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "UniEval (model based evaluator)"
+        ],
+        "methods": [
+          "automatic scoring via UniEval checkpoint"
+        ],
+        "criteria": [
+          "fluency",
+          "coherence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed items because UniEval is used directly as an automatic evaluation tool, not as an LLM-as-judge. The paper does not use LLMs for post-generation evaluation judgments."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators identified claims and classified each as factual, refuted, or confabulated",
+      "Two authors evaluated each report with interannotator agreement measured using Krippendorff's α (0.86)"
+    ],
+    "criteria": [
+      "factuality",
+      "accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Two authors evaluated each report with interannotator agreement measured using Krippendorff's α (0.86)"
+        ],
+        "criteria": [
+          "accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "The rubric for claim classification defines criteria: factual, refuted, confabulated.",
+          "We define a claim as any assertion of truth involving some retrieval or analytic processing of information from the data. Once a claim has been identified, we determine which of the following mutually exclusive categories this claim belongs to based on the factual statements generated for that kind of report: Factual, Refuted, Confabulation."
+        ],
+        "criteria": [
+          "factual",
+          "refuted",
+          "confabulated",
+          "refutation",
+          "confabulation",
+          "fluency",
+          "coherence"
+        ]
+      },
+      "normalized": {
+        "factual": "factuality"
+      },
+      "explanation": "Simplified criteria to main evaluation dimensions (factuality/accuracy), removed redundant guideline text, and clarified that fluency/coherence were evaluated automatically via UniEval, not by humans"
+    }
+  },
+  "overall_notes": "The paper presents Satyrn, a platform for analytics augmented generation focused on report generation from structured data. Human evaluation focused on factuality/accuracy of claims, while automatic evaluation used UniEval for fluency and coherence. The extracted metadata was generally accurate with minor normalization needed."
+}

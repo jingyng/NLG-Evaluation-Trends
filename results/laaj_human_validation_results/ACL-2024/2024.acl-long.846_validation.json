@@ -1,0 +1,175 @@
+{
+  "paper_id": "2024.acl-long.846",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares BatchEval (LLM-as-judge) with human evaluations across multiple benchmarks using Pearson and Spearman correlations, reporting quantitative agreement metrics and analyzing performance differences"
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "GPT-4",
+      "GPT-3.5-turbo",
+      "Llama-2-70b-chat-hf"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt templates are provided in Appendix H, including detailed scoring rubrics and examples for different evaluation procedures (one-stage, two-stage, three-stage)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": null,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Inter-annotator agreement",
+      "value": 0.568,
+      "interpretation": "Reported as average inter-annotator correlation across criteria",
+      "per_criterion": [
+        {
+          "criterion": "Understanding",
+          "metric": "Inter-annotator agreement",
+          "value": 0.51
+        },
+        {
+          "criterion": "Naturalness",
+          "metric": "Inter-annotator agreement",
+          "value": 0.486
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Evaluation criteria and scales are described (e.g., 1-3 or 1-5 point scales with definitions), but detailed human evaluation protocol not fully specified"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "Engaging",
+      "Understand",
+      "Naturalness",
+      "Coherence",
+      "Overall",
+      "Likeable",
+      "Coherent",
+      "Understanding",
+      "Relevance",
+      "Empathy",
+      "Surprise",
+      "Engagement",
+      "Complexity",
+      "Factual Consistency"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": null,
+      "notes": "Exact sample sizes not specified, but validation conducted across 4 benchmarks: Topical-Chat, FED (125 samples), HANNA, and QAGS"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.75,
+        "criterion": "Overall",
+        "llm_model": "GPT-4",
+        "significance": "p-value < 0.05",
+        "notes": "BatchEval with human prompt"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.73,
+        "criterion": "Overall",
+        "llm_model": "GPT-4",
+        "significance": "p-value < 0.05",
+        "notes": "BatchEval with human prompt"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.762,
+        "criterion": "Overall",
+        "llm_model": "GPT-4",
+        "significance": "p-value < 0.05",
+        "notes": "BatchEval with GPT-4 prompt"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.729,
+        "criterion": "Overall",
+        "llm_model": "GPT-4",
+        "significance": "p-value < 0.05",
+        "notes": "BatchEval with GPT-4 prompt"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.706,
+        "criterion": "Overall",
+        "llm_model": "GPT-3.5-turbo",
+        "significance": null,
+        "notes": "BatchEval"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.703,
+        "criterion": "Overall",
+        "llm_model": "GPT-3.5-turbo",
+        "significance": null,
+        "notes": "BatchEval"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.626,
+        "criterion": "Overall",
+        "llm_model": "Llama-2-70b",
+        "significance": null,
+        "notes": "BatchEval"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.635,
+        "criterion": "Overall",
+        "llm_model": "Llama-2-70b",
+        "significance": null,
+        "notes": "BatchEval"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Not explicitly stated, but correlations of 0.626-0.762 considered significant improvements over baselines",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "BatchEval achieves average 10.5% improvement in Pearson correlation and 7.1% in Spearman correlation with human judgments compared to state-of-the-art methods, while using only 64% of API costs."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Engaging",
+      "Understand",
+      "Naturalness",
+      "Coherence",
+      "Overall",
+      "Likeable",
+      "Coherent",
+      "Understanding",
+      "Relevance",
+      "Empathy",
+      "Surprise",
+      "Engagement",
+      "Complexity",
+      "Factual Consistency"
+    ],
+    "notes": "LLM and human evaluate identical criteria across all benchmarks, allowing direct comparison of evaluation quality"
+  }
+}

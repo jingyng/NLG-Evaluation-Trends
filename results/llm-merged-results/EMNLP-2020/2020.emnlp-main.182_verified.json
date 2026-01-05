@@ -1,0 +1,145 @@
+{
+  "paper_id": "2020.emnlp-main.182",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Adversarial Sentence Generation",
+      "Other:Adversarial Example Generation"
+    ],
+    "datasets": [
+      "Penn Treebank 3.0 (PTB)"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "seq2seq generator with BiLSTM",
+      "Deep Biaffine parser",
+      "StackPtr",
+      "BiST",
+      "Stanford POS tagger",
+      "Senna tagger"
+    ],
+    "outputs": [
+      "adversarial sentences for structured prediction tasks"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Penn Treebank"
+        ],
+        "languages": [],
+        "models": [
+          "seq2seq generator"
+        ],
+        "outputs": [
+          "adversarial sentences"
+        ]
+      },
+      "normalized": {
+        "Penn Treebank": "Penn Treebank 3.0 (PTB)",
+        "adversarial sentences": "adversarial sentences for structured prediction tasks"
+      },
+      "explanation": "Removed duplicate dataset entry, simplified model names, and made output description more specific"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Perplexity",
+      "Token-level attacking success rate",
+      "Sentence-level attacking success rate",
+      "BERTScore",
+      "UAS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Perplexity on GPT-2",
+          "Token-level attacking success rate (UAS)",
+          "sentence-level attacking success rate",
+          "unlabeled attachment score (UAS)"
+        ]
+      },
+      "normalized": {
+        "Perplexity (GPT-2)": "Perplexity",
+        "perplexity on GPT-2": "Perplexity",
+        "Token-level attacking success rate": "Token-level attacking success rate",
+        "Sentence-level attacking success rate": "Sentence-level attacking success rate"
+      },
+      "explanation": "Normalized all metric variants to base forms without duplication, removed redundant UAS entries since Token-level attacking success rate covers it"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [
+      "GPT-2"
+    ],
+    "methods": [
+      "perplexity scoring"
+    ],
+    "criteria": [
+      "fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed - GPT-2 is used for perplexity calculation during generation, not as a judge after generation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate fluency on a 1-5 scale (5 = fluent with no grammatical errors, 1 = full of grammatical errors and meaningless)",
+      "Manually annotate erroneous dependency edges to calculate attacking success rate"
+    ],
+    "criteria": [
+      "fluency",
+      "attacking efficiency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Rate fluency on a scale of 1 to 5 and annotate erroneous dependency edges for attacking efficiency.",
+          "Rate fluency on a 1‑5 scale; annotate erroneous dependency edges to compute error rates."
+        ],
+        "criteria": [
+          "attacking efficiency (error rate)"
+        ]
+      },
+      "normalized": {
+        "attacking efficiency (error rate)": "attacking efficiency"
+      },
+      "explanation": "Consolidated duplicate guideline entries into a clear description and normalized criteria names"
+    }
+  },
+  "overall_notes": "This paper focuses on generating adversarial examples for structured prediction tasks (dependency parsing and POS tagging) rather than traditional NLG evaluation. The NLG aspect comes from the seq2seq model used to generate adversarial sentences. The evaluation primarily measures attacking success rates and sentence quality rather than standard NLG metrics. GPT-2 is used for perplexity calculation during generation, not as a judge after generation."
+}

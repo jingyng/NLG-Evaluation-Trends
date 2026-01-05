@@ -1,0 +1,140 @@
+{
+  "paper_id": "2025.acl-long.122",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "FLORES-200",
+      "MTNT",
+      "MultiLexNorm",
+      "Tatoeba Challenge",
+      "OPUS"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "French",
+      "Korean",
+      "Portuguese",
+      "Spanish"
+    ],
+    "models": [
+      "OPUS",
+      "NLLB",
+      "TowerInstruct",
+      "GPT-3.5",
+      "ByT5",
+      "M2M-100"
+    ],
+    "outputs": [
+      "Machine translation outputs",
+      "Translated text in target languages",
+      "Corrected source text"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "M2M-100"
+        ],
+        "outputs": [
+          "Corrected source text"
+        ]
+      },
+      "removed": {
+        "languages": [
+          "Chinese"
+        ],
+        "models": [
+          "TI",
+          "TowerInstruct-v0.1"
+        ]
+      },
+      "normalized": {
+        "TI": "TowerInstruct",
+        "TowerInstruct-v0.1": "TowerInstruct",
+        "ByT5-Small": "ByT5"
+      },
+      "explanation": "Normalized model names, removed Chinese (not explicitly evaluated), added M2M-100 model mentioned in experiments, added source correction as output type"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "COMET",
+      "BLEU",
+      "chrF",
+      "spBLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "COMET-slope",
+          "faux-BLEU",
+          "faux-COMET",
+          "∆QE",
+          "ΔQE (COMETKiwi)"
+        ]
+      },
+      "normalized": {
+        "COMET-slope": "COMET",
+        "faux-BLEU": "spBLEU",
+        "faux-COMET": "COMET",
+        "∆QE": "COMET",
+        "ΔQE (COMETKiwi)": "COMET"
+      },
+      "explanation": "Simplified metric variants to base forms as per guidelines. COMET-slope, faux-BLEU, faux-COMET, and ΔQE are all variants/uses of base metrics COMET and spBLEU"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "COMETKiwi"
+        ],
+        "methods": [
+          "quality estimation",
+          "reference-free evaluation"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "COMETKiwi is a quality estimation model, not an LLM used as a judge. The paper does not use LLMs for evaluation, only for generation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Paper explicitly states all evaluations are automatic/neural, no human evaluation conducted"
+    }
+  },
+  "overall_notes": "The extraction quality was generally good. The main issues were metric normalization (needed to simplify variants to base forms) and correctly identifying that COMETKiwi is not an LLM-as-judge. The paper is a thorough study of MT robustness using both synthetic and natural noise, with extensive automatic evaluation but no human or LLM-as-judge evaluation."
+}

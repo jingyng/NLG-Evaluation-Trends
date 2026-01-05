@@ -1,0 +1,116 @@
+{
+  "paper_id": "2025.emnlp-main.1715",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-based judgments against human evaluations by reporting Pearson correlation coefficients between LLM and human scores across multiple criteria and languages"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt templates for evaluation provided in Appendix E, including detailed scoring rubrics and instructions for each evaluation dimension"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 6,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's Alpha",
+      "value": 0.81,
+      "interpretation": "Korean annotators demonstrated strong agreement (α=0.81), Chinese annotators (n=2) achieved substantial reliability (α=0.72)",
+      "per_criterion": [
+        {
+          "criterion": "overall",
+          "metric": "Krippendorff's Alpha",
+          "value": 0.81,
+          "notes": "Korean annotators (n=4)"
+        },
+        {
+          "criterion": "overall",
+          "metric": "Krippendorff's Alpha",
+          "value": 0.72,
+          "notes": "Chinese annotators (n=2)"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed evaluation rubrics and instructions provided in Appendix E, including scoring criteria for six evaluation dimensions"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "Consistency",
+      "Naturalness",
+      "Relevance",
+      "Emotional Appropriateness",
+      "Norm Appropriateness",
+      "Scenario Coherence"
+    ],
+    "sample_size": {
+      "total_generated": 3600,
+      "validated_by_both": 3600,
+      "notes": "Validation covers all generated dialogues across three languages (1200 per language) and all evaluation criteria"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.928,
+        "criterion": "overall",
+        "llm_model": "GPT-4o",
+        "significance": "not reported",
+        "notes": "Korean evaluation (coefficient r=0.928)"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.945,
+        "criterion": "overall",
+        "llm_model": "GPT-4o",
+        "significance": "not reported",
+        "notes": "Chinese evaluation (coefficient r=0.945)"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Values close to 1.0 indicate strong agreement",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-based evaluations show strong agreement with human judgments (r=0.928 for Korean, r=0.945 for Chinese), confirming the reliability of automatic evaluation protocol."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Quality",
+      "Alignment",
+      "Fidelity"
+    ],
+    "human_only_criteria": [
+      "Fluency"
+    ],
+    "shared_criteria": [
+      "Consistency",
+      "Naturalness",
+      "Relevance",
+      "Emotional Appropriateness",
+      "Norm Appropriateness",
+      "Scenario Coherence"
+    ],
+    "notes": "LLM and human evaluations assess overlapping criteria across six dimensions with additional metrics specific to each method"
+  }
+}

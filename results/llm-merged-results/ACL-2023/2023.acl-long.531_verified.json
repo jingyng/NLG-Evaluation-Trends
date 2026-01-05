@@ -1,0 +1,130 @@
+{
+  "paper_id": "2023.acl-long.531",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "COVIDET-EXT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Emotion-Aware PageRank (EAP)",
+      "Sentence-BERT"
+    ],
+    "outputs": [
+      "extractive summaries of emotion triggers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Sentence-BERT"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BART-FT-JOINT",
+          "BERT",
+          "Emotion-Aware PageRank"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Emotion-Aware PageRank": "Emotion-Aware PageRank (EAP)"
+      },
+      "explanation": "Removed BART-FT-JOINT and BERT as they are only mentioned in supervised experiments appendix (not main focus), kept only EAP and Sentence-BERT which are core unsupervised components normalized EAP name"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "F1",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "ROUGE",
+          "F1",
+          "BERTScore"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Rouge-2",
+          "Rouge-L",
+          "ROUGE-2",
+          "ROUGE-L",
+          "self-BLEU",
+          "self-ROUGE"
+        ]
+      },
+      "normalized": {
+        "Rouge-2": "ROUGE",
+        "Rouge-L": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized all ROUGE variants to base ROUGE, removed self-BLEU/self-ROUGE (used for inter-annotator agreement, not output evaluation), kept F1 and BERTScore as evaluation metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in the paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Annotators highlight sentences in posts that best describe the trigger for each emotion",
+      "Extract events and how people make sense of events that lead to emotion expression"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators highlight sentences in posts that best describe the trigger for each emotion",
+          "Extract events and how people make sense of events that lead to emotion expression"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added proper human evaluation description from annotation process (though this was for dataset creation, not system output evaluation). Changed answer to 'Yes' since humans evaluated the annotations for quality"
+    }
+  },
+  "overall_notes": "The paper focuses on unsupervised extractive summarization of emotion triggers. While humans were used for dataset annotation quality assessment, there's no explicit human evaluation of the system-generated summaries. The paper uses standard automatic metrics (ROUGE, F1) for evaluation. The main contribution is the Emotion-Aware PageRank model for emotion-specific extractive summarization."
+}

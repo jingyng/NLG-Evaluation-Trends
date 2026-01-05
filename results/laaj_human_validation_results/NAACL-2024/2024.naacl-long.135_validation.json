@@ -1,0 +1,84 @@
+{
+  "paper_id": "2024.naacl-long.135",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM evaluation against human evaluation by testing correlation between different LLM judges (M_eval) and human judgments on atomic fact presence prediction, selecting the best-performing LLM based on correlation with human evaluations."
+  },
+  "llm_judge_details": {
+    "num_models": 5,
+    "models": [
+      "GPT-4",
+      "Llama-2-70b-chat",
+      "TRUE",
+      "MiniLM bi-encoder",
+      "MiniLM cross-encoder"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "For GPT-4 and Llama-70b-chat, prompts are described as: 'Generate 'True' if all information in given statement is in given context. Else generate 'False''. Other models (NLI, bi-encoder, cross-encoder) use different evaluation methodologies without explicit prompt text."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "Not specified",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Percentage agreement",
+      "value": 88.6,
+      "interpretation": "high correlation between humans",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluators were asked to evaluate whether each atomic fact is present in the provided context. Annotation interfaces and examples are shown in appendices."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Correlation"
+    ],
+    "shared_criteria": [
+      "atomic fact presence"
+    ],
+    "sample_size": {
+      "total_generated": "Not specified",
+      "validated_by_both": "Not specified",
+      "notes": "Validation was performed to select the best M_eval model, but exact sample size for validation subset is not specified."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Correlation",
+        "value": 84.1,
+        "criterion": "atomic fact presence",
+        "llm_model": "MiniLM cross-encoder",
+        "significance": "Not reported",
+        "notes": "Highest correlation among LLM judges, close to human-to-human correlation of 88.6"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Not explicitly stated, but 84.1 correlation is described as outperforming other models and closely matching human correlation",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "The cross-encoder MiniLM model showed the highest correlation (84.1) with human judgments for atomic fact presence prediction, outperforming GPT-4 and closely matching human-to-human correlation (88.6), making it the selected evaluation model."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "atomic fact presence"
+    ],
+    "notes": "Both LLM judges and human evaluators assessed the same criterion: presence of atomic facts in provided contexts. The validation focused on selecting the LLM judge that best replicated human judgments for this shared criterion."
+  }
+}

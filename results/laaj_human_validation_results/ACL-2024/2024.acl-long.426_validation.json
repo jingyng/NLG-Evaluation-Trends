@@ -1,0 +1,61 @@
+{
+  "paper_id": "2024.acl-long.426",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM evaluation (for critics/filtering) and human evaluation (for quality assessment) but does not explicitly compare LLM judgments against human judgments on the same instances or report any correlation/agreement metrics between LLM and human evaluations."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "palm_2"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "figure",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompts shown in figures for factuality attribution, local structure verification, global structure verification, and answer equivalence check. Examples include specific template formats with placeholders like {{ text }} and {{ table }}."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 12,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage agreement",
+      "value": 89.9,
+      "interpretation": "full rater agreement for 89.9% of questions",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed guidelines provided for annotators including specific checks for tables (table structure, header, column header-value match) and mind maps (incomplete branches, main concept relevance, density, edge connections)."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "local structure",
+      "global structure",
+      "answer equivalence"
+    ],
+    "human_only_criteria": [
+      "overall quality",
+      "structural quality",
+      "factuality",
+      "table structure",
+      "table header",
+      "column header-value match",
+      "incomplete branches",
+      "main concept relevance",
+      "branch density",
+      "edge connections"
+    ],
+    "shared_criteria": [
+      "factuality"
+    ],
+    "notes": "LLM critics filter based on factuality, local structure, and global structure. Human evaluation assesses overall quality including factuality and structural aspects, but the specific criteria differ (e.g., humans check practical issues like incomplete branches, while LLMs check formal structure)."
+  }
+}

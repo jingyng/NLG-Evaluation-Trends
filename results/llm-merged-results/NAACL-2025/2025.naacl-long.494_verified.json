@@ -1,0 +1,163 @@
+{
+  "paper_id": "2025.naacl-long.494",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "Amazon",
+      "MITweet",
+      "SemEval",
+      "Article Bias",
+      "News Stance"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3.5",
+      "GPT-4",
+      "Llama2-7b",
+      "Llama2-13b",
+      "Llama2-70b",
+      "Llama3.1-8b",
+      "Llama3.1-70b",
+      "Mistral-7b",
+      "Mixtral-8x7b",
+      "Gemma2-9b",
+      "Gemma2-27b",
+      "Claude3-haiku",
+      "Claude3-sonnet",
+      "COOP",
+      "PEGASUS",
+      "PRIMERA"
+    ],
+    "outputs": [
+      "multi-document summaries (50-100 words)"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "outputs": [
+          "multi-document summaries (50-100 words)"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT-3.5-0124",
+          "GPT-4-turbo-2024-04-09",
+          "Claude3-haiku-20240307",
+          "Claude3-sonnet-20240229",
+          "Llama2",
+          "Gemma2",
+          "Claude3"
+        ],
+        "outputs": [
+          "summaries",
+          "summaries (≈50–100 words) generated for each document set",
+          "summaries of input document sets in various domains (reviews, tweets, news)"
+        ]
+      },
+      "normalized": {
+        "GPT-3.5-0124": "GPT-3.5",
+        "GPT-4-turbo-2024-04-09": "GPT-4",
+        "Claude3-haiku-20240307": "Claude3-haiku",
+        "Claude3-sonnet-20240229": "Claude3-sonnet"
+      },
+      "explanation": "Normalized model names to standard forms, removed duplicate/abbreviated entries, consolidated output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Equal Coverage",
+      "Coverage Parity",
+      "Proportional Representation",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BARTScore"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE variants to base form, removed BARTScore which is only mentioned as part of Proportional Representation implementation but not used as a standalone metric"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-3.5",
+          "Llama2-70b",
+          "Mixtral-8x7b",
+          "Gemma2-27b",
+          "Claude3-haiku"
+        ],
+        "methods": [
+          "prompting to generate fair summaries",
+          "comparing relative changes in fairness measures"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as LLMs are used for generation, not as judges/evaluators. The paper does not use LLMs to assess outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators read all reviews and identify unique opinions, then read summary and rate fairness as leaning negative, fair, or leaning positive"
+    ],
+    "criteria": [
+      "fairness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators read all reviews and identify unique opinions, then read summary and rate fairness as leaning negative, fair, or leaning positive"
+        ],
+        "criteria": [
+          "fairness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- annotators are asked to read all reviews and identify all unique opinions. They then are asked to read the summary and rate its fairness as leaning negative, fair, or leaning positive.",
+          "Annotators are asked to read the input documents, identify unique opinions, and judge the summary's fairness (leaning negative, fair, or leaning positive).",
+          "annotators are asked to read all reviews and identify all unique opinions. They then are asked to read the summary and rate its fairness as leaning negative, fair, or leaning positive."
+        ],
+        "criteria": [
+          "leaning negative",
+          "fair",
+          "leaning positive"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline description and normalized criteria to focus on 'fairness' as the main evaluation criterion"
+    }
+  },
+  "overall_notes": "The extraction was generally good but had some issues with model name normalization and incorrect interpretation of LLM usage (generation vs evaluation). The paper focuses on fairness evaluation in multi-document summarization using both automatic metrics and human evaluation. All metadata has been verified against the full paper text."
+}

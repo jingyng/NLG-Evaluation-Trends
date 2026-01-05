@@ -1,0 +1,163 @@
+{
+  "paper_id": "2020.acl-main.93",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "MICROSOFT COCO",
+      "flickr8k",
+      "COMPOSITE",
+      "PASCAL 50s"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "sat",
+      "cnn+lstm",
+      "neuraltalk",
+      "m_2_transformer",
+      "aoanet"
+    ],
+    "outputs": [
+      "Image captions",
+      "Metric scores for generated captions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Flickr8K"
+        ],
+        "languages": [],
+        "models": [
+          "BERT (base)",
+          "RoBERTa (large)",
+          "BERT",
+          "RoBERTa"
+        ],
+        "outputs": [
+          "generated captions"
+        ]
+      },
+      "normalized": {
+        "Flickr8K": "Flickr8k",
+        "generated captions": "Image captions"
+      },
+      "explanation": "Removed duplicate 'Flickr8K' and normalized to 'Flickr8k'. Removed transformer language models (BERT, RoBERTa) as they're used for evaluation/metric computation, not as NLG models being evaluated. Consolidated similar output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE",
+      "CIDER",
+      "SPICE",
+      "LEIC",
+      "BERTSCORE",
+      "PROPOSED"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Unigram overlap matching",
+          "References concatenation",
+          "BLEU-1",
+          "ROUGE-L",
+          "unigram overlap matching metric",
+          "references concatenation metric with BERT"
+        ]
+      },
+      "normalized": {
+        "BLEU-1": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Simplified metric variants to base forms (BLEU-1→BLEU, ROUGE-L→ROUGE). Removed baseline/metric variants that are not established automatic metrics but experimental implementations described in the paper. Kept only standard NLG evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BERT (base)",
+          "RoBERTa (large)"
+        ],
+        "methods": [
+          "contextual embedding similarity with threshold-based mismatch detection"
+        ],
+        "criteria": [
+          "semantic similarity",
+          "mismatch detection",
+          "word importance weighting"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as this paper does NOT use LLMs as judges. BERT and RoBERTa are used as embedding models for automatic metric computation, not as evaluators that judge outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotation using metrics M1-M5 (better/equal to human, Turing test, correctness, detail, similarity)",
+      "Expert scores on 1-4 scale for image-caption relevance",
+      "AMT worker ratings on 5-point scale for correctness and thoroughness",
+      "Pairwise preference judgments (which of two sentences is more similar to reference)"
+    ],
+    "criteria": [
+      "Quality",
+      "Acceptance",
+      "Correctness",
+      "Detail",
+      "Humanness",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "AMT worker ratings on 5-point scale for correctness and thoroughness"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "detail",
+          "Turing Test pass"
+        ]
+      },
+      "normalized": {
+        "detail": "detail level",
+        "Turing Test pass": "Turing test acceptance"
+      },
+      "explanation": "Added missing human evaluation methodology from COMPOSITE dataset. Normalized criteria names for consistency. Removed redundant criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on improving automatic evaluation metrics for image captioning. It uses human evaluations as ground truth to validate the proposed metric's correlation. The extraction was generally good but included some experimental/baseline methods as metrics and included embedding models as NLG models. The paper does NOT use LLMs as judges despite using transformer models for embeddings."
+}

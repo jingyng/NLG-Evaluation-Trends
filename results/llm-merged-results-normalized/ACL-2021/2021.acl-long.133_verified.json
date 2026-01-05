@@ -1,0 +1,129 @@
+{
+  "paper_id": "2021.acl-long.133",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Fake News Generation",
+      "Kg To Text Generation",
+      "Citation Generation"
+    ],
+    "datasets": [
+      "VOA kg2txt",
+      "NYTIMES NEURALNEWS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart_large",
+      "amr_to_text_bart_large"
+    ],
+    "outputs": [
+      "fake news articles",
+      "synthetic fake captions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other: News Article Generation",
+          "Other: Caption Generation",
+          "Other:fake news generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "fake news articles and captions",
+          "synthetic fake news articles and fake captions",
+          "synthetic fake news articles conditioned on manipulated knowledge graphs"
+        ]
+      },
+      "normalized": {
+        "Other:KG-to-text generation": "Other: KG-to-Text Generation"
+      },
+      "explanation": "Consolidated duplicate task listings and normalized task names. Removed redundant output descriptions and kept concise descriptions of generated outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "ACCURACY",
+      "F"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "F-score": "F-score"
+      },
+      "explanation": "Changed answer from 'No' to 'Yes' since the paper explicitly uses accuracy and F-score for evaluating fake news detection performance at both document and knowledge element levels."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The LLMs mentioned (BART, etc.) were used only for generation, not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human judges assessed 100 documents (50 real, 50 fake) without knowing the distribution",
+      "Each human judge assessed all documents",
+      "Judges were asked to classify each document as real or fake"
+    ],
+    "criteria": [
+      "Style",
+      "Coherence",
+      "Specificity",
+      "Entities"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human judges assessed 100 documents (50 real, 50 fake) without knowing the distribution",
+          "Judges were asked to classify each document as real or fake"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "real/fake classification"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Enhanced guideline description with more specific details from the paper. Removed 'real/fake classification' from criteria as it's the task itself, not an evaluation criterion."
+    }
+  },
+  "overall_notes": "The paper focuses on fake news detection using cross-media consistency checking, with NLG components used primarily for generating synthetic training data and fake news examples. The evaluation metrics are accuracy and F-score for detection performance, not traditional NLG evaluation metrics like BLEU/ROUGE. Human evaluation was conducted via a Turing test to assess how convincing the generated fake news was."
+}

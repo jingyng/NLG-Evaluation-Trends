@@ -1,0 +1,84 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We introduce the novel task of automated image contextualization. Given an image, a model must identify its meta-context using the image content and evidence from the open web.",
+            "Given an image, a model must identify its meta-context using the image content and evidence from the open web... We generate zero-shot answers with the following LLMs: Llama2 7B-Chat, Llava 1.5 7B, and GPT4.",
+            "We fill the gap by introducing the novel task of automated image contextualization. Given an image, a model must identify its meta-context using the image content and evidence from the open web."
+        ],
+        "tasks": [
+            "Other:Image Meta-context Question Answering",
+            "Other:Image Contextualization QA",
+            "Other:Question Answering"
+        ],
+        "datasets": [
+            "5Pils"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT4",
+            "Llama2 7B-Chat",
+            "Llava 1.5 7B",
+            "ViT (for manipulation detection)"
+        ],
+        "outputs": [
+            "Generated answers to the 5 Pillars questions (Provenance, Source, Date, Location, Motivation).",
+            "Free-form textual answers for each of the 5 Pillars (Provenance, Source, Date, Location, Motivation)",
+            "The outputs are answers to the 5 Pillars questions (Provenance, Source, Date, Location, Motivation) based on the image and retrieved evidence."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Source expects free-form answers, evaluated using the RougeL and Meteor metrics. ... Motivation with BertScore (BertS) to measure the semantic similarity.",
+            "We evaluate the answers using the RougeL and Meteor metrics... The expected answers for Date are actual timestamps. We evaluate the answers using the Exact Match (EM) and Δ... Motivation is evaluated with BertScore (BertS)... The Provenance score is the recall... We evaluate evidence ranking with nDCG.",
+            "Source expects free-form answers, evaluated using the RougeL and Meteor metrics... The expected answers for Date are actual timestamps. We evaluate the answers using the Exact Match (EM) and ∆... Location is evaluated with RougeL and Meteor... we evaluate Motivation with BertScore (BertS)."
+        ],
+        "automatic_metrics": [
+            "RougeL",
+            "Meteor",
+            "Exact Match",
+            "∆",
+            "CO∆",
+            "HL∆",
+            "BertScore",
+            "Δ",
+            "Recall (Provenance)",
+            "nDCG"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We randomly sample 100 test images and manually categorize the predictions of multimodal zero-shot GPT4.",
+            "We randomly sample 100 test images and manually categorize the predictions of multimodal zero-shot GPT4... We classify the other answers into six error categories.",
+            "We recruited three students to evaluate the quality of the GPT4 annotations for a random sample of 50 images. After reading the corresponding FC article, they assigned a label to each of the GPT4 extracted answers: \"Correct\" if GPT4 detects the presence or absence of the answer in the article, \"Missing\" if GPT4 does not provide an answer while it was available in the article, and \"Incorrect\" if GPT4 provides a wrong answer."
+        ],
+        "guideline": [
+            "Categorizing predictions into predefined categories: correct answer, partially correct answer, no answer with evidence available, no answer with no evidence available, wrong answer based on text, wrong answer based on image, content filtering error, predict misinformation.",
+            "Human raters manually categorized each model prediction into correctness categories (correct, partially correct, various error types).",
+            "Annotators were instructed to label each answer as \"Correct\", \"Missing\", or \"Incorrect\" based on whether the GPT4-extracted answer matched the information in the fact-checking article."
+        ],
+        "criteria": [
+            "Correctness",
+            "Partial correctness",
+            "Error type: insufficient information",
+            "Error type: irrelevant evidence",
+            "Error type: wrong image interpretation",
+            "Error type: content filter blockage",
+            "Error type: misinformation elements",
+            "Correct",
+            "Missing",
+            "Incorrect"
+        ]
+    }
+}

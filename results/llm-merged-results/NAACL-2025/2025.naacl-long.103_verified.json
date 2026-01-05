@@ -1,0 +1,176 @@
+{
+  "paper_id": "2025.naacl-long.103",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "AGGREFACT",
+      "SUMMAC",
+      "TRUE",
+      "DIVERSUMM",
+      "LONGSCIVERIFY",
+      "LONGEVAL",
+      "LEGALSUMM",
+      "DIVERSUMM-SENT",
+      "AGGREFACT-FTSOTA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ALIGN-SCORE",
+      "INFUSE",
+      "MINICHECK-FT5",
+      "LONGDOCFACTSCORE",
+      "GPT-4o",
+      "BeSpoke-MC-7B",
+      "STRUCTSCORE"
+    ],
+    "outputs": [
+      "summaries",
+      "abstractive summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "summaries",
+          "abstractive summaries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "ARXIV",
+          "GOVREPORT"
+        ],
+        "languages": [],
+        "models": [
+          "DMRST",
+          "GPT4o",
+          "Llama-3.1-BeSpoke-ID",
+          "ALIGNSCORE"
+        ],
+        "outputs": [
+          "model-generated summaries",
+          "system-generated summaries"
+        ]
+      },
+      "normalized": {
+        "ALIGNSCORE": "ALIGN-SCORE",
+        "GPT4o": "GPT-4o",
+        "LONG-DOCFACTSCORE": "LONGDOCFACTSCORE",
+        "AGGREFACT-FTSOTA": "AGGREFACT-FTSOTA"
+      },
+      "explanation": "Normalized model names to standard forms (e.g., GPT-4o not GPT4o), removed ARXIV/GOVREPORT as they are parts of DIVERSUMM-SENT not separate datasets, removed DMRST which is a parser not an NLG model, removed duplicates and variations, simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "AUC",
+      "Kendall's Tau"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROCAUC",
+          "Kendall's Tau τ",
+          "ALIGNSCORE",
+          "INFUSE",
+          "MINICHECK-FT5",
+          "LONG-DOCFACTSCORE",
+          "GPT4o",
+          "BeSpoke-MC-7B",
+          "ALIGN-SCORE",
+          "LONGDOCFACTSCORE",
+          "STRUCTSCORE"
+        ]
+      },
+      "normalized": {
+        "ROCAUC": "AUC",
+        "Kendall's Tau τ": "Kendall's Tau"
+      },
+      "explanation": "Removed all model names as they are not evaluation metrics but systems being evaluated. Kept only the actual evaluation metrics (AUC and Kendall's Tau) that are used to assess factual consistency detection performance"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "fact-checking with prompt"
+    ],
+    "criteria": [
+      "factual consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT4o",
+          "Llama-3.1-BeSpoke-ID"
+        ],
+        "methods": [
+          "fact-checking with prompt from Tang et al. (2024)",
+          "prompt-based fact-checking",
+          "prompt adopted from Tang et al. (2024)"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT4o": "GPT-4o"
+      },
+      "explanation": "Kept GPT-4o as the main LLM evaluator, standardized the naming. Removed redundant method descriptions and simplified to 'fact-checking with prompt'. Llama-3.1-BeSpoke-ID mentioned but not clearly used as evaluator."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators select from four choices justifying factual consistency with reference summary and source article"
+    ],
+    "criteria": [
+      "factual consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators select from four choices justifying factual consistency with reference summary and source article"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators select from four choices justifying the factual consistency of the model-generated summary with the reference summary and source article. They are also encouraged to provide freetext rationales justifying their selections.",
+          "Annotators select from four factual consistency categories and provide free‑text rationales; guidelines detail how to judge relation, entity, circumstance, coreference, link, out‑of‑article, and grammatical errors."
+        ],
+        "criteria": [
+          "error type classification"
+        ]
+      },
+      "normalized": {
+        "referene summary": "reference summary",
+        "freetext": "free-text"
+      },
+      "explanation": "Simplified the verbose guideline descriptions into a concise statement. Kept 'factual consistency' as the main criterion, removed 'error type classification' as it's too specific for the criteria field"
+    }
+  },
+  "overall_notes": "The paper focuses on factual inconsistency detection in long document summarization. It evaluates NLG systems but the main contribution is the evaluation framework itself (STRUCTSCORE) rather than generating new content. Human evaluation was conducted on the LEGALSUMM dataset with legal experts. The extraction was generally accurate but contained some duplication and over-detailed descriptions that needed simplification."
+}

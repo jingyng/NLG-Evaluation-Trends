@@ -1,0 +1,148 @@
+{
+  "paper_id": "2023.acl-long.131",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT15",
+      "WMT19",
+      "iwslt15 EN VI",
+      "NEWS CRAWL GERMAN"
+    ],
+    "languages": [
+      "German",
+      "English",
+      "Chinese",
+      "Vietnamese"
+    ],
+    "models": [
+      "transformer_base",
+      "transformer_small",
+      "multipath_wait_k",
+      "itst"
+    ],
+    "outputs": [
+      "translated sentences",
+      "pseudo-target translations",
+      "SiMT model outputs",
+      "monotonic translations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Multipath Wait‑k",
+          "Transformer-Base",
+          "Transformer-Small"
+        ],
+        "outputs": [
+          "pseudo‑target translations and SiMT model outputs"
+        ]
+      },
+      "normalized": {
+        "Transformer-Base": "Transformer-base",
+        "Transformer-Small": "Transformer-small",
+        "Multipath Wait‑k": "Multipath Wait-k",
+        "pseudo‑target translations and SiMT model outputs": "pseudo-target translations"
+      },
+      "explanation": "Removed duplicate model entries and normalized naming. Reorganized languages to put source languages first. Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "LAGGING AL",
+      "ANTICIPATION RATE AR",
+      "HALLUCINATION RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "All metrics are correctly extracted and properly normalized. The paper uses tokenized case-insensitive BLEU, AL (token level), AR%, and HR% for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges. Removed placeholder 'None' entries and set all fields to empty lists."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Monotonic translations should be faithful and fluent, following professional translation practices without adding, deleting, or substituting meaningful information",
+      "Reduce long-distance reordering and emulate source word order when possible while maintaining faithfulness and fluency",
+      "Create more monotonic translations than original references unless already monotonic, with reasonable effort but not requiring the most extreme monotonicity"
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Fluency",
+      "Monotonicity",
+      "Length",
+      "Emulation"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- A monotonic translation should be faithful and fluent, following common practices in professional translation of sentences, without adding, deleting, or substituting meaningful information in the source sentence.",
+          "A monotonic translation should be faithful and fluent, following common practices in professional translation of sentences, without adding, deleting, or substituting meaningful information in the source sentence. A monotonic translation should reduce long distance reordering between words and try to emulate the word order in the source language if possible, under the requirement of criterion 1."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "faithful": "faithfulness",
+        "fluent": "fluency",
+        "monotonic": "monotonicity",
+        "reduced long-distance reordering": "reduced long-distance reordering",
+        "source word order emulation": "source word order emulation"
+      },
+      "explanation": "Consolidated duplicate guideline text into clear, structured descriptions. Normalized criteria to noun forms for consistency. The paper hired professional interpreters to create monotonic references for the WMT15 De→En test set."
+    }
+  },
+  "overall_notes": "The paper focuses on simultaneous machine translation (SiMT) and proposes monotonic knowledge distillation to address hallucination problems. The extraction was generally accurate with minor normalization needed. The paper conducts both automatic evaluation (BLEU, AL, AR%, HR%) and human evaluation through professional translators creating monotonic references. No LLM-based evaluation is used."
+}

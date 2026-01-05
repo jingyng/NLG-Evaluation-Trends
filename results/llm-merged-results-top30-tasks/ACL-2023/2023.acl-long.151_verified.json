@@ -1,0 +1,128 @@
+{
+  "paper_id": "2023.acl-long.151",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "NEW YORK TIMES",
+      "XSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "pegasus",
+      "gpt_3.5",
+      "brio",
+      "roberta"
+    ],
+    "outputs": [
+      "summaries",
+      "abstractive summaries",
+      "content plans"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "RoBERTa"
+        ],
+        "outputs": [
+          "content plans"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Xsum": "XSum",
+        "CNN / Dailymail": "CNN/DailyMail",
+        "New York Times (NYT)": "New York Times",
+        "New York Times annotated corpus": "New York Times"
+      },
+      "explanation": "Normalized dataset names for consistency (XSum, CNN/DailyMail) and removed duplicates. Added RoBERTa as it's used for re-ranking. Added 'content plans' as outputs since EDU plan generation is a key component."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Consolidated all ROUGE variants into 'ROUGE' following normalization rules. BERTScore remains as-is."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. GPT-3.5 was used only for generation, not evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Used the Atomic Content Unit (ACU) protocol where atomic facts are extracted from reference summaries and matched with system summaries to compute ACU and nACU scores"
+    ],
+    "criteria": [
+      "Recall"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "content recall (ACU)": "content recall",
+        "length‑normalized content recall (nACU)": "content recall",
+        "ACU": "content recall",
+        "nACU": "content recall"
+      },
+      "explanation": "Normalized all criteria variations to 'content recall' since ACU/nACU both measure recall of atomic content units. The guideline description accurately captures the methodology."
+    }
+  },
+  "overall_notes": "The paper focuses on text summarization with a novel plan-guided approach using EDU (Elemental Discourse Unit) extracts. Evaluation uses both automatic metrics (ROUGE, BERTScore) and human evaluation (ACU protocol). The extraction was generally accurate but needed normalization of dataset names and consolidation of ROUGE variants. GPT-3.5 is used for generation but not as an evaluator."
+}

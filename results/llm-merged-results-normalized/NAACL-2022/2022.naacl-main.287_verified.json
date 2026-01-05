@@ -1,0 +1,169 @@
+{
+  "paper_id": "2022.naacl-main.287",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Fact Verification",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "FRANK",
+      "SUMMEVAL",
+      "MNBM",
+      "QAGS CNNDM",
+      "QAGS XSUM",
+      "BEGIN",
+      "q2",
+      "DIALFACT",
+      "PAWS",
+      "FEVER",
+      "VITAMINC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_11b",
+      "deberta_xl_mnli",
+      "bleurt_20",
+      "bart"
+    ],
+    "outputs": [
+      "Generated summaries",
+      "Dialogue responses",
+      "Paraphrases",
+      "Factual claims",
+      "Binary consistency labels for generated text"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Fact Verification"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Factual claims"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "QAGS"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Q 2": "Q2",
+        "QAGS": "QAGS-CNNDM, QAGS-XSum"
+      },
+      "explanation": "Added 'Fact Verification' as a task since FEVER and VitaminC are fact verification datasets. Removed duplicate 'QAGS' since it's covered by QAGS-CNNDM and QAGS-XSum. Normalized 'Q 2' to 'Q2' for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "F1",
+      "BERTSCORE",
+      "BLEURT",
+      "FACTCC",
+      "BARTSCORE",
+      "CTC",
+      "ANLI",
+      "SUMMAC",
+      "Q2",
+      "QUESTEVAL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SC_ZS",
+          "SC ZS",
+          "Token-level F1",
+          "Q 2"
+        ]
+      },
+      "normalized": {
+        "SC_ZS": "SUMMAC",
+        "SC ZS": "SUMMAC",
+        "Token-level F1": "F1",
+        "Q 2": "Q2"
+      },
+      "explanation": "Normalized all metric variants to their base forms. Removed duplicates and consolidated SC_ZS/SC ZS under SUMMAC. Token-level F1 is covered by F1. Q 2 normalized to Q2."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "T5-11B",
+          "DeBERTa-xl-MNLI",
+          "T5‑11B"
+        ],
+        "methods": [
+          "Natural Language Inference",
+          "Question Generation and Answering",
+          "NLI scoring",
+          "QG‑QA evaluation"
+        ],
+        "criteria": [
+          "factual consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses models like T5-11B as components in evaluation metrics (ANLI, Q2), but these are not used as 'LLM judges' in the sense of evaluating outputs after generation. They are part of the automatic evaluation pipeline, not used as independent evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rating on Likert scales across multiple dimensions including consistency, coherence, fluency, and relevance",
+      "Assess whether summaries include hallucinations",
+      "Binary consistency judgments for dialogue responses and factual claims"
+    ],
+    "criteria": [
+      "Consistency",
+      "Coherence",
+      "Fluency",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Binary consistency judgments for dialogue responses and factual claims"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added additional guideline about binary consistency judgments used across multiple datasets. The criteria list was already accurate."
+    }
+  },
+  "overall_notes": "The paper is primarily about evaluating factual consistency evaluation metrics, not about generating text. It uses existing datasets with human annotations to test various automatic metrics. The extraction was generally good but needed some normalization and clarification about the LLM-as-judge question."
+}

@@ -1,0 +1,149 @@
+{
+  "paper_id": "2024.acl-long.806",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "WebCiteS"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "mT5",
+      "ChatGLM2-6B",
+      "ChatGLM3-6B",
+      "Baichuan2-7B",
+      "Baichuan2-13B",
+      "ChatGPT",
+      "GPT-4"
+    ],
+    "outputs": [
+      "Summaries with in-line citations",
+      "Query-focused summaries with citation markers",
+      "Long-form summaries with attribution to source documents"
+    ],
+    "changes_made": {
+      "added": {
+        "outputs": [
+          "Query-focused summaries with citation markers",
+          "Long-form summaries with attribution to source documents"
+        ]
+      },
+      "removed": {
+        "outputs": []
+      },
+      "normalized": {
+        "summaries with in-line citations": "Summaries with in-line citations",
+        "Long-form summaries with in-line citation markers referencing source documents.": "Long-form summaries with attribution to source documents",
+        "summarize all pertinent information from the documents with in-line citations": "Query-focused summaries with citation markers"
+      },
+      "explanation": "Standardized output descriptions to be more concise and consistent. Added additional relevant output types mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Length",
+      "Self-BLEU",
+      "Claim Precision",
+      "Claim Recall",
+      "Claim F1",
+      "AIS",
+      "ACS",
+      "Citation Precision",
+      "Citation Recall",
+      "Citation F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Claim precision",
+          "Claim recall",
+          "Citation precision",
+          "Citation recall"
+        ]
+      },
+      "normalized": {
+        "Claim precision": "Claim Precision",
+        "Claim recall": "Claim Recall",
+        "Citation precision": "Citation Precision",
+        "Citation recall": "Citation Recall"
+      },
+      "explanation": "Normalized capitalization for metric names and removed duplicates. The paper uses these metrics extensively for automatic evaluation of generated summaries."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "ChatGPT"
+        ],
+        "methods": [
+          "prompting to extract sub-claims"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed ChatGPT from models list since it's only used for claim extraction as part of the automatic evaluation pipeline, not as a judge of generated outputs. The paper does not use LLMs to evaluate the quality of generated summaries."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Human annotators manually refine summaries, add citations, verify groundedness, and ensure coherence"
+    ],
+    "criteria": [
+      "Groundedness",
+      "Coherence",
+      "Citation accuracy",
+      "Comprehensiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators manually refine summaries, add citations, verify groundedness, and ensure coherence"
+        ],
+        "criteria": [
+          "Groundedness",
+          "Coherence",
+          "Citation accuracy",
+          "Comprehensiveness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators would cite all supporting documents for verification-worthy sentences, correct groundedness and coherence errors, and supplement missing information."
+        ],
+        "criteria": [
+          "groundedness",
+          "coherence"
+        ]
+      },
+      "normalized": {
+        "groundedness": "Groundedness",
+        "coherence": "Coherence"
+      },
+      "explanation": "Corrected the answer from 'No' to 'Yes' since the paper involves extensive human annotation for dataset creation and quality control. Expanded guidelines and criteria based on the detailed annotation process described."
+    }
+  },
+  "overall_notes": "The paper focuses on attributed query-focused summarization in Chinese. It introduces WebCiteS dataset and proposes a comprehensive evaluation framework. Human evaluation was conducted during dataset creation (annotation and refinement), but no formal human evaluation of model outputs is described. The automatic evaluation uses sophisticated metrics that distinguish between groundedness and citation quality."
+}

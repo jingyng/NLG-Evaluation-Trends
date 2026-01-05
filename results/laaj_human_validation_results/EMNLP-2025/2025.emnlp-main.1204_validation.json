@@ -1,0 +1,88 @@
+{
+  "paper_id": "2025.emnlp-main.1204",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-as-a-judge (NARRATIVEFACTSCORE) against human evaluation through correlation analysis on multiple datasets, reporting statistical significance"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "gpt_4o_mini",
+      "qwen_2.5_14b_instruct"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "Paper mentions prompts are detailed in specific appendix sections (E.1-E.5) but full prompt text not provided in main text"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "supplementary",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human evaluation criteria mentioned but detailed guidelines not provided in main text"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation",
+      "Kendall's tau"
+    ],
+    "shared_criteria": [
+      "factuality"
+    ],
+    "sample_size": {
+      "total_generated": "unclear",
+      "validated_by_both": "unclear",
+      "notes": "Validation performed on datasets STORYSUMM and FABLES, but exact number of instances not specified in provided text"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": "highest_among_metrics",
+        "criterion": "factuality",
+        "llm_model": "gpt_4o_mini",
+        "significance": "p<0.05",
+        "notes": "NARRATIVEFACTSCORE shows strong correlation with human annotations across all datasets, statistically significant"
+      },
+      {
+        "metric": "Kendall's tau",
+        "value": "highest_among_metrics",
+        "criterion": "factuality",
+        "llm_model": "gpt_4o_mini",
+        "significance": "p<0.05",
+        "notes": "NARRATIVEFACTSCORE shows strong correlation with human annotations across all datasets"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "not specified",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "NARRATIVEFACTSCORE achieves three times higher correlation with human judgments compared to prior approaches and shows statistically significant strong correlation across all datasets."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "factuality"
+    ],
+    "notes": "Both LLM-as-a-judge and human evaluation focus exclusively on factuality assessment for narrative summaries"
+  }
+}

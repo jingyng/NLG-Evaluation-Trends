@@ -1,0 +1,75 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "The LLM needs to decide which method of which device in which room to call to change the properties of the target device based on the user instruction u",
+            "The LLM needs to decide which method of which device in which room to call to change the properties of the target device based on the user instruction u...",
+            "To advance the development of LLM-based smart home assistants and address the challenges posed by invalid instructions and multi-device instructions in real-world scenarios, we propose HomeBench, the first smart home dataset with valid and invalid instructions across single and multiple devices in this paper."
+        ],
+        "tasks": [
+            "Other: Smart Home Command Generation",
+            "Other:API call generation",
+            "Other:Smart Home Instruction Generation"
+        ],
+        "datasets": [
+            "HomeBench"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Mistral-7B",
+            "LLaMA3-8B",
+            "Qwen2.5-7B",
+            "Qwen2.5-32B",
+            "Qwen2.5-72B",
+            "Gemma2-9B",
+            "Gemma2-27B",
+            "Deepseek-V3",
+            "GPT-4o",
+            "QWQ-32B",
+            "Deepseek-R1",
+            "o1-mini",
+            "o3-mini"
+        ],
+        "outputs": [
+            "Machine instructions (API calls) or 'error_input'",
+            "machine instructions (API call sequences)",
+            "The model needs to decide which method of which device in which room to call to change the properties of the target device based on the user instruction u, that is, If the user inputs an invalid instruction, the output is error_input."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "To evaluate the effectiveness of LLM in executing user instructions, we selected two key indicators: instruction execution success rate and F1 score.",
+            "We selected two key indicators: instruction execution success rate and F1 score.",
+            "To evaluate the effectiveness of LLM in executing user instructions, we selected two key indicators: instruction execution success rate and F1 score."
+        ],
+        "automatic_metrics": [
+            "Success Rate",
+            "F1",
+            "F1 Score"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": [
+            "To ensure data quality while minimizing manual effort, we used GPT-3.5 to generate user instructions. For valid instructions, we first created all possible device operation commands within the virtual environment, specifying the room, device name, method called, and the method's input parameters. With the help of prompt rules and a few-shot examples, this information was provided to ChatGPT to synthesize user instructions. For invalid instructions, we applied reverse rules to identify non-existent devices or missing methods within the virtual room and generated corresponding erroneous operation commands. These instructions were also processed through ChatGPT using the same approach. For scenarios involving multiple instructions, we randomly selected commands from both the pool of valid operations and the invalid instruction pool. We then used the same synthesis method to generate user instructions. To ensure the quality of the data, we sampled 10% of the user instructions generated in each smart home scenario and conducted a rigorous evaluation from three dimensions: fluency checks (language clarity), semantic alignment (instruction vs. device/room capabilities) and action consistency (synthesized instructions vs. executable machine instructions). Any mismatch resulted in immediate rejection (score=0). If an instruction scored more than 4, the data of the scenario was considered valid."
+        ],
+        "guideline": [
+            "fluency checks (language clarity), semantic alignment (instruction vs. device/room capabilities) and action consistency (synthesized instructions vs. executable machine instructions)"
+        ],
+        "criteria": [
+            "fluency",
+            "semantic alignment",
+            "action consistency"
+        ]
+    }
+}

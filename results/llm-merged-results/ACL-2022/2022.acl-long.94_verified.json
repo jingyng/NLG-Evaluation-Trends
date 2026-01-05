@@ -1,0 +1,151 @@
+{
+  "paper_id": "2022.acl-long.94",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Question Generation"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "XSum",
+      "SQuAD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "PEGASUS",
+      "FROST",
+      "FROST++",
+      "NQG++",
+      "CP+GSA",
+      "GSum",
+      "CTRLsum",
+      "FAME"
+    ],
+    "outputs": [
+      "summaries",
+      "questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "CP+GSA",
+          "GSum",
+          "CTRLsum",
+          "FAME"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "NQG++"
+        ],
+        "outputs": [
+          "summaries and questions",
+          "generated summaries and generated questions"
+        ]
+      },
+      "normalized": {
+        "Other:Question Generation": "Question Generation",
+        "PE-GASUS": "PEGASUS"
+      },
+      "explanation": "Normalized task name format, corrected model naming (PE-GASUS to PEGASUS), added additional models mentioned in experiments (CP+GSA, GSum, CTRLsum, FAME), simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "BERTScore",
+      "Entailment",
+      "Self-BLEU",
+      "Self-Entailment",
+      "Self-BERTScore",
+      "EDNA",
+      "Perplexity",
+      "Oracle"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEU",
+          "Oracle"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L",
+          "BLEU-4",
+          "perplexity",
+          "Oracle (Top-5)"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "BLEU-4": "BLEU",
+        "perplexity": "Perplexity",
+        "Oracle (Top-5)": "Oracle"
+      },
+      "explanation": "Normalized metric variants to base forms (ROUGE-L→ROUGE, BLEU-4→BLEU), simplified perplexity naming, added missing BLEU metric from question generation experiments"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper - evaluation used traditional automatic metrics and human evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Faithfulness assessed on 1-4 scale (entirely unfaithful, somewhat unfaithful, somewhat faithful, entirely faithful)",
+      "Diversity assessed on 1-4 scale for summary pairs (identical, somewhat identical, somewhat diverse, diverse)"
+    ],
+    "criteria": [
+      "faithfulness",
+      "diversity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Kept original criteria and guidelines as they accurately reflect the human evaluation methodology described in the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on decoding strategies for NLG evaluation, specifically proposing Composition Sampling for diverse conditional generation. Evaluation covers both summarization and question generation tasks using both automatic metrics and human evaluation. The extraction quality was generally good, with minor normalization needed for metric naming conventions and some additional models to be included."
+}

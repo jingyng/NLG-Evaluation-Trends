@@ -1,0 +1,81 @@
+{
+  "paper_id": "2025.emnlp-main.469",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-as-a-judge scores with human evaluation scores on the same 100-sample subset, reporting Pearson correlation and statistical significance"
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "gemini_1.5_pro",
+      "qwen_2_vl_7b_instruct",
+      "additional unspecified judge models"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact evaluation prompt provided: 'You will be given one response to a question based on a multimodal document containing texts, figures, or tables. Your task is to rate the response on correctness using a 1-5 scale. Please read and understand these instructions carefully, and keep them open for reference while reviewing. Correctness (1-5) refers to how accurately, comprehensively, and appropriately the response addresses the question based on the information in the document.'"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unspecified",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": "Not reported",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluators used the same evaluation guide as LLM judges for scoring correctness on 1-5 scale"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "correctness"
+    ],
+    "sample_size": {
+      "total_generated": 851,
+      "validated_by_both": 100,
+      "notes": "Validation conducted on a subset of 100 random samples from the full 851-sample benchmark"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.889,
+        "criterion": "correctness",
+        "llm_model": "aggregated judge models",
+        "significance": "p < 0.001",
+        "notes": "High correlation between aggregated judge score and human scoring"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "high",
+      "threshold_used": "Not explicitly stated, but 0.889 suggests very strong correlation",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-as-a-judge framework shows very high agreement with human evaluation (88.9% Pearson correlation, p<0.001), indicating reliable automated evaluation of open-ended explanations for multimodal documents."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "correctness"
+    ],
+    "notes": "Both LLM judges and human evaluators assessed the exact same criterion (correctness) using identical evaluation guidelines and 1-5 scoring scale"
+  }
+}

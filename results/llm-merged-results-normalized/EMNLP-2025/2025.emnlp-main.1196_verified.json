@@ -1,0 +1,134 @@
+{
+  "paper_id": "2025.emnlp-main.1196",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Structured Explanation Generation",
+      "Fact Verification"
+    ],
+    "datasets": [
+      "CLIMATEVIZ"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4o",
+      "o_3",
+      "gemini_2.5",
+      "llama_4_maverick_17b",
+      "internvl_2.5_78b",
+      "qwen_2.5_vl_72b",
+      "matcha_climateviz",
+      "matcha_chartqa",
+      "matcha_plotqa"
+    ],
+    "outputs": [
+      "fact-checking label and structured explanatory triplets",
+      "structured explanatory triplets (h, r, t) with metadata"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Fact Verification"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Explanation Generation": "Other:Structured Explanation Generation"
+      },
+      "explanation": "Added 'Other:Fact Verification' as a primary NLG task since the paper evaluates model performance on generating fact-checking labels. Kept 'Other:Structured Explanation Generation' as models also generate structured triplets. Normalized 'Explanation Generation' to 'Structured Explanation Generation' for precision."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE",
+      "BERTSCORE",
+      "ACCURACY",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized 'ROUGE-L' to 'ROUGE' following simplification guidelines. All metrics are correctly extracted and relevant."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "DeBERTa-Large-MNLI"
+        ],
+        "methods": [
+          "contradiction verification"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed 'DeBERTa-Large-MNLI' and 'contradiction verification' as they were used during dataset construction (to filter refuted claims), not for post-generation evaluation. The paper does not use LLMs as judges after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Assessing fidelity to original chart, omission of relevant information, and presence of hallucinated content for DePlot-generated tables",
+      "Manual validation of claims for factual correctness and direct verifiability using only chart information"
+    ],
+    "criteria": [
+      "Fidelity",
+      "Omission",
+      "Hallucination",
+      "Factuality",
+      "Verifiability"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual validation of claims for factual correctness and direct verifiability using only chart information"
+        ],
+        "criteria": [
+          "factual correctness",
+          "direct verifiability"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "fidelity to the original chart": "fidelity",
+        "omission of relevant information": "omission",
+        "presence of hallucinated content": "hallucination"
+      },
+      "explanation": "Added human evaluation criteria used during dataset construction (claim validation). Normalized criteria descriptions to concise forms. All criteria are relevant and correctly extracted."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on fact verification over scientific charts, which involves generating structured explanations (triplets) and fact-checking labels. The NLG aspect is present but secondary to the multimodal reasoning task. Extracted metadata was generally accurate, requiring minor normalization and additions for completeness. The paper does not use LLMs as judges post-generation; DeBERTa was used during dataset construction."
+}

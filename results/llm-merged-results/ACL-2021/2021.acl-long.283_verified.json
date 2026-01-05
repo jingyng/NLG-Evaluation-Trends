@@ -1,0 +1,140 @@
+{
+  "paper_id": "2021.acl-long.283",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Gunrock Movie",
+      "ConvAI2",
+      "Blender",
+      "Meena"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BERT",
+      "DialogGPT"
+    ],
+    "outputs": [
+      "dialog turns",
+      "user engagement predictions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "user engagement predictions"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Gunrock Movie Dataset"
+        ],
+        "languages": [],
+        "models": [
+          "BERT-based classifier",
+          "HERALD",
+          "MIDAS"
+        ],
+        "outputs": [
+          "dialog responses",
+          "user responses in open-domain conversations"
+        ]
+      },
+      "normalized": {
+        "BERT-based classifier": "BERT",
+        "Gunrock Movie Dataset": "Gunrock Movie"
+      },
+      "explanation": "Removed HERALD (method name, not generation model), MIDAS (NLU model, not generation model), and consolidated duplicate dataset name. Added 'user engagement predictions' as outputs since the main NLG task is detecting disengagement in conversations."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "HERALD",
+      "BLEU",
+      "perplexity"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "embedding based metrics",
+          "learning based metrics"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed generic categories 'embedding based metrics' and 'learning based metrics' as they are not specific metrics mentioned. Kept HERALD as it's the proposed metric, BLEU and perplexity as they are mentioned as competing automatic evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'None' placeholders since no LLM-as-judge evaluation was conducted. The paper does not use LLMs to evaluate generated outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators labeled each dialog turn as disengaged or engaged based on patterns such as complaints, topic dislike, termination requests, or non-positive responses"
+    ],
+    "criteria": [
+      "complaint system responses",
+      "dislike current topics",
+      "terminate or change topics",
+      "end with non-positive responses"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "The experts labeled turn-level disengaging user responses based on patterns such as complaining about system responses, disliking topics, terminating or changing topics, and ending with non-positive responses"
+        ],
+        "criteria": [
+          "disengagement"
+        ]
+      },
+      "normalized": {
+        "complain system responses": "complaint system responses"
+      },
+      "explanation": "Consolidated duplicate guideline descriptions and removed generic 'disengagement' criterion. Normalized 'complain' to 'complaint' for consistency."
+    }
+  },
+  "overall_notes": "The paper focuses on user engagement detection in dialog systems rather than generation evaluation per se. While it mentions dialog generation models like DialogGPT, the main contribution is the HERALD framework for detecting disengagement. Extraction was generally accurate but contained some method names and generic categories that needed cleanup."
+}

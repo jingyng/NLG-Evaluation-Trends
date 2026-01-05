@@ -1,0 +1,143 @@
+{
+  "paper_id": "2025.naacl-long.178",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Decontextualization"
+    ],
+    "datasets": [
+      "RECB",
+      "EVENTCOREFBANK",
+      "ECB",
+      "GVC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_o_1_preview"
+    ],
+    "outputs": [
+      "Decontextualized sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "EventCorefBank",
+          "ECB+",
+          "GVC"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation",
+          "Other:Event decontextualization"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT model (o1-preview)",
+          "o1-preview (OpenAI)",
+          "GPT"
+        ],
+        "outputs": [
+          "decontextualized sentences"
+        ]
+      },
+      "normalized": {
+        "RECB": "RECB",
+        "GPT model (o1-preview)": "GPT-o1-preview",
+        "GPT": "GPT-o1-preview",
+        "Decontextualized sentences": "Decontextualized sentences"
+      },
+      "explanation": "Removed redundant tasks and model variants. Kept only 'Other:Decontextualization' as the main NLG task. Added relevant datasets mentioned in the paper. Consolidated GPT references to 'GPT-o1-preview'."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "CONLL F1",
+      "PAIRWISE F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "CoNLL F1",
+          "Pairwise F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "CoNLL F1": "CoNLL F1",
+        "Pairwise F1": "Pairwise F1"
+      },
+      "explanation": "Changed answer from No to Yes because the paper explicitly uses CoNLL F1 and Pairwise F1 as automatic evaluation metrics for their CDEC models."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper. The GPT model is only used for generation (decontextualization)."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators classify event pairs into predefined event relations (IDENTITY, NOT-RELATED, CANNOT-DECIDE, SET-MEMBER, Subevent-Whole, Whole-Subevent, Concept-Instance, Instance-Concept)",
+      "Double-annotation with adjudication process",
+      "Cohen's κ used for agreement measurement"
+    ],
+    "criteria": [
+      "Helpfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators classify event pairs into predefined event relations (IDENTITY, NOT-RELATED, CANNOT-DECIDE, SET-MEMBER, Subevent-Whole, Whole-Subevent, Concept-Instance, Instance-Concept)",
+          "Double-annotation with adjudication process",
+          "Cohen's κ used for agreement measurement"
+        ],
+        "criteria": [
+          "helpfulness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- annotated all edit categories as defined",
+          "annotated all edit categories",
+          "Annotators are tasked with classifying ranked event pairs with decontextualized sentences into one of the predefined event relations..."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "helpfulness": "helpfulness"
+      },
+      "explanation": "Replaced fragmented guideline text with comprehensive description of the human annotation process. Added 'helpfulness' as explicit evaluation criterion."
+    }
+  },
+  "overall_notes": "This paper is primarily about cross-document event coreference (CDEC) dataset creation, with decontextualization as a key NLG component. The main NLG contribution is using GPT for decontextualization to create richer training data. The paper evaluates CDEC models using standard coreference metrics rather than typical NLG evaluation metrics."
+}

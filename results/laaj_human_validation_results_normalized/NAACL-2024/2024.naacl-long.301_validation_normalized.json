@@ -1,0 +1,82 @@
+{
+  "paper_id": "2024.naacl-long.301",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-as-a-judge (GPT-4) results with human evaluation results on the same set of instances, providing quantitative refusal rates from both methods and discussing discrepancies"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt provided verbatim in appendix section, including detailed rubric for three response types (full compliance, full refusal, partial refusal)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": "0.89-0.97",
+      "interpretation": "very high agreement across all models",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text and appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed taxonomy provided in main text \u00a74.2 with examples, additional classification details in Appendix C"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "refusal_rate"
+    ],
+    "sample_size": {
+      "total_generated": 450,
+      "validated_by_both": 450,
+      "notes": "LLM and human both evaluated all 450 prompts (250 safe prompts and 200 unsafe prompts)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": "Qualitative preservation of model ranking",
+        "criterion": "refusal_rate",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "Paper states 'the ranking of models based on manual evaluation is preserved by both string-match and GPT-4-based evaluation'"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "",
+      "threshold_used": "",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Automated evaluation methods (including GPT-4-as-judge) qualitatively recover manual evaluation results, preserving model rankings despite discrepancies in exact refusal rates."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "full_compliance",
+      "full_refusal",
+      "partial_refusal"
+    ],
+    "notes": "Both LLM and human evaluators used identical three-category taxonomy for classifying responses"
+  }
+}

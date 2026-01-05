@@ -1,0 +1,141 @@
+{
+  "paper_id": "2020.acl-main.555",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "WikiSum",
+      "MultiNews"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GraphSum",
+      "GraphSum+BERT",
+      "GraphSum+RoBERTa",
+      "GraphSum+XLNet",
+      "BERT+FT",
+      "RoBERTa+FT",
+      "XLNet+FT",
+      "FT",
+      "HT"
+    ],
+    "outputs": [
+      "abstractive summaries",
+      "abstractive summaries from multiple documents"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "BERT+FT",
+          "XLNet+FT"
+        ]
+      },
+      "removed": {
+        "models": [
+          "RoBERTa",
+          "XLNet",
+          "BERT"
+        ]
+      },
+      "normalized": {
+        "FT (Flat Transformer)": "FT",
+        "HT (Hierarchical Transformer)": "HT",
+        "abstractive summaries": "abstractive summaries",
+        "Abstractive summaries": "abstractive summaries"
+      },
+      "explanation": "Added missing models that combine pre-trained LMs with FT baseline. Removed standalone pre-trained models (RoBERTa, XLNet, BERT) as they were not used as standalone generators but only as components in combined models. Normalized model names using abbreviations."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized all ROUGE variants to base form 'ROUGE' following simplification guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholders as no LLM-as-judge evaluation was conducted."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators ranked system summaries from best (1) to worst (5) on a 5-point scale for overall quality"
+    ],
+    "criteria": [
+      "quality",
+      "saliency",
+      "fluency",
+      "conciseness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators ranked system summaries from best (1) to worst (5) on a 5-point scale for overall quality"
+        ],
+        "criteria": [
+          "quality"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- 1 is the best and 5 is the worst. The larger rating denotes better summary quality.",
+          "Human annotators rated system summaries on a 1‑5 scale for overall quality, considering aspects such as saliency, fluency and conciseness.",
+          "Model 1 2 3 4 5 Rating ... 1 is the best and 5 is the worst. The larger rating denotes better summary quality."
+        ]
+      },
+      "normalized": {
+        "salient information": "saliency"
+      },
+      "explanation": "Consolidated guideline into a single clear statement. Added 'quality' as the overarching criterion being rated. Normalized criteria names."
+    }
+  },
+  "overall_notes": "The extracted metadata was generally accurate. This paper focuses on abstractive multi-document summarization using graph-based neural models. It uses both automatic (ROUGE) and human evaluations. The extraction correctly identified the NLG task, datasets, and evaluation approaches."
+}

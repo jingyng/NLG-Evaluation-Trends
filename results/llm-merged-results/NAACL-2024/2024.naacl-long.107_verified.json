@@ -1,0 +1,164 @@
+{
+  "paper_id": "2024.naacl-long.107",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Adversarial Prompt Generation",
+      "Dialogue Generation",
+      "Other:Instruction Following Response Generation"
+    ],
+    "datasets": [
+      "LIMA",
+      "Open Assistant",
+      "Red-teaming seed dataset",
+      "SafeEval",
+      "HelpEval",
+      "AlpacaEval",
+      "Anthropic Harmless"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-65B",
+      "M_adv (adversarial model)",
+      "M_tgt (target model)",
+      "Mistral-7b",
+      "ChatGPT",
+      "GPT-4",
+      "Llama 2-Chat-70b"
+    ],
+    "outputs": [
+      "Generated adversarial prompts",
+      "Model responses to adversarial prompts",
+      "Safety-aligned outputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-4"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Instruction Following"
+        ],
+        "datasets": [
+          "Red-teaming seed"
+        ],
+        "models": [
+          "Safety reward model (S_s)",
+          "Helpfulness reward model (S_h)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "GPT4": "GPT-4",
+        "Other:Adversarial Prompt Generation": "Other:Adversarial Prompt Generation",
+        "Other:Instruction-Following Response Generation": "Other:Instruction Following Response Generation"
+      },
+      "explanation": "Removed duplicate 'Red-teaming seed' dataset and 'Other:Instruction Following' task (merged into response generation). Removed reward models from Q1 since they are evaluation models, not generation models. Normalized GPT-4 capitalization. Combined similar output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Safety RM Score",
+      "Helpfulness RM Score",
+      "Violation Rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Safety reward model score",
+          "Helpfulness reward model score",
+          "safety score",
+          "helpfulness score"
+        ]
+      },
+      "normalized": {
+        "Safety RM Score": "Safety RM Score",
+        "Helpfulness RM Score": "Helpfulness RM Score",
+        "Violation rate": "Violation Rate"
+      },
+      "explanation": "Consolidated redundant metric names into three main metrics: Safety RM Score, Helpfulness RM Score, and Violation Rate. Removed duplicate/variant names."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Reward Model",
+          "Safety reward model (S_s)",
+          "Helpfulness reward model (S_h)",
+          "safety reward model",
+          "helpfulness reward model"
+        ],
+        "methods": [
+          "output scoring with reward model",
+          "scoring with reward model",
+          "reward model scoring"
+        ],
+        "criteria": [
+          "safety",
+          "helpfulness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because the paper uses supervised reward models trained on human annotations, not LLMs-as-judges. The reward models are traditional neural classifiers, not LLMs used for evaluation after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Flag harmful and unsafe generations to calculate violation rate"
+    ],
+    "criteria": [
+      "Safety",
+      "Harmlessness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators are asked to flag potentially harmful or unsafe generations and a violation rate is computed.",
+          "flag potential harmful and unsafe generation"
+        ],
+        "criteria": [
+          "harmful",
+          "unsafe"
+        ]
+      },
+      "normalized": {
+        "safety": "Safety",
+        "harmful": "Harmlessness",
+        "unsafe": "Safety"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement. Normalized criteria to 'Safety' and 'Harmlessness' which capture the key concepts."
+    }
+  },
+  "overall_notes": "The paper focuses on automatic red-teaming methodology rather than traditional NLG evaluation. While it does involve NLG tasks (prompt generation and response generation), the main contribution is the iterative safety improvement framework. The human evaluation was conducted but appears relatively limited compared to the automatic evaluation."
+}

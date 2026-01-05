@@ -1,0 +1,130 @@
+{
+  "paper_id": "2025.acl-long.731",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates RoleRM (LLM-as-judge) against human annotations using correlation analysis (Spearman and Pearson) on test datasets, with detailed comparison across six evaluation metrics."
+  },
+  "llm_judge_details": {
+    "num_models": 5,
+    "models": [
+      "RoleRM",
+      "chatgpt",
+      "PairEval",
+      "G-Eval",
+      "GPTScore"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix/main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt template provided in Table 19 showing detailed scoring instructions for six criteria with 0-3 scale examples."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "Not specified (each data point annotated by two annotators with third resolving discrepancies)",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "F1 score",
+      "value": 0.8302,
+      "interpretation": "high agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text/appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Comprehensive annotation guidelines with four-level scoring scale (0-3), iterative improvement process with three rounds of refinement"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation",
+      "Pearson correlation",
+      "Mean Absolute Error"
+    ],
+    "shared_criteria": [
+      "Language Fluency",
+      "Language Relevance",
+      "Role Language",
+      "Role Knowledge",
+      "Emotional Expression",
+      "Interactive Engagement"
+    ],
+    "sample_size": {
+      "total_generated": 6000,
+      "validated_by_both": 1200,
+      "notes": "Used 20% of benchmark test dataset (total 6000 dialogues) for validation against human annotations"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.043,
+        "criterion": "Fluency",
+        "llm_model": "ChatGPT",
+        "significance": "not reported"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.014,
+        "criterion": "Fluency",
+        "llm_model": "ChatGPT",
+        "significance": "not reported"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.065,
+        "criterion": "Knowledge",
+        "llm_model": "ChatGPT",
+        "significance": "not reported"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.533,
+        "criterion": "Knowledge",
+        "llm_model": "RoleRM",
+        "significance": "not reported"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.494,
+        "criterion": "Emotion",
+        "llm_model": "RoleRM",
+        "significance": "not reported"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.066,
+        "criterion": "Emotion",
+        "llm_model": "ChatGPT",
+        "significance": "not reported"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "RoleRM shows strong correlation for specialized metrics while ChatGPT shows weak correlation",
+      "threshold_used": "Not explicitly stated",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "RoleRM significantly outperforms ChatGPT with much higher correlation coefficients (0.53 vs 0.07 for Role Knowledge, 0.49 vs 0.07 for Emotional Expression), demonstrating better alignment with human perception for role-playing tasks."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Fluency",
+      "Relevance",
+      "Language",
+      "Knowledge",
+      "Emotion",
+      "Engagement"
+    ],
+    "notes": "Both LLM and human evaluations use identical six criteria with same 0-3 scoring scale"
+  }
+}

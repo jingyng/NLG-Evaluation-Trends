@@ -1,0 +1,125 @@
+{
+  "paper_id": "2021.emnlp-main.622",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Dialogue State Tracking"
+    ],
+    "datasets": [
+      "SQuAD2.0",
+      "NewsQA",
+      "TriviaQA",
+      "SearchQA",
+      "HotpotQA",
+      "NaturalQA",
+      "RACE",
+      "DREAM",
+      "MultiWoz",
+      "Schema-Guided Dialogue"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "TransferQA",
+      "T5"
+    ],
+    "outputs": [
+      "generated slot values",
+      "dialogue states in the form of a list of slot-value pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation"
+        ],
+        "datasets": [
+          "Natural Questions",
+          "SGD"
+        ],
+        "models": [
+          "T5-large"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Natural Questions": "NaturalQA",
+        "SGD": "Schema-Guided Dialogue"
+      },
+      "explanation": "Removed 'Dialogue Generation' as this paper focuses on Dialogue State Tracking, not generation. The model generates slot values/formulates dialogue states, which is NLG. Consolidated dataset names and removed redundant 'SGD' since 'Schema-Guided Dialogue' is the canonical name. Simplified 'T5-large' to 'T5' as the base model."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Joint Goal Accuracy",
+      "Average Goal Accuracy",
+      "Slot Gate Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Joint Goal Accuracy (JGA)",
+          "Average Goal Accuracy (AGA)"
+        ]
+      },
+      "normalized": {
+        "Joint Goal Accuracy (JGA)": "Joint Goal Accuracy",
+        "Average Goal Accuracy (AGA)": "Average Goal Accuracy"
+      },
+      "explanation": "Removed redundant entries with acronyms to keep only the canonical full names of the metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The T5 model is used for generation/tracking, not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not mention any human evaluation. Evaluation is done solely via automatic metrics like Joint Goal Accuracy."
+    }
+  },
+  "overall_notes": "The paper focuses on zero-shot/few-shot Dialogue State Tracking via cross-task transfer from QA. The core NLG aspect is the generation of slot values to form dialogue states. Extracted metadata was generally accurate but needed normalization and removal of a non-NLG task ('Dialogue Generation') and redundant entries. The primary evaluation metrics are accuracy-based measures for tracking correctness."
+}

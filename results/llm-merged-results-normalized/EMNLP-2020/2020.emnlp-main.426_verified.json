@@ -1,0 +1,169 @@
+{
+  "paper_id": "2020.emnlp-main.426",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Story Generation"
+    ],
+    "datasets": [
+      "ROCSTORIES"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2",
+      "emosup",
+      "rl_em",
+      "rl_clf",
+      "fusion",
+      "plan&write",
+      "pplm"
+    ],
+    "outputs": [
+      "stories",
+      "generated stories"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Fusion",
+          "Plan&Write",
+          "PPLM"
+        ],
+        "outputs": [
+          "generated stories"
+        ]
+      },
+      "removed": {
+        "models": [
+          "COMET",
+          "BERT-large"
+        ]
+      },
+      "normalized": {
+        "Other:Story Generation": "Other:Story Generation",
+        "ROCStories": "ROCStories",
+        "English": "English",
+        "GPT-2": "GPT-2",
+        "EmoSup": "EmoSup",
+        "RL-EM": "RL-EM",
+        "RL-CLF": "RL-CLF",
+        "stories": "stories"
+      },
+      "explanation": "Removed COMET and BERT-large as they are not NLG models being evaluated (COMET is for emotion reasoning, BERT-large is for classification). Added Fusion, Plan&Write, and PPLM as baseline NLG models. Added 'generated stories' to outputs for clarity."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PERPLEXITY",
+      "BLEU",
+      "DISTINCT",
+      "REPETITION",
+      "SEG WORD",
+      "ARC WORD",
+      "SEG ACC",
+      "ARC ACC",
+      "EC CLF",
+      "EC EM"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Distinct-n",
+          "Repetition-4",
+          "Seg-acc",
+          "Arc-acc"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Distinct-1",
+          "Distinct-2",
+          "Distinct-3",
+          "Segword"
+        ]
+      },
+      "normalized": {
+        "Perplexity": "Perplexity",
+        "BLEU": "BLEU",
+        "Distinct-n": "Distinct-n",
+        "Repetition-4": "Repetition-4",
+        "Seg-word": "Seg-word",
+        "Arc-word": "Arc-word",
+        "Seg-acc": "Seg-acc",
+        "Arc-acc": "Arc-acc",
+        "EC-CLF": "EC-CLF",
+        "EC-EM": "EC-EM"
+      },
+      "explanation": "Consolidated Distinct-n variants into base form 'Distinct-n'. Removed redundant 'Segword' (already have 'Seg-word'). Added missing metrics that were clearly listed in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges. Removed the placeholder 'None' entries from metadata."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers evaluate pairs of stories on a 0-3 scale (3 being very good) from two perspectives: (1) emotion faithfulness to assess whether it follows the desired emotion arc for the protagonist, and (2) content quality to indicate whether a story is fluent, logically coherent, and on-topic (related to the given title). Workers also indicate overall preference by choosing the better story or indicating equal quality."
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Fluency",
+      "Logic",
+      "Topic",
+      "Quality",
+      "Preference"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Workers also indicate overall preference by choosing the better story or indicating equal quality."
+        ],
+        "criteria": [
+          "overall preference"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Following , workers are asked to evaluate pair of stories on a 0-3 scale (3 being very good) from two different perspectives: (1) emotion faithfulness to assess whether it follows the desired emotion arc for the protagonist, and (2) content quality to indicate whether a story is fluent, logically coherent, and on-topic (related to the given title).",
+          "Workers are asked to evaluate pair of stories on a 0-3 scale for emotion faithfulness and content quality, and indicate overall preference.",
+          "workers are asked to evaluate pair of stories on a 0-3 scale (3 being very good) from two different perspectives: (1) emotion faithfulness to assess whether it follows the desired emotion arc for the protagonist, and (2) content quality to indicate whether a story is fluent, logically coherent, and on-topic (related to the given title)."
+        ]
+      },
+      "normalized": {
+        "emotion faithfulness": "emotion faithfulness",
+        "fluency": "fluency",
+        "logical coherence": "logical coherence",
+        "on-topic": "on-topic",
+        "content quality": "content quality"
+      },
+      "explanation": "Consolidated guideline description and removed redundant entries. Added missing 'overall preference' criterion that was clearly part of the human evaluation."
+    }
+  },
+  "overall_notes": "The paper is clearly about NLG (story generation) and uses both automatic metrics and human evaluation. The extraction was generally good but needed some normalization and removal of non-NLG models. The paper uses comprehensive evaluation with both content quality and emotion faithfulness measures."
+}

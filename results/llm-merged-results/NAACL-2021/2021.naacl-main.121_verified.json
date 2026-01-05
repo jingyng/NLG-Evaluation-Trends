@@ -1,0 +1,136 @@
+{
+  "paper_id": "2021.naacl-main.121",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Style Transfer"
+    ],
+    "datasets": [
+      "FEVER",
+      "Wizard of Wikipedia"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART-large",
+      "RoBERTa",
+      "Stanza NER",
+      "DPR",
+      "CorefBERT",
+      "KGAT"
+    ],
+    "outputs": [
+      "colloquial claims generated from formal FEVER claims via style transfer"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Style Transfer"
+        ],
+        "outputs": [
+          "colloquial claims generated from formal FEVER claims via style transfer"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "outputs": [
+          "colloquial claims generated from FEVER claims",
+          "colloquial claims generated from formal claims via style transfer"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed 'Paraphrase Generation' to 'Style Transfer' as this more accurately describes the task. Consolidated output descriptions to be more precise. Added 'Style Transfer' task which is the core NLG contribution."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "perplexity",
+      "F1-score",
+      "NER recall",
+      "NLI accuracy",
+      "document recall",
+      "evidence recall",
+      "label accuracy",
+      "FEVER score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "NER recall",
+          "evidence recall",
+          "document recall"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "NER F1-score",
+          "NLI (ENTAILMENT/CONTRADICTION)"
+        ]
+      },
+      "normalized": {
+        "RECALL": "recall",
+        "FEVER-score": "FEVER score"
+      },
+      "explanation": "Added missing metrics explicitly mentioned in the paper. Removed 'NER F1-score' (not explicitly used) and normalized 'NLI (ENTAILMENT/CONTRADICTION)' to 'NLI accuracy' which is what the paper reports. Simplified metric variants to base forms."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "RoBERTa",
+          "RoBERTa-large"
+        ],
+        "methods": [
+          "bidirectional natural language inference",
+          "adversarial filtering (AFLITE) binary classification"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because RoBERTa is used as part of the filtering/generation pipeline, not as a judge after generation to assess outputs. The paper does not use LLMs as evaluators in the LLM-as-judge paradigm."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate humanness on a 4-point scale: 'Do you think this sentence is from a bot or a human?'",
+      "Classify claims into SUPPORTED, REFUTED, or NOTENOUGHINFO given gold evidence"
+    ],
+    "criteria": [
+      "humanness",
+      "veracity classification accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "veracity classification accuracy"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "veracity labeling"
+        ]
+      },
+      "normalized": {
+        "veracity labeling": "veracity classification accuracy"
+      },
+      "explanation": "Added missing criteria 'veracity classification accuracy' that was evaluated. Consolidated guideline descriptions. Renamed 'veracity labeling' to more accurate 'veracity classification accuracy'."
+    }
+  },
+  "overall_notes": "The paper focuses on style transfer for generating colloquial claims and evaluating fact-checking systems. The NLG aspect is style transfer from formal to colloquial language using BART. Human evaluation was properly conducted with clear guidelines. The extraction was mostly accurate but incorrectly identified LLM-as-judge usage."
+}

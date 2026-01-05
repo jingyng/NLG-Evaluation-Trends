@@ -1,0 +1,172 @@
+{
+  "paper_id": "2023.acl-long.488",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Controlled Generation",
+      "Text Style Transfer",
+      "Text Detoxification"
+    ],
+    "datasets": [
+      "IMDB",
+      "AG NEWS",
+      "JIGSAW TOXIC CLASSIFICATION DATASET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "dunst",
+      "unilm",
+      "unilm_base_cased",
+      "gpt_2",
+      "t_5",
+      "roberta_large",
+      "bert_base"
+    ],
+    "outputs": [
+      "Generated text sequences with controlled attributes (sentiment, topic, toxicity)",
+      "Attribute-controlled text generation based on prompts",
+      "Text generation conditioned on target attributes"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Text Style Transfer"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:attribute-controllable NLG"
+        ],
+        "datasets": [
+          "Jigsaw"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "GPT2": "GPT-2",
+        "Other:Sentiment Control": "Other:Controllable Generation",
+        "Other:Topic Control": "Other:Controllable Generation",
+        "Other:Detoxification": "Other:Text Detoxification"
+      },
+      "explanation": "Consolidated multiple specific control tasks under 'Controllable Generation' since sentiment, topic, and toxicity control are all forms of attribute control. Normalized model names (GPT2→GPT-2). Renamed detoxification to match standard terminology. Added Text Style Transfer as it's a broader category that includes these tasks."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PERPLEXITY",
+      "F1",
+      "DISTINCT",
+      "SELF BLEU",
+      "TOXICITY PERCENTAGE",
+      "ACCURACY",
+      "AUC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Output Perplexity",
+          "Model Perplexity",
+          "Macro-F1",
+          "Dist-n",
+          "Self-BLEU",
+          "Toxic%",
+          "Perplexity (GPT2-XL)",
+          "Output PPL",
+          "Model PPL",
+          "Acc",
+          "Toxic %"
+        ]
+      },
+      "normalized": {
+        "Output Perplexity": "Perplexity",
+        "Model Perplexity": "Perplexity",
+        "Macro-F1": "F1",
+        "Dist-n": "Distinct-n",
+        "Toxic%": "Toxicity Percentage",
+        "Acc": "Accuracy"
+      },
+      "explanation": "Consolidated all perplexity variants under 'Perplexity', simplified F1 variants, normalized metric names to standard forms. Removed redundant mentions and consolidated variants."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT2-XL"
+        ],
+        "methods": [
+          "perplexity computation",
+          "Perplexity scoring of generated text"
+        ],
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "GPT-2-XL is used for perplexity computation but not as a 'judge' in the LLM-as-judge sense. It's used as a measurement tool rather than evaluating quality through prompting/scoring. Therefore, this should be 'No'."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Fluency: Whether the generated text is fluent/grammatically correct (1-5 scale)",
+      "Novelty: The extent of novelty inside the generated text, distinct words/expressions, repeated phrases (1-5 scale)",
+      "Attribute Relevance: Whether generated text is relevant to its label (1-5 scale for sentiment/topic)",
+      "Toxicity: Whether text contains toxic content including offensive language, hate speech, discrimination (1-5 scale for detoxification)"
+    ],
+    "criteria": [
+      "Fluency",
+      "Novelty",
+      "Relevance",
+      "Toxicity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "fluency",
+          "novelty",
+          "attribute relevance",
+          "toxicity"
+        ]
+      },
+      "normalized": {
+        "fluency": "Fluency",
+        "novelty": "Novelty",
+        "attribute relevance": "Attribute Relevance",
+        "toxicity": "Toxicity"
+      },
+      "explanation": "Normalized criteria to title case for consistency. The extracted metadata was already comprehensive, so only capitalization changes were needed."
+    }
+  },
+  "overall_notes": "The paper focuses on semi-supervised controllable text generation using a novel dual noisy self-training approach. It evaluates on three controllable generation tasks with both automatic metrics and human evaluation. The extraction was generally good, but needed normalization and consolidation of similar items. The LLM-as-judge question was incorrectly answered 'Yes' - while GPT-2-XL is used for perplexity computation, it's not used in the modern 'LLM-as-judge' paradigm of prompting for quality assessment."
+}

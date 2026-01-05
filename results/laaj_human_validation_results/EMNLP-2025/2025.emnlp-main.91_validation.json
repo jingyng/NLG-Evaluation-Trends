@@ -1,0 +1,92 @@
+{
+  "paper_id": "2025.emnlp-main.91",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-as-a-judge against human evaluation by having one author blindly annotate a random sample and reporting agreement metrics between human and GPT-4o judgments"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Prompt provided: 'Does any part of {model answers @K} contain the same information as the {gold answer}?' with constraint to answer 'Yes' or 'No' for information containment check"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 19,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.66,
+      "interpretation": "substantial agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Instructions specified scoring AI answers on 0-3 Likert Scale where 3 = 'best' answers, 0 = 'bad' answers; detailed onboarding process with video and staging rounds"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Cohen's kappa",
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "information_containment"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": "random sample oversampling minority class",
+      "notes": "Sample size not specified numerically, but validation used a random sample with oversampling for the minority class"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": 85,
+        "criterion": "information_containment",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Agreement between human and GPT-4o judgments"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.66,
+        "criterion": "information_containment",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Substantial agreement between human and model judgments"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "substantial",
+      "threshold_used": "Cohen's kappa standard interpretation",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4o judgments show substantial agreement with human annotations (85% agreement, κ=0.66), validating LLM-as-a-judge for information containment evaluation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "relevance",
+      "personal applicability",
+      "quality"
+    ],
+    "shared_criteria": [
+      "information_containment"
+    ],
+    "notes": "Human evaluation used Likert scale criteria (relevance, personal applicability, quality) while LLM-as-judge specifically evaluated information containment of gold answers in model outputs"
+  }
+}

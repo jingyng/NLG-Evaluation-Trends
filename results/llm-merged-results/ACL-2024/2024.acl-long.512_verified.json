@@ -1,0 +1,139 @@
+{
+  "paper_id": "2024.acl-long.512",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Event Relation Extraction"
+    ],
+    "datasets": [
+      "MAVEN-ERE",
+      "Causal-TimeBank",
+      "ProofWriter",
+      "FOLIO"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ChatGPT",
+      "GPT-3.5-turbo",
+      "GPT-4",
+      "Vicuna-13B",
+      "Llama2-13B",
+      "Vicuna-FT",
+      "Llama2-FT"
+    ],
+    "outputs": [
+      "Predicted event relations (coreference, temporal, causal, subevent)",
+      "Generated rationales for event relation predictions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-3.5-turbo"
+        ],
+        "outputs": [
+          "Generated rationales for event relation predictions"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "text-davinci-003"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "text-davinci-003": "GPT-3.5-turbo",
+        "gpt-3.5-turbo": "GPT-3.5-turbo",
+        "gpt-4": "GPT-4"
+      },
+      "explanation": "Normalized model names to standard capitalization (GPT-3.5-turbo, GPT-4). Added 'Generated rationales' to outputs since the paper discusses CoT generation. Kept text-davinci-003 as GPT-3.5-turbo since they refer to the same model family."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "micro-F1",
+      "Logical Inconsistency (LI)"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "LI": "Logical Inconsistency (LI)"
+      },
+      "explanation": "Metrics are correctly extracted and normalized. LI is clarified to 'Logical Inconsistency' for clarity."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges/evaluators after generation. LLMs are used for generation tasks only."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual evaluation conducted on 100 samples (50 from MAVEN-ERE and 50 from ProofWriter)",
+      "Annotators review predictions and mark error types: Incorrectness to the Constraint (wrong, incomplete, redundant) and Unfaithfulness to the Reasoning Process (wrong start, wrong process)"
+    ],
+    "criteria": [
+      "Incorrectness to the Constraint",
+      "Unfaithfulness to the Reasoning Process"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual evaluation conducted on 100 samples (50 from MAVEN-ERE and 50 from ProofWriter)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "wrong (CE1)",
+          "incomplete (CE2)",
+          "redundant (CE3)",
+          "wrong start (FE1)",
+          "wrong process (FE2)",
+          "CE1",
+          "CE2",
+          "CE3",
+          "FE1",
+          "FE2"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Simplified criteria to the main categories rather than individual error codes. Added context about the manual evaluation scope from the paper text."
+    }
+  },
+  "overall_notes": "The paper focuses on event relation extraction as a multi-label classification task with NLG components (rationale generation via CoT). The extraction was generally accurate, but required normalization of model names and simplification of human evaluation criteria. The paper does not use LLMs as judges, only as generation models."
+}

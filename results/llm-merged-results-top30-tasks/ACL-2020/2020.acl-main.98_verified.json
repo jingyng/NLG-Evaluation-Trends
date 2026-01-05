@@ -1,0 +1,155 @@
+{
+  "paper_id": "2020.acl-main.98",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "DURECDIAL"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "mgcg",
+      "mgcg_r",
+      "mgcg_g",
+      "s_2s"
+    ],
+    "outputs": [
+      "dialog responses",
+      "goal-guided responses",
+      "conversation generation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "goal-guided responses",
+          "conversation generation"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "MGCG R",
+          "MGCG G"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "MGCG R": "MGCG_R",
+        "MGCG G": "MGCG_G"
+      },
+      "explanation": "Normalized model names to consistent format (MGCG_R, MGCG_G instead of MGCG R, MGCG G). Added more descriptive output types mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "F1",
+      "PERPLEXITY",
+      "DISTINCT",
+      "HITS",
+      "KNOWLEDGE PRECISION",
+      "KNOWLEDGE RECALL",
+      "KNOWLEDGE F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "perplexity (PPL)",
+          "DISTINCT (DIST-2)",
+          "knowledge precision",
+          "knowledge recall",
+          "knowledge F1",
+          "Perplexity",
+          "DIST-2",
+          "Knowledge Precision",
+          "Knowledge Recall",
+          "Knowledge F1",
+          "perplexity",
+          "DISTINCT"
+        ]
+      },
+      "normalized": {
+        "perplexity (PPL)": "Perplexity",
+        "DISTINCT (DIST-2)": "DISTINCT",
+        "knowledge precision": "Knowledge Precision",
+        "knowledge recall": "Knowledge Recall",
+        "knowledge F1": "Knowledge F1"
+      },
+      "explanation": "Consolidated duplicate metric entries and normalized to standard forms. Removed redundant variants while keeping all unique metrics mentioned."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper (published in 2020 before widespread LLM evaluation practices)."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Turn-level evaluation: fluency, appropriateness, informativeness, proactivity",
+      "Dialogue-level evaluation: goal success rate, coherence"
+    ],
+    "criteria": [
+      "Fluency",
+      "Appropriateness",
+      "Informativeness",
+      "Proactivity",
+      "Goal",
+      "Coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Turn-level evaluation: fluency, appropriateness, informativeness, proactivity",
+          "Dialogue-level evaluation: goal success rate, coherence"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Fluency measures if the produced response itself is fluent: • score 0 (bad): unfluent and difficult to understand. • score 1 (fair): there are some errors in the response text but still can be understood. • score 2 (good): fluent and easy to understand. Appropriatenss measures if the response can respond to the context: • score 0 (bad): ... • score 1 (fair): ... • score 2 (good): otherwise. Informativeness measures if the model makes full use of knowledge in the response: • score 0 (bad): no knowledge is mentioned at all. • score 1 (fair): only one knowledge triple is mentioned in the response. • score 2 (good): more than one knowledge triple is mentioned in the response. Proactivity measures if the model can introduce new knowledge/topics in conversation: • score -1 (bad): some new topics are introduced but irrelevant to the context. • score 0 (fair): no new topics/knowledge are used. • score 1(good): some new topics relevant to the context are introduced. Goal Completion measures how good the given conversation goal is finished: • score 0 (bad): less than half goals are achieved.. • score 1 (fair): ... • score 2 (good): more than half goals are achieved with full use of knowledge and goal information. Coherence measures the overall fluency of the whole dialogue: • score 0 (bad): two-thirds responses irrelevant or logically contradictory to the previous context. • score 1 (fair): less than one-third responses irrelevant or logically contradictory to the previous context. • score 2 (good): very few response irrelevant or logically contradictory to the previous context."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "Appropriatenss": "appropriateness",
+        "Goal Completion": "goal success rate"
+      },
+      "explanation": "Simplified the verbose guideline to key evaluation levels and criteria. Normalized criterion names for consistency."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main improvements were normalization of model names and metrics, removal of duplicates, and simplification of the human evaluation guidelines. The paper focuses on dialogue generation for conversational recommendation with comprehensive automatic and human evaluation."
+}

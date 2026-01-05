@@ -1,0 +1,146 @@
+{
+  "paper_id": "2023.emnlp-main.50",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Other:Visual Question Answering",
+      "Other:Action Execution",
+      "Other:Referring Expression Comprehension",
+      "Other:Visual Reasoning"
+    ],
+    "datasets": [
+      "MS-COCO",
+      "VQA-v2",
+      "RefCOCOg",
+      "NLVR2",
+      "Dialog-guided Task Completion (DTC)"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "EMMA"
+    ],
+    "outputs": [
+      "Generated text descriptions for images",
+      "Answers to visual questions",
+      "Contextual routing decisions",
+      "Sequences of action tokens",
+      "Visual token references for object grounding"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Visual token references for object grounding"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Other:action execution"
+        ],
+        "datasets": [
+          "NLVR 2",
+          "DTC"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "captions, answers, visual token IDs",
+          "The model outputs textual tokens representing actions, object references, and dialog responses, such as 'open fridge <frame_token_1> <vis_token_5>.'"
+        ]
+      },
+      "normalized": {
+        "Other:Visual Question Answering": "Other:Visual Question Answering",
+        "Other:Referring Expression Comprehension": "Other:Referring Expression Comprehension",
+        "Other:Visual Reasoning": "Other:Visual Reasoning",
+        "Dialog-guided Task Completion (DTC)": "Dialog-guided Task Completion (DTC)"
+      },
+      "explanation": "Removed 'Dialogue Generation' as the paper doesn't actually generate dialogue responses, only uses dialogue context. Removed duplicate datasets. Consolidated and clarified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "CIDEr",
+      "SPICE",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Success rate",
+          "accuracy@0.5"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "VQA accuracy": "Accuracy",
+        "Accuracy@0.5": "Accuracy"
+      },
+      "explanation": "Normalized metric variants to base forms (BLEU-4 → BLEU). Removed 'Success rate' as it's task-specific rather than a standard NLG metric. Consolidated accuracy metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleaned up empty/null values. The paper does not use LLMs as judges for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Each mission is annotated by three humans and corresponds to a mission completed by an expert planner, implying human judgment on valid trajectories and clarification needs."
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed the human annotation description as it refers to benchmark creation, not evaluation of model outputs. No human evaluation of generated outputs was conducted."
+    }
+  },
+  "overall_notes": "The paper focuses on embodied AI and vision-language tasks, treating action prediction as text generation. While it generates various types of text (captions, answers, action sequences), it does not conduct human evaluation of these generated outputs. The automatic metrics are used for standard vision-language tasks. The extraction was generally good but included some irrelevant items and needed normalization."
+}

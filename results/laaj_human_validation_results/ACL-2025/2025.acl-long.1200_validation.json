@@ -1,0 +1,87 @@
+{
+  "paper_id": "2025.acl-long.1200",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM feedback decoder against human judgments through post-hoc annotation, comparing LLM-predicted feedback with human-rated satisfaction on the same turns and reporting precision metrics."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "idefics_2_8b"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt shown in main text: 'User: Please carefully read the following conversation and answer: Is the very last utterance from the speaker positive or negative positive, neutral, or negative feedback? Often negative feedback include corrections and keywords like no, not, undo, don't, with generally negative sentiment, while positive feedback often includes good, yes, correct, okay, or simply move on to the next stage. Lean towards negative if it sounds neutral.'"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 33,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage agreement",
+      "value": 93.0,
+      "interpretation": "simple feedback annotation shows high reliability",
+      "per_criterion": [
+        {
+          "criterion": "satisfaction",
+          "metric": "percentage agreement",
+          "value": 93.0
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators rate speaker satisfaction based on follow-up utterance with four options: Yes; Yes, even though the listener did not perform all required selections/deselections; Yes, even though the listener made incorrect selections/deselections; No."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Precision"
+    ],
+    "shared_criteria": [
+      "feedback/satisfaction"
+    ],
+    "sample_size": {
+      "total_generated": 55004,
+      "validated_by_both": 1000,
+      "notes": "Validation uses 1,000 utterances sampled from B-FFT system per round, annotated post-hoc by human evaluators"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Precision",
+        "value": 0.9,
+        "criterion": "feedback/satisfaction",
+        "llm_model": "idefics_2_8b",
+        "significance": "Not reported",
+        "notes": "Above 90% precision consistently across rounds, combining actual positives and neutrals"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "high precision",
+      "threshold_used": "Precision > 90% considered consistently reliable",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM feedback decoder shows stable performance with above 90% precision in identifying implicit feedback signals, demonstrating robust alignment with human judgments across deployment rounds."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "correctness/exact match"
+    ],
+    "shared_criteria": [
+      "feedback/satisfaction"
+    ],
+    "notes": "Both LLM and human evaluate feedback/satisfaction, while humans additionally evaluate correctness through exact match annotations"
+  }
+}

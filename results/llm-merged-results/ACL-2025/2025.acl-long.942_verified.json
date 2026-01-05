@@ -1,0 +1,132 @@
+{
+  "paper_id": "2025.acl-long.942",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Persuasive Image Description Generation"
+    ],
+    "datasets": [
+      "PVP"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o",
+      "GPT-4o-mini",
+      "LLaMA-3-8B-Instruct"
+    ],
+    "outputs": [
+      "Image descriptions for personalized persuasive images"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Persuasive Image Description Generation"
+        ],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Image Description Generation",
+          "Other:Personalized Visual Persuasion Generation"
+        ],
+        "models": [],
+        "outputs": [
+          "image descriptions that can subsequently be used as prompts for separate image generation models"
+        ]
+      },
+      "normalized": {
+        "LLaMA3-8B-Instruct": "LLaMA-3-8B-Instruct"
+      },
+      "explanation": "Simplified task names to focus on the core NLG task (persuasive image description generation) and normalized model naming"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Spearman correlation",
+      "Pearson correlation",
+      "NDCG",
+      "RMSE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Evaluator-predicted persuasiveness score"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'Evaluator-predicted persuasiveness score' as it's not a standard metric but rather what the evaluator predicts; kept only standard evaluation metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "Two-step validation: image interpretation then premise alignment scoring"
+    ],
+    "criteria": [
+      "Alignment with premise"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLaMA3-8B-Instruct",
+          "GPT-4o-mini"
+        ],
+        "methods": [
+          "Regression-based scoring",
+          "zero-shot prompting",
+          "fine-tuning"
+        ],
+        "criteria": [
+          "persuasiveness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed models/methods that were used for generation rather than evaluation; kept only GPT-4o which was explicitly used for LLM-as-judge validation of image-premise alignment"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Rate on a scale from 0 to 10 how much you feel promoted to perform that behavior after viewing each image"
+    ],
+    "criteria": [
+      "Persuasiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Rate on a scale from 0 to 10 how much you feel promoted to perform that behavior after viewing each image"
+        ],
+        "criteria": [
+          "Persuasiveness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from No to Yes - the paper clearly conducted human evaluations with 2,521 annotators rating persuasiveness of images"
+    }
+  },
+  "overall_notes": "The paper focuses on personalized visual persuasion with both generation and evaluation tasks. The core NLG task is persuasive image description generation. Human evaluation was extensive but the extracted metadata incorrectly marked it as 'No'. LLM-as-judge was used primarily for dataset validation rather than output evaluation."
+}

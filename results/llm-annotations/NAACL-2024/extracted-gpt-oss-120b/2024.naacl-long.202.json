@@ -1,0 +1,63 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We let LLaMa2-70B generate a biographic paragraph, using the same prompt as: \"This is a Wikipedia article about <entity>\"... We also generate 5000 English Wikipedia articles to evaluate factual accuracy.",
+        "tasks": [
+            "Other:Biographical Paragraph Generation",
+            "Other:Long-form Wikipedia Article Generation"
+        ],
+        "datasets": [
+            "Wikipedia biographical entries",
+            "English Wikipedia articles"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "LLaMa2-70B",
+            "LLaMa2-70B-Chat",
+            "Falcon",
+            "GPT models"
+        ],
+        "outputs": "generated biographical paragraphs and longer Wikipedia-style articles"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We use the FActScore task ... We also use SelfCheck-BERTScore, FactScore, TripleScore, QAG, ROUGE to evaluate factual accuracy of the generated text.",
+        "automatic_metrics": [
+            "FActScore (precision of atomic facts)",
+            "Semantic Drift (SD) score",
+            "SelfCheck-BERTScore",
+            "FactScore",
+            "TripleScore",
+            "QAG",
+            "ROUGE"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We modify the original FActScore pipeline to rely on LLaMa2-70B-Chat (rather than InstructGPT) and validate using human annotations... The pipeline extracts atomic facts and assigns supported/unsupported labels, effectively judging factuality.",
+        "models": [
+            "LLaMa2-70B-Chat",
+            "InstructGPT"
+        ],
+        "methods": [
+            "Atomic fact extraction via few‑shot prompting",
+            "Fact labeling as supported vs. not supported"
+        ],
+        "criteria": [
+            "truthfulness",
+            "support",
+            "relevance"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We modify the original FActScore pipeline ... and validate using human annotations (Appendix B.2). We obtain a Pearson correlation coefficient of 0.94 between scores obtained from facts extracted by humans and scores obtained from facts extracted by LLaMa2.",
+        "guideline": "Human annotators label each extracted atomic fact as true (supported) or false (unsupported) based on verifiability against Wikipedia.",
+        "criteria": [
+            "truthfulness",
+            "support"
+        ]
+    }
+}

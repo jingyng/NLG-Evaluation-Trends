@@ -1,0 +1,134 @@
+{
+  "paper_id": "2023.emnlp-main.141",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "PROSE",
+      "CWMT2018",
+      "AIChallenger"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "Transformer",
+      "Mention-Aware Semantic Augmentation",
+      "RecNMT",
+      "pro-dropP&T",
+      "HanNMT",
+      "AdvAug",
+      "CsaNMT"
+    ],
+    "outputs": [
+      "Translated English sentences from Chinese input"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "datasets": [
+          "PROSE (Talk, Drama, Movie, Vlog)"
+        ],
+        "models": [
+          "Mention Encoder",
+          "Text Encoder",
+          "Text Decoder"
+        ],
+        "outputs": [
+          "Generated English translations of Chinese source sentences"
+        ]
+      },
+      "normalized": {
+        "PROSE (Talk, Drama, Movie, Vlog)": "PROSE",
+        "translated English sentences": "Translated English sentences from Chinese input"
+      },
+      "explanation": "Consolidated duplicate PROSE dataset entries and removed implementation-level components (encoders/decoders) that are not evaluation models. Simplified output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SacreBLEU"
+        ]
+      },
+      "normalized": {
+        "SacreBLEU": "BLEU"
+      },
+      "explanation": "SacreBLEU is an implementation/tool for computing BLEU scores, not a distinct metric. Normalized to base BLEU metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The paper mentions LLMs like PaLM, ChatGPT, and GPT-4 only in the limitations/future work section as potential comparisons."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Best-Worst Scaling: each score computed as percentage selected as best minus percentage selected as worst, ranging from -1 (unanimously worst) to +1 (unanimously best)",
+      "200 instances sampled from four corpora",
+      "Two workers rated translation results"
+    ],
+    "criteria": [
+      "Completeness",
+      "Semantic Correctness",
+      "Overall Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "200 instances sampled from four corpora",
+          "Two workers rated translation results"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "pronoun recovery"
+        ]
+      },
+      "normalized": {
+        "pronoun recovery": "Completeness",
+        "semantic correctness": "Semantic Correctness",
+        "overall quality": "Overall Quality"
+      },
+      "explanation": "Added missing human evaluation details from the paper. Normalized criteria names to match the explicit terms used in the evaluation questions (Completeness, Semantic Correctness, Overall Quality)."
+    }
+  },
+  "overall_notes": "The paper focuses on Chinese-English machine translation with a specific emphasis on pronoun omission recovery. The extraction was generally accurate, but needed normalization of metric names and consolidation of dataset/model lists. The paper uses both automatic (BLEU) and human evaluation (Best-Worst Scaling) but does not use LLMs as judges."
+}

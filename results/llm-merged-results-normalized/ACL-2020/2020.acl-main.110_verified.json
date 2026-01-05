@@ -1,0 +1,126 @@
+{
+  "paper_id": "2020.acl-main.110",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Counter Narrative Generation",
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "CROWD",
+      "NICHE",
+      "CRAWL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2",
+      "transformer_baseline",
+      "bert",
+      "albert"
+    ],
+    "outputs": [
+      "counter-narratives",
+      "counter-narratives in response to hate speech"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "BERT",
+          "ALBERT"
+        ],
+        "outputs": [
+          "counter-narratives in response to hate speech"
+        ]
+      },
+      "removed": {
+        "models": [
+          "TRF crowd",
+          "TRF niche"
+        ]
+      },
+      "normalized": {
+        "Transformer baseline": "Transformer baseline",
+        "counter-narratives (CN)": "counter-narratives"
+      },
+      "explanation": "Removed duplicate model variants (TRF crowd/niche are Transformer baselines), added NLG models used for generation, simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "BERTSCORE",
+      "REPETITION RATE",
+      "NOVELTY"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Repetition Rate (RR)",
+          "Novelty (Jaccard similarity)",
+          "BertScore"
+        ]
+      },
+      "normalized": {
+        "BERTScore": "BERTScore",
+        "Repetition Rate (RR)": "Repetition Rate"
+      },
+      "explanation": "Removed duplicate metric names with explanations in parentheses, normalized BERTScore capitalization"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "BERT",
+          "ALBERT"
+        ],
+        "methods": [
+          "sentence-pair classification"
+        ],
+        "criteria": [
+          "suitableness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata - BERT/ALBERT are used for automated filtering, not as LLM judges evaluating generated outputs after generation. This is a classification task, not LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "For each HS-CN pair, operators were asked to validate perfect answers without modification, modify good answers needing editing, or discard completely irrelevant answers needing complete rewriting"
+    ],
+    "criteria": [
+      "Suitableness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "For each HS-CN pair, operators were asked to validate perfect answers without modification, modify good answers needing editing, or discard completely irrelevant answers needing complete rewriting"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "need for modification",
+          "extremely good"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement, simplified criteria to the main concept of 'suitableness'"
+    }
+  },
+  "overall_notes": "Paper focuses on counter-narrative generation for hate speech intervention. Uses standard NLG metrics (BLEU, BERTScore) and human evaluation with NGO operators. The automated filtering using BERT/ALBERT is better classified as a preprocessing/filtering step rather than LLM-as-judge evaluation."
+}

@@ -1,0 +1,155 @@
+{
+  "paper_id": "2024.acl-long.426",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "WIKI40B",
+      "SQuAD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "PaLM-2",
+      "PaLM-2-unicorn",
+      "Gemini"
+    ],
+    "outputs": [
+      "tables",
+      "mind maps",
+      "structured summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Gemini"
+        ],
+        "outputs": [
+          "structured summaries"
+        ]
+      },
+      "removed": {
+        "models": [
+          "PALM-2",
+          "PaLM2",
+          "Unicorn (PaLM-2-unicorn)"
+        ],
+        "outputs": [
+          "tables and mind maps",
+          "tables and mind maps (structured summaries)"
+        ]
+      },
+      "normalized": {
+        "PALM-2": "PaLM-2",
+        "PaLM2": "PaLM-2",
+        "Unicorn (PaLM-2-unicorn)": "PaLM-2-unicorn",
+        "tables and mind maps": "tables",
+        "tables and mind maps (structured summaries)": "mind maps"
+      },
+      "explanation": "Normalized model names to standard forms (PaLM-2 instead of PALM-2/PaLM2), removed redundant output descriptions, and added missing Gemini model mentioned in the paper"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "AUTO-QA coverage",
+      "QA accuracy"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "The extracted metrics are correct and complete - AUTO-QA coverage is the main automatic metric proposed, and QA accuracy is used to evaluate it"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "PaLM-2"
+    ],
+    "methods": [
+      "factuality attribution",
+      "local structure verification",
+      "global structure verification",
+      "answer equivalence check"
+    ],
+    "criteria": [
+      "Factuality",
+      "Local Structure",
+      "Global Structure"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "PaLM-2"
+        ]
+      },
+      "removed": {
+        "models": [
+          "PALM-2",
+          "PaLM-2",
+          "fine‑tuned smaller critic model",
+          "Chat-GPT (OpenAI, 2022)"
+        ],
+        "methods": [
+          "critic prompting",
+          "critics to assess output quality",
+          "Factuality critic",
+          "Local Structure critic",
+          "Global Structure critic"
+        ]
+      },
+      "normalized": {
+        "PALM-2": "PaLM-2",
+        "fine‑tuned smaller critic model": "removed (not actually used)",
+        "Chat-GPT (OpenAI, 2022)": "removed (mentioned in related work only)"
+      },
+      "explanation": "Simplified models to only PaLM-2 (the actual model used), removed generic method descriptions, kept only the specific evaluation methods used. The paper explicitly uses LLMs for post-generation evaluation through critics."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rated outputs as 'Good' or 'Bad' by checking overall quality, factuality, and structural quality",
+      "For tables: check table structure, table header, column header-value match",
+      "For mind maps: check incomplete branches, main concept relevance, branch density, edge connections"
+    ],
+    "criteria": [
+      "Factuality",
+      "Table structure",
+      "Table header",
+      "Column header-value match",
+      "Incomplete branches",
+      "Main concept relevance",
+      "Branch density",
+      "Edge correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Branch density",
+          "Edge correctness"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "too dense / too sparse",
+          "wrong edge connections"
+        ]
+      },
+      "normalized": {
+        "too dense / too sparse": "Branch density",
+        "wrong edge connections": "Edge correctness"
+      },
+      "explanation": "Normalized criteria names for clarity and consistency, added missing criteria that were described in the guidelines but not explicitly listed"
+    }
+  },
+  "overall_notes": "The paper is well-extracted overall. Main NLG task is structured text summarization (tables and mind maps). The paper uses both automatic metrics (AUTO-QA) and human evaluation. LLMs are used as judges through the critic framework. Human evaluation was conducted with clear guidelines. The extraction was mostly accurate with minor normalization needed for model names and criteria."
+}

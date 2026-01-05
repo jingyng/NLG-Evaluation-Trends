@@ -1,0 +1,139 @@
+{
+  "paper_id": "2025.emnlp-main.460",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Instruction Following"
+    ],
+    "datasets": [
+      "ULTRACHAT 200k",
+      "ULTRAFEEDBACK",
+      "ANTHROPIC HH",
+      "ADVBENCH",
+      "JAILBREAKBENCH",
+      "ALPACA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3.1_8b",
+      "mistral_7b"
+    ],
+    "outputs": [
+      "Generated responses to instruction prompts",
+      "Generated responses for safety alignment evaluation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Alpaca"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Generated responses for safety alignment evaluation"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "AlpacaEval2",
+          "MT-Bench",
+          "Arena-Hard",
+          "Llama-Guard"
+        ],
+        "languages": [],
+        "models": [
+          "Llama3.1-8B"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Jail-breakBench": "JailbreakBench",
+        "Llama3.1-8B": "Llama-3.1-8B"
+      },
+      "explanation": "Removed evaluation benchmarks (AlpacaEval2, MT-Bench, Arena-Hard, Llama-Guard) from datasets since they are benchmarks, not training datasets. Added 'Alpaca' dataset mentioned in safety alignment experiments. Normalized model names and consolidated duplicate mentions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "WIN RATE",
+      "HARMLESSNESS RATE",
+      "Average Score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Average Score"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "length-controlled (LC)",
+          "AlpacaEval 2",
+          "MT-Bench",
+          "Arena-Hard",
+          "Llama-Guard",
+          "win rate (WR)",
+          "harmless response rate (Harm.)"
+        ]
+      },
+      "normalized": {
+        "WR": "Win Rate",
+        "Harm.": "Harmlessness Rate"
+      },
+      "explanation": "Removed benchmark names and consolidated redundant metric names. Added 'Average Score' which appears in the results table. Kept core automatic evaluation metrics used in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Llama-Guard"
+    ],
+    "methods": [
+      "Safety classification"
+    ],
+    "criteria": [
+      "Harmlessness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed - Llama-Guard is explicitly used for safety classification to evaluate harmlessness of generated responses."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper - all evaluations use automatic metrics and LLM judges."
+    }
+  },
+  "overall_notes": "The paper focuses on preference optimization for instruction-following LLMs using DPO and proposes AAO method. Evaluations are conducted using automatic metrics and LLM-as-judge (Llama-Guard for safety). The extraction was generally accurate but needed refinement of dataset/model lists to distinguish training datasets from evaluation benchmarks."
+}

@@ -1,0 +1,139 @@
+{
+  "paper_id": "2022.acl-long.309",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN-DailyMail",
+      "XSum",
+      "Reddit TIFU"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "PEGASUS",
+      "BART",
+      "RoBERTa-large",
+      "SummaReranker"
+    ],
+    "outputs": [
+      "abstractive summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "CNN/DailyMail"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "summaries"
+        ]
+      },
+      "normalized": {
+        "CNN/DailyMail": "CNN-DailyMail",
+        "summaries": "abstractive summaries"
+      },
+      "explanation": "Normalized dataset name from 'CNN/DailyMail' to 'CNN-DailyMail' for consistency. Specified 'abstractive summaries' to be more precise about the output type."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTScore",
+      "BARTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE variants to just 'ROUGE' following the simplification rule. Added BARTScore which was missing."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BERT",
+          "BART"
+        ],
+        "methods": [
+          "embedding similarity (BERTScore)",
+          "likelihood scoring (BARTScore)"
+        ],
+        "criteria": [
+          "semantic similarity",
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as this paper does NOT use LLMs as judges post-generation. BERT and BART are used for automatic metrics (BERTScore, BARTScore), not as evaluator LLMs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Humans were shown the source document alongside the top beam search summary from PEGASUS, and the corresponding summary candidate selected by SummaReranker. They were asked to choose which one they believe is more faithful."
+    ],
+    "criteria": [
+      "faithfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators choose the summary that is more faithful to the source (or indicate a tie).",
+          "Humans were shown the source document alongside the top beam search summary from PEGASUS, and the corresponding summary candidate selected by SummaReranker. They were asked to choose which one they believe is more faithful."
+        ],
+        "criteria": [
+          "faithful"
+        ]
+      },
+      "normalized": {
+        "faithful": "faithfulness"
+      },
+      "explanation": "Consolidated duplicate guideline entries into one clear description. Normalized 'faithful' to 'faithfulness' for consistency."
+    }
+  },
+  "overall_notes": "The paper focuses on abstractive summarization re-ranking. Automatic metrics are used extensively (ROUGE, BERTScore, BARTScore) and human evaluation is conducted for faithfulness. No LLM-as-judge evaluation is performed. Metadata extraction was generally accurate but required some normalization and consolidation."
+}

@@ -1,0 +1,144 @@
+{
+  "paper_id": "2023.acl-long.798",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "SAMSUM",
+      "DIALOGSUM",
+      "EMAILSUM",
+      "QMSUM",
+      "TWEETSUMM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart_large",
+      "bart_base",
+      "t_5_base",
+      "t_5_small",
+      "transformer",
+      "pegasus_large"
+    ],
+    "outputs": [
+      "dialogue summaries",
+      "candidate summaries with omission labels"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Transformer"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BART",
+          "T5",
+          "Pegasus"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "BART large": "BART-large",
+        "BART base": "BART-base",
+        "T5 base": "T5-base",
+        "T5 small": "T5-small",
+        "Pegasus large": "Pegasus-large"
+      },
+      "explanation": "Normalized model names to include hyphens, removed generic model names, and added 'Transformer' which was missing from the original extraction"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "BERTSCORE",
+      "BLEURT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Simplified ROUGE variants to base form as per normalization rules"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs used as judges in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators compare candidate summaries with reference summaries to identify omissions in the original dialogue",
+      "Automatically labeled omission utterances are judged as Accept or Reject based on completeness and precision criteria"
+    ],
+    "criteria": [
+      "Completeness",
+      "Redundancy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "recall of labeled omissions"
+        ]
+      },
+      "normalized": {
+        "precision of labeled omissions": "precision (no redundant or uninformative utterance)",
+        "recall of labeled omissions": "completeness (no missing critical utterance)",
+        "completeness (no missing critical utterance)": "completeness (no missing critical utterance)",
+        "redundancy (no unnecessary utterance)": "precision (no redundant or uninformative utterance)",
+        "informativeness": "precision (no redundant or uninformative utterance)"
+      },
+      "explanation": "Consolidated criteria into two main dimensions: completeness (recall) and precision, removed duplicates and redundant phrasing"
+    }
+  },
+  "overall_notes": "The paper focuses on dialogue summarization evaluation with a specific emphasis on omission detection. The extraction was generally accurate with minor normalization needed for model names and metric variants. The human evaluation was well-described with clear criteria for assessing omission labels."
+}

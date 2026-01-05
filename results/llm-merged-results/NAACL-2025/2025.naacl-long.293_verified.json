@@ -1,0 +1,234 @@
+{
+  "paper_id": "2025.naacl-long.293",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Argument Generation"
+    ],
+    "datasets": [
+      "ConQRet",
+      "ArgQuality Corpus"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o-mini",
+      "GPT-4o",
+      "Llama-3.1-70B",
+      "Gemini-1.5-Flash"
+    ],
+    "outputs": [
+      "pro and con arguments for controversial topics",
+      "stance-conditioned arguments generated from retrieved evidence"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "ArgQuality"
+        ],
+        "languages": [],
+        "models": [
+          "phi-3-small",
+          "phi-3-medium",
+          "phi-3"
+        ],
+        "outputs": [
+          "arguments for controversial topics"
+        ]
+      },
+      "normalized": {
+        "ArgQuality": "ArgQuality Corpus",
+        "phi-3-small": "phi-3-small",
+        "phi-3-medium": "phi-3-medium",
+        "phi-3": "phi-3"
+      },
+      "explanation": "Removed duplicate dataset 'ArgQuality' (normalized to 'ArgQuality Corpus'), removed phi-3 models as they were mentioned only in evaluation context (not generation), simplified outputs description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "nDCG",
+      "Precision",
+      "Context Relevance",
+      "Argument Groundedness",
+      "Preference",
+      "Argument Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "nDCG@k",
+          "P@k",
+          "Answer Relevance",
+          "Cogency",
+          "Local Acceptability",
+          "Local Relevance",
+          "Local Sufficiency",
+          "Effectiveness",
+          "Credibility",
+          "Emotional Appeal",
+          "Clarity",
+          "Appropriateness",
+          "Arrangement",
+          "Reasonableness",
+          "Global Acceptability",
+          "Global Relevance",
+          "Global Sufficiency",
+          "Overall Quality",
+          "LLM Judge scores (context relevance, groundedness, preference)"
+        ]
+      },
+      "normalized": {
+        "nDCG@k": "nDCG",
+        "P@k": "Precision",
+        "Argument Quality (15 dimensions)": "Argument Quality"
+      },
+      "explanation": "Simplified metrics to base forms (nDCG@k → nDCG, P@k → Precision), removed detailed breakdown of 15 argument quality dimensions (normalized to 'Argument Quality'), removed redundant 'LLM Judge scores' since these are covered by the specific metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o",
+      "GPT-4o-mini",
+      "GPT-3.5",
+      "Llama-3.1-70B",
+      "Gemini-1.5-Flash"
+    ],
+    "methods": [
+      "Listwise",
+      "Listwise+SC",
+      "Listwise+RAG",
+      "Listwise+RAG Fine-Grained",
+      "Direct",
+      "Static-Rubric",
+      "G-Eval",
+      "Query-Rubric",
+      "RAG-Rubric",
+      "RAG-Direct"
+    ],
+    "criteria": [
+      "Context Relevance",
+      "Answer Groundedness",
+      "Preference",
+      "Argument Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "phi-3-small",
+          "phi-3-medium"
+        ],
+        "methods": [
+          "listwise prompting",
+          "RAG-Rubric",
+          "direct metric",
+          "self-consistency",
+          "Listwise evaluation",
+          "RAG-Fine-Grained"
+        ],
+        "criteria": [
+          "Answer Relevance",
+          "Cogency",
+          "Local Acceptability",
+          "Local Relevance",
+          "Local Sufficiency",
+          "Effectiveness",
+          "Credibility",
+          "Emotional Appeal",
+          "Clarity",
+          "Appropriateness",
+          "Arrangement",
+          "Reasonableness",
+          "Global Acceptability",
+          "Global Relevance",
+          "Global Sufficiency",
+          "Overall Quality"
+        ]
+      },
+      "normalized": {
+        "Listwise+SC": "Listwise+SC",
+        "phi-3-small": "phi-3-small",
+        "phi-3-medium": "phi-3-medium",
+        "listwise prompting": "Listwise",
+        "RAG-Rubric": "RAG-Rubric",
+        "direct metric": "Direct",
+        "self-consistency": "Listwise+SC",
+        "Listwise evaluation": "Listwise",
+        "RAG-Fine-Grained": "Listwise+RAG Fine-Grained",
+        "Argument Groundedness": "Answer Groundedness",
+        "Argument Quality (15 dimensions)": "Argument Quality"
+      },
+      "explanation": "Removed phi-3 models (mentioned but not used as judges), consolidated duplicate method names, simplified criteria to main evaluation dimensions (removed detailed 15-argument quality breakdown)"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Raters provide boolean judgments (high/low) for 14 dimensions and 5-point Likert scale for overall quality",
+      "Annotators rate arguments on 15 fine-grained dimensions using 3-point Likert scale"
+    ],
+    "criteria": [
+      "Argument Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "You will be provided with an argument for a controversial topic, and you will be provided 15 dimensions to annotate the argumentation quality. You need to read the argument and evaluate each of these 15 dimensions on a scale from 1 to 3, where: 3 = High 2 = Medium 1 = Low."
+        ],
+        "criteria": [
+          "Local Acceptability",
+          "Local Relevance",
+          "Local Sufficiency",
+          "Effectiveness",
+          "Credibility",
+          "Emotional Appeal",
+          "Clarity",
+          "Appropriateness",
+          "Arrangement",
+          "Reasonableness",
+          "Global Acceptability",
+          "Global Relevance",
+          "Global Sufficiency",
+          "Overall Quality",
+          "Cogency"
+        ]
+      },
+      "normalized": {
+        "local_acceptability": "Local Acceptability",
+        "local_relevance": "Local Relevance",
+        "local_sufficiency": "Local Sufficiency",
+        "reasonableness": "Reasonableness",
+        "overall_quality": "Overall Quality"
+      },
+      "explanation": "Simplified guidelines to essential descriptions, normalized criteria to 'Argument Quality' (encompassing all 15 dimensions mentioned)"
+    }
+  },
+  "overall_notes": "The paper focuses on Retrieval-Augmented Argumentation (RAArg) and introduces ConQRet benchmark. It extensively uses LLM-as-judge evaluation with multiple prompting strategies. The extraction was generally accurate but contained some redundancy and inconsistent naming. Major changes include consolidating the 15 detailed argument quality dimensions under 'Argument Quality' and normalizing metric names to base forms."
+}

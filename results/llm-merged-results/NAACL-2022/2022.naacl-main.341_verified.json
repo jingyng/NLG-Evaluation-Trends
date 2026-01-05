@@ -1,0 +1,160 @@
+{
+  "paper_id": "2022.naacl-main.341",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Commonsense Knowledge Generation"
+    ],
+    "datasets": [
+      "ATOMIC 2020",
+      "ATOMIC 10X"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3",
+      "COMET DISTIL",
+      "GPT-J",
+      "T5-11B",
+      "GPT-2 XL",
+      "RoBERTa-Large"
+    ],
+    "outputs": [
+      "commonsense inferences in natural language",
+      "event-relation-inference triples (commonsense knowledge statements)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:commonsense generation"
+        ],
+        "datasets": [
+          "ATOMIC 20 20"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-3 (davinci)",
+          "RoBERTa",
+          "GPT-2 XL",
+          "COMET DIS TIL"
+        ],
+        "outputs": [
+          "The paper generates commonsense inferences in the form of event-relation-inference triples, such as 'X attacks Y HinderedBy X is restrained'."
+        ]
+      },
+      "normalized": {
+        "ATOMIC 20 20": "ATOMIC 2020",
+        "COMET DIS TIL": "COMET DISTIL",
+        "Other:Commonsense Knowledge Generation": "Other:Commonsense Knowledge Generation",
+        "Other:commonsense generation": "Other:Commonsense Knowledge Generation"
+      },
+      "explanation": "Removed duplicate task entry, normalized dataset names to canonical forms, removed redundant model entries (GPT-3 (davinci) is just GPT-3, GPT-2 XL is already listed), normalized model name capitalization, simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "Entropy",
+      "Cross-entropy",
+      "Lexical diversity",
+      "Soft uniqueness"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU (soft uniqueness)",
+          "Cross‑entropy",
+          "cross-entropy",
+          "entropy",
+          "soft uniqueness",
+          "unique words",
+          "unique tails"
+        ]
+      },
+      "normalized": {
+        "BLEU (soft uniqueness)": "BLEU",
+        "Cross‑entropy": "Cross-entropy",
+        "cross-entropy": "Cross-entropy",
+        "entropy": "Entropy",
+        "unique words": "Lexical diversity",
+        "unique tails": "Lexical diversity"
+      },
+      "explanation": "Consolidated duplicate metrics (entropy/cross-entropy), normalized metric names to standard forms, grouped lexical diversity measures under single category"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa-Large"
+        ],
+        "methods": [
+          "binary classification"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed RoBERTa-Large and binary classification as these refer to the critic model used for filtering during generation, not LLM-as-judge evaluation after generation. The paper does not use LLMs as evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers are presented with ATOMIC-style triples with natural language relation templates",
+      "3 annotators rate each triple using acceptability scale: 'always/often', 'sometimes/likely', 'farfetched/never', 'invalid', or 'too unfamiliar to judge'",
+      "First two options considered 'accepted', next two 'rejected', last 'no judgement'"
+    ],
+    "criteria": [
+      "acceptability"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Workers are presented with ATOMIC-style triples and rate acceptability with options: 'always/often', 'sometimes/likely', 'farfetched/never', 'invalid', or 'too unfamiliar to judge'.",
+          "Annotators classify each generated triple as accepted (always/often, sometimes/likely) or rejected (farfetched/never, invalid), or mark as no judgement."
+        ],
+        "criteria": [
+          "acceptability (always/often, sometimes/likely)",
+          "rejection (farfetched/never, invalid)",
+          "no judgement"
+        ]
+      },
+      "normalized": {
+        "acceptability (always/often, sometimes/likely)": "acceptability",
+        "rejection (farfetched/never, invalid)": "acceptability",
+        "no judgement": "acceptability"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into single comprehensive version, simplified criteria to just 'acceptability' since all rating options relate to this single dimension"
+    }
+  },
+  "overall_notes": "The paper focuses on symbolic knowledge distillation for commonsense knowledge generation. It uses both automatic metrics (diversity measures, entropy) and human evaluation. The extracted metadata was generally accurate but needed normalization and consolidation of duplicate entries. The paper does not use LLMs as judges - the RoBERTa critic is used for filtering during generation, not evaluation."
+}

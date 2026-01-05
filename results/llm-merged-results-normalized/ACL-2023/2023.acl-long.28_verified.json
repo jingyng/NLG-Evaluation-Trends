@@ -1,0 +1,153 @@
+{
+  "paper_id": "2023.acl-long.28",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Simile Generation"
+    ],
+    "datasets": [
+      "GRACE",
+      "CS",
+      "CMC"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "chinese_bart",
+      "chinesegpt_2",
+      "similor",
+      "scorer",
+      "roberta"
+    ],
+    "outputs": [
+      "Generated similes",
+      "similes with multiple constraints such as tenor, vehicle, comparator, context, and ground"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:simile generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "ChineseBART"
+        ],
+        "outputs": [
+          "generated simile sentences containing tenor, vehicle, comparator, ground, and optional context"
+        ]
+      },
+      "normalized": {
+        "Other:simile generation": "Other:Simile Generation",
+        "ChineseRoBERTa Large": "RoBERTa"
+      },
+      "explanation": "Removed duplicate task entry 'Other:simile generation', normalized model names to standard forms (ChineseRoBERTa Large → RoBERTa), removed redundant outputs description. Consolidated similar model references."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PERPLEXITY",
+      "BERTSCORE",
+      "LITERAL SIMILARITY",
+      "SIMILE CONFIDENCE",
+      "COMPARATOR ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "%Comp.",
+          "Literal Simi.",
+          "ACC-C"
+        ]
+      },
+      "normalized": {
+        "Perplexity (PPL)": "Perplexity",
+        "%Comp.": "Simile Confidence",
+        "Simile Conf.": "Simile Confidence",
+        "Literal Simi.": "Literal Similarity",
+        "ACC-C": "Comparator Accuracy"
+      },
+      "explanation": "Normalized metric names to standard forms and removed redundant entries. %Comp. (proportion of sentences containing comparator words) is functionally part of simile evaluation, so consolidated under Simile Confidence."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper. The paper uses RoBERTa for simile classification and sequence labeling, but not as post-generation evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Four-point scale evaluation (1-4) covering fluency, creativity, consistency, and overall quality with detailed descriptions and examples"
+    ],
+    "criteria": [
+      "Fluency",
+      "Creativity",
+      "Consistency",
+      "Overall"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Four-point scale evaluation (1-4) covering fluency, creativity, consistency, and overall quality with detailed descriptions and examples"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "We first set a guideline for evaluating, which includes the task background, key points, detailed descriptions, and examples of evaluation scores from 1 to 4.",
+          "Evaluators score each generated simile on Fluency, Creativity, Consistency, and Overall on a 1‑4 scale.",
+          "We define four categories in the human evaluation as follows: 1. Fluency (Fluen.) means whether the sentence corresponding to the option is fluent, grammatical, well-formed, and easy to understand. 2. Creativity (Creat.) means whether the sentence corresponding to the option is creative and figuratively meaningful. 3. Consistency (Consi.) means whether the sentence corresponding to the option contains a meaningful tenor-vehicle pair. A meaningful pair denotes there are some share properties between the tenor and the vehicle, i.e., having the explicit/implicit ground. Overall means how good is the sentence corresponding to the option overall? The annotators are asked to score the generating results based on how well-formed, creative, and consistent it is."
+        ],
+        "criteria": [
+          "fluency",
+          "creativity",
+          "consistency",
+          "overall"
+        ]
+      },
+      "normalized": {
+        "Fluen.": "Fluency",
+        "Creat.": "Creativity",
+        "Consi.": "Consistency",
+        "fluency": "Fluency",
+        "creativity": "Creativity",
+        "consistency": "Consistency",
+        "overall": "Overall"
+      },
+      "explanation": "Consolidated lengthy guideline descriptions into a concise summary. Normalized criteria to title case. Added missing 'Overall' criterion that was mentioned in the guidelines but missing from criteria list."
+    }
+  },
+  "overall_notes": "The paper focuses on Chinese simile generation with a novel controllable approach. Metadata extraction was generally accurate but contained some redundancy and inconsistent naming. The paper uses both automatic metrics (perplexity, BERTScore, simile-specific metrics) and human evaluation but does not use LLMs as judges. The main NLG task is clearly simile generation evaluated through multiple methods."
+}

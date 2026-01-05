@@ -1,0 +1,145 @@
+{
+  "paper_id": "2024.emnlp-main.744",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation",
+      "Dialogue Generation",
+      "Other:Math Problem Solving",
+      "Other:Commonsense Reasoning",
+      "Other:Instruction Following"
+    ],
+    "datasets": [
+      "UltraFeedback",
+      "Anthropic-HH",
+      "MT-Bench",
+      "HumanEval",
+      "ARC",
+      "TruthfulQA",
+      "Winogrande",
+      "GSM8K"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Pythia-2.8B",
+      "Zephyr-7B-SFT"
+    ],
+    "outputs": [
+      "Generated text responses",
+      "Generated code responses",
+      "Dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Instruction Following"
+        ],
+        "models": [],
+        "outputs": [
+          "Generated text responses",
+          "Generated code responses",
+          "Dialogue responses"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "models": [],
+        "outputs": [
+          "Generated text and code responses",
+          "model-generated responses to prompts",
+          "text responses to prompts"
+        ]
+      },
+      "normalized": {
+        "Pythia-2.8b": "Pythia-2.8B",
+        "Zephyr-7b-sft": "Zephyr-7B-SFT"
+      },
+      "explanation": "Removed 'Text Summarization' as it's only mentioned in passing but not evaluated. Added 'Other:Instruction Following' as MT-Bench specifically evaluates this. Normalized model names to standard capitalization. Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Pass@1",
+      "Accuracy",
+      "Win-rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-4 scalar score (1-10)",
+          "accuracy scores"
+        ]
+      },
+      "normalized": {
+        "accuracy scores": "Accuracy"
+      },
+      "explanation": "Removed 'GPT-4 scalar score' as it's an LLM-as-judge metric (covered in Q3). Added 'Accuracy' as it's used for ARC, Winogrande, GSM8K, and TruthfulQA. Kept 'Pass@1' for HumanEval and 'Win-rate' for Anthropic-HH evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "Scalar scoring",
+      "Pairwise evaluation"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Harmlessness",
+      "Overall quality"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Overall quality"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "pairwise win-rate evaluation"
+        ]
+      },
+      "normalized": {
+        "pairwise evaluation": "Pairwise evaluation",
+        "scalar scoring": "Scalar scoring",
+        "helpfulness": "Helpfulness",
+        "harmlessness": "Harmlessness"
+      },
+      "explanation": "Normalized method names to title case. Added 'Overall quality' as MT-Bench uses GPT-4 scoring based on overall quality. Consolidated 'pairwise win-rate evaluation' into 'Pairwise evaluation'."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper. All evaluations use automatic metrics or LLM-as-judge."
+    }
+  },
+  "overall_notes": "The paper focuses on alignment methods for LLMs using demonstration data. It evaluates on multiple NLG tasks including code generation, dialogue generation, math problem solving, commonsense reasoning, and instruction following. The extraction was generally accurate, but needed some refinement to remove metrics that belong to LLM-as-judge category and ensure proper categorization of evaluation methods."
+}

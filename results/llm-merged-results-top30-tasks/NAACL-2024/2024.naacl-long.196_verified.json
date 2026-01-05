@@ -1,0 +1,132 @@
+{
+  "paper_id": "2024.naacl-long.196",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Question Generation"
+    ],
+    "datasets": [
+      "CLAIMDECOMP"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "text_davinci_003",
+      "deberta_large"
+    ],
+    "outputs": [
+      "subquestions",
+      "claim-focused summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "subquestions and claim-focused summaries"
+        ]
+      },
+      "normalized": {
+        "text-davinci-003": "text-davinci-003",
+        "DeBERTa-large": "DeBERTa-large"
+      },
+      "explanation": "Simplified outputs description by removing redundant phrasing"
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": true,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Acc",
+          "Soft Acc",
+          "Macro-F1",
+          "MAE"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metrics because they evaluate veracity classification, not the NLG outputs (summaries and questions)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "gpt-3.5-turbo",
+          "ChatGPT (gpt-3.5-turbo)"
+        ],
+        "methods": [
+          "zero-shot prompting for truthfulness score",
+          "zero-shot prompting to produce a truthfulness score"
+        ],
+        "criteria": [
+          "truthfulness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items because ChatGPT is used as an alternative classifier, not as a judge evaluating the NLG outputs"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators labeled summaries for faithfulness using predefined categories (Faithful, Minor Factual Error, Major Factual Error, Completely Wrong)",
+      "Annotators assessed comprehensiveness by labeling subquestions as answerable, partially answerable, or unanswerable"
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Comprehensiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Faithful",
+          "Minor Factual Error",
+          "Major Factual Error",
+          "Completely Wrong"
+        ],
+        "criteria": [
+          "Faithful",
+          "Minor Factual Error",
+          "Major Factual Error",
+          "Completely Wrong"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Moved the specific error categories from criteria to guideline description, keeping only the main criteria"
+    }
+  },
+  "overall_notes": "The paper focuses on fact-checking pipeline with NLG components (question generation and summarization). Key clarification: Automatic metrics evaluate veracity classification, not NLG quality. Human evaluation properly assesses the generated summaries. ChatGPT is used as classifier alternative, not as NLG output evaluator."
+}

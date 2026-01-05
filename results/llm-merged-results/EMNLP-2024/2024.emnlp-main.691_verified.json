@@ -1,0 +1,170 @@
+{
+  "paper_id": "2024.emnlp-main.691",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Script Generation",
+      "Other:Script Planning"
+    ],
+    "datasets": [
+      "MCScript"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Baichuan-Chat",
+      "Baichuan2-Chat",
+      "Vicuna-v1.5",
+      "LLaMA2-chat",
+      "LLaMA3-instruct",
+      "Mistral-Instruct-v0.1",
+      "Mistral-Instruct-v0.2",
+      "Mistral-8x7B-Instruct-v0.1",
+      "Qwen-Chat",
+      "GPT-4-turbo",
+      "GPT-3.5-turbo"
+    ],
+    "outputs": [
+      "Script steps or sequences of actions for task planning",
+      "Generated step-by-step scripts for real-life tasks"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Mistral-Instruct-v0.2",
+          "Mistral-8x7B-Instruct-v0.1",
+          "GPT-3.5-turbo"
+        ]
+      },
+      "removed": {
+        "models": [
+          "LLaMa2",
+          "LLaMa3",
+          "Mistral",
+          "Vicuna",
+          "scripts",
+          "Qwen-110B-Chat",
+          "LLaMa2-7b-Chat"
+        ]
+      },
+      "normalized": {
+        "LLaMa2-chat": "LLaMA2-chat",
+        "LLaMa3-instruct": "LLaMA3-instruct",
+        "Mistral-Instruct": "Mistral-Instruct-v0.1"
+      },
+      "explanation": "Normalized model names to consistent capitalization, removed duplicates and incorrect names, added missing models explicitly evaluated in the paper"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BERTScore",
+      "ROUGE",
+      "ABSEval"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "ABSEval"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "No Missing Steps",
+          "No Redundant Steps",
+          "No Duplicate Steps",
+          "Executable",
+          "Satisfy Constraint",
+          "Complete Goal",
+          "Order Correct",
+          "Rouge"
+        ]
+      },
+      "normalized": {
+        "Rouge": "ROUGE"
+      },
+      "explanation": "Removed ABSEval's internal metrics which are evaluation criteria, not automatic metrics. Added ABSEval as the main automatic evaluation framework. Removed duplicate ROUGE."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Qwen-110B-Chat",
+      "GPT-4-turbo",
+      "GPT-3.5-turbo"
+    ],
+    "methods": [
+      "ABSEval framework",
+      "Single-LLM evaluation"
+    ],
+    "criteria": [
+      "No Missing Steps",
+      "No Redundant Steps",
+      "No Duplicate Steps",
+      "Executable",
+      "Satisfy Constraint",
+      "Complete Goal",
+      "Order Correct"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "Single-LLM evaluation"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "agent-based evaluation with specialized roles",
+          "Answer Synthesize Agent generates gold answer",
+          "Critic Agent compares scripts to gold answer",
+          "Execute Agent executes steps to check goal and constraints",
+          "Commonsense Agent checks commonsense compliance",
+          "Commonsense consistency"
+        ],
+        "criteria": [
+          "Commonsense consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Simplified methods to main frameworks, clarified ABSEval covers all agent roles. Removed duplicate criteria and consolidated to the 7 main evaluation criteria used by ABSEval."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators marked yes/no for each script on seven criteria: missing steps, redundant steps, duplicate steps, goal completion, constraint satisfaction, correct order, and commonsense consistency"
+    ],
+    "criteria": [
+      "No Missing Steps",
+      "No Redundant Steps",
+      "No Duplicate Steps",
+      "Complete Goal",
+      "Satisfy Constraint",
+      "Order Correct",
+      "Executable"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "criteria": [
+          "missing steps",
+          "redundant steps",
+          "repeated steps",
+          "completion of the goal",
+          "adherence to constraints",
+          "correct step sequence",
+          "adherence to commonsense constraints",
+          "Commonsense consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant criteria descriptions to standardized forms matching ABSEval's 7 metrics. Removed duplicate descriptions."
+    }
+  },
+  "overall_notes": "The paper presents ABSEval, a novel agent-based framework for evaluating script generation from LLMs. The extraction was largely accurate but contained some duplicates and inconsistent naming. Key findings: - Script generation/planning is the main NLG task - MCScript dataset with 1,500+ script tasks - ABSEval framework outperforms traditional metrics and single-LLM evaluation - Comprehensive evaluation of 15 LLMs across 7 script quality criteria"
+}

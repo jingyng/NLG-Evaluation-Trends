@@ -1,0 +1,150 @@
+{
+  "paper_id": "2025.emnlp-main.1533",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation",
+      "Other:Mathematical Reasoning",
+      "Other:Instruction Following",
+      "Other:Medical Question Answering"
+    ],
+    "datasets": [
+      "HumanEval",
+      "GSM8K",
+      "MedQA",
+      "IFEval",
+      "TruthfulQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Qwen2.5-1.5B",
+      "Mistral-7B-v0.1",
+      "Mixtral-8x7B-Instruct-v0.1"
+    ],
+    "outputs": [
+      "Generated code",
+      "Mathematical reasoning responses",
+      "Instruction-following responses",
+      "Medical question answering responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Mathematical Reasoning"
+        ],
+        "datasets": [
+          "TruthfulQA"
+        ],
+        "models": [
+          "Mixtral-8x7B-Instruct-v0.1"
+        ],
+        "outputs": [
+          "Mathematical reasoning responses",
+          "Instruction-following responses",
+          "Medical question answering responses"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Math QA",
+          "Other:Medical QA",
+          "Other:Math",
+          "Other:Medical Question Answering"
+        ],
+        "datasets": [
+          "nickrosh/Evol-Instruct-Code-80k-v1",
+          "meta-math/MetaMathQA",
+          "bigbio/med_qa",
+          "HumanEval-Python"
+        ],
+        "models": [
+          "M-7b router",
+          "M-8x7b router",
+          "Qwen2.5-1.5B-Instruct"
+        ]
+      },
+      "normalized": {
+        "Other:Instruction Following": "Other:Instruction Following",
+        "Code Generation": "Code Generation",
+        "Other:Math QA": "Other:Mathematical Reasoning",
+        "Other:Medical QA": "Other:Medical Question Answering",
+        "Other:Math": "Other:Mathematical Reasoning",
+        "Other:Medical Question Answering": "Other:Medical Question Answering"
+      },
+      "explanation": "Consolidated redundant task categories, removed training datasets (keeping only evaluation benchmarks), normalized model names to standard forms, and clarified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "weighted normalized score",
+          "Weighted Normalized Score",
+          "BLEU acc"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "BLEU acc": "BLEU"
+      },
+      "explanation": "Simplified metrics to base forms - 'weighted normalized score' is not a standard metric but a composite scoring method, kept only standard metrics (Accuracy, BLEU)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Mixtral-8x7B-Instruct-v0.1",
+          "M-7b"
+        ],
+        "methods": [
+          "multiple-choice prompt for routing"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "LLMs are used only for routing inputs to appropriate experts, not for evaluating generated outputs. Removed all metadata as this is not LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper - all evaluations are automated using benchmark datasets"
+    }
+  },
+  "overall_notes": "The paper focuses on model merging techniques for LLMs, evaluating on NLG tasks through automated benchmarks. The extraction was generally accurate but included some training datasets and routing models that aren't relevant to the evaluation questions. The paper uses standard automatic metrics (accuracy, BLEU) but no LLM-as-judge or human evaluation."
+}

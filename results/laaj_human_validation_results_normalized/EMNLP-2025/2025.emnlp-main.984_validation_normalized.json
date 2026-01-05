@@ -1,0 +1,99 @@
+{
+  "paper_id": "2025.emnlp-main.984",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM judges against human evaluation on 10% of the test set using correlation analysis and inter-annotator agreement comparison"
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "GPT-4o",
+      "Gemini 2.0",
+      "Qwen2.5-VL"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full evaluation rubric and scoring criteria shown in system prompt for GPT-4o mini used as judge"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": 0.86,
+      "interpretation": "showing that the LLM aligns with human consensus nearly as well as humans agree among themselves"
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human verification process for question-answer pairs described with specific criteria per skill type (global appearance, character actions, etc.)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation",
+      "Krippendorff's alpha"
+    ],
+    "shared_criteria": [
+      "overall response quality"
+    ],
+    "sample_size": {
+      "total_generated": 87700,
+      "validated_by_both": 10,
+      "notes": "Validation conducted on 10% of the test set (20% of total benchmark was human verified, with 10% test split)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.92,
+        "criterion": "Quality",
+        "llm_model": "GPT-4o",
+        "notes": "Between LLM scores and averaged human ratings"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.89,
+        "criterion": "Quality",
+        "llm_model": "GPT-4o",
+        "notes": "Confirming that the LLM's ranking of outputs closely matches human preferences"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Not explicitly stated",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM judge exhibits near-human-level alignment with Pearson correlation of 0.92 and Spearman correlation of 0.89, validating its use as a reliable proxy for human evaluation"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Factuality",
+      "Relevance to the question",
+      "Proximity to the expected answer",
+      "Hallucination avoidance",
+      "Completeness"
+    ],
+    "human_only_criteria": [
+      "Validity",
+      "Clarity",
+      "Correctness"
+    ],
+    "shared_criteria": [
+      "Quality"
+    ],
+    "notes": "LLM evaluates reasoning-based skills using 5-point rubric scoring from 0-10, while human verification focuses on validation of question-answer pairs"
+  }
+}

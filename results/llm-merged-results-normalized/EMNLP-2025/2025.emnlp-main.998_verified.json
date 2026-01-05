@@ -1,0 +1,141 @@
+{
+  "paper_id": "2025.emnlp-main.998",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering"
+    ],
+    "datasets": [
+      "2wikimultihopqa",
+      "HotpotQA",
+      "MUSIQUE",
+      "BAMBOOGLE",
+      "NQ"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "r_1_searcher",
+      "qwen_2.5_3b",
+      "search_r_1"
+    ],
+    "outputs": [
+      "Generated answers for multi-hop question answering tasks",
+      "Generated reasoning steps, search queries, retrieved contexts, and final answers in agentic RAG frameworks"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "2WikiMultiHopQA"
+        ],
+        "languages": [],
+        "models": [
+          "Qwen2.5-3B"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Knowledge Synthesis"
+        ],
+        "datasets": [
+          "2Wiki-MultiHopQA"
+        ],
+        "languages": [],
+        "models": [
+          "Qwen2.5-7B",
+          "QwQ-32B"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "2Wiki-MultiHopQA": "2WikiMultiHopQA"
+      },
+      "explanation": "Removed 'Other:Knowledge Synthesis' as it's not explicitly evaluated; normalized dataset name; removed Qwen2.5-7B (only mentioned as training base, not evaluated) and QwQ-32B (used for verification, not generation); added Qwen2.5-3B as main evaluated model."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT MATCH"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Exact match (EM)"
+        ]
+      },
+      "normalized": {
+        "Exact match (EM)": "Exact Match"
+      },
+      "explanation": "Normalized 'Exact match (EM)' to 'Exact Match' as base metric form."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "qwq_32b"
+    ],
+    "methods": [
+      "correctness verification",
+      "external verifier check",
+      "comparing regenerated step with original"
+    ],
+    "criteria": [
+      "Correctness",
+      "Answer"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "QwQ-32B"
+        ],
+        "methods": [
+          "correctness verification",
+          "external verifier check",
+          "comparing regenerated step with original"
+        ],
+        "criteria": [
+          "correctness",
+          "equivalent answer"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "external verifier (larger LLM) check the correctness": "external verifier check"
+      },
+      "explanation": "Added explicit LLM-as-judge verification details from paper sections."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation mentioned in paper."
+    }
+  },
+  "overall_notes": "Extraction was generally accurate but needed normalization of dataset names and filtering of models not directly involved in generation evaluation. Paper evaluates NLG via question answering tasks with automatic metrics and LLM-based verification."
+}

@@ -1,0 +1,92 @@
+{
+  "paper_id": "2025.naacl-long.50",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-as-a-judge against human evaluation by having human judges evaluate a subset of responses similarly to the LLM judgments and reporting quantitative agreement metrics (Cohen's kappa) and agreement ratings with LLM rationales."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o mini"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The prompt instructs evaluation based on Helpful, Honest, Harmless (HHH) criteria and specifies output format. Example judgments are shown in the appendix (Table 16)."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "Not specified",
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines mention human judges selected the more Helpful, Honest, and Harmless response between response pairs, similar to LLM evaluation criteria. Example human evaluations are shown in the appendix."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Cohen's kappa",
+      "Likert scale agreement"
+    ],
+    "shared_criteria": [
+      "Helpfulness",
+      "Honesty",
+      "Harmlessness"
+    ],
+    "sample_size": {
+      "total_generated": 11200,
+      "validated_by_both": 100,
+      "notes": "Validation performed on a subset of 100 response pairs evaluated by both human judges and LLM judge."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.447,
+        "criterion": "Helpful-Honest-Harmless (aggregate)",
+        "llm_model": "GPT-4o mini",
+        "significance": "Not reported",
+        "notes": "Mean Cohen's kappa across criteria"
+      },
+      {
+        "metric": "Likert scale agreement",
+        "value": 4.117,
+        "criterion": "Helpful-Honest-Harmless (aggregate)",
+        "llm_model": "GPT-4o mini",
+        "significance": "Not reported",
+        "notes": "Mean agreement rating (scale 1-5) with LLM's rationale"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "moderate",
+      "threshold_used": "Cohen's kappa of 0.447 considered moderate agreement",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-as-a-judge shows moderate agreement with human judgments (κ=0.447) and high agreement when considering LLM rationales (Likert=4.117), suggesting AI can serve as a scalable proxy for human evaluation in most cases."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Helpfulness",
+      "Honesty",
+      "Harmlessness"
+    ],
+    "notes": "Both LLM and human judges evaluated the same HHH criteria on the same response pairs, though human evaluation was conducted in parallel rather than using LLM judgments as ground truth."
+  }
+}

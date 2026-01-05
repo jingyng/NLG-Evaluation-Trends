@@ -1,0 +1,164 @@
+{
+  "paper_id": "2022.emnlp-main.761",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Recipe Generation",
+      "Other:Controllable Recipe Editing"
+    ],
+    "datasets": [
+      "RecipePairs",
+      "Food.com"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "SHARE",
+      "RecipeGPT",
+      "Rule"
+    ],
+    "outputs": [
+      "Generated recipe directions",
+      "Edited ingredient lists"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "MT",
+          "E2E",
+          "E2E-P",
+          "Rule baseline"
+        ],
+        "outputs": [
+          "Edited ingredient lists and recipe step texts (natural language instructions)",
+          "edited recipes with modified ingredients and instructions"
+        ]
+      },
+      "normalized": {
+        "Other:Controllable Recipe Editing": "Other:Controllable Recipe Editing",
+        "Other:Recipe Generation": "Other:Recipe Generation"
+      },
+      "explanation": "Removed redundant model variants (MT, E2E, E2E-P are all RecipeGPT variants) and consolidated output descriptions. Kept 'Rule baseline' as 'Rule' for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Jaccard",
+      "F1",
+      "Precision",
+      "NTED",
+      "ROUGE",
+      "Diversity-2"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Diversity-2"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Jaccard similarity",
+          "Jaccard IoU",
+          "F1 score",
+          "Precision (insertions)",
+          "Precision (deletions)",
+          "Normalized Tree Edit distance (NTED)",
+          "ROUGE-L",
+          "D-2"
+        ]
+      },
+      "normalized": {
+        "Jaccard similarity": "Jaccard",
+        "Jaccard IoU": "Jaccard",
+        "F1 score": "F1",
+        "ROUGE-L": "ROUGE",
+        "D-2": "Diversity-2",
+        "Normalized Tree Edit distance (NTED)": "NTED"
+      },
+      "explanation": "Normalized all metric variants to base forms and simplified names. Added 'Diversity-2' as the normalized form of 'D-2'. Removed redundant precision variants since they're covered by base 'Precision'."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM-as-judge evaluation was conducted. The paper does not use LLMs for evaluation, only for generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluators asked: 'Does this recipe use ingredients that violate the dietary constraint?' with free-form feedback",
+      "Cooks recorded: recipe completeness, difficulty inferring ingredient amounts, overall execution difficulty, appropriateness for dietary constraint"
+    ],
+    "criteria": [
+      "constraint violation",
+      "completeness",
+      "difficulty inferring ingredient amounts",
+      "difficulty of execution",
+      "appropriateness for dietary constraint",
+      "unlisted ingredients",
+      "inconsistent naming",
+      "lack of detail"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "lack of detail"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "lacking step details",
+          "lacking ingredient details"
+        ]
+      },
+      "normalized": {
+        "lack of step detail": "lack of detail",
+        "lack of ingredient detail": "lack of detail",
+        "lacking step details": "lack of detail",
+        "lacking ingredient details": "lack of detail"
+      },
+      "explanation": "Consolidated redundant detail-related criteria into 'lack of detail'. The paper mentions both step and ingredient detail issues but they represent the same underlying criterion."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main changes involved normalizing metric names to base forms and consolidating redundant items. The paper focuses on recipe generation/editing with both automatic and human evaluation, but does not use LLMs as judges. The human evaluation was comprehensive with both crowdsourced judges and real cooking trials."
+}

@@ -1,0 +1,165 @@
+{
+  "paper_id": "2025.acl-long.746",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Multi Document Summarization",
+      "Long Form Question Answering"
+    ],
+    "datasets": [
+      "SPARK",
+      "RAG BASED DATASET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "vanilla",
+      "alce",
+      "attr._first"
+    ],
+    "outputs": [
+      "Multi-document summaries",
+      "Long-form question answers with attribution metadata"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [
+          "SPARK (MDS)",
+          "RAG-based LFQA dataset",
+          "the RAG-based dataset curated by"
+        ],
+        "languages": [],
+        "models": [
+          "LLAMA-3.1-8B-INSTRUCT",
+          "GPT-4o"
+        ],
+        "outputs": [
+          "Yes, GMO food should be labeled to provide transparency and inform consumers. They deserve to know what they are eating, and mandatory labeling could alleviate confusion and distrust around genetically modified foods."
+        ]
+      },
+      "normalized": {
+        "Text Summarization": "Multi-document Summarization",
+        "Other:Long-form Question Answering": "Long-form Question Answering"
+      },
+      "explanation": "Normalized task names to be more specific, removed models that are only used for evaluation not generation, removed example output that was just an illustration"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE",
+      "METEOR",
+      "BLEURT",
+      "MAUVE",
+      "AUTOAIS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Rouge-L": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "BertScore": "BERTScore",
+        "BLEURT20": "BLEURT",
+        "BLEURT-20": "BLEURT"
+      },
+      "explanation": "Normalized all metric variants to base forms (ROUGE-L → ROUGE, BLEURT20 → BLEURT)"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "gpt_4o",
+      "t_5_xxl"
+    ],
+    "methods": [
+      "fact decomposition",
+      "entailment classification"
+    ],
+    "criteria": [
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4o",
+          "T5-XXL"
+        ],
+        "methods": [
+          "fact decomposition",
+          "entailment classification"
+        ],
+        "criteria": [
+          "factual consistency"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GOOGLE/T5_XXL_TRUE_NLI_MIXTURE"
+        ],
+        "methods": [
+          "prompt-and internals-based"
+        ],
+        "criteria": [
+          "entailment"
+        ]
+      },
+      "normalized": {
+        "GOOGLE/T5_XXL_TRUE_NLI_MIXTURE": "T5-XXL",
+        "entailment": "factual consistency"
+      },
+      "explanation": "Corrected answer from 'No' to 'Yes' - paper uses GPT-4o for fact decomposition and T5 for AutoAIS entailment scoring. Normalized model names and criteria."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators performed binary classification indicating whether each output fact is supported by the cited source spans"
+    ],
+    "criteria": [
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators performed a binary classification indicating whether each output fact is supported by the cited source spans.",
+          "For AIS, similar to the AutoAIS metric, the annotator is asked to make a binary classification of whether an output fact is supported by the attributed source texts; we then average classifications across all output facts to calculate the final score."
+        ],
+        "criteria": [
+          "support (binary)",
+          "support"
+        ]
+      },
+      "normalized": {
+        "support (binary)": "factual accuracy",
+        "support": "factual accuracy"
+      },
+      "explanation": "Consolidated guideline text and normalized criteria to 'factual accuracy'"
+    }
+  },
+  "overall_notes": "The paper focuses on localized attribution in content-grounded generation. Main NLG tasks are multi-document summarization and long-form QA. Uses both automatic metrics and human evaluation. Key finding: LAQuer methods significantly reduce attribution length but struggle with decontextualized facts. The extraction had one major error - incorrectly answering 'No' for Question 3 when the paper does use LLMs as judges."
+}

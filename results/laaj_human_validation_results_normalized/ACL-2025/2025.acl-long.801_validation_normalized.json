@@ -1,0 +1,93 @@
+{
+  "paper_id": "2025.acl-long.801",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM evaluation (Eve-Cov metric) against human evaluation by comparing agreement scores between human annotators, GPT4o evaluation, and the proposed metric"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompts provided in appendix for MCMS, TQA-generation, and TQA tasks"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage agreement",
+      "value": 91.67,
+      "interpretation": "high agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Manual evaluation assigns scores 0-5 for each aspect of event coverage and faithfulness; detailed case study with aspects shown"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "agreement_score"
+    ],
+    "shared_criteria": [
+      "event_coverage",
+      "faithfulness"
+    ],
+    "sample_size": {
+      "total_generated": "unclear",
+      "validated_by_both": "unclear",
+      "notes": "Paper compares agreements but exact validation sample size not specified"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "agreement_score",
+        "value": 84.73,
+        "criterion": "event_coverage",
+        "llm_model": "Eve-Cov metric",
+        "significance": "not_reported",
+        "notes": "Eve-Cov metric achieves higher agreement than GPT4o evaluation"
+      },
+      {
+        "metric": "agreement_score",
+        "value": 82.27,
+        "criterion": "event_coverage",
+        "llm_model": "GPT4o",
+        "significance": "not_reported",
+        "notes": "GPT4o evaluation agreement score"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "improved",
+      "threshold_used": "not_specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "The proposed Eve-Cov metric demonstrates higher agreement with human evaluation (84.73) compared to GPT4o evaluation (82.27), showing improved reliability for event coverage assessment."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Redundancy",
+      "Omission",
+      "Conflict"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "event_coverage",
+      "Faithfulness"
+    ],
+    "notes": "LLM evaluation assesses redundancy, omission, and conflict during silver-standard summary generation, while both LLM (Eve-Cov metric) and human evaluation assess event coverage and faithfulness"
+  }
+}

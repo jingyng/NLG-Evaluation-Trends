@@ -1,0 +1,160 @@
+{
+  "paper_id": "2021.acl-long.411",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "MSCOCO",
+      "Flickr8k",
+      "SpokenCOCO",
+      "Places Audio",
+      "LJSpeech",
+      "VCTK"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Show-Attend-and-Tell (SAT)",
+      "Tacotron2",
+      "WaveGlow",
+      "ResDAVEnet-VQ",
+      "WaveNet-VQ"
+    ],
+    "outputs": [
+      "spoken audio captions",
+      "speech waveforms"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Places Audio",
+          "LJSpeech",
+          "VCTK"
+        ],
+        "languages": [],
+        "models": [
+          "WaveNet-VQ"
+        ],
+        "outputs": [
+          "speech waveforms"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Places"
+        ],
+        "languages": [],
+        "models": [
+          "Image-to-Unit (SAT, SAT-FT)",
+          "Unit-to-Speech (Tacotron2, WaveGlow)",
+          "Image-to-Unit (I2U) module",
+          "Unit-to-Speech (U2S) module",
+          "Show, Attend, and Tell (SAT)",
+          "Tacotron 2"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Places": "Places Audio",
+        "spoken audio captions of images": "spoken audio captions"
+      },
+      "explanation": "Added missing datasets mentioned in experiments. Removed redundant model names and normalized to canonical forms. Added 'speech waveforms' as output type."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE",
+      "CIDEr",
+      "SPICE",
+      "M-SPICE",
+      "ABX Error Rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "M-SPICE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Image Retrieval Recall",
+          "Speech Retrieval Recall",
+          "R@1",
+          "R@5",
+          "R@10"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Simplified metric variants to base forms. Removed retrieval metrics as they are evaluation methods rather than specific metrics. Added M-SPICE which was proposed in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper. The paper focuses on traditional evaluation methods."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers transcribed spoken captions and rated naturalness on Mean Opinion Score (MOS) scale from 1 to 5",
+      "Workers performed Side-by-Side (SXS) preference tests comparing different speech synthesis outputs"
+    ],
+    "criteria": [
+      "naturalness",
+      "preference",
+      "fluency",
+      "intelligibility"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Workers performed Side-by-Side (SXS) preference tests comparing different speech synthesis outputs"
+        ],
+        "criteria": [
+          "fluency",
+          "intelligibility"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "naturalness": "naturalness",
+        "preference": "preference"
+      },
+      "explanation": "Added missing human evaluation methods and criteria explicitly mentioned in the paper. Normalized the guideline descriptions."
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive study of text-free image-to-speech synthesis. The extraction was generally accurate but missed some important datasets and evaluation methods. The paper introduces a novel M-SPICE metric for evaluating semantic diversity in generated captions. Human evaluation was well-documented with both MOS ratings and preference tests."
+}

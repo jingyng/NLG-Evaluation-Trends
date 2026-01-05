@@ -1,0 +1,128 @@
+{
+  "paper_id": "2022.acl-long.57",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "TOPICAL CHAT",
+      "PERSONACHAT",
+      "FED",
+      "dstc9"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "roberta_large",
+      "t_5"
+    ],
+    "outputs": [
+      "Dialogue coherence scores",
+      "Incoherent dialogues generated from AMR perturbations"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "RoBERTa-large"
+        ],
+        "outputs": [
+          "Dialogue coherence scores"
+        ]
+      },
+      "removed": {
+        "models": [
+          "T5 (AMR-to-Text)",
+          "AMR parser",
+          "Text-to-AMR",
+          "AMR-to-Text"
+        ],
+        "outputs": [
+          "dialogue responses"
+        ]
+      },
+      "normalized": {
+        "T5": "T5",
+        "RoBERTa": "RoBERTa-large"
+      },
+      "explanation": "Simplified model list to main models used (RoBERTa-large for evaluation, T5 for AMR generation). Removed redundant AMR component names. Clarified outputs to focus on evaluation scores and generated dialogues."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SPEARMAN CORRELATION"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "RoBERTa-based classifier"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'RoBERTa-based classifier' as it's an evaluation method/model, not a metric. Spearman correlation is the primary automatic metric used."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "RoBERTa"
+        ],
+        "methods": [
+          "classification-based evaluation"
+        ],
+        "criteria": [
+          "coherence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as the paper does not use LLMs as judges. RoBERTa is used for classification-based evaluation, but this is not LLM-as-judge methodology."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Humans assessed conversations from 11 conversation-level evaluation aspects including coherence and overall scores",
+      "Each conversation judged by 5 distinct annotators",
+      "Coherence scores range 0-2 (FED) or 1-3 (DSTC9)",
+      "Overall scores range 0-4 (FED) or 1-5 (DSTC9)",
+      "Average of judgments used for conversations with multiple annotators"
+    ],
+    "criteria": [
+      "Coherence",
+      "overall"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Each conversation judged by 5 distinct annotators",
+          "Coherence scores range 0-2 (FED) or 1-3 (DSTC9)",
+          "Overall scores range 0-4 (FED) or 1-5 (DSTC9)",
+          "Average of judgments used for conversations with multiple annotators"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "overall scores"
+        ]
+      },
+      "normalized": {
+        "overall scores": "overall"
+      },
+      "explanation": "Enhanced guideline description with additional details from the paper. Normalized criteria by removing redundant 'overall scores' and keeping 'overall'."
+    }
+  },
+  "overall_notes": "The paper focuses on dialogue coherence evaluation using AMR-based semantic manipulations. The extraction was generally accurate but included some redundant or incorrectly categorized items. The main contributions are: 1) Dialogue coherence evaluation methodology, 2) AMR-based negative example generation, 3) RoBERTa-based classifier training, 4) Correlation analysis with human judgments. The paper uses human evaluations as ground truth and Spearman correlation as the primary automatic metric."
+}

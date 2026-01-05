@@ -1,0 +1,166 @@
+{
+  "paper_id": "2024.acl-long.655",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "SUMMEVAL-OP",
+      "OPINSUMMEVAL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "PlanSum",
+      "MultimodalSum",
+      "LS-Sum-G",
+      "ChatGPT-3.5",
+      "GPT-4",
+      "LLaMA2-7B",
+      "LLaMA2-13B",
+      "Mistral-7B",
+      "Solar-10.7B",
+      "Zephyr-7B"
+    ],
+    "outputs": [
+      "opinion summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Amazon test set",
+          "OPIN-SUMMEVAL"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "OPIN-SUMMEVAL": "OPINSUMMEVAL"
+      },
+      "explanation": "Removed redundant dataset references ('Amazon test set' is part of SUMMEVAL-OP, 'OPIN-SUMMEVAL' normalized to 'OPINSUMMEVAL'), kept main dataset names only"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE",
+      "BARTSCORE",
+      "SUMMAC",
+      "UNIEVAL",
+      "G-EVAL",
+      "OP-I-PROMPT",
+      "OP-PROMPTS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE variants to base ROUGE metric as per simplification rules"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "ChatGPT-3.5",
+      "Mistral-7B",
+      "GPT-4"
+    ],
+    "methods": [
+      "OP-I-PROMPT",
+      "OP-PROMPTS",
+      "G-EVAL"
+    ],
+    "criteria": [
+      "fluency",
+      "coherence",
+      "relevance",
+      "faithfulness",
+      "aspect coverage",
+      "sentiment consistency",
+      "specificity"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLaMA2-7B",
+          "LLaMA2-13B",
+          "Solar-10.7B",
+          "Zephyr-7B"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added GPT-4 which is mentioned as being tested as evaluator, removed open-source models that were only used for generation but not evaluation. The paper explicitly tests ChatGPT-3.5 and Mistral-7B as evaluators, with GPT-4 mentioned as a limitation due to cost constraints."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators received specific guidelines for each dimension including how to penalize summaries",
+      "Raters rated summaries on scale 1-5 (higher better)",
+      "Two-round annotation process with re-evaluation for disagreements",
+      "Expert annotators (Masters students with experience in opinion summarization)"
+    ],
+    "criteria": [
+      "fluency",
+      "coherence",
+      "relevance",
+      "faithfulness",
+      "aspect coverage",
+      "sentiment consistency",
+      "specificity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Two-round annotation process with re-evaluation for disagreements",
+          "Expert annotators (Masters students with experience in opinion summarization)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added important details about the human evaluation methodology that were missing from the original extraction"
+    }
+  },
+  "overall_notes": "The paper focuses on opinion summarization evaluation using LLMs as judges. The extraction was generally accurate but needed some refinement: (1) dataset names were redundant, (2) ROUGE variants needed normalization, (3) LLM evaluators needed clarification (only ChatGPT-3.5 and Mistral-7B were actually tested as evaluators), (4) human evaluation details were incomplete. The paper is strong in evaluation methodology with comprehensive human evaluation and LLM-as-judge experiments."
+}

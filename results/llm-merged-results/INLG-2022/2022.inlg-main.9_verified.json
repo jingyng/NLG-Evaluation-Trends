@@ -1,0 +1,136 @@
+{
+  "paper_id": "2022.inlg-main.9",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "CUB-200-2011 (Caltech-UCSD Birds-200-2011)"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LSTM",
+      "Transformer",
+      "ResNet-101"
+    ],
+    "outputs": [
+      "descriptions for groups of bird images",
+      "single-image bird descriptions",
+      "discriminative group descriptions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "single-image bird descriptions",
+          "discriminative group descriptions"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Caltech UCSD birds dataset (CUB-200-2011)",
+          "CUB-200-2011"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "group-level image captions (descriptions)",
+          "descriptions for groups of visual instances"
+        ]
+      },
+      "normalized": {
+        "Caltech UCSD birds dataset (CUB-200-2011)": "CUB-200-2011 (Caltech-UCSD Birds-200-2011)",
+        "CUB-200-2011": "CUB-200-2011 (Caltech-UCSD Birds-200-2011)",
+        "descriptions for groups of visual instances": "descriptions for groups of bird images",
+        "group-level image captions (descriptions)": "descriptions for groups of bird images"
+      },
+      "explanation": "Normalized dataset name to canonical form, simplified outputs to be more precise about the bird image focus, and added missing output types mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "CIDEr",
+      "Distinct-n",
+      "Average Sentence Length"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "Dist-1": "Distinct-n",
+        "Dist-2": "Distinct-n",
+        "average sentence length": "Average Sentence Length"
+      },
+      "explanation": "Normalized BLEU-4 to BLEU, combined Dist-1 and Dist-2 under Distinct-n umbrella, and normalized average sentence length capitalization. CIDEr was already correctly normalized."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was used in this paper. The text classifier mentioned uses BERT for category prediction, but this is not used for quality assessment of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants shown all images in target group and asked to select which description best describes all or most images: (A) group description, (B) instance description, or (C) both"
+    ],
+    "criteria": [
+      "coverage",
+      "coherence",
+      "informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "informativeness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "descriptiveness"
+        ]
+      },
+      "normalized": {
+        "descriptiveness": "informativeness",
+        "select the description(s) that best describe all or most of the images in the group": "Participants shown all images in target group and asked to select which description best describes all or most images"
+      },
+      "explanation": "Normalized criteria to match terminology used in paper objectives (coherence and informativeness), simplified guideline description, and removed redundant/detailed guideline text."
+    }
+  },
+  "overall_notes": "The extraction quality was generally good. The paper focuses on image captioning for bird images with a specific emphasis on generating descriptions for groups of images rather than single instances. The evaluation includes both automatic metrics and human evaluation via Amazon Mechanical Turk. The paper does not use LLM-as-judge evaluation."
+}

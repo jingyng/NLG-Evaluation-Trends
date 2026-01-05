@@ -1,0 +1,196 @@
+{
+  "paper_id": "2021.emnlp-main.595",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "Flickr8K-Expert",
+      "Flickr8K-CF",
+      "Composite",
+      "Pascal-50S",
+      "MSCOCO",
+      "Abstract-50S",
+      "Twitter alt-text corpus",
+      "FOIL dataset"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "CLIP",
+      "RefCLIPScore",
+      "ViLBERT",
+      "BERT",
+      "RoBERTa",
+      "TransResNet"
+    ],
+    "outputs": [
+      "generated image captions",
+      "alt-text descriptions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "FOIL dataset"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "alt-text descriptions"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Flickr8K",
+          "Flickr30k",
+          "Twitter Alt-Text",
+          "Twitter",
+          "New York Times"
+        ],
+        "languages": [],
+        "models": [
+          "ALIGN",
+          "LASER",
+          "M-BERT",
+          "systems from MSCOCO Image Captioning Challenge"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Flickr8K-Expert": "Flickr8K-Expert",
+        "Flickr8K-CF": "Flickr8K-CF",
+        "Composite": "Composite",
+        "Pascal-50S": "Pascal-50S",
+        "MSCOCO": "MSCOCO",
+        "Abstract-50S": "Abstract-50S",
+        "Twitter alt-text corpus": "Twitter alt-text corpus",
+        "CLIP": "CLIP",
+        "RefCLIPScore": "RefCLIPScore",
+        "ViLBERT": "ViLBERT",
+        "BERT": "BERT",
+        "RoBERTa": "RoBERTa",
+        "TransResNet": "TransResNet"
+      },
+      "explanation": "Removed datasets that were either duplicates (Flickr8K/Flickr30k mentioned separately) or not directly evaluated (New York Times mentioned in passing). Removed models that were only mentioned in related work (ALIGN, LASER, M-BERT) or not specific models (MSCOCO systems). Added FOIL dataset which was used for evaluation and clarified output types."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CLIPScore",
+      "RefCLIPScore",
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "CIDEr",
+      "SPICE",
+      "BERTScore",
+      "TIGEr",
+      "ViLBERTScore",
+      "BERTScore++",
+      "LEIC",
+      "NUBIA"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "LEIC",
+          "NUBIA"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BERT-S",
+          "CLIP-S",
+          "RefCLIP-S",
+          "BERT-S++"
+        ]
+      },
+      "normalized": {
+        "CLIP-S": "CLIPScore",
+        "RefCLIP-S": "RefCLIPScore",
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "BERT-S": "BERTScore",
+        "BERT-S++": "BERTScore++",
+        "ViLBERTScore-F": "ViLBERTScore"
+      },
+      "explanation": "Normalized all metric variants to base forms (e.g., BLEU-4 → BLEU, ROUGE-L → ROUGE). Used consistent naming for CLIPScore variants. Added LEIC and NUBIA metrics that were mentioned in the paper's results tables."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper. The paper uses pretrained models like CLIP for automatic evaluation, but not as post-generation evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Grade captions on a scale of 1 to 4 based on correctness of description",
+      "Binary quality judgments (yes/no) for caption appropriateness",
+      "Pairwise preference judgments between candidate captions",
+      "Alt-text quality rating on scale of 0-3 for utility"
+    ],
+    "criteria": [
+      "correctness",
+      "relevance",
+      "appropriateness",
+      "utility",
+      "engagingness",
+      "similarity to reference"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Binary quality judgments (yes/no) for caption appropriateness",
+          "Pairwise preference judgments between candidate captions",
+          "Alt-text quality rating on scale of 0-3 for utility"
+        ],
+        "criteria": [
+          "utility",
+          "engagingness",
+          "similarity to reference"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "caption describes the image without any errors"
+        ],
+        "criteria": [
+          "overall quality"
+        ]
+      },
+      "normalized": {
+        "correctness": "correctness",
+        "relevance": "relevance",
+        "appropriateness": "appropriateness",
+        "utility as alt-text": "utility"
+      },
+      "explanation": "Expanded guidelines to include all human evaluation methods mentioned in the paper. Added criteria that were explicitly mentioned in different evaluation contexts. Normalized 'utility as alt-text' to 'utility'."
+    }
+  },
+  "overall_notes": "The paper is well-focused on evaluating CLIPScore as a reference-free metric for image captioning. The extraction was generally good but needed normalization of metric names and removal of some items that were only mentioned in passing. The paper extensively evaluates both automatic metrics and human judgments across multiple datasets."
+}

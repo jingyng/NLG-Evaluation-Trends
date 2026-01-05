@@ -1,0 +1,155 @@
+{
+  "paper_id": "2025.acl-long.301",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Question Generation"
+    ],
+    "datasets": [
+      "HOH-QA",
+      "HOH-SEARCHENGINE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Qwen-2.5-7B-Instruct",
+      "Llama-3.1-8B-Instruct",
+      "Llama-3.1-70B-Instruct",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "short answers to questions",
+      "long answers to questions",
+      "question-answer pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Generation"
+        ],
+        "models": [
+          "GPT-4o"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Llama-70B",
+          "Llama-8B",
+          "Qwen-7B"
+        ],
+        "tasks": [
+          "Other:Question Answering",
+          "Other:Question Generation"
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering",
+        "Other:Question Generation": "Question Generation",
+        "answers to questions (short and long)": "short answers to questions, long answers to questions",
+        "generated answers (short and long)": "short answers to questions, long answers to questions"
+      },
+      "explanation": "Normalized task names, kept canonical model names with version numbers, removed redundant/incorrect model aliases, added missing GPT-4o model, split outputs for clarity"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "F1",
+      "Hit Rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Hit Rate"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Model-based scoring (perfect/missing/harmful)",
+          "hit rate",
+          "model-based scoring (perfect/missing/harmful)",
+          "perfect/missing/harmful score",
+          "F1 score"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "F1": "F1"
+      },
+      "explanation": "Kept only standard automatic metrics (Accuracy, F1, Hit Rate). Model-based scoring is not considered an automatic metric as it uses LLMs as judges (covered in Q3). Removed duplicates and normalized capitalization."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Llama-3.1-70B-Instruct"
+    ],
+    "methods": [
+      "categorical rating"
+    ],
+    "criteria": [
+      "perfect",
+      "missing",
+      "harmful"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "perfect",
+          "missing",
+          "harmful"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "model-based scoring",
+          "model-based automatic evaluation",
+          "QA pair evaluation criteria"
+        ],
+        "criteria": [
+          "correctness",
+          "harmfulness",
+          "Answer Accuracy",
+          "Question Clarity and Completeness",
+          "Avoidance of Explicit Date-Reference Queries"
+        ]
+      },
+      "normalized": {
+        "categorical rating (perfect, missing, harmful)": "categorical rating"
+      },
+      "explanation": "Kept only the specific rating criteria used by LLM judges (perfect/missing/harmful). Removed general evaluation criteria that relate to QA generation quality assessment rather than LLM-as-judge criteria. Simplified method name."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "The four primary quality dimensions: Same Answer Check, Answer Accuracy, Question Clarity and Completeness, and Temporal Independence."
+        ],
+        "criteria": [
+          "Same Answer Check",
+          "Answer Accuracy",
+          "Question Clarity and Completeness",
+          "Temporal Independence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Human evaluation was only used for training data validation (2,000 sentence pairs annotated by 3 annotators) and model judgment validation (500 QA pairs manually evaluated), not for evaluating the actual generated outputs. Therefore, removed all human evaluation criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating RAG systems' robustness to outdated information. Human evaluation was conducted only for data validation and LLM judgment validation, not for evaluating RAG-generated outputs. The paper uses LLM-as-judge for evaluating generated answers with perfect/missing/harmful scoring."
+}

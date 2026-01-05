@@ -1,0 +1,163 @@
+{
+  "paper_id": "2023.emnlp-main.46",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Question Answering",
+      "Story Generation",
+      "Explanation Generation",
+      "Other:Visual Question Answering"
+    ],
+    "datasets": [
+      "WHOOPS",
+      "OK-VQA",
+      "ScienceQA",
+      "Concadia",
+      "Image Paragraph Captioning",
+      "ROCStories",
+      "VQAv2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "VLIS",
+      "BLIP-2",
+      "LLaVA",
+      "OPT-IML",
+      "Naïve Ensemble",
+      "Vicuna",
+      "Flan-T5",
+      "Lynx",
+      "GPT-3"
+    ],
+    "outputs": [
+      "answers to visual questions",
+      "image captions",
+      "paragraph captions",
+      "story texts",
+      "explanations of visual weirdness"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering",
+          "Other:Visual Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-3"
+        ],
+        "outputs": [
+          "answers to visual questions",
+          "explanations of visual weirdness"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering",
+          "Other:Story Generation",
+          "Other:open-ended generation",
+          "Other:commonsense VQA"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Vicuna 7B"
+        ],
+        "outputs": [
+          "generated captions, paragraph captions, story texts, VQA answers",
+          "text tokens conditioned on image inputs"
+        ]
+      },
+      "normalized": {
+        "LLAVA": "LLaVA",
+        "bleu-4": "BLEU",
+        "Bleu-4": "BLEU"
+      },
+      "explanation": "Normalized task names to standard forms, removed redundant 'Other:' prefixes, consolidated outputs to be more descriptive, normalized model names (LLaVA), and added GPT-3 which is used for generation in some experiments."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "accuracy",
+      "VQA score",
+      "CIDEr",
+      "METEOR",
+      "BLEU",
+      "repetition",
+      "diversity",
+      "coherence",
+      "MAUVE",
+      "CLIPScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "2-gram repetition",
+          "VQA metric",
+          "BLEU-4"
+        ]
+      },
+      "normalized": {
+        "Bleu-4": "BLEU",
+        "BLEU-4": "BLEU",
+        "2-gram repetition": "repetition",
+        "VQA metric": "VQA score"
+      },
+      "explanation": "Normalized metric variants to base forms (BLEU-4 → BLEU), simplified '2-gram repetition' to 'repetition', and standardized 'VQA metric' to 'VQA score'."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT3"
+        ],
+        "methods": [
+          "pipelining with GPT3 for binary decision"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed GPT-3 from models list since it's used for generation (not as a judge). The paper uses GPT-3 as part of a pipeline for classification, but not as an evaluator/judge of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. The evaluation is entirely automatic."
+    }
+  },
+  "overall_notes": "The paper presents VLIS, a framework for multimodal language generation that combines vision-language models with text-only language models. It evaluates on multiple NLG tasks including visual question answering, image captioning, and story generation using automatic metrics. The extraction was generally accurate, but required normalization of task names, metric variants, and model names. The paper does not use LLMs as judges or conduct human evaluations."
+}

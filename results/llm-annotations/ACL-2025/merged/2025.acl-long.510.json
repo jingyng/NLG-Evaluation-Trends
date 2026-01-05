@@ -1,0 +1,83 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "a captioning task demands that the VLM articulate a functionality description for an element, given its coordinates.",
+            "we use open-source LLMs (AI@Meta, 2024) to annotate the functionalities of elements on collected GUIs based on changes to UI contents when interacting with these elements.",
+            "We propose AutoGUI, a scalable and automatic annotation pipeline aimed to produce massive UI element functionality annotations used to enhance UI grounding capabilities of VLMs."
+        ],
+        "tasks": [
+            "Image Captioning",
+            "Other:Functionality Grounding"
+        ],
+        "datasets": [
+            "AutoGUI-704k"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "SliME-8B",
+            "Qwen-VL",
+            "Qwen2-VL-7B",
+            "Llama-3-70B",
+            "Mistral-7B-Instruct-v0.2"
+        ],
+        "outputs": [
+            "Functionality descriptions of UI elements",
+            "functionality descriptions of UI elements",
+            "functionality descriptions of UI elements based on visual and structural changes"
+        ]
+    },
+    "answer_2": {
+        "answer": "No",
+        "quote": [
+            "We report the grounding accuracy (%): Acc = N i=1 1 (pred i inside GT bbox i ) /N × 100 where 1 is an indicator function and N is the number of test samples."
+        ],
+        "automatic_metrics": [
+            "grounding accuracy"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "To improve dataset quality, we prompt LLMs to verify the annotations, inspired by works that justify the feasibility of LLM-based verification.",
+            "To improve the quality of functionality annotations, the AutoGUI pipeline prompts two LLMs (i.e., Llama-3-70B and Mistral-7B-Instruct-v0.2) as verifiers to assign scores to samples based on how well the target elements adhere to their functionality annotations.",
+            "To improve dataset quality, we prompt LLMs to verify the annotations, inspired by works that justify the feasibility of LLM-based verification."
+        ],
+        "models": [
+            "Llama-3-70B",
+            "Mistral-7B-Instruct-v0.2"
+        ],
+        "methods": [
+            "verification scoring",
+            "LLM-aided verification",
+            "self-verification",
+            "rejection scoring"
+        ],
+        "criteria": [
+            "degree of support for the specified action",
+            "Explicitness of Changes",
+            "Relevance of Changes",
+            "Predictability of Outcome"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "N = 145 samples (99 valid and 46 invalid) are randomly selected as a testbed for comparing the annotation correctness of a trained human annotator and our pipeline.",
+            "The human annotator was a graduate student proficient in using digital devices... Following the training stage, the human annotator evaluated a total of 146 samples.",
+            "The authors rigorously evaluate the annotation results based on (a) AutoGUI (c) Widget Captioning (b) SeeClick Web three criteria outlined in Fig. I."
+        ],
+        "guideline": [
+            "including three specific criteria outlined in Fig I, to ensure the clarity and correctness of their annotations",
+            "the annotator was provided detailed guidelines, including three specific criteria outlined in Fig I, to ensure the clarity and correctness of their annotations.",
+            "Three specific criteria outlined in Fig I were provided to ensure clarity and correctness of annotations, including how to assess element functionality based on UI content changes and how to identify invalid samples."
+        ],
+        "criteria": [
+            "Correctness",
+            "vagueness",
+            "hallucination"
+        ]
+    }
+}

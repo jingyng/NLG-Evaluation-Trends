@@ -1,0 +1,140 @@
+{
+  "paper_id": "2022.acl-long.207",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "XSUM",
+      "NYT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "pegasus",
+      "brio_ctr",
+      "brio_mul",
+      "brio"
+    ],
+    "outputs": [
+      "abstractive summaries",
+      "summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "XSum",
+          "NYT"
+        ],
+        "languages": [],
+        "models": [
+          "PEGASUS",
+          "BRIO"
+        ],
+        "outputs": [
+          "summaries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "CNNDM"
+        ],
+        "languages": [],
+        "models": [
+          "GSum",
+          "SimCLS",
+          "GOLD",
+          "SeqCo",
+          "ConSum"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "CNNDM": "CNN/DailyMail",
+        "abstractive summaries": "abstractive summaries"
+      },
+      "explanation": "Normalized datasets to full canonical names (CNNDM → CNN/DailyMail). Removed baseline/comparison models that aren't the main focus. Added BRIO as the main model family name."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE",
+      "EXPECTED CALIBRATION ERROR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "BERTScore": "BERTScore",
+        "Expected Calibration Error": "Expected Calibration Error"
+      },
+      "explanation": "Consolidated ROUGE variants into base form as per normalization rules."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BART",
+          "PEGASUS"
+        ],
+        "methods": [
+          "scoring candidate summaries"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed references to BART/PEGASUS scoring - they are generation models, not LLM judges used post-generation. Paper does not use LLMs as evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Confirmed no human evaluation is conducted in this paper."
+    }
+  },
+  "overall_notes": "The paper focuses on abstractive summarization evaluation through contrastive learning training paradigm. All NLG evaluation is done via automatic metrics (ROUGE, BERTScore, calibration error). Excellent extraction quality with minor normalization needed for canonical forms."
+}

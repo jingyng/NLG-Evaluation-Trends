@@ -1,0 +1,160 @@
+{
+  "paper_id": "2020.emnlp-main.61",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Video Captioning",
+      "Other:Commonsense Generation",
+      "Other:Question Answering"
+    ],
+    "datasets": [
+      "V2C",
+      "MSR-VTT",
+      "ATOMIC",
+      "V2C-QA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "V2C-Transformer",
+      "S2VT",
+      "Attention-Enc-Dec",
+      "Dense Captioner",
+      "9ENC9DEC",
+      "COMET",
+      "BERT",
+      "GPT"
+    ],
+    "outputs": [
+      "commonsense descriptions (intentions, effects, attributes)",
+      "video captions",
+      "question answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Video Captioning",
+          "Other:Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BERT",
+          "GPT"
+        ],
+        "outputs": [
+          "question answers"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Commonsense Description Generation",
+          "Other:Video Captioning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated factual captions and commonsense descriptions (intentions, effects, attributes) for each video"
+        ]
+      },
+      "normalized": {
+        "Other:Commonsense Description Generation": "Other:Commonsense Generation",
+        "captions and commonsense descriptions (intention, effect, attribute)": "commonsense descriptions (intentions, effects, attributes)"
+      },
+      "explanation": "Consolidated task categories, added relevant models mentioned (BERT, GPT), simplified output descriptions, and removed duplicated/redundant entries"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE",
+      "Perplexity",
+      "CIDEr"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-1",
+          "BLEU-2",
+          "BLEU-3",
+          "BLEU-4",
+          "ROUGE-L",
+          "CIDER"
+        ]
+      },
+      "normalized": {
+        "CIDER": "CIDEr",
+        "BLEU-1": "BLEU",
+        "BLEU-2": "BLEU",
+        "BLEU-3": "BLEU",
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized all BLEU variants to 'BLEU', ROUGE-L to 'ROUGE', and fixed CIDEr spelling. Kept only base metric names as per guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed empty placeholder values. The paper does not use LLMs as judges for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers rate on a scale of 1 to 5 based on relevance to the video and plausibility of completing the event",
+      "Workers rate each generated commonsense description (or caption) on a 1-5 scale based on relevance/plausibility to the video and caption"
+    ],
+    "criteria": [
+      "relevance",
+      "plausibility"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Workers are asked to provide this rating on the basis of whether the generated text is relevant to the video, i.e whether the caption/commonsense can plausibly complete the given event."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed redundant guideline description while keeping the core evaluation criteria. Criteria are correctly captured as 'relevance' and 'plausibility'."
+    }
+  },
+  "overall_notes": "The paper focuses on video-to-commonsense generation, evaluating both captioning and commonsense description generation tasks. Automatic metrics are extensively used and properly documented. Human evaluation is well-described with clear rating scales. LLMs are not used as judges. The extraction was generally accurate with minor normalization needed for metrics."
+}

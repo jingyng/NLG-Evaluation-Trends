@@ -1,0 +1,157 @@
+{
+  "paper_id": "2023.emnlp-main.59",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "FactCollect",
+      "FRANK",
+      "CovidFact",
+      "HealthVer",
+      "SciFact",
+      "XSum",
+      "CNN/Daily Mail"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "FACTKB",
+      "RoBERTa-base",
+      "FactCC",
+      "FactGraph",
+      "QAGS",
+      "QUALS",
+      "DAE",
+      "FalseSum",
+      "SummaC"
+    ],
+    "outputs": [
+      "summaries",
+      "binary factuality labels (FACTUAL/NON-FACTUAL)",
+      "factuality scores"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "CNN/Daily Mail"
+        ],
+        "languages": [],
+        "models": [
+          "DAE",
+          "FalseSum",
+          "SummaC"
+        ],
+        "outputs": [
+          "factuality scores"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "XSUM",
+          "CNN/DM"
+        ],
+        "languages": [],
+        "models": [
+          "Various summarization models"
+        ],
+        "outputs": [
+          "Summaries"
+        ]
+      },
+      "normalized": {
+        "XSUM": "XSum",
+        "CNN/DM": "CNN/Daily Mail",
+        "FACTKB": "FACTKB",
+        "RoBERTa-BASE": "RoBERTa-base"
+      },
+      "explanation": "Normalized dataset names to standard forms, removed vague 'Various summarization models', added missing baseline models, and clarified outputs"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BACC",
+      "F1",
+      "Pearson",
+      "Spearman"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Balanced Accuracy",
+          "FACTKB",
+          "QAGS",
+          "QUALS",
+          "DAE",
+          "FactCC",
+          "FactGraph",
+          "FalseSum",
+          "SummaC",
+          "BERTScore"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed models and evaluation systems that are not metrics themselves. Kept only the actual metrics used for evaluation (BACC, F1, Pearson, Spearman)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in this paper. FACTKB is a fine-tuned model, not an LLM used for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators labeled summaries as FACTUAL or NON-FACTUAL",
+      "FRANK benchmark uses fine-grained error typology (semantic frame, discourse, content verifiability errors)"
+    ],
+    "criteria": [
+      "factuality",
+      "semantic frame errors",
+      "discourse errors",
+      "content verifiability errors"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "FRANK benchmark uses fine-grained error typology (semantic frame, discourse, content verifiability errors)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Enhanced guideline description to better capture the human evaluation methodology"
+    }
+  },
+  "overall_notes": "This paper focuses on evaluating the factuality of generated summaries using a novel approach called FACTKB. The paper evaluates summarization systems but does not generate summaries itself. It uses human-annotated datasets for training and evaluation, and compares against multiple baseline factuality evaluation methods. The extraction was generally accurate but needed normalization of dataset names and clarification of what constitutes evaluation metrics vs. evaluation systems."
+}

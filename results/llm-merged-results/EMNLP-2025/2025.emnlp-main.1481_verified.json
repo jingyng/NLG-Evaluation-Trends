@@ -1,0 +1,181 @@
+{
+  "paper_id": "2025.emnlp-main.1481",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Long-form Question Answering",
+      "Other:Knowledge-intensive QA"
+    ],
+    "datasets": [
+      "FAVA",
+      "MFAVA-Gold",
+      "MFAVA-Silver",
+      "Synthetic Open-domain QA dataset (51,133 prompts)",
+      "Natural Questions"
+    ],
+    "languages": [
+      "Arabic",
+      "Chinese",
+      "German",
+      "Russian",
+      "Turkish",
+      "English",
+      "French",
+      "Spanish",
+      "Hindi",
+      "Urdu",
+      "Swahili",
+      "Sindhi",
+      "Hebrew"
+    ],
+    "models": [
+      "Llama-3-8B",
+      "Aya-23",
+      "Euro-LLM",
+      "Gemma-2",
+      "Qwen-2.5",
+      "GPT-4"
+    ],
+    "outputs": [
+      "Generated long-form answers to knowledge-intensive questions",
+      "LLM-generated answers to knowledge-intensive questions in 30 languages"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Natural Questions"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Machine Translation"
+        ],
+        "datasets": [
+          "MFAVA"
+        ],
+        "languages": [
+          "... (total 30 languages)"
+        ],
+        "models": [
+          "Llama-3.x",
+          "Llama-3-8Bbase (detector)",
+          "Llama-3-8B-base"
+        ],
+        "outputs": [
+          "Long‑form answers to knowledge‑intensive queries"
+        ]
+      },
+      "normalized": {
+        "MFAVA-GOLD": "MFAVA-Gold",
+        "MFAVA-SILVER": "MFAVA-Silver"
+      },
+      "explanation": "Removed tasks that are only mentioned as background (MT, summarization). Removed duplicate models and simplified model names. Added missing Natural Questions dataset. Languages list includes all explicitly mentioned languages but not the placeholder text."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Precision",
+      "Recall",
+      "F1",
+      "Cohen's kappa",
+      "Pearson correlation"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "pearson-r",
+          "hallucination rate (HR)"
+        ]
+      },
+      "normalized": {
+        "precision": "Precision",
+        "recall": "Recall",
+        "Cohen's kappa": "Cohen's kappa",
+        "Pearson correlation": "Pearson correlation",
+        "pearson-r": "Pearson correlation"
+      },
+      "explanation": "Normalized metric names to standard forms. Removed 'hallucination rate' as it's a research finding metric rather than a standard evaluation metric. Consolidated Pearson correlation variants."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "synthetic hallucination insertion",
+          "prompting to generate hallucinated spans"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the answer is 'No'. GPT-4 was used for data creation/synthesis, not as a judge/evaluator of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators were provided with reference Wikipedia pages and generations to label hallucinated spans based on fine-grained types",
+      "Annotators labeled hallucinated spans in model-generated answers and indicated likelihood of hallucinations fooling human readers on a 5-point Likert scale"
+    ],
+    "criteria": [
+      "Entity",
+      "Relation",
+      "Invented",
+      "Contradictory",
+      "Unverifiable",
+      "Subjective",
+      "Hallucination detection (binary)",
+      "Hallucination type classification (category)",
+      "Convincingness likelihood"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "fine-grained hallucination type (e.g., entity, relation, invented, contradictory, unverifiable, subjective)",
+          "likelihood of fooling a human reader",
+          "hallucination span detection"
+        ]
+      },
+      "normalized": {
+        "entity": "Entity",
+        "relation": "Relation",
+        "invented": "Invented",
+        "contradictory": "Contradictory",
+        "unverifiable": "Unverifiable",
+        "subjective": "Subjective",
+        "convincingness likelihood": "Convincingness likelihood"
+      },
+      "explanation": "Simplified guidelines by removing redundancy. Normalized criteria names to title case. Removed descriptive parentheticals from criteria list."
+    }
+  },
+  "overall_notes": "The paper focuses on hallucination detection and evaluation in multilingual long-form question answering. The extraction quality was generally good, but included some background tasks and models that weren't part of the main evaluation. The paper uses GPT-4 for data creation/synthesis but not as an evaluator/judge."
+}

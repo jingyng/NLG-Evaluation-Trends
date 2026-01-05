@@ -1,0 +1,115 @@
+{
+  "paper_id": "2025.emnlp-main.985",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering",
+      "Other:Text Completion",
+      "Other:Concept Erasure"
+    ],
+    "datasets": [
+      "CONCEPTVECTORS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA2-7B-chat",
+      "OLMo-7B"
+    ],
+    "outputs": [
+      "Answers to concept-related questions",
+      "Text completions based on Wikipedia paragraphs",
+      "Model responses that should not contain information about unlearned concepts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Concept Erasure"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Model responses that should not contain information about unlearned concepts"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:text generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LLaMA 2 7B",
+          "OLMo 7B"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "LLaMA 2 7B": "LLaMA2-7B-chat",
+        "OLMo 7B": "OLMo-7B",
+        "concept erasure": "Concept Erasure"
+      },
+      "explanation": "Removed redundant model variants (LLaMA 2 7B and OLMo 7B are the same as LLaMA2-7B-chat and OLMo-7B). Removed 'text generation' as it's too generic. Added 'Concept Erasure' as a specific task and clarified the outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "Rouge-L": "ROUGE",
+        "BLEU": "BLEU"
+      },
+      "explanation": "Normalized 'Rouge-L' and 'ROUGE-L' to 'ROUGE' following simplification rule. Kept 'BLEU' as is."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "scoring concept clarity",
+      "generating questions",
+      "generating templates"
+    ],
+    "criteria": [
+      "clarity",
+      "prominence",
+      "relevance"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "GPT-4 is used for data generation (questions, templates) and concept scoring during benchmark construction, not for evaluating generated outputs after unlearning. Therefore, the 'No' answer is correct."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation of generated outputs is mentioned in the paper. The paper relies on automatic metrics and parametric analysis."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating unlearning methods through both behavioral tests (QA and text completion) and intrinsic parametric analysis. Automatic metrics (BLEU, ROUGE) are used to evaluate the generated outputs. GPT-4 is used for data preparation but not as a judge of the outputs. The extraction was generally accurate, requiring only minor normalization and clarification."
+}

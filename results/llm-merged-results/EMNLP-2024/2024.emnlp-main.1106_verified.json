@@ -1,0 +1,136 @@
+{
+  "paper_id": "2024.emnlp-main.1106",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "DebateSum",
+      "TVQA",
+      "MeetingBank",
+      "DialogueSum"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Falcon-40B",
+      "Llama-2-13B",
+      "T5",
+      "FLAN-T5",
+      "Tk-Instruct"
+    ],
+    "outputs": [
+      "extractive summaries",
+      "coherent extractive summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Falcon-40B-Instruct",
+          "Llama-2-7B",
+          "T5-large",
+          "FLAN-T5-large",
+          "Tk-Instruct-large"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "CNN/DM": "CNN/DailyMail"
+      },
+      "explanation": "Removed model variations that represent the same base models (e.g., T5-large is just T5, FLAN-T5-large is just FLAN-T5). Kept only the base model names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "G-Eval coherence",
+          "G-Eval"
+        ]
+      },
+      "normalized": {
+        "Rouge-L": "ROUGE"
+      },
+      "explanation": "Normalized 'Rouge-L' to 'ROUGE' and removed G-Eval metrics as they belong to Question 3 (LLM-as-judge)"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "G-Eval"
+    ],
+    "criteria": [
+      "coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "G-Eval with coherence prompt",
+          "prompt for evaluating coherence"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4o": "GPT-4",
+        "G-Eval": "G-Eval"
+      },
+      "explanation": "Normalized GPT-4o to GPT-4 and simplified method descriptions"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluators choose preferred summary from three options and rate coherence on 1-5 Likert scale"
+    ],
+    "criteria": [
+      "coherence",
+      "preference"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No significant changes needed, kept the accurate description"
+    }
+  },
+  "overall_notes": "The paper focuses on improving coherence in extractive summarization using human feedback. The extraction was generally accurate but needed some normalization of model names and proper categorization of metrics (separating ROUGE from G-Eval). The paper uses both automatic metrics (ROUGE) and human/LLM evaluations (coherence ratings)."
+}

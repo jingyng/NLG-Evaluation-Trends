@@ -1,0 +1,145 @@
+{
+  "paper_id": "2022.acl-long.104",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "MLQE PE",
+      "WIKIMATRIX",
+      "WMT20"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Chinese",
+      "Romanian",
+      "Estonian",
+      "Russian",
+      "Nepali",
+      "Sinhala"
+    ],
+    "models": [
+      "monotransquest",
+      "multitransquest",
+      "xlm_r"
+    ],
+    "outputs": [
+      "machine-generated translations",
+      "quality scores (Direct Assessment, HTER) for machine-translated sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "Nepalese"
+        ],
+        "models": [
+          "bias model"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Nepalese": "Nepali"
+      },
+      "explanation": "Normalized 'Nepalese' to 'Nepali' and removed 'bias model' as it's not an NLG model but a component of the evaluation framework"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PEARSON S",
+      "MSE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "HTER",
+          "Mean Squared Error (MSE)"
+        ]
+      },
+      "normalized": {
+        "Mean Squared Error (MSE)": "MSE"
+      },
+      "explanation": "Removed HTER as it's a human-based quality metric (not automatic) and normalized MSE variants. Pearson's r and MSE are the main automatic evaluation metrics used."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges. All extracted metadata was removed as it was placeholder text."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Inadequate (non-meaning preserving) translations should not receive a DA score higher than 70",
+      "HTER scores computed as averaged edit rate comparing machine-generated translations and post-edited versions",
+      "DA scores range 0-100 with at least 3 evaluators per sentence pair"
+    ],
+    "criteria": [
+      "Fluency",
+      "Adequacy",
+      "Preservation"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "HTER scores computed as averaged edit rate comparing machine-generated translations and post-edited versions",
+          "DA scores range 0-100 with at least 3 evaluators per sentence pair"
+        ],
+        "criteria": [
+          "meaning preservation"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "HTER",
+          "Direct Assessment"
+        ]
+      },
+      "normalized": {
+        "non-meaning preserving": "meaning preservation"
+      },
+      "explanation": "Added missing human evaluation guidelines and normalized criteria. Removed HTER and Direct Assessment from criteria as they are metrics, not evaluation criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on Quality Estimation for Machine Translation, which involves evaluating machine-generated translations. The extraction was generally accurate but needed some normalization and removal of non-NLG components. Human evaluation was conducted as part of the original dataset creation (MLQE-PE), which the paper builds upon."
+}

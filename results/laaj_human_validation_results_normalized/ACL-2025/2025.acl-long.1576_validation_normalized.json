@@ -1,0 +1,96 @@
+{
+  "paper_id": "2025.acl-long.1576",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM evaluator against human experts by comparing preferences on 50 dialogue pairs, reporting 78% agreement between GPT-4o evaluator and human majority preference"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "partial",
+      "notes": "Appendix A.3 provides configuration and general prompt template for evaluator agent but not the exact detailed prompts or scoring rubrics; describes three analytical perspectives (Holistic, Teacher-centric, Student-centric)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 8,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Appendix F.4 mentions evaluation materials and questionnaire design but full guidelines not provided; includes template for human rating (1-10 scale) and feedback form with general questions about pedagogical effectiveness"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "effective teaching behaviors"
+    ],
+    "sample_size": {
+      "total_generated": 148,
+      "validated_by_both": 50,
+      "notes": "50 dialogue pairs (each pair: one with learning gain vs one without) randomly selected from 148 Unique Improvement Count (UIC) cases; represents approximately 40% of performance gap between best and worst teachers"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": 78,
+        "criterion": "effective teaching behaviors",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "39 out of 50 cases where human expert majority preference aligned with GPT-4o evaluator's selection"
+      },
+      {
+        "metric": "Average rating difference",
+        "value": 0.97,
+        "criterion": "teaching effectiveness",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Learning gain teachers received average rating of 7.38/10 vs control group 6.41/10"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4o evaluator shows 78% agreement with human experts on identifying effective teaching behaviors, with teachers producing learning gains receiving significantly higher human ratings (7.38 vs 6.41/10)"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Assessment",
+      "Effectiveness",
+      "Effectiveness",
+      "Instruction",
+      "Objectivity"
+    ],
+    "human_only_criteria": [
+      "overall teaching quality",
+      "pedagogical appropriateness"
+    ],
+    "shared_criteria": [
+      "effective teaching behaviors"
+    ],
+    "notes": "LLM evaluator uses structured 17-dimensional scoring framework while humans provide overall ratings and preference judgments; validation focuses on binary preference alignment rather than dimensional scoring"
+  }
+}

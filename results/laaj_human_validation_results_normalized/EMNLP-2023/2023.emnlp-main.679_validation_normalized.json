@@ -1,0 +1,50 @@
+{
+  "paper_id": "2023.emnlp-main.679",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper uses human evaluation as ground truth for benchmarking automatic metrics but does not explicitly compare LLM-as-a-judge results with human evaluation results. Human annotations serve as reference scores, and automatic metrics (including FFLM) are evaluated based on their correlation/agreement with these human scores, but no direct LLM-human validation analysis is performed."
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "llama_7b",
+      "vicuna_7b",
+      "alpaca_7b",
+      "chatgpt"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "Prompts for prompting-based LLM evaluation (e.g., for ChatGPT) are mentioned to be in Appendix C, but specific prompt text is not extracted from the provided text. For FFLM, prompts are not used; instead, probability-change scoring is applied."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": "Not reported",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human evaluation is described at a high level (e.g., binary labeling for inconsistency detection, Likert-scale scoring for faithfulness rating), but detailed guidelines or rubrics are not provided in the extracted text."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Faithfulness",
+      "Consistency"
+    ],
+    "notes": "Both LLM evaluation (via FFLM and prompting) and human evaluation assess the same criteria: faithfulness and consistency of summaries. The human evaluations serve as the benchmark for validating automatic metrics."
+  }
+}

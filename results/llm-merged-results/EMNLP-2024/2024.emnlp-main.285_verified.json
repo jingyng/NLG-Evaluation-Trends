@@ -1,0 +1,170 @@
+{
+  "paper_id": "2024.emnlp-main.285",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Tool-Using Language Generation",
+      "Other:Instruction Following with Tool Use"
+    ],
+    "datasets": [
+      "ToolBench",
+      "ToolAlpaca"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-7B",
+      "Vicuna-7B",
+      "ChatGPT",
+      "GPT-4"
+    ],
+    "outputs": [
+      "API call sequences",
+      "Natural language responses to user instructions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Instruction Following with Tool Use"
+        ],
+        "outputs": [
+          "Natural language responses to user instructions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Tool usage",
+          "Other:tool-using language generation"
+        ],
+        "outputs": [
+          "API-call sequences and final textual responses to user instructions"
+        ]
+      },
+      "normalized": {
+        "Other:tool-using language generation": "Other:Tool-Using Language Generation"
+      },
+      "explanation": "Normalized task names for consistency, merged overlapping output descriptions, removed duplicates while preserving core content"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Pass Rate",
+      "Levenshtein Similarity",
+      "ICE Score",
+      "Accuracy",
+      "Precision",
+      "Recall",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Specificity (via extraction proxy)",
+          "Coherence",
+          "Solvable",
+          "Parameter Alignment",
+          "Sufficiency",
+          "Minimality",
+          "In-Context Evaluation (ICE) score",
+          "pass rate"
+        ]
+      },
+      "normalized": {
+        "pass rate": "Pass Rate",
+        "Levenshtein similarity": "Levenshtein Similarity",
+        "ICE score": "ICE Score"
+      },
+      "explanation": "Removed the six quality criteria (Specificity, Coherence, Solvable, Parameter Alignment, Sufficiency, Minimality) as they are evaluation criteria rather than automatic metrics. The paper uses these as criteria for human/LLM evaluation, not as automatic metrics themselves. Kept the core automatic evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "ChatGPT"
+    ],
+    "methods": [
+      "Direct Annotation",
+      "Proxy Task Extraction",
+      "Parameter Value Extraction"
+    ],
+    "criteria": [
+      "Specificity",
+      "Coherence",
+      "Solvability",
+      "Parameter Alignment",
+      "Sufficiency",
+      "Minimality"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "Parameter Value Extraction"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "methods": [
+          "proxy task execution"
+        ],
+        "criteria": [
+          "Solvable",
+          "Parameter Alignment"
+        ]
+      },
+      "normalized": {
+        "direct annotation": "Direct Annotation",
+        "proxy task extraction": "Proxy Task Extraction",
+        "parameter alignment": "Parameter Alignment"
+      },
+      "explanation": "Added 'Parameter Value Extraction' method mentioned in the paper, removed duplicate criteria, normalized method names to title case"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators mark specificity level (1-3 scale)",
+      "Annotators mark coherence level (1-3 scale)",
+      "Annotators assess solvability (yes/no)",
+      "Annotators validate sequence call validity (yes/no)",
+      "Annotators check parameter alignment (yes/no)",
+      "Annotators verify sequence solves instruction (yes/no)",
+      "Annotators assess minimality (yes/no)"
+    ],
+    "criteria": [
+      "Specificity",
+      "Coherence",
+      "Solvability",
+      "Sequence Validity",
+      "Parameter Alignment",
+      "Solution Completeness",
+      "Minimality"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Sequence Validity",
+          "Solution Completeness"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "Sufficiency"
+        ]
+      },
+      "normalized": {
+        "Solvable": "Solvability"
+      },
+      "explanation": "Refined criteria list based on actual annotation guidelines, added missing criteria and normalized terminology. 'Sufficiency' was mentioned in automatic evaluation but not explicitly in human annotation guidelines."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Key clarification: The six quality criteria (Specificity, Coherence, Solvability, Parameter Alignment, Sufficiency, Minimality) are used as evaluation criteria for both human and LLM-as-judge assessments, but are not themselves automatic metrics. The paper properly evaluates tool-using language generation with both instruction following and response generation components."
+}

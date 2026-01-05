@@ -1,0 +1,162 @@
+{
+  "paper_id": "2025.emnlp-main.1386",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Email Reply Generation"
+    ],
+    "datasets": [
+      "huggingfaceh4 HELPFUL INSTRUCTIONS DATASET",
+      "OPEN LLM LEADERBOARD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_8b_instruct",
+      "mistral_8b_instruct_2410",
+      "qwen_2.5_7b_instruct",
+      "llama_3.3_70b_instruct",
+      "qwen_2.5_72b_instruct"
+    ],
+    "outputs": [
+      "natural-looking outputs that covertly encode private context information",
+      "generated responses to user queries with embedded steganographic bits via token selection"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Email Reply Generation"
+        ],
+        "datasets": [
+          "OpenLLM leaderboard"
+        ],
+        "models": [
+          "Llama-3.3-70B-Instruct",
+          "Qwen2.5-72B-Instruct"
+        ],
+        "outputs": [
+          "generated responses to user queries with embedded steganographic bits via token selection"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:email reply",
+          "Other:steganographic text generation"
+        ],
+        "datasets": [
+          "HuggingFaceH4 helpful-instructions"
+        ],
+        "models": [
+          "Llama 3 8B Instruct",
+          "Ministral 8B Instruct",
+          "Qwen2.5 7B Instruct"
+        ]
+      },
+      "normalized": {
+        "Ministral-8B-Instruct-2410": "Mistral-8B-Instruct-2410",
+        "Llama-3-8B-Instruct": "Llama-3-8B-Instruct",
+        "Llama 3 8B Instruct": "Llama-3-8B-Instruct",
+        "Ministral 8B Instruct": "Mistral-8B-Instruct-2410",
+        "Qwen2.5 7B Instruct": "Qwen2.5-7B-Instruct"
+      },
+      "explanation": "Normalized model names to standardized format with hyphens, corrected 'Ministral' to 'Mistral', removed duplicate datasets and vague tasks, added larger models mentioned in appendix, simplified outputs description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MMLU",
+      "BBH",
+      "GPQA",
+      "MUSR",
+      "IFEVAL",
+      "CORRECT BITS PERCENTAGE",
+      "EXACT MATCH PERCENTAGE"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "MMLU score",
+          "BBH score",
+          "GPQA score",
+          "MUSR score",
+          "IFEval score",
+          "correct_bits_percentage",
+          "exact_match_percentage",
+          "accuracy",
+          "throughput"
+        ]
+      },
+      "normalized": {
+        "MMLU score": "MMLU",
+        "BBH score": "BBH",
+        "GPQA score": "GPQA",
+        "MUSR score": "MUSR",
+        "IFEval score": "IFEval",
+        "correct_bits_percentage": "Correct Bits Percentage",
+        "exact_match_percentage": "Exact Match Percentage"
+      },
+      "explanation": "Removed redundant suffix 'score' from benchmark metrics, normalized case for custom metrics, removed 'accuracy' and 'throughput' as they are not used as formal metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values as the paper does not use LLMs as judges"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Determine whether each individual response comes from a standard or compromised model",
+      "In paired setting: compare two responses to same prompt and select which appears more likely to be from compromised model"
+    ],
+    "criteria": [
+      "Anomalies",
+      "Unusual",
+      "Imperceptibility"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "In paired setting: compare two responses to same prompt and select which appears more likely to be from compromised model"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "identification of compromised model",
+          "presence of anomalies such as spelling errors or unusual capitalization"
+        ]
+      },
+      "normalized": {
+        "presence of anomalies such as spelling errors or unusual capitalization": "spelling anomalies, unusual capitalization"
+      },
+      "explanation": "Combined redundant criteria, added missing paired evaluation guideline, kept only specific evaluation criteria mentioned in paper"
+    }
+  },
+  "overall_notes": "The paper focuses on steganographic attacks on LLMs rather than traditional NLG evaluation. Human evaluation was conducted with 6 annotators to detect compromised vs standard models. Automatic evaluation used standard benchmarks plus custom metrics for steganographic encoding accuracy. No LLM-as-judge evaluation was performed."
+}

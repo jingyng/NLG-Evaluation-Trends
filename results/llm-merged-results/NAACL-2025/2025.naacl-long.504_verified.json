@@ -1,0 +1,186 @@
+{
+  "paper_id": "2025.naacl-long.504",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Multimodal Chain of Thought Evaluation",
+      "Other:Multimodal Reasoning"
+    ],
+    "datasets": [
+      "MiCEval"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaVA-1.6-Mistral-7B",
+      "LLaVA-1.6-Yi-34B",
+      "MiniCPM-V-2.6",
+      "Llama-3.2-11B-Vision-Instruct",
+      "Qwen-VL-Max",
+      "GPT-4o",
+      "Gemini-1.5-Pro"
+    ],
+    "outputs": [
+      "Multimodal Chain of Thought (MCoT) answers",
+      "Image descriptions",
+      "Reasoning steps",
+      "Final predictions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Multimodal Chain of Thought Evaluation"
+        ],
+        "outputs": [
+          "Image descriptions",
+          "Reasoning steps",
+          "Final predictions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Multimodal Reasoning Chain Generation",
+          "Other:Reasoning Generation"
+        ],
+        "datasets": [
+          "MiCEval dataset (derived from 8 multimodal datasets)"
+        ]
+      },
+      "normalized": {
+        "Other:Multimodal Reasoning": "Other:Multimodal Reasoning",
+        "MiCEval": "MiCEval"
+      },
+      "explanation": "Simplified tasks to reflect the paper's main focus on MCoT evaluation rather than generation. Removed verbose dataset description. Added more descriptive output types."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CLIP",
+      "BLIP2-ITM",
+      "BLIP2-ITC",
+      "ReCEval",
+      "LLM-Score",
+      "MiCEval",
+      "Accuracy",
+      "F1",
+      "Somer's D"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy",
+          "F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "MiCEval step-level",
+          "MiCEval MCoT-level",
+          "MiCEval step correctness (geometric mean)",
+          "CLIP similarity",
+          "MiCEval CLIP",
+          "MiCEval Correctness type",
+          "MiCEval Correctness all"
+        ]
+      },
+      "normalized": {
+        "Somer's D correlation": "Somer's D"
+      },
+      "explanation": "Consolidated MiCEval variants to just 'MiCEval'. Added standard classification metrics (Accuracy, F1) that are used in the evaluation. Removed redundant/specific metric descriptions."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "LLaVA-1.6-Mistral-7B",
+      "LLaVA-1.6-Yi-34B",
+      "MiniCPM-V-2.6",
+      "Llama-3.2-11B-Vision-Instruct",
+      "GPT-4o",
+      "Qwen-VL-Max",
+      "Gemini-1.5-Pro"
+    ],
+    "methods": [
+      "Pairwise Comparison",
+      "Scoring Evaluation",
+      "Choice Ranking"
+    ],
+    "criteria": [
+      "Description Correctness",
+      "Description Relevance",
+      "Logical Correctness",
+      "Logical Relevance",
+      "Informativeness",
+      "Step Type Classification",
+      "Error Type Classification"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Step Type Classification",
+          "Error Type Classification"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "pairwise evaluation",
+          "scoring evaluation",
+          "choice ranking"
+        ],
+        "models": []
+      },
+      "normalized": {
+        "pairwise comparison": "Pairwise Comparison",
+        "overall MCoT correctness": "MCoT Correctness",
+        "image relevance": "Description Relevance"
+      },
+      "explanation": "Consolidated duplicate methods. Added missing evaluation criteria for step type and error classification. Normalized method names to title case."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three-stage annotation protocol: 1) Step type classification (Description/Reasoning/Both), 2) Step correctness evaluation based on type, 3) Overall MCoT correctness assessment"
+    ],
+    "criteria": [
+      "Step Type",
+      "Description Correctness",
+      "Description Relevance",
+      "Logical Correctness",
+      "Logical Relevance",
+      "Informativeness",
+      "Error Types",
+      "MCoT Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three-stage annotation protocol: 1) Step type classification (Description/Reasoning/Both), 2) Step correctness evaluation based on type, 3) Overall MCoT correctness assessment"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Stage 1: Type of Step; Stage 2: Correctness of Step; Stage 3: Correctness of MCoT",
+          "Annotators label each step for type (description, reasoning, both), then assess description correctness, relevance, logical correctness, relevance, informativeness, and finally judge the overall MCoT answer as correct or incorrect.",
+          "Annotators label each step as Description, Reasoning, or Both; then assess correctness, relevance, and error types based on defined criteria for description and reasoning steps; finally, determine overall MCoT correctness."
+        ]
+      },
+      "normalized": {
+        "step type": "Step Type",
+        "description correctness": "Description Correctness",
+        "description relevance": "Description Relevance",
+        "logical correctness": "Logical Correctness",
+        "logical relevance": "Logical Relevance",
+        "MCoT correctness": "MCoT Correctness"
+      },
+      "explanation": "Consolidated lengthy guideline descriptions into a clear three-stage protocol. Normalized criteria naming for consistency."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating Multimodal Chain of Thought (MCoT) rather than generating it. The extraction was generally accurate but included some redundant items and verbose descriptions. The paper uses MLLMs as evaluators to assess MCoT quality across multiple dimensions, with comprehensive human annotations as ground truth. The MiCEval framework provides both automatic metrics and LLM-based evaluation methods."
+}

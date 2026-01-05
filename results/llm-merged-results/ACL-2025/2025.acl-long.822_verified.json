@@ -1,0 +1,138 @@
+{
+  "paper_id": "2025.acl-long.822",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Other:Question Answering",
+      "Other:Math Reasoning",
+      "Other:Retrieval"
+    ],
+    "datasets": [
+      "QA-Feedback",
+      "WikiCatSum",
+      "AquaMuSe",
+      "PRM800K",
+      "MultiSpanQA",
+      "FiRA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Sentence-T5 Large",
+      "PaLM-2",
+      "BERT",
+      "T5x-11B"
+    ],
+    "outputs": [
+      "generated responses, summaries, and math solutions",
+      "sentence-level scores and pseudo-labels derived from response-level labels"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Aqua-MuSe"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated responses, summaries, solutions to math problems"
+        ]
+      },
+      "normalized": {
+        "Aqua-MuSe": "AquaMuSe"
+      },
+      "explanation": "Removed duplicate dataset entry (Aqua-MuSe normalized to AquaMuSe) and simplified outputs description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "Accuracy",
+      "AUC-ROC",
+      "AUC-PR",
+      "MAE",
+      "MSE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Cross Entropy Loss"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'Cross Entropy Loss' as it's a training loss, not an evaluation metric for generated outputs"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Claude 3 Opus"
+    ],
+    "methods": [
+      "pairwise evaluation",
+      "correctness evaluation"
+    ],
+    "criteria": [
+      "relevance",
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "pairwise relevance rating"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated methods and kept only relevant criteria mentioned in LLM evaluation context"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators label each segment for irrelevance, repetition, or incoherence."
+        ],
+        "criteria": [
+          "irrelevance",
+          "repetition",
+          "incoherence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from No to Yes was incorrect - the paper uses existing human annotations but does not conduct new human evaluations. Removed all human evaluation metadata."
+    }
+  },
+  "overall_notes": "The paper focuses on disaggregating response-level labels into sentence-level scores using FRACTAL framework. It evaluates on multiple NLG tasks using automatic metrics and LLM judges, but uses existing datasets with human annotations rather than conducting new human evaluations. The extraction was generally accurate with minor normalization needed."
+}

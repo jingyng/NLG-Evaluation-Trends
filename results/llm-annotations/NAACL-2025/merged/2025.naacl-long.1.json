@@ -1,0 +1,82 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "output a textual explanation ê justifying whether the premise entails or contradicts the hypothesis and assign a label ŷ ∈ {Entailment, Contradiction}.",
+            "...We prompt GPT-4 (gpt-4-vision-preview) with the ground truth label, caption, and the image to explain the relationship between the image and the caption...",
+            "We define understanding figurative meaning as an explainable visual entailment task: given an image (premise) p and a caption (hypothesis) h, output a textual explanation ê justifying whether the premise entails or contradicts the hypothesis and assign a label ŷ ∈ {Entailment, Contradiction}."
+        ],
+        "tasks": [
+            "Other:Explanation Generation",
+            "Other:Explainable Visual Entailment"
+        ],
+        "datasets": [
+            "V-FLUTE"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "LLaVA-1.6-7B",
+            "LLaVA-1.6-34B",
+            "GPT-4",
+            "Claude-3 Opus",
+            "GeminiPro",
+            "Gemini-Pro Vision",
+            "LLaVA-7B-eViL+VF",
+            "LLaVA-1.6"
+        ],
+        "outputs": [
+            "textual explanations",
+            "textual explanations (rationales) for visual entailment",
+            "textual explanations justifying entailment or contradiction between image and caption"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We use both the standard F1 score and an adjusted score that accounts for explanation quality: F1@ExplanationScore. The ExplanationScore computes the average of BERTScore (Zhang et al., 2020) between model-generated and reference (V-FLUTE) explanations.",
+            "...The ExplanationScore computes the average of BERTScore (2020) between model-generated and reference (V-FLUTE) explanations...",
+            "Based on prior work , we use both the standard F1 score and an adjusted score that accounts for explanation quality: F1@ExplanationScore. The ExplanationScore computes the average of BERTScore between model-generated and reference (V-FLUTE) explanations."
+        ],
+        "automatic_metrics": [
+            "F1",
+            "BERTScore",
+            "BLEURT",
+            "ExplanationScore",
+            "F1@ExplanationScore"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We conduct human evaluation of generated explanations to assess their quality and identify key errors in reasoning about multimodal figurative meaning. We recruit two expert annotators with background in linguistics for the task...",
+            "...We recruit two expert annotators with background in linguistics ... ask whether the explanation is adequate (accurate, correct, complete and concise). If not, we ask them to identify one of the errors based on the following taxonomy: Hallucination, Unsound reasoning, Incomplete reasoning, Verbosity...",
+            "We recruit two expert annotators with background in linguistics for the task and sample 95 random instances from the test set. For each instance, we first provide the annotators with the image, caption and reference explanation and ask the annotators to choose the right label."
+        ],
+        "guideline": [
+            "For each explanation, ask whether it is adequate (accurate, correct, complete and concise), and if not, identify error types: hallucination, unsound reasoning, incomplete reasoning, verbosity.",
+            "Annotators judged the adequacy of each generated explanation and selected the dominant error type when inadequate.",
+            "For each explanation, we ask whether the explanation is adequate (accurate, correct, complete and concise). If not, we ask them to identify one of the errors based on the following taxonomy: • Hallucination: explanation is not faithful to the image... • Unsound reasoning: sentences do not adhere to natural logic... • Incomplete reasoning: while overall the explanation makes sense, it does not address the key property reasons... • Verbosity: the explanation is too verbose."
+        ],
+        "criteria": [
+            "accuracy",
+            "correctness",
+            "completeness",
+            "conciseness",
+            "adequacy (accuracy, correctness, completeness, conciseness)",
+            "error type (hallucination, unsound reasoning, incomplete reasoning, verbosity)",
+            "accurate",
+            "correct",
+            "complete",
+            "concise"
+        ]
+    }
+}

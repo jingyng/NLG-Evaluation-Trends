@@ -1,0 +1,154 @@
+{
+  "paper_id": "2024.emnlp-main.1043",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Other:Language Modeling",
+      "Other:Text Generation",
+      "Question Answering"
+    ],
+    "datasets": [
+      "SQuALITY",
+      "PG-19",
+      "QASPER",
+      "ZeroSCROLLS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-2",
+      "Mistral",
+      "Yi",
+      "LLaMA-2-chat",
+      "Mistral-Instruct",
+      "neural-chat",
+      "Mytho-Logic"
+    ],
+    "outputs": [
+      "summaries",
+      "stories",
+      "next-token predictions",
+      "answers to questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "answers to questions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Story Generation"
+        ],
+        "datasets": [
+          "Generated stories",
+          "Mytho-Logic"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated text, summaries, QA answers, story continuations"
+        ]
+      },
+      "normalized": {
+        "Other:Story Generation": "Other:Text Generation",
+        "Other:Language Modeling": "Other:Language Modeling",
+        "Generated stories": "PG-19",
+        "Mytho-Logic": "Mytho-Logic"
+      },
+      "explanation": "Added Question Answering as an explicit task since QASPER is a QA dataset. Removed 'Generated stories' as a dataset since it's not a standard benchmark. Consolidated story generation under Text Generation. Kept Mytho-Logic as a model rather than dataset."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Perplexity",
+      "ROUGE",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "perplexity",
+          "F1 score"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "perplexity": "Perplexity",
+        "F1 score": "F1"
+      },
+      "explanation": "Simplified metric variants to base forms (ROUGE-1/2/L → ROUGE, perplexity → Perplexity, F1 score → F1)"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "pairwise evaluation"
+    ],
+    "criteria": [
+      "text quality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "text quality"
+        ]
+      },
+      "removed": {
+        "models": [
+          "gpt-4-0613"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "gpt-4-0613": "GPT-4"
+      },
+      "explanation": "Normalized GPT-4 model name and added implicit 'text quality' criterion since GPT-4 is asked 'which is better' for story comparison"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted in this paper"
+    }
+  },
+  "overall_notes": "The paper focuses on transformer-RNN connections and KV cache compression rather than NLG evaluation methodology. The NLG tasks are used as evaluation benchmarks for the compression method. The extraction was generally accurate but needed some normalization and clarification of what constitutes tasks vs. models vs. datasets."
+}

@@ -1,0 +1,143 @@
+{
+  "paper_id": "2021.inlg-1.25",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Data-to-Text Generation",
+      "Text Summarization"
+    ],
+    "datasets": [
+      "Rotowire"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Rule-based generator",
+      "FORGe system",
+      "RoBERTa",
+      "Sentence-Transformers (paraphrase-distilroberta-base-v2)"
+    ],
+    "outputs": [
+      "basketball match summaries",
+      "Token-level error annotations (OK or error category) for each generated token"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "FORGe",
+          "rule-based template generator"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Sentence‑Transformers (paraphrase‑distilroberta‑base‑v2)": "Sentence-Transformers (paraphrase-distilroberta-base-v2)",
+        "Token‑level error annotations": "Token-level error annotations"
+      },
+      "explanation": "Removed duplicate model entries (FORGe and rule-based template generator were redundant with existing entries). Normalized formatting."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Recall",
+      "Precision",
+      "F1",
+      "BLEU",
+      "METEOR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1 score",
+          "recall",
+          "precision"
+        ]
+      },
+      "normalized": {
+        "F1 score": "F1",
+        "recall": "Recall",
+        "precision": "Precision"
+      },
+      "explanation": "Removed duplicate metric entries and normalized to consistent capitalization. The paper mentions BLEU and METEOR as examples of word-overlap metrics that perform poorly, but doesn't actually use them for evaluation - however, they should be kept as they are discussed in the context of NLG evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa"
+        ],
+        "methods": [
+          "Token-level classification"
+        ],
+        "criteria": [
+          "NAME",
+          "NUMBER",
+          "WORD"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as this paper does NOT use LLMs as judges. RoBERTa is used for error detection/token classification, not as an evaluator/judge of generated outputs. The criteria listed are error types being detected, not evaluation criteria for LLM judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators labeled each token of the generated sentences with one of the predefined error categories (e.g., NAME, NUMBER, WORD, CONTEXT, etc.)",
+      "The INLG 2021 accuracy evaluation shared task carefully annotated 60 outputs of various neural systems trained on Rotowire with 6 error types"
+    ],
+    "criteria": [
+      "NAME",
+      "NUMBER",
+      "WORD",
+      "CONTEXT"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "...",
+          "accuracy",
+          "error types"
+        ]
+      },
+      "normalized": {
+        "...": "CONTEXT",
+        "error types": "error categories"
+      },
+      "explanation": "Removed placeholder '...' and generic terms like 'accuracy' and 'error types'. Kept specific error categories mentioned in the paper (NAME, NUMBER, WORD, CONTEXT). The paper mentions 6 error types total but only names these four explicitly."
+    }
+  },
+  "overall_notes": "This paper presents a system for token-level error detection in table-to-text generation, specifically for basketball game summaries. The system combines rule-based generation with neural models for error classification. The human evaluation was conducted as part of the INLG 2021 shared task, and the paper uses this human-annotated data as ground truth for training and evaluating their automatic error detection system. The extraction was generally accurate but needed some normalization and removal of duplicates/irrelevant items."
+}

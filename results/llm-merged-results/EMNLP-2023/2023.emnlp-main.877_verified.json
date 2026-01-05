@@ -1,0 +1,160 @@
+{
+  "paper_id": "2023.emnlp-main.877",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering with Explanation Generation",
+      "Other:Belief Graph Generation"
+    ],
+    "datasets": [
+      "EntailmentBank",
+      "OBQA",
+      "QuaRTz"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5-11B",
+      "Entailer"
+    ],
+    "outputs": [
+      "belief graphs",
+      "explanations",
+      "chains of reasoning supporting answers",
+      "true/false belief assignments"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Belief Graph Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "belief graphs",
+          "true/false belief assignments"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Explanation Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "T5-11B (Entailer)",
+          "GPT-3",
+          "ChatGPT"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "T5-11B (Entailer)": "T5-11B",
+        "Other:Question Answering with Explanation Generation": "Other:Question Answering with Explanation Generation",
+        "explanations and chains of reasoning supporting answers": "explanations",
+        "belief graphs, explanations, and QA answers supported by reasoning chains": "belief graphs"
+      },
+      "explanation": "Removed models mentioned only in passing (GPT-3, ChatGPT) or redundant versions (T5-11B (Entailer)). Added more specific output descriptions. Clarified tasks to better reflect the paper's focus on belief graph generation alongside explanation generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "consistency",
+      "multiple-choice accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "conditional constraint violation (τ)",
+          "consistency (1-τ)"
+        ]
+      },
+      "normalized": {
+        "conditional constraint violation (τ)": "consistency",
+        "consistency (1-τ)": "consistency",
+        "consistency": "consistency"
+      },
+      "explanation": "Simplified metrics to base forms. The paper explicitly defines consistency as 1-τ, so all variants collapse to 'consistency'. Multiple-choice accuracy is the primary QA evaluation metric."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "T5-11B"
+    ],
+    "methods": [
+      "self-querying verification"
+    ],
+    "criteria": [
+      "truthfulness",
+      "belief confidence"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "belief confidence"
+        ]
+      },
+      "removed": {
+        "models": [
+          "T5-11B (Entailer)",
+          "Entailer (T5‑11B)"
+        ],
+        "methods": [
+          "self-querying with yes/no questions"
+        ],
+        "criteria": [
+          "truthfulness of generated statements",
+          "belief truth (True/False)"
+        ]
+      },
+      "normalized": {
+        "T5-11B (Entailer)": "T5-11B",
+        "Entailer (T5‑11B)": "T5-11B",
+        "self-querying with yes/no questions": "self-querying verification",
+        "self‑querying verification (yes/no QA)": "self-querying verification",
+        "truthfulness of generated statements": "truthfulness",
+        "belief truth (True/False)": "truthfulness"
+      },
+      "explanation": "Normalized model names and evaluation methods. The LLM (T5-11B) is used for self-querying to verify its own generated statements, assessing both truthfulness and confidence scores."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [
+      "manual analysis of failure cases in incorrectly answered questions"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "manual analysis of failure cases in incorrectly answered questions"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- identify causes of failure in incorrect answers"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "- identify causes of failure in incorrect answers": "manual analysis of failure cases in incorrectly answered questions"
+      },
+      "explanation": "The paper mentions manual analysis of failures but this is diagnostic rather than formal human evaluation. No formal human evaluation with defined criteria was conducted."
+    }
+  },
+  "overall_notes": "The paper presents an interesting hybrid approach combining LLM generation with formal constraint reasoning. The extraction was generally good but included some redundant model names and could benefit from more precise task categorization. No formal human evaluation was conducted - only diagnostic manual analysis of failures."
+}

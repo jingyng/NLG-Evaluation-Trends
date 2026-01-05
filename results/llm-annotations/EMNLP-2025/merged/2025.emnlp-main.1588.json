@@ -1,0 +1,76 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We then adopt an MLLM (Qwen2.5-VL-7B-Captioner-Relaxed) to generate frame-level captions, which are aggregated and rephrased to form structured annotations comprising objects, actions, and scenes, plus a high-level video summary. ... We adopt LLM to process each tuple, yielding the binary preference (e.g., v_i < v_j) and the text justification. ... the individual explanations collected during each pairwise comparison are concatenated and summarized in a final single-shot LLM call.",
+            "We propose LLM CoT reasoning-based retrieval to provide explanations beyond rankings ... the proposed method not only enables the improved ranking performance over embedding model-based baselines but also delivers detailed rationales.",
+            "This work proposes X-CoT, an explainable framework that exchanges traditional cosine similarity-based ranking with LLM-based judgment and devises a chain-of-thought pipeline for text-video retrieval."
+        ],
+        "tasks": [
+            "Image Captioning",
+            "Text Summarization",
+            "Other:Explanation Generation",
+            "Other:Text-to-Video Retrieval"
+        ],
+        "datasets": [
+            "MSR-VTT",
+            "MSVD",
+            "LSMDC",
+            "DiDeMo"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Qwen2.5-VL-7B-Captioner-Relaxed",
+            "CLIP-ViT-B/32",
+            "VLM2Vec",
+            "X-Pool",
+            "Qwen2-VL"
+        ],
+        "outputs": [
+            "Frame captions, video summaries, structured annotations (objects, actions, scenes), and retrieval explanations",
+            "Natural language explanations (rationales) for why a video matches a text query",
+            "The outputs include ranked video candidates and natural language explanations justifying the rankings, generated via LLM-based chain-of-thought reasoning."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We introduce a proxy metric to assess the semantic faithfulness of the generated explanations. ... We compute the similarity between two types of video embedding as: Averaging these values across all queries yields sim baseline = 0.273 and sim xcot = 0.350.",
+            "We introduce a proxy metric to assess the semantic faithfulness of the generated explanations ... yields sim baseline = 0.273 and sim xcot = 0.350. The +0.077 gain demonstrates that the explanation embeddings align more strongly with the X-CoT reranked results ...",
+            "We report Recall@K (R@1, R@5, R@10), Median Rank (MdR), and Mean Rank (MnR)."
+        ],
+        "automatic_metrics": [
+            "Embedding Similarity",
+            "Embedding cosine similarity",
+            "proxy explanation similarity",
+            "R@1",
+            "R@5",
+            "R@10",
+            "MdR",
+            "MnR"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [
+            "We adopt LLM to process each tuple, yielding the binary preference (e.g., v_i < v_j) and the text justification."
+        ],
+        "models": [
+            "Qwen2.5-VL-7B-Captioner-Relaxed"
+        ],
+        "methods": [
+            "pairwise evaluation"
+        ],
+        "criteria": [
+            "relevance"
+        ]
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": [],
+        "guideline": [],
+        "criteria": []
+    }
+}

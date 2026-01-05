@@ -1,0 +1,131 @@
+{
+  "paper_id": "2025.acl-long.707",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Reconstruction",
+      "Training Data Reconstruction"
+    ],
+    "datasets": [
+      "ARXIV",
+      "OPENWEBTEXT",
+      "THE PILE",
+      "WIKITEXT",
+      "PII DATASET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2_xl",
+      "bloom_7b_1",
+      "llama_3_8b",
+      "mistral",
+      "qwen_2.5"
+    ],
+    "outputs": [
+      "Reconstructed training data (text)",
+      "Reconstructed private information such as emails, phone numbers, birthdays, SSNs, addresses, jobs, bitcoin addresses, UUIDs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Mistral",
+          "Qwen2.5"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Data Reconstruction"
+        ],
+        "datasets": [
+          "public PII dataset"
+        ],
+        "languages": [],
+        "models": [
+          "M_att (attack model)",
+          "M_sha (shadow model)"
+        ],
+        "outputs": [
+          "The attacker reconstructs the corresponding training data from victim activations."
+        ]
+      },
+      "normalized": {
+        "Bloom-7B1": "Bloom-7B1",
+        "LLaMA3-8B": "LLaMA3-8B",
+        "GPT2-XL": "GPT2-XL"
+      },
+      "explanation": "Removed 'Other:Data Reconstruction' as it's redundant with text reconstruction, removed model implementation details (M_att, M_sha) and kept only the actual model names. Added Mistral and Qwen2.5 which were mentioned in the ablation experiments."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PERPLEXITY",
+      "ROUGE",
+      "BLEU",
+      "EMBEDDING COSINE SIMILARITY",
+      "ATTACK SUCCESS RATE ASR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Embedding cosine similarity"
+        ]
+      },
+      "normalized": {
+        "Embedding cosine similarity": "Embedding Cosine Similarity"
+      },
+      "explanation": "Normalized metric name capitalization to be consistent. All metrics mentioned are used to evaluate the quality of reconstructed text outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The models mentioned are used for generation/attack purposes, not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluations were conducted in this paper. All evaluations used automatic metrics."
+    }
+  },
+  "overall_notes": "This paper focuses on privacy attacks (Activation Inversion Attack) in decentralized training settings. The NLG aspect comes from reconstructing training data/text from model activations. The paper extensively uses automatic metrics to evaluate the quality of reconstructed text. No human or LLM-based evaluations were performed."
+}

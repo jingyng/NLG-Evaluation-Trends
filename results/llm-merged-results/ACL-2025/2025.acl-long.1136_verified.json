@@ -1,0 +1,169 @@
+{
+  "paper_id": "2025.acl-long.1136",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Code Generation",
+      "Other:Instruction Generation"
+    ],
+    "datasets": [
+      "MATRIX-Gen-SFT",
+      "MATRIX-Gen-DPO",
+      "MATRIX-Gen-Reason",
+      "MATRIX-Gen-Coding",
+      "MATRIX-Gen-Safe",
+      "MATRIX-Gen-MT",
+      "AlpacaEval 2",
+      "Arena-Hard",
+      "MMLU",
+      "IFEval",
+      "GSM8K",
+      "MATH",
+      "MATH-500",
+      "HumanEval",
+      "MBPP",
+      "GPQA",
+      "AIME",
+      "MT-Bench-101"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-3-8B",
+      "Qwen-2.5-7B",
+      "Llama-3-8B-Instruct",
+      "DeepSeek-R1-Distill-Qwen-32B"
+    ],
+    "outputs": [
+      "synthetic instruction-response pairs",
+      "instruction-response pairs for post-training of LLMs"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "IFEval",
+          "MATH-500",
+          "MT-Bench-101"
+        ],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "datasets": [],
+        "models": [
+          "GPT-4"
+        ],
+        "outputs": [
+          "synthetic instruction‑response pairs (instructions and corresponding model responses)"
+        ]
+      },
+      "normalized": {
+        "MATRIX-Gen-Coding": "MATRIX-Gen-Code",
+        "AlpacaEval 2": "AlpacaEval 2",
+        "Arena-Hard": "Arena-Hard"
+      },
+      "explanation": "Added missing evaluation benchmarks (IFEval, MATH-500, MT-Bench-101) that were used in experiments. Removed GPT-4 from models since it's only used for evaluation, not generation. Normalized dataset names for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "pass@1",
+      "win rate",
+      "helpful score",
+      "harmless score",
+      "defense success rate",
+      "L2 norm",
+      "Named Entity Recognition"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "defense success rate"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "pass@1 accuracy"
+        ]
+      },
+      "normalized": {
+        "pass@1 accuracy": "pass@1",
+        "Named Entity Recognition (NER)": "Named Entity Recognition"
+      },
+      "explanation": "Normalized 'pass@1 accuracy' to 'pass@1' and 'Named Entity Recognition (NER)' to 'Named Entity Recognition'. Added 'defense success rate' which was used for safety evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Llama-3-8B-Instruct",
+      "GPT-4"
+    ],
+    "methods": [
+      "quality categorization",
+      "pairwise evaluation",
+      "scoring with LLM judge",
+      "AlpacaEval 2",
+      "Arena-Hard",
+      "MT-Bench-101",
+      "realism assessment"
+    ],
+    "criteria": [
+      "helpfulness",
+      "harmlessness",
+      "win rate",
+      "defense success rate",
+      "logical consistency",
+      "practical constraints",
+      "natural human or system behavior"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "defense success rate"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "helpful",
+          "harmless"
+        ]
+      },
+      "normalized": {
+        "realism assessment with LLM": "realism assessment",
+        "helpful": "helpfulness",
+        "harmless": "harmlessness"
+      },
+      "explanation": "Normalized criteria names ('helpful'→'helpfulness', 'harmless'→'harmlessness') and method names. Added 'defense success rate' as an evaluation criterion."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper - all evaluations used automatic metrics or LLM-as-judge."
+    }
+  },
+  "overall_notes": "The paper focuses on synthetic data generation for LLM post-training using multi-agent simulation. It evaluates generated instructions and model performance extensively using automatic metrics and LLM-as-judge approaches, but does not include human evaluation. The extraction was generally accurate but missed some evaluation benchmarks and needed normalization of metric/dataset names."
+}

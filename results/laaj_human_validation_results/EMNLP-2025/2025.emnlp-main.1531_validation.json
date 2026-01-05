@@ -1,0 +1,75 @@
+{
+  "paper_id": "2025.emnlp-main.1531",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM-based PII detection and human evaluation, but they are used independently without any explicit quantitative or qualitative comparison between the two methods. LLM detection serves as automatic metric calculation while human evaluation provides independent assessment on a subset of summaries."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Prompt for PII detection is described as 'similar to the one proposed by [reference] shown in Figure [X]' but exact prompt text is not provided in the main text excerpt"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa (κ)",
+      "value": [
+        0.71,
+        1.0,
+        0.78
+      ],
+      "interpretation": "substantial agreement",
+      "per_criterion": [
+        {
+          "criterion": "PII leakage from source (Q1)",
+          "metric": "Cohen's kappa",
+          "value": 0.71
+        },
+        {
+          "criterion": "PII not in source (Q2)",
+          "metric": "Cohen's kappa",
+          "value": 1.0
+        },
+        {
+          "criterion": "summary preference (Q3)",
+          "metric": "Cohen's kappa",
+          "value": 0.78
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluation includes calibration phase with 10 document-summary pairs, three specific questions (Q1-Q3) for evaluation, and mentions participants received guidelines for summary creation and PII annotation"
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Private Token Ratio (PTR)",
+      "Leaked Documents Ratio (LDR)",
+      "True Positive Rate (TPR)",
+      "BLEU score",
+      "ROUGE metrics",
+      "BERTScore"
+    ],
+    "human_only_criteria": [
+      "summary preference (Q3)"
+    ],
+    "shared_criteria": [
+      "PII leakage detection"
+    ],
+    "notes": "Both LLM and human evaluation assess PII leakage, but LLM focuses on quantitative metrics while human evaluation focuses on span-level annotation and subjective assessment. Human evaluation also includes summary quality preference which LLM does not assess."
+  }
+}

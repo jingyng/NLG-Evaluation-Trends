@@ -1,0 +1,150 @@
+{
+  "paper_id": "2025.emnlp-main.405",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Reasoning Chain Generation"
+    ],
+    "datasets": [
+      "MATH",
+      "GSM8K",
+      "math500",
+      "aime24",
+      "GPQA DIAMOND"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "deepseek_7b",
+      "deepseek_1.5b",
+      "skywork_7b",
+      "qwen_3_8b"
+    ],
+    "outputs": [
+      "concise reasoning chains for mathematical problem solving",
+      "step-by-step reasoning chains for logical reasoning",
+      "compressed reasoning chains"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "GPQA_diamond"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "compressed reasoning chains"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Reasoning Generation"
+        ],
+        "datasets": [
+          "GPQA"
+        ],
+        "models": [
+          "OverThink",
+          "Spirit"
+        ],
+        "outputs": [
+          "concise reasoning chains without mathematical qualification"
+        ]
+      },
+      "normalized": {
+        "GPQA": "GPQA_diamond"
+      },
+      "explanation": "Removed 'OverThink' and 'Spirit' as baseline methods rather than evaluated models. Removed 'Reasoning Generation' to focus on the core task. Added 'compressed reasoning chains' output description and corrected GPQA to GPQA_diamond."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "TOKEN COUNT",
+      "COMPRESSION RATIO",
+      "STEPNUM",
+      "STEPLEN"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Accuracy (Acc.)",
+          "Token Count (Tok.)",
+          "Compression Ratio (CR)",
+          "Perplexity (PPL)"
+        ]
+      },
+      "normalized": {
+        "Accuracy (Acc.)": "Accuracy",
+        "Token Count (Tok.)": "Token Count",
+        "Compression Ratio (CR)": "Compression Ratio"
+      },
+      "explanation": "Normalized duplicate metrics to base forms and removed Perplexity (PPL) as it was mentioned in SPIRIT baseline description but not used as a primary evaluation metric in the paper's experiments."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "qwen_max"
+    ],
+    "methods": [
+      "LLM-as-a-Judge for reflection step grouping"
+    ],
+    "criteria": [
+      "Reflection",
+      "Detection"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "LLM-as-a-Judge annotation",
+          "LLM-as-a-Judge"
+        ],
+        "criteria": [
+          "FAS detection",
+          "step grouping",
+          "First Answer Step (FAS) identification"
+        ]
+      },
+      "normalized": {
+        "FAS detection": "first answer step detection",
+        "First Answer Step (FAS) identification": "first answer step detection"
+      },
+      "explanation": "Consolidated duplicate criteria and methods. Kept 'LLM-as-a-Judge for reflection step grouping' as the primary method and normalized FAS-related terms to consistent naming."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluations were conducted in the paper, so metadata remains empty"
+    }
+  },
+  "overall_notes": "The paper focuses on NLG for reasoning chain generation and compression. Extraction was generally accurate but contained some baseline methods in the models list that shouldn't be included. The paper uses comprehensive automatic evaluation metrics but lacks human evaluation or detailed LLM-as-judge rubrics beyond structural analysis of reasoning chains."
+}

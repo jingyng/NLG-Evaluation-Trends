@@ -1,0 +1,157 @@
+{
+  "paper_id": "2024.acl-long.29",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Generative Question Answering",
+      "Commonsense Frame Completion"
+    ],
+    "datasets": [
+      "CFC",
+      "PRONTOQA",
+      "COMMONGEN"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2_large",
+      "gpt_2_xl",
+      "gpt_3.5",
+      "gpt_4"
+    ],
+    "outputs": [
+      "Generated slot fillers for missing information in context sentences",
+      "Multiple plausible answers for commonsense questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Multiple plausible answers for commonsense questions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:commonsense reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT2Large",
+          "GPT2XL",
+          "GPT2-Large",
+          "GPT2-XL",
+          "GPT-3.5",
+          "GPT-4",
+          "GPT4 (as silver annotator)"
+        ],
+        "outputs": [
+          "textual slot‑filler strings (answers) generated for the missing slot",
+          "generated answers for missing slots in context sentences"
+        ]
+      },
+      "normalized": {
+        "GPT2Large": "GPT-2 Large",
+        "GPT2XL": "GPT-2 XL",
+        "GPT3.5": "GPT-3.5",
+        "GPT4": "GPT-4"
+      },
+      "explanation": "Normalized model names to standard format, removed 'commonsense reasoning' as it's not an NLG task, removed duplicate/redundant output descriptions, added clearer output description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PROBEVAL",
+      "KL DIVERGENCE",
+      "PROTOQA EVALUATOR",
+      "SPEARMAN CORRELATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "PROBEVAL (KL divergence)",
+          "KL divergence (PROBEVAL)",
+          "ProtoQA evaluator (MaxAnswer@10)"
+        ]
+      },
+      "normalized": {
+        "PROBEVAL (KL divergence)": "PROBEVAL",
+        "KL divergence (PROBEVAL)": "KL divergence",
+        "ProtoQA evaluator (MaxAnswer@10)": "ProtoQA evaluator"
+      },
+      "explanation": "Simplified metric names to base forms without redundant descriptors"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4",
+          "GPT4"
+        ],
+        "methods": [
+          "Silver annotation for answer‑cluster matching",
+          "matching model-generated answers to ground-truth clusters"
+        ],
+        "criteria": [
+          "cluster matching"
+        ]
+      },
+      "normalized": {},
+      "explanation": "GPT-4 was used for silver annotation during evaluation pipeline development, not as a judge of model outputs. This doesn't qualify as 'LLM-as-judge' in the intended sense of evaluating generation quality."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators clustered crowd-worker answers into concept-level clusters",
+      "Annotators matched model answers to ground-truth clusters",
+      "Agreement measured by BLANC"
+    ],
+    "criteria": [
+      "Clustering",
+      "Matching"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators clustered crowd-worker answers into concept-level clusters",
+          "Annotators matched model answers to ground-truth clusters",
+          "Agreement measured by BLANC"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators clustered crowd‑worker answers and matched model answers to ground‑truth clusters; agreement measured by BLANC.",
+          "cluster answers into meaningful concept-level clusters and match model answers to these clusters"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Reformatted guidelines for clarity and consistency, kept criteria as-is"
+    }
+  },
+  "overall_notes": "The paper focuses on probabilistic evaluation of commonsense through generative question answering. Key contribution is PROBEVAL metric for evaluating multiple correct answers. The LLM-as-judge question was tricky - while GPT-4 was used for silver annotation, this was part of developing the evaluation pipeline rather than judging model outputs directly."
+}

@@ -1,0 +1,139 @@
+{
+  "paper_id": "2025.naacl-long.144",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Story Outline Generation",
+      "Contradiction Detection"
+    ],
+    "datasets": [
+      "WRITINGPROMPTS",
+      "CONTRADOC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b_chat",
+      "gpt_4",
+      "gpt_3.5_turbo"
+    ],
+    "outputs": [
+      "story outlines",
+      "contradiction detection scores for event pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Contradiction Detection"
+        ],
+        "outputs": [
+          "contradiction detection scores for event pairs"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Story Generation": "Other:Story Outline Generation",
+        "Generated story outlines (long-form text) and contradiction detection scores per event pair": "story outlines, contradiction detection scores for event pairs"
+      },
+      "explanation": "Refined tasks to be more specific (story outline generation rather than story generation, and added contradiction detection as a secondary NLG evaluation task). Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PRECISION",
+      "RECALL",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "average contradiction score",
+          "PAIRWISE SCORE",
+          "CONTEXT SCORE",
+          "F1-score"
+        ]
+      },
+      "normalized": {
+        "F1-score": "F1"
+      },
+      "explanation": "Removed 'average contradiction score', 'PAIRWISE SCORE', and 'CONTEXT SCORE' as these are LLM-based evaluation methods that belong under Question 3. Kept traditional metrics (precision, recall, F1) that are automatically computed."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "PAIRWISE SCORE",
+      "CONTEXT SCORE"
+    ],
+    "criteria": [
+      "Factuality",
+      "Redundancy"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLaMA2-7B-Chat"
+        ],
+        "methods": [
+          "PAIRWISE DETECTION",
+          "FULL OUTLINE DETECTION",
+          "pairwise score",
+          "context score"
+        ],
+        "criteria": [
+          "contradiction rating",
+          "factual contradiction",
+          "inconsistency"
+        ]
+      },
+      "normalized": {
+        "redundancy": "redundancy",
+        "factual contradiction": "factual inconsistency"
+      },
+      "explanation": "Removed LLaMA2-7B-Chat since it's primarily used for generation, not evaluation. Removed 'PAIRWISE DETECTION' and 'FULL OUTLINE DETECTION' as these are baseline methods, not LLM-as-judge evaluation metrics. Normalized criteria terms and kept only the core evaluation rubrics."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [
+      "Write down the indices of all pairs of events which clearly contradict each other in at least one fact"
+    ],
+    "criteria": [
+      "factual contradiction",
+      "Redundancy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed. The paper mentions human annotation was attempted but abandoned due to difficulty, and used GPT-4 instead. The extracted guideline and criteria are from the evaluation framework but were ultimately not used for human evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation through contradiction detection in story outlines. Key findings: (1) Successfully addresses NLG tasks (story outline generation and contradiction detection), (2) Uses some traditional automatic metrics but primarily relies on LLM-based evaluation, (3) Heavily uses GPT-4 as a judge with specialized scoring methods, (4) Does not conduct human evaluations due to complexity. The extraction was mostly accurate but needed refinement to separate automatic metrics from LLM-as-judge methods."
+}

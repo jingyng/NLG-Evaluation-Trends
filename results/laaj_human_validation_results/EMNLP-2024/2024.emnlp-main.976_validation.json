@@ -1,0 +1,81 @@
+{
+  "paper_id": "2024.emnlp-main.976",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates GPT-4 as a judge against human evaluation by conducting a small-scale human evaluation on the same 100 prompts and comparing GPT-4 evaluation results with human annotation results, stating they are consistent"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "no",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "no",
+      "notes": "Paper states 'we design different prompts for each task' but does not provide the actual prompt texts"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Guidelines mention evaluating 'which response is more helpful and harmless' but lack detailed scoring rubrics"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "agreement_consistency"
+    ],
+    "shared_criteria": [
+      "helpfulness",
+      "harmlessness"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "100 prompts randomly sampled from two datasets, evaluated by both GPT-4 and human annotators"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "consistency",
+        "value": "consistent",
+        "criterion": "helpfulness_and_harmlessness",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Paper qualitatively states human evaluation results are 'consistent' with GPT-4 evaluation but provides no quantitative correlation metrics"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "Human evaluation results confirm consistency with GPT-4 evaluations, supporting the paper's decision to use GPT-4 as automatic evaluators, though limited by small sample size and lack of quantitative agreement metrics"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "helpfulness",
+      "harmlessness"
+    ],
+    "notes": "Both GPT-4 and human evaluators used the same criteria of 'helpfulness' and 'harmlessness' for pairwise comparisons between responses"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "paper_id": "2025.naacl-long.472",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Text Summarization",
+      "Instruction Following",
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "ALPACAFARM",
+      "ANTHROPIC HH RLHF",
+      "WMT21"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "mistral_7b_sft_beta",
+      "dolly_v_2_3b",
+      "wmt_21_dense_24_wide_x_en"
+    ],
+    "outputs": [
+      "Generated responses for instruction prompts",
+      "Machine translation outputs",
+      "Instruction-following responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "hh-rlhf"
+        ],
+        "languages": [],
+        "models": [
+          "SHP-Large",
+          "SHP-XL",
+          "OASST",
+          "Eurus",
+          "Pythia"
+        ],
+        "outputs": [
+          "responses to instructions/prompts"
+        ]
+      },
+      "normalized": {
+        "Other:Instruction Following": "Other:Instruction Following",
+        "Dialogue Generation": "Dialogue Generation"
+      },
+      "explanation": "Removed 'hh-rlhf' duplicate dataset and removed reward models (SHP-Large, SHP-XL, OASST, Eurus, Pythia) as they are evaluation metrics, not generation models. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "REWARD",
+      "SPEARMAN S RANK CORRELATION COEFFICIENT",
+      "EURUS REWARD",
+      "GPT 4 AUTOMATED EVALUATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Spearman's rank correlation (ρ)",
+          "Eurus",
+          "SHP-Large",
+          "SHP-XL",
+          "OASST",
+          "PairRM",
+          "GPT-4o"
+        ]
+      },
+      "normalized": {
+        "Reward Score": "Reward Score",
+        "Spearman's rank correlation coefficient": "Spearman's rank correlation coefficient",
+        "Eurus reward score": "Eurus reward score",
+        "GPT-4o automatic evaluation": "GPT-4o automatic evaluation"
+      },
+      "explanation": "Removed duplicate metrics and normalized reward model names to descriptive metric names. Kept the main automatic evaluation approaches used."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o"
+    ],
+    "methods": [
+      "LLM-based automatic evaluation of generated responses"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Harmlessness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Eurus"
+        ],
+        "methods": [
+          "evaluator",
+          "reward scoring"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4o": "GPT-4o",
+        "LLM‑based automatic evaluation of generated responses": "LLM-based automatic evaluation of generated responses"
+      },
+      "explanation": "Removed Eurus as it's a reward model, not an LLM judge. Kept GPT-4o as the explicit LLM evaluator. Consolidated evaluation methods."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted according to the paper text. The paper explicitly mentions automated evaluation and suggests human evaluation would be desirable but was not performed."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation methods (MBR-BoN) for instruction-following and machine translation tasks. It uses automated evaluation with reward models and LLM judges (GPT-4o) but no human evaluation. The extraction was mostly accurate but included some reward models as generation models, which I corrected."
+}

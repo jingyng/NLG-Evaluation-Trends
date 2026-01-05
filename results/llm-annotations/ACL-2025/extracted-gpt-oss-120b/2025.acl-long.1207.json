@@ -1,0 +1,59 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "Our attacker LLM generates multiple rounds of queries [q1 , . . . , qn] one by one... We construct a multi-turn safety alignment dataset using ActorBreaker and show that fine-tuning models on our safety dataset significantly improve their robustness against our attacks.",
+        "tasks": [
+            "Dialogue Generation"
+        ],
+        "datasets": [
+            "HarmBench",
+            "EasyJailbreak",
+            "Circuit Breaker",
+            "Multi-turn safety dataset (generated)"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-4o",
+            "GPT-3.5",
+            "Claude-3.5",
+            "Llama-3-8B",
+            "Llama-3-70B"
+        ],
+        "outputs": "multi-turn attack prompts and safety-alignment dialogues"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We utilize Attack Success Rate (ASR) as our evaluation metric... To measure the diversity of the generated prompts across different trials, we follow the established practices ... and employ the BERT-sentence embedding distances as our metric.",
+        "automatic_metrics": [
+            "Attack Success Rate (ASR)",
+            "Cosine similarity of BERT embeddings (diversity)",
+            "Toxicity score from Llama Guard 2"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "Following the work of , we utilize the robust evaluation capability of GPT-4o to provide the assessment... Our human studies further confirm that the GPT-4o judge has a higher agreement with human majority voting than alternatives.",
+        "models": [
+            "GPT-4o"
+        ],
+        "methods": [
+            "judge scoring (score 1-5)",
+            "pairwise evaluation"
+        ],
+        "criteria": [
+            "harmfulness",
+            "unsafe probability"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "Our human studies further confirm that the GPT-4o judge has a higher agreement with human majority voting... We conducted additional human study experiments. We select the majority vote across 10 different human annotations per query as ground truth.",
+        "guideline": "Human annotators rate each model output for safety/harmfulness; the majority vote across annotators is used as ground truth.",
+        "criteria": [
+            "harmfulness",
+            "safety (safe vs unsafe)"
+        ]
+    }
+}

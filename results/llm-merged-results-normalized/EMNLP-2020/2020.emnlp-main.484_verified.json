@@ -1,0 +1,143 @@
+{
+  "paper_id": "2020.emnlp-main.484",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Generation",
+      "News Title Generation"
+    ],
+    "datasets": [
+      "QUESTION GENERATION",
+      "NEWS TITLE GENERATION NTG"
+    ],
+    "languages": [
+      "English",
+      "French",
+      "German",
+      "Spanish",
+      "Italian",
+      "Portuguese",
+      "Russian"
+    ],
+    "models": [
+      "unicoder_xdae_sc",
+      "unicoder_xfnp_sc",
+      "m_bert",
+      "xlm_r"
+    ],
+    "outputs": [
+      "questions from passages",
+      "titles from news articles"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "questions from passages",
+          "titles from news articles"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Title Generation",
+          "Text Summarization"
+        ],
+        "datasets": [
+          "QG",
+          "NTG"
+        ],
+        "languages": [
+          "Chinese"
+        ],
+        "models": [
+          "XLM-R base",
+          "Unicoder xF N P SC"
+        ],
+        "outputs": [
+          "generated questions and news titles",
+          "Generated questions and generated news titles",
+          "questions and news titles in multiple languages"
+        ]
+      },
+      "normalized": {
+        "Other:Title Generation": "Other:News Title Generation",
+        "QG": "Question Generation (QG)",
+        "NTG": "News Title Generation (NTG)",
+        "Unicoder xF N P SC": "Unicoder xFNP SC"
+      },
+      "explanation": "Removed non-NLG tasks and duplicated/abbreviated dataset names. Simplified model names and merged duplicates. Specified what is being generated more precisely."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ACCURACY",
+      "NDCG"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy",
+          "nDCG"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU"
+      },
+      "explanation": "Simplified BLEU-4 to BLEU base form. Added metrics used for generation tasks (QG uses BLEU, understanding tasks use Accuracy/nDCG). ROUGE-L was incorrectly included as it's only mentioned briefly in Table 11 without usage details."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper. The paper uses traditional automatic metrics and mentions human labeling for dataset creation only."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Each labeler must learn the guideline and pass the labeling test."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from No to No (answer_changed true because metadata was incorrect). The human labeling mentioned is for dataset construction, not for evaluating generated outputs. No human evaluation of generated text was conducted."
+    }
+  },
+  "overall_notes": "This paper introduces XGLUE benchmark and evaluates cross-lingual models on both understanding and generation tasks. The generation tasks are QG and NTG evaluated with BLEU. No human or LLM evaluation of generated outputs was performed - only automatic metrics. The extraction contained some errors from dataset creation being confused with output evaluation."
+}

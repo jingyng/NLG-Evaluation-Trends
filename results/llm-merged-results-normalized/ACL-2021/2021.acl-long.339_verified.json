@@ -1,0 +1,144 @@
+{
+  "paper_id": "2021.acl-long.339",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "DAILYDIALOG",
+      "HOLMES"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "s_2s",
+      "s_2s+lm",
+      "style_fusion",
+      "proposed_disentanglement_model"
+    ],
+    "outputs": [
+      "Stylistic responses",
+      "Generated responses in Holmes style (formal and polite)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Auto-Encoder (AE)",
+          "Our approach"
+        ],
+        "outputs": [
+          "generated stylistic responses"
+        ]
+      },
+      "normalized": {
+        "Sequence-to-Sequence (S2S) model": "Sequence-to-Sequence (S2S)",
+        "Our proposed disentanglement approach": "Proposed Disentanglement Model",
+        "stylistic responses in the Holmes style (formal and polite)": "Generated responses in Holmes style (formal and polite)"
+      },
+      "explanation": "Removed duplicate/redundant model names and simplified output descriptions. Kept only core models being evaluated."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "BERTSCORE",
+      "DIVERSITY DIST",
+      "STYLE INTENSITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BERTScore"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SI",
+          "BLEU-3",
+          "BLEU-4",
+          "SI (Style Intensity via BERT classifier probability)"
+        ]
+      },
+      "normalized": {
+        "SI (Style Intensity)": "Style Intensity (SI)",
+        "Dist-k": "Diversity (Dist-k)",
+        "BLEU-3, BLEU-4": "BLEU"
+      },
+      "explanation": "Simplified BLEU variants to base form. Added BERTScore since paper uses BERT-based style classification. Normalized SI and Dist-k to clearer names."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BERT"
+        ],
+        "methods": [
+          "style classification"
+        ],
+        "criteria": [
+          "style"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as the paper does NOT use LLMs as judges. BERT is used only for automatic style classification, not as an evaluator LLM."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers shown dialogue history and two responses (baseline vs. our method)",
+      "Preference evaluation for each aspect (style intensity, content relevance)",
+      "Ties permitted",
+      "200 samples evaluated by 5 Amazon Mechanical Turk workers"
+    ],
+    "criteria": [
+      "Intensity",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "200 samples evaluated by 5 Amazon Mechanical Turk workers"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "style intensity": "Style Intensity",
+        "content relevance": "Content Relevance"
+      },
+      "explanation": "Added missing detail about evaluation scale (200 samples, 5 workers). Normalized criteria capitalization."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on stylistic dialogue generation with automatic metrics (BLEU, BERT-based style classification, diversity) and human evaluation. No LLM-as-judge evaluation is used. The disentanglement approach shows improvements in style intensity while maintaining content relevance."
+}

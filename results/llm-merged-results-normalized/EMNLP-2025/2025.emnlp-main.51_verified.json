@@ -1,0 +1,122 @@
+{
+  "paper_id": "2025.emnlp-main.51",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text To Sql Generation"
+    ],
+    "datasets": [
+      "SPIDER",
+      "BIRD",
+      "AMBIDB",
+      "SPIDER 2 0"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "glm_4_air",
+      "deepseek_v_3",
+      "qwen_72b",
+      "gpt_4",
+      "r_1"
+    ],
+    "outputs": [
+      "SQL queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "R1"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Code Generation"
+        ],
+        "datasets": [
+          "Bird"
+        ],
+        "models": [],
+        "outputs": [
+          "Generated SQL queries"
+        ]
+      },
+      "normalized": {
+        "Other:Text-to-SQL": "Other:Text-to-SQL",
+        "Bird": "BIRD"
+      },
+      "explanation": "Removed 'Code Generation' as this is specifically Text-to-SQL task; consolidated duplicate Bird dataset; normalized naming; removed redundant 'Generated SQL queries'"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "LOCATE ACCURACY",
+      "EXACT MATCHING",
+      "RECALL",
+      "EXECUTION ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Metrics correctly extracted and normalized; no changes needed"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Correct answer 'No' - the paper uses LLMs for generation but not as judges/evaluators of outputs"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "The manual examination involved identifying error types related to schema linking, specifically: Target Database without Retrieval, Referring Irrelevant Databases, Linking to the Wrong Tables, and Linking to the Wrong Columns."
+        ],
+        "criteria": [
+          "schema linking accuracy",
+          "error type classification"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'Yes' to 'No' because the manual error analysis examines model failures/error types, not human evaluation of generated SQL outputs"
+    }
+  },
+  "overall_notes": "Extraction quality was generally good. Key clarification: The manual analysis mentioned examines error types in model performance, not human evaluation of generated outputs. The paper focuses on schema linking for Text-to-SQL generation with strong emphasis on evaluation metrics and dataset construction."
+}

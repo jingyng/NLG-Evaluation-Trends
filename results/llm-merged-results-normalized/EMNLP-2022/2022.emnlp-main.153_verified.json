@@ -1,0 +1,134 @@
+{
+  "paper_id": "2022.emnlp-main.153",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "EXTENDED BRENNAN GREENSTADT CORPUS EBG",
+      "REUTERS CORPUS VOLUME 1 rcv1"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "back_translation",
+      "lexical_substitution_using_bert",
+      "mutant_x",
+      "heuristic_obfuscation_search"
+    ],
+    "outputs": [
+      "obfuscated documents",
+      "paraphrased text"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Machine Translation"
+        ],
+        "datasets": [
+          "EBG",
+          "C50",
+          "Reuters C50"
+        ],
+        "languages": [],
+        "models": [
+          "Facebook many-to-many translation model",
+          "BERT",
+          "GloVe",
+          "Masking (Stamatatos, 2018)",
+          "Facebook's many-to-many translation model",
+          "GloVE",
+          "SVM"
+        ],
+        "outputs": [
+          "obfuscated versions of input documents through paraphrasing, lexical substitution, or back-translation"
+        ]
+      },
+      "normalized": {
+        "Extended Brennan-Greenstadt (EBG)": "Extended Brennan-Greenstadt Corpus (EBG)",
+        "Reuters C50": "Reuters Corpus Volume 1 (RCV1)"
+      },
+      "explanation": "Removed 'Machine Translation' as a task since MT is used as a tool/technique for obfuscation, not as a primary NLG task being evaluated. Consolidated duplicate dataset names and removed non-NLG models (SVM, Masking) that are used for evaluation, not generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "BERTSCORE",
+      "QUESTEVAL",
+      "USE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE variants to base 'ROUGE' metric following simplification rules. All other metrics were correctly identified."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The paper uses traditional automatic metrics and discusses question-answering approaches but doesn't employ LLMs for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper explicitly mentions the lack of human evaluation as a limitation but does not conduct any human evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on authorship obfuscation as a paraphrase generation task. It evaluates obfuscation techniques using automatic metrics but does not use LLMs as judges or conduct human evaluation. The extraction was generally accurate but included some evaluation models (SVM, Masking) that should not be listed as NLG models."
+}

@@ -1,0 +1,175 @@
+{
+  "paper_id": "2025.acl-long.580",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Medical Question Answering"
+    ],
+    "datasets": [
+      "MMCU-Medical",
+      "CMB-Exam",
+      "CMB-Clin",
+      "CMeKG",
+      "CPubMed-KG",
+      "Disease-KG"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "GPT-3.5",
+      "GPT-3.5 Turbo",
+      "Baichuan13B-Chat"
+    ],
+    "outputs": [
+      "Generated answers to medical multiple-choice and open-domain questions",
+      "Medical diagnostic suggestions",
+      "Medication recommendations",
+      "Treatment plans"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "CMeKG",
+          "CPubMed-KG",
+          "Disease-KG"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Medical diagnostic suggestions",
+          "Medication recommendations",
+          "Treatment plans"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT 3.5",
+          "Baichuan13B-chat"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "GPT 3.5": "GPT-3.5",
+        "Baichuan13B-chat": "Baichuan13B-Chat",
+        "Other:Question Answering": "Other:Medical Question Answering"
+      },
+      "explanation": "Consolidated duplicate model names, removed generic 'Question Answering' in favor of more specific 'Medical Question Answering', added knowledge graph datasets used in retrieval, and refined output descriptions to better reflect medical domain"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EM",
+      "PCR",
+      "PPL",
+      "ROUGE",
+      "BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-1",
+          "BLEU-4",
+          "ROUGE-R",
+          "Exact Match",
+          "Partial Correct Rate",
+          "Artificial Correlation Judgment",
+          "Perplexity",
+          "ROUGE-Recall",
+          "Exact Match (EM)",
+          "Partial Correct Rate (PCR)",
+          "Perplexity (PPL)",
+          "ROUGE-Recall (ROUGE-R)"
+        ]
+      },
+      "normalized": {
+        "BLEU-1": "BLEU",
+        "BLEU-4": "BLEU",
+        "ROUGE-R": "ROUGE",
+        "Exact Match": "EM",
+        "Partial Correct Rate": "PCR",
+        "Perplexity": "PPL",
+        "ROUGE-Recall": "ROUGE",
+        "Exact Match (EM)": "EM",
+        "Partial Correct Rate (PCR)": "PCR",
+        "Perplexity (PPL)": "PPL",
+        "ROUGE-Recall (ROUGE-R)": "ROUGE"
+      },
+      "explanation": "Simplified metric variants to base forms (BLEU-1/BLEU-4 → BLEU, ROUGE-R → ROUGE), removed redundant full names, kept acronyms as they're equivalent to full names used in paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {
+        "None": ""
+      },
+      "explanation": "Paper does not use LLMs as judges - LLMs are used for generation only, not for evaluation. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Medical experts rate retrieved knowledge based on correlation/relevance criteria: correlation=1 (relevant and useful), relevant but useless=0, irrelevant=-1"
+    ],
+    "criteria": [
+      "relevance",
+      "usefulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "relevance",
+          "usefulness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "correlation",
+          "uselessness"
+        ]
+      },
+      "normalized": {
+        "correlation": "relevance",
+        "uselessness": "usefulness"
+      },
+      "explanation": "Simplified criteria to core concepts - 'correlation' normalized to 'relevance', and inverted 'uselessness' to 'usefulness' for consistency. Kept detailed guideline description as it accurately reflects the human evaluation process."
+    }
+  },
+  "overall_notes": "The paper presents HyKGE framework for medical question answering using retrieval-augmented generation with knowledge graphs. It evaluates generated medical responses using both automatic metrics (EM, PCR, PPL, ROUGE, BLEU) and human evaluation by medical experts. The extraction was generally accurate but required normalization of metric variants and model names. No LLM-as-judge evaluation was conducted."
+}

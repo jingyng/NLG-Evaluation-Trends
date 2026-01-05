@@ -1,0 +1,94 @@
+{
+  "paper_id": "2025.emnlp-main.1080",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates GPT-4o judgments against human consensus on 500 responses, reporting accuracy and F1-score at different threshold values with peak agreement metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o-2024-08-06"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full judge prompt template shown in Appendix with detailed scoring rubric (1-10 scale) and evaluation criteria"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": 0.7822,
+      "interpretation": "substantial inter-annotator consistency"
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Annotators labeled unsafe samples as positive cases; annotation document shown in Appendix Figure but specific guidelines not fully detailed"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Accuracy",
+      "F1-score"
+    ],
+    "shared_criteria": [
+      "Safety"
+    ],
+    "sample_size": {
+      "total_generated": 500,
+      "validated_by_both": 500,
+      "notes": "500 randomly sampled model responses evaluated by both human annotators and GPT-4o"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Accuracy",
+        "value": 88.8,
+        "criterion": "Safety",
+        "llm_model": "GPT-4o",
+        "significance": "peak at threshold 5",
+        "notes": "Highest agreement achieved at threshold 5"
+      },
+      {
+        "metric": "F1-score",
+        "value": 87.98,
+        "criterion": "Safety",
+        "llm_model": "GPT-4o",
+        "significance": "peak at threshold 5",
+        "notes": "Highest agreement achieved at threshold 5"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Threshold 5 provides optimal LLM-human alignment",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GPT-4o achieves 88.8% accuracy and 87.98 F1-score against human consensus at threshold 5, demonstrating strong alignment with human judgment for safety evaluation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Harmlessness",
+      "Compliance",
+      "Accuracy",
+      "Privacy",
+      "Ethics",
+      "Fairness"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Safety"
+    ],
+    "notes": "LLM evaluates multiple detailed safety criteria while humans provide overall safety judgments based on safety violations"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "paper_id": "2025.acl-long.415",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Retrieval-Augmented Generation",
+      "Other:Question Answering"
+    ],
+    "datasets": [
+      "TriviaQA",
+      "MuSiQue",
+      "HotpotQA",
+      "2WikiMultihopQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4",
+      "Claude 3.5 Sonnet",
+      "Gemini Pro",
+      "text-embedding-ada-002",
+      "bge-large-en-v1.5",
+      "cohere-embed-english-v3.0"
+    ],
+    "outputs": [
+      "Generated responses to user queries",
+      "Acceptance or rejection of unanswerable queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "outputs": [
+          "Acceptance or rejection of unanswerable queries"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Other:Response Generation"
+        ]
+      },
+      "normalized": {
+        "Vector retriever": "retrieval method (not a model)",
+        "BM25": "retrieval method (not a model)",
+        "Raptor ensemble": "retrieval method (not a model)",
+        "Cohere reranker": "reranker (not a model)",
+        "Llama-Guard-3-8B": "evaluation model (moved to Q3)"
+      },
+      "explanation": "Removed 'Dialogue Generation' as the paper focuses on QA not dialogue. Removed retrieval components as they are not generation models. Added 'Question Answering' as main task. Simplified outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Unanswered Ratio",
+      "Acceptable Ratio",
+      "Joint Score",
+      "Accuracy",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Metrics were correctly extracted and don't need normalization as they are custom metrics specific to this paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o",
+      "Claude 3.5 Sonnet",
+      "DeepSeek-R1",
+      "Llama-Guard-3-8B"
+    ],
+    "methods": [
+      "Prompt-based classification with in-context examples",
+      "Binary classification of request-response pairs",
+      "Safety classification"
+    ],
+    "criteria": [
+      "answered",
+      "unanswered",
+      "ask-for-clarification",
+      "acceptable",
+      "unacceptable",
+      "safety"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "DeepSeek-R1"
+        ],
+        "methods": [
+          "Safety classification"
+        ],
+        "criteria": [
+          "safety"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "Deepseek-R1": "DeepSeek-R1",
+        "acceptable ratio assessment": "Prompt-based classification",
+        "unanswered ratio assessment": "Prompt-based classification",
+        "verification of unanswerable request categories": "moved to data generation (not evaluation)"
+      },
+      "explanation": "Normalized model names, consolidated methods, and added safety criteria from Llama-Guard evaluation. Removed items related to data generation rather than output evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three authors independently label 150 request-response pairs as answered/unanswered/ask-for-clarification and acceptable/unacceptable based on predefined category-specific criteria"
+    ],
+    "criteria": [
+      "answered",
+      "unanswered",
+      "ask-for-clarification",
+      "acceptable",
+      "unacceptable"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three authors independently label 150 request-response pairs as answered/unanswered/ask-for-clarification and acceptable/unacceptable based on predefined category-specific criteria"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Assign labels based on predefined definitions for answered, unanswered, ask for clarification, acceptable, and unacceptable responses, using category-specific criteria.",
+          "Annotators label each response as answered, unanswered, ask-for-clarification, acceptable, or unacceptable.",
+          "The authors' labels are based on predefined criteria for each unanswerable category, including definitions and examples provided in the paper."
+        ]
+      },
+      "normalized": {
+        "ask for clarification": "ask-for-clarification"
+      },
+      "explanation": "Consolidated the fragmented guideline into a single clear description. Normalized criteria naming."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate but needed some refinement. Key observations: (1) The paper's main contribution is evaluating RAG systems' ability to handle unanswerable queries, (2) Human evaluation was conducted by authors (not crowdsourcing), (3) LLM-as-judge was used extensively with multiple models, (4) Custom metrics were developed specifically for unanswerability evaluation."
+}

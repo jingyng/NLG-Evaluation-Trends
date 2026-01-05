@@ -1,0 +1,85 @@
+{
+  "paper_id": "2024.emnlp-main.1258",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LN RS (GPT-4-based metric) with human evaluation rankings across three base models (LLAMA2-7B, LLAMA2-13B, PYTHIA-6.9B) on a shared set of 192 data points, showing similar preference patterns where preference-optimized models are ranked highest by both humans and LN RS"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "no",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "no",
+      "notes": "Paper mentions prompt template is provided in Appendix A but this appendix is not included in the provided text; also mentions order reversal technique to reduce position bias"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 12,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed instructions provided in Appendix B (not included in text); human evaluators ranked responses based on Overall Appropriateness, Social Understanding, and Conversational Insightfulness"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Rank correlation analysis"
+    ],
+    "shared_criteria": [
+      "Overall Appropriateness",
+      "Social Understanding",
+      "Conversational Insightfulness"
+    ],
+    "sample_size": {
+      "total_generated": 192,
+      "validated_by_both": 192,
+      "notes": "All 192 data points were evaluated by both GPT-4 (LN RS) and human evaluators; each human evaluator assessed 16 data points"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Rank correlation",
+        "value": null,
+        "criterion": "Preference",
+        "llm_model": "GPT-4",
+        "significance": "qualitative alignment",
+        "notes": "Paper reports qualitative alignment between LN RS trends and human rankings but does not provide a specific correlation coefficient value or statistical significance testing"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LN RS metric based on GPT-4 judgments shows alignment with human preferences, consistently ranking preference-optimized models highest across all tested LLMs, though no quantitative correlation coefficient is reported"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "LN RS (quality relative to gold answer)"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Appropriateness",
+      "Social",
+      "Conversation"
+    ],
+    "notes": "GPT-4 evaluates responses relative to gold answers using LN RS, while humans rank responses based on specific pragmatic criteria; both evaluate the same underlying pragmatic quality dimensions"
+  }
+}

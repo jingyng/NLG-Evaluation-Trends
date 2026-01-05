@@ -1,0 +1,143 @@
+{
+  "paper_id": "2024.naacl-long.351",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation",
+      "Other:Prompt Optimization"
+    ],
+    "datasets": [
+      "I2P",
+      "Template prompts"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-7B",
+      "GPT-3.5 Turbo"
+    ],
+    "outputs": [
+      "Modified safe prompts for text-to-image generation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text-to-Image Generation"
+        ],
+        "datasets": [
+          "Toxic-clean prompt pairs"
+        ],
+        "languages": [],
+        "models": [
+          "LLaMA (7B)",
+          "LLaMA"
+        ],
+        "outputs": [
+          "Modified prompts for safe image generation",
+          "Modified safe prompts"
+        ]
+      },
+      "normalized": {
+        "LLaMA (7B)": "LLaMA-7B",
+        "LLaMA": "LLaMA-7B"
+      },
+      "explanation": "Removed 'Text-to-Image Generation' as this is not an NLG task (it's image generation). Kept only NLG-related tasks (prompt optimization/paraphrasing). Removed duplicate model entries and normalized to LLaMA-7B. Consolidated outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Q16 Classifier",
+      "NudeNet",
+      "MHSC",
+      "BLIP Similarity",
+      "CLIP Score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Q16 Classifier",
+          "NudeNet",
+          "MHSC"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Inappropriate Probability (IP) via Q16 & NudeNet",
+          "Inappropriate Probability (IP) via MHSC",
+          "Confidence Score (CS) from Q16",
+          "Inappropriate Probability (IP)",
+          "Confidence Score (CS)"
+        ]
+      },
+      "normalized": {
+        "Inappropriate Probability (IP) via Q16 & NudeNet": "Q16 Classifier, NudeNet",
+        "Inappropriate Probability (IP) via MHSC": "MHSC",
+        "Confidence Score (CS) from Q16": "Q16 Classifier",
+        "Inappropriate Probability (IP)": "Q16 Classifier, NudeNet, MHSC",
+        "Confidence Score (CS)": "Q16 Classifier"
+      },
+      "explanation": "Simplified to the actual classifier/metric names rather than the derived scores. IP and CS are computed using these classifiers, but the metrics themselves are the classifiers."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges/evaluators. GPT-3.5 Turbo is used for dataset generation, not for evaluating generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. All evaluations are automated using classifiers and similarity metrics."
+    }
+  },
+  "overall_notes": "This paper is primarily about text-to-image generation safety, with NLG components limited to prompt optimization/paraphrasing. The main NLG task is prompt rewriting for safety. The automatic metrics are image-based classifiers (Q16, NudeNet, MHSC) and alignment metrics (BLIP, CLIP) applied to generated images, not traditional NLG metrics like BLEU/ROUGE."
+}

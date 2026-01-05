@@ -1,0 +1,128 @@
+{
+  "paper_id": "2025.emnlp-main.63",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering"
+    ],
+    "datasets": [
+      "DRAGONBALL",
+      "SQuAD",
+      "NFCORPUS",
+      "SCIDOCS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_max"
+    ],
+    "outputs": [
+      "generated answers",
+      "generated answers to user queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LightRAG"
+        ],
+        "outputs": [
+          "generated answers in a single paragraph without sources and references"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "Rouge-L": "ROUGE"
+      },
+      "explanation": "Removed 'Text Summarization' task as the paper focuses on question answering. Removed 'LightRAG' as it's a comparison framework, not a model being evaluated. Simplified output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "METEOR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "Rouge-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE-L and Rouge-L to ROUGE according to simplification rules"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "qwen_max"
+    ],
+    "methods": [
+      "binary classification task"
+    ],
+    "criteria": [
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'Yes' because the paper explicitly uses Qwen-max LLM for binary classification to judge chunk relevance to user questions. Added 'relevance' as the implicit criterion."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "The generated answer is evaluated as Relevant if it contains core-relevant information consistent with key points in the standard answer; Irrelevant if it does not cover key points; Wrong if it covers key points but the information is incorrect or contradictory."
+        ],
+        "criteria": [
+          "Relevant",
+          "Irrelevant",
+          "Wrong"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all human evaluation metadata as the paper states these criteria are used in automatic LLM-based evaluation, not human evaluation. The paper does not conduct human evaluations."
+    }
+  },
+  "overall_notes": "The paper focuses on RAG retrieval performance evaluation with some generation quality assessment. Key findings: (1) The paper does use LLM-as-judge (Qwen-max) for binary classification of chunk relevance, contrary to initial extraction. (2) Human evaluation criteria mentioned were actually used in automatic LLM evaluation, not human evaluation. (3) The main NLG task is question answering with generated answers evaluated using ROUGE and METEOR metrics."
+}

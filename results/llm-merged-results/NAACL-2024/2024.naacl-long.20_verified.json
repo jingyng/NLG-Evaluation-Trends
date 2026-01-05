@@ -1,0 +1,204 @@
+{
+  "paper_id": "2024.naacl-long.20",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering",
+      "Other:Fact Verification",
+      "Other:Dialogue Generation"
+    ],
+    "datasets": [
+      "Natural Questions (NQ)",
+      "HotpotQA",
+      "FEVER",
+      "Wizards of Wikipedia (WoW)",
+      "MultiRC",
+      "ReCoRD",
+      "AIS",
+      "SuperGLUE",
+      "KILT",
+      "XGLUE",
+      "CodeSearchNet",
+      "T-Rex"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "MPT-7b-Instruct",
+      "GPT-3.5-Turbo",
+      "GPT-4",
+      "BART",
+      "Facebook RAG Model",
+      "BM25",
+      "ColBERTv2",
+      "DPR"
+    ],
+    "outputs": [
+      "question answering responses",
+      "dialogue responses",
+      "fact-checking outputs",
+      "generated answers based on retrieved passages"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "SuperGLUE",
+          "KILT",
+          "XGLUE",
+          "CodeSearchNet",
+          "T-Rex"
+        ],
+        "languages": [],
+        "models": [
+          "Facebook RAG Model",
+          "DPR"
+        ],
+        "outputs": [
+          "generated answers based on retrieved passages"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "AIS Attribution",
+          "Wizard of Wikipedia"
+        ],
+        "languages": [],
+        "models": [
+          "gpt-3.5-turbo-16k",
+          "gpt-4",
+          "OpenAI Ada embeddings"
+        ],
+        "outputs": [
+          "Generated responses or answers based on retrieved passages",
+          "Generated answers or responses to queries"
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Other:Question Answering",
+        "Other:Fact Verification": "Other:Fact Verification",
+        "Natural Questions": "Natural Questions (NQ)",
+        "Wizards of Wikipedia": "Wizards of Wikipedia (WoW)",
+        "FLAN-T5-XXL": "FLAN-T5-XXL",
+        "Dialogue Generation": "Other:Dialogue Generation"
+      },
+      "explanation": "Removed duplicate datasets (Wizard of Wikipedia -> Wizards of Wikipedia), normalized model names (removed lowercase versions), added missing datasets mentioned in cross-domain experiments, removed models used only for evaluation (not generation), normalized output descriptions to be more precise"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Kendall's tau",
+      "Prediction Accuracy",
+      "Confidence Intervals"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Prediction Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Context Relevance",
+          "Answer Faithfulness",
+          "Answer Relevance",
+          "context relevance",
+          "answer faithfulness",
+          "answer relevance",
+          "Kendall's τ"
+        ]
+      },
+      "normalized": {
+        "Kendall's τ": "Kendall's tau",
+        "confidence intervals via PPI": "Confidence Intervals"
+      },
+      "explanation": "Removed the three RAG evaluation criteria (context relevance, answer faithfulness, answer relevance) as they are evaluation criteria, not metrics. Added prediction accuracy which is mentioned. Normalized all metrics to standard forms."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "DeBERTa-v3-Large",
+      "GPT-3.5-Turbo"
+    ],
+    "methods": [
+      "Fine-tuned judges",
+      "Few-shot prompting",
+      "Prediction-Powered Inference (PPI)",
+      "Synthetic data generation"
+    ],
+    "criteria": [
+      "Context Relevance",
+      "Answer Faithfulness",
+      "Answer Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "gpt-3.5-turbo-16k",
+          "FLAN-T5 XXL"
+        ],
+        "methods": [
+          "Binary classification judges",
+          "fine-tuned LLM judges"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "DeBERTa-v3-Large": "DeBERTa-v3-Large",
+        "GPT-3.5-Turbo": "GPT-3.5-Turbo",
+        "fine-tuning with contrastive learning": "Fine-tuned judges",
+        "few-shot prompting": "Few-shot prompting",
+        "context relevance": "Context Relevance",
+        "answer faithfulness": "Answer Faithfulness",
+        "answer relevance": "Answer Relevance"
+      },
+      "explanation": "Removed FLAN-T5-XXL (used for data generation, not judging) and normalized model names. Consolidated methods to remove redundancy. The three criteria are clearly defined evaluation dimensions."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators label query-passage-answer triples as positive/negative for context relevance, answer faithfulness, and answer relevance",
+      "Human preference validation set requires approximately 150-300 annotated datapoints"
+    ],
+    "criteria": [
+      "Context Relevance",
+      "Answer Faithfulness",
+      "Answer Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human preference validation set requires approximately 150-300 annotated datapoints"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- designate both positive and negative examples for context relevance, answer faithfulness, and answer relevance"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "context relevance": "Context Relevance",
+        "answer faithfulness": "Answer Faithfulness",
+        "answer relevance": "Answer Relevance"
+      },
+      "explanation": "Reformatted guideline to be more descriptive and added important detail about annotation set size. Criteria remained the same but normalized to title case."
+    }
+  },
+  "overall_notes": "The paper focuses on automated evaluation of RAG systems using LLM judges. The extraction was generally good but needed normalization for consistency (capitalization, removing duplicates). Key clarification: The three dimensions (context relevance, answer faithfulness, answer relevance) are evaluation criteria used by both human annotators and LLM judges, not traditional automatic metrics like BLEU/ROUGE. The paper uses Kendall's tau and prediction accuracy as the actual metrics for evaluation."
+}

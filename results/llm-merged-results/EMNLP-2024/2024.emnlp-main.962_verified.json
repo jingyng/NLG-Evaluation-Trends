@@ -1,0 +1,130 @@
+{
+  "paper_id": "2024.emnlp-main.962",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Medical Visual Question Answering",
+      "Image Captioning"
+    ],
+    "datasets": [
+      "VQA-RAD",
+      "SLAKE-EN",
+      "Med-VQA-2019",
+      "PathVQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "MedCoT",
+      "Gemini Pro",
+      "Flan-T5",
+      "DETR"
+    ],
+    "outputs": [
+      "Generated textual answers and step-by-step rationales"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Visual Question Answering"
+        ],
+        "datasets": [
+          "Med-2019"
+        ],
+        "languages": [],
+        "models": [
+          "Gemini-Pro",
+          "Sparse MoE",
+          "Gemini Pro 1.5"
+        ],
+        "outputs": [
+          "answers and rationales",
+          "The framework takes an image I and a question Q as inputs, and outputs a reasoning rationale R. This rationale R is subsequently used to generate an answer A."
+        ]
+      },
+      "normalized": {
+        "Gemini-Pro": "Gemini Pro",
+        "Other:Visual Question Answering": "Other:Medical Visual Question Answering"
+      },
+      "explanation": "Removed 'Other:Visual Question Answering' since the paper focuses specifically on medical VQA. Removed 'Med-2019' as it appears to be a duplicate/variant of 'Med-VQA-2019'. Normalized model names and simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "ROUGE",
+      "BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Rouge": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE to standard capitalization, simplified metric variants to base forms as per guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Gemini Pro",
+          "Gemini-pro-1.5"
+        ],
+        "methods": [
+          "self-reflection prompting for rationale validation",
+          "zero-shot prompting method"
+        ],
+        "criteria": [
+          "effectiveness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' because Gemini Pro is used within the MedCoT pipeline as part of the generation process (Initial and Follow-up Specialists), not as a post-generation evaluator. The self-reflection and zero-shot prompting are part of the generation methodology, not LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper. The paper relies solely on automatic metrics for evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on Medical Visual Question Answering with a hierarchical expert verification approach. While it uses LLMs (Gemini Pro) in the pipeline, they are part of the generation process rather than serving as post-generation evaluators. The extraction had minor issues with task specificity and model naming consistency, but was generally accurate regarding the NLG focus and evaluation metrics."
+}

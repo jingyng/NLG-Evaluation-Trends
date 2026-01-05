@@ -1,0 +1,131 @@
+{
+  "paper_id": "2021.acl-long.536",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "XSUM",
+      "CNN/DailyMail",
+      "SQuAD",
+      "NewsQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART-large",
+      "QAGen (BART-large)"
+    ],
+    "outputs": [
+      "abstractive summaries",
+      "summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "CNNDM"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated summaries"
+        ]
+      },
+      "normalized": {
+        "CNNDM": "CNN/DailyMail",
+        "SQUAD": "SQuAD",
+        "generated summaries": "abstractive summaries"
+      },
+      "explanation": "Normalized dataset names to standard forms (CNN/DailyMail, SQuAD) and simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "QAGS",
+      "QUALS",
+      "FactCC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed - all metrics are correctly extracted and properly normalized"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "QAGen (BART-large)"
+        ],
+        "methods": [
+          "log‑likelihood scoring of generated question‑answer pairs"
+        ],
+        "criteria": [
+          "factual consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items since this paper does not use LLMs as judges. QAGen is used for metric computation, not for judging outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators compare two summaries (BART-large MLE vs QUALS-CONSEQ) and select which is better or if equal across three dimensions: factual consistency, informativeness, and grammatical correctness"
+    ],
+    "criteria": [
+      "factual consistency",
+      "informativeness",
+      "grammatical correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators compare two summaries (BART-large MLE vs QUALS-CONSEQ) and select which is better or if equal across three dimensions: factual consistency, informativeness, and grammatical correctness"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- select which of the two summaries they prefer along 3 dimensions: factual consistency, informativeness and grammatical correctness.",
+          "Annotators are presented with the source document and two generated summaries and must choose which summary is better (or equal) for factual consistency, informativeness, and grammatical correctness.",
+          "We ask the annotators to select which of the two summaries they prefer along 3 dimensions: factual consistency, informativeness and grammatical correctness."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant guideline descriptions into a single clear statement"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Key observations: (1) Paper focuses exclusively on abstractive summarization task, (2) Uses multiple automatic metrics including their proposed QUALS metric, (3) Does NOT use LLMs as judges (QAGen is part of metric computation, not evaluation), (4) Conducts thorough human evaluation with clear criteria. The main corrections were normalizing dataset names and clarifying that this is not an LLM-as-judge paper."
+}

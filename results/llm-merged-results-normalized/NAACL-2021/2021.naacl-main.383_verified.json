@@ -1,0 +1,174 @@
+{
+  "paper_id": "2021.naacl-main.383",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "XSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "s_2s",
+      "pgn",
+      "bus",
+      "bertsum",
+      "bart",
+      "tconvs_2s",
+      "trans_2s",
+      "berts_2s"
+    ],
+    "outputs": [
+      "model-generated summaries",
+      "summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "models": [
+          "BertSum",
+          "Topic-Aware CNN Model",
+          "TransS2S",
+          "BertS2S"
+        ],
+        "outputs": [
+          "model generated summaries"
+        ]
+      },
+      "normalized": {
+        "BERT-base": "BERTS2S",
+        "BertSum": "BERTSum",
+        "model generated summaries": "model-generated summaries"
+      },
+      "explanation": "Removed duplicate model names (BertSum/BERTSum, TransS2S/TranS2S) and normalized to consistent capitalization. Removed 'model generated summaries' as duplicate of 'model-generated summaries'."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE",
+      "BERTSCORE",
+      "OPENIE",
+      "FACTCC",
+      "DAE",
+      "FEQA",
+      "QAGS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Consolidated all ROUGE variants into single 'ROUGE' metric as per normalization guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this 2021 paper - the evaluation uses traditional metrics and human annotations."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators first determine if each sentence is factual or non-factual",
+      "For non-factual sentences, annotators select one or more error categories from the typology (PredE, EntE, CircE, CorefE, LinkE, OutE, GramE, OthE, NE)"
+    ],
+    "criteria": [
+      "Factuality",
+      "Prede",
+      "Entity",
+      "Circumstance",
+      "Coreference",
+      "Linke",
+      "Oute",
+      "Grammaticality",
+      "Othe",
+      "Ne"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators first determine if each sentence is factual or non-factual"
+        ],
+        "criteria": [
+          "Predicate Error (PredE)",
+          "Entity Error (EntE)",
+          "Circumstance Error (CircE)",
+          "Coreference Error (CorefE)",
+          "Discourse Link Error (LinkE)",
+          "Out of Article Error (OutE)",
+          "Grammar Error (GramE)",
+          "Other Error (OthE)",
+          "Not an Error (NE)"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- for each sentence in the summary, the annotator first selects whether the sentence is factual, and if marked not factual, identifies the category of each error based on our typology.",
+          "Annotators label each sentence as factual or non‑factual and, for non‑factual sentences, select one or more error categories from the proposed typology (PredE, EntE, CircE, CorefE, LinkE, OutE, GramE, OthE, NE).",
+          "For each sentence in the summary, the annotator first selects whether the sentence is factual, and if marked not factual, identifies the category of each error based on our typology."
+        ],
+        "criteria": [
+          "factuality (factual vs non‑factual)",
+          "error type classification (PredE, EntE, CircE, CorefE, LinkE, OutE, GramE, OthE, NE)",
+          "factual",
+          "Grammatical Error",
+          "Other Error"
+        ]
+      },
+      "normalized": {
+        "factuality (factual vs non‑factual)": "factuality",
+        "Predicate Error": "Predicate Error (PredE)",
+        "Entity Error": "Entity Error (EntE)",
+        "Circumstance Error": "Circumstance Error (CircE)",
+        "Coreference Error": "Coreference Error (CorefE)",
+        "Discourse Link Error": "Discourse Link Error (LinkE)",
+        "Out of Article Error": "Out of Article Error (OutE)",
+        "Grammar Error": "Grammar Error (GramE)",
+        "Other": "Other Error (OthE)",
+        "Not an Error": "Not an Error (NE)"
+      },
+      "explanation": "Consolidated duplicate guideline descriptions and normalized criteria to include both full names and acronyms for clarity. Removed redundant criteria like 'factuality (factual vs non‑factual)' since 'factuality' covers it."
+    }
+  },
+  "overall_notes": "The paper is primarily about evaluating factuality in abstractive summarization. It introduces the FRANK benchmark with detailed human annotations using a comprehensive typology of factual errors. The extraction was generally accurate but needed normalization of metric variants and removal of duplicate model names. The human evaluation methodology is particularly well-documented with clear annotation guidelines."
+}

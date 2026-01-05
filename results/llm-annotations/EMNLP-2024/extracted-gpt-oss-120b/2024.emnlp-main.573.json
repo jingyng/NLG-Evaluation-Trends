@@ -1,0 +1,56 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "...we adopt a method that first performs image captioning, edits the caption for cultural relevance using an LLM, and then edits the original image using an instruction-based image editing model...",
+        "tasks": [
+            "Image Captioning",
+            "Paraphrase Generation"
+        ],
+        "datasets": [
+            "Concept dataset (600 images across 7 countries)",
+            "Application dataset (100 images from worksheets and stories)"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "InstructBLIP-FlanT5-XXL",
+            "GPT-3.5",
+            "InstructPix2Pix",
+            "PlugnPlay",
+            "GPT-4o",
+            "DALLE-3"
+        ],
+        "outputs": "transcreated images and culturally edited captions"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "...We calculate two metrics: a) image-similarity: we embed the original image and each of the generated images using DiNO-ViT and measure cosine similarity b) country-relevance: we embed the text -This image is culturally relevant to {COUNTRY}, and the edited images using CLIP and calculate their cosine similarity...",
+        "automatic_metrics": [
+            "image-similarity (cosine similarity with DINO-ViT)",
+            "country-relevance (cosine similarity with CLIP)"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": "",
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "...We conduct human evaluation of images transcreated for both concept and application, across all seven countries... We host our data on the Zeno platform and hire people on Prolific to do the annotation and evaluation...",
+        "guideline": "Evaluators answer a questionnaire of six Likert-scale questions (C0–C5) for each pipeline output, plus application‑specific questions (E1, S1, E/S2) to assess visual change, semantic equivalence, spatial layout, cultural relevance, naturalness, offensiveness, and task suitability.",
+        "criteria": [
+            "visual change (C0)",
+            "semantic equivalence (C1)",
+            "spatial layout (C2)",
+            "cultural relevance (C3)",
+            "naturalness (C4)",
+            "offensiveness (C5)",
+            "task/text match (E1/S1)",
+            "culture relevance for application (E/S2)"
+        ]
+    }
+}

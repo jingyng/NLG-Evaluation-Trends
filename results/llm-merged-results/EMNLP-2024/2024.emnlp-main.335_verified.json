@@ -1,0 +1,120 @@
+{
+  "paper_id": "2024.emnlp-main.335",
+  "answer_1": {
+    "answer": "No",
+    "answer_changed": true,
+    "tasks": [],
+    "datasets": [],
+    "languages": [],
+    "models": [],
+    "outputs": [],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation",
+          "Machine Translation",
+          "Image Captioning"
+        ],
+        "datasets": [
+          "Flickr30K",
+          "Multi30K",
+          "XM3600"
+        ],
+        "languages": [
+          "English",
+          "German"
+        ],
+        "models": [
+          "opus-mt-en-de",
+          "LLaMA-3",
+          "mCLIP"
+        ],
+        "outputs": [
+          "Generated German captions for training data",
+          "Paraphrased English captions, German translations of English captions (machine and human), native German captions",
+          "generated German captions via translation and paraphrasing for image-text retrieval"
+        ]
+      },
+      "normalized": {},
+      "explanation": "This paper does NOT address NLG tasks. It uses existing models (opus-mt-en-de, LLaMA-3) for data augmentation/paraphrasing to create training data for retrieval models, but does not evaluate the generated text itself. The main task is multimodal retrieval evaluation, not NLG evaluation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Recall"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Recall@1": "Recall",
+        "Recall@5": "Recall",
+        "Recall@10": "Recall",
+        "mean recall": "Recall",
+        "Mean Recall": "Recall"
+      },
+      "explanation": "Normalized all recall variants to base 'Recall' form. The paper uses Recall@1, Recall@5, Recall@10 and mean recall for retrieval evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Correctly extracted as 'No' - LLMs (LLaMA-3) are used for paraphrasing/generation, not as judges/evaluators of outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Speakers score each caption on a 3-point scale (3=great, 2=good, 1=bad) reflecting naturalness and likelihood of being written by a native German speaker"
+    ],
+    "criteria": [
+      "naturalness",
+      "likelihood of native speaker authorship"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "likelihood of being written by a German speaker": "likelihood of native speaker authorship",
+        "likelihood of being made by a German speaker": "likelihood of native speaker authorship"
+      },
+      "explanation": "Normalized criteria variants to consistent forms. The human evaluation assesses German captions for naturalness and authenticity."
+    }
+  },
+  "overall_notes": "This paper is primarily about multimodal retrieval evaluation, not NLG evaluation. It uses NLG models (translation, paraphrasing) as tools to create training data, but does not evaluate the generated language itself. The core contribution is quantifying gaps between translated vs. native captions for retrieval performance, not evaluating NLG outputs."
+}

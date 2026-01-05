@@ -1,0 +1,137 @@
+{
+  "paper_id": "2024.acl-long.181",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "GROWOVER QA",
+      "GROWOVER DIALOGUE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b",
+      "rilm",
+      "ralm",
+      "gpt_4"
+    ],
+    "outputs": [
+      "short entity answers",
+      "multi-turn dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Sent-BERT",
+          "Contriever"
+        ],
+        "outputs": [
+          "generated answers and dialogue responses",
+          "answers and dialogue responses"
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering",
+        "Dialogue Generation": "Dialogue Generation"
+      },
+      "explanation": "Removed 'Other:' prefix from Question Answering as it's a standard NLG task. Removed Sent-BERT and Contriever as they are retrieval models, not NLG models. Simplified outputs descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1 score",
+          "BLEU score"
+        ]
+      },
+      "normalized": {
+        "F1 score": "F1",
+        "BLEU score": "BLEU"
+      },
+      "explanation": "Normalized metric names to base forms by removing 'score' suffix. Kept base forms only as per guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM-as-judge evaluation was conducted. The paper uses LLMs for generative tasks, not as post-hoc evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "AMT workers classified whether sentences in new articles were supported, not supported, or uncertain given old articles"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "AMT workers classified whether sentences in new articles were supported, not supported, or uncertain given old articles"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- We randomly sampled 30 new and 30 changed sentences and asked AMT workers to classify whether each sentence in the new article was supported, not supported, or uncertain given the old article."
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {
+        "- We randomly sampled 30 new and 30 changed sentences and asked AMT workers to classify whether each sentence in the new article was supported, not supported, or uncertain given the old article.": "AMT workers classified whether sentences in new articles were supported, not supported, or uncertain given old articles"
+      },
+      "explanation": "Changed answer from No to Yes because the paper did conduct human evaluation via Amazon Mechanical Turk. Updated guideline to be more concise. No specific evaluation criteria were mentioned for generated outputs - the human evaluation was for dataset quality validation."
+    }
+  },
+  "overall_notes": "The paper focuses on dynamic knowledge benchmarks and retrieval-augmented generation evaluation. The human evaluation was conducted for dataset validation rather than direct evaluation of generated outputs, but still qualifies as human evaluation. The extraction was generally accurate but needed some normalization and correction regarding evaluation types."
+}

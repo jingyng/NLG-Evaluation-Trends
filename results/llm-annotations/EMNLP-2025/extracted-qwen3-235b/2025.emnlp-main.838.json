@@ -1,0 +1,73 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "The typical automatic evaluation setting has two types of language models interacting. The first are the candidate models. The candidate models are given a prompt, such as the equation \" x ln(x) dx =?\" or \"What is the wifi password?\". Their task is to respond as effectively as they can by carefully trading conflicting criteria such as conciseness, clarity, and completeness.",
+        "tasks": [
+            "Other:Mathematical Reasoning",
+            "Other:Visual Question Answering",
+            "Other:Information Seeking"
+        ],
+        "datasets": [
+            "RewardBench",
+            "Vibe-Eval",
+            "MathOdyssey",
+            "MATH",
+            "GPQA"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Gemini 1.5 Flash",
+            "Gemini 1.5 Pro",
+            "Claude 3.5 Sonnet",
+            "GPT-4o",
+            "GPT-4 Turbo",
+            "Gemma 2 27B",
+            "Claude 3 Opus"
+        ],
+        "outputs": "The candidate models generate responses to prompts that require expert-level knowledge, comprehension, and reasoning, such as solving Olympiad-level math problems or answering visual commonsense reasoning questions."
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "On RewardBench, we use the standard rating accuracy to evaluate the graders. On Vibe-Eval, since we not only know which response is preferred by human but also the extent of the preference, we use Spearman correlation between automatic graders and human graders as our evaluation metric.",
+        "automatic_metrics": [
+            "rating accuracy",
+            "Spearman correlation"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We propose to equip the grader with prompt-specific privileged information to ease the evaluation task, here a short derivation with ground-truth solution. See Section 2 for a more detailed description.",
+        "models": [
+            "Gemini 1.5 Flash",
+            "Gemini 1.5 Pro",
+            "Claude 3.5 Sonnet",
+            "GPT-4o"
+        ],
+        "methods": [
+            "pairwise evaluation",
+            "tiered evaluation with hints",
+            "few-shot prompting with prior ratings"
+        ],
+        "criteria": [
+            "correctness",
+            "conciseness",
+            "clarity",
+            "completeness",
+            "fulfillment",
+            "groundedness",
+            "presentation quality"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We crowdsource human raters, instructing them to evaluate each pairwise comparison based on the fulfillment, groundedness, and presentation quality of the responses.",
+        "guideline": "The raters are also provided with ground truth references from Vibe-Eval to guide their assessments. For each comparison, the raters select a rating from 7 categories: {-3, -2, -1, 0, 1, 2, 3}, where 1, 2, and 3 indicate that one response is slightly better, better, or significantly better than the other, and 0 indicates that both responses are of similar quality.",
+        "criteria": [
+            "fulfillment",
+            "groundedness",
+            "presentation quality"
+        ]
+    }
+}

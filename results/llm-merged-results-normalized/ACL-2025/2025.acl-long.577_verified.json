@@ -1,0 +1,193 @@
+{
+  "paper_id": "2025.acl-long.577",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Question Answering"
+    ],
+    "datasets": [
+      "LONGBENCH",
+      "LOOGLE",
+      "CRUD RAG",
+      "GOVREPORT",
+      "QMSUM",
+      "SAMSUM",
+      "VCSUM",
+      "MULTI NEWS",
+      "EVENTSUM",
+      "qa1doc",
+      "qa2doc",
+      "qa3doc",
+      "LONGSUM"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "qwen_1.5_7b",
+      "qwen_1.5_14b",
+      "qwen_2.5_7b",
+      "qwen_2.5_14b",
+      "llama_3_8b",
+      "chatglm_2_6b",
+      "vicuna_7b",
+      "deepseek_v_3",
+      "gpt_4o",
+      "gemini_1.5_pro",
+      "kimi"
+    ],
+    "outputs": [
+      "Target sentences with fine-grained provenance annotations (source sentences and relationship types: quotation, compression, inference, others)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Qwen1.5-7B-chat",
+          "Qwen1.5-14B-chat",
+          "Llama-3-Instruct-8B",
+          "Qwen1.5-Instruct-7B-chat",
+          "Qwen1.5-Instruct-14B-chat",
+          "Qwen2.5-Instruct-7B",
+          "Qwen2.5-Instruct-14B",
+          "Llama-3-8B"
+        ],
+        "outputs": [
+          "target texts for provenance tracing",
+          "The target text consists of multi-sentence outputs from tasks such as summarization and question answering, where each sentence is traced to source documents and their relationships classified."
+        ]
+      },
+      "normalized": {
+        "Vicuna-7B-V1.5": "Vicuna-7B",
+        "Gemini-1.5-pro": "Gemini-1.5-Pro"
+      },
+      "explanation": "Removed duplicate/alternative model names and consolidated output descriptions. Normalized model names to standard forms."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "TRACK PRECISION",
+      "TRACK RECALL",
+      "RELATION PRECISION",
+      "RELATION RECALL",
+      "F1",
+      "PASS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Macro-Track-Precision",
+          "Macro-Track-Recall",
+          "Micro-Track-Precision",
+          "Micro-Track-Recall",
+          "Macro-Relation-Precision",
+          "Macro-Relation-Recall",
+          "Micro-Relation-Precision",
+          "Micro-Relation-Recall"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Macro-Track-P",
+          "Macro-Track-R",
+          "Micro-Track-P",
+          "Micro-Track-R",
+          "Macro-Relation-P",
+          "Macro-Relation-R",
+          "Micro-Relation-P",
+          "Micro-Relation-R",
+          "Macro-Precision",
+          "Macro-Recall",
+          "Micro-Precision",
+          "Micro-Recall",
+          "F1-score"
+        ]
+      },
+      "normalized": {
+        "Macro-Track-P": "Macro-Track-Precision",
+        "Macro-Track-R": "Macro-Track-Recall",
+        "Micro-Track-P": "Micro-Track-Precision",
+        "Micro-Track-R": "Micro-Track-Recall",
+        "Macro-Relation-P": "Macro-Relation-Precision",
+        "Macro-Relation-R": "Macro-Relation-Recall",
+        "Micro-Relation-P": "Micro-Relation-Precision",
+        "Micro-Relation-R": "Micro-Relation-Recall",
+        "F1-score": "F1"
+      },
+      "explanation": "Normalized metric abbreviations to full names for clarity and consistency. Removed redundant/incorrect metric names."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4o"
+        ],
+        "methods": [
+          "GPT-4o provenance"
+        ],
+        "criteria": [
+          "source identification",
+          "relationship classification"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since GPT-4o is used for annotation/data creation, not as a judge/evaluator of generated outputs. The paper does not use LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Annotators review GPT-4o's results to verify provenance sentences and relationship types, examining document collections to address omissions"
+    ],
+    "criteria": [
+      "Provenance",
+      "Relationship",
+      "Correction"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators review GPT-4o's results to verify provenance sentences and relationship types, examining document collections to address omissions"
+        ],
+        "criteria": [
+          "provenance sentence tracing",
+          "relationship classification",
+          "correction of omissions"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Corrected answer from 'No' to 'Yes' - the paper does conduct human evaluation through graduate student annotators who verify and correct GPT-4o's annotations. Added the actual guidelines and criteria used."
+    }
+  },
+  "overall_notes": "The paper introduces TROVE, a text provenance challenge that evaluates NLG models on their ability to trace generated sentences back to source documents and classify fine-grained relationships. The extraction was mostly accurate but needed correction for Q4 (human evaluation was conducted) and normalization of metrics and model names. The paper focuses on evaluating NLG models' provenance capabilities rather than generating text itself."
+}

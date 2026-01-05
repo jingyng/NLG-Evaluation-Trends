@@ -1,0 +1,128 @@
+{
+  "paper_id": "2024.emnlp-main.305",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Visual Question Answering",
+      "Rank Classification"
+    ],
+    "datasets": [
+      "MSCOCO",
+      "OK VQA",
+      "HATEFUL MEMES"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "openflamingo_3b",
+      "openflamingo_9b",
+      "clip",
+      "eva_02_clip",
+      "align"
+    ],
+    "outputs": [
+      "image captions",
+      "answers to visual questions",
+      "classification ranks"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Rank Classification"
+        ],
+        "datasets": [
+          "HatefulMemes"
+        ],
+        "models": [
+          "EVA-02-CLIP",
+          "ALIGN"
+        ],
+        "outputs": [
+          "classification ranks"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "MSCOCO"
+        ],
+        "outputs": [
+          "captions, answers",
+          "image captions and visual question answers"
+        ]
+      },
+      "normalized": {
+        "MSCOCO": "MS COCO",
+        "captions, answers": "image captions",
+        "image captions and visual question answers": "answers to visual questions"
+      },
+      "explanation": "Added Rank Classification task mentioned in paper, removed duplicate MSCOCO entry, normalized output descriptions, and added backbone models used for retrieval (EVA-02-CLIP, ALIGN)"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CIDER",
+      "VQA ACCURACY",
+      "AUC ROC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "AUC-ROC",
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "AUC-ROC": "AUC ROC"
+      },
+      "explanation": "Removed duplicate AUC-ROC and generic 'accuracy' metric, normalized to standard AUC ROC naming"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation method used in this paper; MLLMs are used for generation/scoring, not for post-generation evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation mentioned in the paper; all evaluations are based on automatic metrics"
+    }
+  },
+  "overall_notes": "This paper focuses on multimodal NLG evaluation for image captioning, visual question answering, and rank classification tasks. The core contribution is developing supervised retrieval methods (MSIER) for in-context example selection to improve MLLM performance. All evaluations used automatic metrics with no human or LLM-as-judge assessments. The extraction was generally accurate but needed normalization of dataset names and addition of the rank classification task."
+}

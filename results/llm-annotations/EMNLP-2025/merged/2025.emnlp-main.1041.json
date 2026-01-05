@@ -1,0 +1,91 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "we prompt an LLM (i.e., to generate two types of augmented queries... Given the same query and a specific persona, we then prompt an LLM... to generate two types of augmented queries: one situated in a daily-life context and the other in an expert-domain context.",
+            "We generate retrieval queries paired with corresponding positive and negative passages, and employ frontier reasoning models (i.e., DeepSeek-R1) to produce multi-step reasoning traces.",
+            "We introduce LIMRANK-SYNTHESIZER, a modular and open-source pipeline for generating high-quality reranking training data through several novel design choices."
+        ],
+        "tasks": [
+            "Other:Query Generation",
+            "Other:Passage Generation",
+            "Other:Synthetic Query/Passage Generation",
+            "Other:Information Retrieval Reranking"
+        ],
+        "datasets": [
+            "MS MARCO",
+            "BRIGHT",
+            "FOLLOWIR",
+            "LitSearch",
+            "GPQA"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "DeepSeek-R1",
+            "GPT-4",
+            "Qwen2.5-7B",
+            "LLaMA-Factory"
+        ],
+        "outputs": [
+            "synthetic queries, passages, and reasoning traces",
+            "Synthetic queries, positive/negative passages, and multi-step reasoning chains for training rerankers",
+            "The paper generates reranking training data, including queries, positive and negative passages, and reasoning traces, as part of a synthetic data pipeline for training a reranker model."
+        ]
+    },
+    "answer_2": {
+        "answer": "No",
+        "quote": [
+            "We evaluate LIMRANK on two challenging reranking tasks: (1) reasoning-intensive retrieval using BRIGHT, and (2) instruction-following retrieval using FOLLOWIR. LIMRANK achieves the nDCG@10 score of 28.0% on BRIGHT and p-MRR score of 1.2 on FOLLOWIR..."
+        ],
+        "automatic_metrics": [
+            "nDCG@10",
+            "p-MRR",
+            "Recall@5",
+            "MAP"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "Following RANK1, we ask DeepSeek-R1 to judge the relevance between query and the passage.",
+            "Following RANK1, we ask DeepSeek-R1 to judge the relevance between query and the passage.",
+            "Following RANK1, we ask DeepSeek-R1 to judge the relevance between query and the passage. If the judgment is the same as we generated previously, then we collect this dataset into our final dataset and filter the rest of them."
+        ],
+        "models": [
+            "DeepSeek-R1"
+        ],
+        "methods": [
+            "binary relevance judgment",
+            "LLM relevance judgment",
+            "relevance judgment"
+        ],
+        "criteria": [
+            "relevance"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "Human Verification: Reasoning chain undergoes human review to validate accuracy, coherence, and alignment with the query's intent.",
+            "We conduct an in-depth human evaluation, revealing that LIMRANK excels particularly in settings that require multi-hop reasoning, subtle instruction disambiguation, and context-sensitive reranking.",
+            "To better understand the strengths and limitations of LIMRANK, we conduct an in-depth human evaluation, revealing that LIMRANK excels particularly in settings that require multi-hop reasoning, subtle instruction disambiguation, and context-sensitive reranking."
+        ],
+        "guideline": [
+            "validate accuracy, coherence, and alignment with the query's intent",
+            "Human raters evaluated reranked results on criteria such as multi-hop reasoning, instruction disambiguation, and context sensitivity.",
+            "The human evaluation assessed LIMRANK's performance on multi-hop reasoning, instruction disambiguation, and context-sensitive reranking."
+        ],
+        "criteria": [
+            "accuracy",
+            "coherence",
+            "alignment",
+            "multi-hop reasoning",
+            "instruction disambiguation",
+            "context sensitivity",
+            "subtle instruction disambiguation",
+            "context-sensitive reranking"
+        ]
+    }
+}

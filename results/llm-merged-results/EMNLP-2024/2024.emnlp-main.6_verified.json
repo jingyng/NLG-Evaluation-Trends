@@ -1,0 +1,160 @@
+{
+  "paper_id": "2024.emnlp-main.6",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "IIW",
+      "IIW-Eval",
+      "DCI",
+      "DOCCI",
+      "Localized Narratives",
+      "CrossModal-3600",
+      "LocNar Eval",
+      "XM3600"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "PaLI-3 5B",
+      "GPT-4V",
+      "InstructBLIP",
+      "LLaVA",
+      "PaLI-5B",
+      "InstructBLIP-Vicuna-7B",
+      "LLaVA-V1.5-7B"
+    ],
+    "outputs": [
+      "Hyper-detailed image descriptions",
+      "Object-level descriptions",
+      "Image-level descriptions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "IIW-Eval",
+          "LocNar Eval"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Object-level descriptions",
+          "Image-level descriptions"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WebImageText",
+          "ALIGN",
+          "Conceptual Captions",
+          "LAION",
+          "PixLore",
+          "DAC"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "PaLI-5B": "PaLI-3 5B"
+      },
+      "explanation": "Removed datasets only mentioned as background (WebImageText, ALIGN, etc.). Added IIW-Eval and LocNar Eval which are used for evaluation. Normalized model names. Added more specific output types mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "CIDEr",
+      "BERTScore",
+      "BLEURT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BERTScore": "BERTScore"
+      },
+      "explanation": "No major changes needed. All metrics were correctly extracted and normalized."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "PaLM2-340B"
+    ],
+    "methods": [
+      "Multiple-choice selection"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [
+          "PaLM2-340B"
+        ],
+        "methods": [
+          "Multiple-choice selection"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "multiple-choice selection": "Multiple-choice selection"
+      },
+      "explanation": "Changed answer from No to Yes because the paper uses PaLM2-340B to evaluate generated descriptions by asking it to select which caption matches the image description. This qualifies as using LLM as judge."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "5-point scale with 'substantially better' (++), 'marginally better' (+), 'neutral' (-) ratings",
+      "Side-by-side comparison of two descriptions"
+    ],
+    "criteria": [
+      "Comprehensiveness",
+      "Specificity",
+      "Hallucinations",
+      "TLDR quality",
+      "Human-Likeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Side-by-side comparison of two descriptions"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "TLDR-quality"
+        ]
+      },
+      "normalized": {
+        "Hallucinations": "Hallucinations",
+        "Human-Likeness": "Human-Likeness",
+        "TLDR-quality": "TLDR quality"
+      },
+      "explanation": "Consolidated guideline description and normalized criteria names. Removed duplicate TLDR criterion."
+    }
+  },
+  "overall_notes": "The paper focuses on generating and evaluating hyper-detailed image descriptions using human-in-the-loop framework. Extracted metadata was generally accurate but needed some refinement for Question 3 where the use of PaLM2 as evaluator was overlooked."
+}

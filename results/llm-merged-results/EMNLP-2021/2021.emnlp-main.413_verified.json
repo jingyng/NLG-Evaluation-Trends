@@ -1,0 +1,143 @@
+{
+  "paper_id": "2021.emnlp-main.413",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Other:Question Generation",
+      "Other:Headline Generation"
+    ],
+    "datasets": [
+      "SQuAD 1.1",
+      "Wizard of Wikipedia (WoW)",
+      "English Gigaword",
+      "CNN/Daily Mail",
+      "XSum"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART",
+      "ERNIE-GEN",
+      "UniLM",
+      "MASS",
+      "Transformer",
+      "BERT-KPE"
+    ],
+    "outputs": [
+      "generated questions",
+      "dialog responses",
+      "headlines",
+      "abstractive summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "CNN/Daily Mail (CNN/DM)"
+        ],
+        "languages": [],
+        "models": [
+          "BART-COPY",
+          "ESCA-BERT",
+          "Two-Stage MemNet"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "CNN/Daily Mail (CNN/DM)": "CNN/Daily Mail",
+        "BERT-KPE": "BERT-KPE"
+      },
+      "explanation": "Removed duplicate dataset (CNN/DM is same as CNN/Daily Mail), removed models that were not main NLG models evaluated (BART-COPY is a variant, ESCA-BERT and Two-Stage MemNet are baselines mentioned briefly)"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Precision",
+          "Recall",
+          "F1"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized all metric variants (BLEU-4, ROUGE-1, ROUGE-2, ROUGE-L) to base forms. Removed Precision/Recall/F1 as they were used for concept-level evaluation, not NLG output evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges/evaluators"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Closeness measures similarity between model output and target output",
+      "Relevancy considers quality of model output directly with source input",
+      "Fluency of model output rated on scale of 1 (unreadable) to 4 (perfect)",
+      "Pairwise comparisons between model outputs"
+    ],
+    "criteria": [
+      "closeness",
+      "relevancy",
+      "fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Pairwise comparisons between model outputs"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added additional guideline detail about pairwise comparison method used in human evaluation"
+    }
+  },
+  "overall_notes": "Paper focuses on NLG evaluation for concept preservation in text-to-text generation tasks. Extracted metadata was generally accurate with minor issues like duplicate dataset entries and including metrics used for auxiliary evaluations. The paper does not use LLMs as judges - human evaluation was conducted with human annotators."
+}

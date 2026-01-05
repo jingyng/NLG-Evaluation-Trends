@@ -1,0 +1,99 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Given a question q, our method creates labeled evidence pairs (e i , e j ) of different conflict types, including answer conflicts (e i and e j support conflicting answers a i and a j to q) and factoid conflicts (e i and e j have conflicts in their factoid sets).",
+            "In this work, we present a data generation approach to generate high-quality evidence conflicts, including answer and factoid conflicts."
+        ],
+        "tasks": [
+            "Other:Evidence Generation",
+            "Other:evidence conflict generation"
+        ],
+        "datasets": [
+            "NaturalQuestions",
+            "ComplexWebQuestions",
+            "StrategyQA"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "llama3-70b-instruct",
+            "Claude 3 Sonnet",
+            "GPT-4",
+            "Llama 3 8B Instruct",
+            "Mixtral-8x7b",
+            "Claude 3 Haiku"
+        ],
+        "outputs": [
+            "evidence texts and alternative answers",
+            "evidence pairs with answer and factoid conflicts"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "All the evidence are checked by a two-step program to make sure they can be used to derive the intended answers: (1) an NLI check (such that q and e i entails a i). (2) an LLM reasoning check (such that an LLM can infer a i when given q and e i).",
+            "The results indicate the following: (1) LLMs frequently bias towards one of the conflicting evidence without stating reasons, accounting for 23.7% and 38.1% of the time for Claude 3 Sonnet and Haiku... (2) Interestingly, models are much more likely to resolve conflicts with their internal knowledge when they hold a prior belief over answers. (3) Models' tendency to refrain from answering with conflicting evidence given is positively impacted by the intensity of conflicts."
+        ],
+        "automatic_metrics": [
+            "NLI-based entailment check",
+            "LLM-based consistency verification",
+            "precision",
+            "recall",
+            "F1",
+            "accuracy",
+            "standard deviation"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "We evaluate state-of-the-art LLMs as conflict detectors, including Mixtral-8x7b, Llama 3 8B Instruct, Llama 3 70B Instruct (Meta, 2024), Claude 3 Haiku, Claude 3 Sonnet (Anthropic, 2024), ChatGPT (OpenAI, 2024b) ... under a zero-shot prompting setting.",
+            "We evaluate state-of-the-art LLMs as conflict detectors, including Mixtral-8x7b, Llama 3 8B Instruct, Llama 3 70B Instruct, Claude 3 Haiku, Claude 3 Sonnet, GPT-4... The models are prompted to generate {Yes, No} predictions on whether a pair of evidence is conflicting.",
+            "We consider an NLI check (such that q and e i entails a i ). ( ) an LLM reasoning check (such that an LLM can infer a i when given q and e i ). A piece of evidence is filtered out when it fails on any of the steps."
+        ],
+        "models": [
+            "Mixtral-8x7b",
+            "Llama 3 8B Instruct",
+            "Llama 3 70B Instruct",
+            "Claude 3 Haiku",
+            "Claude 3 Sonnet",
+            "GPT-4",
+            "Llama-3-8B-Instruct",
+            "Llama-3-70B-Instruct",
+            "Claude-3-Haiku",
+            "Claude-3-Sonnet",
+            "llama3-70b-instruct"
+        ],
+        "methods": [
+            "zero-shot prompting for conflict classification",
+            "zero-shot prompting with Yes/No classification",
+            "consistency check",
+            "entailment check"
+        ],
+        "criteria": [
+            "conflict detection",
+            "consistency",
+            "entailment"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "we randomly sampled 200 pairs (50 each from {NQ-short, NQ-long, CWQ-short, CWQ-long}) for annotation. Given a question q, each pair of evidence (e i , e j ) is annotated by three independent annotators to determine its label from {Conflicting, Non-conflicting, Not sure}.",
+            "Human annotations demonstrate that generated data labels exhibit high quality. We randomly sampled 200 pairs ... each pair ... is annotated by three independent annotators to determine its label from {Conflicting, Non-conflicting, Not sure}. The Fleiss' κ among the annotators is 71.2%, which indicates substantial inter-annotator agreement.",
+            "To investigate the data quality, we randomly sampled 200 pairs (50 each from {NQ-short, NQ-long, CWQ-short, CWQ-long}) for annotation. Given a question q, each pair or evidence (e i , e j ) is annotated by three independent annotators to determine its label from {Conflicting, Non-conflicting, Not sure}."
+        ],
+        "guideline": [
+            "Annotators determine if evidence pairs contain conflicting information based on whether they support conflicting answers or exhibit factual inconsistencies.",
+            "Annotators were asked to label each evidence pair as Conflicting, Non-conflicting, or Not sure.",
+            "Given a question q, each pair or evidence (e i , e j ) is annotated by three independent annotators to determine its label from {Conflicting, Non-conflicting, Not sure}."
+        ],
+        "criteria": [
+            "conflict label (Conflicting)",
+            "conflict label (Non-conflicting)",
+            "uncertainty (Not sure)"
+        ]
+    }
+}

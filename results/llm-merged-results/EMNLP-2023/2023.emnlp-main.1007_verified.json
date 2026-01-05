@@ -1,0 +1,132 @@
+{
+  "paper_id": "2023.emnlp-main.1007",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "TEMPOSUM",
+      "CNN/DM",
+      "XSum",
+      "BBC",
+      "CNN"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "PEGASUS",
+      "Transformer",
+      "CLIFF",
+      "ENT"
+    ],
+    "outputs": [
+      "Generated summaries",
+      "Summaries of news articles"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "TEMPOSUM"
+        ],
+        "models": [
+          "Transformer"
+        ],
+        "outputs": [
+          "Summaries of news articles"
+        ]
+      },
+      "removed": {
+        "datasets": [],
+        "models": [
+          "FactCC",
+          "QAFactEval"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "TEMPOSUM": "TEMPOSUM",
+        "Transformer": "Transformer",
+        "PEGASUS": "PEGASUS"
+      },
+      "explanation": "Added TEMPOSUM as main dataset, removed FactCC and QAFactEval (evaluation models, not generation models), added 'Transformer' model explicitly mentioned, normalized dataset/model names to standard forms"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "FactCC",
+      "QAFactEval"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "FactCC": "FactCC",
+        "QAFactEval": "QAFactEval"
+      },
+      "explanation": "Both metrics are correctly identified and properly normalized"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper; only human evaluation and conventional automatic metrics"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators evaluated summaries for faithfulness using fine-grained hallucination typology",
+      "For each generated summary, first determine if sentence is faithful (entailed by source article)",
+      "If not faithful, verify through Wikipedia to determine if factual to world knowledge at publication time or outdated",
+      "Classify hallucinations into three types: outdated, non-verifiable, factual"
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Outdated hallucinations",
+      "Non-verifiable hallucinations",
+      "Factual hallucinations"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Classify hallucinations into three types: outdated, non-verifiable, factual"
+        ],
+        "criteria": [
+          "Faithfulness",
+          "Outdated hallucinations",
+          "Non-verifiable hallucinations",
+          "Factual hallucinations"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Annotators label each generated summary for hallucination types (outdated, non‑verifiable, factual) and assess faithfulness"
+        ],
+        "criteria": [
+          "type of hallucination (outdated, non-verifiable, factual)"
+        ]
+      },
+      "normalized": {
+        "faithfulness": "Faithfulness",
+        "outdated hallucinations": "Outdated hallucinations",
+        "non-verifiable hallucinations": "Non-verifiable hallucinations",
+        "factual hallucinations": "Factual hallucinations"
+      },
+      "explanation": "Consolidated and normalized guideline descriptions, removed redundant entries, normalized criteria capitalization, clarified the three hallucination types as evaluation criteria"
+    }
+  },
+  "overall_notes": "The extraction quality was good overall. Main issues: FactCC and QAFactEval were incorrectly listed as generation models in Q1 (they are evaluation metrics). The paper focuses extensively on temporal generalization in text summarization, with detailed human evaluation protocols for faithfulness and hallucination analysis."
+}

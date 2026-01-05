@@ -1,0 +1,184 @@
+{
+  "paper_id": "2025.acl-long.864",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Other:Image Segmentation Reasoning"
+    ],
+    "datasets": [
+      "PRIST",
+      "COCO",
+      "Mapillary",
+      "RefCOCO",
+      "RefCOCO+",
+      "RefCOCOg",
+      "LLaVA-Instruct-80k",
+      "COCO Caption"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "MIRAS",
+      "LLaVA-v1.5",
+      "LLaVA-v1.6",
+      "GPT-4o",
+      "InternVL2-8B",
+      "Qwen2-VL-7B",
+      "LISA",
+      "PixelLM",
+      "OMG-LLaVA"
+    ],
+    "outputs": [
+      "textual reasoning chains with system responses for each dialogue turn",
+      "pixel-level segmentation masks",
+      "multi-turn textual reasoning responses grounded in visual content"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Image Segmentation Reasoning"
+        ],
+        "datasets": [
+          "RefCOCO+",
+          "RefCOCOg"
+        ],
+        "models": [
+          "LISA",
+          "PixelLM",
+          "OMG-LLaVA"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "models": [
+          "MIRAS (based on LLaVA-v1.6)",
+          "LLaVA-v1.6-7B"
+        ]
+      },
+      "normalized": {
+        "LLaVA-v1.6-7B": "LLaVA-v1.6",
+        "textual reasoning chain {a1, a2, ..., aN} and segmentation mask M": "textual reasoning chains with system responses for each dialogue turn"
+      },
+      "explanation": "Added 'Other:Image Segmentation Reasoning' as a secondary task since the paper combines dialogue generation with visual reasoning. Added missing datasets and models mentioned in experiments. Removed redundant model references and normalized task descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CIoU",
+      "Precision",
+      "Recall",
+      "F1",
+      "BLEU",
+      "Distinct",
+      "ROUGE",
+      "METEOR",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Pixel-wise Precision",
+          "Pixel-wise Recall",
+          "Pixel-wise F1"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "Dist-1": "Distinct",
+        "Dist-2": "Distinct",
+        "ROUGE-L": "ROUGE",
+        "Pixel-wise Precision": "Precision",
+        "Pixel-wise Recall": "Recall",
+        "Pixel-wise F1": "F1"
+      },
+      "explanation": "Normalized metrics by removing variants (BLEU-4→BLEU, ROUGE-L→ROUGE) and simplified Distinct-N variants to 'Distinct'. Removed 'Pixel-wise' variants as they are equivalent to standard Precision/Recall/F1 applied at pixel level."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4",
+      "GPT-4o"
+    ],
+    "methods": [
+      "5-point scale scoring",
+      "Win Rate comparison",
+      "adversarial evaluation"
+    ],
+    "criteria": [
+      "Progressiveness",
+      "Logical Coherence",
+      "Content Consistency",
+      "Target Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "scoring on a 5-point scale": "5-point scale scoring",
+        "Win Rate comparison with human responses": "Win Rate comparison",
+        "LLM-based scoring with prompts for four reasoning metrics": "5-point scale scoring",
+        "Win Rate adversarial evaluation": "adversarial evaluation"
+      },
+      "explanation": "Added GPT-4 which is explicitly mentioned as the LLM judge. Normalized method descriptions to be more concise while preserving meaning."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human experts scored model responses using Progressiveness, Logical Coherence, Content Consistency, Target Relevance criteria",
+      "Double annotation process with experts organized into groups for quality control"
+    ],
+    "criteria": [
+      "Progressiveness",
+      "Logical Coherence",
+      "Content Consistency",
+      "Target Relevance",
+      "IoU",
+      "Cohen's Kappa"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human experts scored model responses using Progressiveness, Logical Coherence, Content Consistency, Target Relevance criteria"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Human experts scored the model responses using the same four criteria (Progressiveness, Logical Coherence, Content Consistency, Target Relevance) as described for LLM evaluation."
+        ],
+        "criteria": [
+          "commonsense errors",
+          "accuracy rate"
+        ]
+      },
+      "normalized": {
+        "Experts are organized into five groups, with each group annotating the same set of samples. This set ensures that two annotators independently annotate every sample.": "Double annotation process with experts organized into groups for quality control"
+      },
+      "explanation": "Reformatted guideline for clarity, removed ambiguous criteria ('commonsense errors', 'accuracy rate') that were part of annotation process rather than evaluation criteria. Kept IoU and Cohen's Kappa which were used to measure annotation quality."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on visual reasoning with dialogue generation as a secondary component. The NLG aspect involves generating multi-turn reasoning responses. The extraction was generally accurate but required normalization of metric variants and clarification of evaluation methodologies."
+}

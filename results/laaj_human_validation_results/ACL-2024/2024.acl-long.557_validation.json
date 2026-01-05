@@ -1,0 +1,103 @@
+{
+  "paper_id": "2024.acl-long.557",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates the LLM-based Fact-QA metric against human evaluation on factual similarity, reporting Pearson correlation coefficients between manually assigned human scores and Fact-QA scores on a subset of predicted answers."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "supplementary",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The exact prompts for Fact-QA precision and recall are provided in Table XX in the Supplementary Material, shown in the full text. The prompts instruct GPT-4 to extract atomic claims from one answer and verify support from another answer."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "multiple (authors performed validation)",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fact-QA (precision/recall)",
+      "value": {
+        "precision": 0.707,
+        "recall": 0.664
+      },
+      "interpretation": "high overlap in factual information",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text and supplementary",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluation mimics the Fact-QA process: for precision, assess if factual information in predicted answer is supported by ground-truth answer; for recall, assess if factual information in ground-truth is supported by predicted answer. Scores are assigned on a 0, 0.5, 1 scale for poor, partial, complete precision/recall."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "factuality_precision",
+      "factuality_recall",
+      "factuality_f1"
+    ],
+    "sample_size": {
+      "total_generated": 5078,
+      "validated_by_both": 254,
+      "notes": "Validation performed on 5% of the test set (which is 20% of total QA pairs). Exact calculation: 5078 total QA pairs × 20% test set × 5% validation subset = ~51 instances, but paper mentions 5% of test set specifically for human evaluation correlation analysis."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.7785,
+        "criterion": "factuality_precision",
+        "llm_model": "GPT-4",
+        "significance": "not_reported",
+        "notes": "Correlation between human evaluation precision scores and Fact-QA precision scores"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.6602,
+        "criterion": "factuality_recall",
+        "llm_model": "GPT-4",
+        "significance": "not_reported",
+        "notes": "Correlation between human evaluation recall scores and Fact-QA recall scores"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.7735,
+        "criterion": "factuality_f1",
+        "llm_model": "GPT-4",
+        "significance": "not_reported",
+        "notes": "Correlation between human evaluation F1 scores and Fact-QA F1 scores"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "moderate to high correlation",
+      "threshold_used": "not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Fact-QA shows moderate to high correlation with human evaluation (Pearson r=0.66-0.78), indicating it is an effective metric for factual similarity assessment."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "factuality_precision",
+      "factuality_recall",
+      "factuality_f1"
+    ],
+    "notes": "Both LLM (Fact-QA) and human evaluation assess the same three factual similarity criteria: precision, recall, and F1 score, using identical evaluation protocols."
+  }
+}

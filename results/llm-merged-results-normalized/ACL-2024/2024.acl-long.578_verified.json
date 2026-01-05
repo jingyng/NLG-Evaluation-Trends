@@ -1,0 +1,117 @@
+{
+  "paper_id": "2024.acl-long.578",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Clarifying Question Generation"
+    ],
+    "datasets": [
+      "CLAMBER",
+      "ALCUNA",
+      "AMBITASK",
+      "AMBER",
+      "AMBIPUN",
+      "AMBICOREF",
+      "AMBIGQA",
+      "DOLLY 16k"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "vicuna_13b",
+      "llama_2_13b_chat",
+      "llama_2_13b_instruct",
+      "llama_2_70b_chat",
+      "gpt_3.5_turbo_16k"
+    ],
+    "outputs": [
+      "clarifying questions",
+      "binary ambiguity labels",
+      "ambiguity identification"
+    ],
+    "changes_made": {
+      "added": {
+        "outputs": [
+          "ambiguity identification"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Am-bER"
+        ],
+        "outputs": [
+          "binary ambiguity label and generated clarifying question",
+          "clarifying questions for ambiguous user queries"
+        ]
+      },
+      "normalized": {
+        "GPT-3.5-Turbo-16k": "GPT-3.5-Turbo-16k",
+        "ChatGPT": "GPT-3.5-Turbo-16k"
+      },
+      "explanation": "Removed duplicate dataset 'Am-bER' (typo of AmbER), normalized ChatGPT to GPT-3.5-Turbo-16k, simplified output descriptions to be more accurate"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "F1",
+      "BERTSCORE",
+      "EXPECTED CALIBRATION ERROR",
+      "AUROC"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "F1 score",
+          "Expected Calibration Error (ECE)",
+          "Area Under the Receiver Operating Characteristic curve (AUROC)"
+        ]
+      },
+      "normalized": {
+        "BertScore": "BERTScore"
+      },
+      "explanation": "Consolidated duplicate metric names and normalized BERTScore capitalization"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators assign binary score (0 or 1) to each generated clarifying question based on helpfulness in resolving query ambiguity"
+    ],
+    "criteria": [
+      "Helpfulness"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "criteria": [
+          "Help."
+        ]
+      },
+      "normalized": {
+        "Help.": "helpfulness"
+      },
+      "explanation": "Normalized 'Help.' to 'helpfulness' criterion and simplified guideline description"
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating LLMs' ability to identify ambiguity and generate clarifying questions. The extraction was generally accurate but contained some duplicates and minor formatting inconsistencies. The paper clearly evaluates NLG (clarifying question generation) using both automatic metrics and human evaluation, but does not use LLMs as judges."
+}

@@ -1,0 +1,139 @@
+{
+  "paper_id": "2024.emnlp-main.829",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "OPUS TED TALKS",
+      "WINOBIAS",
+      "WINOMT",
+      "OPUS"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Hebrew",
+      "Russian"
+    ],
+    "models": [
+      "opus_mt",
+      "hard_debiasing",
+      "inlp",
+      "leace"
+    ],
+    "outputs": [
+      "translated sentences in target languages"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "OPUS-MT transformer"
+        ],
+        "outputs": [
+          "translated sentences"
+        ]
+      },
+      "normalized": {
+        "OPUS-MT transformer": "OPUS-MT"
+      },
+      "explanation": "Removed duplicate 'translated sentences' output and normalized model name. 'OPUS-MT transformer' refers to the same model as 'OPUS-MT'."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "gender prediction accuracy",
+          "Gender accuracy (Stanovsky et al. 2019)"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "bleu": "BLEU"
+      },
+      "explanation": "Normalized all gender accuracy metrics to 'Accuracy' since they refer to the same metric measuring gender prediction correctness. Kept BLEU for translation quality."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper. The paper uses traditional automatic metrics and human evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual annotation of translations to assess gender prediction correction",
+      "Comparing translations before and after debiasing to check if profession's gender was corrected"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual annotation of translations to assess gender prediction correction",
+          "Comparing translations before and after debiasing to check if profession's gender was corrected"
+        ],
+        "criteria": [
+          "gender correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- checking if the debiasing corrected the profession's gender prediction",
+          "Annotators compare the gender of translated profession nouns to the intended gender in the source sentence.",
+          "checking if the profession's gender was corrected"
+        ],
+        "criteria": [
+          "gender prediction correction",
+          "gender prediction correctness"
+        ]
+      },
+      "normalized": {
+        "gender prediction correction": "gender correctness",
+        "gender prediction correctness": "gender correctness"
+      },
+      "explanation": "Consolidated and normalized the human evaluation guidelines and criteria. The main focus is on gender correctness of translated profession nouns compared to intended gender in source sentences."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on machine translation evaluation with specific emphasis on gender bias mitigation. Key contributions include systematic testing of intrinsic debiasing methods (Hard-Debiasing, INLP, LEACE) on neural machine translation models across different languages and design choices. Human evaluation was limited to a subset of translations to validate automatic gender prediction metrics."
+}

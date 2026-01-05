@@ -1,0 +1,132 @@
+{
+  "paper_id": "2024.emnlp-main.843",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Knowledge Editing"
+    ],
+    "datasets": [
+      "COUNTERFACT",
+      "MQUAKE CF",
+      "WIKI UPDATE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2_xl",
+      "gpt_j_6b",
+      "mistral_7b",
+      "ft",
+      "lora",
+      "rome",
+      "memit",
+      "ike",
+      "mello"
+    ],
+    "outputs": [
+      "Generated answers to questions or cloze statements assessing knowledge retention after editing"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Vicuna (7B)",
+          "Vicuna"
+        ],
+        "outputs": [
+          "The paper evaluates whether edited language models can correctly recall new knowledge after editing, using cloze-style statements or questions to probe model outputs."
+        ]
+      },
+      "normalized": {
+        "WIKIUPDATE": "WIKI-UPDATE",
+        "Mistral (7B)": "Mistral (7B)",
+        "GPT-J (6B)": "GPT-J (6B)"
+      },
+      "explanation": "Removed Vicuna (7B) as it's only mentioned in appendix experiments and not main evaluation. Simplified outputs description. Normalized dataset name capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EDITING ACCURACY",
+      "MULTI HOP ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "editing accuracy",
+          "multi-hop accuracy"
+        ]
+      },
+      "normalized": {
+        "editing accuracy": "Editing Accuracy",
+        "multi-hop accuracy": "Multi-hop Accuracy"
+      },
+      "explanation": "Normalized capitalization for metrics and removed duplicates"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "ChatGPT"
+        ],
+        "methods": [
+          "prompt-based consistency verification"
+        ],
+        "criteria": [
+          "alignment"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items as ChatGPT is used for data generation/alignment checking during dataset construction, not as a judge to evaluate generated outputs after inference"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "filter out generated paragraphs that do not align with the original structured fact"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed guideline as it describes data filtering during dataset construction, not human evaluation of generated outputs"
+    }
+  },
+  "overall_notes": "The paper primarily focuses on knowledge editing evaluation rather than traditional NLG evaluation. While it involves QA-style outputs for assessment, the main contribution is evaluating knowledge editing methods' ability to update LLMs with new knowledge. Automatic metrics are used to measure editing success, but no human or LLM-as-judge evaluation is conducted on the generated outputs."
+}

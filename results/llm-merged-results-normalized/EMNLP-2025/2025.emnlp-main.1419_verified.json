@@ -1,0 +1,164 @@
+{
+  "paper_id": "2025.emnlp-main.1419",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Pun Detection",
+      "Pun Explanation"
+    ],
+    "datasets": [
+      "PUNEVAL",
+      "JOKER",
+      "NAP",
+      "PUNNYPATTERN",
+      "PUNBREAK"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4o",
+      "qwen_2.5_72b",
+      "llama_3.3_70b",
+      "gemini_2.0_flash",
+      "mistral_3_24b",
+      "deepseek_r_1",
+      "deepseek_r_1_distill_llama_70b"
+    ],
+    "outputs": [
+      "binary pun detection (yes/no)",
+      "semi-structured rationales including pun words (w_p), alternative words (w_a), and senses (s_p, s_a)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Pun Detection"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "binary pun detection (yes/no)"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:pun generation",
+          "Other:Pun Explanation"
+        ],
+        "datasets": [
+          "SemEval-2017"
+        ],
+        "languages": [],
+        "models": [
+          "Qwen2.5",
+          "Llama3.3",
+          "Gemini2.0",
+          "Mistral3",
+          "DeepSeek-R1-D"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:pun detection": "Other:Pun Detection",
+        "Other:pun explanation": "Other:Pun Explanation",
+        "Qwen2.5-72B": "Qwen2.5-72B",
+        "Llama3.3-70B": "Llama-3.3-70B",
+        "Gemini2.0-Flash": "Gemini-2.0-Flash",
+        "Mistral3-24B": "Mistral-3-24B"
+      },
+      "explanation": "Removed 'pun generation' as it's only referenced from prior work, not evaluated in this paper. Kept only datasets actually used for evaluation. Normalized model names to full canonical forms. Combined and normalized output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "PRECISION",
+      "RECALL",
+      "PUN PAIR AGREEMENT PPA"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "PPA"
+        ]
+      },
+      "normalized": {
+        "f1-score": "F1-score",
+        "precision": "Precision",
+        "recall": "Recall"
+      },
+      "explanation": "Removed duplicate 'PPA' entry. Normalized metric capitalization. All listed metrics are indeed used for automatic evaluation of generated outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper - the LLMs are the generation models being evaluated, not the evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators answered multiple-choice questions assessing legitimacy of word-sense associations, context support, pun word pair suitability, and sense diversity",
+      "Annotators used Likert-scale ratings for sense diversity and overall pun quality"
+    ],
+    "criteria": [
+      "Correctness",
+      "Support",
+      "Similarity",
+      "Diversity",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators used Likert-scale ratings for sense diversity and overall pun quality"
+        ],
+        "criteria": [
+          "sense diversity",
+          "overall pun quality"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "missing context",
+          "pun pair",
+          "senses similarity",
+          "word‑sense correctness",
+          "pun‑pair similarity",
+          "sense similarity"
+        ]
+      },
+      "normalized": {
+        "word-sense association": "word-sense association correctness",
+        "senses similarity": "sense diversity"
+      },
+      "explanation": "Consolidated and normalized criteria names. Added missing criteria mentioned in the evaluation guidelines. Removed redundant or poorly defined criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating LLMs' ability to detect and explain puns through systematic benchmark creation and evaluation. It includes both automatic metrics and detailed human evaluation with clear annotation protocols. The extraction was generally good but needed normalization and removal of some referenced-but-not-evaluated items."
+}

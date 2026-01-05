@@ -1,0 +1,116 @@
+{
+  "paper_id": "2025.emnlp-main.1797",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-based evaluation metrics against human judgments by calculating correlations between automated scores and human scores on the same 126 argument summaries for both coverage and redundancy criteria."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o-mini"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt templates provided in Appendix C, including system messages, user messages, detailed examples, and step-by-step evaluation procedures for both coverage and redundancy evaluation"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 4,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Pearson correlation",
+      "value": 0.697,
+      "interpretation": "reliable annotations",
+      "per_criterion": [
+        {
+          "criterion": "coverage",
+          "metric": "Pearson correlation",
+          "value": 0.697
+        },
+        {
+          "criterion": "redundancy",
+          "metric": "Pearson correlation",
+          "value": 0.722
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed guidelines including coverage counting procedure and uniqueness scoring with examples provided in Appendix C"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "coverage",
+      "redundancy"
+    ],
+    "sample_size": {
+      "total_generated": 126,
+      "validated_by_both": 126,
+      "notes": "All 126 generated argument summaries were evaluated by both LLM and human annotators"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.767,
+        "criterion": "Coverage",
+        "llm_model": "GPT-4o-mini",
+        "significance": "not reported",
+        "notes": "Maximum correlation across topics and stances"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.803,
+        "criterion": "Coverage",
+        "llm_model": "GPT-4o-mini",
+        "significance": "not reported",
+        "notes": "Maximum correlation within topics and stances"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.852,
+        "criterion": "Redundancy",
+        "llm_model": "GPT-4o-mini",
+        "significance": "not reported",
+        "notes": "Maximum correlation across topics and stances"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.824,
+        "criterion": "Redundancy",
+        "llm_model": "GPT-4o-mini",
+        "significance": "not reported",
+        "notes": "Maximum correlation within topics and stances"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "very high correlation",
+      "threshold_used": "not explicitly stated, but correlations above 0.8 are implicitly considered strong",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM-based evaluation metrics show very high correlation with human judgments (Pearson r=0.767-0.852), outperforming all other automatic metrics considered, and establishing a reliable evaluation framework."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Coverage",
+      "Redundancy"
+    ],
+    "notes": "Both LLM and human evaluate exactly the same two criteria on the same set of outputs, making validation possible"
+  }
+}

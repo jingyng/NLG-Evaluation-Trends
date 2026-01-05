@@ -1,0 +1,150 @@
+{
+  "paper_id": "2025.emnlp-main.1358",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT24"
+    ],
+    "languages": [
+      "English",
+      "Spanish",
+      "Japanese",
+      "Chinese",
+      "Czech",
+      "German",
+      "Hindi",
+      "Icelandic",
+      "Russian",
+      "Ukrainian"
+    ],
+    "models": [
+      "tower_v_2_70b",
+      "tower_v_2_7b",
+      "eurollm_9b",
+      "eurollm_1.7b",
+      "l",
+      "wmt_22_cometkiwi_da",
+      "wmt_23_cometkiwi_da_xxl",
+      "metricx_24_hybrid_large_v_2p_6",
+      "metricx_24_hybrid_xl_v_2p_6"
+    ],
+    "outputs": [
+      "machine-translated text"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "metricx-24-hybrid-large-v2p6",
+          "metricx-24-hybrid-xl-v2p6"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WMT24 test sets"
+        ],
+        "languages": [],
+        "models": [
+          "EuroLLM Instruct (9B and 1.7B)"
+        ],
+        "outputs": [
+          "translations",
+          "The paper generates machine-translated text outputs in multiple language pairs, such as en-es and en-ja, using different LLMs and evaluates them with both automatic and human methods."
+        ]
+      },
+      "normalized": {
+        "WMT24 test sets": "WMT24 test set",
+        "EuroLLM Instruct (9B and 1.7B)": "EuroLLM 9B, EuroLLM 1.7B",
+        "translations": "machine-translated text"
+      },
+      "explanation": "Consolidated dataset reference to singular 'WMT24 test set'. Split compound model reference 'EuroLLM Instruct (9B and 1.7B)' into distinct model entries. Simplified 'outputs' description. Added two METRICX-QE models used for deferral rules, which are explicitly evaluated."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "METRICX",
+      "COMET",
+      "COMETKIWI"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "COMETKIWI": "COMETKIWI"
+      },
+      "explanation": "No changes needed. The extracted metrics METRICX, COMET, and COMETKIWI are explicitly used for automatic evaluation and are correctly identified."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [
+      "wmt_22_cometkiwi_da",
+      "wmt_23_cometkiwi_da_xxl"
+    ],
+    "methods": [
+      "quality estimation scoring"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed. The QE models (COMETKIWI variants) are used to *predict* quality for deferral decisions during the *generation* process (cascading), not as judges to assess outputs after generation. Therefore, the answer remains 'No'."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Assess the translation quality on a continuous scale using the quality levels described as follows: 0: Nonsense/No meaning preserved, 2: Some meaning preserved, 4: Most meaning preserved and few grammar mistakes, 6: Perfect meaning and grammar. Translators rated translations on a continuous scale 0-100 with labeled tick marks (0-6) describing quality levels. Consider accuracy, fluency, and overall quality when assessing the different translations."
+    ],
+    "criteria": [
+      "Accuracy",
+      "Fluency",
+      "Grammaticality",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "grammar",
+          "meaning accuracy",
+          "grammatical correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "grammatical correctness": "grammar"
+      },
+      "explanation": "Refined the 'guideline' into a single, coherent description based on the text. Added criteria 'grammar' (normalized from 'grammatical correctness') and 'meaning accuracy' which are core to the described rating scale. The criterion 'overall quality' is kept as it is explicitly mentioned."
+    }
+  },
+  "overall_notes": "The paper focuses exclusively on Machine Translation. The extraction was generally accurate. Key clarifications: 1) The QE models (COMETKIWI) are part of the cascaded *generation* system, not used as post-hoc judges, confirming Q3 as 'No'. 2) The human evaluation used a detailed, continuous scale for quality assessment. 3) All mentioned models and metrics were validated against the full text."
+}

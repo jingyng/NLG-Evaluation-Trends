@@ -1,0 +1,151 @@
+{
+  "paper_id": "2023.acl-long.702",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Simile Generation"
+    ],
+    "datasets": [
+      "ENGLISH SIMILE GENERATION DATASET",
+      "MAPS KB"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart"
+    ],
+    "outputs": [
+      "simile sentences",
+      "Generated simile sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [],
+        "tasks": []
+      },
+      "removed": {
+        "datasets": [
+          "524k English simile sentences (constructed dataset)",
+          "524k simile sentences labeled with topic and vehicle"
+        ],
+        "languages": [],
+        "models": [
+          "BART (seq2seq)",
+          "MNLI model (logical consistency)",
+          "SST-2 sentiment classifier",
+          "BERTScore model"
+        ],
+        "outputs": [
+          "similes"
+        ],
+        "tasks": []
+      },
+      "normalized": {
+        "Other:Simile Generation": "Other:Simile Generation"
+      },
+      "explanation": "Removed redundant dataset descriptions and auxiliary models used for evaluation (not generation). Kept only the main generation model (BART) and core datasets."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "BERTSCORE",
+      "PERPLEXITY",
+      "HAUSER QUALITY",
+      "HAUSER RELEVANCE",
+      "HAUSER LOGICAL CONSISTENCY",
+      "HAUSER SENTIMENT CONSISTENCY",
+      "HAUSER CREATIVITY",
+      "HAUSER INFORMATIVENESS",
+      "SELF BLEU",
+      "DISTINCT N GRAMS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "relevance",
+          "logical consistency",
+          "sentiment consistency",
+          "creativity",
+          "informativeness"
+        ]
+      },
+      "normalized": {
+        "RougeL": "ROUGE",
+        "BLEU": "BLEU",
+        "METEOR": "METEOR",
+        "BERTScore": "BERTScore",
+        "Perplexity": "Perplexity",
+        "Self-BLEU": "Self-BLEU",
+        "Distinct n-grams": "Distinct n-grams"
+      },
+      "explanation": "Normalized metric names to standard forms. Removed duplicate entries for HAUSER sub-metrics that were listed both as individual components and as prefixed versions."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was used in this paper. The paper uses traditional classifiers (MNLI, sentiment classifier) and knowledge bases for automatic evaluation, not LLM judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Ratings given on 1-5 Likert scale for each perspective (quality, creativity, informativeness)",
+      "Three raters per perspective",
+      "Filtering applied for ambiguous cases"
+    ],
+    "criteria": [
+      "Quality",
+      "Creativity",
+      "Informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Filtering applied for ambiguous cases"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "relevance",
+          "logical consistency",
+          "sentiment consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Added missing guideline about filtering process. Removed sub-criteria (relevance, logical consistency, sentiment consistency) as they were components of the overall quality rating, not separate human evaluation criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on simile generation evaluation. It proposes HAUSER, a comprehensive evaluation system with both automatic metrics and human evaluation. The extraction was generally good but included some redundant information and auxiliary models not directly involved in generation."
+}

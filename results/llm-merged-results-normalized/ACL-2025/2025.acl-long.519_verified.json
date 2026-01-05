@@ -1,0 +1,143 @@
+{
+  "paper_id": "2025.acl-long.519",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Code Generation"
+    ],
+    "datasets": [
+      "NEWSQA",
+      "HumanEval",
+      "ARENA HARD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_2.5_7b",
+      "qwen_2.5_14b",
+      "qwen_2.5_32b",
+      "llama_2_7b",
+      "llama_2_13b"
+    ],
+    "outputs": [
+      "Generated text summaries for NewsQA",
+      "Generated code snippets for HumanEval",
+      "Generated responses for instruction following tasks"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Arena Hard"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Generated responses for instruction following tasks"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Qwen2.5",
+          "Llama2"
+        ],
+        "outputs": [
+          "summarized text and generated code",
+          "Generated text summaries, code snippets, and other language generation outputs evaluated per token (functional unit)."
+        ]
+      },
+      "normalized": {
+        "Llama2-7B": "Llama2-7B",
+        "Llama2-13B": "Llama2-13B",
+        "Qwen2.5-7B": "Qwen2.5-7B",
+        "QWen2.5-14B": "Qwen2.5-14B",
+        "Qwen2.5-32B": "Qwen2.5-32B"
+      },
+      "explanation": "Removed generic model names (Qwen2.5, Llama2) and added specific outputs for each dataset. Added missing Arena Hard dataset."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "QSCORE",
+      "REWARD MODEL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Reward Model Score"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Skywork reward model (Qscore)",
+          "reward model score"
+        ]
+      },
+      "normalized": {
+        "Qscore": "Qscore",
+        "Skywork reward model (Qscore)": "Reward Model Score",
+        "reward model score": "Reward Model Score"
+      },
+      "explanation": "Normalized the reward model scoring to 'Reward Model Score' and removed redundant mentions. Qscore is retained as the primary metric derived from the reward model."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Skywork reward model"
+        ],
+        "methods": [
+          "reward model scoring",
+          "reward scoring of generated outputs"
+        ],
+        "criteria": [
+          "output quality (Qscore)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses a reward model to evaluate outputs, but this is a specialized trained model (Skywork reward model), not an LLM used as a judge. The distinction is important - reward models are specifically trained for evaluation, while LLM-as-judge typically refers to using general-purpose LLMs like GPT-4 for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted. Removed placeholder 'None' values as they're not needed for empty lists."
+    }
+  },
+  "overall_notes": "This paper focuses on environmental impact evaluation of LLM serving systems rather than traditional NLG evaluation. The authors use NLG tasks primarily as benchmarks to demonstrate their FUEL framework. The evaluation uses a specialized reward model (Skywork) rather than traditional metrics like BLEU/ROUGE or LLM-as-judge approaches. The extracted metadata was generally accurate but needed clarification on the distinction between reward models and LLM-as-judge."
+}

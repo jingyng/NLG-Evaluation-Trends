@@ -1,0 +1,91 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Intuitively, we'd like to see a low confidence score when the LLM outputs: a factually incorrect response to a question, a inaccurate summary requested for a document, or a generated article/message that semantically differs from the intention of the original request.",
+            "...we primarily focus on Question-Answering applications... our experiments consider numerous question-answering benchmarks...",
+            "This paper primarily focuses on Question-Answering applications, but our same uncertainty estimates can also be applied to estimate how confident the LLM is in its response to a more general prompt."
+        ],
+        "tasks": [
+            "Text Summarization",
+            "Other:Question Answering",
+            "Dialogue Generation",
+            "Other:Question-Answering"
+        ],
+        "datasets": [
+            "GSM8K",
+            "SVAMP",
+            "Commonsense Question Answering (CSQA)",
+            "TriviaQA",
+            "CSQA",
+            "Summarize-from-feedback"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Text-Davinci-003",
+            "GPT-3.5 Turbo",
+            "GPT-4"
+        ],
+        "outputs": [
+            "Answers to questions, summaries, drafted documents, chat responses",
+            "textual answers generated for QA prompts",
+            "The paper evaluates generated answers in question-answering tasks and also applies the method to document drafting and chat applications, where natural language responses are generated and assigned confidence scores."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "To evaluate generation quality from the method to get better LLM answers in Section 4, we simply rely on the accuracy of LLM answers.",
+            "...we use Area Under the Receiver Operator Characteristic Curve (AUROC) to evaluate the quality of our uncertainty estimates... we report accuracy of LLM answers...",
+            "In Table , we select the response with the highest confidence out of 5 generated responses as described in Section 4. For all tasks, BSDETECTOR can identify less accurate responses and notably improve LLM accuracy."
+        ],
+        "automatic_metrics": [
+            "Accuracy",
+            "Mean Squared Error",
+            "AUROC",
+            "Mean Squared Error (MSE)"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "employ GPT-4 based evaluation to automatically rate each summary's quality",
+            "...we employ GPT-4 based evaluation to automatically rate each summary's quality... GPT-4 is given the question and generated answer... asked to designate the answer as correct or incorrect...",
+            "We employ GPT-4 based evaluation to automatically rate each summary's quality, asking the GPT-4 to select from options: Bad/Fair/Good/Excellent"
+        ],
+        "models": [
+            "GPT-4"
+        ],
+        "methods": [
+            "binary classification for correctness",
+            "multi-category rating",
+            "automated evaluation prompt (binary correctness classification)",
+            "multiple-choice rating",
+            "correctness classification"
+        ],
+        "criteria": [
+            "correctness",
+            "quality"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "Surveys of users of our chat application reveal that our method assigns useful confidence scores for long text generation in open-domain settings, and these users report the scores help them identify hallucinations.",
+            "...this dataset provides ... a summary ... and a human assessment of the summary's quality (which we hold out only for reporting purposes here)...",
+            "The gold-standard for evaluating open-domain answers is human inspection, but this is costly. Under a limited labor budget, we can boost the reliability of LLM-based evaluation by having humans only inspect and provide evaluations for the answers in A."
+        ],
+        "guideline": [
+            "Human raters assign a quality rating (Bad/Fair/Good/Excellent) to each summary.",
+            "Humans evaluate answers that GPT-4 is least confident about, where the corresponding GPT-4 evaluation has BSDETECTOR confidence score amongst the K lowest values."
+        ],
+        "criteria": [
+            "Bad",
+            "Fair",
+            "Good",
+            "Excellent"
+        ]
+    }
+}

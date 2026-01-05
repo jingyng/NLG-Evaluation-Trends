@@ -1,0 +1,92 @@
+{
+  "paper_id": "2025.naacl-long.527",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares LLM (Gemini) judgments with human annotations by computing Phi correlation coefficients between automatic textual entailment (NLI) labels and majority-agreement human visual entailment labels for propositions extracted from captions."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "gemini"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix/main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts mentioned as being in Appendix A.1; main text describes prompt usage for textual entailment and question-answer correctness assessment."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "majority agreement percentage",
+      "value": "average majority agreement of 82.6% for 'Contradicted' and 89.7% for 'Entailed'",
+      "interpretation": "high level of consensus among annotators",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "supplementary",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Annotators were provided with task guidelines, supplementary slides with detailed explanations, and 10 manually annotated examples; qualification test was administered."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Phi correlation coefficient"
+    ],
+    "shared_criteria": [
+      "visual/textual entailment (Entailed, Contradicted)"
+    ],
+    "sample_size": {
+      "total_generated": 2812,
+      "validated_by_both": 2812,
+      "notes": "20 images per model sampled, average 175 propositions per model, total 2,812 unique propositions validated by both LLM and human."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Phi correlation coefficient",
+        "value": 0.73,
+        "criterion": "overall entailment",
+        "llm_model": "gemini",
+        "significance": "not reported",
+        "notes": "For DOCCI original captions"
+      },
+      {
+        "metric": "Phi correlation coefficient",
+        "value": 0.67,
+        "criterion": "overall entailment",
+        "llm_model": "gemini",
+        "significance": "not reported",
+        "notes": "For synthetic captions"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong positive correlation",
+      "threshold_used": "not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "The LLM (Gemini) shows strong alignment with human judgments (Phi = 0.73/0.67) for entailment evaluation, indicating reliability of the automatic NLI model."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "textual entailment"
+    ],
+    "human_only_criteria": [
+      "visual entailment"
+    ],
+    "shared_criteria": [
+      "Entailed",
+      "Contradicted"
+    ],
+    "notes": "LLM assesses textual entailment between proposition and ground-truth description; humans assess visual entailment directly from images; both use the same categorical labels (Entailed/Contradicted)."
+  }
+}

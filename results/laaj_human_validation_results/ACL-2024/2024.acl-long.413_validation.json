@@ -1,0 +1,213 @@
+{
+  "paper_id": "2024.acl-long.413",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM evaluation against human evaluation using correlation analysis on the same datasets, with human scores used as ground truth to train and validate LLM-based evaluators"
+  },
+  "llm_judge_details": {
+    "num_models": 5,
+    "models": [
+      "GPT-4-32K",
+      "Llama2-7B-Chat",
+      "Llama2-13B-Chat",
+      "Llama2-70B-Chat",
+      "Microsoft Bing Chat"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts provided in Appendix G, including hierarchy-aware prompting templates that preserve hierarchical relations when evaluating decomposed criteria"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "multiple",
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Pearson and Spearman correlation",
+      "value": "Various values reported (e.g., Expert1-Expert2 coherence: 0.737 Pearson, 0.725 Spearman)",
+      "interpretation": "Expert-expert correlations reported to establish human performance ceiling",
+      "per_criterion": [
+        {
+          "criterion": "coherence",
+          "metric": "Pearson correlation",
+          "value": 0.737
+        },
+        {
+          "criterion": "coherence",
+          "metric": "Spearman correlation",
+          "value": 0.725
+        },
+        {
+          "criterion": "consistency",
+          "metric": "Pearson correlation",
+          "value": 0.891
+        },
+        {
+          "criterion": "consistency",
+          "metric": "Spearman correlation",
+          "value": 0.75
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text_and_appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human experts provide numeric scores on 1-5 scale for evaluation aspects, with detailed protocols referenced from established datasets"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "coherence",
+      "consistency",
+      "fluency",
+      "relevance",
+      "naturalness",
+      "engagingness",
+      "groundedness"
+    ],
+    "sample_size": {
+      "total_generated": "variable_by_dataset",
+      "validated_by_both": "50% held out for testing",
+      "notes": "For each dataset, 50% proportion held out for testing while rest used for training; experiments conducted with 25%, 50%, and 80% of human preference data"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.668,
+        "criterion": "coherence",
+        "llm_model": "HD-EVAL-NN",
+        "significance": "p<0.05",
+        "notes": "50% training data"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.657,
+        "criterion": "coherence",
+        "llm_model": "HD-EVAL-NN",
+        "significance": "p<0.05",
+        "notes": "50% training data"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.604,
+        "criterion": "consistency",
+        "llm_model": "HD-EVAL-NN",
+        "significance": "p<0.05",
+        "notes": "50% training data"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.457,
+        "criterion": "consistency",
+        "llm_model": "HD-EVAL-NN",
+        "significance": "p<0.05",
+        "notes": "50% training data"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.58,
+        "criterion": "fluency",
+        "llm_model": "HD-EVAL-NN",
+        "significance": "p<0.05",
+        "notes": "50% training data"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.435,
+        "criterion": "fluency",
+        "llm_model": "HD-EVAL-NN",
+        "significance": "p<0.05",
+        "notes": "50% training data"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.619,
+        "criterion": "relevance",
+        "llm_model": "HD-EVAL-NN",
+        "significance": "p<0.05",
+        "notes": "50% training data"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.599,
+        "criterion": "relevance",
+        "llm_model": "HD-EVAL-NN",
+        "significance": "p<0.05",
+        "notes": "50% training data"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.616,
+        "criterion": "naturalness",
+        "llm_model": "HD-EVAL-NN",
+        "significance": "p<0.05",
+        "notes": "Topical-Chat, 50% data"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.638,
+        "criterion": "naturalness",
+        "llm_model": "HD-EVAL-NN",
+        "significance": "p<0.05",
+        "notes": "Topical-Chat, 50% data"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "HD-EVAL substantially improves correlation over GPT-4 (15% overall improvement, over 20% in coherence and fluency)",
+      "threshold_used": "Not explicitly stated, but shows HD-EVAL achieves 0.617-0.668 correlations vs baseline GPT-4's 0.538-0.547",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "HD-EVAL significantly improves LLM-human alignment with 15% overall correlation improvement over GPT-4, demonstrating hierarchical criteria decomposition effectively aligns LLM evaluators with human preference."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "grammar_and_syntax",
+      "spelling_and_punctuation",
+      "spelling_correctness",
+      "punctuation_correctness",
+      "lexical_choice_and_diversity",
+      "topic_relevance",
+      "logical_flow",
+      "context_consistency",
+      "content_richness",
+      "information_quantity",
+      "information_quality",
+      "topic_diversity",
+      "emotional_engagement",
+      "length",
+      "tone",
+      "feedback",
+      "user_involvement",
+      "factual_consistency",
+      "factual_accuracy",
+      "factual_correctness",
+      "factual_source",
+      "factual_relevance",
+      "knowledge"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "coherence",
+      "consistency",
+      "fluency",
+      "relevance",
+      "naturalness",
+      "engagingness",
+      "groundedness"
+    ],
+    "notes": "Human evaluation focuses on high-level aspects while LLM evaluation through HD-EVAL decomposes these into finer-grained criteria, with both methods evaluating the same core aspects"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "paper_id": "2025.acl-long.559",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation"
+    ],
+    "datasets": [
+      "SWE-Bench Verified",
+      "SWE-Bench Lite",
+      "LiveCodeBench",
+      "RepoQA"
+    ],
+    "languages": [
+      "Python"
+    ],
+    "models": [
+      "Qwen2.5-Coder-7B-Instruct",
+      "Qwen2.5-Coder-32B-Instruct",
+      "SoRFT-Qwen-7B",
+      "SoRFT-Qwen-32B"
+    ],
+    "outputs": [
+      "code edits (patches) to resolve software issues",
+      "file localization",
+      "function localization",
+      "line localization",
+      "code edit generation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "Python"
+        ],
+        "models": [
+          "SoRFT-Qwen-7B",
+          "SoRFT-Qwen-32B"
+        ],
+        "outputs": [
+          "file localization",
+          "function localization",
+          "line localization",
+          "code edit generation"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "seart-ghs (curated open-source projects)"
+        ],
+        "languages": [
+          "English"
+        ],
+        "models": [
+          "Claude-3.5-Sonnet",
+          "OpenHands",
+          "SWE-Fixer",
+          "SWE-SynInfer"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "code edits (search/replace patches) generated to fix software issues": "code edits (patches) to resolve software issues"
+      },
+      "explanation": "Removed datasets used only for training (seart-ghs), removed baseline frameworks/tools (not NLG models), added SoRFT-trained models, changed language from English to Python since code generation is in Python, normalized output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "%Resolved",
+      "%Applied",
+      "Fβ score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Fβ score": "Fβ score"
+      },
+      "explanation": "Extracted metrics are correct and complete. Added Fβ score to maintain specificity as it's a key metric with β=3 parameter."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is used in this paper. All evaluation is done through automated testing and rule-based scoring."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. All evaluations are automated through test execution and rule-based scoring."
+    }
+  },
+  "overall_notes": "This paper focuses on code generation for software issue resolution, specifically generating patches to fix bugs/implement features. The main NLG task is code generation evaluated through automated testing (%Resolved/%Applied) and rule-based metrics (Fβ score). The paper uses rule-based reinforcement learning with ground-truth based rewards rather than LLM-as-judge or human evaluation."
+}

@@ -1,0 +1,131 @@
+{
+  "paper_id": "2023.acl-long.463",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Referring Expression Generation"
+    ],
+    "datasets": [
+      "PoMo"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5-small",
+      "T5-base",
+      "BART",
+      "BERT",
+      "RoBERTa",
+      "ELECTRA"
+    ],
+    "outputs": [
+      "referring expressions (entity descriptions)",
+      "referring expressions for people in text"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [],
+        "tasks": []
+      },
+      "removed": {
+        "datasets": [
+          "PoMo dataset"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated referring expressions (descriptions) for entities"
+        ],
+        "tasks": []
+      },
+      "normalized": {
+        "PoMo dataset": "PoMo",
+        "referring expressions (descriptions of entities)": "referring expressions (entity descriptions)",
+        "referring expressions describing people in a text": "referring expressions for people in text"
+      },
+      "explanation": "Consolidated duplicate dataset name 'PoMo dataset' to 'Pomo', normalized output descriptions for consistency"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Bertscore",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "Bertscore": "BERTScore",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized 'Bertscore' to 'BERTScore' and consolidated ROUGE variants under 'ROUGE'"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in the paper - models were used for generation/identification, not for evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators compare ground-truth descriptions with generated incongruous descriptions and rate contextual appropriateness on a 5-point scale",
+      "Annotators shown article context and two descriptions with preference rating on 5-point scale",
+      "Crowdworkers asked about entity familiarity and to provide short descriptions for familiar entities"
+    ],
+    "criteria": [
+      "contextual appropriateness",
+      "preference rating",
+      "familiarity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "description accuracy"
+        ]
+      },
+      "normalized": {
+        "preference rating (5‑point scale)": "preference rating"
+      },
+      "explanation": "Removed 'description accuracy' as it was not explicitly used as evaluation criterion for generated outputs, only for verifying assumptions"
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive evaluation framework for referring expression generation with both automatic metrics and human evaluation. The extraction was generally accurate, requiring only minor normalization and consolidation. The paper focuses on disentangling factual vs. contextual errors in NLG outputs across different entity familiarity levels."
+}

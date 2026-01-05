@@ -1,0 +1,117 @@
+{
+  "paper_id": "2025.acl-long.60",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Infilling",
+      "De Identification"
+    ],
+    "datasets": [
+      "WIKIPEDIA BIOGRAPHIES",
+      "TEXT ANONYMIZATION BENCHMARK TAB",
+      "SYNTHETIC CLINICAL NOTES"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "glm_roberta_large",
+      "mistral_nemo_instruct_2407",
+      "colbert"
+    ],
+    "outputs": [
+      "Infilled text spans containing personal identifiers",
+      "Re-identified PII elements (names, dates, locations, etc.)",
+      "Generated text that fills each masked PII span"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Re-identification"
+        ],
+        "models": [
+          "ColBERT"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:text infilling"
+        ],
+        "datasets": [
+          "Wikipedia biographies",
+          "synthetic clinical notes"
+        ]
+      },
+      "normalized": {
+        "Other:text infilling": "Other:Text Infilling",
+        "Wikipedia biographies": "Wikipedia Biographies",
+        "Text Anonymization Benchmark": "Text Anonymization Benchmark (TAB)",
+        "synthetic clinical notes": "Synthetic Clinical Notes",
+        "GLM RoBERTA Large": "GLM RoBERTa Large",
+        "Mistral-12B": "Mistral-Nemo-Instruct-2407"
+      },
+      "explanation": "Normalized capitalization and formatting. Added 'Re-identification' as a complementary task since the infilling serves re-identification purposes. Kept ColBERT as it's part of the overall NLG pipeline. Removed duplicate dataset entries and normalized to consistent naming."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT MATCH",
+      "TOKEN RECALL",
+      "ACCURACY",
+      "RECIPROCAL RANK"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "exact match",
+          "token recall",
+          "accuracy@1",
+          "accuracy@5",
+          "accuracy@10",
+          "MRR",
+          "accuracy@k"
+        ]
+      },
+      "normalized": {
+        "exact match": "Exact Match",
+        "token recall": "Token Recall",
+        "accuracy@1": "Accuracy@1",
+        "accuracy@5": "Accuracy@5",
+        "accuracy@10": "Accuracy@10",
+        "MRR": "Mean Reciprocal Rank",
+        "accuracy@k": "Accuracy@1"
+      },
+      "explanation": "Normalized all metrics to standard capitalization. Removed duplicates and the generic 'accuracy@k' since specific k values (1,5,10) are explicitly listed in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Correct extraction - no LLMs are used as external judges to evaluate the generated outputs post-generation. The LLMs (GLM, Mistral) are used for generation/infilling, not evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Correct extraction - the paper only uses automatic metrics and mentions no human evaluation of the generated outputs."
+    }
+  },
+  "overall_notes": "The paper focuses on text infilling for re-identification of de-identified documents. The extracted metadata was generally accurate but needed normalization for consistency. The paper evaluates NLG outputs (infilled text spans) using several automatic metrics but does not use LLM judges or human evaluation. The 'Other:Text Infilling' task is appropriate as it doesn't fit standard NLG categories."
+}

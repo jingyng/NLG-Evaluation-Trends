@@ -1,0 +1,89 @@
+{
+  "paper_id": "2024.emnlp-main.443",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates both decisiveness scoring and confidence scoring by comparing LLM judgments against human judgments, reporting high correlation between LLM and human evaluations."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "Gemini Ultra"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts P_d (decisiveness) and P_c (contradiction detection) are referenced in tables in Appendix D, but exact verbatim prompts are not shown in the main text."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluations used survey data from Fagen-Ulmschneider for decisiveness, and authors labeled confidence scores as ground truth, but detailed annotation guidelines are not explicitly provided."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Correlation coefficient"
+    ],
+    "shared_criteria": [
+      "decisiveness",
+      "confidence"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "100 randomly sampled model answers were used for decisiveness validation, and 100 randomly selected examples were used for confidence validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Correlation coefficient",
+        "value": 0.97,
+        "criterion": "confidence",
+        "llm_model": "Gemini Ultra",
+        "significance": null,
+        "notes": "High correlation between LLM confidence scores and human-labeled confidence scores"
+      },
+      {
+        "metric": "Correlation analysis",
+        "value": "high_agreement",
+        "criterion": "decisiveness",
+        "llm_model": "Gemini Ultra",
+        "significance": null,
+        "notes": "LLM decisiveness scores show strong agreement with human perceived probabilities from survey data, though no exact correlation value is reported"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Not explicitly specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Gemini Ultra shows high correlation with human judgment for both decisiveness scoring (aligning with human perceived probabilities) and confidence scoring (0.97 correlation with author-provided labels), validating LLM-as-a-judge reliability."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "decisiveness",
+      "confidence"
+    ],
+    "notes": "Both LLM and human evaluations assessed decisiveness and confidence on the same criteria."
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "paper_id": "2024.emnlp-main.1021",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering"
+    ],
+    "datasets": [
+      "CALOR",
+      "NATURALQA",
+      "FQUAD"
+    ],
+    "languages": [
+      "French",
+      "English"
+    ],
+    "models": [
+      "camembert",
+      "t_5_large",
+      "flan_t_5_large",
+      "mt_5_large",
+      "llama_2",
+      "mixtral_8x_7b",
+      "gpt_3.5"
+    ],
+    "outputs": [
+      "Generated answers to questions (extractive or abstractive)"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "models": [
+          "LLAMA-2",
+          "ChatGPT-3.5",
+          "Mixtral 8x7B"
+        ],
+        "outputs": [
+          "Generated answers to questions",
+          "generated answers to questions based on document contexts"
+        ]
+      },
+      "normalized": {
+        "Mixtral-8x7b": "Mixtral-8x7B",
+        "ChatGPT-3.5": "GPT-3.5",
+        "Mixtral 8x7B": "Mixtral-8x7B"
+      },
+      "explanation": "Removed duplicate model entries (LLAMA-2 vs LLAMA2, ChatGPT-3.5 vs GPT-3.5), normalized model names, and consolidated output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE-L to base ROUGE form according to guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-3.5",
+          "ChatGPT"
+        ],
+        "methods": [
+          "frame prediction via custom prompt",
+          "automatic extraction of frames and frame elements"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "GPT-3.5 was used for semantic annotation/frame extraction as part of the methodology, not as a judge to evaluate generated outputs. Removed all metadata since LLM-as-judge is not used."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators label each answer as 'correct', 'partially correct', or 'incorrect' based on context-question-answer triplets"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators label each answer as 'correct', 'partially correct', or 'incorrect' based on context-question-answer triplets"
+        ],
+        "criteria": [
+          "partial correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators were tasked to label each answer as 'correct', 'partially correct', or 'incorrect'.",
+          "Human annotators label each answer as correct, partially correct, or incorrect.",
+          "Annotators were tasked to label each answer as 'correct', 'partially correct', or 'incorrect'."
+        ],
+        "criteria": [
+          "incorrectness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant guideline descriptions and removed 'incorrectness' as a criterion since human evaluation scored correct (1.0) and partially correct (0.5) but incorrect was just the absence of scoring"
+    }
+  },
+  "overall_notes": "Paper focuses on reading comprehension/QA evaluation methodology using semantic complexity factors. Uses both automatic (ROUGE) and human evaluation. LLMs (GPT-3.5) are used for semantic annotation, not as judges. The QA task involves both extractive and abstractive answer generation."
+}

@@ -1,0 +1,172 @@
+{
+  "paper_id": "2024.emnlp-main.1134",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM judgments against human expert annotations on a gold-standard dataset of 100 conversations, reporting quantitative metrics (accuracy, F1-scores, Cohen's κ) comparing GPT-4-Turbo and fine-tuned Vicuna with human ratings"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4-Turbo",
+      "Vicuna-13b-16K"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "31 different prompts engineered with variations in system roles (social science expert personas), shot approaches (zero-shot/few-shot), scale types (binary/4-class), and temperature settings. Exact prompt templates shown in appendix figures."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": 0.717,
+      "interpretation": "moderate agreement",
+      "per_criterion": [
+        {
+          "criterion": "Categorization Threat",
+          "metric": "Krippendorff's alpha",
+          "value": 0.715
+        },
+        {
+          "criterion": "Morality Threat",
+          "metric": "Krippendorff's alpha",
+          "value": 0.544
+        },
+        {
+          "criterion": "Competence Threat",
+          "metric": "Krippendorff's alpha",
+          "value": 0.609
+        },
+        {
+          "criterion": "Realistic Threat",
+          "metric": "Krippendorff's alpha",
+          "value": 0.459
+        },
+        {
+          "criterion": "Symbolic Threat",
+          "metric": "Krippendorff's alpha",
+          "value": 0.783
+        },
+        {
+          "criterion": "Disparagement",
+          "metric": "Krippendorff's alpha",
+          "value": 0.689
+        },
+        {
+          "criterion": "Opportunity Harm",
+          "metric": "Krippendorff's alpha",
+          "value": 0.835
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full annotation guidelines provided in appendix with 4-point Likert scale definitions, examples, and instructions for providing excerpts and justifications. Annotators underwent training sessions."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Accuracy",
+      "Weighted F1-score",
+      "Macro F1-score",
+      "Cohen's kappa"
+    ],
+    "shared_criteria": [
+      "Categorization Threat",
+      "Morality Threat",
+      "Competence Threat",
+      "Realistic Threat",
+      "Symbolic Threat",
+      "Disparagement",
+      "Opportunity Harm"
+    ],
+    "sample_size": {
+      "total_generated": 1920,
+      "validated_by_both": 100,
+      "notes": "Gold-standard dataset contains 100 randomly sampled conversations (50 caste-based, 50 race-based) with 700 total annotations (7 metrics × 100 conversations)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Accuracy",
+        "value": "0.76-0.93",
+        "criterion": "overall",
+        "llm_model": "GPT-4-Turbo",
+        "significance": null,
+        "notes": "Range across all CHAST metrics"
+      },
+      {
+        "metric": "Weighted F1-score",
+        "value": "0.76-0.93",
+        "criterion": "overall",
+        "llm_model": "GPT-4-Turbo",
+        "significance": null,
+        "notes": "Range across all CHAST metrics"
+      },
+      {
+        "metric": "Macro F1-score",
+        "value": "0.75-0.93",
+        "criterion": "overall",
+        "llm_model": "GPT-4-Turbo",
+        "significance": null,
+        "notes": "Range across all CHAST metrics"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.733,
+        "criterion": "Categorization Threat",
+        "llm_model": "GPT-4-Turbo",
+        "significance": null,
+        "notes": "Between Annotator 1 and GPT-4-Turbo"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.758,
+        "criterion": "Symbolic Threat",
+        "llm_model": "GPT-4-Turbo",
+        "significance": null,
+        "notes": "Between Annotator 1 and GPT-4-Turbo"
+      },
+      {
+        "metric": "Accuracy",
+        "value": "0.76-0.87",
+        "criterion": "overall",
+        "llm_model": "Vicuna-13b-16K",
+        "significance": null,
+        "notes": "Fine-tuned model performance range"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "well-justified alignment",
+      "threshold_used": "Cohen's κ values showing expert-LLM agreement comparable to expert-expert agreement",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GPT-4-Turbo showed strong alignment with expert annotations on CHAST metrics across all 7 criteria, with performance matching or exceeding similar toxicity detection studies. For 4 out of 7 metrics, expert annotators agreed better with GPT-4 than with each other."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Categorization Threat",
+      "Morality Threat",
+      "Competence Threat",
+      "Realistic Threat",
+      "Symbolic Threat",
+      "Disparagement",
+      "Opportunity Harm"
+    ],
+    "notes": "Both LLM and human evaluators assessed the identical set of 7 CHAST metrics on the same 100 conversations, enabling direct validation comparison"
+  }
+}

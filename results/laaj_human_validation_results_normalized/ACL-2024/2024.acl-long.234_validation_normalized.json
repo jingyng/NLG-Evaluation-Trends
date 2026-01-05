@@ -1,0 +1,272 @@
+{
+  "paper_id": "2024.acl-long.234",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-as-a-judge evaluations with human evaluations on the same criteria using the same samples, reporting quantitative agreement metrics including Randolph's Kappa values for each evaluation criterion"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4o",
+      "Llama3-70B"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "no",
+      "notes": "Paper mentions creating prompts with evaluation instructions but full prompt text is not shown; evaluation uses chain-of-thought format with rationale followed by rating"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Randolph's Kappa",
+      "value": 0.7,
+      "interpretation": "substantial agreement",
+      "per_criterion": [
+        {
+          "criterion": "Answerability-with-Xsrc",
+          "value": 0.61
+        },
+        {
+          "criterion": "Answerability-with-Xtgt",
+          "value": 0.5
+        },
+        {
+          "criterion": "Accuracy-Evidence",
+          "value": 0.71
+        },
+        {
+          "criterion": "Accuracy-Answer",
+          "value": 0.68
+        },
+        {
+          "criterion": "Hallucinations",
+          "value": 0.89
+        },
+        {
+          "criterion": "Givenness",
+          "value": 0.79
+        },
+        {
+          "criterion": "Rationale-Localization",
+          "value": 0.8
+        },
+        {
+          "criterion": "Jargon",
+          "value": 0.57
+        },
+        {
+          "criterion": "Standalone",
+          "value": 0.69
+        },
+        {
+          "criterion": "Recall",
+          "value": 0.7
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed evaluation guidelines provided in Appendix C with scoring rubrics, example annotations, and category definitions"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Randolph's Kappa"
+    ],
+    "shared_criteria": [
+      "Answerability-with-Xsrc",
+      "Answerability-with-Xtgt",
+      "Accuracy-Evidence",
+      "Accuracy-Answer",
+      "Hallucinations",
+      "Givenness",
+      "Rationale-Localization",
+      "Jargon",
+      "Standalone",
+      "Recall"
+    ],
+    "sample_size": {
+      "total_generated": 400,
+      "validated_by_both": 400,
+      "notes": "100 QA pairs per model for aspects 1+2 (400 total), and 50% of documents for aspect 3"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.68,
+        "criterion": "Answerability-with-Xsrc",
+        "llm_model": "GPT-4o",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.66,
+        "criterion": "Answerability-with-Xsrc",
+        "llm_model": "Llama3-70B",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.33,
+        "criterion": "Answerability-with-Xtgt",
+        "llm_model": "GPT-4o",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.24,
+        "criterion": "Answerability-with-Xtgt",
+        "llm_model": "Llama3-70B",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.65,
+        "criterion": "Accuracy",
+        "llm_model": "GPT-4o",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.52,
+        "criterion": "Accuracy",
+        "llm_model": "Llama3-70B",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.63,
+        "criterion": "Accuracy",
+        "llm_model": "GPT-4o",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.57,
+        "criterion": "Accuracy",
+        "llm_model": "Llama3-70B",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.81,
+        "criterion": "Hallucination",
+        "llm_model": "GPT-4o",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.72,
+        "criterion": "Hallucination",
+        "llm_model": "Llama3-70B",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.3,
+        "criterion": "Givenness",
+        "llm_model": "GPT-4o",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.24,
+        "criterion": "Givenness",
+        "llm_model": "Llama3-70B",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.18,
+        "criterion": "Rationale-Localization",
+        "llm_model": "GPT-4o",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.06,
+        "criterion": "Rationale-Localization",
+        "llm_model": "Llama3-70B",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.34,
+        "criterion": "Jargon",
+        "llm_model": "GPT-4o",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.43,
+        "criterion": "Jargon",
+        "llm_model": "Llama3-70B",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.21,
+        "criterion": "Standalone",
+        "llm_model": "GPT-4o",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": -0.3,
+        "criterion": "Standalone",
+        "llm_model": "Llama3-70B",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.67,
+        "criterion": "Recall",
+        "llm_model": "GPT-4o",
+        "notes": "vs human agreement"
+      },
+      {
+        "metric": "Randolph's Kappa",
+        "value": 0.47,
+        "criterion": "Recall",
+        "llm_model": "Llama3-70B",
+        "notes": "vs human agreement"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "GPT-4o achieves fair to moderate agreement on correctness criteria but poor agreement on linguistic suitability; Llama3-70B shows lower agreement overall",
+      "threshold_used": "Based on Randolph's Kappa interpretation standards",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GPT-4o matches human agreement on correctness and recall criteria (average \u03ba=0.48) but performs poorly on linguistic suitability assessment; LLM-based evaluation appears promising for QA correctness but unreliable for linguistic quality judgments"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Answerability-with-Xsrc",
+      "Answerability-with-Xtgt",
+      "Accuracy",
+      "Accuracy",
+      "Hallucination",
+      "Givenness",
+      "Rationale-Localization",
+      "Jargon",
+      "Standalone",
+      "Recall"
+    ],
+    "notes": "Both LLM and human judges evaluated the exact same 10 criteria on the same QA pairs, allowing direct comparison"
+  }
+}

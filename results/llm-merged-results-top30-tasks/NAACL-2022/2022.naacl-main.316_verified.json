@@ -1,0 +1,139 @@
+{
+  "paper_id": "2022.naacl-main.316",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "LDC ZH EN",
+      "WMT17",
+      "WMT19",
+      "EUROPARL v7",
+      "MTNT",
+      "NEWS COMMENTARY",
+      "NEWS CRAWL 2010"
+    ],
+    "languages": [
+      "Chinese",
+      "English",
+      "German",
+      "French"
+    ],
+    "models": [
+      "transformer",
+      "m_mlm",
+      "t_mlm"
+    ],
+    "outputs": [
+      "translated sentences",
+      "adversarial source sentences",
+      "adversarial target sentences",
+      "reconstructed sentences from round-trip translation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "News Commentary",
+          "News Crawl 2010"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "adversarial target sentences"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "LDC",
+          "NIST",
+          "NIST06",
+          "NIST 02, 03, 04, 05, 08",
+          "newstest16",
+          "newstest17",
+          "WMT'19 En→Fr robustness dataset"
+        ],
+        "languages": [],
+        "models": [
+          "Transformer-base NMT",
+          "Monolingual MLM (M-MLM)",
+          "Translation MLM (T-MLM)",
+          "Transformer-base",
+          "vanilla Transformer"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "LDC Zh-En": "LDC Zh-En",
+        "WMT'17 En-De": "WMT'17 En-De",
+        "WMT'19 En-Fr": "WMT'19 En-Fr"
+      },
+      "explanation": "Consolidated redundant dataset names (e.g., multiple NIST references), normalized model names by removing redundant descriptions, and added missing datasets mentioned in the paper. Simplified outputs to be more precise."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SacreBLEU"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "SacreBLEU": "BLEU"
+      },
+      "explanation": "Normalized SacreBLEU to BLEU since SacreBLEU is just an implementation of BLEU scoring. The paper uses BLEU as the evaluation metric throughout."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed. The paper does not use LLMs as judges - it uses MLMs for data augmentation, not evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed. The paper does not conduct human evaluations and relies entirely on automatic metrics."
+    }
+  },
+  "overall_notes": "The paper focuses on Neural Machine Translation robustness using adversarial examples generated via Doubly Round-Trip Translation. It uses BLEU scores extensively for evaluation but does not conduct human evaluations or use LLMs as judges. The extraction was generally accurate but had some redundancy in dataset names and model descriptions that needed consolidation."
+}

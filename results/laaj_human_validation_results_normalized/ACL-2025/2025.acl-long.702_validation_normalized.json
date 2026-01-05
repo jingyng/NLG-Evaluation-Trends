@@ -1,0 +1,125 @@
+{
+  "paper_id": "2025.acl-long.702",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM evaluators against human judgments using Pearson correlation analysis and reports quantitative scores for agreement across multiple evaluation dimensions and models"
+  },
+  "llm_judge_details": {
+    "num_models": 6,
+    "models": [
+      "gpt_4o",
+      "claude_3.5_sonnet",
+      "qwen_2.5_72b",
+      "llama_3.1_70b",
+      "FineSurE",
+      "G-Eval"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts provided in appendix tables for key-fact validation (Table 21), multi-agent debate (Advocate - Table 24, Adjudicator - Table 26), and key-fact alignment assessment"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": 0.58,
+      "interpretation": "very high average IAA scores",
+      "per_criterion": [
+        {
+          "criterion": "fact verification",
+          "metric": "Krippendorff's alpha",
+          "value": 0.58
+        },
+        {
+          "criterion": "key-fact alignment",
+          "metric": "Krippendorff's alpha",
+          "value": 0.79
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text_and_appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluation uses two main tasks: fact verification using error taxonomy (out-of-article, entity, relation, sentence errors) and key-fact alignment similar to NLI task. Guidelines detailed in Section 4.2 and Appendix C"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "faithfulness",
+      "completeness",
+      "conciseness",
+      "domain_stability",
+      "language_stability"
+    ],
+    "sample_size": {
+      "total_generated": 2250,
+      "validated_by_both": 2250,
+      "notes": "Total of 1,200 English summaries (25 docs \u00d7 6 domains \u00d7 8 models) and 1,050 Chinese summaries (25 docs \u00d7 6 domains \u00d7 7 models). All evaluated by both LLM and human."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": "varied_by_model_and_dimension",
+        "criterion": "Faithfulness",
+        "llm_model": "multiple",
+        "significance": "not_reported",
+        "notes": "Qwen-2.5-72B stands out for strong performance in faithfulness evaluation"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": "variable_across_dimensions",
+        "criterion": "Completeness",
+        "llm_model": "multiple",
+        "significance": "not_reported",
+        "notes": "Significant variability in LLM evaluation accuracy across dimensions"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": "variable_across_dimensions",
+        "criterion": "Conciseness",
+        "llm_model": "multiple",
+        "significance": "not_reported",
+        "notes": "Performance varies across domains and languages"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "not_provided",
+      "threshold_used": "not_provided",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM evaluation accuracy varies significantly across evaluation dimensions, domains, and languages. Strong correlation (\u03c1=0.71) found between LLM performance in summarization and evaluation tasks, but no single model consistently achieves best performance across all dimensions."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "self_evaluation_bias_analysis"
+    ],
+    "human_only_criteria": [
+      "multi-agent_debate_assistance",
+      "expert_quality_checks"
+    ],
+    "shared_criteria": [
+      "Faithfulness",
+      "Completeness",
+      "Conciseness",
+      "domain_stability",
+      "language_stability"
+    ],
+    "notes": "Both LLM and human evaluate the same three primary dimensions (faithfulness, completeness, conciseness) and two stability metrics. Human evaluation incorporates multi-agent debate assistance while LLM evaluation includes additional self-evaluation bias analysis."
+  }
+}

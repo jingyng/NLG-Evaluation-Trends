@@ -1,0 +1,134 @@
+{
+  "paper_id": "2022.emnlp-main.185",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Electronic Health Records Generation"
+    ],
+    "datasets": [
+      "MIMIC III"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "promptehr",
+      "bart",
+      "gpt_2"
+    ],
+    "outputs": [
+      "synthetic electronic health records with longitudinal and multimodal events including diagnosis, medications, procedures, and lab tests"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:EHR Generation",
+          "Other:EHR generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "synthetic electronic health records (EHRs) including sequences of visits with diagnosis, medication events, and baseline features",
+          "Synthetic longitudinal EHR records (sequences of visits with diagnosis, medication, procedure, and lab events)"
+        ]
+      },
+      "normalized": {
+        "Other:Electronic Health Records Generation": "Other:Electronic Health Records Generation",
+        "Other:EHR Generation": "Removed - duplicate",
+        "Other:EHR generation": "Removed - duplicate"
+      },
+      "explanation": "Consolidated duplicate task entries and merged output descriptions into one comprehensive description. The paper addresses EHR generation using language models, which is an NLG task."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "LONGITUDINAL IMPUTATION PERPLEXITY LPL",
+      "CROSS MODALITY IMPUTATION PERPLEXITY MPL",
+      "MEMBERSHIP INFERENCE SUCCESS RATE",
+      "ATTRIBUTE INFERENCE SUCCESS RATE",
+      "RECALL",
+      "AUC",
+      "TPR",
+      "FPR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "perplexity (lpl)",
+          "perplexity (mpl)",
+          "Recall@10",
+          "Recall@20",
+          "ROC AUC",
+          "perplexity",
+          "longitudinal perplexity (lpl)",
+          "cross-modality perplexity (mpl)"
+        ]
+      },
+      "normalized": {
+        "longitudinal perplexity (lpl)": "longitudinal imputation perplexity (lpl)",
+        "cross-modality perplexity (mpl)": "cross-modality imputation perplexity (mpl)",
+        "perplexity (lpl)": "longitudinal imputation perplexity (lpl)",
+        "perplexity (mpl)": "cross-modality imputation perplexity (mpl)",
+        "Recall@10": "recall@10",
+        "Recall@20": "recall@20",
+        "ROC AUC": "AUC",
+        "perplexity": "Removed - unclear which type"
+      },
+      "explanation": "Normalized metric names to use consistent terminology from the paper. Removed duplicates and unclear references to 'perplexity' without specification. The paper explicitly uses lpl, mpl, recall metrics, and privacy attack metrics for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges to evaluate generated outputs. LLMs (BART, GPT-2) are used for generation, but there is no mention of using LLMs for evaluation/scoring."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper evaluates generated EHRs using only automatic metrics and adversaries (membership/attribute inference attacks). No human evaluation is mentioned or conducted."
+    }
+  },
+  "overall_notes": "The paper focuses on EHR generation using language models (PromptEHR) and evaluates primarily with custom perplexity metrics (lpl, mpl) and privacy attacks. The extraction was mostly accurate but contained some duplicate entries that needed consolidation. The paper is clearly an NLG paper as it generates synthetic healthcare records."
+}

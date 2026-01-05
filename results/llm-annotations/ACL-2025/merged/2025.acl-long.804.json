@@ -1,0 +1,115 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Alignment is a critical procedure to ensure large language models (LLMs) follow user instructions.",
+            "We conduct instruction tuning with two different instruction datasets... Evaluation. We select widely adopted benchmarks for the targeted abilities. (1) Factuality hallucination benchmark: BioGEN and Long-Fact; (2) Faithfulness hallucination benchmark: FollowRAG-Faithfulness; (3) Instruction-following benchmark: MT-Bench and FollowRAG-Instruction.",
+            "In this paper, we introduce NOVA, a novel framework designed to identify high-quality data that aligns well with the LLM's learned knowledge to reduce hallucination."
+        ],
+        "tasks": [
+            "Other:Instruction Following",
+            "Other:Biography Generation",
+            "Other:Entity Description Generation"
+        ],
+        "datasets": [
+            "Alpaca",
+            "Alpaca-GPT4",
+            "BioGEN",
+            "LongFact",
+            "FollowRAG",
+            "MT-Bench",
+            "FollowRAG-Faithfulness"
+        ],
+        "languages": [
+            "English",
+            "Chinese"
+        ],
+        "models": [
+            "LLaMA-3-8B",
+            "LLaMA-3-70B",
+            "DeBERTa-large-mnli",
+            "LLaMA-1-7B",
+            "Qwen-2"
+        ],
+        "outputs": [
+            "text",
+            "Generated responses (e.g., biographies, answers, instruction-following replies)",
+            "Generated responses to instructions, including biographies, entity descriptions, and answers to complex queries."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "To evaluate each generated response, we follow the FactScore procedure to extract the number of correct and incorrect facts.",
+            "We employ GPT-3.5-Turbo-0125 to break a generation into a series of atomic facts and utilize ... to compute the percentage of atomic facts supported ... The percentage of the correct statements (% FactScore), the number of generated statements (# Facts), and the ratio of generations that do not abstain from responding (% Respond) are adopted as the evaluation metrics. ... we use the average Rouge-L score between each pair of two generated responses as lexical metrics.",
+            "The percentage of the correct statements (% FactScore), the number of generated statements (# Facts), and the ratio of generations that do not abstain from responding (% Respond) are adopted as the evaluation metrics."
+        ],
+        "automatic_metrics": [
+            "FactScore",
+            "Average Score (faithfulness by GPT-4)",
+            "Pass Rate (instruction following)",
+            "MT-Bench Score (by GPT-4)",
+            "% Respond",
+            "Rouge-L",
+            "Perplexity",
+            "Differential Entropy",
+            "EM",
+            "Accuracy",
+            "Pass Rate"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "For evaluation, MT-Bench prompts GPT-4 to act as judges and assess the quality of the models' responses.",
+            "MT-Bench prompts GPT-4 to act as judges and assess the quality of the models' responses. For each turn, GPT-4 will give a score on a scale of 10. ... FollowRAG-Faithfulness ... we use GPT-4o-2024-05-13 to evaluate whether the model's outputs address the questions. The scoring criteria are: Completely correct (1 point), Partially correct (0.5 points), Completely incorrect (0 points).",
+            "For evaluation, MT-Bench prompts GPT-4 to act as judges and assess the quality of the models' responses."
+        ],
+        "models": [
+            "GPT-4",
+            "GPT-3.5",
+            "GPT-4o",
+            "GPT-3.5-Turbo-0125",
+            "GPT-4o-2024-05-13"
+        ],
+        "methods": [
+            "scoring by correctness level",
+            "fact verification",
+            "MT-Bench evaluation",
+            "score-based ranking (MT-Bench)",
+            "point-based correctness scoring (FollowRAG-Faithfulness)",
+            "prompting as judges",
+            "pairwise evaluation"
+        ],
+        "criteria": [
+            "factuality",
+            "correctness",
+            "completeness",
+            "overall quality",
+            "fluency",
+            "relevance",
+            "helpfulness",
+            "coherence",
+            "instruction-following"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "Human Evaluation. We conduct a human evaluation on the 50 generated biographies from BioGEN across four key dimensions: factuality, helpfulness, relevance, and naturalness.",
+            "We conduct a human evaluation on the 50 generated biographies from BioGEN across four key dimensions: factuality, helpfulness, relevance, and naturalness. For each comparison, three options are given (Ours Wins, Tie, and Vanilla Fine-tuning Wins) and the majority voting determines the final result.",
+            "We invite three Ph.D. students to compare the responses generated by the models."
+        ],
+        "guideline": [
+            "Evaluate biographies on factuality, helpfulness, relevance, and naturalness, then choose Win, Tie, or Loss for model comparison.",
+            "Participants evaluate biographies on factuality, helpfulness, relevance, and naturalness, then choose Win/Tie/Loss based on majority voting.",
+            "You are asked to evaluate the biographies generated by different models. You should choose the preferred biography according to the following perspectives independently: 1. Factuality: Whether the biography provides relatively more factual statements over the non-factual statements? 2. Helpfulness: Whether the biography provides useful information? 3. Relevance: Whether the statements contained in the biography relevant to the provided people entity? 4. Naturalness: Whether the biography sound natural and fluent?"
+        ],
+        "criteria": [
+            "factuality",
+            "helpfulness",
+            "relevance",
+            "naturalness"
+        ]
+    }
+}

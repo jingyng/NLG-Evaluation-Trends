@@ -1,0 +1,123 @@
+{
+  "paper_id": "2020.emnlp-main.530",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Generation"
+    ],
+    "datasets": [
+      "INQUISITIVE",
+      "SQUAD 2 0",
+      "SQuAD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2",
+      "bert"
+    ],
+    "outputs": [
+      "generated questions"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "datasets": [
+          "QuAC",
+          "NewsQA"
+        ],
+        "models": [
+          "BERT (for span prediction)"
+        ],
+        "outputs": [
+          "Generated inquisitive questions",
+          "questions"
+        ]
+      },
+      "normalized": {
+        "GPT-2": "GPT-2",
+        "BERT (for span prediction)": "BERT"
+      },
+      "explanation": "Removed QuAC and NewsQA as they are only mentioned for comparison, not used in training/evaluation. Normalized model names to standard forms."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "TRAIN",
+      "ARTICLE",
+      "SPAN"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "The extracted metrics are correct and relevant - these are custom metrics measuring copying behavior and span alignment."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges/evaluators of generated outputs. LLMs (GPT-2) are used for generation only."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers judge generated questions on three criteria: (1) validity (grammatically correct, complete, comprehensible), (2) relevance to highlighted span, (3) whether question is already answered in prior context"
+    ],
+    "criteria": [
+      "Validity",
+      "Relevance",
+      "Answered"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "already answered in prior context",
+          "relatedness to span",
+          "related to highlighted span"
+        ]
+      },
+      "normalized": {
+        "valid question": "validity",
+        "related to highlighted span": "span relevance",
+        "already answered in prior context": "not already answered"
+      },
+      "explanation": "Normalized criteria names for consistency and clarity. Kept only the canonical criteria names."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on question generation as an NLG task, uses both human evaluation and custom automatic metrics, but does not use LLMs as judges. The human evaluation is well-specified with clear criteria. Minor normalization needed for consistency."
+}

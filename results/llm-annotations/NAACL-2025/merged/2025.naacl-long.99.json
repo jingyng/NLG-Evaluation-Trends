@@ -1,0 +1,78 @@
+{
+    "answer_1": {
+        "answer": "No",
+        "quote": [
+            "we formulate our probes as a cloze task, where a single high-surprisal token is masked out, and a target model is prompted to predict the token that fills in the mask"
+        ],
+        "tasks": [
+            "Other:Cloze Task"
+        ],
+        "datasets": [
+            "BookMIA",
+            "New York Times articles",
+            "GPQA",
+            "CommonsenseQA",
+            "ARC-Challenge"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-3.5",
+            "GPT-4",
+            "Llama-2-70B",
+            "BERT"
+        ],
+        "outputs": [
+            "reconstructed tokens for masked positions"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "we examine the reconstruction rate, or the number of high-surprisal tokens the target model can reconstruct.",
+            "We primarily use precision (the proportion of correctly identified memorized samples among all samples flagged as memorized), recall, and we also report the Fβ=0.1 score which weights precision more highly than recall.",
+            "we primarily use precision (the proportion of correctly identified memorized samples among all samples flagged as memorized). When comparing methods with similar precision scores, we prefer those that identify more memorized samples. Therefore, we report the F β=0.1 score which weights precision more highly than recall."
+        ],
+        "automatic_metrics": [
+            "Reconstruction Rate",
+            "Precision",
+            "Recall",
+            "F-beta Score",
+            "Exact Match",
+            "F_beta=0.1",
+            "precision",
+            "recall",
+            "F β=0.1"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "We employ an ensemble of models to correctly contextualize surprising knowledge. In practice, after obtaining candidate surprise tokens from a reference model, we filter out those tokens which can be correctly surmised by a secondary (or even an ensemble of secondary) low-capacity instruction‑tuned LLM(s). We prompt the knowledge filtering models to reconstruct these candidate tokens after masking them, in order to filter out which ones can be easily guessed.",
+            "We prompt the model with the following prompt that doesn't use any extra metadata about the sample 'You are entering a multiple choice questions exam. You should directly answer each question by choosing the correct option. Be concise and straight to the point in your answer. Output only the letter corresponding to the correct answer. Question: Which of the following passages is verbatim from your training data? Options:'"
+        ],
+        "models": [
+            "low‑capacity instruction‑tuned LLMs used as knowledge filters",
+            "GPT-3.5",
+            "GPT-4",
+            "Llama-2-70B",
+            "Mistral-V2",
+            "Alpaca-7B",
+            "Claude-2"
+        ],
+        "methods": [
+            "knowledge‑filter reconstruction probing",
+            "multiple-choice question answering task"
+        ],
+        "criteria": [
+            "ability to reconstruct masked token"
+        ]
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": [],
+        "guideline": [],
+        "criteria": []
+    }
+}

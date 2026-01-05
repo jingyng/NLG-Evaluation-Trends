@@ -1,0 +1,119 @@
+{
+  "paper_id": "2025.naacl-long.301",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-as-a-judge against human evaluation by comparing GPT-4's sub-question coverage judgments with human annotations on 100 samples and reports alignment rate; also compares LLM-as-a-judge pairwise evaluation with human preference data."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts not fully shown but described: For sub-question coverage judgment, GPT-4 is prompted to judge if text contains answer to sub-question and identify relevant text fragments; for pairwise evaluation, GPT-4 is directly prompted to compare two responses."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 5,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Percentage agreement",
+      "value": 74.6,
+      "interpretation": "Average accuracy across annotators",
+      "per_criterion": [
+        {
+          "criterion": "core sub-questions",
+          "metric": "Percentage agreement",
+          "value": 76.8
+        },
+        {
+          "criterion": "background sub-questions",
+          "metric": "Percentage agreement",
+          "value": 64.3
+        },
+        {
+          "criterion": "follow-up sub-questions",
+          "metric": "Percentage agreement",
+          "value": 79.2
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines include definitions of three sub-question types with examples; human preference annotations from WebGPT Comparisons dataset used with preference scores mapped to labels."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Percentage agreement",
+      "Accuracy"
+    ],
+    "shared_criteria": [
+      "sub-question coverage",
+      "answer quality preference"
+    ],
+    "sample_size": {
+      "total_generated": 4000,
+      "validated_by_both": 100,
+      "notes": "Validation uses 100 samples for sub-question coverage alignment and 500 samples for answer quality preference comparison"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": 83.0,
+        "criterion": "sub-question coverage judgment",
+        "llm_model": "GPT-4",
+        "significance": "Not reported",
+        "notes": "Alignment rate between GPT-4 automatic judgments and human annotations on 100 samples"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 78.0,
+        "criterion": "Quality",
+        "llm_model": "GPT-4",
+        "significance": "Not reported",
+        "notes": "Core sub-question coverage metric accuracy compared to human preference annotations"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 82.0,
+        "criterion": "Quality",
+        "llm_model": "Not applicable",
+        "significance": "Not reported",
+        "notes": "Weighted hybrid metric (core:1, background:0.5, follow-up:-1) accuracy compared to human preference"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "",
+      "threshold_used": "",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 achieves 83% agreement with human annotations on sub-question coverage; sub-question coverage metrics (78-82% accuracy) outperform standard LLM-as-a-judge approach in matching human preferences."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "pairwise comparison"
+    ],
+    "human_only_criteria": [
+      "sub-question type classification"
+    ],
+    "shared_criteria": [
+      "sub-question coverage",
+      "Quality"
+    ],
+    "notes": "LLM evaluates sub-question coverage and pairwise comparisons; humans evaluate sub-question type classification and answer preferences; both evaluate sub-question coverage and overall answer quality preferences"
+  }
+}

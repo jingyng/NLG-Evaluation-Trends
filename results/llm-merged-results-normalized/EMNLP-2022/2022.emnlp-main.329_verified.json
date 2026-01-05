@@ -1,0 +1,112 @@
+{
+  "paper_id": "2022.emnlp-main.329",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "DREAM",
+      "MUTUAL",
+      "DIALOGSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "roberta",
+      "albert",
+      "bert",
+      "electra"
+    ],
+    "outputs": [
+      "structured dialogue summaries with 16 predefined entries",
+      "vector embeddings of structured summary entries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "DIALOG-SUM": "DIALOGSUM"
+      },
+      "explanation": "Minor normalization of dataset name from DIALOG-SUM to DIALOGSUM"
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": false,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "cosine similarity"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'cosine similarity' as it's used as a training objective/loss function, not as an evaluation metric for generated outputs. The paper evaluates using accuracy on downstream tasks."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is conducted in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "When writing each STRUDEL summarization entry for a dialogue, please be informative, succinct, faithful and to the point. When you think a certain STRUDEL entry can't be inferred from the dialogue or is not mentioned in the dialogue at all or doesn't apply to the current dialogue, please write 'N/A' for that STRUDEL entry in your annotation."
+        ],
+        "criteria": [
+          "informative",
+          "succinct",
+          "faithful",
+          "to the point"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed human evaluation guidelines and criteria as they were used for creating training annotations, not for evaluating model-generated outputs"
+    }
+  },
+  "overall_notes": "The paper focuses on using structured dialogue summarization (STRUDEL) as an auxiliary task to improve dialogue comprehension. While it involves NLG (generating structured summaries), the primary evaluation is on downstream comprehension tasks (accuracy), not on the quality of the generated summaries themselves. The human annotations were for creating the STRUDEL dataset, not for evaluating model outputs."
+}

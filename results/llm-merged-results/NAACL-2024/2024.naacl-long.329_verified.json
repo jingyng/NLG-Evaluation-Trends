@@ -1,0 +1,150 @@
+{
+  "paper_id": "2024.naacl-long.329",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Analogy Generation",
+      "Other:Paragraph-level Analogy Generation"
+    ],
+    "datasets": [
+      "ProPara-Logy",
+      "ProPara"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3.5",
+      "GPT-4",
+      "Gemini Pro",
+      "FlanT5-small",
+      "FlanT5-XL",
+      "FlanT5-XXL"
+    ],
+    "outputs": [
+      "paragraphs describing analogous scientific processes",
+      "paragraph-level analogies between scientific processes",
+      "distractor paragraphs for analogy evaluation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "distractor paragraphs for analogy evaluation"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-3.5 (text-davinci-003)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:paragraph-level analogy generation": "Other:Paragraph-level Analogy Generation",
+        "paragraphs describing analogous scientific processes and relations": "paragraphs describing analogous scientific processes",
+        "paragraph-level analogies and distractor paragraphs describing scientific processes": "paragraph-level analogies between scientific processes"
+      },
+      "explanation": "Normalized task names to title case, consolidated model list by removing duplicate GPT-3.5 variant, and clarified output descriptions. Added 'distractor paragraphs' as they are a key generated output."
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": false,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "No automatic metrics were used to evaluate generated text quality. The paper uses accuracy for classification tasks, but not NLG evaluation metrics like BLEU/ROUGE."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "in-context learning for auto-labeling analogy candidates"
+    ],
+    "criteria": [
+      "analogy correctness",
+      "relation correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-3.5"
+        ],
+        "methods": [
+          "in‑context classification (auto‑labeling)"
+        ],
+        "criteria": [
+          "analogy vs. non‑analogy"
+        ]
+      },
+      "normalized": {
+        "in-context learning with few-shot examples": "in-context learning for auto-labeling analogy candidates"
+      },
+      "explanation": "Removed GPT-3.5 as it was used for generation, not evaluation. Consolidated methods to be more specific about the auto-labeling task. Simplified criteria to focus on the core evaluation aspects."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers determine whether paragraphs are analogous and if relations are correct",
+      "For analogous pairs, classify as close or far analogy",
+      "For non-analogous pairs, identify issues: dissimilar relations, misinformation, cyclic vs. non-cyclic process, or other"
+    ],
+    "criteria": [
+      "analogical similarity",
+      "relation correctness",
+      "close vs. far analogy",
+      "dissimilar relations",
+      "misinformation",
+      "cyclic vs. non-cyclic process",
+      "entity mapping consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "For analogous pairs, classify as close or far analogy"
+        ],
+        "criteria": [
+          "entity mapping consistency"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "other",
+          "analogy label (yes/no)",
+          "issue categories (dissimilar relations, misinformation, cyclic/non‑cyclic, other)"
+        ]
+      },
+      "normalized": {
+        "correctness of relations": "relation correctness",
+        "cyclic vs. non-cyclic": "cyclic vs. non-cyclic process"
+      },
+      "explanation": "Restructured guidelines for clarity, added 'close vs. far analogy' classification. Added 'entity mapping consistency' as a specific issue mentioned in the paper. Removed redundant/general categories."
+    }
+  },
+  "overall_notes": "The paper focuses on generating paragraph-level analogies between scientific processes using LLMs. The extraction was generally accurate, but needed some normalization and clarification. Key contributions include the ParallelPARC pipeline, ProPara-Logy dataset, and evaluation of both humans and models on analogy recognition tasks. The paper uses LLMs for both generation and evaluation (auto-labeling), and conducts extensive human evaluations."
+}

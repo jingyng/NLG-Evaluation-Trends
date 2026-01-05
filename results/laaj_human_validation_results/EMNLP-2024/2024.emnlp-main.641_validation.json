@@ -1,0 +1,105 @@
+{
+  "paper_id": "2024.emnlp-main.641",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-as-a-judge against human evaluation by computing correlation metrics (Kendall, Spearman, Pearson) between LLM scores and human judgments on the same instances, with statistical significance testing"
+  },
+  "llm_judge_details": {
+    "num_models": 7,
+    "models": [
+      "platypus_2_70b",
+      "nous_hermes_13b",
+      "openorca_platypus_2_13b",
+      "llama_3_8b",
+      "llama_3_70b",
+      "mixtral_8x_7b",
+      "unbabel_towerinstruct"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Appendix Table 15 shows full prompt templates including Zero-Shot, Zero-Shot-CoT, and Zero-Shot-CoT-EM variants with exact text. Format requirements include numeric scales and textual labels."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Paper mentions human annotations are aggregated into single scores for summarization, and WMT MQM annotations are used, but detailed human evaluation guidelines are not explicitly provided"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Kendall correlation",
+      "Spearman correlation",
+      "Pearson correlation",
+      "tie-calibrated accuracy"
+    ],
+    "shared_criteria": [
+      "quality"
+    ],
+    "sample_size": {
+      "total_generated": 6600000,
+      "validated_by_both": "multiple_datasets",
+      "notes": "Validation performed on multiple datasets: EVAL4NLP train/dev/test sets, WMT23 MQM annotations, and Seahorse summarization dataset. Phase 1 used first 500 samples per language pair for MT, phase 2 used full datasets."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Kendall correlation",
+        "value": "top_significance_cluster_for_9_of_11_tasks",
+        "criterion": "quality",
+        "llm_model": "platypus_2_70b",
+        "significance": "p ≤ 0.075",
+        "notes": "Platypus2-70B performs best, ranking in top significance cluster for 9 of 11 tasks"
+      },
+      {
+        "metric": "Kendall correlation",
+        "value": "top_significance_cluster_for_3_of_11_tasks",
+        "criterion": "quality",
+        "llm_model": "unbabel_towerinstruct",
+        "significance": "p ≤ 0.075",
+        "notes": "TOWER-13B follows Platypus2 with 3 tasks in top cluster"
+      },
+      {
+        "metric": "Kendall correlation",
+        "value": "second_highest_average_correlation",
+        "criterion": "quality",
+        "llm_model": "openorca_platypus_2_13b",
+        "significance": "significant_for_one_task",
+        "notes": "ORCA-13B has second-highest average correlation but significant for only one task"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "varying_performance",
+      "threshold_used": "statistical_significance_clusters_p_0.075",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "Open-source prompt-based LLMs show promising correlation with human judgments, with PLATYPUS2-70B performing best (top cluster for 9/11 tasks), though they generally struggle to match fine-tuned metrics like XCOMET for MT evaluation while excelling in summarization evaluation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "quality"
+    ],
+    "notes": "Both LLM and human evaluations focus on overall quality assessment for machine translation and summarization. Summarization human annotations aggregate aspects like coherence and fluency into single quality scores."
+  }
+}

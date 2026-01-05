@@ -1,0 +1,139 @@
+{
+  "paper_id": "2022.acl-long.109",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "RADIOLOGY REPORTS FROM PRINCETON RADIOLOGY AND UNIVERSITY HOSPITAL NEWARK"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "dimac",
+      "lexrank",
+      "ptgen+coverage",
+      "bertsumextabs",
+      "bart",
+      "sentence_rewrite",
+      "bertsumabs",
+      "clinicalbert"
+    ],
+    "outputs": [
+      "IMPRESSIONS summaries of radiology reports"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BERTSUMAbs",
+          "ClinicalBERT"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "radiology reports from two medical centers in the USA",
+          "Radiology reports from Princeton Radiology and University medical centers (English)"
+        ],
+        "models": [
+          "PTGEN",
+          "Differentiable Multi-agent Actor-Critic (DiMAC)",
+          "BertSumExtAbs"
+        ],
+        "outputs": [
+          "IMPRESSIONS (summarized radiology report)",
+          "IMPRESSIONS section of radiology reports"
+        ]
+      },
+      "normalized": {
+        "radiology reports from two medical centers in the USA": "Radiology reports from Princeton Radiology and University Hospital, Newark",
+        "Differentiable Multi-agent Actor-Critic (DiMAC)": "DiMAC",
+        "BertSumExtAbs": "BERTSUMExtAbs"
+      },
+      "explanation": "Consolidated dataset descriptions, normalized model names, and added missing models (BERTSUMAbs, ClinicalBERT) that were explicitly mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Simplified all ROUGE variants to base ROUGE metric as per normalization guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper. The extracted metadata was empty and correct."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Two board-certified radiologists evaluated summaries on a 3-point scale (1=bad, 2=borderline, 3=good) for overall quality and factual correctness/completeness compared to FINDINGS sections"
+    ],
+    "criteria": [
+      "Quality",
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Each radiologist rated the summaries on two measures in relation to the FINDINGS: (1) overall quality and (2) factual correctness and completeness, scoring as 1 (bad), 2 (borderline), or 3 (good).",
+          "Radiologists rated each generated IMPRESSIONS on two measures: (1) overall quality and (2) factual correctness and completeness, using a 1‑3 Likert scale.",
+          "Each radiologist rated the summaries on two measures in relation to the FINDINGS: (1) overall quality and (2) factual correctness and completeness."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "- Each radiologist rated the summaries on two measures in relation to the FINDINGS: (1) overall quality and (2) factual correctness and completeness, scoring as 1 (bad), 2 (borderline), or 3 (good).": "Two board-certified radiologists evaluated summaries on a 3-point scale (1=bad, 2=borderline, 3=good) for overall quality and factual correctness/completeness compared to FINDINGS sections"
+      },
+      "explanation": "Consolidated multiple redundant guideline descriptions into a single clear description and maintained the correct criteria list."
+    }
+  },
+  "overall_notes": "The paper focuses on radiology report summarization using a novel multi-agent reinforcement learning approach. The extraction was generally accurate, with minor normalization needed. The paper does not use LLMs as judges but does conduct both automatic (ROUGE) and human evaluations with medical experts."
+}

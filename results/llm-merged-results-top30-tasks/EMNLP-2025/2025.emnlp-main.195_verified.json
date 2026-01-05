@@ -1,0 +1,202 @@
+{
+  "paper_id": "2025.emnlp-main.195",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "f2tbenchmark"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "f_2teval"
+    ],
+    "outputs": [
+      "figure summary texts",
+      "dimensional scores (Faithfulness, Completeness, Conciseness, Logicality, Analysis) for each generated figure summary"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [
+          "ChartQA",
+          "Chart-to-text",
+          "ChartLlama",
+          "UniChart",
+          "ChartSumm",
+          "StructChart",
+          "ChartX",
+          "MMC",
+          "ChartCheck",
+          "ChartXiv",
+          "AnaFig",
+          "SFA"
+        ],
+        "languages": [],
+        "models": [
+          "Qwen-VL-2B",
+          "InterVL2.5-8B",
+          "MiniCPM-V2.5",
+          "Phi-3-Vision",
+          "GPT-4o",
+          "Claude-3.5-haiku",
+          "Gemini-1.5-flash",
+          "Qwen-VL-Max",
+          "GPT-4o-mini",
+          "Claude-3-haiku",
+          "CLIP",
+          "ChartX"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "textual summaries of figures": "figure summary texts"
+      },
+      "explanation": "Removed 'Text Summarization' as the paper specifically addresses Figure-to-Text generation which is more accurately categorized as Image Captioning. Removed most datasets as they are data sources for benchmarking, not NLG datasets themselves. Removed models that are used only for comparison or data generation, keeping only the proposed F2TEval model."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "CIDER",
+      "BERTSCORE",
+      "CLIPSCORE",
+      "PEARSON CORRELATION",
+      "SPEARMAN CORRELATION",
+      "ABSOLUTE ERROR",
+      "SQUARED ERROR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Qwen2-VL",
+          "DeepSeek-VL2",
+          "Kimi-VL-A3B",
+          "Claude-3",
+          "Claude-3.5",
+          "Gemini-1.5",
+          "Gemini-2",
+          "ChartX",
+          "F2TEval",
+          "MAE",
+          "MSE"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "ROUGE": "ROUGE",
+        "CIDEr": "CIDEr",
+        "BERTScore": "BERTScore",
+        "CLIPScore": "CLIPScore",
+        "Pearson Correlation": "Pearson Correlation",
+        "Spearman Correlation": "Spearman Correlation",
+        "Mean Absolute Error": "Mean Absolute Error",
+        "Mean Squared Error": "Mean Squared Error"
+      },
+      "explanation": "Removed model names (Qwen2-VL, DeepSeek-VL2, etc.) and the proposed F2TEval as they are not automatic evaluation metrics. Removed MAE/MSE duplicates. Kept only actual automatic metrics used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Qwen2-VL-2B",
+          "Qwen2-VL-7B",
+          "DeepSeek-VL2-Tiny",
+          "DeepSeek-VL2-Small",
+          "Kimi-VL-A3B",
+          "Claude-3",
+          "Gemini-1.5",
+          "Claude-3.5",
+          "Gemini-2",
+          "ChartX",
+          "DeepSeek-VL2",
+          "Qwen2-VL"
+        ],
+        "methods": [
+          "automated scoring with evaluation prompts",
+          "evaluation prompts to generate scores",
+          "evaluation prompts",
+          "scoring templates",
+          "single-dimension 1-5 rating score"
+        ],
+        "criteria": [
+          "Faithfulness",
+          "Completeness",
+          "Conciseness",
+          "Logicality",
+          "Analysis"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because the paper does not use LLMs as judges after generation. The referenced models are either baseline methods used for comparison or models used to generate summaries for the benchmark dataset. The evaluation is performed by F2TEval (a specialized model), not by using LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators undergo training with examples and discussions to understand all five dimensions and scoring guidelines",
+      "A custom web-based annotation tool presents the figure, descriptive text, and generated summaries for dimension-by-dimension scoring",
+      "Each summary is annotated by at least two annotators, with disagreements resolved by a senior annotator",
+      "Inconsistent scores trigger re-evaluation",
+      "Final dimension scores obtained by majority voting",
+      "Annotators follow detailed scoring criteria for each dimension (0-poor, 1-acceptable, 2-perfect scale)",
+      "Annotation process follows standardized pipeline with quality control (Pearson coefficient = 0.91)"
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Completeness",
+      "Conciseness",
+      "Logicality",
+      "Analysis"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators follow detailed scoring criteria for each dimension (0-poor, 1-acceptable, 2-perfect scale)",
+          "Annotation process follows standardized pipeline with quality control (Pearson coefficient = 0.91)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Logicality": "Logicality"
+      },
+      "explanation": "Enhanced guideline description with additional details mentioned in the paper about the scoring scale and quality control measures. Criteria remain correct as extracted."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating Figure-to-Text generation using a specialized model (F2TEval) rather than using LLMs as judges. The human evaluation is well-documented with detailed procedures. The extraction had some confusion between evaluation models and baseline comparison models."
+}

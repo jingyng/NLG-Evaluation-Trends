@@ -1,0 +1,152 @@
+{
+  "paper_id": "2021.emnlp-main.412",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Story Generation",
+      "News Generation",
+      "Paper Abstract Generation",
+      "Paragraph Generation"
+    ],
+    "datasets": [
+      "ROCSTORIES",
+      "DAILYMAIL",
+      "AGENDA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "transformer",
+      "bart",
+      "permgen",
+      "gpt_2",
+      "blm",
+      "pointer"
+    ],
+    "outputs": [
+      "stories",
+      "news articles",
+      "paper abstracts",
+      "paragraphs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Scientific Paper Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Hi-BART"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Paragraph Generation": "Other:Paragraph Generation",
+        "generated stories, news articles, paper abstracts": "stories, news articles, paper abstracts",
+        "Paragraphs (stories, news articles, paper abstracts)": "paragraphs"
+      },
+      "explanation": "Removed 'Scientific Paper Generation' as it was mentioned in passing but not actually evaluated. Removed 'Hi-BART' as it's an ablation variant, not a separate model. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "CIDER",
+      "DISTINCT",
+      "ENTROPY",
+      "SELF BLEU",
+      "TOP",
+      "ORACLE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "METEOR": "METEOR",
+        "CIDEr": "CIDEr",
+        "Distinct-2": "Distinct",
+        "Entropy-4": "Entropy",
+        "Self-BLEU-4": "Self-BLEU",
+        "Distinct-k": "Distinct",
+        "Entropy-k": "Entropy",
+        "Self-BLEU": "Self-BLEU",
+        "Top-1": "Top-1",
+        "Oracle": "Oracle"
+      },
+      "explanation": "Normalized metric variants to base forms as per guidelines (e.g., Distinct-2/k → Distinct, Entropy-4/k → Entropy, Self-BLEU-4 → Self-BLEU)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in this paper. The extracted metadata was already correct (empty)."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators compare two sets of top-3 stories from two methods and pick the more diverse set (win/lose/tie)",
+      "Annotators rate semantic similarity between top-1 generated story and ground truth on 1-5 scale",
+      "Annotators rate fluency and coherence of each story on 1-5 scale"
+    ],
+    "criteria": [
+      "Diversity",
+      "Similarity",
+      "Fluency",
+      "Coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "accuracy",
+          "coherency"
+        ]
+      },
+      "normalized": {
+        "coherency": "coherence",
+        "accuracy": "semantic similarity"
+      },
+      "explanation": "Consolidated criteria: 'coherency' → 'coherence', 'accuracy' → 'semantic similarity' (as described in guidelines). Removed redundant entries."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main changes: normalized metric variants to base forms, removed 'Scientific Paper Generation' as it wasn't actually evaluated, and consolidated human evaluation criteria. The paper focuses on paragraph generation with sentence permutation for diversity, using standard NLG evaluation metrics and human evaluation."
+}

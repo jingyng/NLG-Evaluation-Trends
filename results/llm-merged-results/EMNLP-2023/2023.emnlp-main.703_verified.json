@@ -1,0 +1,136 @@
+{
+  "paper_id": "2023.emnlp-main.703",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "VerMouth",
+      "FullFact",
+      "FEVER",
+      "SciFact",
+      "COVID-fact",
+      "PolitiHop",
+      "PUBHEALTH",
+      "MisinfoCorrect"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "PEGASUS",
+      "SBERT",
+      "GPT-3",
+      "ChatGPT"
+    ],
+    "outputs": [
+      "verdicts",
+      "personalised verdicts (short explanatory responses to social-media style claims)",
+      "fact-checking explanations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "PUBHEALTH",
+          "MisinfoCorrect"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "fact-checking explanations"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "personalised verdicts (short explanatory responses to social‑media style claims)": "personalised verdicts (short explanatory responses to social-media style claims)"
+      },
+      "explanation": "Added PUBHEALTH and MisinfoCorrect datasets mentioned in the related work section as they are relevant NLG datasets for fact-checking. Added 'fact-checking explanations' as an output description since the paper focuses on generating explanations/debunking responses."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "METEOR",
+      "BERTScore",
+      "BARTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE variants to base ROUGE metric as per guidelines. The paper mentions using ROUGE-N (N=1,2) and ROUGE-L, which are all variants of ROUGE."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Correct extraction. The paper uses LLMs (GPT-3, ChatGPT) for data generation, but not as judges/evaluators of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Consider a social media post, which response is better when countering the possible misinformation within the post (the claim)? Rank the following responses from the most effective (1) to the least effective(3). Ties are allowed."
+    ],
+    "criteria": [
+      "effectiveness",
+      "verbosity",
+      "empathy",
+      "overkill backfire effect",
+      "length",
+      "style appropriateness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "style appropriateness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Rank the following responses from the most effective (1) to the least effective(3). Ties are allowed.",
+          "Annotators ranked generated verdicts according to effectiveness, considering factors such as length, empathy, and potential overkill backfire effect."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "verbosity (length)": "verbosity",
+        "length": "length"
+      },
+      "explanation": "Consolidated duplicate guideline descriptions into one clear instruction. Added 'style appropriateness' as an evaluation criterion based on the paper's findings that verdicts written in social/emotional style are preferred for social media claims. Normalized criteria naming."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG for fact-checking explanation generation, specifically generating personalized verdicts/debunking responses for social media misinformation. The extraction was generally accurate, with minor additions needed for completeness. The paper uses automatic metrics (ROUGE, METEOR, BERTScore, BARTScore) and human evaluation (ranking by effectiveness) to assess generated verdicts."
+}

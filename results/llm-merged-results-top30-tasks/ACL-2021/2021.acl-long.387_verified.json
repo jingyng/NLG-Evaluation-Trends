@@ -1,0 +1,144 @@
+{
+  "paper_id": "2021.acl-long.387",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "OPEN I",
+      "MIMIC CXR"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "medwriter"
+    ],
+    "outputs": [
+      "Medical reports",
+      "Radiology reports describing medical findings and impressions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Radiology reports describing medical findings and impressions"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Visual-Language Retrieval (VLR) module",
+          "Language-Language Retrieval (LLR) module",
+          "Hierarchical language decoder"
+        ],
+        "outputs": [
+          "Generated radiology reports (text) describing findings and impressions"
+        ]
+      },
+      "normalized": {
+        "Image Captioning": "Image Captioning",
+        "Open-i": "Open-i",
+        "MIMIC-CXR": "MIMIC-CXR",
+        "MedWriter": "MedWriter"
+      },
+      "explanation": "Removed module names from models list as modules are components of MedWriter model itself. Simplified outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CIDER",
+      "ROUGE",
+      "BLEU",
+      "AUC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-1",
+          "BLEU-2",
+          "BLEU-3",
+          "BLEU-4",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "CIDEr": "CIDEr",
+        "ROUGE-L": "ROUGE",
+        "BLEU-1": "BLEU",
+        "BLEU-2": "BLEU",
+        "BLEU-3": "BLEU",
+        "BLEU-4": "BLEU",
+        "AUC": "AUC"
+      },
+      "explanation": "Simplified metric variants to base forms (BLEU-1/2/3/4 → BLEU, ROUGE-L → ROUGE) as per guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BERT"
+        ],
+        "methods": [
+          "report classification"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "BERT is used for representation learning in MedWriter, not as a judge for evaluation. Report classification is for medical diagnosis, not NLG evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Radiologists rated each report on realism and relevance using a 1-5 Likert scale"
+    ],
+    "criteria": [
+      "Realistic",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Radiologists rated each report on a scale of 1 to 5 for realistic and relevant.",
+          "Two experienced radiologists were asked to give ratings for each selected report, in terms of whether the generated reports are realistic and relevant to the X-ray images. The ratings are integers from one to five. The higher, the better."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "realistic": "realistic",
+        "relevant": "relevant"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into a single clear statement"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper evaluates medical report generation using automatic metrics and human evaluation by radiologists. No LLMs were used as judges - BERT was used as part of the model architecture only."
+}

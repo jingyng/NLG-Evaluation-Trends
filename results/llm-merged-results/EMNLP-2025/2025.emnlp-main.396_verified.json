@@ -1,0 +1,150 @@
+{
+  "paper_id": "2025.emnlp-main.396",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Counterfactual Explanation Generation"
+    ],
+    "datasets": [
+      "DiscrimEval",
+      "FolkTexts",
+      "Twitter Financial News",
+      "SST2",
+      "GSM8K",
+      "MGNLI"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Gemma-2-9B-it",
+      "Gemma-2-27B-it",
+      "Llama-3.1-8B-Instruct",
+      "Llama-3.3-70B-Instruct",
+      "Mistral-7B-Instruct-v0.3",
+      "Mistral-Small-24B-Instruct-2501",
+      "DeepSeek-R1-Distill-Qwen-32B"
+    ],
+    "outputs": [
+      "Self-generated counterfactual explanations (SCEs)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:math problem solving",
+          "Other:decision making",
+          "Other:sentiment classification",
+          "Other:natural language inference"
+        ],
+        "datasets": [
+          "Twitter financial news"
+        ],
+        "languages": [],
+        "models": [
+          "LLaMA-3.1-70B-instruct"
+        ],
+        "outputs": [
+          "self-generated counterfactual explanations (SCEs)"
+        ]
+      },
+      "normalized": {
+        "Twitter financial news": "Twitter Financial News"
+      },
+      "explanation": "Removed specific task types (math, decision making, etc.) since they are underlying tasks used to evaluate counterfactual explanation generation, not the main NLG task. Kept only the primary NLG task of counterfactual explanation generation. Removed duplicate dataset and model entries."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Generation percentage (Gen)",
+      "Counterfactual validity (Val)",
+      "Normalized edit distance (ED)",
+      "Flesch-Kincaid Readability score",
+      "Cosine similarity",
+      "K-means clustering"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Edit distance (ED)",
+          "Readability (Flesch‑Kincaid)",
+          "Cosine similarity (embedding drift)",
+          "Clustering separation scores",
+          "Validity with context (Val C)",
+          "Normalized edit distance (ED C)",
+          "Normalized difference in lengths"
+        ]
+      },
+      "normalized": {
+        "Cosine similarity in embedding space": "Cosine similarity",
+        "K-means clustering in embedding space": "K-means clustering"
+      },
+      "explanation": "Consolidated metric variants to base forms. Removed redundant metrics (ED/Val C are variants of ED/Val). Removed derived scores that are not direct evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Same LLMs used for generation (Gemma, Llama, Mistral, DeepSeek)"
+        ],
+        "methods": [
+          "Direct prediction on generated counterfactuals"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges/evaluators. The LLMs are used for generation and then evaluated using automated metrics and human annotation. Removed incorrect metadata."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators assessed whether SCEs produced solutions matching target labels; disagreements resolved through discussion"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "SCE correctness (match to target label)",
+          "correctness (matches target label)"
+        ]
+      },
+      "normalized": {
+        "correctness": "Correctness"
+      },
+      "explanation": "Consolidated criteria to single 'Correctness' metric. The human evaluation focused specifically on whether counterfactual explanations produced the correct target answer."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating LLMs' ability to generate counterfactual explanations (self-explanation). While it uses various underlying tasks (math, sentiment, etc.), the primary NLG task is counterfactual explanation generation. The evaluation uses both automatic metrics and human annotation, but does not use LLMs as judges/evaluators."
+}

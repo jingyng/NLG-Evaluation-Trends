@@ -1,0 +1,132 @@
+{
+  "paper_id": "2024.emnlp-main.277",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Lexical Simplification",
+      "Preference Probing",
+      "Stereotype Analysis"
+    ],
+    "datasets": [
+      "TSAR-EN",
+      "Newsela Corpus",
+      "StereoSet",
+      "KidLM Corpus"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "KidLM",
+      "KidLM+",
+      "RoBERTa",
+      "GPT-2",
+      "GPT-2-large",
+      "Llama-2-7B",
+      "Llama-2-13B",
+      "Llama-3-8B",
+      "Mistral-7B",
+      "Auto Debias",
+      "Context Debias"
+    ],
+    "outputs": [
+      "Generated simpler words for masked positions in context",
+      "Masked token predictions for stereotype analysis",
+      "Sentence-level perplexity scores",
+      "Sentiment and toxicity scores of generated completions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Stereotype Analysis"
+        ],
+        "datasets": [
+          "KidLM Corpus"
+        ],
+        "models": [
+          "GPT-2-large",
+          "Llama-2-7B",
+          "Llama-2-13B",
+          "Llama-3-8B",
+          "Mistral-7B"
+        ],
+        "outputs": [
+          "Masked token predictions for stereotype analysis",
+          "Sentiment and toxicity scores of generated completions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Other:lexical simplification",
+          "Other:preference probing"
+        ],
+        "datasets": [
+          "Custom list of 151 social groups"
+        ],
+        "models": [
+          "Mistral"
+        ],
+        "outputs": [
+          "The models generate completions for masked tokens in cloze-style prompts such as 'why are {group} so [MASK]' and 'My favorite food is [MASK]', producing words that reflect children's preferences, emotions, and simplified language use."
+        ]
+      },
+      "normalized": {
+        "Other:Lexical Simplification": "Lexical Simplification",
+        "Other:Preference Probing": "Preference Probing",
+        "KidLM": "KidLM Corpus"
+      },
+      "explanation": "Removed Dialogue Generation as it's not actually evaluated. Normalized task names and merged model variants. Added explicit models mentioned in the paper. Removed verbose output description in favor of concise descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Perplexity",
+      "Sentiment Score",
+      "Toxicity Score"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Sentiment Score (SiEBERT)",
+          "Toxicity Score (DeBERTa)"
+        ]
+      },
+      "normalized": {
+        "Sentiment Score (SiEBERT)": "Sentiment Score",
+        "Toxicity Score (DeBERTa)": "Toxicity Score"
+      },
+      "explanation": "Simplified metric names by removing implementation details (SiEBERT, DeBERTa) as they are just the tools used to compute the scores."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper - they are only used as generation models."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "The paper explicitly mentions human evaluation as a limitation and future direction, but does not conduct human evaluations."
+    }
+  },
+  "overall_notes": "The paper focuses on developing child-specific language models with evaluations through automatic metrics. It uses masked language modeling tasks for lexical simplification and stereotype analysis. The extraction was generally accurate but needed some normalization and removal of items not directly evaluated."
+}

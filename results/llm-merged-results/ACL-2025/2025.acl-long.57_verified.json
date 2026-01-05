@@ -1,0 +1,141 @@
+{
+  "paper_id": "2025.acl-long.57",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Document Question Answering",
+      "Other:Cross-Element Locating",
+      "Other:Numerical Reasoning",
+      "Other:Document Understanding"
+    ],
+    "datasets": [
+      "LongDocURL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o",
+      "Qwen2-VL",
+      "LLaVA-Next-Interleave",
+      "Gemini-1.5-Pro",
+      "LLaVA-OV-Chat"
+    ],
+    "outputs": [
+      "Generated answers to document-based questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "question-answering pairs"
+        ]
+      },
+      "normalized": {
+        "Other:Understanding": "Other:Document Understanding",
+        "LLaVA-OneVision-Chat": "LLaVA-OV-Chat"
+      },
+      "explanation": "Removed 'question-answering pairs' from outputs as it refers to dataset construction, not model outputs. Normalized model name to match paper's abbreviation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ANLS",
+      "Exact Match",
+      "Relative Tolerance",
+      "Custom List Scoring"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ANLS (Average Normalized Levenshtein Similarity)",
+          "Relative Tolerance (1% for floats)",
+          "List Scoring (greedy matching)",
+          "exact match",
+          "1% relative tolerance for float",
+          "rule-based scoring for list with soft penalty"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant metric descriptions into their base forms. The paper uses a rule-based evaluation protocol with ANLS for strings, exact match for integers, 1% relative tolerance for floats, and custom list scoring with soft penalties."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4o"
+        ],
+        "methods": [
+          "answer extraction from free-form responses"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "GPT-4o is used for answer extraction as part of the automated evaluation pipeline, not as an LLM judge assessing quality. This is a preprocessing step, not LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Human annotators verify question-answer pairs using source visual documents",
+      "Check evidence alignment with document content",
+      "Verify step-by-step derivation of final answers from intermediate process",
+      "Cross-check annotation results between annotators"
+    ],
+    "criteria": [
+      "Task Relevance",
+      "Format Correctness",
+      "Faithfulness",
+      "Visual consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Cross-check annotation results between annotators"
+        ],
+        "criteria": [
+          "Visual consistency"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "consistency between the question-answering pair and the visual source information"
+        ]
+      },
+      "normalized": {
+        "consistency between the question-answering pair and the visual source information": "Visual consistency"
+      },
+      "explanation": "Changed answer from No to Yes because the paper clearly describes human verification of QA pairs. Added cross-checking guideline and normalized criteria. The human evaluation is for dataset quality verification, not model output evaluation."
+    }
+  },
+  "overall_notes": "This paper primarily focuses on creating a benchmark for document understanding and evaluating models on question-answering tasks. While it involves NLG (question answering), the main contribution is the benchmark creation and evaluation. The human evaluation described is for dataset verification, not for evaluating model-generated outputs. The automatic metrics are well-documented and the paper does not use LLMs as judges."
+}

@@ -1,0 +1,153 @@
+{
+  "paper_id": "2023.acl-long.900",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text To Image Generation",
+      "Visual Text Rendering",
+      "Spelling Generation"
+    ],
+    "datasets": [
+      "WIKISPELL",
+      "DRAWTEXT",
+      "LAION 400m",
+      "mc4",
+      "WIKTIONARY"
+    ],
+    "languages": [
+      "English",
+      "Arabic",
+      "Chinese",
+      "Finnish",
+      "Korean",
+      "Russian",
+      "Thai"
+    ],
+    "models": [
+      "t_5",
+      "mt_5",
+      "byt_5",
+      "palm",
+      "stable_diffusion",
+      "dall·e_2",
+      "parti",
+      "imagen",
+      "concat",
+      "ediff_i"
+    ],
+    "outputs": [
+      "Images with rendered visual text",
+      "Spelled word sequences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Image Captioning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "DALL•E‑2",
+          "Concat(T5‑XXL, ByT5‑Small)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "DALL•E‑2": "DALL·E-2",
+        "Other:Spelling Generation": "Other:Spelling Generation",
+        "Other:Visual Text Rendering in Images": "Other:Visual Text Rendering",
+        "Other:Text-to-Image Generation": "Other:Text-to-Image Generation"
+      },
+      "explanation": "Removed 'Image Captioning' as the paper focuses on text-to-image generation with text rendering, not captioning. Normalized model names and simplified task descriptions. Merged redundant output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT MATCH ACCURACY",
+      "OCR ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "OCR Exact‑Match Accuracy",
+          "OCR-based spelling accuracy",
+          "FID",
+          "CLIP score"
+        ]
+      },
+      "normalized": {
+        "OCR-based Accuracy": "OCR Accuracy"
+      },
+      "explanation": "Removed FID and CLIP score as they are mentioned only in related work, not used in this paper's evaluation. Consolidated OCR-related metrics into 'OCR Accuracy'. The paper primarily uses exact-match accuracy for text spelling and OCR-based accuracy for visual text rendering."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is conducted in this paper. The evaluation uses automatic metrics and human evaluations only."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Raters compare two models' generations of 8 images each across 200 prompts covering 11 thematic categories",
+      "Raters choose which set is better on fidelity, alignment, and text accuracy",
+      "Side-by-side comparisons following DrawBench methodology"
+    ],
+    "criteria": [
+      "Fidelity",
+      "Alignment",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Side-by-side comparisons following DrawBench methodology"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Which set of images more accurately shows the text: \"<target text>\"?"
+        ],
+        "criteria": [
+          "text rendering accuracy"
+        ]
+      },
+      "normalized": {
+        "text rendering accuracy": "text accuracy"
+      },
+      "explanation": "Consolidated guideline descriptions and normalized criteria. The human evaluation follows DrawBench methodology with side-by-side comparisons on fidelity, alignment, and text accuracy."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating text-to-image generation models' ability to render visual text accurately. The extraction quality was generally good, but included some metrics (FID, CLIP score) that were mentioned in related work but not used in this paper's evaluation. The paper makes significant contributions in both text-only spelling evaluation (WikiSpell) and visual text rendering evaluation (DrawText)."
+}

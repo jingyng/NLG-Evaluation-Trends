@@ -1,0 +1,154 @@
+{
+  "paper_id": "2024.acl-long.258",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Knowledge Editing"
+    ],
+    "datasets": [
+      "ZSRE",
+      "RIPPLEEDITS",
+      "WIKIBIO",
+      "MQUAKE",
+      "COUNTERFACT",
+      "WIKIDATA RECENT",
+      "CONVSENT"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "llama_2_chat_7b",
+      "qwen_chat_7b",
+      "serac",
+      "ice",
+      "mend",
+      "rome",
+      "memit",
+      "ft_l",
+      "ft"
+    ],
+    "outputs": [
+      "Generated answers to queries after applying knowledge edits",
+      "Answers that incorporate dynamically retrieved knowledge updates"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "ConvSent"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Answers that incorporate dynamically retrieved knowledge updates"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WikiData counterfact",
+          "WikiData counterf act",
+          "CommonSenseQA",
+          "PIQA",
+          "XSum",
+          "MMLU",
+          "AGIEval",
+          "AlpacaEval"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "WikiData counterf act": "WikiData counterfact",
+        "Generated answers to queries that incorporate edited knowledge": "Generated answers to queries after applying knowledge edits"
+      },
+      "explanation": "Removed general LLM benchmark datasets that were only used for assessing general capabilities, not for knowledge editing evaluation. Added ConvSent which was used for OOD evaluation. Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EDIT SUCCESS",
+      "PORTABILITY",
+      "LOCALITY",
+      "FLUENCY",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Fluency (n-gram entropies)",
+          "Fluency (n-gram entropy)",
+          "Accuracy on benchmark QA tasks",
+          "bi-gram entropy",
+          "tri-gram entropy"
+        ]
+      },
+      "normalized": {
+        "Edit success": "Edit Success",
+        "Fluency (n-gram entropies)": "Fluency",
+        "Fluency (n-gram entropy)": "Fluency"
+      },
+      "explanation": "Normalized metric names to base forms. Added 'Accuracy' which is explicitly mentioned for edit success measurement. Removed granular details about fluency calculation since it's captured by the base metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "verification of answer relevance to edit descriptor"
+        ],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items since GPT-4 was only used for dataset construction/training data generation, not for evaluation/judging of generated outputs. The paper does not use LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Human evaluators scrutinized the data to eliminate malicious or offensive content."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed the guideline since human evaluation mentioned was for dataset curation/safety filtering, not for evaluating the generated outputs of the knowledge editing system."
+    }
+  },
+  "overall_notes": "The paper focuses on knowledge editing for LLMs, which involves generating updated answers to queries based on new knowledge. While it evaluates generated outputs, the evaluation is primarily automatic metrics for knowledge editing effectiveness. GPT-4 was used for training data generation but not as an evaluator. Human evaluation was only mentioned for dataset safety checks, not output quality assessment."
+}

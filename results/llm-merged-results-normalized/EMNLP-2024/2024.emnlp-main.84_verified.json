@@ -1,0 +1,156 @@
+{
+  "paper_id": "2024.emnlp-main.84",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Question Answering",
+      "Multi Turn Dialogue"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "XSUM",
+      "NATURAL QUESTIONS",
+      "MT-Bench"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b_chat",
+      "llama_2_13b_chat",
+      "gpt_4o"
+    ],
+    "outputs": [
+      "summaries",
+      "answers to questions",
+      "multi-turn dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering",
+          "Other:Multi-turn Conversation",
+          "Dialogue Generation"
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering",
+        "Other:Multi-turn Conversation": "Multi-turn Dialogue",
+        "Dialogue Generation": "Multi-turn Dialogue"
+      },
+      "explanation": "Normalized task names to standard forms, removed 'Other:' prefixes, and added missing 'Question Answering' task"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "AUROC",
+      "ACCURACY",
+      "EXACT MATCH",
+      "GPT 4O JUDGMENT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Exact Match"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Binary GPT-4o judgment": "GPT-4o binary judgment"
+      },
+      "explanation": "Added 'Exact Match' metric mentioned for NQ evaluation and normalized GPT-4o metric name"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o",
+      "gpt_4"
+    ],
+    "methods": [
+      "binary judgment",
+      "rating scale evaluation"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Relevance",
+      "Accuracy",
+      "Depth",
+      "Creativity",
+      "Detail",
+      "Faithfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "binary judgment prompt",
+          "rating 1‑10 scale",
+          "binary judgment on truthfulness",
+          "pairwise evaluation",
+          "scoring on a scale of 1 to 10"
+        ],
+        "criteria": [
+          "detail"
+        ]
+      },
+      "normalized": {
+        "binary judgment prompt": "binary judgment",
+        "rating 1‑10 scale": "rating scale evaluation",
+        "binary judgment on truthfulness": "binary judgment",
+        "pairwise evaluation": "binary judgment",
+        "scoring on a scale of 1 to 10": "rating scale evaluation"
+      },
+      "explanation": "Consolidated redundant method descriptions, added GPT-4 model for MT-bench evaluation, and removed duplicate criteria"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Humans were shown the document, generated output, and GPT-4o's judgment, then asked to indicate if GPT-4o's judgment (true or false) was correct"
+    ],
+    "criteria": [
+      "Truthfulness",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Evaluators received the document, ground truth summary, LLaMA‑2‑7B‑Chat's summary, and GPT‑4o's judgment to provide a binary judgment on GPT‑4o's accuracy.",
+          "Evaluators received the document, ground truth summary, LLaMA-2-7B-Chat's summary, and GPT-4o's judgment to provide a binary judgment on GPT-4o's accuracy."
+        ],
+        "criteria": [
+          "binary correctness",
+          "correctness of response"
+        ]
+      },
+      "normalized": {
+        "binary correctness": "truthfulness",
+        "correctness of response": "truthfulness"
+      },
+      "explanation": "Consolidated redundant guideline descriptions and normalized criteria to avoid duplication"
+    }
+  },
+  "overall_notes": "The paper focuses on contextual hallucination detection and mitigation in NLG tasks using attention maps. The extraction was generally accurate but contained some redundancy and needed normalization. The paper conducts extensive evaluation using both automatic metrics and LLM/human judges."
+}

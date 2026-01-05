@@ -1,0 +1,194 @@
+{
+  "paper_id": "2024.emnlp-main.515",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Other:Sentiment Control",
+      "Other:Detoxification"
+    ],
+    "datasets": [
+      "IMDB",
+      "OpenWebText",
+      "REALTOXICITYPROMPTS",
+      "Reddit TL;DR"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-2 Large",
+      "Llama 2 7B",
+      "GPT-3.5-turbo"
+    ],
+    "outputs": [
+      "Generated text continuations for sentiment control and detoxification tasks",
+      "Abstractive summaries for text summarization"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:sentiment control",
+          "Other:LM detoxification"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-3.5 Turbo",
+          "GPT-3.5",
+          "Llama 2",
+          "GPT-J-6B"
+        ],
+        "outputs": [
+          "generated text (sentences, summaries)",
+          "generated text in sentiment control, detoxified text, and abstractive summaries"
+        ]
+      },
+      "normalized": {
+        "Other:Sentiment Control": "Other:Sentiment Control",
+        "Other:Detoxification": "Other:Detoxification",
+        "GPT-3.5-turbo": "GPT-3.5-turbo",
+        "gpt-3.5-turbo": "GPT-3.5-turbo"
+      },
+      "explanation": "Removed duplicate tasks ('Other:sentiment control', 'Other:LM detoxification') and models that were either duplicates (GPT-3.5 Turbo, GPT-3.5) or not used as NLG models (GPT-J-6B was used as reward model, Llama 2 was normalized to Llama 2 7B). Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Sentiment Score",
+      "Perplexity",
+      "Diversity",
+      "Perspective API Score",
+      "ROUGE",
+      "Preference Score",
+      "Toxicity Score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Toxicity Score"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Perspective API toxicity score",
+          "ROUGE score",
+          "preference score",
+          "perplexity",
+          "normalized count of unique bigrams",
+          "avg.max. toxicity",
+          "%prob. toxicity",
+          "dist-3"
+        ]
+      },
+      "normalized": {
+        "Perplexity (PPL)": "Perplexity",
+        "Diversity (unique bigrams)": "Diversity",
+        "Perspective API Score": "Perspective API Score",
+        "ROUGE": "ROUGE",
+        "Preference Score": "Preference Score"
+      },
+      "explanation": "Normalized metric names to base forms, removed redundant/descriptive versions. Added 'Toxicity Score' to capture the toxicity evaluation metrics mentioned (avg.max. toxicity, %prob. toxicity)."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-3.5-turbo",
+      "Llama 2 7B"
+    ],
+    "methods": [
+      "Critique-based feedback generation",
+      "Few-shot prompting"
+    ],
+    "criteria": [
+      "Toxic language",
+      "Positive/negative sentiment",
+      "Errors in output",
+      "Alignment with desired outcomes"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-J-6B",
+          "gpt-3.5-turbo-1106",
+          "7B Llama2"
+        ],
+        "methods": [
+          "preference scoring"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-3.5-turbo": "GPT-3.5-turbo",
+        "Llama 2 7B": "Llama 2 7B",
+        "critique capability of LLMs": "Critique-based feedback generation",
+        "few-shot prompting with task description and examples": "Few-shot prompting",
+        "toxic language": "Toxic language",
+        "positive/negative sentiment": "Positive/negative sentiment"
+      },
+      "explanation": "Normalized model names and methods. Removed GPT-J-6B (used for preference scoring, not as LLM judge) and preference scoring method (not part of LLM-as-judge framework). Kept criteria as mentioned in the paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluation conducted on 200 randomly selected samples from TL;DR test set",
+      "Five IELTS certified raters evaluated summaries on coverage, coherence, and factuality using 1-5 scale",
+      "Krippendorff's alpha used to measure inter-annotator agreement"
+    ],
+    "criteria": [
+      "Content Preservation",
+      "Factuality",
+      "Coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human evaluation conducted on 200 randomly selected samples from TL;DR test set",
+          "Five IELTS certified raters evaluated summaries on coverage, coherence, and factuality using 1-5 scale",
+          "Krippendorff's alpha used to measure inter-annotator agreement"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "The purpose of these guidelines is to ensure a standardized and accurate evaluation of model-generated summaries based on three primary metrics: content preservation, factuality, and coherence. ... After rating each metric, provide a brief overall assessment of the summary.",
+          "Annotators rated each summary on coverage, coherence, and factuality using a 1‑5 scale, providing brief comments for extreme scores.",
+          "Definition of the three metrics Content Preservation: Assess how well the summary captures the essential information, themes, and nuances of the original text. Factuality: Evaluate the accuracy of the information in the summary relative to the original text. Coherence: Assess the logical flow, readability, and structure of the summary."
+        ],
+        "criteria": [
+          "content preservation",
+          "factuality",
+          "coherence",
+          "overall",
+          "coverage"
+        ]
+      },
+      "normalized": {
+        "content preservation": "Content Preservation",
+        "factuality": "Factuality",
+        "coherence": "Coherence"
+      },
+      "explanation": "Simplified guideline to key procedural details. Normalized criteria to title case. Removed 'overall' and 'coverage' (coverage is part of content preservation)."
+    }
+  },
+  "overall_notes": "The paper clearly addresses NLG tasks (sentiment control, detoxification, summarization) and uses both automatic metrics and human evaluation. The LLM-as-judge component is central to the method (critic model providing feedback). Extraction was generally accurate but contained some duplicates and overly detailed descriptions that needed normalization."
+}

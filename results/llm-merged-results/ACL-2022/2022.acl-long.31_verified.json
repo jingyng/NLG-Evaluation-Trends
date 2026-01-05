@@ -1,0 +1,153 @@
+{
+  "paper_id": "2022.acl-long.31",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Style Transfer",
+      "Other:Attribute-Controlled Generation",
+      "Other:Text Revision",
+      "Paraphrase Generation",
+      "Other:Prompted Generation"
+    ],
+    "datasets": [
+      "ROC-Story",
+      "Yelp",
+      "GYAFC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BERT",
+      "GPT-2",
+      "RoBERTa"
+    ],
+    "outputs": [
+      "attribute-controlled text sequences",
+      "revised sentences with controlled attributes",
+      "generated text samples with controlled sentiment, formality, and agency"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Prompted Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:controlled text generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "ROC story corpus": "ROC-Story",
+        "Other:style transfer": "Other:Style Transfer",
+        "Other:attribute-controlled generation": "Other:Attribute-Controlled Generation",
+        "Other:text revision": "Other:Text Revision"
+      },
+      "explanation": "Removed duplicate 'controlled text generation' task, added 'Prompted Generation' task which is explicitly mentioned in the paper, normalized dataset and task names to consistent formatting"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "GPT-2 PPL",
+      "BLEU",
+      "BERTScore",
+      "Hamming Distance",
+      "Classifier Accuracy",
+      "Agency Lexicon Accuracy",
+      "Topic-Score",
+      "Grammaticality",
+      "Diversity"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Diversity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-2 Perplexity",
+          "Div",
+          "Internal Classifier Accuracy",
+          "External Classifier Accuracy"
+        ]
+      },
+      "normalized": {
+        "BertScore": "BERTScore",
+        "bleu": "BLEU",
+        "Topic-score": "Topic-Score",
+        "Div": "Diversity",
+        "Grammaticality": "Grammaticality",
+        "Internal Classifier Accuracy": "Classifier Accuracy",
+        "External Classifier Accuracy": "Classifier Accuracy"
+      },
+      "explanation": "Consolidated classifier accuracy metrics into single 'Classifier Accuracy', normalized metric names to standard forms, removed duplicate GPT-2 PPL, added 'Diversity' to replace 'Div' abbreviation"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-2"
+        ],
+        "methods": [
+          "perplexity computation",
+          "perplexity scoring"
+        ],
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because GPT-2 is used as a fluency metric (automatic evaluation), not as an LLM judge assessing outputs after generation. The paper uses GPT-2 for perplexity scoring, not as an evaluative judge."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Turkers were asked which sentence is more fluent in pairwise comparisons",
+      "Each HIT was a two choice question of 'which sentence is more fluent?'"
+    ],
+    "criteria": [
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "fluency": "Fluency"
+      },
+      "explanation": "Normalized criterion name to 'Fluency', kept guideline descriptions as they accurately describe the human evaluation setup"
+    }
+  },
+  "overall_notes": "The paper presents Mix and Match LM, a training-free framework for controlled text generation using energy language models with MCMC sampling. It evaluates on style transfer, attribute-controlled generation, and text revision tasks using both automatic metrics and human evaluations. The extraction quality was generally good, but needed some normalization and consolidation of similar metrics."
+}

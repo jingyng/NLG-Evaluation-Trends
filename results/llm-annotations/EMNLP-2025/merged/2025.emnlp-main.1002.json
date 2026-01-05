@@ -1,0 +1,115 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Self-Refinement generates three revised answers conditioned on the vision priors, the expert rationales, and Ŝ.",
+            "We systematically collected 7 benchmark datasets covering 6 core visual-language tasks: Fine-grained image caption leverages Image Textualization and TextCaps ...",
+            "We introduce VERITAS, a pipeline for Vision-Priors Evaluation and Refinement through Integration of Tri-Expert Assessment with Shrinkage, that systematically upgrades multimodal SFT data through four tightly coupled components: (1) Vision-Prior Extraction employs RAM++  and  to convert images into structured tags and texts that are provided to all subsequent modules, effectively anchoring the critique on observable evidence. (2) Tri-Expert Assessment queries three state-of-the-art LMMs (GPT-4o, Gemini-2.5-Pro , Doubao-1.5-pro ) for chain-of-thought critiques and numeric scores. ... (4) Self-Refinement generates three revised answers conditioned on the vision priors, the expert rationales, and Ŝ."
+        ],
+        "tasks": [
+            "Image Captioning",
+            "Other:Visual Question Answering",
+            "Other:Multimodal Dialogue",
+            "Other:Multimodal Question Answering",
+            "Other:visual-language understanding",
+            "Other:multimodal instruction following"
+        ],
+        "datasets": [
+            "Image Textualization",
+            "TextCaps",
+            "LLaVAR",
+            "AI2D (GPT4V)",
+            "ShareGPT4V",
+            "LRV-Normal",
+            "LRV-Instruction",
+            "MME",
+            "OCR-VQA",
+            "MM-Vet",
+            "MathVista",
+            "MMT-bench",
+            "POPE"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Qwen2-VL-7B",
+            "GPT-4o",
+            "Gemini-2.5-Pro",
+            "Doubao-1.5-pro",
+            "Lightweight GRPO critic"
+        ],
+        "outputs": [
+            "critiques, revised answers, and fine-tuned model responses",
+            "generated answers/revisions for multimodal questions, confidence scores, rationales",
+            "The paper generates revised multimodal answers through a self-refinement process conditioned on vision priors, expert rationales, and fused scores, aiming to produce high-confidence, hallucination-free responses for instruction tuning."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "All evaluations are conducted using the Vlmevalkit (Duan et al., 2024) toolkit.",
+            "All evaluations are conducted using the Vlmevalkit (Duan et al., 2024) toolkit.",
+            "We adopt six widely-used public benchmarks that cover perception, reasoning, and hallucination: • MME : 14 binary diagnostics for basic perception. • OCR-VQA : text-in-image understanding. • MM-Vet : open-ended evaluation across 16 capabilities. • MathVista : visual-symbolic mathematical reasoning. • MMT-bench : 32 meta-tasks including autonomous driving. • POPE : hallucination detection."
+        ],
+        "automatic_metrics": [
+            "accuracy",
+            "hallucination rate",
+            "Pearson correlation",
+            "Kendall's tau",
+            "Kendall's τ",
+            "Pearson r",
+            "MME",
+            "OCR-VQA",
+            "MM-Vet",
+            "MathVista",
+            "MMT-bench",
+            "POPE"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "Tri-Expert Assessment queries three state-of-the-art LMMs (GPT-4o, Gemini-2.5-Pro, Doubao-1.5-pro) for chain-of-thought critiques and numeric scores.",
+            "Tri-Expert Assessment queries three state-of-the-art LMMs (GPT-4o, Gemini-2.5-Pro, Doubao-1.5-pro) for chain-of-thought critiques and numeric scores.",
+            "Three state-of-the-art MLLMs (GPT-4o, Gemini-2.5-Pro, and Doubao-1.5-pro) independently assess answer quality, with each model m producing: where s m ∈ [0, 5] is a scalar score and r m is a structured rationale following our evaluation rubric E c . Each expert receives the same vision priors extracted in Stage 1, ensuring grounded assessments."
+        ],
+        "models": [
+            "GPT-4o",
+            "Gemini-2.5-Pro",
+            "Doubao-1.5-pro",
+            "Lightweight GRPO critic"
+        ],
+        "methods": [
+            "chain-of-thought critique",
+            "numeric scoring",
+            "domain-aware score fusion",
+            "GRPO selection",
+            "chain-of-thought critiques",
+            "Tri-Expert Assessment with Shrinkage Fusion"
+        ],
+        "criteria": [
+            "relevance",
+            "accuracy",
+            "logical coherence",
+            "format",
+            "coherence"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "Three human annotators independently assign an integer quality score from 0 (worst) to 5 (best); majority vote is taken as the reference label.",
+            "Three human annotators independently assign an integer quality score from 0 (worst) to 5 (best); majority vote is taken as the reference label.",
+            "Three human annotators independently assign an integer quality score from 0 (worst) to 5 (best); majority vote is taken as the reference label."
+        ],
+        "guideline": [
+            "assign an integer quality score from 0 (worst) to 5 (best)",
+            "Assign an integer quality score from 0 to 5 for each sample.",
+            "Three human annotators independently assign an integer quality score from 0 (worst) to 5 (best); majority vote is taken as the reference label."
+        ],
+        "criteria": [
+            "overall quality"
+        ]
+    }
+}

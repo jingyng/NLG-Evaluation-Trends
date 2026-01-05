@@ -1,0 +1,147 @@
+{
+  "paper_id": "2020.emnlp-main.528",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Reading Comprehension"
+    ],
+    "datasets": [
+      "MOCHA",
+      "NARRATIVEQA",
+      "MCSCRIPT",
+      "COSMOSQA",
+      "SOCIALIQA",
+      "DROP",
+      "QUOREF"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "backtranslation",
+      "gpt_2",
+      "mhpg",
+      "bert_based_models",
+      "naqanet",
+      "nabert",
+      "lerc",
+      "bert_base"
+    ],
+    "outputs": [
+      "candidate answers for reading comprehension questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated answer candidates",
+          "Generated answers to reading comprehension questions based on passages"
+        ]
+      },
+      "normalized": {
+        "generated answer candidates": "candidate answers for reading comprehension questions",
+        "Generated answers to reading comprehension questions based on passages": "candidate answers for reading comprehension questions"
+      },
+      "explanation": "Consolidated redundant output descriptions into a single, simpler description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "BERTSCORE",
+      "LERC",
+      "SENTENCE SIMILARITY MODEL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-1",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "BLEU-1": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "bleu": "BLEU",
+        "rouge": "ROUGE"
+      },
+      "explanation": "Normalized metric variants to base forms (BLEU-1 → BLEU, ROUGE-L → ROUGE)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BERT-base"
+        ],
+        "methods": [
+          "learned metric scoring",
+          "Fine-tuning on human judgment scores"
+        ],
+        "criteria": [
+          "correctness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses BERT-base for LERC (a learned metric), but this is not LLM-as-judge evaluation - it's a specialized trained evaluation model, not using off-the-shelf LLMs to judge outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers were asked to score (1 to 5) how similar a candidate is to a reference using the passage and the question",
+      "Select the score that best reflects how closely a predicted answer captures the same information as the correct answer"
+    ],
+    "criteria": [
+      "Correctness",
+      "Similarity",
+      "Closeness",
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Select the score that best reflects how closely a predicted answer captures the same information as the correct answer using the passage and the question."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed redundant guideline that was essentially a duplicate of existing guidelines"
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating generative reading comprehension metrics using the MOCHA dataset. It uses human evaluations extensively (40K annotations) and compares various automatic metrics. The key contribution is LERC, a learned evaluation metric. The original extraction was generally good but had some redundancy in output descriptions and incorrect classification of LERC as an LLM-as-judge approach."
+}

@@ -1,0 +1,164 @@
+{
+  "paper_id": "2025.emnlp-main.1018",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "FLORES",
+      "PARADISEC",
+      "JINGHPAW USAGE DICTIONARY",
+      "JINGHPAW READER",
+      "NLLB DATASET",
+      "DIALOGUE DATASET",
+      "IN HOUSE EVALUATION DATASETS"
+    ],
+    "languages": [
+      "Asante Twi",
+      "Japanese",
+      "Jinghpaw",
+      "South Azerbaijani",
+      "English"
+    ],
+    "models": [
+      "nllb_600m",
+      "nllb_1.3b"
+    ],
+    "outputs": [
+      "machine-generated translations",
+      "synthetic named-entity-copying translations",
+      "human-corrected translations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Jinghpaw Reader"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "GPT-4o (named entity extraction)"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-4o (named entity extraction)"
+        ],
+        "outputs": [
+          "translated sentences"
+        ]
+      },
+      "normalized": {
+        "Jinghpaw Dictionary": "Jinghpaw Usage Dictionary",
+        "Dialogue": "Dialogue dataset",
+        "NLLB": "NLLB dataset",
+        "FLORES+ dev set (version 2.0)": "FLORES+",
+        "translated sentences in target languages": "machine-generated translations"
+      },
+      "explanation": "Removed GPT-4o as it's used for NE extraction, not generation. Normalized dataset names for consistency. Added missing Jinghpaw Reader dataset."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "CHRF++",
+      "TER",
+      "CER",
+      "TQS",
+      "MQM"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "TQS-MQM",
+          "TQS MQM"
+        ]
+      },
+      "normalized": {
+        "TQS-MQM": "MQM",
+        "TQS MQM": "MQM"
+      },
+      "explanation": "Normalized TQS-MQM and TQS MQM variants to base MQM metric. All metrics are used to evaluate MT outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges for evaluation. GPT-4o was only used for named entity extraction, not for judging generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators categorize sentence pairs using labels: Correct, Wrong grammar, Wrong punctuation, Wrong spelling, Wrong capitalization, Inaccurate addition, Inaccurate omission, Mistranslation, Unnatural translation, Untranslated text, Wrong register",
+      "Multiple labels can be selected per sentence",
+      "Error severity categorized into Critical, Major, Minor errors",
+      "Annotators provide corrected translations and free-form comments"
+    ],
+    "criteria": [
+      "Adequacy",
+      "Fluency",
+      "Grammaticality",
+      "Punctuation",
+      "Spelling",
+      "Capitalization",
+      "Addition",
+      "Omission",
+      "Mistranslation",
+      "Naturalness",
+      "Text",
+      "Register",
+      "Contextual"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Multiple labels can be selected per sentence",
+          "Error severity categorized into Critical, Major, Minor errors",
+          "Annotators provide corrected translations and free-form comments"
+        ],
+        "criteria": [
+          "naturalness",
+          "contextual appropriateness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Inaccurate addition": "addition",
+        "Inaccurate omission": "omission"
+      },
+      "explanation": "Added missing guideline details about multiple labels, error severity, and corrected translations. Added naturalness and contextual appropriateness criteria mentioned in the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating multilingual machine translation benchmarks and systems. Extracted metadata was generally accurate but required normalization and minor additions for completeness. GPT-4o was used only for named entity extraction, not as a judge or generation model. Human evaluation was comprehensive with detailed guidelines."
+}

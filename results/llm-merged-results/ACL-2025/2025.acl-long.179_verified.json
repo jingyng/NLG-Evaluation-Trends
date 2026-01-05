@@ -1,0 +1,199 @@
+{
+  "paper_id": "2025.acl-long.179",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering",
+      "Dialogue Generation",
+      "Text Summarization"
+    ],
+    "datasets": [
+      "NQ",
+      "TriviaQA",
+      "HotpotQA",
+      "2Wiki-MultiHopQA",
+      "ASQA",
+      "WoW",
+      "WikiASP",
+      "FEVER",
+      "ELI5"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Qwen2.5",
+      "Llama3.1",
+      "Mistral",
+      "GLM4",
+      "Yi",
+      "Gemma2",
+      "DeepSeek",
+      "InternLM2.5",
+      "Phi3"
+    ],
+    "outputs": [
+      "Generated answers for Question Answering tasks",
+      "Generated dialogues for Dialogue Generation",
+      "Generated summaries for Text Summarization"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [
+          "WikiASP",
+          "FEVER",
+          "ELI5"
+        ],
+        "languages": [],
+        "models": [
+          "InternLM2.5",
+          "Phi3"
+        ],
+        "outputs": [
+          "Generated summaries for Text Summarization"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Natural Questions (NQ)",
+          "Wizard of Wikipedia (WoW)",
+          "2Wiki-multi-hopQA"
+        ],
+        "languages": [],
+        "models": [
+          "Llama3.1-8B",
+          "Llama3.1-70B",
+          "Qwen2.5-72B",
+          "Qwen2.5-7B",
+          "Mistral-v0.3-7B",
+          "Gemma-2",
+          "Deepseek-llm"
+        ],
+        "outputs": [
+          "Generated responses (answers, summaries, dialogues)",
+          "Generated answers or responses to queries"
+        ]
+      },
+      "normalized": {
+        "2Wiki-multihopQA": "2Wiki-MultiHopQA",
+        "Other:Question Answering": "Other:Question Answering",
+        "Deepseek": "DeepSeek"
+      },
+      "explanation": "Added NLG tasks explicitly mentioned in the paper (Text Summarization from WikiASP). Added all 9 datasets mentioned in the error mining pipeline. Consolidated model names to base forms without specific sizes. Normalized dataset names for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EM",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Exact Match": "EM",
+        "F1 score": "F1"
+      },
+      "explanation": "Normalized metric names to base forms (EM and F1)"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Qwen2.5-72B",
+      "GPT-4o",
+      "RAG-Critic"
+    ],
+    "methods": [
+      "LLM-as-judge",
+      "open-set annotation",
+      "error-critic inference",
+      "coarse-to-fine DPO alignment"
+    ],
+    "criteria": [
+      "binary error judgment",
+      "3-tier error classification"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4o",
+          "RAG-Critic"
+        ],
+        "methods": [
+          "LLM-as-judge",
+          "coarse-to-fine DPO alignment"
+        ],
+        "criteria": [
+          "3-tier error classification"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Aligned error-critic model",
+          "RAG error-critic model (based on Llama3.1, Qwen2.5)"
+        ],
+        "methods": [
+          "automated error feedback generation",
+          "pairwise preference DPO alignment",
+          "critical prompt"
+        ],
+        "criteria": [
+          "Incomplete Information",
+          "Irrelevant Information",
+          "Erroneous Information",
+          "Incomplete Response",
+          "Inaccurate Response",
+          "Off-Topic Response",
+          "Overly Verbose Response",
+          "error analysis",
+          "error types"
+        ]
+      },
+      "normalized": {
+        "open-set annotation": "open-set annotation"
+      },
+      "explanation": "Simplified to main LLM judges used (Qwen2.5-72B, GPT-4o, and their trained RAG-Critic model). Kept high-level methods instead of detailed procedures. Focused on the main evaluation criteria (binary judgment and 3-tier classification) rather than listing all specific error types."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three annotators categorize second-tier labels and summarize top-tier error types",
+      "Binary classification verification of LLM annotations"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three annotators categorize second-tier labels and summarize top-tier error types",
+          "Binary classification verification of LLM annotations"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Categorize second-tier labels and summarize top-tier error types.",
+          "binary classification on the annotation results"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Enhanced guideline descriptions to be more comprehensive and structured based on the human evaluation processes described in the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on RAG evaluation and error classification rather than traditional NLG metrics. Human evaluation is limited to error system construction and benchmark validation, not direct output evaluation. The LLM-as-judge aspect is central to the paper's methodology for error critique generation."
+}

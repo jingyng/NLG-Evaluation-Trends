@@ -1,0 +1,109 @@
+{
+  "paper_id": "2025.acl-long.504",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM evaluations against human evaluation by comparing GPT-4o and distilled Llama-3.2 judgments with human preferences on the same 100 persona QA pairs, reporting quantitative comparisons and agreement metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4o",
+      "Llama-3.2-3B"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed evaluation prompts provided in appendix Figures A14 and A15, with explicit criteria including 'Personalization: Does the response effectively consider the user's provided personal information?' and 'Logical validity: Is the response logically sound and reasonable?'"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 10,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluation survey template provided in appendix Figure A14, showing evaluators were asked to choose between ground truth personalized answer and model-generated response with 'Tie' option for comparable quality"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Score comparison",
+      "Visual comparison",
+      "Cohen's kappa"
+    ],
+    "shared_criteria": [
+      "Personalization",
+      "Logical validity"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "Validation conducted on 100 persona QA pairs from Test Set 1 where both human and LLM evaluations were performed on the same instances"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.703,
+        "criterion": "overall",
+        "llm_model": "GPT-4o vs Llama-3.2",
+        "significance": null,
+        "notes": "Agreement between GPT-4o and distilled Llama-3.2 evaluations across four model-personalization combinations"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.747,
+        "criterion": "overall",
+        "llm_model": "GPT-4o vs Llama-3.2",
+        "significance": null,
+        "notes": "Llama-3.1-8B (SFT) configuration"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.727,
+        "criterion": "overall",
+        "llm_model": "GPT-4o vs Llama-3.2",
+        "significance": null,
+        "notes": "Mistral-7B (SFT) configuration"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.704,
+        "criterion": "overall",
+        "llm_model": "GPT-4o vs Llama-3.2",
+        "significance": null,
+        "notes": "Qwen-2.5-7B (SFT) configuration"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "substantial agreement",
+      "threshold_used": "Cohen's kappa > 0.7 considered substantial agreement",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Both GPT-4o and distilled Llama-3.2 evaluations show substantial agreement with Cohen's kappa scores exceeding 0.7, while traditional metrics like BLEU and ROUGE-L often contradict human preference."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Personalization",
+      "Logical validity"
+    ],
+    "notes": "Both LLM and human evaluators assess the same primary criteria: Personalization (effective consideration of user's personal information) and Logical validity (logical soundness of responses) using the same evaluation framework with GT Win/Tie/Model Win scoring"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "paper_id": "2025.emnlp-main.535",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "AfriDOC-MT",
+      "DischargeME"
+    ],
+    "languages": [
+      "English",
+      "Amharic",
+      "Tigrinya"
+    ],
+    "models": [
+      "Google Translate",
+      "NLLB-600M",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "machine-translated healthcare content",
+      "translated medical instructions",
+      "health information translations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-4o"
+        ],
+        "outputs": [
+          "machine-translated healthcare content",
+          "translated medical instructions",
+          "health information translations"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LLaMa-4 Maverick Instruct",
+          "Arabic pivot via Google Translate"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "LLaMa-4 Maverick Instruct": "LLaMa-4 Maverick Instruct",
+        "GPT-4o": "GPT-4o",
+        "target‑language translations": "health information translations"
+      },
+      "explanation": "Removed 'Paraphrase Generation' as it was used as a pre-processing step, not evaluated as an NLG task. Removed models that were not directly evaluated for translation (paraphrasing/pivoting interventions). Added GPT-4o which was tested. Simplified and clarified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BLEU": "BLEU"
+      },
+      "explanation": "No changes needed. BLEU was correctly identified as the only automatic metric used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in the paper. LLMs were only used for paraphrasing (pre-processing), not for evaluating outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotation scheme with adequacy and clinical risk evaluation",
+      "Annotation guidelines verified by four physicians",
+      "Native speakers annotate, physician verifies labels",
+      "Disagreements resolved in frequent weekly meetings"
+    ],
+    "criteria": [
+      "adequacy",
+      "clinical risk"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotation scheme with adequacy and clinical risk evaluation",
+          "Annotation guidelines verified by four physicians",
+          "Native speakers annotate, physician verifies labels",
+          "Disagreements resolved in frequent weekly meetings"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "clinically insignificant, mild, moderate, high, or life threatening errors": "clinical risk"
+      },
+      "explanation": "Expanded guideline description to more accurately reflect the human evaluation process described in the paper. Normalized clinical risk criterion."
+    }
+  },
+  "overall_notes": "Paper focuses on MT evaluation in healthcare domain. Human evaluation was primary method, with limited automatic metric use (BLEU only for Amharic GHI). LLMs were used for paraphrasing intervention but not as evaluators. Metadata extraction was generally accurate but needed refinement on what constituted evaluated NLG tasks vs. pre-processing methods."
+}

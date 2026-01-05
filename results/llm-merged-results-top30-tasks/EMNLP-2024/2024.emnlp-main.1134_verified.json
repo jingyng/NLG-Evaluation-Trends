@@ -1,0 +1,198 @@
+{
+  "paper_id": "2024.emnlp-main.1134",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "GENERATED HIRING CONVERSATIONS 1 920 SAMPLES",
+      "GOLD STANDARD ANNOTATED SUBSET 100 CONVERSATIONS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4_turbo",
+      "gpt_3.5_turbo",
+      "orca_2_7b",
+      "mpt_7b_chat",
+      "vicuna_7b_1.5",
+      "vicuna_13b_1.5",
+      "llama_2_7b_chat_hf",
+      "llama_2_13b_chat_hf"
+    ],
+    "outputs": [
+      "Generated conversations about job applicants",
+      "Textual hiring conversations annotated with CHAST metrics"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "..."
+        ],
+        "languages": [],
+        "models": [
+          "Vicuna-13b-16K"
+        ],
+        "outputs": [
+          "conversations between colleagues discussing job applicants"
+        ]
+      },
+      "normalized": {
+        "Vicuna-13b-16K": "Removed (evaluation model, not generation model)"
+      },
+      "explanation": "Removed Vicuna-13b-16K from generation models as it's used for evaluation, not generation. Removed incomplete dataset entry and redundant output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CATEGORIZATION THREAT",
+      "MORALITY THREAT",
+      "COMPETENCE THREAT",
+      "REALISTIC THREAT",
+      "SYMBOLIC THREAT",
+      "DISPARAGEMENT",
+      "OPPORTUNITY HARM",
+      "ACCURACY",
+      "F1",
+      "PERSPECTIVE API",
+      "DETOXIFY",
+      "CONVOKIT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy",
+          "Weighted F1-score",
+          "Macro F1-score"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy",
+          "weighted F1-score",
+          "macro F1-score",
+          "Perspective API toxicity scores",
+          "Detoxify toxicity scores",
+          "ConvoKit politeness scores",
+          "CHAST metrics"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "weighted F1-score": "Weighted F1-score",
+        "macro F1-score": "Macro F1-score",
+        "Perspective API toxicity scores": "Perspective API",
+        "Detoxify toxicity scores": "Detoxify",
+        "ConvoKit politeness scores": "ConvoKit",
+        "CHAST metrics": "Split into individual CHAST metrics"
+      },
+      "explanation": "Normalized metric names to standard capitalization. Split 'CHAST metrics' into the 7 individual metric names. Removed redundant descriptors from baseline metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4_turbo",
+      "vicuna_13b_16k"
+    ],
+    "methods": [
+      "Prompt engineering with binary classification",
+      "Fine-tuned evaluation model"
+    ],
+    "criteria": [
+      "Categorization",
+      "Morality",
+      "Competence",
+      "Threat",
+      "Disparagement",
+      "Harmfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Fine-tuned evaluation model"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "prompt engineering with 31 variations, binary classification",
+          "prompt‑based binary/4‑class classification of CHAST metrics",
+          "few‑shot/zero‑shot prompting with system‑role persona",
+          "zero-shot",
+          "few-shot",
+          "binary classification",
+          "4-class→Binary"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "prompt engineering with 31 variations, binary classification": "Prompt engineering with binary classification",
+        "prompt‑based binary/4‑class classification of CHAST metrics": "Removed (redundant)",
+        "few‑shot/zero‑shot prompting with system‑role persona": "Removed (implementation detail)",
+        "zero-shot": "Removed (implementation detail)",
+        "few-shot": "Removed (implementation detail)",
+        "binary classification": "Removed (redundant)",
+        "4-class→Binary": "Removed (implementation detail)"
+      },
+      "explanation": "Simplified methods to main approaches. Added fine-tuning method which was missing. Removed implementation details to focus on main evaluation methods."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators used a 4-point Likert scale for each of the seven CHAST metrics",
+      "Annotators provided justifications and excerpts for their ratings",
+      "Considered in-group vs. out-group dynamics in ratings"
+    ],
+    "criteria": [
+      "Categorization",
+      "Morality",
+      "Competence",
+      "Threat",
+      "Disparagement",
+      "Harmfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators used a 4-point Likert scale for each of the seven CHAST metrics",
+          "Annotators provided justifications and excerpts for their ratings",
+          "Considered in-group vs. out-group dynamics in ratings"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- An annotation guideline... included definitions and examples for each CHAST metric and a 4-point Likert scale.",
+          "Annotators used a 4‑point Likert scale for each of the seven CHAST metrics, providing justifications and excerpts for their ratings.",
+          "Please rate the CONVERSATION on each metric using the four-point scale. For each metric rating, please provide a brief justification for your score and all relevant excerpt(s) quoted directly from the conversation."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "4‑point Likert scale": "4-point Likert scale",
+        "full guideline text": "Extracted key guideline components"
+      },
+      "explanation": "Cleaned up and normalized the guideline description by extracting key components from the verbose original text. Criteria remain unchanged as they are correctly extracted."
+    }
+  },
+  "overall_notes": "The paper is well-aligned with NLG evaluation research. It generates dialogues using multiple LLMs and evaluates them using both human annotations and LLM-as-judge approaches. The CHAST metrics provide a novel framework for evaluating subtle harms. The extraction was generally good but needed normalization of metric names and cleaning up of implementation details."
+}

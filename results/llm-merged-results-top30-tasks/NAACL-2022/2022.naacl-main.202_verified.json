@@ -1,0 +1,143 @@
+{
+  "paper_id": "2022.naacl-main.202",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "WIZARD OF WIKIPEDIA",
+      "HOLL E"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "roberta_base",
+      "gpt_2",
+      "edge_aware_graph_attention_network"
+    ],
+    "outputs": [
+      "dialogue responses",
+      "knowledge-grounded responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "RoBERTa-base"
+        ],
+        "outputs": [
+          "knowledge-grounded responses"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "RoBERTa"
+        ],
+        "outputs": [
+          "generated dialog responses"
+        ]
+      },
+      "normalized": {
+        "RoBERTa": "RoBERTa-base",
+        "generated dialog responses": "dialogue responses"
+      },
+      "explanation": "Normalized RoBERTa to RoBERTa-base, simplified output descriptions, and added knowledge-grounded responses to better reflect the paper's focus"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "PERPLEXITY",
+      "ACCURACY",
+      "PRECISION",
+      "RECIPROCAL RANK"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy",
+          "Mean Average Precision",
+          "Mean Reciprocal Rank"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE variants to base ROUGE form and added knowledge selection metrics (Accuracy, MAP, MRR) that were explicitly mentioned for evaluating knowledge selection quality"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper; only traditional automatic metrics and human evaluation were used"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators select best response among three systems (allowing ties)",
+      "Annotators select system with most relevant knowledge",
+      "Annotators score responses on 1-4 scale for appropriateness, knowledgeable, and engaging"
+    ],
+    "criteria": [
+      "Appropriateness",
+      "Knowledgeable",
+      "Engagement"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators choose the best response and rate each response on appropriateness, knowledgeability, and engagement."
+        ],
+        "criteria": [
+          "appropriateness"
+        ]
+      },
+      "normalized": {
+        "appropriate": "appropriateness",
+        "knowledgeability": "knowledgeable"
+      },
+      "explanation": "Consolidated duplicate guideline descriptions and normalized criteria terms for consistency"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on dialogue generation with knowledge grounding, using both automatic metrics (ROUGE, perplexity, knowledge selection metrics) and human evaluation. No LLM-as-judge evaluation was conducted. The main contribution is knowledge selection improvement via document semantic graphs."
+}

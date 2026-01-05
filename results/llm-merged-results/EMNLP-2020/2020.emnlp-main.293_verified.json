@@ -1,0 +1,118 @@
+{
+  "paper_id": "2020.emnlp-main.293",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/Daily Mail",
+      "New York Times"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-2",
+      "BERT",
+      "DistilBERT",
+      "XLNet"
+    ],
+    "outputs": [
+      "extractive summaries",
+      "keyphrases"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Distill-BERT",
+          "DISTILL-BERT",
+          "XLNET"
+        ],
+        "outputs": [
+          "Extracted keyphrases or sentences (summaries) selected by importance scoring",
+          "The paper generates summaries by selecting important semantic units (unigrams, bigrams, sentences) based on information amount estimated via pre-trained language models, and evaluates them as part of extractive summarization and keyphrase extraction."
+        ]
+      },
+      "normalized": {
+        "Distill-BERT": "DistilBERT",
+        "DISTILL-BERT": "DistilBERT",
+        "XLNET": "XLNet"
+      },
+      "explanation": "Normalized model names to standard forms and simplified outputs description. The paper does study NLG tasks (extractive summarization and keyphrase extraction) but uses pre-trained models for importance estimation rather than generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F 1 score"
+        ]
+      },
+      "normalized": {
+        "F 1 score": "F1"
+      },
+      "explanation": "Normalized 'F 1 score' to 'F1' and removed duplicate. The paper clearly uses F1 for n-gram importance evaluation and ROUGE for sentence-level summarization evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges in this paper. The pre-trained language models (GPT-2, BERT, etc.) are used for importance estimation, not for post-generation evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not conduct any human evaluations. All evaluations are automated using F1 and ROUGE scores against reference summaries/keyphrases."
+    }
+  },
+  "overall_notes": "This paper focuses on content importance modeling for summarization using information theory with pre-trained language models. It's important to note that while the paper addresses NLG tasks (extractive summarization), the pre-trained models are used for importance estimation rather than generation. The evaluation is entirely automated with no human or LLM-as-judge components. The extraction was generally accurate with minor normalization needed for model names."
+}

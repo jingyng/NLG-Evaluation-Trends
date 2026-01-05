@@ -1,0 +1,154 @@
+{
+  "paper_id": "2024.acl-long.410",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Math Problem Solving With Chain Of Thought",
+      "Code Generation"
+    ],
+    "datasets": [
+      "GSM8K",
+      "SVAMP",
+      "MATHQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "galactica",
+      "codellama",
+      "galactica_125m",
+      "codeparrot_small",
+      "codegen_350m"
+    ],
+    "outputs": [
+      "Chain-of-Thought reasoning paths in natural language or Python code",
+      "Final answers for math problems"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other: Math Reasoning",
+          "Other:Math Problem Solving"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "CodeLLAMA-7B",
+          "Galactica-6.7B"
+        ],
+        "outputs": [
+          "Chain-of-Thought (CoT) annotations, both in natural language (N-CoT) and program-based (P-CoT) forms"
+        ]
+      },
+      "normalized": {
+        "Codeparrot-small": "CodeParrot-small",
+        "Codegen-350M": "CodeGen-350M",
+        "Chain-of-Thought reasoning paths and final answers for math problems": "Chain-of-Thought reasoning paths in natural language or Python code",
+        "Chain-of-Thought (CoT) reasoning steps in natural language or Python code, followed by the final answer.": "Final answers for math problems"
+      },
+      "explanation": "Removed redundant task descriptions, normalized model names to standard capitalization, simplified outputs to avoid duplication"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Value Accuracy",
+          "value accuracy"
+        ]
+      },
+      "normalized": {
+        "Value Accuracy": "Accuracy",
+        "accuracy": "Accuracy",
+        "value accuracy": "Accuracy"
+      },
+      "explanation": "Normalized all accuracy variants to 'Accuracy' as the base metric"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "CodeLLAMA",
+          "Galactica",
+          "Reward Model (language model initialized from SFT checkpoint)"
+        ],
+        "methods": [
+          "reranking based on reward model score",
+          "reward model reranking"
+        ],
+        "criteria": [
+          "correctness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because the reward model is a trained classifier, not an LLM used as a judge. The paper does not use LLMs for evaluation scoring."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Four annotators scored 50 questions from GSM8K test set on three criteria (Logic, Naming, Compactness) using 0-1 scale"
+    ],
+    "criteria": [
+      "Logic",
+      "Naming",
+      "Compactness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Four annotators scored 50 questions from GSM8K test set on three criteria (Logic, Naming, Compactness) using 0-1 scale"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators scored reasoning paths on Logic, Naming, and Compactness, each on a scale from 0 to 1.",
+          "Annotators score each generated reasoning path on Logic, Naming, and Compactness on a 0‑1 scale.",
+          "The evaluation uses 50 questions and samples the solutions in GSM8K test set that can be solved correctly by all three models. We ask four different annotators to score the reasoning path according to the following criteria, each scored on a scale from 0 to 1."
+        ],
+        "criteria": [
+          "logic",
+          "naming",
+          "compactness"
+        ]
+      },
+      "normalized": {
+        "logic": "Logic",
+        "naming": "Naming",
+        "compactness": "Compactness"
+      },
+      "explanation": "Consolidated guideline into a single clear description and normalized criteria capitalization"
+    }
+  },
+  "overall_notes": "The paper focuses on math problem solving with Chain-of-Thought generation. Key correction: The reward model used for reranking is a trained classifier, not an LLM-as-judge, so Question 3 should be No. Human evaluation was properly conducted with clear criteria."
+}

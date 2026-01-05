@@ -1,0 +1,151 @@
+{
+  "paper_id": "2025.emnlp-main.471",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Creative Writing",
+      "Machine Translation",
+      "Code Generation",
+      "Mathematics",
+      "Reasoning",
+      "Text Extraction",
+      "Text Error Correction",
+      "Knowledge Question Answering A",
+      "Text Summarization"
+    ],
+    "datasets": [
+      "FB BENCH"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "gpt_4o",
+      "deepseek_v_3",
+      "qwen_max_0919",
+      "qwen_2.5_72b_instruct",
+      "meta_llama_3.1_8b_instruct",
+      "phi_3_medium_4k_instruct",
+      "yi_1.5_9b_chat",
+      "claude_3.5",
+      "internlm_3_8b_instruct",
+      "phi_4"
+    ],
+    "outputs": [
+      "Follow-up responses to human feedback in multi-turn dialogues"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "models": [
+          "Phi-4"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Other:Creative writing",
+          "Other:Creative Writing",
+          "Other:Text Error Correction",
+          "Other:Text Extraction"
+        ],
+        "models": [
+          "gpt-4o",
+          "qwen-max-0919"
+        ]
+      },
+      "normalized": {
+        "Other:Text extraction": "Other:Text Extraction"
+      },
+      "explanation": "Removed duplicates and non-NLG tasks (Dialogue Generation), normalized casing, added missing tasks mentioned in paper"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "LLM AS A JUDGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "LLM-as-a-Judge"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "checklist-based scoring",
+          "LLM-as-a-Judge with weighted checklist"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Simplified to base metric - all evaluation is done through LLM-as-a-Judge framework"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o"
+    ],
+    "methods": [
+      "weighted checklist evaluation"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4o"
+        ]
+      },
+      "removed": {
+        "models": [
+          "gpt-4o"
+        ],
+        "methods": [
+          "LLM-as-a-Judge scoring with weighted checklist",
+          "LLM-as-a-Judge"
+        ],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "relevance",
+          "correctness",
+          "instruction following",
+          "logical consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Normalized model name, removed generic LLM-as-a-Judge term, removed criteria not explicitly mentioned in evaluation methodology"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Human annotators assess the follow-up responses according to the weighted checklist criteria.",
+          "Please carefully read the above two-round dialogue and strictly evaluate the second-round model response each requirement in the evaluation criteria."
+        ],
+        "criteria": [
+          "evaluation_result",
+          "weight",
+          "yes/no questions in checklist"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Human evaluation was only conducted for validation (194 samples to test LLM-judge agreement), not for main evaluation of generated outputs. Main evaluation uses LLM-as-a-Judge only."
+    }
+  },
+  "overall_notes": "Paper focuses on evaluating LLMs' ability to respond to human feedback in multi-turn dialogues using a systematic benchmark (FB-Bench). Main evaluation is automated via LLM-as-a-Judge with weighted checklists. Human eval was limited to validating the automated approach."
+}

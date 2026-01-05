@@ -1,0 +1,160 @@
+{
+  "paper_id": "2020.emnlp-main.57",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Argument Generation",
+      "Opinion Article Generation",
+      "News Report Generation"
+    ],
+    "datasets": [
+      "Reddit ChangeMyView",
+      "New York Times Opinion",
+      "New York Times News"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "PAIR (Planning And Iterative Refinement)",
+      "BERT-based planner",
+      "BART"
+    ],
+    "outputs": [
+      "Multi-sentence generated texts for arguments, opinion articles, and news reports"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Argument Generation",
+          "Opinion Article Generation",
+          "News Report Generation"
+        ],
+        "datasets": [
+          "New York Times Opinion",
+          "New York Times News"
+        ],
+        "languages": [],
+        "models": [
+          "BERT-based planner"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Argument Generation",
+          "Other:Opinion Article Generation",
+          "Other:News Report Generation",
+          "Other:Opinion Article Writing"
+        ],
+        "datasets": [
+          "ARGGEN",
+          "OPINION",
+          "NEWS"
+        ],
+        "languages": [],
+        "models": [
+          "BART fine-tuned"
+        ],
+        "outputs": [
+          "multi-sentence text for arguments, opinion articles, and news reports",
+          "Multi-sentence generated texts (drafts and refined versions) for arguments, opinion articles, and news reports",
+          "multi-sentence text (draft) to reflect the plan"
+        ]
+      },
+      "normalized": {
+        "Reddit r/ChangeMyView (CMV)": "Reddit ChangeMyView",
+        "New York Times (NYT) corpus": "New York Times News"
+      },
+      "explanation": "Normalized task names to standard format without 'Other:' prefix. Consolidated dataset names to clear canonical forms. Removed redundant/extracted internal variable names. Consolidated output descriptions into one clear description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-4",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric variants to base forms according to guidelines (BLEU-4 → BLEU, ROUGE-L → ROUGE)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation mentioned in the paper. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate generated texts on a 1-5 scale for fluency, coherence, and relevance",
+      "Preference evaluation between refined and unrefined versions",
+      "Preference evaluation between versions with and without keyphrase enforcement"
+    ],
+    "criteria": [
+      "fluency",
+      "coherence",
+      "relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Preference evaluation between refined and unrefined versions",
+          "Preference evaluation between versions with and without keyphrase enforcement"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- rated on a scale of 1 to 5 for fluency, coherence, and relevance",
+          "Rate fluency, coherence, and relevance on a 1-5 Likert scale for each generated text."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "fluency, coherence-if the information organization is natural and logical, and relevance-if the topic is related to the prompt and whether the stance is correct.": "fluency, coherence, relevance"
+      },
+      "explanation": "Consolidated multiple guideline descriptions into clear, distinct items. Removed redundant descriptions while preserving all evaluation methodologies mentioned."
+    }
+  },
+  "overall_notes": "The paper focuses on content-controlled text generation using planning and iterative refinement. Extraction quality was reasonable but included some internal variable names and redundant descriptions. The paper does not use LLM-as-judge evaluation but does conduct comprehensive human evaluation with preference tests in addition to rating scales."
+}

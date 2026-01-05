@@ -1,0 +1,55 @@
+{
+  "paper_id": "2023.acl-long.539",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM evaluation and human evaluation but does not directly compare LLM judgments with human judgments on the same instances. Human evaluation is used only to measure the quality of LLM-generated answers to subquestions (accuracy of subquestion answering), not to validate the overall LLM evaluation scores against human scores."
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "flan_t_5_xl",
+      "flan_t_5_large",
+      "flan_t_5_base"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts include instruction (e.g., 'Answer the following yes/no question.'), evaluation input (context, generated text, reference), and yes/no question (e.g., 'Is this a coherent response given the dialogue history?'). Subquestions are similarly structured. Examples shown in tables in Appendix."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "majority voting",
+      "value": null,
+      "interpretation": "Human-annotated labels determined via majority voting",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Annotators answer yes/no subquestions based on evaluation input. Guidelines referenced from prior work but not fully detailed in the paper."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Consistency",
+      "Fluency",
+      "Engagingness"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Naturalness",
+      "Coherence",
+      "Groundedness",
+      "Understandability"
+    ],
+    "notes": "Human evaluation was conducted only on the subquestion answering for interpretability analysis (shared criteria), not on the final evaluation scores. LLM evaluated all criteria, but human validation was limited to subquestion accuracy."
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "paper_id": "2025.emnlp-main.1044",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Visual Question Answering",
+      "Dish Description Generation"
+    ],
+    "datasets": [
+      "BORSCH"
+    ],
+    "languages": [
+      "Russian",
+      "Ukrainian"
+    ],
+    "models": [
+      "qwen_2_72b_instruct",
+      "llama_3.1_70b_instruct",
+      "qwen_2_vl_72b_instruct",
+      "llama_3.2_90b_vision_instruct"
+    ],
+    "outputs": [
+      "countries of origin for dishes",
+      "visual dish descriptions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering",
+          "Visual Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "countries of origin for dishes"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Appearance Description Generation",
+          "Other:Image Captioning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "FLUX.1-dev"
+        ],
+        "outputs": [
+          "textual descriptions of dish appearances",
+          "textual dish appearance descriptions, country‑of‑origin answers",
+          "textual descriptions of a dish's appearance"
+        ]
+      },
+      "normalized": {
+        "Other:Dish Description Generation": "Other:Dish Description Generation"
+      },
+      "explanation": "Removed FLUX.1-dev as it's not an NLG model being evaluated (used for image generation). Added QA and VQA as main NLG tasks evaluated. Simplified outputs to reflect dish origin prediction and visual description generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "JACCARD",
+      "COSINE SIMILARITY",
+      "EXACT MATCH ACCURACY",
+      "LEVENSHTEIN DISTANCE",
+      "SPEARMAN CORRELATION",
+      "PEARSON CORRELATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Levenshtein Distance",
+          "Spearman Correlation",
+          "Pearson Correlation"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Dice coefficient",
+          "Overlap coefficient"
+        ]
+      },
+      "normalized": {
+        "cosine similarity": "Cosine Similarity",
+        "Jaccard score": "Jaccard",
+        "Cosine Similarity (DiNOv2)": "Cosine Similarity",
+        "Spearman's rho": "Spearman Correlation"
+      },
+      "explanation": "Removed Dice and Overlap coefficients mentioned only in ablation study. Added correlation metrics used for evaluation. Consolidated cosine similarity variants."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges - FLUX.1-dev was used for image generation, not text evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate how well the dish description visually matches the provided image from 0 to 1",
+      "Evaluate both accuracy and conciseness of descriptions"
+    ],
+    "criteria": [
+      "Quality",
+      "Accuracy",
+      "Conciseness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Rate how well the dish description visually matches the provided image from 0 to 1"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "visual description accuracy"
+        ]
+      },
+      "normalized": {
+        "visual match quality": "visual match quality"
+      },
+      "explanation": "Consolidated guideline descriptions and normalized criteria names while maintaining original meaning."
+    }
+  },
+  "overall_notes": "Paper focuses on cultural food knowledge evaluation through QA/VQA and dish description generation. Extraction was mostly accurate but included FLUX.1-dev incorrectly as an NLG model when it's used for image generation. Paper uses comprehensive automatic metrics and human evaluation for generated outputs."
+}

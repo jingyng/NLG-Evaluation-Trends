@@ -1,0 +1,157 @@
+{
+  "paper_id": "2021.emnlp-main.37",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "BAD",
+      "DECODE",
+      "BBF",
+      "REDDIT",
+      "convai2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "blenderbot",
+      "trigger_weakly",
+      "trigger_ppo",
+      "trigger_ppo_adv",
+      "roberta",
+      "gpt_2"
+    ],
+    "outputs": [
+      "coherent prompts (x_k) and corresponding model responses (y_k) that exhibit safety or consistency problems"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Human-bot test set"
+        ],
+        "models": [
+          "Safety classifier (RoBERTa)",
+          "Consistency classifier"
+        ],
+        "outputs": [
+          "prompts (x_k) and responses (y_k)",
+          "prompts and responses in a dialog setting"
+        ]
+      },
+      "normalized": {
+        "Dialogue generation": "Dialogue Generation",
+        "roberta": "RoBERTa",
+        "GPT-2": "GPT-2"
+      },
+      "explanation": "Removed 'Human-bot test set' as it's an evaluation split, not a dataset. Removed classifier mentions as they are evaluation tools, not NLG models. Consolidated output descriptions. Normalized model names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CLASSIFIER PROBABILITY",
+      "PERPLEXITY",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "classifier probability (safety)",
+          "classifier probability (consistency)",
+          "unsafe probability (classifier)",
+          "prompt unsafe probability (classifier)",
+          "F1 score of safety classifier",
+          "F1 score of consistency classifier",
+          "average probability (from classifier)"
+        ]
+      },
+      "normalized": {
+        "F1 score": "F1 score"
+      },
+      "explanation": "Consolidated all classifier probability variants into 'classifier probability' and consolidated F1 score variants. These are the fundamental metrics used for automatic evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rated language quality (fluency and coherence) of prompts on a 1-5 Likert scale",
+      "Annotators labeled outputs for unsafe responses, unsafe prompts, and contradictory responses"
+    ],
+    "criteria": [
+      "Fluency",
+      "Coherence",
+      "Safety",
+      "Consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "annotators assessed the percentage of unsafe responses, unsafe prompts, and language quality on a 1-5 Likert scale for fluency and coherence"
+        ],
+        "criteria": [
+          "unsafe responses",
+          "unsafe prompts",
+          "contradictory responses",
+          "unsafe response rate",
+          "unsafe prompt rate",
+          "language quality (fluency and coherence)"
+        ]
+      },
+      "normalized": {
+        "safe": "safety",
+        "unsafe": "safety",
+        "contradictory": "consistency",
+        "fluency and coherence": "fluency"
+      },
+      "explanation": "Consolidated criteria into fundamental attributes (safety, consistency, fluency, coherence). Simplified guideline descriptions while maintaining key information."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main improvements needed were consolidating metric variants and clarifying the distinction between NLG models vs evaluation classifiers. The paper focuses on dialogue generation with automatic exposure of model weaknesses through trigger learning."
+}

@@ -1,0 +1,141 @@
+{
+  "paper_id": "2025.acl-long.510",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Other:Functionality Grounding"
+    ],
+    "datasets": [
+      "AutoGUI-704k"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "SliME-8B",
+      "Qwen-VL",
+      "Qwen2-VL-7B"
+    ],
+    "outputs": [
+      "Functionality descriptions of UI elements"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-3-70B",
+          "Mistral-7B-Instruct-v0.2"
+        ],
+        "outputs": [
+          "functionality descriptions of UI elements",
+          "functionality descriptions of UI elements based on visual and structural changes"
+        ]
+      },
+      "normalized": {
+        "Functionality descriptions of UI elements": "Functionality descriptions of UI elements"
+      },
+      "explanation": "Removed LLM models used for annotation/verification (not NLG models being evaluated) and consolidated duplicate output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": true,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "grounding accuracy"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'grounding accuracy' as it evaluates localization/coordinate prediction, not NLG quality. The paper does not use automatic metrics for evaluating the generated text descriptions."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Llama-3-70B",
+      "Mistral-7B-Instruct-v0.2"
+    ],
+    "methods": [
+      "Verification scoring",
+      "Rejection scoring"
+    ],
+    "criteria": [
+      "Explicitness of Changes",
+      "Relevance of Changes",
+      "Predictability of Outcome",
+      "Degree of support for the specified action"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "Degree of support for the specified action"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "LLM-aided verification",
+          "self-verification"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "verification scoring": "Verification scoring",
+        "rejection scoring": "Rejection scoring",
+        "degree of support for the specified action": "Degree of support for the specified action"
+      },
+      "explanation": "Consolidated method names and added missing criterion from verification prompt"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three specific criteria outlined in Fig I for assessing element functionality based on UI content changes",
+      "Instructions for identifying invalid samples (incompletely loaded UIs, network failures, login restrictions, inappropriate content)"
+    ],
+    "criteria": [
+      "Correctness",
+      "Vagueness",
+      "Hallucination"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Instructions for identifying invalid samples (incompletely loaded UIs, network failures, login restrictions, inappropriate content)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Correctness": "Correctness",
+        "vagueness": "Vagueness",
+        "hallucination": "Hallucination"
+      },
+      "explanation": "Added missing guideline about invalid sample identification and normalized criteria capitalization"
+    }
+  },
+  "overall_notes": "The paper focuses on UI element functionality description generation and evaluation. While it uses automatic metrics for localization tasks, it relies on LLM verification and human evaluation for assessing the generated text quality. The extraction was generally accurate but needed refinement on what constitutes NLG evaluation metrics."
+}

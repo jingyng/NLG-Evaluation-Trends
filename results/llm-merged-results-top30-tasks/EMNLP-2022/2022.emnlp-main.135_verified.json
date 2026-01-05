@@ -1,0 +1,158 @@
+{
+  "paper_id": "2022.emnlp-main.135",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Question Generation",
+      "Question Answering"
+    ],
+    "datasets": [
+      "QUIZ DESIGN QD",
+      "CHALLENGE 300",
+      "SUMMEVAL",
+      "FRANK"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2_distil",
+      "gpt_2_base",
+      "gpt_2_med",
+      "bart_base",
+      "bart_large",
+      "mixqg_3b",
+      "macaw_3b",
+      "macaw_11b",
+      "t_5",
+      "unifiedqa",
+      "pegasus"
+    ],
+    "outputs": [
+      "Generated questions for question generation",
+      "Generated answers for question answering",
+      "Generated summaries for summarization"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering"
+        ],
+        "models": [
+          "T5",
+          "UnifiedQA",
+          "PEGASUS"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Generation",
+          "Other:Generative Question Answering"
+        ],
+        "models": [
+          "GPT2-{distil,base,med}",
+          "BART-{base,large}",
+          "Macaw-{3B,11B}"
+        ]
+      },
+      "normalized": {
+        "Other:Question Generation": "Question Generation",
+        "Other:Generative Question Answering": "Question Answering"
+      },
+      "explanation": "Normalized task names to standard forms, expanded model list removing bracketed variations, added missing models mentioned in experiments"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "BERTSCORE",
+      "BARTSCORE",
+      "QUESTEVAL",
+      "NND"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "All metrics correctly extracted and normalized"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT2-distil",
+          "GPT2-base",
+          "GPT2-med",
+          "BART-base",
+          "BART-large",
+          "MixQG-3B",
+          "Macaw-3B",
+          "Macaw-11B",
+          "T5",
+          "UnifiedQA",
+          "PEGASUS"
+        ],
+        "methods": [
+          "likelihood-based pairwise comparison"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does NOT use LLMs as judges - it uses model likelihoods for NND evaluation, not LLM-based scoring. Removed all extracted metadata as incorrect."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotations used to create datasets: Quiz Design (QD) with error categorization, Challenge 300 with credit scoring, SummEval with Likert scale ratings, FRANK with hierarchical error categorization"
+    ],
+    "criteria": [
+      "Error",
+      "Disfluent",
+      "Target",
+      "Context",
+      "Consistency",
+      "Coherence",
+      "Fluency",
+      "Relevance",
+      "Frame",
+      "Discourse",
+      "Verifiability"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Consistency",
+          "Coherence",
+          "Fluency",
+          "Relevance",
+          "Semantic Frame",
+          "Discourse",
+          "Verifiability"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Human annotators labeled each generated question with one of the error categories (No Error, Disfluent, Off Target, Wrong Context).",
+          "Annotators labeled each generated question with one of four error types: No Error, Disfluent, Off Target, Wrong Context."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Added missing criteria from other datasets mentioned in the paper, consolidated guidelines into comprehensive description"
+    }
+  },
+  "overall_notes": "Paper introduces NND (Near-Negative Distinction) as a new automatic evaluation method that repurposes human evaluations. The extraction was mostly accurate but had some issues: Q3 incorrectly extracted models used for generation as LLM judges, and Q4 missed criteria from other datasets. The paper does NOT use LLMs as judges - it uses the evaluated models' own likelihoods for pairwise comparison."
+}

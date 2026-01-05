@@ -1,0 +1,87 @@
+{
+  "paper_id": "2024.acl-long.424",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares LLM-as-a-judge (GPT-4) results with human evaluation results on the same benchmarks and instances, discussing agreement and scoring patterns across both evaluation methods."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "no",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "no",
+      "notes": "No specific LLM judge prompts provided; paper mentions using 'pairwise and point-wise assessments' and 'avoiding instability in GPT-4 output' by evaluating each model 5 times."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 4,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human evaluators were instructed to compare outputs pairwise based on adherence to instructions, politeness, usefulness, and level of detail; model names were anonymized and positions randomized."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "pairwise_win_rate",
+      "point-wise_scoring"
+    ],
+    "shared_criteria": [
+      "overall_quality"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": 160,
+      "notes": "Both LLM and human evaluated the same Vicuna-Bench (80 questions) and MT-Bench (80 questions); exact instance-level comparison size not specified."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "pairwise_win_rate",
+        "value": null,
+        "criterion": "overall_quality",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Paper states 'high concurrence' and 'significant outperformance' patterns align between LLM and human evaluations on Vicuna-Bench; MT-Bench shows similar competitive patterns."
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM (GPT-4) and human evaluations show strong concurrence on Vicuna-Bench and similar competitive patterns on MT-Bench, with alignment in pairwise and point-wise assessments."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Quality"
+    ],
+    "human_only_criteria": [
+      "Adherence",
+      "Politeness",
+      "Usefulness",
+      "Detail"
+    ],
+    "shared_criteria": [
+      "overall_quality"
+    ],
+    "notes": "LLM judges evaluated overall 'Quality'; humans evaluated specific aspects (adherence, politeness, etc.); both methods assessed overall model performance on the same benchmarks."
+  }
+}

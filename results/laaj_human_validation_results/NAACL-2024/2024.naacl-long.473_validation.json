@@ -1,0 +1,180 @@
+{
+  "paper_id": "2024.naacl-long.473",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates X-EVAL (LLM-based evaluator) against human evaluations across multiple NLG tasks and aspects, reporting correlation metrics between LLM predictions and human judgments"
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "flan_t_5",
+      "gpt_3.5",
+      "gpt_4",
+      "llama_7bchat"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts include task descriptions, aspect definitions, and evaluation protocols. Four evaluation formats: scoring, comparison, ranking, and Boolean QA. Templates provided in appendix tables showing exact phrasing."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "Not specified",
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": "Not reported",
+      "interpretation": "Not reported",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed aspect definitions and evaluation rubrics provided in appendix tables, including positive/negative examples for each criterion"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation",
+      "Kendall-tau correlation"
+    ],
+    "shared_criteria": [
+      "fluency",
+      "coherence",
+      "consistency",
+      "relevance",
+      "naturalness",
+      "engagingness",
+      "groundedness",
+      "understandability",
+      "informativeness"
+    ],
+    "sample_size": {
+      "total_generated": 17035,
+      "validated_by_both": 17035,
+      "notes": "Meta-evaluation conducted on test split of ASPECTINSTRUCT with 17,035 instances across dialogue generation, summarization, and data-to-text tasks"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.656,
+        "criterion": "consistency",
+        "llm_model": "X-EVAL",
+        "significance": "Not reported",
+        "notes": "Summarization task on QAGS"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.5,
+        "criterion": "consistency",
+        "llm_model": "X-EVAL",
+        "significance": "Not reported",
+        "notes": "Summarization task on QAGS"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.605,
+        "criterion": "average",
+        "llm_model": "X-EVAL",
+        "significance": "Not reported",
+        "notes": "Turn-level dialogue evaluation on Topical-Chat"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.434,
+        "criterion": "average",
+        "llm_model": "X-EVAL",
+        "significance": "Not reported",
+        "notes": "FED dialog evaluation"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.48,
+        "criterion": "average",
+        "llm_model": "X-EVAL",
+        "significance": "Not reported",
+        "notes": "Summarization evaluation"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.303,
+        "criterion": "average",
+        "llm_model": "X-EVAL",
+        "significance": "Not reported",
+        "notes": "Data-to-text evaluation"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.478,
+        "criterion": "naturalness",
+        "llm_model": "X-EVAL",
+        "significance": "Not reported",
+        "notes": "Topical-Chat"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.622,
+        "criterion": "coherence",
+        "llm_model": "X-EVAL",
+        "significance": "Not reported",
+        "notes": "Topical-Chat"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.593,
+        "criterion": "engagingness",
+        "llm_model": "X-EVAL",
+        "significance": "Not reported",
+        "notes": "Topical-Chat"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.728,
+        "criterion": "groundedness",
+        "llm_model": "X-EVAL",
+        "significance": "Not reported",
+        "notes": "Topical-Chat"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Not explicitly stated, but correlations >0.5 are considered meaningful",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "X-EVAL achieves comparable or higher correlation with human judgments than state-of-the-art NLG evaluators including GPT-4, with significantly fewer parameters (780M vs GPT-4's larger size), demonstrating strong LLM-human alignment."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "fluency",
+      "coherence",
+      "consistency",
+      "relevance",
+      "naturalness",
+      "engagingness",
+      "groundedness",
+      "understandability",
+      "informativeness",
+      "interestingness",
+      "specificity",
+      "correctness",
+      "appropriateness",
+      "depth",
+      "likability"
+    ],
+    "notes": "Both LLM and human evaluations assess the same comprehensive set of 15+ evaluation aspects across dialogue, summarization, and data-to-text tasks"
+  }
+}

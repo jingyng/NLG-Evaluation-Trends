@@ -1,0 +1,145 @@
+{
+  "paper_id": "2021.emnlp-main.646",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Numerical Generation",
+      "Question Answering"
+    ],
+    "datasets": [
+      "DROP",
+      "HotpotQA",
+      "CNN/DailyMail"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "msegenbert",
+      "reader",
+      "readersum",
+      "genbert"
+    ],
+    "outputs": [
+      "generated numbers",
+      "extracted spans",
+      "supporting-fact explanations",
+      "query-based summaries",
+      "classification answers (yes/no)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "classification answers (yes/no)"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "numerical outputs from generative heads, extracted spans from extractive heads, and sentence summaries from summarization heads",
+          "The model outputs include generated numbers, extracted spans, summaries, and classification answers (e.g., yes/no)."
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Other: Question Answering"
+      },
+      "explanation": "Consolidated output descriptions to be more concise while maintaining accuracy. Added 'classification answers (yes/no)' to outputs for completeness."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "RECALL",
+      "PRECISION",
+      "F1",
+      "INVERSEMRR",
+      "ROUGE",
+      "EXACT MATCH",
+      "SPEARMAN CORRELATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "Exact-match"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "Exact-match": "Exact Match"
+      },
+      "explanation": "Normalized ROUGE variants to base form and fixed capitalization on 'Exact Match'"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'None' entries and kept empty lists as the paper does not use LLMs as judges"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Crowdworkers were asked to extract the arguments (in bold) from the passage required to compute the answer"
+    ],
+    "criteria": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "argument extraction accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "arguments extraction": "argument extraction accuracy"
+      },
+      "explanation": "Changed answer from 'No' to 'Yes' because the paper used crowdworkers to annotate 400 examples from DROP development set for argument extraction evaluation. Added 'argument extraction accuracy' as evaluation criterion."
+    }
+  },
+  "overall_notes": "The paper studies emergent behavior in multi-task transformer models, focusing on NLG tasks including numerical generation from text, question answering, and summarization. Automatic metrics are extensively used. Human evaluation was conducted for creating gold-standard annotations. No LLMs were used as judges."
+}

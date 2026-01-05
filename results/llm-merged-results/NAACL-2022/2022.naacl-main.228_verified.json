@@ -1,0 +1,156 @@
+{
+  "paper_id": "2022.naacl-main.228",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "ALLSIDES",
+      "Multi-News"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LEXRANK",
+      "BARTCNN",
+      "BARTMULTI",
+      "PEGASUSMULTI",
+      "NEUSFT",
+      "NEUS-TITLE"
+    ],
+    "outputs": [
+      "neutral summaries",
+      "neutral article summaries",
+      "neutral titles"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "neutral titles"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "ALLSIDES (triplets of left, right, center articles with neutral summary)"
+        ],
+        "languages": [],
+        "models": [
+          "BART",
+          "PEGASUS"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "neutral summaries": "neutral summaries",
+        "neutral article summary (A_neu) and neutral title (T_neu) generated from multiple partisan news articles": "neutral article summaries",
+        "neutral summary of articles from multiple sources": "neutral summaries"
+      },
+      "explanation": "Simplified dataset description, removed base models (BART, PEGASUS) since they're not evaluated standalone, added 'neutral titles' as explicit output type"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "FeQA",
+      "Framing Bias Metric"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Framing Bias Metric"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Framing bias metric (Arousal scores)",
+          "ROUGE-1",
+          "FeQA (hallucination metric)",
+          "Polarity‑based framing bias metric (Arousal+, Arousal‑, Arousal sum)",
+          "Arousal +",
+          "Arousal -",
+          "Arousal sum",
+          "ROUGE1-R"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "ROUGE": "ROUGE",
+        "FeQA": "FeQA"
+      },
+      "explanation": "Consolidated all framing bias metric variants into 'Framing Bias Metric', normalized all metric names to base forms, removed redundant/variant names"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleaned up empty metadata fields - paper does not use LLMs as judges"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators compare two generated summaries (one with higher Arousal sum, one with lower) and choose which is more biased",
+      "Three annotations per sample with majority voting",
+      "Annotators restricted to non-US nationals to avoid political bias"
+    ],
+    "criteria": [
+      "framing bias"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators restricted to non-US nationals to avoid political bias"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Which one of the articles do you believe to be more biased toward one side or the other side in the reporting of news?",
+          "We also provide examples and the definition of framing bias for a better understanding of the task. We obtain three annotations each for 50 samples and select those with the majority of votes."
+        ],
+        "criteria": [
+          "bias",
+          "biased"
+        ]
+      },
+      "normalized": {
+        "framing bias": "framing bias"
+      },
+      "explanation": "Consolidated and clarified human evaluation guidelines, normalized criteria to single term 'framing bias'"
+    }
+  },
+  "overall_notes": "The paper focuses on neutral multi-news summarization to mitigate framing bias. It uses a combination of automatic metrics (BLEU, ROUGE, FeQA, and a custom framing bias metric) and human evaluation. The extraction was generally accurate but needed normalization and consolidation of metric variants. The paper does not use LLMs as judges."
+}

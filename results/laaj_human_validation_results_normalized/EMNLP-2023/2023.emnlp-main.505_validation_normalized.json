@@ -1,0 +1,105 @@
+{
+  "paper_id": "2023.emnlp-main.505",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper conducts direct validation by comparing BUS-GPT-3.5 and BUS-GPT-4 results against human evaluation using best-worst scaling (BWS) on the same 1,000 instances, analyzing alignment between automated question-answer metrics and human preferences."
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "gpt-3.5",
+      "gpt-4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompts shown in Appendix Table 14; includes question-generation and answer-extraction instructions"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": "Not reported",
+      "interpretation": "Not reported",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Appendix Figure 4 shows detailed instructions; best-worst scaling with majority voting used to determine best/worst summary selections"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "ranking_comparison",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Best-worst scaling vote counts",
+      "BUS percentage scores"
+    ],
+    "shared_criteria": [
+      "background summary utility",
+      "helpfulness"
+    ],
+    "sample_size": {
+      "total_generated": 1000,
+      "validated_by_both": 1000,
+      "notes": "All 1,000 test set updates used for both human BWS evaluation and BUS-GPT validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "BUS-GPT-3.5 alignment",
+        "value": "partial_alignment",
+        "criterion": "Utility",
+        "llm_model": "gpt-3.5",
+        "significance": "not_reported",
+        "notes": "BUS-GPT-3.5 shows human backgrounds slightly outperform GPT-3.5 but underestimates GPT-3.5 quality compared to human evaluation"
+      },
+      {
+        "metric": "BUS-GPT-4 alignment",
+        "value": "high_alignment",
+        "criterion": "Utility",
+        "llm_model": "gpt-4",
+        "significance": "not_reported",
+        "notes": "BUS-GPT-4 shows closer alignment with human best-worst scaling evaluation results"
+      },
+      {
+        "metric": "BUS-Human correlation",
+        "value": "high_alignment",
+        "criterion": "Utility",
+        "llm_model": "na",
+        "significance": "not_reported",
+        "notes": "BUS-Human metric using human-generated QA pairs aligns well with human evaluation results"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "GPT-4 shows strong alignment, GPT-3.5 shows partial alignment",
+      "threshold_used": "Relative comparison to BWS human evaluation results",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GPT-4-based BUS metric aligns well with human evaluation results, while GPT-3.5 shows discrepancies due to answer hallucination issues; human evaluation remains the gold standard for background summarization quality assessment."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "answerability_percentage"
+    ],
+    "human_only_criteria": [
+      "Comprehensiveness",
+      "Completeness"
+    ],
+    "shared_criteria": [
+      "Utility",
+      "Helpfulness"
+    ],
+    "notes": "LLM evaluation focuses on quantifiable answerability (BUS score), while human evaluation assesses comprehensive utility and contextual appropriateness"
+  }
+}

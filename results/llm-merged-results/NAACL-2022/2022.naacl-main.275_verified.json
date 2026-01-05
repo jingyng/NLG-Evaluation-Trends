@@ -1,0 +1,118 @@
+{
+  "paper_id": "2022.naacl-main.275",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Generation"
+    ],
+    "datasets": [
+      "SQuAD1.1",
+      "AdversarialQA",
+      "KILT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART Large",
+      "ELECTRA Large"
+    ],
+    "outputs": [
+      "Generated questions for extractive QA"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated questions",
+          "questions and answer spans"
+        ]
+      },
+      "normalized": {
+        "Other:Question Generation": "Other:Question Generation",
+        "BART Large": "BART Large",
+        "ELECTRA Large": "ELECTRA Large"
+      },
+      "explanation": "Removed redundant output descriptions and kept the most accurate one. The paper uses BART for question generation and ELECTRA as the QA model in the loop."
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": true,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Word‑overlap F1",
+          "Span selection confidence",
+          "vMER",
+          "F1"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because the paper does NOT use automatic metrics to evaluate the generated questions. The metrics mentioned (F1, vMER, etc.) are used to evaluate downstream QA models trained on the collected data, not to evaluate the NLG outputs themselves."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges in this paper. The extracted metadata was already correct."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers report on the validity of each annotated example, including correctness of the answer span and whether the question successfully fools the discriminative QA model"
+    ],
+    "criteria": [
+      "validity",
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "workers report on the validity of each annotated example",
+          "report on the validity of each annotated example"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed redundant guideline entries and kept the most comprehensive one. The criteria remain accurate as workers validate both correctness and model-fooling capability."
+    }
+  },
+  "overall_notes": "The paper's main contribution is using GAAs to assist human annotation for QA dataset creation. While GAAs generate questions, the paper does NOT evaluate these generated questions with automatic NLG metrics - instead it evaluates the downstream performance of QA models trained on the human-validated data. The human evaluation is for validating the collected training examples, not for evaluating the NLG outputs. This distinction is important for accurate metadata extraction."
+}

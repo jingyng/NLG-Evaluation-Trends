@@ -1,0 +1,132 @@
+{
+  "paper_id": "2025.emnlp-main.33",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Other:Question Answering",
+      "Other:Fact Checking",
+      "Other:Slot Filling"
+    ],
+    "datasets": [
+      "WoW",
+      "HotpotQA",
+      "Natural Questions",
+      "ELI5",
+      "FEVER",
+      "T-REx",
+      "zs-RE",
+      "SciFact",
+      "Climate-FEVER",
+      "FiQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-3-8B-Instruct",
+      "Qwen2.5-3B-Instruct"
+    ],
+    "outputs": [
+      "Generated answers to questions",
+      "Fact-checking decisions",
+      "Dialogue responses",
+      "Slot-filling results"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Long-form QA"
+        ],
+        "datasets": [
+          "MSMARCO-QA"
+        ],
+        "languages": [],
+        "models": [
+          "Contriever",
+          "BGE"
+        ],
+        "outputs": [
+          "generated answers or dialogue responses for downstream tasks",
+          "Generated answers or text responses for each downstream task"
+        ]
+      },
+      "normalized": {
+        "NQ": "Natural Questions"
+      },
+      "explanation": "Removed 'Long-form QA' as it wasn't explicitly mentioned as a separate task (ELI5 is included under Question Answering). Removed MSMARCO-QA as it was only used in utility attribution evaluation, not main NLG evaluation. Removed retrieval models (Contriever, BGE) as they are not NLG models. Normalized dataset names and simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "F1",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Normalized ROUGE-L to ROUGE following metric simplification rules. Kept only base metric names."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was used in the paper. LLMs were only used as generators in the RALM pipeline."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in the paper. All evaluations used automatic metrics."
+    }
+  },
+  "overall_notes": "The paper focuses on improving retrievers for Retrieval-Augmented Language Models across multiple NLG tasks. Evaluation is comprehensive but relies exclusively on automatic metrics without human or LLM-judge assessments. The extraction was generally good but needed normalization and removal of non-NLG components."
+}

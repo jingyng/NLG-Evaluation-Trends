@@ -1,0 +1,55 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "Alignment of LLMs to human preferences is important for their general applicability. Constrained decoding in large language models (LLMs) is an effective method as a post-training step to align LLM generations to human preferences such as harmless text generation, faithful summarization, formatted generation, flow adhering planning, among other use cases.",
+        "tasks": [
+            "Other:Constrained Commonsense Generation",
+            "Other:Harmless Text Generation"
+        ],
+        "datasets": [
+            "CommonGen",
+            "Anthropic HH-RLHF"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "OPT-13B",
+            "Qwen-1.5-7B",
+            "Bloomz-7.1B"
+        ],
+        "outputs": "generated text sequences under lexical and semantic constraints"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "For CommonGen, we report two constraint satisfaction metrics -(1) % Soft Constraint Satisfaction: measures the overall percentage of constraints that are satisfied across all data points, (2) % Hard Constraint Satisfaction: measures the percentage of data points where all required concepts are included. For HTG, we measure the percentage of generations that are harmless.",
+        "automatic_metrics": [
+            "% Soft Constraint Satisfaction",
+            "% Hard Constraint Satisfaction",
+            "% Harmless Response"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "For evaluating if a generated response is harmless, we use an off-the-shelf LLM, Llama-Guard-3-8B (Llama Team, 2024), which is fine-tuned for content safety classification task to assess the safety of the generated text.",
+        "models": [
+            "Llama-Guard-3-8B"
+        ],
+        "methods": [
+            "content safety classification"
+        ],
+        "criteria": [
+            "harmlessness",
+            "safety"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We use Amazon SageMaker Ground Truth for the evaluation, where the annotators are presented with the same prompt as Llama-Guard (as shown in Figure ) along with some positive and negative examples and are instructed to mark the Assistant response as safe or unsafe.",
+        "guideline": "annotators are instructed to mark the Assistant response as safe or unsafe based on the prompt and provided examples",
+        "criteria": [
+            "safe",
+            "unsafe"
+        ]
+    }
+}

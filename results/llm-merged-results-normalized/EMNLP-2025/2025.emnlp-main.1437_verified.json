@@ -1,0 +1,150 @@
+{
+  "paper_id": "2025.emnlp-main.1437",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "DAILYDIALOG",
+      "MULTIWOZ"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "dialogpt",
+      "llama_2",
+      "fudge",
+      "director",
+      "dasc"
+    ],
+    "outputs": [
+      "dialogue responses conditioned on attributes such as emotion and dialog-act"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "RoBERTa",
+          "Llama2-7B"
+        ],
+        "outputs": [
+          "dialogue responses",
+          "responses"
+        ]
+      },
+      "normalized": {
+        "Llama2-7B": "Llama2",
+        "Generated dialogue responses conditioned on attributes such as emotion and dialog-act": "dialogue responses conditioned on attributes such as emotion and dialog-act"
+      },
+      "explanation": "Removed RoBERTa (used only for evaluation, not generation) and consolidated Llama2-7B to Llama2. Consolidated output descriptions to one comprehensive description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "DIST",
+      "GRAMMAR",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Accuracy (emotion)",
+          "Accuracy (dialog-act)",
+          "ROUGE-1",
+          "ROUGE-L",
+          "Dist-1",
+          "Dist-2",
+          "CoLA grammaticality score",
+          "Attribute accuracy (via RoBERTa evaluators)",
+          "grammar probability (CoLA model)",
+          "Accuracy (via RoBERTa evaluators)"
+        ]
+      },
+      "normalized": {
+        "Accuracy (emotion)": "Accuracy",
+        "Accuracy (dialog-act)": "Accuracy",
+        "ROUGE-1": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "Dist-1": "Dist",
+        "Dist-2": "Dist",
+        "Grammar (CoLA)": "Grammar",
+        "CoLA grammaticality score": "Grammar",
+        "Attribute accuracy (via RoBERTa evaluators)": "Accuracy",
+        "grammar probability (CoLA model)": "Grammar",
+        "Accuracy (via RoBERTa evaluators)": "Accuracy"
+      },
+      "explanation": "Normalized all metric variants to their base forms (ROUGE, Dist, Grammar, Accuracy) according to simplification guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in the paper. The paper mentions Llama2 but only as a generation model, not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three expert evaluators rated each generated response on Accuracy, Interest, and Sensible using a 1-5 Likert scale"
+    ],
+    "criteria": [
+      "Accuracy",
+      "Interest",
+      "Sensibility"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Three expert evaluators rated metrics on a 1-5 scale for Accuracy, Interest, and Sensibility",
+          "We evaluate our generated responses based on three aspects: (1) Accuracy: Response is generated according to the desired attribute. (2) Interest: Response is specific and creative enough to capture the user's attention, and avoids repetitive or generic outputs that may reduce engagement. (3) Sensible: Response is grammatically correct and contextually coherent."
+        ],
+        "criteria": [
+          "Sensible"
+        ]
+      },
+      "normalized": {
+        "Sensibility": "Sensible"
+      },
+      "explanation": "Consolidated guideline descriptions to one concise version. Corrected 'Sensibility' to 'Sensible' based on paper text."
+    }
+  },
+  "overall_notes": "Paper focuses on controllable dialogue generation using entropy-based dynamic control. Extracted metadata was generally accurate but required normalization of metric variants and removal of evaluation-only models."
+}

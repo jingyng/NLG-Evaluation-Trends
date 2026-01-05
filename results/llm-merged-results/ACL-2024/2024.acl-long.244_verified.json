@@ -1,0 +1,172 @@
+{
+  "paper_id": "2024.acl-long.244",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Argument Rewriting",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "Appropriateness Corpus",
+      "IACv2 Corpus",
+      "GAQCorpus"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA + Instruct",
+      "GPT-J + Instruct",
+      "Alpaca",
+      "LLaMA + PPOapp<sim",
+      "LLaMA + PPOapp=sim",
+      "LLaMA + PPOapp>sim",
+      "LLaMA + PPOapp",
+      "CoEdIT"
+    ],
+    "outputs": [
+      "Rewritten arguments that are more appropriate while preserving semantic similarity",
+      "Rewritten arguments that are more appropriate while preserving semantic content"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LLaMA + PPOapp<sim",
+          "LLaMA + PPOapp=sim",
+          "LLaMA + PPOapp>sim",
+          "LLaMA + PPOapp",
+          "CoEdIT"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LLaMA",
+          "GPT-J"
+        ],
+        "outputs": [
+          "rewritten arguments that are more appropriate while preserving semantic similarity to the original"
+        ]
+      },
+      "normalized": {
+        "LLaMA + Instruct.": "LLaMA + Instruct",
+        "GPT-J + Instruct.": "GPT-J + Instruct",
+        "LLaMA + Instruct": "LLaMA + Instruct",
+        "GPT-J + Instruct": "GPT-J + Instruct"
+      },
+      "explanation": "Normalized model names by removing trailing periods, removed base model names without instruction tuning, added all PPO variants and CoEdIT baselines mentioned in evaluation, consolidated output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BERTScore",
+      "Normalized Edit Similarity",
+      "Perplexity",
+      "Appropriateness Flip Rate",
+      "Geometric Mean"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Semantic Similarity (c_sim)",
+          "Appropriateness (c_app)",
+          "Geometric Mean"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "App.",
+          "Sim.",
+          "NES",
+          "PPL",
+          "GM",
+          "normalized word-wise edit similarity",
+          "perplexity"
+        ]
+      },
+      "normalized": {
+        "Semantic Similarity (BERTScore)": "BERTScore",
+        "BERTScore": "BERTScore",
+        "Semantic similarity (c_sim)": "Semantic Similarity (c_sim)",
+        "Normalized Edit Similarity (NES)": "Normalized Edit Similarity",
+        "Normalized word-wise edit similarity": "Normalized Edit Similarity",
+        "perplexity": "Perplexity",
+        "PPL": "Perplexity",
+        "Appropriateness": "Appropriateness (c_app)",
+        "c_app": "Appropriateness (c_app)",
+        "App.": "Appropriateness Flip Rate",
+        "GM": "Geometric Mean"
+      },
+      "explanation": "Consolidated all metric variants under canonical names, removed abbreviated forms, included all main automatic evaluation metrics used in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges - evaluation is done using classifiers for appropriateness and similarity, not LLM-based assessment of generated outputs"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators were instructed with background information about appropriateness and asked to evaluate rewrites on appropriateness, meaning preservation, and fluency using 5-point Likert scales",
+      "Annotations were collected via absolute evaluation (Likert scales) and relative evaluation (pairwise ranking) with native English speakers"
+    ],
+    "criteria": [
+      "Appropriateness",
+      "Meaning Preservation",
+      "Fluency",
+      "Overall Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotations were collected via absolute evaluation (Likert scales) and relative evaluation (pairwise ranking) with native English speakers"
+        ],
+        "criteria": [
+          "Overall Quality"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Similarity"
+        ]
+      },
+      "normalized": {
+        "App. Appropriateness of the topic discussion in terms of style and content": "Appropriateness",
+        "Appropriateneess": "Appropriateness",
+        "Sim. Meaning preservation of the original arguments": "Meaning Preservation",
+        "Similarity": "Meaning Preservation",
+        "Flu. Fluency and adherence to grammar conventions": "Fluency"
+      },
+      "explanation": "Normalized criteria names, added Overall Quality from relative ranking study, clarified human evaluation methodology"
+    }
+  },
+  "overall_notes": "The paper primarily focuses on argument rewriting using RLHF-inspired methods with classifier-based rewards rather than human preference models. Human evaluation was comprehensive with both absolute scoring and pairwise comparisons. All metadata mentions are well-supported in the paper text."
+}

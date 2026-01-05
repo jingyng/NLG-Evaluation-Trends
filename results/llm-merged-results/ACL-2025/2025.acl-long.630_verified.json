@@ -1,0 +1,183 @@
+{
+  "paper_id": "2025.acl-long.630",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT",
+      "Flores-200"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "German",
+      "Russian",
+      "Czech",
+      "Icelandic"
+    ],
+    "models": [
+      "ALMA-7B",
+      "ALMA-13B",
+      "Mistral-7B",
+      "GPT-3.5",
+      "GPT-4",
+      "Llama-3.1-8B",
+      "Qwen-2.5-7B"
+    ],
+    "outputs": [
+      "translations",
+      "document-level translations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "Russian",
+          "Czech",
+          "Icelandic"
+        ],
+        "models": [],
+        "outputs": [
+          "document-level translations"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "CNN News",
+          "Arxiv",
+          "Wikipedia",
+          "Quora",
+          "Focus",
+          "Quora forums"
+        ],
+        "languages": [],
+        "models": [
+          "ALMA-7B-R",
+          "ALMA-13B-R",
+          "Mistral-7B-Instruct-v0.3"
+        ],
+        "outputs": [
+          "translated text"
+        ]
+      },
+      "normalized": {
+        "GPT-3.5": "GPT-3.5",
+        "GPT-4": "GPT-4",
+        "translations": "translations",
+        "document-level translations": "document-level translations"
+      },
+      "explanation": "Removed source web crawls (CNN, Arxiv, etc.) as these are data sources not evaluation datasets. Kept only benchmark datasets (WMT, Flores-200). Removed model variants that weren't main evaluation models. Added languages mentioned in multilingual experiments. Simplified outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Perplexity",
+      "Lexical Density",
+      "Length Variance",
+      "COMET-QE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "perplexity",
+          "lexical density",
+          "length variance",
+          "Perplexity",
+          "Lexical Density",
+          "Length Variance",
+          "perplexity (PPL)",
+          "lexical density (Lex.)",
+          "length variance (Len.)"
+        ]
+      },
+      "normalized": {
+        "perplexity": "Perplexity",
+        "PPL": "Perplexity",
+        "lexical density": "Lexical Density",
+        "Lex.": "Lexical Density",
+        "length variance": "Length Variance",
+        "Len.": "Length Variance",
+        "COMET-QE": "COMET-QE"
+      },
+      "explanation": "Normalized all metric variants to their canonical base forms with consistent capitalization. Removed duplicates and abbreviations."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Confirmed correct 'No' answer. LLMs are used for generation but not as judges. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Identify and annotate spans exhibiting translationese errors (unnatural sentence flow and unnatural phrase flow)",
+      "Rank translations based on naturalness"
+    ],
+    "criteria": [
+      "unnatural sentence flow",
+      "unnatural phrase flow",
+      "naturalness",
+      "fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Rank translations based on naturalness"
+        ],
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Annotators highlight spans exhibiting translationese (unnatural sentence flow, unnatural phrase flow) and then rank the overall translations based on naturalness.",
+          "You will assess model translations of a source document, where each document may contain one or more sentences. ... identify and annotate spans with the specified error types. ... label one expression as long as it seems to be strange from the perspective of the contemporary target language."
+        ],
+        "criteria": [
+          "overall naturalness ranking",
+          "translationese"
+        ]
+      },
+      "normalized": {
+        "unnatural sentence flow": "unnatural sentence flow",
+        "unnatural phrase flow": "unnatural phrase flow",
+        "naturalness": "naturalness"
+      },
+      "explanation": "Condensed lengthy annotation guidelines to key evaluation procedures. Removed 'translationese' as criteria since it's the overarching phenomenon being studied rather than a specific evaluation criterion. Added 'fluency' which is explicitly mentioned as an evaluation focus."
+    }
+  },
+  "overall_notes": "The paper provides a comprehensive study of translationese in LLM-based machine translation. The extraction was generally accurate but included some data sources (web crawls) that shouldn't be considered evaluation datasets. The paper focuses on English-Chinese and German-English as primary language pairs with extensions to other languages. Human evaluation is well-documented with clear annotation guidelines."
+}

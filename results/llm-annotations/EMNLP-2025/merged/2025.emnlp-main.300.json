@@ -1,0 +1,106 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "At the end of the iterative clustering process, each cluster C k receives an intent label from the fine-tuned LLM naming utility: These labels concisely summarize the semantic information of each cluster",
+            "We propose an LLM-in-the-loop intent clustering framework that effectively combines the strengths of LLMs and conventional clustering algorithms."
+        ],
+        "tasks": [
+            "Other:Intent Label Generation",
+            "Other:intent clustering"
+        ],
+        "datasets": [
+            "Chinese customer service dataset",
+            "Bank77",
+            "CLINC150",
+            "MTOP",
+            "Massive",
+            "proposed Chinese dialogue intent clustering dataset"
+        ],
+        "languages": [
+            "Chinese",
+            "English"
+        ],
+        "models": [
+            "qwen7b",
+            "qwen14b",
+            "baichuan2-7b",
+            "chatglm3-6b",
+            "Llama-7b",
+            "LLaMA-2-7B",
+            "LLaMA-2-13B",
+            "Mistral-7B",
+            "GPT-3.5",
+            "GPT-4"
+        ],
+        "outputs": [
+            "Intent labels (short text descriptions) for clusters generated via 'Action-Objective' convention",
+            "intent clusters, cluster labels, coherence judgments"
+        ]
+    },
+    "answer_2": {
+        "answer": "No",
+        "quote": [
+            "Normalized Mutual Information (NMI) measures the degree of similarity between ground-truth and predicted clusters, ranging from 0 (no mutual information) to 1 (perfect correlation)."
+        ],
+        "automatic_metrics": [
+            "NMI",
+            "Goodness score",
+            "Accuracy"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "Then, the semantic coherence of each cluster is evaluated using a fine-tuned LLM M eval : where M eval (C k ) = 1 if the cluster is coherent (i.e., \"good\" cluster), else 0.",
+            "We formulate the coherence evaluation as a binary classification problem, enabling intuitive interpretation and simplifying the training of the LLM evaluator... M_eval(C_k)=1 if the cluster is coherent (i.e., “good” cluster), else 0.",
+            "the fine-tuned LLM evaluator tested on 480 unseen clusters... a fine-tuned LLM M_eval: where M_eval(C_k) = 1 if the cluster is coherent (i.e., 'good' cluster), else 0."
+        ],
+        "models": [
+            "qwen7b",
+            "qwen14b",
+            "baichuan2-7b",
+            "chatglm3-6b",
+            "LLaMA-2-7B",
+            "LLaMA-2-13B",
+            "Mistral-7B",
+            "GPT-3.5",
+            "GPT-4",
+            "GPT-4o"
+        ],
+        "methods": [
+            "binary classification (good/bad)",
+            "binary good/bad classification of cluster coherence",
+            "coherence evaluation",
+            "cluster naming",
+            "binary classification",
+            "majority voting with LLM crowd"
+        ],
+        "criteria": [
+            "semantic coherence",
+            "coherence",
+            "semantic consistency",
+            "intent label alignment"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "For cluster naming, since labels are not unique, accuracy is manually evaluated by four human experts based on alignment with the true labels in the dataset.",
+            "Each expert assessed the initial clusters by inspecting the semantic coherence of the sentences. They were instructed: 'Label the cluster as \"Good\" if all sentences share the same intent; otherwise, label it as \"Bad\".' For the good clusters, annotators were asked to label the underlying intent using the naming convention \"Action-Objective.\"",
+            "We recruited 15 human experts to conduct the annotations... a separate group of 10 experts reviewed the annotated clusters for accuracy and consistency."
+        ],
+        "guideline": [
+            "alignment with the true labels in the dataset",
+            "Annotators were instructed to label each cluster as Good or Bad based on whether all sentences share the same intent, and to assign an Action-Objective intent label to good clusters.",
+            "Label the cluster as 'Good' if all sentences share the same intent; otherwise, label it as 'Bad'. For the good clusters, annotators were asked to label the underlying intent using the naming convention 'Action-Objective.'"
+        ],
+        "criteria": [
+            "Good/Bad coherence",
+            "Action-Objective intent labeling",
+            "coherence",
+            "intent consistency",
+            "correct labeling"
+        ]
+    }
+}

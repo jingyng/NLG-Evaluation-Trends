@@ -1,0 +1,124 @@
+{
+  "paper_id": "2025.acl-long.615",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Instruction Following"
+    ],
+    "datasets": [
+      "UltraChat-200k",
+      "UltraFeedback",
+      "AlpacaEval 2",
+      "ARC",
+      "HellaSwag",
+      "TruthfulQA",
+      "GSM8K",
+      "Arena-hard"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-3-8B",
+      "Llama-3-8B-Instruct",
+      "Mistral-7B-v0.1",
+      "Mistral-7B-Instruct-v0.2"
+    ],
+    "outputs": [
+      "Generated responses to instruction prompts",
+      "Preference pairs for DPO training"
+    ],
+    "changes_made": {
+      "added": {
+        "outputs": [
+          "Preference pairs for DPO training"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:instruction following"
+        ]
+      },
+      "normalized": {
+        "Other:Instruction Following": "Other:Instruction Following",
+        "Other:instruction following": "Other:Instruction Following"
+      },
+      "explanation": "Removed duplicate task entry and clarified outputs to include both generated responses and constructed preference pairs"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Win Rate",
+      "Length-Controlled Win Rate"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "win rate",
+          "length-controlled win rate",
+          "accuracy",
+          "ARC",
+          "HellaSwag",
+          "TruthfulQA",
+          "GSM8K"
+        ]
+      },
+      "normalized": {
+        "Win Rate": "Win Rate",
+        "Length-Controlled Win Rate": "Length-Controlled Win Rate"
+      },
+      "explanation": "Removed incorrect metrics - ARC, HellaSwag, TruthfulQA, GSM8K are datasets/tasks, not evaluation metrics. Removed lowercase duplicates. The paper only uses win rate metrics from AlpacaEval 2 for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "AlpacaEval 2 judge model"
+    ],
+    "methods": [
+      "pairwise comparison"
+    ],
+    "criteria": [
+      "instruction following capability"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "instruction following capability"
+        ]
+      },
+      "removed": {
+        "models": [
+          "AlpacaEval 2"
+        ],
+        "criteria": [
+          "helpfulness",
+          "relevance"
+        ]
+      },
+      "normalized": {
+        "AlpacaEval 2 judge model": "AlpacaEval 2 judge model",
+        "pairwise evaluation": "pairwise comparison"
+      },
+      "explanation": "Clarified that AlpacaEval 2 uses an LLM judge model. Added correct criteria (instruction following) and removed unspecified criteria (helpfulness, relevance) not mentioned in the paper."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper - all evaluations used automated metrics and LLM judges"
+    }
+  },
+  "overall_notes": "The paper focuses on preference data construction for DPO optimization in instruction-following tasks. Evaluations are primarily automated using AlpacaEval 2 with LLM judges. The extracted metadata had several inaccuracies, particularly confusing datasets/tasks with evaluation metrics. The paper's main contribution is methodological rather than introducing new NLG tasks or extensive human evaluation."
+}

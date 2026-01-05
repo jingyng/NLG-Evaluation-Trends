@@ -1,0 +1,161 @@
+{
+  "paper_id": "2024.emnlp-main.815",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Long Form Question Answering"
+    ],
+    "datasets": [
+      "FETAQA",
+      "QTSUMM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_70b",
+      "llama_3_70b",
+      "qwen_1.5_72b",
+      "mistral_7b",
+      "deepseek_llm_67b",
+      "gemma_7b",
+      "olmo_7b",
+      "yi_1.5_34b",
+      "phi_3_medium",
+      "gpt_3.5_turbo",
+      "gpt_4o"
+    ],
+    "outputs": [
+      "paragraph-length answers generated from tabular data"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Long-form Table Question Answering",
+          "Other:Table Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-2&3-70B",
+          "GPT-3.5-Turbo&4o"
+        ],
+        "outputs": [
+          "Long-form paragraph answers",
+          "paragraph-long answers"
+        ]
+      },
+      "normalized": {
+        "Llama-2&3-70B": "Llama-2-70B, Llama-3-70B",
+        "GPT-3.5-Turbo&4o": "GPT-3.5-Turbo, GPT-4o",
+        "Other:Long-form Table Question Answering": "Other:Long-Form Table Question Answering"
+      },
+      "explanation": "Consolidated duplicate task entries, separated combined model names into individual models, normalized task name capitalization"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "BERTSCORE",
+      "TAPAS ACC",
+      "AUTOACU",
+      "G EVAL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Removed ROUGE-L as it's a variant of ROUGE and should be normalized to base form"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "llama_3.1_70b",
+      "gpt_4o_mini",
+      "gpt_4o"
+    ],
+    "methods": [
+      "G-Eval: chain-of-thought and form-filling paradigm"
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Comprehensiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "chain-of-thought with form‑filling prompt",
+          "chain-of-thought",
+          "form-filling paradigm"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "chain-of-thought with form‑filling prompt": "G-Eval: chain-of-thought and form-filling paradigm",
+        "chain-of-thought": "G-Eval: chain-of-thought and form-filling paradigm",
+        "form-filling paradigm": "G-Eval: chain-of-thought and form-filling paradigm"
+      },
+      "explanation": "Consolidated method descriptions into a single comprehensive description of G-Eval"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rated faithfulness (rooted in source table, correct information, no hallucinations) and comprehensiveness (include all relevant information addressing the user's question) using 1-5 Likert scale",
+      "Each sample evaluated by two annotators, average score used as final human evaluation score",
+      "Significant disagreements (variance >2 points) re-evaluated by additional annotator"
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Comprehensiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Each sample evaluated by two annotators, average score used as final human evaluation score",
+          "Significant disagreements (variance >2 points) re-evaluated by additional annotator"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators were trained for one hour and given a guide detailing the task execution steps; they rated each answer on faithfulness and comprehensiveness using a 1‑5 Likert scale",
+          "A good answer should be firmly rooted in the source table ... A good answer should comprehensively include all relevant information from the tabular data that addresses the user's question"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Refined guideline to include key procedural details while removing redundant descriptions, kept the essential criteria"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main improvements were normalizing model names (separating combined entries like 'Llama-2&3-70B'), consolidating method descriptions for LLM-as-judge, and refining human evaluation guidelines to include key procedural details. The paper provides a comprehensive evaluation framework for LFTQA with both traditional metrics and LLM-based evaluation."
+}

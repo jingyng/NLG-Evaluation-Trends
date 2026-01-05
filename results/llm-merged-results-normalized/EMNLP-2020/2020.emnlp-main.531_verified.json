@@ -1,0 +1,130 @@
+{
+  "paper_id": "2020.emnlp-main.531",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "PEC",
+      "EMPATHETICDIALOGUES",
+      "PERSONACHAT",
+      "PCR",
+      "CASUAL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "cobert",
+      "bow",
+      "hlstm",
+      "dim",
+      "bi_encoder",
+      "poly_encoder",
+      "bert+memnet",
+      "bert+dam",
+      "bert+dim",
+      "bert"
+    ],
+    "outputs": [
+      "selected responses from candidate sets",
+      "persona-based empathetic responses"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "CASUAL"
+        ],
+        "outputs": [
+          "persona-based empathetic responses"
+        ]
+      },
+      "removed": {
+        "datasets": [],
+        "outputs": []
+      },
+      "normalized": {
+        "BERT-base": "BERT",
+        "EMPATHETICDIALOGUES": "EMPATHETICDIALOGUES"
+      },
+      "explanation": "Added CASUAL dataset which is explicitly used in experiments. Added 'persona-based empathetic responses' as output description to be more comprehensive. Normalized BERT-base to BERT for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "RECALL",
+      "MRR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Recall@k"
+        ]
+      },
+      "normalized": {
+        "Recall@1": "Recall",
+        "Recall@10": "Recall",
+        "Recall@50": "Recall",
+        "Recall@k": "Recall"
+      },
+      "explanation": "Normalized all Recall@k variants to base 'Recall' metric following normalization rules. Added MRR as it's explicitly mentioned as an evaluation metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in this paper. The paper uses traditional automatic metrics and human annotations only."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Three annotators rated conversations on sentiment (-1 to 1) and empathy (0 to 1) scales, aggregated by majority voting"
+    ],
+    "criteria": [
+      "Sentiment",
+      "Empathy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three annotators rated conversations on sentiment (-1 to 1) and empathy (0 to 1) scales, aggregated by majority voting"
+        ],
+        "criteria": [
+          "sentiment",
+          "empathy"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from No to Yes because the paper explicitly describes human annotations with three annotators rating conversations on sentiment and empathy scales. Added proper guideline and criteria based on the annotation details in the paper."
+    }
+  },
+  "overall_notes": "This paper focuses on persona-based empathetic dialogue response selection. It evaluates generated responses using automatic retrieval metrics (Recall@k, MRR) and includes human evaluation for dataset quality assessment. The extracted metadata was largely accurate but needed normalization for metrics and clarification about the human evaluation component."
+}

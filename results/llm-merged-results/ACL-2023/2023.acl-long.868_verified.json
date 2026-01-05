@@ -1,0 +1,124 @@
+{
+  "paper_id": "2023.acl-long.868",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Relation Extraction"
+    ],
+    "datasets": [
+      "ADE",
+      "CoNLL04",
+      "NYT",
+      "DocRED"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3",
+      "Flan-T5",
+      "GPT-3 (text-davinci-002)",
+      "Flan-T5 (Large)"
+    ],
+    "outputs": [
+      "linearized strings encoding entity pairs and their relations",
+      "Linearized relation triplets/pairs (e.g., [(drug, adverse effect), ...] or [(subject, relation, object)])",
+      "linearized string y of a relation triplet (entity_1, relation_type, entity_2)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "CoNLL"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "CoNLL": "CoNLL04"
+      },
+      "explanation": "Removed 'CoNLL' as it's redundant with 'CoNLL04'; renamed 'CoNLL' to 'CoNLL04' for consistency"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "precision",
+      "recall"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "micro-F1"
+        ]
+      },
+      "normalized": {
+        "micro-F1": "F1"
+      },
+      "explanation": "Normalized 'micro-F1' to 'F1' as micro-F1 is a specific variant of F1; simplified metrics to base forms"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges/evaluators - only as generation models for relation extraction"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Can the given relation be reasonably derived from the text? (for false positives)",
+      "Can the reference relation triplet (or pair) be inferred from the generated set of relations? (for false negatives)"
+    ],
+    "criteria": [
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "inferability"
+        ]
+      },
+      "normalized": {
+        "correctness/inferability": "correctness"
+      },
+      "explanation": "Simplified criteria to 'correctness' as the core evaluation criterion is whether relations are correctly identified/inferred"
+    }
+  },
+  "overall_notes": "This paper focuses on relation extraction as a text generation task where models generate linearized relation tuples. The extraction was generally accurate. Key points: uses both automatic metrics (F1, precision, recall) and human evaluation, but does NOT use LLMs as judges - only as generation models. Human evaluation focuses on correctness of relation extraction outputs."
+}

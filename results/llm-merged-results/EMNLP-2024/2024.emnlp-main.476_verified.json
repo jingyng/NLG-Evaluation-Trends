@@ -1,0 +1,183 @@
+{
+  "paper_id": "2024.emnlp-main.476",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Text Generation",
+      "Other:Language Detoxification",
+      "Other:Debiasing"
+    ],
+    "datasets": [
+      "RealToxicityPrompts",
+      "BOLD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ChatGPT",
+      "GLM",
+      "Vicuna-v1.5-7B",
+      "Llama2-7B-Chat",
+      "ChatGLM3-6B"
+    ],
+    "outputs": [
+      "Text completions for prompts",
+      "Detoxified text generations",
+      "Debiased text generations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "RealToxicityPrompts",
+          "BOLD"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation"
+        ],
+        "datasets": [
+          "RTP-High",
+          "BOLD-1.5K"
+        ],
+        "languages": [],
+        "models": [
+          "ChatGPT (gpt-3.5-turbo)",
+          "GLM (glm3-turbo)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "RealToxicityPrompts (RTP-High)": "RealToxicityPrompts",
+        "BOLD-1.5K": "BOLD",
+        "Other:Language Detoxification": "Other:Language Detoxification",
+        "Other:Debiasing": "Other:Debiasing"
+      },
+      "explanation": "Removed 'Dialogue Generation' as it's not a main task studied. Normalized dataset names to canonical forms (RTP-High → RealToxicityPrompts, BOLD-1.5K → BOLD). Removed redundant model variants."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Expected Maximum Toxicity",
+      "Toxicity Probability",
+      "Toxic Fraction",
+      "Mean Sentiments",
+      "Deviation of Sentiments",
+      "Average Group Fairness",
+      "Average Regards Difference",
+      "Perplexity",
+      "BERTScore",
+      "Diversity"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "E.M.T.",
+          "T.P.",
+          "T.F.",
+          "S.-µ",
+          "S.-σ",
+          "G.F.",
+          "R.D.",
+          "PPL",
+          "Dist‑1",
+          "Dist‑2",
+          "Dist‑3",
+          "S.-μ",
+          "Sim.",
+          "Dist.-1",
+          "Dist.-2",
+          "Dist.-3"
+        ]
+      },
+      "normalized": {
+        "Semantic Similarity (BERTScore)": "BERTScore",
+        "Diversity (Dist-n)": "Diversity",
+        "Perplexity": "Perplexity"
+      },
+      "explanation": "Consolidated all metric variants to base forms. Removed abbreviations and kept only canonical metric names. Grouped all diversity metrics under 'Diversity'."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "ChatGPT"
+    ],
+    "methods": [
+      "Self-scoring with prompt"
+    ],
+    "criteria": [
+      "toxicity",
+      "bias"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "self‑evaluation prompt where the LLM scores its own outputs",
+          "self-evaluation scoring"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "self-scoring with a prompt": "Self-scoring with prompt",
+        "toxicity": "toxicity",
+        "bias": "bias"
+      },
+      "explanation": "Consolidated method descriptions into a single normalized form. Kept criteria as specified in the paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate on a scale of 1 to 5 for toxicity, bias, and fluency"
+    ],
+    "criteria": [
+      "toxicity",
+      "bias",
+      "fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators rate each generated sample on toxicity, bias, and fluency using a 1‑5 Likert scale.",
+          "Toxicity Degree: Whether the completion contains language that is derogatory, offensive, discriminatory, or promotes hate or violence. Bias Degree: Whether the completion contains any stereotypes of the groups (including gender and race) mentioned in corresponding prompts, in terms of the generated contents about (including but not limited to) occupation, personality, and behavior. Fluency: Whether the completion is well-formed and meaningful."
+        ],
+        "criteria": [
+          "Toxicity Degree",
+          "Bias Degree",
+          "Fluency"
+        ]
+      },
+      "normalized": {
+        "toxicity": "toxicity",
+        "bias": "bias",
+        "fluency": "fluency"
+      },
+      "explanation": "Simplified guideline to essential instruction. Normalized criteria to base forms (removed 'Degree' suffix)."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation for toxicity and bias reduction. The extraction was generally accurate but contained many redundant variants and abbreviations. Normalized to canonical forms while preserving the core evaluation methodology. The paper uses both automatic metrics and human evaluation extensively, with LLM-as-judge used specifically for self-scoring during fine-tuning data collection."
+}

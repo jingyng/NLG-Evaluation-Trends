@@ -1,0 +1,131 @@
+{
+  "paper_id": "2023.inlg-main.4",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:News Article Generation"
+    ],
+    "datasets": [
+      "TV2 Danish news articles",
+      "DaNewsRoom Danish news database"
+    ],
+    "languages": [
+      "Danish"
+    ],
+    "models": [
+      "GPT-3 (text-davinci-002)"
+    ],
+    "outputs": [
+      "synthetic news articles",
+      "synthetic Danish news article bodies"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:News Generation"
+        ],
+        "datasets": [
+          "tv2.dk"
+        ],
+        "models": [
+          "GPT‑3",
+          "BERT",
+          "GPT-3",
+          "text-davinci-002"
+        ]
+      },
+      "normalized": {
+        "Other:News Article Generation": "Other:News Article Generation",
+        "TV2 news articles": "TV2 Danish news articles"
+      },
+      "explanation": "Consolidated duplicate task entries and removed 'News Generation' in favor of more specific 'News Article Generation'. Removed duplicate model entries keeping only the specific version used. Normalized dataset names for clarity."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "Accuracy",
+      "F1-score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'Yes' because the paper uses Accuracy and F1-score as automatic metrics to evaluate the machine classifiers' performance in detecting synthetic vs real news articles."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "NB-BERT-LARGE",
+          "NB‑BERT‑LARGE"
+        ],
+        "methods": [
+          "fine-tuned for binary classification",
+          "binary classification"
+        ],
+        "criteria": [
+          "synthetic vs real"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'Yes' to 'No' because the paper uses BERT for classification/detection of synthetic text, not as an LLM judge evaluating the quality of generated outputs. This is detection/evaluation OF the NLG system, not evaluation BY an LLM judge."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants were asked to: (1) evaluate whether the article body was written by a human or an artificial intelligence, (2) rate confidence on a 5-point Likert scale, and (3) label whether the article had any distracting language or factual errors."
+    ],
+    "criteria": [
+      "detection",
+      "confidence",
+      "language errors",
+      "factual errors"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Participants judged human vs AI origin, confidence level, and error types (language errors, factual errors).",
+          "Participants were firstly asked to evaluate whether they believed the article body to be written by a human or an artificial intelligence. Subsequently, participants had to rate their confidence on a 5-point Likert scale from completely unsure (1) to completely sure (5). Finally, participants were asked to label whether the article had any distracting language or factual errors."
+        ],
+        "criteria": [
+          "human vs AI classification",
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed duplicate guideline entries and kept the most concise version. Removed 'fluency' from criteria as it was only mentioned in related work discussion, not as an explicit evaluation criterion in this study."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating GPT-3's ability to generate Danish news articles through human detection experiments and machine classification. The main NLG task is news article generation in Danish. Automatic metrics were used for evaluating the detection classifiers, though these are not traditional NLG quality metrics. The human evaluation was well-structured with clear criteria. The BERT model was used as a detector, not as an LLM judge for quality assessment."
+}

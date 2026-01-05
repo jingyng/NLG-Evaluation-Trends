@@ -1,0 +1,182 @@
+{
+  "paper_id": "2025.emnlp-main.1101",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other: Rebus Puzzle Solving"
+    ],
+    "datasets": [
+      "hand-generated probe dataset of 432 rebus puzzles"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o",
+      "GPT-4o-mini",
+      "GPT-5",
+      "o3",
+      "o4-mini",
+      "Gemini-2.5-pro",
+      "Gemini-2.5-flash",
+      "Claude-3.5-haiku",
+      "Claude-3.7-sonnet",
+      "Qwen2.5-VL-7B"
+    ],
+    "outputs": [
+      "Generated answers and reasoning for rebus puzzles in JSON format"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-5",
+          "o3",
+          "Gemini-2.5-flash",
+          "Claude-3.5-haiku"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Rebus puzzle solving",
+          "Other:rebus puzzle solving"
+        ],
+        "datasets": [
+          "Hand-crafted probe dataset of 432 rebus puzzles",
+          "our probe dataset of 432 rebus puzzles"
+        ],
+        "languages": [],
+        "models": [
+          "gpt-4o-mini",
+          "gemini-2.5-pro",
+          "Claude-3.7-Sonnet",
+          "MobileCLIP",
+          "SigLIP",
+          "OpenAI CLIP",
+          "OpenCLIP",
+          "CoCa",
+          "MetaCLIP",
+          "Tulip",
+          "gpt-4o",
+          "Qwen3-8B"
+        ],
+        "outputs": [
+          "Textual answer strings (JSON with 'answer' and 'reasoning')",
+          "JSON object containing 'answer' and 'reasoning'"
+        ]
+      },
+      "normalized": {
+        "GPT-4o-mini": "GPT-4o-mini",
+        "gpt-4o": "GPT-4o",
+        "Gemini-2.5-pro": "Gemini-2.5-pro",
+        "Claude-3.7-Sonnet": "Claude-3.7-sonnet",
+        "Qwen2.5-VL-7B": "Qwen2.5-VL-7B"
+      },
+      "explanation": "Normalized model names to standard capitalization. Removed vision models (CLIP variants) as they are not generating text but performing retrieval. Removed duplicates from tasks, datasets, and outputs. Added missing NLG models mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Naive Matching",
+      "Recall@K",
+      "Precision@1",
+      "Mean Reciprocal Rank",
+      "NDCG"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Exact String Matching",
+          "LLM-Judged",
+          "exact string matching",
+          "LLM-based Semantic Evaluation"
+        ]
+      },
+      "normalized": {
+        "Naive Matching": "Naive Matching",
+        "Mean Reciprocal Rank (MRR)": "Mean Reciprocal Rank",
+        "LLM-Judged": "LLM-Judged (moved to Q3)"
+      },
+      "explanation": "Removed redundant metrics (Exact String Matching is the same as Naive Matching), and moved LLM-based evaluation metrics to Question 3 where they belong. Kept distinct retrieval metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o",
+      "Qwen3-8B"
+    ],
+    "methods": [
+      "LLM-as-a-judge",
+      "semantic equivalence evaluation"
+    ],
+    "criteria": [
+      "semantic equivalence"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "LLM-as-a-judge"
+        ],
+        "criteria": [],
+        "outputs": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4o"
+        ],
+        "methods": [
+          "semantic equivalence check",
+          "LLM-based Semantic Evaluation",
+          "semantic equivalence checking"
+        ],
+        "criteria": [
+          "spelling errors",
+          "case and spacing differences"
+        ]
+      },
+      "normalized": {
+        "gpt-4o": "GPT-4o",
+        "LLM-based Semantic Evaluation": "semantic equivalence evaluation",
+        "semantic equivalence check": "semantic equivalence evaluation",
+        "semantic equivalence checking": "semantic equivalence evaluation"
+      },
+      "explanation": "Normalized model names and consolidated method descriptions. Removed minor technical details (spelling errors, case differences) as they are implementation details rather than evaluation criteria."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Please solve the rebus puzzle represented by the image. Respond with ONLY a valid JSON object containing two keys: 1. 'answer': the string value of your solution. 2. 'reasoning': a detailed explanation of how you arrived at this answer, including interpretations of visual elements described and their relationships."
+    ],
+    "criteria": [
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Participants were asked to solve each rebus puzzle and their answers were recorded to compute accuracy compared to ground-truth."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed the descriptive text which was redundant with the actual prompt provided. Kept only the actual evaluation prompt used for human evaluation."
+    }
+  },
+  "overall_notes": "The paper clearly evaluates NLG through rebus puzzle solving. The extraction was generally accurate but contained some redundant entries and included vision models that don't generate text. Normalization focused on consistent capitalization and removing duplicates."
+}

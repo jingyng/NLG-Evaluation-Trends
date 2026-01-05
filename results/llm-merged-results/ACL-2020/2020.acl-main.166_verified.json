@@ -1,0 +1,130 @@
+{
+  "paper_id": "2020.acl-main.166",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Weibo corpus",
+      "Persona dialog corpus"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "CG-Policy",
+      "Seq2BF",
+      "LaRL",
+      "ChatMore",
+      "TGRM"
+    ],
+    "outputs": [
+      "generated dialogue responses",
+      "multi-turn dialogs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated responses and multi-turn dialogs"
+        ]
+      },
+      "normalized": {
+        "generated responses and multi-turn dialogs": "multi-turn dialogs"
+      },
+      "explanation": "Removed redundant output description and normalized phrasing"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Dist-2"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Dist-2 is the only automatic metric used for evaluation (paper explicitly states they don't use BLEU or perplexity)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-based evaluation used in this 2020 paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rate dialogs based on incoherence problems for global coherence (0 if >3 cases, +1 if 2-3 cases, +2 otherwise)",
+      "Annotators rate responses for local appropriateness (0 if inappropriate, 1 otherwise)",
+      "Annotators rate responses for informativeness (0 if safe response, 1 otherwise)",
+      "Three annotators judge quality with model identifiers masked"
+    ],
+    "criteria": [
+      "global coherence",
+      "local appropriateness",
+      "informativeness",
+      "diversity",
+      "dialog-target success rate"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three annotators judge quality with model identifiers masked"
+        ],
+        "criteria": [
+          "diversity"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "diversity (Dist-2)"
+        ]
+      },
+      "normalized": {
+        "diversity (Dist-2)": "diversity",
+        "coherence": "global coherence"
+      },
+      "explanation": "Removed redundant criteria (coherence vs global coherence), normalized diversity metric, and added missing guideline about annotator setup"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on dialogue generation with a graph-based policy learning approach. Human evaluation was comprehensive with clear guidelines. Only Dist-2 was used as an automatic metric, as the authors explicitly avoided BLEU and perplexity. No LLM-based evaluation was used (paper predates this trend)."
+}

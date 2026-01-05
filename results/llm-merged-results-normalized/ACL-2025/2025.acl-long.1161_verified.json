@@ -1,0 +1,160 @@
+{
+  "paper_id": "2025.acl-long.1161",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "PERSUASIONFORGOOD",
+      "CRAIGSLISTBARGAIN"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_8b_instruct",
+      "llama_8b"
+    ],
+    "outputs": [
+      "negotiation dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "PersuasionForGood (P4G)",
+          "CraigslistBargain (CB)"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-3.5-turbo-1106",
+          "GPT-4"
+        ],
+        "outputs": [
+          "Negotiation dialogue responses (agent utterances)",
+          "negotiation dialogues"
+        ]
+      },
+      "normalized": {
+        "PersuasionForGood (P4G)": "PersuasionForGood",
+        "CraigslistBargain (CB)": "CraigslistBargain"
+      },
+      "explanation": "Removed duplicate dataset names and models that are not NLG models being evaluated (GPT models are used for evaluation/simulation, not generation). Kept only LLaMA models which are the actual generation models."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "TURN AT",
+      "SUCCESS RATE SR",
+      "SALE TO LIST RATIO SL",
+      "NON REPETITION N REP",
+      "COHERENCE COH",
+      "EMPATHY EMP",
+      "PERSUASIVENESS PERS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "average turn (AT)",
+          "Success Rate (SR)"
+        ]
+      },
+      "normalized": {
+        "average turn (AT)": "Average Turn (AT)",
+        "success rate (SR)": "Success Rate (SR)"
+      },
+      "explanation": "Normalized metric names to consistent capitalization and removed duplicates. All metrics are explicitly used for automatic evaluation of generated negotiation dialogues."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_3.5_turbo",
+      "gpt_4"
+    ],
+    "methods": [
+      "LLM-based scoring",
+      "pairwise A/B comparison",
+      "Spearman correlation validation"
+    ],
+    "criteria": [
+      "Repetition",
+      "Coherence",
+      "Empathy",
+      "Persuasiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-3.5-turbo-1106"
+        ],
+        "methods": [
+          "LLM‑based scoring of generated responses",
+          "LLM-powered evaluators",
+          "A/B test"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-3.5-turbo-1106": "GPT-3.5-turbo",
+        "pairwise A/B comparison using LLM judges": "pairwise A/B comparison",
+        "LLM-powered evaluators": "LLM-based scoring"
+      },
+      "explanation": "Normalized model names and method descriptions. GPT-3.5-turbo-1106 is a specific version of GPT-3.5-turbo. Simplified method descriptions while maintaining accuracy."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators rate each dialogue on four quality dimensions using a five-point scale",
+      "Same evaluation standard as LLM-based evaluator"
+    ],
+    "criteria": [
+      "Repetition",
+      "Coherence",
+      "Empathy",
+      "Persuasiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators rate each dialogue on four quality dimensions using a five-point scale",
+          "Same evaluation standard as LLM-based evaluator"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- evaluating based on quality-based metrics: Non-repetition, Coherence, Empathy, Persuasiveness",
+          "Human annotators rate each dialogue on the four quality dimensions using a five‑point scale.",
+          "using the same standard as those applied by the LLM-based evaluator"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Reformatted guideline into clear statements. Criteria remain the same as they are correctly extracted."
+    }
+  },
+  "overall_notes": "The paper focuses on negotiation dialogue generation using a dual-mind framework. It evaluates generated responses using both automatic metrics and LLM/human evaluation. The extraction was generally accurate but needed normalization of names and removal of evaluation/simulation models that weren't generation models."
+}

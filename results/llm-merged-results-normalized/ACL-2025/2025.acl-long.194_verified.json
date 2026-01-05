@@ -1,0 +1,164 @@
+{
+  "paper_id": "2025.acl-long.194",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Chinese Spelling Correction",
+      "Character Level Understanding Tasks"
+    ],
+    "datasets": [
+      "CSCD NS",
+      "LEMON",
+      "wang271k",
+      "CSCD TEST",
+      "CSCD DEV",
+      "TULU 3 SFT MIXTURE",
+      "TYDIQA"
+    ],
+    "languages": [
+      "Chinese",
+      "English",
+      "Finnish",
+      "Indonesian",
+      "Korean"
+    ],
+    "models": [
+      "qwen_2.5_7b",
+      "llama_3.1_8b",
+      "gpt_4o",
+      "deepseek_v_2.5",
+      "ernie_4.0",
+      "glm_4_plus",
+      "pure_sft_7b",
+      "tipa_7b",
+      "mtipa_7b",
+      "pure_sft_1.5b",
+      "tipa_1.5b",
+      "pure_sft_3b",
+      "tipa_3b"
+    ],
+    "outputs": [
+      "corrected text with character-level annotations",
+      "JSON structures with position, incorrect character, and correction",
+      "character counting outputs",
+      "sentence length predictions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Character-Level Understanding Tasks"
+        ],
+        "datasets": [
+          "TyDi QA"
+        ],
+        "models": [
+          "Pure-SFT-1.5B",
+          "TIPA-1.5B",
+          "Pure-SFT-3B",
+          "TIPA-3B"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "models": []
+      },
+      "normalized": {
+        "DeepSeek v2.5": "DeepSeek-V2.5",
+        "corrected text and structured outputs (position, incorrect character, correction)": "corrected text with character-level annotations",
+        "Corrected sentences with position annotations (position, incorrect character, correction) and/or corrected text.": "JSON structures with position, incorrect character, and correction",
+        "The model outputs JSON structures with position, incorrect character, and correction, or corrected text sequences.": "JSON structures with position, incorrect character, and correction"
+      },
+      "explanation": "Added character-level tasks mentioned in experiments, added TyDi QA dataset used for multilingual evaluation, added smaller model variants tested, normalized model names and simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "POSITION PREDICTION ACCURACY PPA",
+      "SENTENCE LEVEL ACCURACY",
+      "SENTENCE LEVEL ACCURACY IGNORING POSITION SAIP",
+      "NON EMPTY SAMPLE SENTENCE ACCURACY NESSA",
+      "CHARACTER PRECISION CP",
+      "CHARACTER RECALL CR",
+      "CHARACTER F1 CF1",
+      "F1",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1 Score",
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1 score (for TyDi QA)",
+          "Accuracy for character occurrence counting",
+          "Accuracy for sentence length prediction",
+          "Accuracy for distinct character counting",
+          "character-level F1",
+          "P",
+          "R",
+          "F1"
+        ]
+      },
+      "normalized": {
+        "PPA": "Position Prediction Accuracy (PPA)",
+        "SA": "Sentence-Level Accuracy (SA)",
+        "SAIP": "Sentence-Level Accuracy Ignoring Position (SAIP)",
+        "NESSA": "Non-Empty Sample Sentence Accuracy (NESSA)",
+        "Precision (CP)": "Character Precision (CP)",
+        "Recall (CR)": "Character Recall (CR)",
+        "F1 Score (CF1)": "Character F1 (CF1)"
+      },
+      "explanation": "Consolidated duplicated metric names, normalized to full metric names, removed variant-specific mentions while keeping the base metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges after generation. LLMs like GPT-4o are used as baseline models for generation, not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not conduct human evaluations; all evaluations are automatic metrics."
+    }
+  },
+  "overall_notes": "Paper focuses on Chinese Spelling Correction and character-level understanding tasks. The main contribution is TIPA/MTIPA methods for improving character position awareness in LLMs. All evaluations are automated using custom metrics tailored for spelling correction tasks. The paper extensively evaluates on Chinese datasets with some multilingual testing on TyDi QA."
+}

@@ -1,0 +1,143 @@
+{
+  "paper_id": "2024.emnlp-main.553",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Grammatical Error Correction"
+    ],
+    "datasets": [
+      "CONLL 2014",
+      "BEA 2019",
+      "NLPCC 2018",
+      "FCGEC",
+      "NACGEC",
+      "MUCGEC",
+      "HSK"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "bart",
+      "t_5",
+      "transformer",
+      "llama_2"
+    ],
+    "outputs": [
+      "Corrected grammatical sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Grammatical Error Correction"
+        ],
+        "datasets": [
+          "MuCGEC"
+        ],
+        "models": []
+      },
+      "removed": {
+        "tasks": [
+          "Machine Translation",
+          "Other:Grammatical Error Correction"
+        ],
+        "datasets": [
+          "CoNLL 2014",
+          "BEA 2019",
+          "NLPCC 2018"
+        ],
+        "models": [
+          "BART (12-2)",
+          "BART (12-12)",
+          "T5 large",
+          "LLaMa 2 -7B"
+        ]
+      },
+      "normalized": {
+        "CoNLL-2014": "CoNLL-2014",
+        "BEA-2019": "BEA-2019",
+        "LLaMa 2": "LLaMA-2",
+        "corrected sentences": "Corrected grammatical sentences"
+      },
+      "explanation": "Simplified tasks to 'Grammatical Error Correction' as the main focus. Normalized dataset names (removed spaces). Removed model variants (e.g., BART (12-2)) to keep base models only. Added MuCGEC dataset mentioned in Chinese experiments."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PRECISION",
+      "RECALL",
+      "F0",
+      "M2",
+      "CHERRANT",
+      "MAXMATCH"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "M2",
+          "MaxMatch"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "P",
+          "R",
+          "M2 scorer",
+          "ChERRANT scorer",
+          "MaxMatch scorer"
+        ]
+      },
+      "normalized": {
+        "Precision": "Precision",
+        "Recall": "Recall",
+        "F0.5": "F0.5",
+        "ChERRANT": "ChERRANT"
+      },
+      "explanation": "Normalized metric names to base forms (removed 'scorer' suffix). Simplified P/R to Precision/Recall. Added M2 and MaxMatch as distinct metrics used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "LLaMA-2 is used as a baseline model for generation, not as a judge/evaluator. No LLM judge evaluation is conducted in this paper."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper only uses automatic metrics for evaluation. No human evaluation is mentioned or conducted."
+    }
+  },
+  "overall_notes": "This paper focuses on Grammatical Error Correction using seq2seq models with multi-pass decoding. Evaluation is purely automatic using standard GEC metrics (Precision, Recall, F0.5) with M2 and ChERRANT scorers. The paper introduces efficiency improvements through early-stop mechanisms and source information fusion, achieving significant improvements over strong baselines."
+}

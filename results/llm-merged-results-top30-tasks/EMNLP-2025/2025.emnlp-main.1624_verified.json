@@ -1,0 +1,127 @@
+{
+  "paper_id": "2025.emnlp-main.1624",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Logical Reasoning"
+    ],
+    "datasets": [
+      "FOLIO",
+      "LOGICASKER",
+      "VITAMINC",
+      "CLIMATE FEVER",
+      "PHEMEPLUS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3.1_8b_instruct",
+      "qwen_2.5_7b_instruct",
+      "gpt_4o",
+      "gpt_5",
+      "deepseek_v_3",
+      "llama_3.3_70b_instruct",
+      "qwen_2.5_72b_instruct"
+    ],
+    "outputs": [
+      "Symbolic reasoning trajectories",
+      "symbolic reasoning trajectories in ReAct format (thought, action, observation) for logical reasoning tasks"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Deepseek-V3"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Deepseek-V3": "DeepSeek-V3"
+      },
+      "explanation": "Removed duplicate 'Deepseek-V3' (normalized to 'DeepSeek-V3') since it refers to the same model as 'DeepSeek-V3'"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy",
+          "Monte Carlo estimation",
+          "hard binary labels (correct vs incorrect)"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Removed 'Monte Carlo estimation' and 'hard binary labels' as they are part of the training methodology, not evaluation metrics. Normalized 'accuracy' to 'Accuracy'. Only kept 'Accuracy' as the primary automatic evaluation metric used for final performance reporting."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Llama3.3-70B-Instruct",
+          "Qwen2.5-72B-Instruct"
+        ],
+        "methods": [
+          "Monte Carlo estimation via prompted completions",
+          "Monte Carlo completion",
+          "pseudo-labeling via stepwise correctness"
+        ],
+        "criteria": [
+          "correctness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The LLMs are used for generating training data (Monte Carlo completions for pseudo-labeling) and as reasoning models, but NOT as judges evaluating generated outputs after generation. This is part of the training pipeline, not post-generation evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper. All evaluations are automated using accuracy metrics."
+    }
+  },
+  "overall_notes": "This paper focuses on enhancing logical reasoning in LLMs through symbolic-guided process supervision. The main NLG task is logical reasoning with symbolic reasoning trajectories as outputs. The evaluation uses accuracy metrics on logical reasoning benchmarks and out-of-domain claim verification tasks. The LLMs mentioned are used for generation and training data creation, not as post-generation evaluators."
+}

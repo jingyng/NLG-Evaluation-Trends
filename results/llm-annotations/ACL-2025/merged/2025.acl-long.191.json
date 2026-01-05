@@ -1,0 +1,100 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "we present a training method that enables LLMs to generate multiple diverse reasoning chains sequentially in a single inference step.",
+            "We instruction-tune LLMs on diverse CoTs to generate multiple CoTs in a single inference step."
+        ],
+        "tasks": [
+            "Other:Reasoning for Question Answering",
+            "Other:Chain of Thought Reasoning"
+        ],
+        "datasets": [
+            "GSM8K",
+            "ConditionalQA",
+            "HotpotQA",
+            "ARC",
+            "BoardgameQA",
+            "Quartz",
+            "StrategyQA",
+            "LLC",
+            "AQuA",
+            "Common-senseQA",
+            "Object Count",
+            "SVAMP",
+            "Big Bench Hard",
+            "BGQA",
+            "CoinFlip",
+            "ConditionalQA (CQA)",
+            "Hot-potQA (HQA)",
+            "StrategyQA (StrQA)",
+            "CommonsenseQA"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Phi 1.5",
+            "Phi 2",
+            "LLaMA-2 7B",
+            "LLaMA-2 13B",
+            "LLaMA-2 70B",
+            "LLaMA-2 13B Chat",
+            "GPT-3.5 Turbo",
+            "GPT-4o"
+        ],
+        "outputs": [
+            "Reasoning chains and final answers",
+            "multiple reasoning chains (CoTs) and final answers"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We use the macro average F1 metric for all these in-domain classification tasks and the squad-metric for these in-domain span-extraction tasks.",
+            "We use the macro average F1 metric for all these in-domain classification tasks and the squad-metric for these in-domain span-extraction tasks ...",
+            "We use the macro average F1 metric for all these in-domain classification tasks and the squad-metric for these in-domain span-extraction tasks (i.e., ConditionalQA and HotpotQA)."
+        ],
+        "automatic_metrics": [
+            "F1",
+            "squad-metric",
+            "macro average F1",
+            "SQuAD metric (Exact Match / F1)"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [
+            "To understand the behavior of DCoT@3, we use GPT4o-mini to extract the three answers given by the model."
+        ],
+        "models": [
+            "GPT4o-mini"
+        ],
+        "methods": [
+            "answer extraction"
+        ],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We conduct a manual evaluation to verify our conclusions based on the quantitative results.",
+            "We conduct a manual evaluation to verify our conclusions based on the quantitative results. ... we select instances for every dataset where LLaMA 7B with DCoT@1 outputs an incorrect answer while DCoT@2 results in a correct answer. Then, we randomly sample five of those instances per dataset ...",
+            "We conduct a manual evaluation to verify our conclusions based on the quantitative results."
+        ],
+        "guideline": [
+            "They selected instances where the first CoT was incorrect and the second was correct, and manually analyzed reasoning patterns and error corrections.",
+            "Annotators examined whether the second CoT corrected the answer of the first CoT and assessed the reasoning patterns.",
+            "We aim to understand how generating a second CoT can improve performance. We select instances where DCoT@1 outputs an incorrect answer while DCoT@2 results in a correct answer, and analyze the reasoning patterns."
+        ],
+        "criteria": [
+            "answer correctness",
+            "reasoning pattern",
+            "error correction",
+            "different reasoning pattern",
+            "corrects logical conclusion",
+            "corrects reasoning steps",
+            "corrects final answer"
+        ]
+    }
+}

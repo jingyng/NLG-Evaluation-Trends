@@ -1,0 +1,162 @@
+{
+  "paper_id": "2024.naacl-long.216",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering",
+      "Other:Attributed QA"
+    ],
+    "datasets": [
+      "HotpotQA",
+      "Natural Questions",
+      "POLITICITE",
+      "VJ",
+      "MSMARCO",
+      "ALCE",
+      "ELI5",
+      "ASQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-2 (7B)",
+      "Llama-2 (13B)",
+      "Alpaca 7B",
+      "T5-XXL",
+      "T5"
+    ],
+    "outputs": [
+      "long-form answers with in-line citations",
+      "attributed answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "T5"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "NaturalQuestions"
+        ],
+        "languages": [],
+        "models": [
+          "Llama-2",
+          "Llama-2 (7b)",
+          "Alpaca",
+          "T5-based",
+          "NLI model (e.g., RoBERTa)"
+        ],
+        "outputs": [
+          "Generated answers with in-line citations supporting each statement"
+        ]
+      },
+      "normalized": {
+        "NaturalQuestions": "Natural Questions",
+        "Llama-2 (7b)": "Llama-2 (7B)",
+        "Alpaca 7B": "Alpaca 7B",
+        "T5-XXL": "T5-XXL"
+      },
+      "explanation": "Normalized model names with consistent capitalization, removed duplicate 'NaturalQuestions' (kept 'Natural Questions'), removed overly specific or generic model descriptions, kept only models actually used for generation"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Citation Accuracy",
+      "Citation F1",
+      "MAUVE",
+      "Claims NLI",
+      "Exact-match Recall",
+      "Citation Precision",
+      "Citation Recall",
+      "Claim Recall"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "citation accuracy",
+          "citation F1",
+          "exact-match recall",
+          "Citation Accuracy (Exact Match)",
+          "Citation F1",
+          "NLI-based Correctness",
+          "exact-match"
+        ]
+      },
+      "normalized": {
+        "citation accuracy": "Citation Accuracy",
+        "citation F1": "Citation F1",
+        "claims NLI": "Claims NLI",
+        "citation precision": "Citation Precision",
+        "citation recall": "Citation Recall",
+        "exact-match recall": "Exact-match Recall"
+      },
+      "explanation": "Normalized metric names to consistent capitalization, removed duplicates and redundant descriptions, kept all unique metrics mentioned in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "T5-based NLI model",
+          "Alpaca 7b",
+          "T5"
+        ],
+        "methods": [
+          "entailment checking",
+          "NLI-based evaluation"
+        ],
+        "criteria": [
+          "entailment"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper uses NLI models for automatic evaluation, not as LLM judges after generation. The NLI models are used for automatic metric computation, not as subjective evaluators of generation quality."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators indicate the degree to which evidence supports a statement."
+        ],
+        "criteria": [
+          "support"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The human annotation mentioned was for dataset creation (POLITICITE), not for evaluating the generated outputs. No human evaluation of the model outputs is conducted in this paper."
+    }
+  },
+  "overall_notes": "The paper focuses on multi-source attribution for long-form question answering. It uses automatic metrics for evaluation but does not conduct human evaluation of generated outputs. The NLI models mentioned are used for automatic metric computation, not as LLM judges. The extracted metadata was generally good but needed normalization and correction for Question 3."
+}

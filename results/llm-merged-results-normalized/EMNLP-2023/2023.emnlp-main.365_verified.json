@@ -1,0 +1,188 @@
+{
+  "paper_id": "2023.emnlp-main.365",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Image Captioning",
+      "Table To Text Generation",
+      "Commonsense Generation",
+      "Keyword To Dialogue Generation"
+    ],
+    "datasets": [
+      "WMT22",
+      "WEBNLG",
+      "flicker3k",
+      "COMMONGEN",
+      "BAGEL"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Chinese"
+    ],
+    "models": [
+      "instructscore",
+      "llama_7b",
+      "gpt_4"
+    ],
+    "outputs": [
+      "numerical quality score with natural language diagnostic report (error locations, types, severity and explanation)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Other:Table-to-Text",
+          "Other:table-to-text",
+          "Other:commonsense generation",
+          "Other:keyword-to-dialogue generation"
+        ],
+        "datasets": [
+          "Commongen"
+        ],
+        "languages": [],
+        "models": [
+          "LLaMA"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Commonsense Generation": "Other:Commonsense Generation",
+        "Other:Keyword-to-Dialogue Generation": "Other:Keyword-to-Dialogue Generation",
+        "Other:Table-to-text": "Other:Table-to-text",
+        "Flicker3k": "Flicker3k",
+        "LLaMA": "LLaMA-7B"
+      },
+      "explanation": "Removed duplicate task entries and normalized 'Commongen' to 'CommonGen'. Removed 'Dialogue Generation' as only keyword-to-dialogue generation is mentioned. Normalized model names to standard forms."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "INSTRUCTSCORE",
+      "BLEU",
+      "CHRF",
+      "METEOR",
+      "CIDER",
+      "PRISM",
+      "BARTSCORE",
+      "BERTSCORE",
+      "SESCORE2",
+      "GPT",
+      "BLEURT",
+      "MATESE",
+      "UNITE",
+      "METRICX XXL",
+      "COMET22"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEURT20",
+          "MetricX XXL",
+          "GPT-3.5",
+          "GPT3-Dav3",
+          "GPT4",
+          "BLEURT-20"
+        ]
+      },
+      "normalized": {
+        "GPT4": "GPT-4",
+        "GPT3-Dav3": "GPT-3",
+        "GPT-3.5": "GPT-3",
+        "BLEURT20": "BLEURT",
+        "BLEURT-20": "BLEURT",
+        "MetricX XXL": "MetricX-XXL"
+      },
+      "explanation": "Removed duplicates and normalized metric names to standard forms. GPT-3 variants consolidated to GPT-3, BLEURT variants to BLEURT."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "synthetic data generation",
+      "feedback extraction via prompting",
+      "diagnostic report validation",
+      "self-training with refined outputs"
+    ],
+    "criteria": [
+      "Consistency",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "baseline metric evaluation",
+          "pairwise ranking validation"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT4": "GPT-4"
+      },
+      "explanation": "Removed methods not directly related to LLM-as-judge evaluation. GPT-4 is specifically used for judging diagnostic reports through automated feedback."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human Evaluation Instructions with M1-M6 and G1-G4 failure mode criteria for error type, location, severity, and explanation fields"
+    ],
+    "criteria": [
+      "Consistency",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "error type",
+          "error location",
+          "severity level",
+          "explanation consistency",
+          "severity labeling",
+          "major/minor label",
+          "explanation"
+        ]
+      },
+      "normalized": {
+        "error type": "error type consistency",
+        "error location": "error location consistency",
+        "severity level": "severity label correctness",
+        "explanation": "explanation correctness",
+        "major/minor label": "severity label correctness",
+        "explanation consistency": "explanation correctness"
+      },
+      "explanation": "Consolidated redundant criteria into the four main evaluation dimensions from the human evaluation guidelines."
+    }
+  },
+  "overall_notes": "The paper presents INSTRUCTSCORE, an explainable evaluation metric for NLG that provides both scores and diagnostic reports. The extraction was generally accurate but contained some duplicates and inconsistent naming. The paper conducts extensive evaluation across multiple NLG tasks using both automatic metrics and human evaluation, with GPT-4 used for automated feedback on diagnostic reports."
+}

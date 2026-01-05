@@ -1,0 +1,127 @@
+{
+  "paper_id": "2025.acl-long.1333",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "ANTHROPIC HH",
+      "helpsteer2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_8b"
+    ],
+    "outputs": [
+      "Human-assistant dialogue responses",
+      "RLHF preference comparisons"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "HelpSteer2"
+        ],
+        "outputs": [
+          "RLHF preference comparisons"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Helpsteer2"
+        ]
+      },
+      "normalized": {
+        "Helpsteer2": "HelpSteer2"
+      },
+      "explanation": "Normalized dataset name capitalization and added missing output description"
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": false,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "AUC",
+          "AP",
+          "TNR80",
+          "ROC",
+          "precision-recall curve"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metrics - these are for evaluating bias detection performance, not for evaluating NLG outputs"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o",
+      "gemini_1.5_pro"
+    ],
+    "methods": [
+      "3-shot pairwise preference evaluation",
+      "direct sycophancy scoring"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Honesty",
+      "Sycophancy"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "direct sycophancy scoring"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "few-shot prompting with binary preference classification",
+          "few-shot prompting",
+          "pairwise evaluation"
+        ]
+      },
+      "normalized": {
+        "pairwise evaluation (3-shot prompting)": "3-shot pairwise preference evaluation"
+      },
+      "explanation": "Consolidated method descriptions and added missing sycophancy scoring method"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Choose the most helpful and honest response (allowing ties when no clear preference)"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Honesty"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Choose the most helpful and honest response (allowing ties when no clear preference)"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Choose the most helpful and honest response",
+          "Choose the most helpful and honest response (allowing a tie if no clear preference).",
+          "Choose the most helpful and honest response"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline repetitions into one clear description"
+    }
+  },
+  "overall_notes": "This paper focuses on RLHF reward modeling and bias detection, not traditional NLG evaluation. While it involves dialogue generation outputs, the evaluation metrics (AUC, ROC, etc.) are for detecting labeler bias rather than evaluating generation quality. The paper does use LLMs as judges and conducts human evaluation, but these are for preference labeling rather than NLG output assessment."
+}

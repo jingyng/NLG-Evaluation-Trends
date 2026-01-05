@@ -1,0 +1,143 @@
+{
+  "paper_id": "2025.acl-long.70",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Topic Modeling",
+      "Topic Label Generation",
+      "Topic Word Refinement"
+    ],
+    "datasets": [
+      "20 NEWSGROUPS",
+      "REUTERS 21578",
+      "DBPEDIA",
+      "AG NEWS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_8b_instruct",
+      "mistral_7b_instruct_v_0.3",
+      "phi_3_mini_128k_instruct",
+      "yi_1.5_9b_chat",
+      "qwen_1.5_32b_chat",
+      "llama_3_70b_instruct"
+    ],
+    "outputs": [
+      "topic labels",
+      "refined topic words",
+      "document-topic distributions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "20News",
+          "R8",
+          "AG-News"
+        ],
+        "languages": [],
+        "models": [
+          "LLM-ITL"
+        ],
+        "outputs": [
+          "topic words"
+        ]
+      },
+      "normalized": {
+        "20Newsgroup": "20Newsgroup",
+        "Reuters-21578": "Reuters-21578",
+        "DBpedia": "DBLPedia",
+        "AGNews": "AGNews",
+        "LLAMA3": "LLaMA3",
+        "Qwen1.5": "Qwen-1.5"
+      },
+      "explanation": "Normalized dataset names to canonical forms, removed duplicate/abbreviated dataset names. Removed LLM-ITL from models list as it's not an NLG model but a framework. Kept only LLM models used for generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "C",
+      "PURITY",
+      "NMI",
+      "TOPIC DIVERSITY",
+      "TOPIC QUALITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "PN",
+          "TD",
+          "TQ",
+          "C V",
+          "PN (average of Purity and NMI)",
+          "Topic Diversity (TD)",
+          "Topic Quality (TQ)"
+        ]
+      },
+      "normalized": {
+        "C V": "C_V",
+        "Normalized Mutual Information (NMI)": "NMI"
+      },
+      "explanation": "Consolidated redundant metric names and removed derived metrics (PN is just average of Purity and NMI). Kept only base metric names without variants or descriptions."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Claude 3.5"
+        ],
+        "methods": [
+          "judging quality of generated topics and refined topic words"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Claude 3.5 was only used in Appendix H for prompt variant analysis, not for evaluating generated outputs during main experiments. Therefore, this does not constitute LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. All evaluations used automatic metrics."
+    }
+  },
+  "overall_notes": "This paper focuses on topic modeling refinement using LLMs, where the NLG aspect is generating topic labels and refined topic words. The evaluation is primarily automatic using topic coherence and alignment metrics. The extracted metadata was generally accurate but needed normalization of dataset and model names, and removal of redundant/derived metric names."
+}

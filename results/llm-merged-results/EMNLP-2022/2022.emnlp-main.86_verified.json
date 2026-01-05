@@ -1,0 +1,114 @@
+{
+  "paper_id": "2022.emnlp-main.86",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Valid Action Generation",
+      "Other:Graph Prediction"
+    ],
+    "datasets": [
+      "JerichoWorld"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Worldformer-BART",
+      "AWM-BART",
+      "Worldformer",
+      "CALM",
+      "BART"
+    ],
+    "outputs": [
+      "sets of future valid actions (text commands) in text-based games",
+      "knowledge graph tuples representing world state changes"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Graph Prediction"
+        ],
+        "models": [
+          "Worldformer"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Action Generation"
+        ],
+        "models": [
+          "COMET filter"
+        ]
+      },
+      "normalized": {
+        "Other:valid action generation": "Other:Valid Action Generation"
+      },
+      "explanation": "Added Graph Prediction as a second NLG task, removed redundant 'Action Generation' task, added Worldformer model, removed COMET filter (not an NLG model but a filter)"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "Exact Match"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "EM"
+        ]
+      },
+      "normalized": {
+        "EM": "Exact Match"
+      },
+      "explanation": "Normalized 'EM' to 'Exact Match' - these refer to the same metric (F1 and Exact Match are the two main metrics used)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper - LLMs were used as generation models but not for evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators classified errors in generated actions into three types: Object Localization and Inference errors, Object Affordance errors, and Insufficient Interaction Coverage errors. Analysis was performed on 50 randomly sampled examples from the validation set."
+    ],
+    "criteria": [
+      "Object Localization and Inference",
+      "Object Affordance",
+      "Insufficient Interaction Coverage"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "criteria": [
+          "OLI errors",
+          "Object Localization and Inference errors",
+          "Object Affordance errors",
+          "Insufficient Interaction Coverage errors"
+        ]
+      },
+      "normalized": {
+        "OLI errors": "Object Localization and Inference",
+        "Object Localization and Inference errors": "Object Localization and Inference",
+        "Object Affordance errors": "Object Affordance",
+        "Insufficient Interaction Coverage errors": "Insufficient Interaction Coverage"
+      },
+      "explanation": "Normalized criteria to base forms without 'errors' suffix, consolidated redundant entries"
+    }
+  },
+  "overall_notes": "This paper focuses on NLG for text-based games, specifically generating valid text commands and predicting graph changes. The evaluation is comprehensive with both automatic metrics (F1, Exact Match) and human evaluation analyzing specific error types. The paper does NOT use LLMs as judges/evaluators - LLMs are used as generation models but not for assessment."
+}

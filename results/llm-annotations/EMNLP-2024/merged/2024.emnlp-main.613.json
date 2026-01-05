@@ -1,0 +1,63 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We employ BLIP2-Flan-T5-XL as the answer generator. It takes the concatenation of text embeddings (question and retrieved documents) and visual embeddings (image) as input. Following , the generator outputs an answer for each retrieved document and selects the best candidate answer by the joint probability of retrieving and the generated answer.",
+            "We adopt BLIP2-Flan-T5-XL as the answer generator. It takes the concatenation of text embeddings (question and retrieved documents) and visual embeddings (image) as input. ... the generator outputs an answer for each retrieved document and selects the best candidate answer by the joint probability of retrieving and the generated answer.",
+            "To utilize the multimodal model for generating answers based on questions and retrieved knowledge, we adopt the following prompt template (#Doc denotes the retrieved document from knowledge base): Prompt Template For Answer Generation Question: #Q Caption: #C Kownledge: #Doc Answer:"
+        ],
+        "tasks": [
+            "Image Captioning",
+            "Other:Visual Question Answering"
+        ],
+        "datasets": [
+            "OK-VQA",
+            "Infoseek"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "MiniGPT-v2",
+            "BLIP2-Flan-T5-XL",
+            "Llama-2-7b-chat-hf (for key entity extraction)",
+            "Llama-2-7b-chat-hf"
+        ],
+        "outputs": [
+            "natural language answers to visual questions",
+            "Natural language answers to visual questions",
+            "natural language answer to a given question based on the image"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "To assess the final accuracy of VQA, we employ the VQA Score and Exact Match (EM) metrics for OK-VQA. For Infoseek, we utilize the built-in evaluation metric, Infoseek Score.",
+            "To assess the final accuracy of VQA, we employ the VQA Score and Exact Match (EM) metrics for OK-VQA. For Infoseek, we utilize the built-in evaluation metric, Infoseek Score.",
+            "We employ Recall@K (Lin and Byrne, 2022) to assess the retriever's performance... To assess the final accuracy of VQA, we employ the VQA Score and Exact Match (EM) metrics for OK-VQA. For Infoseek, we utilize the built-in evaluation metric, Infoseek Score."
+        ],
+        "automatic_metrics": [
+            "VQA Score",
+            "Exact Match",
+            "Infoseek Score",
+            "Recall@K"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": [
+            "We randomly select 400 VQA samples from two KI-VQA datasets, requiring human subjects to answer the questionnaire in Appendix B to identify complex KI-VQA samples."
+        ],
+        "guideline": [
+            "1) Without using any external tools (such as search engines), based on the given image, can you independently and confidently answer the provided question? (yes/no) 2) Is the background in the image excessively cluttered? (yes/no) 3) ... are there three or more redundant visual entities in the image, similar in size or even larger than the key visual entities, unrelated to the question? (yes/no) 4) In the given question, are there unclear references to the key visual entities...? (yes/no) 5) For the given question, Is reasoning with the image necessary to determine the key visual entities...? (yes/no)"
+        ],
+        "criteria": []
+    }
+}

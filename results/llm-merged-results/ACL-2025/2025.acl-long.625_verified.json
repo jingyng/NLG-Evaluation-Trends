@@ -1,0 +1,182 @@
+{
+  "paper_id": "2025.acl-long.625",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation",
+      "Other:Instruction Following",
+      "Other:Open-ended Question Answering"
+    ],
+    "datasets": [
+      "STACKEXCHANGE",
+      "LIMA",
+      "DOLLY",
+      "allenai/tulu-v2-sft-mixture",
+      "bigcode/guanaco-commits",
+      "ALPACAEVAL",
+      "HUMANEVAL",
+      "MULTIPL-E",
+      "HH-RLHF",
+      "EVOL-INSTRUCT",
+      "SELF-INSTRUCT"
+    ],
+    "languages": [
+      "English",
+      "Python",
+      "Java",
+      "JavaScript",
+      "C++"
+    ],
+    "models": [
+      "CODELLAMA-7B",
+      "META-LLAMA-3-8B",
+      "OLMO-7B",
+      "STARCODER-15.5B",
+      "GPT-3.5-TURBO",
+      "LLAMA2-70B-CHAT",
+      "LLAMA2-13B-CHAT",
+      "LLAMA-3-70B-CHAT",
+      "GPT-4",
+      "OLMO-7B-SFT",
+      "OCTOCODER-15.5B",
+      "ROBERTA-BASE",
+      "CODET5P-110M-EMBEDDING"
+    ],
+    "outputs": [
+      "Generated code solutions",
+      "Instruction-response pairs",
+      "Natural language answers to diverse questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "HH-RLHF",
+          "EVOL-INSTRUCT",
+          "SELF-INSTRUCT"
+        ],
+        "languages": [],
+        "models": [
+          "ROBERTA-BASE",
+          "CODET5P-110M-EMBEDDING"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "OCTOCODER-15.5B",
+          "OLMO-7B"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:open-ended question answering": "Other:Open-ended Question Answering",
+        "instruction‑response pairs (generated responses)": "Instruction-response pairs"
+      },
+      "explanation": "Removed OCTOCODER-15.5B and OLMO-7B from datasets (they are models, not datasets). Added HH-RLHF, EVOL-INSTRUCT, SELF-INSTRUCT as mentioned datasets. Added ROBERTA-BASE and CODET5P-110M-EMBEDDING as encoder models used. Normalized task naming."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Pass@1",
+      "Pass@10",
+      "L.C. WinRate",
+      "BLEU",
+      "Accuracy",
+      "Perplexity",
+      "Type-Token Ratio (TTR)",
+      "Measure of Textual Lexical Diversity (MTLD)",
+      "Helpfulness",
+      "Correctness",
+      "Flesch Score",
+      "Average Sentence Length",
+      "Punctuation Frequency",
+      "Layout Feature Frequency"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Avg. Pass@(1+10)",
+          "TTR",
+          "MTLD",
+          "Perplexity (PPL(y|x))"
+        ]
+      },
+      "normalized": {
+        "Flesch score": "Flesch Score"
+      },
+      "explanation": "Removed redundant metrics (Avg. Pass@(1+10) is not a standard metric, TTR/MTLD already covered by full names). Perplexity (PPL(y|x)) normalized to Perplexity. Kept base forms of metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "LLAMA-3-70B-CHAT",
+      "GPT-4-1106-PREVIEW",
+      "GPT-3.5-TURBO"
+    ],
+    "methods": [
+      "Pairwise evaluation (win rate)",
+      "Length-controlled AlpacaEval"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Correctness",
+      "Adherence to instructions"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "pairwise ranking",
+          "scoring via prompt",
+          "pairwise evaluation"
+        ],
+        "criteria": [
+          "fluency",
+          "relevance"
+        ]
+      },
+      "normalized": {
+        "pairwise evaluation (win rate)": "Pairwise evaluation (win rate)",
+        "length-controlled alpacaeval": "Length-controlled AlpacaEval",
+        "adherence to instructions": "Adherence to instructions"
+      },
+      "explanation": "Removed vague methods ('pairwise ranking', 'scoring via prompt') and criteria not explicitly mentioned ('fluency', 'relevance'). Normalized capitalization."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluations conducted in the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on data selection for instruction-tuning LLMs using style consistency. It evaluates generated code and natural language responses using automatic metrics and LLM-as-judge evaluation. The extraction was generally accurate but needed some normalization and removal of incorrect items (models listed as datasets)."
+}

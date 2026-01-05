@@ -1,0 +1,124 @@
+{
+  "paper_id": "2025.naacl-long.107",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation",
+      "Text To Sql Generation"
+    ],
+    "datasets": [
+      "SPIDER",
+      "BIRD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "mistral_7b",
+      "llama_3_8b",
+      "gemma_2_9b"
+    ],
+    "outputs": [
+      "SQL queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Spider 1.0"
+        ],
+        "languages": [],
+        "models": [
+          "Mistral-7B-v0.3",
+          "QLoRA"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Spider 1.0": "Spider",
+        "Other:Text-to-SQL Generation": "Text-to-SQL Generation"
+      },
+      "explanation": "Removed redundant dataset (Spider 1.0 is just Spider), normalized task name, removed QLoRA (training method not model) and version suffix from Mistral-7B"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXECUTION ACCURACY",
+      "EXACT MATCH EM",
+      "VALIDITY AND EFFICIENCY VES"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Metrics were correctly extracted and properly formatted"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Llama-8B",
+          "Mistral-7B",
+          "Gemma-2-9B",
+          "Skywork-Reward-Llama-3.1-8B",
+          "GPT-4"
+        ],
+        "methods": [
+          "multi-sample critiquing",
+          "independent sample critiquing",
+          "self-consistency",
+          "judging the quality of sampled generations"
+        ],
+        "criteria": [
+          "correctness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does NOT use LLMs as judges. The multi-sample critiquing model is a fine-tuned LM specifically trained for SQL evaluation, not an LLM used generically as a judge. The cited LLMs are used for generation, not evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper"
+    }
+  },
+  "overall_notes": "The paper is primarily about text-to-SQL generation using small language models with a novel multi-sample critiquing approach. The extraction was mostly accurate except for Question 3, where the answer was incorrectly marked as 'Yes' - this paper uses specialized fine-tuned models for critique, not general LLM-as-judge methodology. The paper evaluates SQL generation quality using standard text-to-SQL metrics like execution accuracy."
+}

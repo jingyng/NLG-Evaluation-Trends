@@ -1,0 +1,146 @@
+{
+  "paper_id": "2022.acl-long.329",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Knowledge Probing"
+    ],
+    "datasets": [
+      "MEDLAMA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bert",
+      "bluebert",
+      "biobert",
+      "pubmedbert",
+      "bart",
+      "t_5",
+      "scifive",
+      "sapbert",
+      "coderbert"
+    ],
+    "outputs": [
+      "Generated answers for cloze-style biomedical knowledge queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "BART-base": "BART",
+        "T5-small": "T5",
+        "T5-base": "T5",
+        "SciFive-base": "SciFive",
+        "SciFive-large": "SciFive"
+      },
+      "explanation": "Normalized model names to remove version specifications that aren't essential for the NLG task identification. The paper evaluates cloze-style query answering, which is a form of text generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy@1",
+          "Accuracy@10"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "acc@1",
+          "acc@10",
+          "accuracy@1",
+          "accuracy@10",
+          "exact matching"
+        ]
+      },
+      "normalized": {
+        "acc@1": "Accuracy@1",
+        "acc@10": "Accuracy@10",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric names to standard forms. Added Accuracy@1 and Accuracy@10 explicitly since they are the main metrics. Removed 'exact matching' as it was used for creating hard query sets, not for evaluating generated outputs. Simplified ROUGE variants to base form."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The paper uses human experts rather than LLMs for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human experts rated predictions on a 5-point scale: 5=Perfectly answer the query; 4=Similar to gold answer, could be answer; 3=Related but not correct; 2=Same domain/slight relation; 1=Completely unrelated"
+    ],
+    "criteria": [
+      "Correctness",
+      "Relevance",
+      "Appropriateness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "correctness",
+          "relevance",
+          "domain appropriateness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "perfect answer",
+          "similar to gold answer",
+          "related but not correct",
+          "same domain / slight relation",
+          "completely unrelated",
+          "Perfectly answer the query",
+          "Similar to the gold answer",
+          "Related to the query but not correct",
+          "Same domain or slight relation",
+          "Completely unrelated"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated the multiple descriptions of the same rating scale into one clear guideline. Generalized the specific rating levels into broader evaluation criteria (correctness, relevance, domain appropriateness) that capture the essence of what was being evaluated."
+    }
+  },
+  "overall_notes": "The paper focuses on biomedical knowledge probing using cloze-style query answering, which qualifies as an NLG task. The extraction was generally accurate but needed normalization of model names and metrics. The human evaluation was well-described with a clear rating scale. No LLM-based evaluation was used."
+}

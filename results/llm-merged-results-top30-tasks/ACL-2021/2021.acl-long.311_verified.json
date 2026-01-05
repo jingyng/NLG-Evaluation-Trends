@@ -1,0 +1,166 @@
+{
+  "paper_id": "2021.acl-long.311",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "CZENG 2 0",
+      "newstest2019",
+      "newstest2020",
+      "EUROPARL",
+      "WMT",
+      "WMT07"
+    ],
+    "languages": [
+      "English",
+      "Czech"
+    ],
+    "models": [
+      "transformer_base",
+      "mariannmt",
+      "cubbitt",
+      "baseline_constrained_model",
+      "lemmatized_constraint_model",
+      "factored_model"
+    ],
+    "outputs": [
+      "machine-translated sentences",
+      "translations with lexical constraints",
+      "translations without lexical constraints"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "WMT ELITR test set",
+          "WMT Markables test suite"
+        ],
+        "models": [
+          "baseline constrained model",
+          "lemmatized-constraint model",
+          "factored model"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "WMT20 ELITR test set",
+          "newstest-2019",
+          "newstest-2020",
+          "WMT 2007‑2020 news test sets"
+        ],
+        "models": [
+          "Transformer‑base (MarianNMT)"
+        ]
+      },
+      "normalized": {
+        "WMT20 ELITR test set": "WMT ELITR test set",
+        "WMT20 Markables test suite": "WMT Markables test suite",
+        "generated translations (target sentences) with or without supplied lexical constraints": "translations with lexical constraints"
+      },
+      "explanation": "Consolidated duplicate dataset entries, removed redundant model description, added explicit model types mentioned in the paper"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "CVG",
+      "PEARSON CORRELATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEU-L",
+          "Cvg-L"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU (lemmatized)",
+          "Constraint coverage (Cvg)",
+          "Lemma coverage (Cvg L)",
+          "Pearson correlation of constraint placement"
+        ]
+      },
+      "normalized": {
+        "BLEU L": "BLEU-L",
+        "Cvg L": "Cvg-L",
+        "Pearson correlation of constraint placement": "Pearson correlation"
+      },
+      "explanation": "Simplified metric names, removed redundant descriptions, normalized to base metric forms"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges, removed placeholder values"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual analysis of 100 outputs per model marked as errors by automatic evaluation",
+      "Categorized errors based on inflection correctness and translation validity",
+      "Evaluated constraint placement and contextual correctness"
+    ],
+    "criteria": [
+      "Correctness",
+      "Translation",
+      "Presence",
+      "Inflection",
+      "Choice"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Evaluated constraint placement and contextual correctness"
+        ],
+        "criteria": [
+          "correct inflection in context",
+          "translation validity",
+          "constraint presence",
+          "word choice correctness"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "Correct in correct context",
+          "Correct in incorrect context",
+          "Different correct/incorrect word choice",
+          "Invalid translation"
+        ]
+      },
+      "normalized": {
+        "inflection correctness": "correct inflection in context",
+        "Correctness of translation": "translation validity",
+        "Contextual correctness": "correct inflection in context",
+        "inflection error": "inflection error",
+        "Different correct/incorrect word choice": "different word choice",
+        "Invalid translation": "invalid translation"
+      },
+      "explanation": "Consolidated similar criteria, normalized to consistent naming, added missing evaluation dimensions mentioned in the manual analysis"
+    }
+  },
+  "overall_notes": "The paper focuses on lexically constrained machine translation for morphologically rich languages (English-Czech). Evaluation includes both automatic metrics (BLEU variants, coverage metrics) and detailed manual analysis. The extraction was generally accurate but needed consolidation of duplicate entries and normalization to standard forms."
+}

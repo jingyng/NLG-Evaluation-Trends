@@ -1,0 +1,174 @@
+{
+  "paper_id": "2023.emnlp-main.841",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "MSCOCO",
+      "flickr8k",
+      "PASCAL 50s",
+      "COCO SETS",
+      "flickr30k",
+      "COMPOSITE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ofa",
+      "blip",
+      "clair"
+    ],
+    "outputs": [
+      "image captions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-3.5 (ChatGPT)",
+          "Claude (Instant)",
+          "PaLM",
+          "CLAIR"
+        ],
+        "outputs": [
+          "captions"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed models that were used for evaluation rather than generation (GPT-3.5, Claude, PaLM) since they don't generate the outputs being evaluated. Removed redundant 'captions' from outputs since 'image captions' covers it."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "CIDER",
+      "SPICE",
+      "CLIP",
+      "REFCLIP",
+      "TRM METEOR",
+      "TRM BLEU",
+      "CLAIR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "All metrics are correctly extracted and normalized. CLAIR and CLAIR E are the proposed evaluation methods and should be included as automatic metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_3.5",
+      "claude",
+      "palm"
+    ],
+    "methods": [
+      "zero-shot prompting for numeric rating and reason",
+      "ensemble (CLAIR E)"
+    ],
+    "criteria": [
+      "Relevance",
+      "Visual",
+      "Interaction",
+      "Diversity",
+      "Specificity",
+      "Correctness",
+      "Coverage"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "visual structure",
+          "object interactions",
+          "caption diversity",
+          "specificity",
+          "correctness",
+          "coverage"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT-3.5 (ChatGPT)",
+          "Claude (Instant)"
+        ],
+        "methods": [
+          "zero‑shot prompt scoring",
+          "zero-shot in-context learning",
+          "ensemble"
+        ],
+        "criteria": [
+          "describes same image",
+          "semantic similarity",
+          "relevance"
+        ]
+      },
+      "normalized": {
+        "GPT-3.5 (ChatGPT)": "GPT-3.5",
+        "Claude (Instant)": "Claude",
+        "zero‑shot prompt scoring": "zero-shot prompting for numeric rating and reason",
+        "ensemble": "ensemble (CLAIR E)"
+      },
+      "explanation": "Normalized model names and methods. Expanded criteria list based on dimensions mentioned in abstract and throughout paper. 'describes same image' is the specific task prompt, not the criteria."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Scale of 1 (not relevant) to 5 (very relevant) for relevance",
+      "Scale of 1 (very bad) to 5 (very good) for caption quality",
+      "Scale of 1 (caption unrelated) to 4 (caption describes without errors)",
+      "Pairwise preference comparisons between caption sets based on correctness and coverage"
+    ],
+    "criteria": [
+      "Relevance",
+      "Correctness",
+      "Coverage",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Scale of 1 (very bad) to 5 (very good) for caption quality",
+          "Scale of 1 (caption unrelated) to 4 (caption describes without errors)",
+          "Pairwise preference comparisons between caption sets based on correctness and coverage"
+        ],
+        "criteria": [
+          "caption quality"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Expanded guidelines to include all human evaluation scales and methods mentioned in the paper. Added 'caption quality' as an overarching criterion that encompasses the specific scales used."
+    }
+  },
+  "overall_notes": "The paper focuses on using LLMs as evaluators for image captions. The extraction was generally accurate but needed some refinement to distinguish between generation models vs. evaluation models, and to capture the full breadth of evaluation criteria. CLAIR is both the proposed metric and a model used for evaluation, which is properly reflected in the answers."
+}

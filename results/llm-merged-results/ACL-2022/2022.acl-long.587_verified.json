@@ -1,0 +1,125 @@
+{
+  "paper_id": "2022.acl-long.587",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Elaborated Feedback Generation"
+    ],
+    "datasets": [
+      "SAF (Short Answer Feedback dataset)"
+    ],
+    "languages": [
+      "English",
+      "German"
+    ],
+    "models": [
+      "T5-base",
+      "mT5-base"
+    ],
+    "outputs": [
+      "elaborated feedback texts explaining assigned scores"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Feedback Generation",
+          "Other:elaborated feedback generation"
+        ],
+        "datasets": [
+          "SAF"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "elaborated feedback (text)",
+          "label/score feedback: feedback"
+        ]
+      },
+      "normalized": {
+        "Other:elaborated feedback generation": "Other:Elaborated Feedback Generation",
+        "SAF": "SAF (Short Answer Feedback dataset)"
+      },
+      "explanation": "Consolidated duplicate task names and dataset references. Removed redundant output descriptions, keeping the most comprehensive one."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SACREBLEU",
+      "ROUGE",
+      "METEOR",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "ROUGE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-2",
+          "accuracy",
+          "macro-averaged F1 score",
+          "root-mean-squared-error",
+          "1 -MSE"
+        ]
+      },
+      "normalized": {
+        "ROUGE-2": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE-2 to base ROUGE metric. Removed non-NLG evaluation metrics (accuracy, F1, RMSE, 1-MSE) that were used for scoring/label classification, not for evaluating the generated feedback text quality."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "ask annotators whether the generated feedback expresses the same meaning as the reference feedback included in the dataset"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper only suggests human evaluation as future work but does not actually conduct human evaluations in the current study."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The main issues were: (1) including non-NLG evaluation metrics (accuracy, F1, RMSE) that were used for scoring classification, not text generation evaluation; (2) listing human evaluation criteria that were only suggested for future work but not actually implemented. The paper clearly addresses NLG through elaborated feedback generation and uses standard NLG evaluation metrics."
+}

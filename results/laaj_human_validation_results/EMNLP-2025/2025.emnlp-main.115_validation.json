@@ -1,0 +1,97 @@
+{
+  "paper_id": "2025.emnlp-main.115",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates G-Eval (LLM evaluation) against human annotations on 20 randomly sampled examples, reporting both Pearson and Spearman correlation coefficients"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper states 'detailed prompts provided in Appendix D' for G-Eval framework evaluation instructions, but exact prompt text is not shown in the provided text"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "not_specified",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human ratings used 10-point rubrics with specific criteria: Condition Quality (ambiguity capture, distinct interpretations coverage, logical coherence) and Answer Quality (accuracy, completeness, factual soundness)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "Condition Quality",
+      "Answer Quality"
+    ],
+    "sample_size": {
+      "total_generated": 2000,
+      "validated_by_both": 20,
+      "notes": "Validation conducted on 20 randomly sampled examples from the full CondAmbigQA benchmark of 2,000 instances"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.598,
+        "criterion": "Condition Quality vs Answer Performance",
+        "llm_model": "GPT-4o",
+        "significance": "p < 0.001",
+        "notes": "Correlation between condition quality and answer performance"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.637,
+        "criterion": "Condition Quality vs Answer Performance",
+        "llm_model": "GPT-4o",
+        "significance": "p < 0.001",
+        "notes": "Correlation between condition quality and answer performance"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "High correlation coefficients (>0.598)",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "G-Eval shows strong correlation with human judgments (Pearson: 0.598, Spearman: 0.637, p<0.001), validating its use as an automatic evaluator for ambiguous QA benchmarking."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Condition Score",
+      "Answer Score",
+      "Citation Score",
+      "Combined Score",
+      "Answer Count",
+      "Count Difference"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Condition Quality",
+      "Answer Quality"
+    ],
+    "notes": "LLM evaluation uses automated G-Eval framework with multiple specialized metrics, while human evaluation focuses on the same core quality dimensions but with 10-point rubrics"
+  }
+}

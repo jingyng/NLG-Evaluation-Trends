@@ -1,0 +1,147 @@
+{
+  "paper_id": "2023.emnlp-main.99",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation"
+    ],
+    "datasets": [
+      "SPIDER",
+      "SPIDER DK",
+      "SPIDER SYN",
+      "BIRD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "din_sql",
+      "t_5+picard",
+      "gpt_4"
+    ],
+    "outputs": [
+      "SQL queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WikiSQL"
+        ],
+        "languages": [],
+        "models": [
+          "fine‑tuned model",
+          "large language model (e.g., GPT‑4)",
+          "DIN‑SQL",
+          "T5‑large + PICARD"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Code Generation": "Code Generation",
+        "T5-large + PICARD": "T5+PICARD"
+      },
+      "explanation": "Removed 'WikiSQL' as it's only mentioned briefly as background, not used in evaluation. Normalized model names and removed redundant/vague model descriptions. Text-to-SQL falls under Code Generation as it generates executable code."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT MATCH ACCURACY",
+      "EXECUTION ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "exact set match accuracy",
+          "execution accuracy",
+          "Test Suite Accuracy"
+        ]
+      },
+      "normalized": {
+        "exact set match accuracy": "Exact Set Match Accuracy",
+        "execution accuracy": "Execution Accuracy"
+      },
+      "explanation": "Normalized metric names to standard forms (title case). Combined variant names under base forms. 'Test Suite Accuracy' is mentioned as being equivalent to Execution Accuracy in this context, so removed as redundant."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The paper mentions GPT-4 as a generation model (DIN-SQL uses GPT-4), but not as an evaluator/judge."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluated SQL queries for correctness against natural language questions, with access to database schemas and ability to create databases for validation",
+      "Double annotation with reconciliation process for disagreements"
+    ],
+    "criteria": [
+      "Correctness",
+      "Equivalence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Double annotation with reconciliation process for disagreements"
+        ],
+        "criteria": [
+          "semantic equivalence"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "The annotators had access to the database schemas and were tasked with identifying the queries they deemed correct for each question, without knowing which model generated which query or if the query was from the ground truth queries. Annotators could also create databases and validate queries, ensuring a thorough evaluation.",
+          "Annotators were asked to determine which SQL queries correctly answer each natural language question, using the schema and optionally creating databases to validate results.",
+          "Annotators had access to the database schemas and were tasked with identifying the queries they deemed correct for each question, without knowing which model generated which query or if the query was from the ground truth queries."
+        ],
+        "criteria": [
+          "SQL correctness",
+          "Alignment with natural language question"
+        ]
+      },
+      "normalized": {
+        "correctness": "correctness",
+        "SQL correctness": "correctness",
+        "Alignment with natural language question": "semantic equivalence"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into clear, concise points. Normalized criteria to focus on core evaluation dimensions mentioned throughout the paper: correctness and semantic equivalence of SQL queries with natural language questions."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating Text-to-SQL models and benchmarks, which is a form of code generation (SQL query generation). The extraction was generally accurate but contained some redundancy and minor inconsistencies. The paper primarily uses human evaluation with SQL experts to assess query correctness, with automatic metrics (exact match and execution accuracy) serving as baseline comparisons that are shown to be unreliable."
+}

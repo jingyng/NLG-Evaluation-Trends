@@ -1,0 +1,138 @@
+{
+  "paper_id": "2025.emnlp-main.158",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Mathematical Reasoning",
+      "Math Question Answering"
+    ],
+    "datasets": [
+      "math500",
+      "amc23",
+      "MINERVA MATH",
+      "OLYMPIADBENCH"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "mistral_7b",
+      "deepseek_math_7b",
+      "qwen_2.5_math_1.5b",
+      "qwen_2_math_7b",
+      "lot_solver",
+      "deepseek_prover_v_1.5",
+      "goedel_prover"
+    ],
+    "outputs": [
+      "Natural language solutions to math problems",
+      "Formal Lean4 statements and proofs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Formal Lean4 statements and proofs"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Minverva Math"
+        ],
+        "languages": [],
+        "models": [
+          "Qwen-RM-72B",
+          "Qwen2-Math-7B"
+        ],
+        "outputs": [
+          "NL answers, formal Lean4 statements, Lean4 proofs"
+        ]
+      },
+      "normalized": {
+        "Minverva Math": "Minerva Math"
+      },
+      "explanation": "Removed datasets/models not primarily used for NLG tasks (reward model, duplicated model), normalized dataset name spelling, added missing output type"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "PASS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Majority Vote",
+          "Best-of-N",
+          "pass@n"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "pass@k": "Pass@k",
+        "pass@n": "Pass@k"
+      },
+      "explanation": "Removed answer selection methods that aren't evaluation metrics, normalized metrics to base form with consistent capitalization"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Qwen-RM-72B",
+      "qwq_32b"
+    ],
+    "methods": [
+      "Reward model scoring",
+      "Faithfulness checking of NL-to-FL translation"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "best-of-N ranking"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "best-of-N ranking": "Best-of-N"
+      },
+      "explanation": "Removed 'best-of-N ranking' as it's an answer selection method rather than LLM-as-judge evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted as confirmed by full paper text"
+    }
+  },
+  "overall_notes": "Paper focuses on mathematical reasoning evaluation using formal verification methods. Metadata generally well-extracted with minor normalization needed. The framework combines NLG (math problem solving) with formal language verification for answer selection."
+}

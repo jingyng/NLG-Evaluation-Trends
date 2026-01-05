@@ -1,0 +1,164 @@
+{
+  "paper_id": "2022.emnlp-main.106",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "CHINESE WEIBO CORPUS"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "bart",
+      "dialoflow",
+      "gpt_2"
+    ],
+    "outputs": [
+      "counterfactual responses (augmented dialogues)",
+      "responses with different semantics for dialogue history"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "datasets": [],
+        "languages": [],
+        "outputs": [],
+        "tasks": []
+      },
+      "removed": {
+        "models": [],
+        "datasets": [],
+        "languages": [],
+        "outputs": [],
+        "tasks": []
+      },
+      "normalized": {
+        "GPT2": "GPT-2"
+      },
+      "explanation": "Minor normalization: GPT2 → GPT-2 to standardize naming"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "DISTINCT",
+      "BERTSCORE",
+      "MAP",
+      "R10",
+      "NOVELTY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Distinct-n",
+          "Novelty-n"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Intra-Dist-1",
+          "Intra-Dist-2",
+          "Inter-Dist-1",
+          "Inter-Dist-2",
+          "BS_f",
+          "Intra-Novelty-1",
+          "Intra-Novelty-2",
+          "Inter-Novelty-1",
+          "Inter-Novelty-2",
+          "BS_fo",
+          "Dist-1",
+          "Dist-2",
+          "Novelty-1",
+          "Novelty-2",
+          "R_10@k",
+          "BS_f_o"
+        ]
+      },
+      "normalized": {
+        "Dist-n": "Distinct-n",
+        "BS_f": "BERTScore",
+        "BS_fo": "BERTScore",
+        "BS_f_o": "BERTScore",
+        "Novelty-n": "Novelty-n"
+      },
+      "explanation": "Simplified variants to base forms: BLEU variants → BLEU, Dist-n variants → Distinct-n, BERTScore variants → BERTScore, Novelty variants → Novelty-n"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "DialoFlow",
+          "BERT"
+        ],
+        "methods": [
+          "perplexity scoring",
+          "BERTScore"
+        ],
+        "criteria": [
+          "validity",
+          "interesting"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since paper does NOT use LLMs as judges - DialoFlow and BERT are used for perplexity/BERTScore calculations, not as evaluators"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rate each response on Fluency, Coherence, Interesting, and Richness using a 0-2 scale"
+    ],
+    "criteria": [
+      "Fluency",
+      "Coherence",
+      "Interest",
+      "Richness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators rated responses on fluency, coherence, interestingness (inverse of generic), and richness (semantic diversity of multiple responses) using a 0-2 scale.",
+          "Annotators rate each response on Fluency, Coherence, Interesting, and Richness using a 0‑2 scale.",
+          "is the response fluent? is the response serve as a valid continuation of the preceding post? is the response generic? do the three sampled responses express different semantics?"
+        ],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "interesting",
+          "richness"
+        ]
+      },
+      "normalized": {
+        "fluency": "Fluency",
+        "coherence": "Coherence",
+        "interesting": "Interesting",
+        "richness": "Richness"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement. Consistent capitalization for criteria."
+    }
+  },
+  "overall_notes": "The paper is about NLG evaluation (specifically dialogue generation) and uses both automatic metrics and human evaluation. The extraction was generally accurate but needed normalization of metric variants and removal of inappropriate metadata for Q3. Paper focuses on counterfactual data augmentation for dialogue systems."
+}

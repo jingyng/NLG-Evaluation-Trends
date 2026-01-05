@@ -1,0 +1,129 @@
+{
+  "paper_id": "2024.emnlp-main.76",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Generation"
+    ],
+    "datasets": [
+      "DCQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA2-7B",
+      "Mistral-7B",
+      "GPT-4"
+    ],
+    "outputs": [
+      "QUD structures (anchor sentence and question pairs)",
+      "Anchor sentences and implicit questions for each answer sentence"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Generation"
+        ],
+        "outputs": [
+          "Anchor sentences and implicit questions for each answer sentence"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Other:conditional generation",
+          "Other:narrative understanding"
+        ]
+      },
+      "normalized": {
+        "LLaMA2-7B": "LLaMA2-7B",
+        "Mistral-7B": "Mistral-7B",
+        "GPT-4": "GPT-4"
+      },
+      "explanation": "Removed unrelated NLG tasks that were mentioned only as applications in background. The paper specifically evaluates question generation for QUD parsing."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "RoBERTa",
+      "Longformer",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "RoBERTa",
+          "Longformer",
+          "BERTScore"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Answer Compatibility Classifier",
+          "Givenness Classifier",
+          "Anchor Relevance Classifier",
+          "RoBERTa classifier",
+          "Longformer classifier",
+          "GPT-Scr (w/o ref)",
+          "GPT-Scr (w/ ref)",
+          "rule-based method"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Simplified to base metrics used (RoBERTa and Longformer classifiers for the three criteria, BERTScore as reference metric). Removed redundant descriptive names and kept actual metric names."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "prompting for scoring",
+          "prompting GPT-4 to score"
+        ],
+        "criteria": [
+          "answer compatibility",
+          "givenness",
+          "anchor relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "GPT-4 is used as a generator in the paper, not as a judge/scorer. The mention of 'GPT-Scr' is from QUDEVAL baseline comparison, not actual usage in this paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "QUDEVAL annotation guidelines for answer compatibility, givenness, and anchor relevance"
+    ],
+    "criteria": [
+      "answer compatibility",
+      "givenness",
+      "anchor relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "QUDEVAL annotation guidelines for answer compatibility, givenness, and anchor relevance"
+        ]
+      },
+      "removed": {},
+      "normalized": {},
+      "explanation": "Kept the core criteria and added a concise guideline description based on the paper text."
+    }
+  },
+  "overall_notes": "Good extraction overall. Key corrections: (1) Paper focuses specifically on question generation for QUD parsing, not broader NLG tasks mentioned in background; (2) GPT-4 is used as generator, not as judge; (3) Automatic metrics simplified to base classifier types. The paper presents a novel selective decoding approach for QUD parsing with both human and automatic evaluation."
+}

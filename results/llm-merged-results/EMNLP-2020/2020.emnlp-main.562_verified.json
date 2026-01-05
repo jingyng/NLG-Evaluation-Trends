@@ -1,0 +1,139 @@
+{
+  "paper_id": "2020.emnlp-main.562",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Text-to-SQL Generation"
+    ],
+    "datasets": [
+      "DuSQL",
+      "ATIS",
+      "GeoQuery",
+      "WikiSQL",
+      "Spider",
+      "TableQA",
+      "CSpider"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "Seq2Seq+Copying",
+      "SyntaxSQLNet",
+      "IRNet",
+      "IRNetExt"
+    ],
+    "outputs": [
+      "SQL queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation",
+          "Code Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Natural language questions",
+          "SQL queries generated from natural language questions"
+        ]
+      },
+      "normalized": {
+        "IRNet": "IRNet",
+        "IRNetExt": "IRNetExt"
+      },
+      "explanation": "Removed 'Paraphrase Generation' and 'Code Generation' as these are not the main NLG tasks evaluated. 'Code Generation' is misleading since text-to-SQL is SQL query generation, not general code generation. Simplified outputs to just 'SQL queries' since NL generation is mentioned but not evaluated."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Component Matching",
+      "Exact Matching",
+      "Execution Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "component matching",
+          "Component F1"
+        ]
+      },
+      "normalized": {
+        "component matching": "Component Matching",
+        "exact matching": "Exact Matching",
+        "execution accuracy": "Execution Accuracy",
+        "Component F1": "Component Matching"
+      },
+      "explanation": "Normalized metric names to consistent capitalization and removed duplicates. 'Component F1' refers to the same as 'component matching' (F1 score for each clause). Kept the three main metrics used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {
+        "None": ""
+      },
+      "explanation": "Removed 'None' entries as they are not actual models/methods/criteria. The paper does not use LLMs as judges for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- filter incomprehensible and unnatural questions, check correctness of reformulated questions"
+        ],
+        "criteria": [
+          "semantically unclear",
+          "unnatural"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'No' (answer_changed is technically false since answer didn't change, but metadata needed correction). The human evaluation mentioned was during dataset construction, not evaluation of model outputs. Removed all metadata as this was not human evaluation of NLG systems."
+    }
+  },
+  "overall_notes": "This paper primarily focuses on text-to-SQL parsing dataset creation and benchmarking, not NLG evaluation methodology. The NLG aspect is SQL query generation from natural language questions. The extracted metadata was mostly accurate but needed normalization and correction of task categorization. The automatic metrics used are standard for text-to-SQL evaluation. No LLM-as-judge or human evaluation of model outputs was conducted."
+}

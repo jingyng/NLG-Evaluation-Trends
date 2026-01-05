@@ -1,0 +1,89 @@
+{
+  "paper_id": "2023.emnlp-main.702",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares GPT-4 judgments against gold human preferences on the same set of Research Analysis Questions, reports agreement percentages, and conducts statistical significance testing"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt for 'Critique-then-score' technique shown in Appendix Figure with detailed guidelines for each principle"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": 0.42,
+      "interpretation": "good inter-rater agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Complete human annotation guidelines with detailed definitions of all five principles provided in Appendix, used verbatim for human evaluation"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Percentage agreement",
+      "Statistical significance (p-value)"
+    ],
+    "shared_criteria": [
+      "Usefulness",
+      "Relevance",
+      "Truthfulness",
+      "Groundedness",
+      "Thoroughness"
+    ],
+    "sample_size": {
+      "total_generated": 500,
+      "validated_by_both": 500,
+      "notes": "Research Analysis Questions dataset with 500 questions, each with 7 answer types generating multiple pairs for human and LLM evaluation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": null,
+        "criterion": "overall",
+        "llm_model": "GPT-4",
+        "significance": "statistically significant results shown via p-value from student's T-test",
+        "notes": "Exact agreement percentage not specified numerically in text, but PM 0-5 has higher agreement than GPT-4 with gold human preferences"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "",
+      "threshold_used": "",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "The 220M parameter Preference Model (PM 0-5) shows higher agreement with gold human preferences than GPT-4, despite GPT-4 having the advantage of listwise evaluation versus PM's pointwise scoring."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Usefulness",
+      "Relevance",
+      "Truthfulness",
+      "Groundedness",
+      "Thoroughness"
+    ],
+    "notes": "Both LLM and human evaluators use identical criteria definitions and guidelines for evaluation"
+  }
+}

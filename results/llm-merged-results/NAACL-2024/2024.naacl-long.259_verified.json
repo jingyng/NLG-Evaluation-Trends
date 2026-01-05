@@ -1,0 +1,163 @@
+{
+  "paper_id": "2024.naacl-long.259",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Other:Copywriting Generation"
+    ],
+    "datasets": [
+      "Yelp",
+      "QNLI",
+      "CNN/Daily Mail",
+      "XSum",
+      "Amazon"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART-Large",
+      "GPT-3.5",
+      "LLaMA-2-7B-Chat",
+      "DeBERTa-v3",
+      "BART-base"
+    ],
+    "outputs": [
+      "Persuasive product copywriting generated from customer reviews",
+      "Aspect-based summaries constrained to around 30 words"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BART-base"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Restaurant review summarization dataset",
+          "Yelp restaurant review dataset (constructed copywriting dataset)"
+        ],
+        "languages": [],
+        "models": [
+          "LLaMA-2",
+          "LLaMA-2-Chat-7B"
+        ],
+        "outputs": [
+          "copywriting (summaries) for given aspects and reviews",
+          "The outputs are persuasive, attractive, and information-dense product copywriting generated from customer reviews, constrained to around 30 words and focused on specific aspects (e.g., 'steak' in restaurant reviews)."
+        ]
+      },
+      "normalized": {
+        "LLaMA-2-7B-Chat": "LLaMA-2-7B-Chat",
+        "LLaMA-2-Chat-7B": "LLaMA-2-7B-Chat"
+      },
+      "explanation": "Removed redundant/constructed dataset names, normalized model names (LLaMA-2-7B-Chat), simplified output descriptions, added BART-base which was used in experiments"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "Perplexity",
+      "RMSE",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "Perplexity (PPL)",
+          "Binary Classification Accuracy"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "Perplexity (PPL)": "Perplexity",
+        "Binary Classification Accuracy": "Accuracy"
+      },
+      "explanation": "Normalized ROUGE variants to base form, simplified metric names according to guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-3.5"
+    ],
+    "methods": [
+      "pairwise ranking"
+    ],
+    "criteria": [
+      "attractiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "pairwise evaluation"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "pairwise evaluation": "pairwise ranking"
+      },
+      "explanation": "Simplified methods to 'pairwise ranking' which is the core evaluation approach used with GPT-3.5"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Which copywriting is more attractive and makes you want to purchase/enjoy the product aspect?",
+      "Which copywriting is more faithful to the original review?",
+      "Which copywriting is more fluent?"
+    ],
+    "criteria": [
+      "attractiveness",
+      "faithfulness",
+      "fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- The instructions for evaluators are (1) Which one is more attractive and makes you want to purchase/enjoy k? (2) Which one is more faithful to the original review x? (3) Which one is more fluent?",
+          "- Which one is more attractive and makes you want to purchase/enjoy the aspect? Which one is more faithful to the original review? Which one is more fluent?",
+          "- Given a customer review x, an aspect k, and two copywriting y1, y2, the instructions for evaluators are (1) Which one is more attractive and makes you want to purchase/enjoy k? (2) Which one is more faithful to the original review x? (3) Which one is more fluent?"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "k": "product aspect",
+        "x": "original review"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into clear, standardized questions"
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive NLG evaluation study focusing on copywriting generation from customer reviews. The extraction was generally accurate but contained some redundancy and needed normalization. The paper uses both automatic metrics (ROUGE, perplexity) and human evaluation with clear criteria. GPT-3.5 is used both for generation (baseline) and as a judge for pairwise attractiveness ranking."
+}

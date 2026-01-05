@@ -1,0 +1,104 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We formulate the task of summarizing radiology reports as follows. Given the findings section of a report, represented as a sequence of tokens x = (x1, x2, . . . , xN), the goal is to generate an impression y = (y1, y2, . . . , yM) that accurately summarizes the most significant findings.",
+            "We revisited guided abstractive summarization of radiology reports... The task of summarizing radiology reports as follows. Given the findings section ... the goal is to generate an impression ... that accurately summarizes the most significant findings.",
+            "The radiology report is an important tool for radiologists to communicate examination results with other clinicians... writing the impression can be time-consuming and error-prone, which is why automatic text summarization systems can substantially improve the quality of clinical reporting."
+        ],
+        "tasks": [
+            "Text Summarization"
+        ],
+        "datasets": [
+            "MIMIC-CXR",
+            "OpenI"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "BertAbs",
+            "GSum",
+            "WGSum",
+            "WGSum+CL",
+            "OracleExt",
+            "BertExt",
+            "LR-Approx",
+            "BERT-Approx",
+            "Thresholding"
+        ],
+        "outputs": [
+            "Impressions (summaries of radiology findings)",
+            "Impression summaries (concise abstractive summaries of radiology findings)",
+            "impression section of radiology reports"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Automatic evaluation metrics. We evaluate the quality of generated impressions with ROUGE F1 to measure unigram and bigram overlap as a proxy for relevance (R-1, R-2) and the longest common subsequence as a proxy for fluency (R-L). In addition, we report BERTScore as a measure of soft-alignment. As factual correctness is critical, we also calculate a factuality F1.",
+            "We evaluate the quality of generated impressions with ROUGE F1 ... we also report BERTScore ... As factual correctness is critical, we also calculate a factuality F1 based on CheXpert.",
+            "We evaluate the quality of generated impressions with ROUGE F1 to measure unigram and bigram overlap as a proxy for relevance (R-1, R-2) and the longest common subsequence as a proxy for fluency (R-L). In addition, we report BERTScore as a measure of soft-alignment. As factual correctness is critical, we also calculate a factuality F1."
+        ],
+        "automatic_metrics": [
+            "ROUGE-1",
+            "ROUGE-2",
+            "ROUGE-L",
+            "BERTScore",
+            "Factuality F1",
+            "Factuality",
+            "factuality F1"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [
+            "To give a first factuality estimate, we conducted a post-hoc analysis with RadNLI. Let xi be a sentence in report x = (x1, . . . , xn), and s be an addition span. If RadNLI predicts a contradiction for any (xi, s) pair, we label this span as contradicting..."
+        ],
+        "models": [
+            "RadNLI"
+        ],
+        "methods": [
+            "post-hoc factuality check using RadNLI for contradiction"
+        ],
+        "criteria": [
+            "factuality"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We task annotators to highlight erroneous text spans and to classify them according to an error taxonomy. Based on two pilot runs, we extended this taxonomy from initially 6 to 11 fine-grained error categories... we hired 6 senior medical students...",
+            "We task annotators to highlight erroneous text spans and to classify them according to an error taxonomy. ... We hired 6 senior medical students ... Each set of summaries is completed by three annotators resulting in 1,200 error annotations.",
+            "We task annotators to highlight erroneous text spans and to classify them according to an error taxonomy... We hired 6 senior medical students in their fifth year of training."
+        ],
+        "guideline": [
+            "Annotators highlight erroneous spans and classify them into 11 categories (e.g., omissions, additions, incorrect semantics).",
+            "Annotators followed detailed annotation guidelines defining 11 fine‑grained error categories (omissions, additions, incorrect location, incorrect severity, other, etc.) and marked spans accordingly.",
+            "Annotators are asked to highlight erroneous text spans and classify them into error categories including omissions, additions, incorrect location, incorrect severity, and other errors. They can also flag any additional errors in free-form."
+        ],
+        "criteria": [
+            "omission of finding/interpretation",
+            "omission of comparison",
+            "omission of reference to prior report",
+            "omission of communication/followup",
+            "addition of finding/interpretation",
+            "addition of comparison",
+            "addition of reference to prior report",
+            "addition of communication/followup",
+            "addition of contradicting finding",
+            "incorrect location",
+            "incorrect severity",
+            "other error",
+            "omission",
+            "addition",
+            "omissions",
+            "additions",
+            "contradicting finding",
+            "communication/followup",
+            "reference to prior report",
+            "comparison",
+            "finding/interpretation"
+        ]
+    }
+}

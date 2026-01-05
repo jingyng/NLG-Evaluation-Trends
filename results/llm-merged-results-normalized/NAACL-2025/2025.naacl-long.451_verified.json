@@ -1,0 +1,131 @@
+{
+  "paper_id": "2025.naacl-long.451",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Explanation Generation",
+      "Authorship Verification"
+    ],
+    "datasets": [
+      "imdb62",
+      "BLOG AUTH",
+      "FANFICTION"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_8b",
+      "gpt_4_turbo"
+    ],
+    "outputs": [
+      "structured free-text rationales in JSON format with linguistic feature analysis, intermediate labels (YES/NO/MAYBE), final score, and predicted label"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Natural Language Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "free-text rationales with structured JSON output containing linguistic feature analyses, intermediate labels (YES/NO/MAYBE), final score, and predicted label"
+        ]
+      },
+      "normalized": {
+        "LLAMA-3-8B": "Llama-3-8B",
+        "GPT-4-TURBO": "GPT-4-Turbo"
+      },
+      "explanation": "Removed 'Other:Natural Language Generation' as it's too broad - the paper specifically focuses on explanation generation for authorship verification. Normalized model names to standard capitalization. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CONS R",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Accuracy (ACC.)",
+          "CS-1",
+          "CS-2",
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "ACC.": "Accuracy"
+      },
+      "explanation": "Consolidated multiple accuracy references to just 'Accuracy'. Removed CS-1 and CS-2 as they are components of CONS-R-L metric, not separate metrics. CONS-R-L is the main automatic metric for evaluating explanation quality."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges - LLMs are used for generation (GPT-4-Turbo for silver data generation, Llama-3-8B for CAVE model), but not for post-generation evaluation. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluated rationales via three properties: Detail-Consistency (are details consistent with input documents or hallucinated), Factual-Correctness (are rationales factually correct), and Label-Consistency (is each individual rationale consistent with its corresponding intermediate label)",
+      "Annotators were asked to comment on why a rationale is unsatisfactory and to assess each rationale on specific properties",
+      "Three distinct annotators per datapoint, analyzing each linguistic feature independently"
+    ],
+    "criteria": [
+      "Consistency",
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three distinct annotators per datapoint, analyzing each linguistic feature independently"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added additional detail about the human evaluation setup (three annotators per datapoint). The criteria were correctly extracted and remain unchanged."
+    }
+  },
+  "overall_notes": "The paper focuses on generating structured explanations for authorship verification, which qualifies as an NLG task. The extraction was generally accurate but needed some normalization and consolidation. The paper uses both automatic metrics (CONS-R-L, Accuracy) and human evaluation, but does not use LLMs as judges. The human evaluation was well-documented with clear criteria."
+}

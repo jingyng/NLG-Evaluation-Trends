@@ -1,0 +1,138 @@
+{
+  "paper_id": "2020.emnlp-main.352",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "PersonaChat",
+      "DailyDialog"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Latent space model",
+      "Seq2seq baseline",
+      "MMI-anti",
+      "SpaceFusion"
+    ],
+    "outputs": [
+      "dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Prompt Encoder F_x",
+          "Correlated Response Encoder F_y",
+          "Uncorrelated Response Encoder F_u",
+          "Decoder G_y",
+          "GRU",
+          "Seq2seq"
+        ],
+        "outputs": [
+          "generated dialogue responses"
+        ]
+      },
+      "normalized": {
+        "Seq2seq": "Seq2seq baseline"
+      },
+      "explanation": "Removed internal model component names (encoders/decoder) since those are implementation details, not evaluated models. Kept only the main compared models. Simplified outputs to 'dialogue responses'."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "Embedding Average cosine similarity",
+      "distinct-1",
+      "distinct-2"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BLEU-1": "BLEU",
+        "BLEU-2": "BLEU",
+        "dist-1": "distinct-1",
+        "dist-2": "distinct-2"
+      },
+      "explanation": "Normalized BLEU variants to base form 'BLEU' and standardized 'distinct-1/2' naming for diversity metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM evaluation mentioned in the paper (pre-dates widespread LLM-as-judge usage)."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers rate each response on informativeness/specificity (0-3 scale)",
+      "Workers rate each response on relevance/on-topic (0-3 scale)"
+    ],
+    "criteria": [
+      "informativeness",
+      "specificity",
+      "relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Workers rate each response on informativeness/specificity (0-3 scale)",
+          "Workers rate each response on relevance/on-topic (0-3 scale)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- We ask them to rate 1) informativeness and specificity of each response and 2) if the response is on topic (relevance), on a Likert scale from 0 to 3.",
+          "Crowdsourced workers rate each generated response on informativeness, specificity, and relevance using a 0‑3 Likert scale.",
+          "We ask them to rate 1) informativeness and specificity of each response and 2) if the response is on topic (relevance), on a Likert scale from 0 to 3."
+        ],
+        "criteria": [
+          "informativeness and specificity"
+        ]
+      },
+      "normalized": {
+        "informativeness and specificity": "informativeness, specificity"
+      },
+      "explanation": "Normalized criteria list and created cleaner guideline descriptions. Separated 'informativeness and specificity' into distinct criteria."
+    }
+  },
+  "overall_notes": "The paper presents a novel dialogue generation model using semantic latent space regression as alternative to MLE training. Human evaluation was properly conducted with crowdsourced workers. Automatic metrics were used but acknowledged as secondary to human evaluation. The extraction was generally accurate but contained some internal implementation details that don't belong in the model comparison list."
+}

@@ -1,0 +1,139 @@
+{
+  "paper_id": "2025.acl-long.309",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Hallucination Detection"
+    ],
+    "datasets": [
+      "True-False Dataset",
+      "TruthfulQA",
+      "TriviaQA",
+      "HaluEval",
+      "NQ"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-2-7B",
+      "LLaMA-2-13B",
+      "Alpaca-13B",
+      "Vicuna-13B-v1.3",
+      "Mistral-7B-v0.3",
+      "Gemma-2-9B"
+    ],
+    "outputs": [
+      "factual and non-factual statements",
+      "question-answer pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "datasets": [
+          "True-False Dataset (Company*, Fact*, City*, Invention*)",
+          "True-False (Company*, Fact*, City*, Invention*)",
+          "Company *",
+          "Fact *",
+          "City *",
+          "Invention *",
+          "HaluEval QA",
+          "HaluEval (QA subset)"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "final incorrect factuality score P(ξ = 1|x) indicating hallucination probability",
+          "generated text sequences in question answering tasks"
+        ]
+      },
+      "normalized": {
+        "LLama-2-7B": "LLaMA-2-7B",
+        "LLama-2-13B": "LLaMA-2-13B",
+        "Mistral-7B-0.3": "Mistral-7B-v0.3"
+      },
+      "explanation": "Removed 'Question Answering' as a task since the paper focuses on hallucination detection, not QA generation. Consolidated duplicate dataset names and removed sub-dataset variations. Normalized model names to standard capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "AUC-ROC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "The extracted AUC-ROC metric is correct and properly normalized."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLama-2-7B",
+          "LLama-2-13B",
+          "Alpaca-13B",
+          "Vicuna-13B-v1.3",
+          "Mistral-7B-0.3",
+          "Gemma-2-9B",
+          "LLMs used in P(True) method"
+        ],
+        "methods": [
+          "P(True) prompt-based evaluation",
+          "Prompt-based evaluation using P(True)",
+          "P(True)"
+        ],
+        "criteria": [
+          "correctness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses LLMs as subjects for hallucination detection (the models being analyzed), not as judges evaluating outputs. P(True) is a baseline method being evaluated, not an LLM-as-judge approach."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper, only automatic evaluation using AUC-ROC."
+    }
+  },
+  "overall_notes": "This paper focuses on hallucination detection in LLMs using neural differential equations. It evaluates detection performance using AUC-ROC across multiple datasets and models. The main contribution is the HD-NDEs method for detecting hallucinations by modeling latent space dynamics. The paper does not involve LLM-as-judge evaluation or human evaluation."
+}

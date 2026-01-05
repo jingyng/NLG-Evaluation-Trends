@@ -1,0 +1,156 @@
+{
+  "paper_id": "2025.acl-long.188",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering"
+    ],
+    "datasets": [
+      "TriviaQA",
+      "SCIQ",
+      "WIKIQA",
+      "NATURAL QUESTIONS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b_chat_hf",
+      "llama_3.1_8b_instruct",
+      "llama_3_8b_instruct",
+      "phi_3_small_128k_instruct",
+      "qwen_2_72b_instruct",
+      "llama_3_70b_instruct",
+      "llama_3.1_70b_instruct",
+      "mixtral_8x_7b_instruct_v_0.1",
+      "gemma_2_27b_it"
+    ],
+    "outputs": [
+      "Generated answers to open-ended questions",
+      "Confidence scores for LLM predictions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Confidence scores for LLM predictions"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Sciq",
+          "NQ"
+        ],
+        "languages": [],
+        "models": [
+          "Llama2-7b",
+          "Llama3-8b",
+          "Phi-3-7b",
+          "Qwen2-72b",
+          "Llama3-70b",
+          "Llama3.1-70b",
+          "Mixtral-8x7b",
+          "Gemma2-27b",
+          "Llama3.1-8b",
+          "Phi3-7b",
+          "Llama3-72b"
+        ],
+        "outputs": [
+          "Generated answer strings for each question",
+          "open-ended answers to questions"
+        ]
+      },
+      "normalized": {
+        "Sciq": "SciQ",
+        "NQ": "Natural Questions",
+        "gemma-2-27b-it": "Gemma-2-27B-IT"
+      },
+      "explanation": "Normalized dataset names to standard forms, removed model aliases/duplicates, kept only canonical model names. Added confidence scores as outputs since the paper focuses on calibration of LLM predictions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ECE",
+      "BRIER",
+      "AUC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "All metrics are correctly extracted and properly normalized. The paper uses these four metrics specifically for calibration evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "prometheus_2"
+    ],
+    "methods": [
+      "binary correctness assessment based on semantic equivalence"
+    ],
+    "criteria": [
+      "Equivalence",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Prometheus 2"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Judge model (e.g., Prometheus 2)",
+          "Judge model J (open-source LLM)",
+          "Judge model J"
+        ],
+        "methods": [
+          "binary correctness scoring via prompt",
+          "binary correctness score based on semantic equivalence"
+        ],
+        "criteria": [
+          "semantical equivalence"
+        ]
+      },
+      "normalized": {
+        "Judge model": "Prometheus 2",
+        "semantical equivalence": "semantic equivalence"
+      },
+      "explanation": "Simplified to specify Prometheus 2 as the judge model (mentioned in the paper), normalized criteria, and consolidated method descriptions."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The paper relies solely on automatic calibration metrics and LLM-as-a-judge for correctness assessment."
+    }
+  },
+  "overall_notes": "The paper focuses on LLM calibration rather than NLG quality evaluation. It uses question answering as a testbed for calibration methods. The extraction was generally accurate but contained some duplicates and non-standard names that needed normalization. The paper explicitly mentions Prometheus 2 as the judge model and provides detailed prompts for evaluation."
+}

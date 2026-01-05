@@ -1,0 +1,130 @@
+{
+  "paper_id": "2025.naacl-long.23",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Long Form Question Answering",
+      "Citation Generation"
+    ],
+    "datasets": [
+      "ASQA",
+      "eli5"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3.5",
+      "gpt_4",
+      "llama_3_8b"
+    ],
+    "outputs": [
+      "long-form responses with positional fine-grained citations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Citation Generation"
+        ],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "models": [
+          "gpt-3.5-turbo-0125",
+          "gpt-4-turbo-2024-04-09"
+        ],
+        "outputs": [
+          "long-form responses containing positional fine-grained inline citations",
+          "long-form responses with inline citations"
+        ]
+      },
+      "normalized": {
+        "gpt-3.5-turbo-0125": "GPT-3.5",
+        "gpt-4-turbo-2024-04-09": "GPT-4"
+      },
+      "explanation": "Added 'Citation Generation' as a primary task. Simplified model names to canonical forms (removed internal version identifiers). Consolidated output descriptions. Kept only the main models evaluated, not specific API versions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CITATION RECALL",
+      "CITATION PRECISION",
+      "CVCP",
+      "EXACT MATCH RECALL",
+      "ROUGE",
+      "MAUVE",
+      "LENGTH"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "correctness",
+          "fluency",
+          "ALCE",
+          "Exact Match Recall"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized 'ROUGE-L' to 'ROUGE'. Removed 'correctness' and 'fluency' as they are evaluation criteria rather than specific metrics. Removed 'ALCE' as it's another evaluation framework, not a metric. Consolidated variant metrics to base forms."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "T5-11B"
+        ],
+        "methods": [
+          "Natural Language Inference (NLI) for entailment"
+        ],
+        "criteria": [
+          "entailment"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as the paper does NOT use LLMs as judges. The TRUE model (T5-11B) is used for NLI, but this is part of the automatic evaluation pipeline, not LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluated answer utility using 1-5 Likert scale",
+      "Annotators evaluated PF citation utility using binary annotation (0/1)",
+      "Annotators manually extracted atomic claims and judged citation recall and precision using entailment judgments"
+    ],
+    "criteria": [
+      "Utility",
+      "Citation"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "criteria": [
+          "PF sample"
+        ]
+      },
+      "normalized": {
+        "Answer Utility": "answer utility",
+        "PF Citation Utility": "citation utility",
+        "Citation Recall": "citation recall",
+        "Citation Precision": "citation precision"
+      },
+      "explanation": "Normalized criteria to lowercase. Removed 'PF sample' as it's a count metric, not an evaluation criterion. Consolidated guideline descriptions and normalized terminology."
+    }
+  },
+  "overall_notes": "The paper presents a novel evaluation framework ALiiCE for positional fine-grained citation generation in long-form QA. The extraction quality was good overall, though some minor normalization and consolidation was needed. The paper focuses on citation generation as an NLG task with both automatic and human evaluation components."
+}

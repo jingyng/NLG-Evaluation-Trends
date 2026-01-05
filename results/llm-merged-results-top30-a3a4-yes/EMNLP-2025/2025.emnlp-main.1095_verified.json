@@ -1,0 +1,161 @@
+{
+  "paper_id": "2025.emnlp-main.1095",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering"
+    ],
+    "datasets": [
+      "NATURAL QUESTIONS",
+      "TriviaQA",
+      "POPQA",
+      "HotpotQA",
+      "2wikimultihopqa",
+      "MUSIQUE",
+      "MEDQA US",
+      "MEDMCQA",
+      "PUBMEDQA",
+      "BIOASQ Y N",
+      "MMLU MED"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_2.5_7b_instruct",
+      "qwen_2.5_14b_instruct",
+      "claude_3_haiku"
+    ],
+    "outputs": [
+      "generated answers to questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Natural Questions (NQ)",
+          "NQ",
+          "PubMedQA*"
+        ],
+        "languages": [],
+        "models": [
+          "DeepRetrieval",
+          "Search-R1",
+          "IRCoT"
+        ],
+        "outputs": [
+          "Generated free-form answers to question-answering pairs",
+          "final answers to question-answering tasks"
+        ]
+      },
+      "normalized": {
+        "Qwen2.5-7b-Instruct": "Qwen2.5-7B-Instruct",
+        "Qwen2.5-14b-Instruct": "Qwen2.5-14B-Instruct"
+      },
+      "explanation": "Removed duplicate dataset names (NQ variations) and models that are not generation models (DeepRetrieval, Search-R1, IRCoT are search/retrieval methods). Consolidated output descriptions to single consistent description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "GENERATION ACCURACY",
+      "EXACT MATCH",
+      "SPAN CHECK",
+      "JUDGE CHECK",
+      "RECALL",
+      "NDCG"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "exact match": "Exact Match",
+        "span_check": "Span Check"
+      },
+      "explanation": "Normalized metric names to consistent capitalization. All metrics are correctly extracted from the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "qwen_2.5_14b_instruct",
+      "claude_3_haiku"
+    ],
+    "methods": [
+      "judge_check"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Qwen2.5-14B-Instruct-GPTQ-Int4"
+        ],
+        "methods": [
+          "binary judgment prompt",
+          "judge_check prompt"
+        ],
+        "criteria": [
+          "answer correctness"
+        ]
+      },
+      "normalized": {
+        "Qwen2.5-14B-Instruct-GPTQ-Int4": "Qwen2.5-14B-Instruct"
+      },
+      "explanation": "Normalized model names and simplified to base model names. Consolidated methods to 'judge_check' and criteria to 'correctness' as the main evaluation criterion."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "You are an evaluator for question-answering systems. Your task is to determine whether the system-generated answer aligns with the provided gold (reference) answers. Evaluation Criteria: An answer should be marked as correct (1) if it: • Contains the same key information as the golden answers; • Expresses the same meaning, even if using different wording; • Is factually consistent with the golden answers."
+    ],
+    "criteria": [
+      "Information",
+      "Equivalence",
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Determine whether the system-generated answer aligns with the provided gold answers.",
+          "An answer should be marked as correct (1) if it: • Contains the same key information as the golden answers; • Expresses the same meaning, even if using different wording; • Is factually consistent with the golden answers."
+        ],
+        "criteria": [
+          "correctness",
+          "Contains the same key information",
+          "Expresses the same meaning",
+          "Factual consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline into a single comprehensive description. Simplified criteria to three main dimensions mentioned in the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on retrieval-augmented generation (RAG) for question answering. It evaluates generated answers using both automatic metrics and LLM-as-judge evaluation. The human evaluation was conducted with clear guidelines. The extraction was generally accurate but contained some duplicates and minor inconsistencies that were normalized."
+}

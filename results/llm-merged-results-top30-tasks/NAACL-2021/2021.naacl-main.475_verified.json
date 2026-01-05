@@ -1,0 +1,136 @@
+{
+  "paper_id": "2021.naacl-main.475",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "XSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "bert_2s",
+      "trans_2s",
+      "tconvs_2s",
+      "ptgen",
+      "rnn",
+      "transformer"
+    ],
+    "outputs": [
+      "summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "BERTS2S": "BERT2S"
+      },
+      "explanation": "Normalized 'BERTS2S' to 'BERT2S' for consistency with other model naming patterns in the paper"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE",
+      "FEQA"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BERTSCORE"
+        ]
+      },
+      "normalized": {
+        "ROUGE L": "ROUGE",
+        "BERTSCORE": "BERTScore",
+        "BERTScore": "BERTScore"
+      },
+      "explanation": "Removed duplicate 'BERTSCORE' and normalized all metric variants to base forms (ROUGE-L → ROUGE, BERTSCORE → BERTScore)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BART"
+        ],
+        "methods": [
+          "contrast candidate scoring",
+          "ranking"
+        ],
+        "criteria": [
+          "faithfulness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as this paper does NOT use LLMs as judges. The extracted items refer to the generation model (BART) and evaluation methods, not LLM-based evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Assign each summary into three faithfulness categories: faithful, extrinsically hallucinated, and intrinsically hallucinated"
+    ],
+    "criteria": [
+      "Faithful",
+      "Hallucinated"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- assign each summary into three faithfulness categories: faithful, extrinsically hallucinated, and intrinsically hallucinated",
+          "Assign each summary into categories: Faithful, Extrinsically Hallucinated, Intrinsically Hallucinated.",
+          "assign each summary into three faithfulness categories: 'faithful', 'extrinsically hallucinated', and 'intrinsically hallucinated'.",
+          "faithfulness"
+        ],
+        "criteria": [
+          "faithfulness"
+        ]
+      },
+      "normalized": {
+        "Faithful": "faithful",
+        "Extrinsically Hallucinated": "extrinsically hallucinated",
+        "Intrinsically Hallucinated": "intrinsically hallucinated"
+      },
+      "explanation": "Consolidated duplicate guideline descriptions into one clear statement and normalized criteria to lowercase for consistency. Removed 'faithfulness' as it's the overall concept, not a specific category."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate but had some normalization issues. Key observations: (1) Paper focuses on abstractive summarization with faithfulness evaluation, (2) Uses ROUGE, BERTScore, and FEQA metrics, (3) Conducts human evaluation with three faithfulness categories, (4) Does NOT use LLMs as judges - the BART model mentioned is used for generation, not evaluation. The paper is primarily about improving faithfulness in summarization through contrast candidate generation and selection."
+}

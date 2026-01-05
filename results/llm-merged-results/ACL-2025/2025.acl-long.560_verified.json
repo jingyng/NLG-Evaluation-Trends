@@ -1,0 +1,205 @@
+{
+  "paper_id": "2025.acl-long.560",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Code Generation",
+      "Question Answering"
+    ],
+    "datasets": [
+      "LongBench",
+      "MiniLongBench",
+      "GovReport",
+      "QMSum",
+      "MultiNews",
+      "VCSUM",
+      "NarrativeQA",
+      "Qasper",
+      "MultiFieldQA-en",
+      "MultiFieldQA-zh",
+      "HotpotQA",
+      "2WikiMultihopQA",
+      "MuSiQue",
+      "DuReader",
+      "TREC",
+      "TriviaQA",
+      "SAMSum",
+      "LSHT",
+      "PassageCount",
+      "PassageRetrieval-en",
+      "PassageRetrieval-zh",
+      "LCC",
+      "RepoBench-P"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "ChatGLM2-32k",
+      "LongChat-32k",
+      "GPT-4",
+      "Claude-2",
+      "Llama-2-7b",
+      "Llama-2-13b",
+      "Llama-2-70b",
+      "Vicuna-7b",
+      "Vicuna-13b",
+      "Vicuna-33b",
+      "Baichuan2-7b",
+      "Baichuan2-13b",
+      "Baichuan2-70b",
+      "QWen-7b",
+      "QWen-14b",
+      "QWen-72b",
+      "InternLM-7b",
+      "InternLM-20b",
+      "XVERSE-13b",
+      "Mistral-7b"
+    ],
+    "outputs": [
+      "summaries",
+      "code completions",
+      "answers for question answering tasks",
+      "few-shot learning responses",
+      "synthetic task outputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "ChatGLM2-32k",
+          "LongChat-32k",
+          "GPT-4",
+          "Claude-2",
+          "Llama-2-7b",
+          "Llama-2-13b",
+          "Llama-2-70b",
+          "Vicuna-7b",
+          "Vicuna-13b",
+          "Vicuna-33b",
+          "Baichuan2-7b",
+          "Baichuan2-13b",
+          "Baichuan2-70b",
+          "QWen-7b",
+          "QWen-14b",
+          "QWen-72b",
+          "InternLM-7b",
+          "InternLM-20b",
+          "XVERSE-13b",
+          "Mistral-7b"
+        ],
+        "outputs": [
+          "few-shot learning responses",
+          "synthetic task outputs"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "over 60 LLMs (e.g., ChatGLM2-32k, LongChat-32k, etc.)",
+          "over 60 LLMs",
+          "MiniLongBench"
+        ],
+        "outputs": [
+          "model predictions such as answers, summaries, and code snippets"
+        ]
+      },
+      "normalized": {
+        "Edit Sim": "Edit Similarity",
+        "Acc. (CLS)": "Accuracy (Classification)",
+        "Acc. (EM)": "Accuracy (Exact Match)"
+      },
+      "explanation": "Added Question Answering task which is a major component of LongBench/MiniLongBench. Replaced generic 'over 60 LLMs' with specific LLM names mentioned in the paper (Appendix B table). Added missing output types. MiniLongBench is a benchmark, not a model, so removed from models list."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "ROUGE",
+      "Edit Similarity",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Rouge-L",
+          "Accuracy (Exact Match)",
+          "Accuracy (Classification)",
+          "F1 score",
+          "Acc. (CLS)",
+          "Acc. (EM)",
+          "Edit Sim"
+        ]
+      },
+      "normalized": {
+        "Rouge-L": "ROUGE",
+        "Edit Sim": "Edit Similarity"
+      },
+      "explanation": "Normalized metric variants to base forms following guidelines (ROUGE-1, ROUGE-2, ROUGE-L → ROUGE). Combined accuracy variants under 'Accuracy'."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges/evaluators. LLMs are only used as the systems being evaluated on the benchmark. Removed 'None' placeholders."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not conduct human evaluations. Evaluation is entirely automated using the benchmark metrics. Removed 'None' placeholders."
+    }
+  },
+  "overall_notes": "This paper proposes MiniLongBench, a compressed version of the LongBench benchmark for evaluating long-context understanding in LLMs. The paper focuses on benchmark creation and compression methodology rather than evaluating specific NLG systems. The evaluation uses standard automatic metrics on established NLG tasks (summarization, QA, code generation). No human evaluation or LLM-as-judge methodology is used. The extraction was reasonably accurate but needed normalization of metrics and more specific LLM names from the appendix."
+}

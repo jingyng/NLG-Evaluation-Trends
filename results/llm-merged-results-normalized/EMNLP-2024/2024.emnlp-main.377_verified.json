@@ -1,0 +1,137 @@
+{
+  "paper_id": "2024.emnlp-main.377",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Machine Translation",
+      "Code Generation",
+      "Creative Writing",
+      "Text Summarization"
+    ],
+    "datasets": [
+      "c4 200m",
+      "MULTIUN",
+      "CODESEARCHNET",
+      "WRITINGPROMPTS",
+      "MEDDIALOG",
+      "SQuAD",
+      "ENRON"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3.5_turbo_16k",
+      "gpt_4"
+    ],
+    "outputs": [
+      "Reconstructed conversation texts",
+      "Semantic content from previous conversations",
+      "Verbatim text reconstruction"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [
+          "Enron"
+        ],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Problem Solving",
+          "Other:Recommendation Generation",
+          "Other:Language Knowledge",
+          "Other:Recommendation",
+          "Other:Recommendations"
+        ],
+        "datasets": [
+          "Enron email dataset"
+        ],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "gpt-3.5-turbo-16k": "GPT-3.5-turbo-16k",
+        "gpt-4": "GPT-4",
+        "Enron email dataset": "Enron",
+        "Other:Creative Writing": "Creative Writing"
+      },
+      "explanation": "Removed generic 'Other:' task categories and normalized to standard NLG tasks. Added 'Text Summarization' since models generate summaries of previous conversations. Normalized dataset/model names to standard capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "EDIT SIMILARITY",
+      "SEMANTIC SIMILARITY"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "edit similarity": "Edit Similarity",
+        "semantic similarity": "Semantic Similarity",
+        "BLEU": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "METEOR": "METEOR",
+        "Edit Similarity": "Edit Similarity",
+        "Semantic Similarity": "Semantic Similarity"
+      },
+      "explanation": "Simplified ROUGE-L to ROUGE base form as per normalization rules. Kept Edit Similarity and Semantic Similarity as distinct metrics since they are fundamentally different evaluation approaches mentioned throughout the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper. LLMs were used for generation but not for subsequent evaluation of outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual annotation of responses categorized as Successful (full reconstruction), Partially leaked (partial reconstruction), or Failed (refused to reconstruct)"
+    ],
+    "criteria": [
+      "Completeness",
+      "Privacy"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Completeness of conversation reconstruction",
+          "Privacy leakage level"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "response patterns"
+        ]
+      },
+      "normalized": {
+        "Successful": "Successful",
+        "Partially leaked": "Partially leaked",
+        "Failed": "Failed"
+      },
+      "explanation": "Added explicit criteria mentioned in the paper about reconstruction completeness and privacy leakage. Removed 'response patterns' as it's not a human evaluation criterion but rather an observation."
+    }
+  },
+  "overall_notes": "The paper focuses on privacy leakage risks in conversational AI systems by evaluating how well GPT models can reconstruct previous conversations. It uses both automatic metrics (similarity-based) and human evaluation for ground truth validation. The main NLG task is dialogue/conversation reconstruction, with other tasks serving as conversation content types. Extraction quality was generally good with minor normalization needed."
+}

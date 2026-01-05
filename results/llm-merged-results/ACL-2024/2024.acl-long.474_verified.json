@@ -1,0 +1,151 @@
+{
+  "paper_id": "2024.acl-long.474",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "Multi-News-Fact-Checking",
+      "MOCHEG",
+      "FEVER",
+      "Multi-News"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "MetaSumPerceiver (MSP)",
+      "Perceiver",
+      "BART",
+      "CLIP",
+      "Llama 2",
+      "DeBERTaV3",
+      "Mistral"
+    ],
+    "outputs": [
+      "summaries for fact-checking",
+      "summaries that provide evidence for fact-checking claims",
+      "summaries that distill claim-specific evidence from multimodal sources"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "MSP",
+          "MetaSumPerceiver"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "DeBERTAV3": "DeBERTaV3"
+      },
+      "explanation": "Removed duplicate/redundant model names (MSP and MetaSumPerceiver are the same as MetaSumPerceiver (MSP)), normalized DeBERTaV3 capitalization"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "BERTScore",
+      "Precision",
+      "Recall",
+      "Accuracy",
+      "F-score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "All metrics are correctly extracted and relevant"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Mistral",
+      "Llama 2"
+    ],
+    "methods": [
+      "quality scoring with prompt",
+      "zero-shot entailment evaluation"
+    ],
+    "criteria": [
+      "clarity",
+      "conciseness",
+      "factual accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "factual accuracy"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "quality testing prompt",
+          "zero-shot entailment prediction"
+        ],
+        "criteria": [
+          "supported/entailment",
+          "refuted/contradiction",
+          "NEI/neutral"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed redundant method descriptions and truthfulness labels (which are evaluation targets, not LLM judging criteria). Added 'factual accuracy' as an explicit criterion mentioned in the quality assessment prompt."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Using a scale from 1 to 5 for fidelity and informativeness",
+      "Annotators rated each summary on a 1-5 Likert scale for fidelity and informativeness",
+      "Blinded annotators rated summaries alongside respective articles"
+    ],
+    "criteria": [
+      "fidelity",
+      "informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Blinded annotators rated summaries alongside respective articles"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "rate the generated summaries alongside their respective articles"
+        ],
+        "criteria": [
+          "quality"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline descriptions and removed 'quality' as it was redundant with the specific criteria mentioned"
+    }
+  },
+  "overall_notes": "The extraction quality was generally good. The paper focuses on multimodal multi-document summarization for fact-checking, using both automatic metrics and human evaluation. LLMs are used both as generators (Llama 2 for claim generation) and as judges (Mistral for quality scoring, Llama 2 for entailment evaluation). All metadata has been verified against the full paper text."
+}

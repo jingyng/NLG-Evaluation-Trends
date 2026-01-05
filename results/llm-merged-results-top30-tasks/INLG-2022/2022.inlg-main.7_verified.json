@@ -1,0 +1,142 @@
+{
+  "paper_id": "2022.inlg-main.7",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Data To Text Generation"
+    ],
+    "datasets": [
+      "plum2text"
+    ],
+    "languages": [
+      "French"
+    ],
+    "models": [
+      "lstm",
+      "barthez",
+      "criminelbart"
+    ],
+    "outputs": [
+      "short descriptions of court dockets",
+      "legal descriptions of criminal charges"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "legal descriptions of criminal charges"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Data-to-Text",
+          "Other:data-to-text generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "vanilla LSTM"
+        ],
+        "outputs": [
+          "textual descriptions of court dockets",
+          "short legal descriptions of court docket entries"
+        ]
+      },
+      "normalized": {
+        "Other:Data-to-Text Generation": "Other:Data-to-Text Generation",
+        "Other:Data-to-Text": "Other:Data-to-Text Generation",
+        "Other:data-to-text generation": "Other:Data-to-Text Generation",
+        "vanilla LSTM": "LSTM"
+      },
+      "explanation": "Consolidated duplicate task entries to single 'Other:Data-to-Text Generation'. Normalized 'vanilla LSTM' to 'LSTM'. Added more specific output description from paper content."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "BERTSCORE",
+      "NLI",
+      "RANK"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "BertScore": "BERTScore",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized 'BertScore' to 'BERTScore' and simplified 'ROUGE-L' to base 'ROUGE' form as per guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper. The paper uses human evaluators with legal expertise."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "10-point legal accuracy scale with categories: completely off-track (1), thematically relevant (2-5), accurate (6-10). Annotators deduct points for hallucinations, omissions, and confusions."
+    ],
+    "criteria": [
+      "Legality",
+      "Hallucination",
+      "Omission",
+      "Confusion"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "10-point legal accuracy scale with categories: completely off-track (1), thematically relevant (2-5), accurate (6-10). Annotators deduct points for hallucinations, omissions, and confusions."
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- the legal accuracy scale used by the human annotators. The annotators first decide where, between the four regions (completely off-track, similar provision, good provision, and perfection generation) the actual generation sits. Then they remove points for every hallucination and/or omissions encountered.",
+          "Legal accuracy scale: 10‑point Likert (1–10) with categories completely off‑track, thematically relevant, accurate; deductions for hallucinations, omissions, and confusions.",
+          "The legal accuracy scale used by the human annotators. The annotators first decide where, between the four regions (completely off-track, similar provision, good provision, and perfection generation) the actual generation sits. Then they remove points for every hallucination and/or omissions encountered."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "hallucinations": "hallucinations",
+        "omissions": "omissions",
+        "confusions": "confusions"
+      },
+      "explanation": "Consolidated multiple guideline descriptions into a single clear description. Criteria list was already accurate."
+    }
+  },
+  "overall_notes": "This paper presents a thorough evaluation of neural text generation models for legal text generation, specifically for generating descriptions of criminal court dockets. The paper includes both automatic metrics and detailed human evaluation with legal experts. The extraction was generally accurate, requiring only normalization and consolidation of duplicate entries."
+}

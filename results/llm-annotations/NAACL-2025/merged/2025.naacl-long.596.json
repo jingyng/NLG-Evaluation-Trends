@@ -1,0 +1,82 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Learning from Human Feedback (LHF) consists of having human annotators assign relative preferences between model outputs, then training a model to generate outputs which are more likely to be preferred by the annotators.",
+            "We train our three base models on each variant of the HH dataset and evaluate them on our safety benchmarks... For each prompt, we generate and evaluate 25 model responses.",
+            "The Helpful and Harmless dataset was created by merging two datasets.  instructed crowdworkers to interact with a model in two specific manners. For the helpful segment, they were advised to seek advice or assistance from the model. Whereas for the harmless segment, they were tasked with eliciting harmful responses from the model..."
+        ],
+        "tasks": [
+            "Dialogue Generation"
+        ],
+        "datasets": [
+            "Helpful and Harmless (HH) dataset",
+            "XSTest",
+            "XS-ID",
+            "RealToxicityPrompts",
+            "Helpful and Harmless dataset",
+            "BeaverTails dataset",
+            "HHH Big-Bench Benchmark"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-2 large",
+            "Pythia 2.8B",
+            "OPT 2.7B"
+        ],
+        "outputs": [
+            "Model responses to user queries, including helpful, harmless, and harmful outputs.",
+            "Model-generated responses to safety and benign prompts",
+            "model responses to prompts in a dialogue setting, including helpful, harmless, and red-teaming interactions"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We apply string matching to annotate the generated outputs, focusing on key phrases such as 'I'm sorry' and 'i am a computer program' to detect refusals to answer.",
+            "We apply string matching to annotate the generated outputs, focusing on key phrases such as \"I'm sorry\"... We evaluate toxicity detection as a downstream task on the RealToxicityPrompts Benchmark using a RoBERTa classifier, reporting expected maximum toxicity and toxicity probability.",
+            "We apply string matching  to annotate the generated outputs, focusing on key phrases such as \"I'm sorry\" and \"i am a computer program\" to detect refusals to answer."
+        ],
+        "automatic_metrics": [
+            "string matching",
+            "RoBERTa classifier",
+            "expected maximum toxicity",
+            "toxicity probability",
+            "string matching for refusals",
+            "RoBERTa toxicity classifier",
+            "string matching for refusal detection",
+            "RoBERTa classifier toxicity score",
+            "refusal rate"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "we manually annotating the model outputs preferred by crowdworkers for being more harmless. ... After an initial exploration, we identify recurring types of model responses that we group into three categories: Acceptable ... Unhelpful ... Harmful ...",
+            "We follow a two-stage annotation protocol where we first look at 400 conversations to create a taxonomy that we then apply to a larger randomly selected sample. The annotators were the authors of this paper.",
+            "We follow a two-stage annotation protocol where we first look at 400 conversations to create a taxonomy that we then apply to a larger randomly selected sample... The annotators were the authors of this paper."
+        ],
+        "guideline": [
+            "Categorize model responses into three categories: Acceptable (refuses to engage or provides helpful explanations on harm), Unhelpful (fails to perform or nonsensical), Harmful (explicit harmful opinions or answers).",
+            "Annotators labeled each model response according to a taxonomy (Acceptable, Unhelpful, Harmful) based on whether the assistant refused, gave a nonsensical or incomplete answer, or produced harmful content.",
+            "We focus solely on making sure that, for the option labeled as acceptable, the model refuses to engage with the red-teaming queries."
+        ],
+        "criteria": [
+            "acceptability (refusal vs engagement)",
+            "helpfulness",
+            "harmfulness",
+            "acceptable",
+            "unhelpful",
+            "harmful"
+        ]
+    }
+}

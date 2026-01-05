@@ -1,0 +1,136 @@
+{
+  "paper_id": "2024.emnlp-main.242",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation",
+      "Other:Question Reformulation"
+    ],
+    "datasets": [
+      "SQuADv2",
+      "BanditQA",
+      "QA2",
+      "BBC",
+      "Reddit",
+      "Yelp",
+      "COULDASK"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3.5",
+      "GPT-4",
+      "Llama2",
+      "Mistral",
+      "Zephyr"
+    ],
+    "outputs": [
+      "reformulated questions"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "COULDASK"
+        ],
+        "models": []
+      },
+      "removed": {
+        "datasets": [
+          "QA 2"
+        ],
+        "models": [
+          "Llama2-7B"
+        ]
+      },
+      "normalized": {
+        "QA 2": "QA2"
+      },
+      "explanation": "Removed 'QA 2' duplicate (normalized to QA2), removed Llama2-7B as it's used for classification not generation, added COULDASK as the main benchmark dataset"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Levenshtein edit distance",
+      "entity overlap ratio",
+      "cosine similarity",
+      "success rate",
+      "F1 score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "answerability classifier",
+          "edit distance"
+        ]
+      },
+      "normalized": {
+        "edit distance": "Levenshtein edit distance"
+      },
+      "explanation": "Removed 'answerability classifier' as it's not used for direct evaluation of generated outputs, normalized 'edit distance' to 'Levenshtein edit distance'"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Llama2-7B",
+          "GPT-4"
+        ],
+        "methods": [
+          "classification",
+          "entity tagging for relevance computation"
+        ],
+        "criteria": [
+          "answerability"
+        ]
+      },
+      "normalized": {},
+      "explanation": "LLMs are used for preprocessing (entity tagging) and answerability classification, but not as judges evaluating the quality of generated outputs. The paper does not use LLMs to judge fluency, relevance, or other NLG quality metrics of the generated questions."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Select the more relevant question based on alignment with the original question's intent",
+      "Judge if a reformulated question can be answered by the document and whether it remains relevant to the original intent",
+      "Annotate unanswerable questions following specific annotation guidelines"
+    ],
+    "criteria": [
+      "relevance",
+      "answerability"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotate unanswerable questions following specific annotation guidelines"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added additional guideline detail about unanswerable question annotation to be more comprehensive"
+    }
+  },
+  "overall_notes": "The paper focuses on question reformulation as an NLG task. While LLMs are used extensively (for generation, entity tagging, and classification), they are not used as judges evaluating the quality of generated outputs. The human evaluation is well-documented with clear criteria. The automatic metrics are appropriate for the task but don't include traditional NLG metrics like BLEU/ROUGE."
+}

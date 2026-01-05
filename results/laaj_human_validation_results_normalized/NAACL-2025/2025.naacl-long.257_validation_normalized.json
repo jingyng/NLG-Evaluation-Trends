@@ -1,0 +1,81 @@
+{
+  "paper_id": "2025.naacl-long.257",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-as-a-judge against human evaluation by comparing GPT-4o, Qwen2.5-72b, and Llama-3-70b judgments with human annotations on the same 100 scenarios and 584 social goal evaluation questions, reporting accuracy metrics for each model."
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "GPT-4o",
+      "Qwen2.5-72b-Chat",
+      "Llama-3-70b-Instruct"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Multiple detailed prompts for different evaluation tasks are provided in Appendix A.2, including Prompt 4 for original social goal extraction and Prompt 6 for social goal filtering, though exact judge evaluation prompts are not explicitly shown in the provided text."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 6,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "kappa",
+      "value": [
+        0.79,
+        0.61
+      ],
+      "interpretation": "first group kappa=0.79, second group kappa=0.61",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed validation guidelines provided in Appendix A.3 including criteria for social goal validation (achievable and clear) and private information validation (completeness and non-leakage)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Accuracy"
+    ],
+    "shared_criteria": [
+      "goal_completion"
+    ],
+    "sample_size": {
+      "total_generated": 1225,
+      "validated_by_both": 100,
+      "notes": "100 scenarios with 584 total goal evaluation questions used for validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "",
+      "threshold_used": "not_provided",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Human annotations used as ground truth to calculate accuracy of various LLM judges, with GPT-4o, Qwen2.5-72b, and Llama-3-70b selected as judge models based on validation results"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "profile_sensitivity"
+    ],
+    "human_only_criteria": [
+      "template_quality_validation",
+      "data_validation"
+    ],
+    "shared_criteria": [
+      "goal_completion",
+      "information_reasoning"
+    ],
+    "notes": "Both LLM and human evaluate goal completion and information reasoning, but human evaluation also focuses on template quality validation and data validation criteria not assessed by LLM judges"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "paper_id": "2023.emnlp-main.153",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM evaluation against human evaluation using multiple meta-evaluation benchmarks (SummEval, Topical-Chat, QAGS) with correlation analysis on shared criteria"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-3.5",
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts with task introduction, evaluation criteria, and evaluation steps are provided verbatim in the main text, including specific examples for summarization (coherence) and dialogue (engagingness)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": 0.07,
+      "interpretation": "very low agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluation guidelines are referenced from original benchmark papers (SummEval, Topical-Chat, QAGS) but not reproduced in detail; evaluation criteria and scale definitions are provided"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Spearman correlation",
+      "Kendall-Tau correlation"
+    ],
+    "shared_criteria": [
+      "fluency",
+      "coherence",
+      "consistency",
+      "relevance"
+    ],
+    "sample_size": {
+      "total_generated": "unclear",
+      "validated_by_both": "standard benchmark sizes (SummEval, Topical-Chat, QAGS datasets)",
+      "notes": "Uses established meta-evaluation benchmarks with human ratings; exact sample sizes not specified in provided text"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.582,
+        "criterion": "Coherence",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "SummEval benchmark"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.507,
+        "criterion": "Consistency",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "SummEval benchmark"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.506,
+        "criterion": "Fluency",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "SummEval benchmark"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.547,
+        "criterion": "Relevance",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "SummEval benchmark"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.514,
+        "criterion": "overall",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "Average across all criteria on SummEval"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "not specified",
+      "threshold_used": "not specified",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "G-EVAL with GPT-4 achieves Spearman correlations of 0.514 (overall) with human judgments on summarization, outperforming all previous methods. However, LLM evaluators show bias towards LLM-generated texts even when human judges prefer human-written summaries."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Naturalness",
+      "Engagingness",
+      "Groundedness"
+    ],
+    "shared_criteria": [
+      "Coherence",
+      "Consistency",
+      "Fluency",
+      "Relevance"
+    ],
+    "notes": "SummEval uses coherence, consistency, fluency, relevance; Topical-Chat uses naturalness, coherence, engagingness, groundedness; LLM evaluates consistency on QAGS benchmark"
+  }
+}

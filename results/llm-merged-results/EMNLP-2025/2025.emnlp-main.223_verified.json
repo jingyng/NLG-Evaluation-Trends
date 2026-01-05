@@ -1,0 +1,159 @@
+{
+  "paper_id": "2025.emnlp-main.223",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Code Generation"
+    ],
+    "datasets": [
+      "HealthCareMagic-100k",
+      "fingpt-fiqa_qa",
+      "opc-sft-stage2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Qwen2.5-0.5B-Instruct",
+      "Qwen2.5-7B-Instruct",
+      "Llama-2-7B-chat-hf",
+      "Qwen2.5-14B-Instruct"
+    ],
+    "outputs": [
+      "synthetic query-response pairs for fine-tuning",
+      "medical question answering responses",
+      "financial question answering responses",
+      "code snippets"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-2-7B-chat-hf",
+          "Qwen2.5-14B-Instruct"
+        ],
+        "outputs": [
+          "medical question answering responses",
+          "financial question answering responses",
+          "code snippets"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Qwen2.5-7B-Instruct (target LLM)",
+          "Qwen2.5-0.5B-Instruct (generation proxy)",
+          "Qwen2.5-0.5B-Instruct (reward proxy)"
+        ],
+        "outputs": [
+          "The generated outputs include medical QA responses, financial QA responses, and code snippets."
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering",
+        "opc-sft-stage2": "opc-sft-stage2"
+      },
+      "explanation": "Removed 'Dialogue Generation' as it's not evaluated in the paper; normalized task naming; simplified model names by removing role annotations; added additional LLM models mentioned in experiments; clarified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "Perplexity",
+      "Pass@1",
+      "Pass@10"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE variants to base ROUGE metric as per guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Qwen2.5-13B-Instruct"
+    ],
+    "methods": [
+      "pairwise comparison",
+      "scoring"
+    ],
+    "criteria": [
+      "response quality",
+      "semantic accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "scoring"
+        ],
+        "criteria": [
+          "response quality",
+          "semantic accuracy"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Qwen2.5-13B-Instruct (LLM-Judge)"
+        ],
+        "methods": [
+          "pairwise evaluation",
+          "pairwise judgment"
+        ],
+        "criteria": [
+          "overall quality",
+          "relevance",
+          "helpfulness"
+        ]
+      },
+      "normalized": {
+        "Qwen2.5-13B-Instruct (LLM-Judge)": "Qwen2.5-13B-Instruct",
+        "pairwise evaluation": "pairwise comparison",
+        "pairwise judgment": "pairwise comparison"
+      },
+      "explanation": "Simplified model name by removing role annotation; normalized method names to 'pairwise comparison' and 'scoring'; updated criteria based on paper descriptions mentioning 'response quality' and 'semantic accuracy'"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted in the paper; LLM-based evaluation was used instead"
+    }
+  },
+  "overall_notes": "Paper focuses on privacy-preserving LLM fine-tuning using synthetic data generation. The NLG evaluation is primarily through automated metrics (ROUGE, Perplexity, Pass@k) and LLM-as-judge. Evaluation covers Question Answering and Code Generation tasks across medical, financial, and programming domains."
+}

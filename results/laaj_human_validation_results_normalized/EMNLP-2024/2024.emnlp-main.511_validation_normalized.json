@@ -1,0 +1,121 @@
+{
+  "paper_id": "2024.emnlp-main.511",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM safety annotations against human ratings on the same 350 conversations, reporting Pearson correlations and performing quantitative comparison with bootstrapped significance testing"
+  },
+  "llm_judge_details": {
+    "num_models": 5,
+    "models": [
+      "GPT-3.5",
+      "GPT-4",
+      "GPT-4o",
+      "Gemini 1.5 Pro",
+      "Llama 3.1 405B Instruct"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "figure",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt shown in Figure with analyze-rate structure; compares rating-only vs analyze-rate variants; prompt design validated on DICES-990 dataset"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 112,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Pearson correlation",
+      "value": 0.95,
+      "interpretation": "strong correlation between two halves of annotators",
+      "per_criterion": [
+        {
+          "criterion": "overall safety",
+          "metric": "median Pearson correlation",
+          "value": 0.51,
+          "notes": "median annotator correlation with average rating"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines described but full guidelines not released; examples of disagreements and representative conversations provided in tables"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "bootstrap significance testing"
+    ],
+    "shared_criteria": [
+      "overall safety"
+    ],
+    "sample_size": {
+      "total_generated": 350,
+      "validated_by_both": 350,
+      "notes": "All 350 conversations from DICES-350 dataset used for validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.59,
+        "criterion": "overall safety",
+        "llm_model": "GPT-4 analyze-rate prompt (binarized)",
+        "significance": "significantly higher than median human annotator (r=0.51)",
+        "notes": "81st percentile relative to individual human annotators"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.61,
+        "criterion": "overall safety",
+        "llm_model": "GPT-4 analyze-rate prompt (Likert)",
+        "significance": "bootstrap tested with 1000 resamples",
+        "notes": "Analyze-rate prompt performs better than rating-only"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.46,
+        "criterion": "overall safety",
+        "llm_model": "GPT-4o (binary prompt)",
+        "significance": "lower than Likert prompting",
+        "notes": "From validation experiments on DICES-990 subset"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.65,
+        "criterion": "overall safety",
+        "llm_model": "GPT-4o (Likert prompt)",
+        "significance": "higher than binary prompting",
+        "notes": "From validation experiments on DICES-990 subset"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "moderate correlation with room for improvement",
+      "threshold_used": "compared to human consensus correlation r=0.95 and average of 3 humans r=0.72",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GPT-4 achieves moderate correlation (r=0.59-0.61) with human consensus, outperforming median human annotator but with systematic differences in safety perceptions, particularly around sensitive advice and biased statements."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Harmfulness",
+      "Bias",
+      "Misinformation",
+      "Political",
+      "Polarization"
+    ],
+    "notes": "Both LLM and human evaluate the same five safety criteria aggregated into overall safety rating"
+  }
+}

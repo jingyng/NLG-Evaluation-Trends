@@ -1,0 +1,69 @@
+{
+  "paper_id": "2025.acl-long.179",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper uses both LLM and human evaluation but does not explicitly compare LLM-as-a-judge results with human evaluation results. Human evaluation is used primarily for constructing annotations and verification, while LLM evaluation is used for automated assessment, but no correlation or agreement metrics between the two methods are reported."
+  },
+  "llm_judge_details": {
+    "num_models": 15,
+    "models": [
+      "Qwen2.5-72B",
+      "GPT-4o",
+      "RAG-Critic",
+      "Qwen2.5 (multiple sizes)",
+      "Llama3.1 (multiple sizes)",
+      "Mistral v0.3",
+      "GLM-4",
+      "InternLM2.5",
+      "Yi-1.5",
+      "Gemma-2",
+      "Deepseek-llm",
+      "Llama3.2",
+      "Phi-3.5"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper describes using 'critical prompt to guide Qwen2.5-72B in analyzing error rationales' and shows example JSON output format but does not provide the exact prompt text verbatim."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": null
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators categorized second-tier labels and summarized top-tier error types with cross-validation and discussion, but detailed annotation guidelines are not explicitly provided."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "automated on-policy assessment",
+      "error-oriented correction",
+      "fine-grained error identification",
+      "binary error judgment",
+      "hierarchical error classification"
+    ],
+    "human_only_criteria": [
+      "manual error label summarization",
+      "manual verification of LLM annotations",
+      "manual optimization of Error-Action mapping"
+    ],
+    "shared_criteria": [
+      "hierarchical error categorization",
+      "binary error judgment"
+    ],
+    "notes": "LLMs handle automated evaluation and fine-grained error analysis, while humans provide high-level summarization and verification. Both methods contribute to building the hierarchical error system, but they operate largely independently without systematic comparison."
+  }
+}

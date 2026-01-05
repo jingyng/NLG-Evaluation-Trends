@@ -1,0 +1,58 @@
+{
+  "paper_id": "2023.acl-long.181",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM-based evaluation (masked reference disambiguation) and human evaluations, but they are used for different purposes without direct comparison. The LLM task is a proxy evaluation of justification comprehension, while human evaluation focuses on overall quality and fine-grained aspects like factuality. No quantitative metrics comparing LLM judgments to human judgments are reported."
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "T5-220M",
+      "T5-770M",
+      "T5-3B",
+      "T5-11B"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "An example of the masked justification task is provided, showing input format and expected output (e.g., 'Answer <extra_id_0> B <extra_id_1> A'), but exact prompts used for evaluation are not detailed beyond the task description."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 13,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": "range: 0.40-0.65 (domain-specific)",
+      "interpretation": "fair to substantial agreement depending on domain",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines include choosing the better answer, indicating decision difficulty, and providing free-form justifications. Examples of expert annotations and aspects (e.g., factuality, completeness) are provided."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Preference"
+    ],
+    "human_only_criteria": [
+      "Preference",
+      "Coherence",
+      "Factuality",
+      "Completeness",
+      "Understanding",
+      "Conciseness",
+      "Specificity",
+      "Relevance"
+    ],
+    "shared_criteria": [],
+    "notes": "LLMs are used for a proxy task (masked reference disambiguation) unrelated to the human evaluation criteria. Human evaluation assesses answer quality directly, while LLMs evaluate justification comprehension indirectly."
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "paper_id": "2022.naacl-main.42",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Text Rewriting",
+      "Text Infilling"
+    ],
+    "datasets": [
+      "D J CAPTIONS",
+      "PSEUDO PARALLEL CREATIVE CORPUS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "cra",
+      "bart_large"
+    ],
+    "outputs": [
+      "creative image captions",
+      "rewritten text spans",
+      "infilled text spans"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Rewriting",
+          "Text Infilling"
+        ],
+        "datasets": [
+          "pseudo-parallel creative corpus"
+        ],
+        "outputs": [
+          "rewritten text spans",
+          "infilled text spans"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "models": [
+          "CRA"
+        ],
+        "outputs": [
+          "creative captions for images and rewritten/infilled text spans",
+          "creative image captions and rewritten or infilled text spans"
+        ]
+      },
+      "normalized": {
+        "Paraphrase Generation": "Text Rewriting",
+        "CRA": "Creative Rewriting Assistant (CRA)",
+        "pseudo-parallel corpus (sources from Table)": "pseudo-parallel creative corpus",
+        "creative captions for images and rewritten/infilled text spans": "creative image captions, rewritten text spans, infilled text spans"
+      },
+      "explanation": "Removed 'Paraphrase Generation' as it doesn't accurately describe the rewriting task. Added more specific task names for rewriting and infilling. Consolidated outputs to be more descriptive and accurate. Added the pseudo-parallel dataset used for training."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "UNIQUE N GRAMS",
+      "PERPLEXITY",
+      "ACCEPTANCE RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Unique n-grams"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Rouge-L recall",
+          "unique trigram count",
+          "unique trigrams"
+        ]
+      },
+      "normalized": {
+        "Rouge-L recall": "ROUGE-L",
+        "Rouge-L": "ROUGE-L",
+        "unique trigram count": "Unique n-grams",
+        "unique trigrams": "Unique n-grams",
+        "unique trigram": "Unique n-grams"
+      },
+      "explanation": "Normalized ROUGE-L capitalization and consolidated all unique n-gram variants under 'Unique n-grams'. Added explicit mention of n-grams since paper analyzes trigrams specifically."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {
+        "None": ""
+      },
+      "explanation": "Cleaned up empty values. The paper does not use LLMs as judges for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "5-point Likert scale ratings for helpfulness, grammaticality, satisfaction",
+      "Pairwise comparison of captions for creativity",
+      "Third-party annotations with majority voting"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Grammaticality",
+      "Satisfaction",
+      "Creativity",
+      "Relevance",
+      "Descriptiveness",
+      "Figurativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "5-point Likert scale ratings for helpfulness, grammaticality, satisfaction",
+          "Pairwise comparison of captions for creativity",
+          "Third-party annotations with majority voting"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Survey questions: helpfulness, grammaticality, satisfaction; Pairwise: choose the better (more descriptive/figurative) caption with relevance.",
+          "Participants answered Likert-scale questions about helpfulness, grammaticality, and satisfaction; third-party annotators were instructed to choose the more creative caption for each image.",
+          "Choose the better (more descriptive and/or figurative) caption for the image. A better caption is your subjective judgement, the rubrics to make the choice are that the caption is descriptive and/or figurative in its interpretation of the image."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated and clarified the human evaluation guidelines to be more structured and comprehensive. Added the third-party evaluation method."
+    }
+  },
+  "overall_notes": "The paper focuses on interactive NLG with rewriting/infilling capabilities for creative image captioning. It uses both automatic metrics (ROUGE, n-gram diversity, perplexity) and extensive human evaluations (Likert scales, pairwise comparisons). The metadata extraction was generally accurate but needed some refinement for specificity and normalization."
+}

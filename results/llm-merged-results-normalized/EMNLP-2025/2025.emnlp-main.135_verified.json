@@ -1,0 +1,127 @@
+{
+  "paper_id": "2025.emnlp-main.135",
+  "answer_1": {
+    "answer": "No",
+    "answer_changed": true,
+    "tasks": [],
+    "datasets": [],
+    "languages": [],
+    "models": [],
+    "outputs": [],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Image Captioning"
+        ],
+        "datasets": [
+          "Winoground",
+          "EqBench",
+          "ColorSwap",
+          "SugarCrepe"
+        ],
+        "languages": [
+          "English"
+        ],
+        "models": [
+          "InstructBLIP-XXL",
+          "LLaVA-1.5",
+          "LLaVA-1.6",
+          "Qwen-7b",
+          "InternVL-8b",
+          "LLaVA-1.5-7b",
+          "LLaVA-1.6-7b",
+          "LLaMA-3.1-8b"
+        ],
+        "outputs": [
+          "augmented captions and reasoning rationales for compositional tasks",
+          "The model generates compositional understanding outputs such as answers to semantic questions (e.g., 'Does the bird eat the snake?') by augmenting VLM predictions with neurosymbolic concept trees, producing both final answers and interpretable reasoning paths."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because the paper evaluates vision-language compositional understanding (answering yes/no questions about images), not natural language generation. The 'Image Captioning' task was incorrectly extracted - the paper uses discriminative scoring of captions, not generation of new text."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "VQASCORE",
+      "CAPTION",
+      "VISUALGPTSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "All extracted metrics are correct and properly normalized. The paper uses VQAScore as the main baseline, with Caption Score and VisualGPTScore as comparisons."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o"
+    ],
+    "methods": [
+      "entailment scoring"
+    ],
+    "criteria": [
+      "Entailment"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "entailment scoring via prompting",
+          "rule + caption evaluation"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed redundant method descriptions and kept only 'entailment scoring'. The criteria is correctly 'entailment' as GPT-4o judges whether reasoning rules entail the original caption."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants were asked two binary questions per concept: (Q1) whether the concept may happen simultaneously with the root node, and (Q2) whether the concept is similar to its parent node"
+    ],
+    "criteria": [
+      "Relation",
+      "Similarity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- We ask every participant 2 questions for each concept -Q1: 'Given {concept node}, do you think it may happen simultaneously with {root node} or not related at all?' and Q2: 'Given {concept node}, do you think it is similar to {parent node} or not related at all?'.",
+          "We ask every participant 2 questions for each concept -Q1: 'Given {concept node}, do you think it may happen simultaneously with {root node} or not related at all?' and Q2: 'Given {concept node}, do you think it is similar to {parent node} or not related at all?'"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated repetitive guideline descriptions into one clear statement. The criteria accurately reflects the human evaluation questions about concept relationships."
+    }
+  },
+  "overall_notes": "The paper focuses on compositional reasoning evaluation for vision-language models, not natural language generation. While it involves language processing, the evaluation is discriminative (scoring existing captions/answers) rather than generative. Extractions were generally accurate but needed correction for Question 1."
+}

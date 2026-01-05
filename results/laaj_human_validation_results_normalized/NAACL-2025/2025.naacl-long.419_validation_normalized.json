@@ -1,0 +1,81 @@
+{
+  "paper_id": "2025.naacl-long.419",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares GPT-4 judgments with human evaluations on the same set of instances, reporting agreement between human annotators' majority labels and GPT-4 evaluation results."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt text provided in Figure (Appendix B.2). GPT-4 is asked to select which output would receive more upvotes in the given subreddit using A/B testing framework."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "at least 3 per subreddit (3-6 total, with top 3 selected based on agreement)",
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss's \u03ba",
+      "value": 0.36,
+      "interpretation": "reasonable given the difficulty and subjectivity of the task",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full guidelines and annotation interface provided in Appendix A. Annotators browse subreddits for 10-15 minutes before annotating."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "Likelihood of receiving upvotes in subreddit"
+    ],
+    "sample_size": {
+      "total_generated": 717,
+      "validated_by_both": 717,
+      "notes": "All 717 human annotations across 8 subreddits were compared with GPT-4 evaluation results"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": 69.8,
+        "criterion": "Likelihood of receiving more upvotes",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "Human annotators' majority labels agreed with GPT-4 evaluation results 69.8% of the time"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "",
+      "threshold_used": "",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 evaluations achieved 69.8% agreement with human majority labels on identifying responses more likely to receive upvotes in specific subreddits."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Quality (gibberish/repetitive detection)"
+    ],
+    "shared_criteria": [
+      "Likelihood of receiving upvotes in subreddit"
+    ],
+    "notes": "Both LLM and human evaluated the primary criterion of which response would receive more upvotes. Human evaluators additionally flagged gibberish/repetitive outputs which was not part of the GPT-4 evaluation."
+  }
+}

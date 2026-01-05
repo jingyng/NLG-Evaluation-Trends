@@ -1,0 +1,117 @@
+{
+  "paper_id": "2023.emnlp-main.651",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Query Generation"
+    ],
+    "datasets": [
+      "MS MARCO",
+      "TREC DL 2019",
+      "TREC DL 2020",
+      "BEIR"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_base",
+      "seq_2seq"
+    ],
+    "outputs": [
+      "synthetic queries for document expansion",
+      "synthetic queries corresponding to provided passages"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Query Generation"
+        ],
+        "datasets": [
+          "BEIR benchmark"
+        ],
+        "models": [
+          "T5-base (query generator)",
+          "DPR",
+          "coCondenser"
+        ],
+        "outputs": [
+          "synthetic queries generated for passages"
+        ]
+      },
+      "normalized": {
+        "Other:Query Generation": "Other: Query Generation",
+        "BEIR benchmark": "BEIR",
+        "T5-base (query generator)": "T5-base"
+      },
+      "explanation": "Removed retrieval models (DPR, coCondenser) as they are not NLG models being evaluated. Kept only the query generator models (T5-base, seq2seq). Normalized dataset names and removed duplicate task entry."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE-L to ROUGE base form according to simplification rules."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs used as judges - paper only uses automatic metrics and doesn't employ LLMs for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted - paper relies solely on automatic evaluation metrics."
+    }
+  },
+  "overall_notes": "The paper focuses on dense retrieval with document expansion, where NLG (query generation) is used as a preprocessing step but not as the primary evaluation target. The main contributions are in retrieval architecture and training strategies. NLG evaluation is limited to using ROUGE to measure query relevance for curriculum sampling, but the paper does not conduct comprehensive NLG evaluation."
+}

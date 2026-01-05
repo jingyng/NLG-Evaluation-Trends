@@ -1,0 +1,159 @@
+{
+  "paper_id": "2025.inlg-main.24",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM judge against human evaluation by performing Spearman correlation analysis between LLM judge criteria and human edit operation annotations using the German4All-Annotated dataset"
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "phi_4",
+      "llama_3.3_70b_instruct",
+      "qwen2.5_72b_instruct",
+      "gemma_3_27b_it"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt is written in German, includes one-shot example, uses structured JSON outputs; full prompt description is in subsection F.2 of the appendix"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 16,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": {
+        "Q1": 0.31,
+        "Q2": 0.47,
+        "Q3": 0.4,
+        "Q5": 0.09,
+        "Q5_with_tolerance": 0.45
+      },
+      "interpretation": "Considering the low number of annotators, the content-related questions show a decent average agreement",
+      "per_criterion": [
+        {
+          "criterion": "content_preservation",
+          "metric": "Krippendorff's alpha",
+          "value": 0.31
+        },
+        {
+          "criterion": "information_addition",
+          "metric": "Krippendorff's alpha",
+          "value": 0.47
+        },
+        {
+          "criterion": "information_loss",
+          "metric": "Krippendorff's alpha",
+          "value": 0.4
+        },
+        {
+          "criterion": "complexity_level",
+          "metric": "Krippendorff's alpha",
+          "value": 0.09
+        },
+        {
+          "criterion": "complexity_level_with_tolerance",
+          "metric": "Krippendorff's alpha",
+          "value": 0.45
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Evaluation questions provided: Q1 (content preservation), Q2 (information addition), Q3 (information loss), Q4 (type of addition), Q5 (complexity rating); originally conducted in German"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "content preservation",
+      "information addition",
+      "information loss",
+      "complexity level"
+    ],
+    "sample_size": {
+      "total_generated": 26337,
+      "validated_by_both": "German4All-Annotated subset (exact size not specified, but contains corrected test set of 150 samples)",
+      "notes": "Validation performed on manually corrected German4All-Annotated subset"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": -0.27,
+        "criterion": "Preservation",
+        "llm_model": "gemma_3_27b_it",
+        "significance": "p=0.001",
+        "notes": "Correlation between 'corrected info' human operation and LLM content preservation"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.51,
+        "criterion": "Information",
+        "llm_model": "gemma_3_27b_it",
+        "significance": "p=0.000",
+        "notes": "Correlation between 'removed info' human operation and LLM information addition"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.35,
+        "criterion": "Information",
+        "llm_model": "gemma_3_27b_it",
+        "significance": "p=0.000",
+        "notes": "Correlation between 'hallucination in origin' human operation and LLM information addition"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.13,
+        "criterion": "Information",
+        "llm_model": "gemma_3_27b_it",
+        "significance": "p=0.153",
+        "notes": "Correlation between 'added info' human operation and LLM information loss"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.34,
+        "criterion": "Complexity",
+        "llm_model": "gemma_3_27b_it",
+        "significance": "p=0.000",
+        "notes": "Correlation between 'adjusted complexity' human operation and LLM complexity level"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "Gemma-3-27B-it shows statistically significant correlations with human annotations for content preservation, information addition, and complexity level, but struggles with detecting missing information."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Information"
+    ],
+    "human_only_criteria": [
+      "hallucination_in_origin",
+      "corrected_language",
+      "adjusted_complexity"
+    ],
+    "shared_criteria": [
+      "content_preservation",
+      "information_addition",
+      "information_loss",
+      "complexity_level"
+    ],
+    "notes": "LLM judge evaluates similar criteria as humans but with slightly different framing; human evaluation includes additional operational annotations"
+  }
+}

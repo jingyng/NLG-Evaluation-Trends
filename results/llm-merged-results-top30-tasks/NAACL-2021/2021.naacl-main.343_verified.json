@@ -1,0 +1,136 @@
+{
+  "paper_id": "2021.naacl-main.343",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Story Generation"
+    ],
+    "datasets": [
+      "ROCSTORIES",
+      "WRITINGPROMPTS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2",
+      "bart",
+      "roberta",
+      "longformer"
+    ],
+    "outputs": [
+      "Generated stories (both plausible and implausible)",
+      "Plausibility scores"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "outputs": [
+          "Plausibility scores"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT2"
+        ],
+        "outputs": [
+          "generated stories",
+          "Generated stories"
+        ]
+      },
+      "normalized": {
+        "GPT2": "GPT-2"
+      },
+      "explanation": "Normalized GPT2 to GPT-2, removed duplicate output descriptions, and added 'Plausibility scores' which is a key output of the evaluation metrics"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "SENTAVG",
+      "UNION",
+      "ROBERTA BASED",
+      "LONGFORMER BASED"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEU",
+          "ROUGE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "RoBERTa",
+          "Longformer"
+        ]
+      },
+      "normalized": {
+        "RoBERTa": "RoBERTa-based",
+        "Longformer": "Longformer-based"
+      },
+      "explanation": "Added BLEU and ROUGE which are explicitly mentioned as baselines. Changed RoBERTa/Longformer to clarify they're used as evaluation metrics (RoBERTa-based/Longformer-based), not just models"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa",
+          "Longformer"
+        ],
+        "methods": [
+          "binary classification for plausibility scoring",
+          "binary plausibility classification",
+          "Binary classification"
+        ],
+        "criteria": [
+          "plausibility",
+          "coherence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because RoBERTa and Longformer are used as trained classifiers for evaluation metrics, not as LLM judges. This is traditional supervised learning, not LLM-as-judge paradigm. Removed all metadata as it doesn't apply."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rate each story on a scale of 0 to 5 (from not at all plausible to completely plausible)"
+    ],
+    "criteria": [
+      "Plausibility"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators were asked to rate each story on a scale of 0 to 5 (from not at all plausible to completely plausible)",
+          "Rate each story on a scale of 0 to 5 (not at all plausible to completely plausible)",
+          "Five distinct participants are asked to rate each story on a scale of 0 to 5 (from not at all plausible to completely plausible)."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated multiple guideline descriptions into one clear statement. The criteria is correctly 'plausibility' as specified in the paper."
+    }
+  },
+  "overall_notes": "This paper focuses on evaluating open-domain story generation by creating better training data for learnable evaluation metrics. The main contribution is generating high-quality implausible stories via plot manipulation and adversarial filtering to train better classifiers (RoBERTa/Longformer) for plausibility assessment. Key finding: metrics trained on their data correlate better with human judgments than heuristic baselines. The LLM-as-judge answer needed correction as this is traditional supervised learning, not the modern LLM-as-judge paradigm."
+}

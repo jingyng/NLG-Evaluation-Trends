@@ -1,0 +1,52 @@
+{
+  "paper_id": "2023.emnlp-main.10",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM-as-a-judge (PaLM 2) and human evaluation for attribution assessment, but never explicitly compares LLM judgments with human judgments on the same instances or reports quantitative agreement/correlation metrics between them."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "palm_2"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper describes the prompt structure as: 'premise: \"$p\" hypothesis: the answer to the question \"$q\" is \"$a\"' where p, q, a are inserted appropriately. It mentions using 4-shot prompting with and without chain-of-thought, and examples include both positive and negative attribution cases with in-language and in-English passages."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "majority vote agreement",
+      "value": "86.0-94.9% for S2, 86.0-91.9% for S1",
+      "interpretation": "high agreement rates",
+      "per_criterion": [
+        {
+          "criterion": "attribution",
+          "metric": "percentage agreement with consensus",
+          "value": "86.0-94.9% across languages"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines provided: annotators answer 'Is the answer attributed to the passage?' for each (query, answer, passage) triplet. Examples of attribution disagreements are discussed, but full rubric not explicitly shown."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Attribution"
+    ],
+    "notes": "Both LLM (PaLM 2) and human evaluators assess the same criterion: attribution of answers to retrieved passages. LLM serves as automatic attribution detection model while humans provide ground truth labels, but no direct validation comparison is reported."
+  }
+}

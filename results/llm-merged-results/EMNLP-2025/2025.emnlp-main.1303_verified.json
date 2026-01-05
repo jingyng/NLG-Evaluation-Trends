@@ -1,0 +1,177 @@
+{
+  "paper_id": "2025.emnlp-main.1303",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Other:Question Answering",
+      "Other:Audio Question Answering",
+      "Other:Speech Question Answering",
+      "Other:Emotion Recognition"
+    ],
+    "datasets": [
+      "ESC50",
+      "RAVDESS",
+      "Content-Articles"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o-audio-preview",
+      "Qwen-omni-turbo",
+      "Qwen2-Audio-7B-Instruct",
+      "Salmonn-7B",
+      "Phi-4-multimodal-instruct"
+    ],
+    "outputs": [
+      "textual responses to user queries",
+      "natural language answers based on multimodal audio-text input",
+      "evaluative judgments about audio content"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Emotion Recognition"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "evaluative judgments about audio content"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Gender Recognition"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Qwen2-audio",
+          "Phi-4-multimodal",
+          "Qwen 2-Audio-7B-Instruct"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Qwen2-audio-7B-Instruct": "Qwen2-Audio-7B-Instruct",
+        "GPT-4o-audio-preview": "GPT-4o-audio-preview",
+        "Qwen-omni-turbo": "Qwen-omni-turbo",
+        "Phi-4-multimodal-instruct": "Phi-4-multimodal-instruct",
+        "Salmonn-7B": "Salmonn-7B"
+      },
+      "explanation": "Removed 'Gender Recognition' as it's not explicitly evaluated as an NLG task. Kept only the 5 main evaluated models. Added 'Emotion Recognition' as it involves generating judgments/scoring. Normalized model names for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Defense Success Rate (DSR)",
+      "Context Robustness Score (CRS)",
+      "Judgment Robustness Index (JRI)"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Defense Success Rate (DSR)": "Defense Success Rate (DSR)",
+        "Context Robustness Score (CRS)": "Context Robustness Score (CRS)",
+        "Judgment Robustness Index (JRI)": "Judgment Robustness Index (JRI)"
+      },
+      "explanation": "All metrics were correctly extracted and are proper names of the paper's custom metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Gemini 2.5 Flash"
+    ],
+    "methods": [
+      "binary classification for attack success",
+      "scoring based on harmlessness and consistency",
+      "Agreement Rate (AR)",
+      "Pearson Correlation Coefficient (PCC)",
+      "LLM-as-Judge"
+    ],
+    "criteria": [
+      "harmlessness",
+      "consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Agreement Rate (AR)",
+          "Pearson Correlation Coefficient (PCC)"
+        ],
+        "criteria": [
+          "harmlessness",
+          "consistency"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "Agreement Rate",
+          "Pearson Correlation Coefficient"
+        ]
+      },
+      "normalized": {
+        "Gemini 2.5 Flash": "Gemini 2.5 Flash"
+      },
+      "explanation": "Moved 'Agreement Rate' and 'Pearson Correlation Coefficient' from criteria to methods as they are evaluation procedures. Added explicit criteria of 'harmlessness' and 'consistency' that the LLM judges based on."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "For context injection attacks, outputs were rated according to predetermined criteria including harmlessness and consistency; for audio interference and instruction following attacks, humans determined if the attack was successful",
+      "Human volunteers assessed model responses independently and results were compared with LLM judgments"
+    ],
+    "criteria": [
+      "harmlessness",
+      "consistency",
+      "Gender Stereotypes",
+      "Professional Capability Evaluation",
+      "Emotion and Behavior Evaluation",
+      "Work-Life Balance Evaluation",
+      "Context Dependency",
+      "Fairness and Consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human volunteers assessed model responses independently and results were compared with LLM judgments"
+        ],
+        "criteria": [
+          "Gender Stereotypes",
+          "Professional Capability Evaluation",
+          "Emotion and Behavior Evaluation",
+          "Work-Life Balance Evaluation",
+          "Context Dependency",
+          "Fairness and Consistency"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "harmlessness": "harmlessness",
+        "consistency": "consistency"
+      },
+      "explanation": "Added missing human evaluation criteria from the detailed scoring methodology. Added clarification about human assessment process being independent and compared with LLM."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on robustness evaluation of multimodal audio-language models against injection attacks. While NLG is involved (models generate text responses), the main contribution is security evaluation rather than NLG methodology development. All extracted metadata was reasonably accurate but needed some refinement for consistency and completeness."
+}

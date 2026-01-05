@@ -1,0 +1,61 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "Towards fairer technologies, prior work in natural language processing (NLP) has explored the use of inclusive language in many tasks , among others)-including machine translation (MT).",
+        "tasks": [
+            "Machine Translation"
+        ],
+        "datasets": [
+            "MGENTE"
+        ],
+        "languages": [
+            "English",
+            "German",
+            "Greek",
+            "Italian",
+            "Spanish"
+        ],
+        "models": [
+            "LLAMA 3.1 8B",
+            "LLAMA 3.3 70B",
+            "QWEN 2.5 72B",
+            "GEMMA 2 9B",
+            "PHI 4 14B"
+        ],
+        "outputs": "The models generate translated sentences in German, Greek, Italian, and Spanish, along with a label indicating whether the source sentence is gendered or neutral."
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We assess the selected models' translation quality using xCOMET, scoring outputs against their respective correct references (REF-G for SET-G, REF-N for SET-N).",
+        "automatic_metrics": [
+            "xCOMET"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We rely on their optimal prompt by adapting it to all languages covered in MGENTE, and validate its effectiveness on automatic translations. We tested different LLMs on 1,000 manually annotated model outputs. Our best-performing evaluation setup relies on GPT-4O, which achieves 0.87 macro F1 and 92% accuracy.",
+        "models": [
+            "GPT-4O",
+            "QWEN 2.5 72B"
+        ],
+        "methods": [
+            "LLM-as-a-judge approach",
+            "structured generation with JSON schema",
+            "sentence-level neutrality binary judgments"
+        ],
+        "criteria": [
+            "correctly gendered",
+            "wrongly gendered",
+            "neutral"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We asked the original language experts who created the corpus to manually annotate translations produced by QWEN 2.5 72B for each language pair, starting from ∼2,000 sentences from Set-N.",
+        "guideline": "Annotators labeled each translation as either fully gendered or fully neutral, discarding cases where (i) the translation was unintelligible or too low-quality for reliable evaluation, or (ii) mixed scenarios occurred, with both neutral and gendered mentions in the same sentence.",
+        "criteria": [
+            "fully gendered",
+            "fully neutral"
+        ]
+    }
+}

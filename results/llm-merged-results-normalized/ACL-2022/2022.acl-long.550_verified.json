@@ -1,0 +1,163 @@
+{
+  "paper_id": "2022.acl-long.550",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "PERSONACHAT",
+      "OPENSUBTITLES",
+      "WEIBO"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "transformer_encoder_decoder",
+      "gpt_2",
+      "roberta",
+      "bert"
+    ],
+    "outputs": [
+      "dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Transformer-based encoder-decoder"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Transformer-based encoder-decoder": "Transformer encoder-decoder"
+      },
+      "explanation": "Normalized model name from 'Transformer-based encoder-decoder' to consistent 'Transformer encoder-decoder'. Removed duplicate 'Transformer' entry. All other items verified as correct."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PERPLEXITY",
+      "BLEU",
+      "NIST",
+      "BERTSCORE",
+      "DISTINCT",
+      "ENTROPY",
+      "C"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "NIST"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "NIST-4",
+          "Distinct-1",
+          "Distinct-2",
+          "Distinct-3",
+          "Distinct-n",
+          "Entropy-1",
+          "Entropy-2",
+          "Entropy-3",
+          "Entropy-n"
+        ]
+      },
+      "normalized": {
+        "Distinct-1": "Distinct",
+        "Distinct-2": "Distinct",
+        "Distinct-3": "Distinct",
+        "Distinct-n": "Distinct",
+        "Entropy-1": "Entropy",
+        "Entropy-2": "Entropy",
+        "Entropy-3": "Entropy",
+        "Entropy-n": "Entropy",
+        "NIST-4": "NIST"
+      },
+      "explanation": "Simplified metric variants to base forms following guidelines (BLEU variants → BLEU, Distinct variants → Distinct, etc.). Added NIST which was implicitly included."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa-large-MNLI fine‑tuned on DialogueNLI"
+        ],
+        "methods": [
+          "consistency scoring via NLI model"
+        ],
+        "criteria": [
+          "persona consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The NLI model is used during DATA PROCESSING (for distillation and filtering), not as a judge of generated outputs. This is not LLM-as-judge evaluation. All metadata removed as inappropriate for this question."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rated responses on 3-point scale for Fluency (based on response quality only)",
+      "Annotators rated responses on 3-point scale for Coherence (relevance to dialogue history)",
+      "Annotators rated responses on binary scale for Persona consistency (matching given persona)"
+    ],
+    "criteria": [
+      "Fluency",
+      "Coherence",
+      "Consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators rated responses on 3-point scale for Fluency (based on response quality only)",
+          "Annotators rated responses on 3-point scale for Coherence (relevance to dialogue history)",
+          "Annotators rated responses on binary scale for Persona consistency (matching given persona)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators rated responses based on fluency, coherence with dialogue history, and persona consistency using predefined scales."
+        ],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "Fluency",
+          "Coherence"
+        ]
+      },
+      "normalized": {
+        "fluency": "Fluency",
+        "coherence": "Coherence",
+        "persona consistency": "Persona consistency"
+      },
+      "explanation": "Improved guideline description with specific details from the paper's human eval instructions. Normalized criteria capitalization and removed duplicates. All criteria verified as correct."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Key corrections: (1) Clarified that NLI model use was for data processing, not LLM-as-judge evaluation; (2) Normalized metric variants to base forms; (3) Improved human eval guideline specificity. The paper focuses on persona-based dialogue generation with model-agnostic data manipulation methods."
+}

@@ -1,0 +1,123 @@
+{
+  "paper_id": "2024.emnlp-main.1144",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text To Image Prompt Refinement Generation"
+    ],
+    "datasets": [
+      "SFT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "rat",
+      "stable_diffusion_1.4",
+      "stable_diffusion_2.1"
+    ],
+    "outputs": [
+      "refined prompts",
+      "adversarial prompts",
+      "generated images"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Prompt Refinement",
+          "Other:Prompt Generation"
+        ],
+        "datasets": [
+          "SFT (with prompts from Diffusion DB, COCO)"
+        ],
+        "languages": [],
+        "models": [
+          "CLIP"
+        ],
+        "outputs": [
+          "refined prompts and generated images"
+        ]
+      },
+      "normalized": {
+        "Other:Text-to-Image Prompt Refinement": "Other:Text-to-Image Prompt Refinement"
+      },
+      "explanation": "Consolidated tasks to single most specific description. Removed CLIP from models as it's an evaluation tool, not an NLG model. Simplified outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BIAS",
+      "QUALITY",
+      "IDSA",
+      "MBA"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "CLIP alignment score (Bias metric)",
+          "Aesthetic predictor (Quality metric)",
+          "Image Driven Semantic Alignment (IDSA)",
+          "Maximum Bias Association (MBA)"
+        ]
+      },
+      "normalized": {
+        "Bias (using CLIP)": "Bias",
+        "Quality (Aesthetic predictor)": "Quality"
+      },
+      "explanation": "Normalized metric names to their base forms, removing implementation details. Kept the four distinct metrics used in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-based evaluation was conducted in this paper. The paper uses CLIP and Aesthetic Predictor for evaluation, but these are not LLMs used as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The evaluation is entirely automated using CLIP-based metrics and aesthetic prediction."
+    }
+  },
+  "overall_notes": "The paper focuses on adversarial prompt refinement for text-to-image generation. The evaluation is entirely automated using CLIP-based metrics (Bias, IDSA, MBA) and an aesthetic predictor (Quality). No human evaluation or LLM-as-judge evaluation was conducted. The extraction was generally accurate but needed normalization and consolidation of redundant entries."
+}

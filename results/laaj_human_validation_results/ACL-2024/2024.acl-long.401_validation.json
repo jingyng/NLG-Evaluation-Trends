@@ -1,0 +1,94 @@
+{
+  "paper_id": "2024.acl-long.401",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates GPT-4 against human expert evaluations on 100 randomly sampled dialogues with reported agreement metrics and comparison to human inter-annotator agreement"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4",
+      "Qwen-72B-Chat"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Evaluation prompts for all 13 tasks shown in appendix Figures 21-34 with detailed scoring guidelines and examples provided"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 5,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "agreement percentage",
+      "value": 80.0,
+      "interpretation": "human experts agree 80% of the time",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators assessed overall quality of multi-turn dialogues based on task requirements using 1-10 scale, with final annotation determined by majority voting"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "agreement_percentage",
+      "Fleiss' kappa"
+    ],
+    "shared_criteria": [
+      "overall dialogue quality"
+    ],
+    "sample_size": {
+      "total_generated": 4208,
+      "validated_by_both": 100,
+      "notes": "100 randomly sampled dialogues from 4208 total turns across 1388 dialogues"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "agreement_percentage",
+        "value": 87.0,
+        "criterion": "overall dialogue quality",
+        "llm_model": "GPT-4",
+        "significance": "not_reported",
+        "notes": "GPT-4 vs human experts agreement, compared to human-human agreement of 80%"
+      },
+      {
+        "metric": "Fleiss' kappa",
+        "value": "not_specified",
+        "criterion": "overall_dialogue_quality",
+        "llm_model": "GPT-4",
+        "significance": "not_reported",
+        "notes": "Appendix Table 9 shows Fleiss' Kappa score confirmed higher agreement between GPT-4 and humans than among humans"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "high agreement",
+      "threshold_used": "87% agreement vs 80% human consensus",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 evaluation achieved 87% agreement with human experts, surpassing the 80% agreement among human experts themselves, validating the effectiveness of their LLM-as-a-judge methodology."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "task-specific scoring guidelines for 13 fine-grained abilities"
+    ],
+    "human_only_criteria": [
+      "overall dialogue quality based on task requirements"
+    ],
+    "shared_criteria": [
+      "overall dialogue quality"
+    ],
+    "notes": "LLM uses detailed task-specific scoring rubrics while humans assess overall quality, but both evaluate whether responses meet task requirements"
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "paper_id": "2025.naacl-long.135",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Style Transfer"
+    ],
+    "datasets": [
+      "Corpus of Diverse Styles (CDS)",
+      "Grammarly's Yahoo Answers Formality Corpus (GYAFC)",
+      "ParaNMT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-2-7B",
+      "RoBERTa-large",
+      "SBERT",
+      "CoLA classifier",
+      "GPT-3.5-turbo",
+      "BERT-base-cased"
+    ],
+    "outputs": [
+      "Style-transferred text preserving meaning while matching target style"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:text style transfer",
+          "Paraphrase Generation",
+          "Other:Text Style Transfer"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "gpt-3.5-turbo-0125"
+        ],
+        "outputs": [
+          "Generated style-transferred texts",
+          "style‑transferred sentences preserving meaning while reflecting the target style"
+        ]
+      },
+      "normalized": {
+        "Other:text style transfer": "Text Style Transfer",
+        "Other:Text Style Transfer": "Text Style Transfer",
+        "gpt-3.5-turbo-0125": "GPT-3.5-turbo"
+      },
+      "explanation": "Consolidated duplicate task entries to 'Text Style Transfer', removed 'Paraphrase Generation' as it's not a main evaluated task (only used for data generation), normalized model names, and simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "TSS",
+      "MS",
+      "F",
+      "Agg"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Target Style Strength (TSS) classifier score",
+          "Meaning Similarity (MS) cosine similarity via SBERT",
+          "Fluency (F) classifier score",
+          "Aggregated score Agg = TSS • MS • F"
+        ]
+      },
+      "normalized": {
+        "Target Style Strength (TSS) classifier score": "TSS",
+        "Meaning Similarity (MS) cosine similarity via SBERT": "MS",
+        "Fluency (F) classifier score": "F",
+        "Aggregated score Agg = TSS • MS • F": "Agg",
+        "Agg.": "Agg"
+      },
+      "explanation": "Simplified metric names to their canonical abbreviations (TSS, MS, F, Agg) as used throughout the paper, removing verbose descriptions"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Confirmed no LLM-as-judge usage; the paper uses GPT-3.5-turbo only as a baseline generation model, not for evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "For TSS_h: show 5 exemplars each for source and target styles, ask annotator to select which style the transferred text belongs to (binary scoring)",
+      "For MS_h and F_h: use three-level Likert scale (0-2) halved to 0-1 range for meaning similarity and fluency judgments"
+    ],
+    "criteria": [
+      "target style strength",
+      "meaning similarity",
+      "fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators are asked to judge target style strength (TSS_h), meaning similarity (MS_h), and fluency (F_h) using exemplars and Likert‑scale questions.",
+          "For TSS h , we show 5 exemplars for the style of the input text and 5 exemplars for the target style, and ask the annotator to select the style of the transferred text out of these two styles. For MS h and F h , we ask whether the transferred text has a similar meaning to the input text and whether the transferred is fluent, respectively, and collect the answers using a three-level Likert scale ranging from 0 to 2, which is then halved to fit in the 0 to 1 range."
+        ],
+        "criteria": [
+          "target style strength (TSS_h)",
+          "meaning similarity (MS_h)",
+          "fluency (F_h)",
+          "TSS h",
+          "MS h",
+          "F h"
+        ]
+      },
+      "normalized": {
+        "target style strength (TSS_h)": "target style strength",
+        "meaning similarity (MS_h)": "meaning similarity",
+        "fluency (F_h)": "fluency",
+        "TSS h": "target style strength",
+        "MS h": "meaning similarity",
+        "F h": "fluency"
+      },
+      "explanation": "Consolidated duplicate guideline entries, normalized criteria to base forms without '_h' suffix, simplified to core evaluation dimensions"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main improvements were normalizing terminology and removing redundant/verbose entries. The paper focuses on text style transfer evaluation using both automatic metrics (TSS, MS, F, Agg) and human evaluation with NLP experts. No LLM-as-judge was used."
+}

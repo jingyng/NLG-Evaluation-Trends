@@ -1,0 +1,143 @@
+{
+  "paper_id": "2025.acl-long.97",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Instruction Following"
+    ],
+    "datasets": [
+      "HEX PHI",
+      "ADVBENCH",
+      "MALICIOUSINSTRUCT",
+      "HELD OUT",
+      "XSTEST",
+      "CUSTOM",
+      "DRO",
+      "JUST EVAL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_chat_7b",
+      "llama_3_8b_instruct",
+      "qwen_2_7b_instruct",
+      "vicuna_7b",
+      "vicuna_13b"
+    ],
+    "outputs": [
+      "Model-generated responses to harmful and benign user queries",
+      "Generated responses to user queries (both harmful and benign) after applying safety defenses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Dialogue Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "The outputs of harmful queries are assessed using Llama-guard, which is a safety classification model based on LLaMA-2. While the output of benign queries are evaluated through string matching with refusal modules."
+        ]
+      },
+      "normalized": {
+        "Llama-3-8b-Instruct": "Llama-3-8B-Instruct"
+      },
+      "explanation": "Removed duplicate 'Dialogue Generation' task and removed evaluation methodology from outputs list (not actual outputs being generated). Normalized model name capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "COMPLIANCE RATE",
+      "REFUSAL RATIO",
+      "TOKENS PER SECOND",
+      "JUST EVAL SCORES"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "compliance ratio",
+          "refusal ratio",
+          "token generation speed"
+        ]
+      },
+      "normalized": {
+        "Tokens per Second": "Tokens per Second",
+        "Token Generation Speed": "Tokens per Second",
+        "Just-Eval Scores (helpfulness, clarity, factuality, depth, engagement)": "Just-Eval Scores"
+      },
+      "explanation": "Consolidated duplicate metrics and normalized naming. Removed lowercase duplicates. Just-Eval scores encompass multiple criteria but are used as a single evaluation approach."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "official Just-Eval prompt"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Clarity",
+      "Factuality",
+      "Depth",
+      "Engagement"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "prompt‑based scoring using GPT-4",
+          "scoring output from 1 to 5"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "prompt‑based scoring using GPT-4": "official Just-Eval prompt",
+        "scoring output from 1 to 5": "official Just-Eval prompt"
+      },
+      "explanation": "Consolidated method descriptions into the core approach (Just-Eval prompt). The scoring scale is part of the method, not a separate method."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The paper only uses automated metrics and LLM-based evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on safety defense mechanisms for LLMs during decoding. It evaluates NLG through instruction following and dialogue generation tasks. The extraction was generally accurate but needed minor normalization and consolidation of duplicate items. The paper uses a combination of safety metrics (compliance/refusal ratios) and quality metrics (Just-Eval scores) evaluated by GPT-4."
+}

@@ -1,0 +1,133 @@
+{
+  "paper_id": "2024.acl-long.472",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares CHATS-CRITIC (which uses LLM as judge) against human ratings on the same set of chart summaries, reporting correlation metrics and statistical significance"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "PaLM-2 (L)",
+      "PaLM-2 (S)"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt uses Chain-of-thought with 2-shot examples for entailment verification. Full prompt shown in Appendix A.4.4 with reasoning examples."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 10,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's Kappa",
+      "value": 0.61,
+      "interpretation": "substantial agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed annotation guidelines provided in Appendix B.2 with specific criteria for entailment, relevance, and grammaticality, including examples of acceptable approximations."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Accuracy",
+      "F1",
+      "AUC",
+      "Precision",
+      "Recall"
+    ],
+    "shared_criteria": [
+      "entailment",
+      "faithfulness"
+    ],
+    "sample_size": {
+      "total_generated": 60,
+      "validated_by_both": 60,
+      "notes": "60 charts randomly sampled from Chart-To-Text (Statista) test set, with sentences annotated by both human raters and CHATS-CRITIC"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 62.2,
+        "criterion": "Entailment",
+        "llm_model": "PaLM-2",
+        "significance": "p=1.9e-17",
+        "notes": "Strong correlation for reference set"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 45.15,
+        "criterion": "Entailment",
+        "llm_model": "PaLM-2",
+        "significance": "p=1.6e-14",
+        "notes": "Moderate correlation for PALM-2 annotation set"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 43.6,
+        "criterion": "Entailment",
+        "llm_model": "PaLM-2",
+        "significance": "p=1.7e-15",
+        "notes": "Moderate correlation for (PALM-2, PALM-2) set"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 51.01,
+        "criterion": "Entailment",
+        "llm_model": "PaLM-2",
+        "significance": "p=2.1e-21",
+        "notes": "Strong correlation for (PALM-2, (DePlot, PALM-2)) set"
+      },
+      {
+        "metric": "F1",
+        "value": 86.01,
+        "criterion": "Entailment",
+        "llm_model": "PaLM-2",
+        "significance": null,
+        "notes": "Reference set compared to baseline of 75.0"
+      },
+      {
+        "metric": "AUC",
+        "value": 81.56,
+        "criterion": "Entailment",
+        "llm_model": "PaLM-2",
+        "significance": null,
+        "notes": "Reference set compared to baseline of 50.0"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "moderate to strong",
+      "threshold_used": ">30 considered moderate, >50 considered strong",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "CHATS-CRITIC using PaLM-2 shows moderate to strong correlation (Pearson: 43.6-62.2) with human ratings, significantly outperforming reference-based metrics and achieving statistical significance (p<0.001)."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Relevance",
+      "Grammaticality",
+      "Fluency",
+      "Coherence"
+    ],
+    "shared_criteria": [
+      "Entailment",
+      "Faithfulness"
+    ],
+    "notes": "LLM focuses primarily on entailment/faithfulness verification, while human evaluators also assess relevance and grammatical quality."
+  }
+}

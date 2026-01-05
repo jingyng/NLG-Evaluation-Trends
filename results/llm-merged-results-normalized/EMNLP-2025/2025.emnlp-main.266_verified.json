@@ -1,0 +1,121 @@
+{
+  "paper_id": "2025.emnlp-main.266",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "CUHK PEDES",
+      "ICFG PEDES",
+      "RSTPREID"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_2_vl_7b",
+      "gpt_4o",
+      "irra",
+      "rde",
+      "clip_vit_b_16"
+    ],
+    "outputs": [
+      "pseudo-labels (detailed textual descriptions) for person images",
+      "refined natural language queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "refined natural language queries"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "The individual exudes confidence and elegance with their choice of attire. They are wearing a long white coat with purple stripes, which is both practical and stylish. The coat's casual style is balanced by the addition of a white hat. The person's upright posture and confident demeanor are further enhanced by their pair of black boots. A simple and neat hairstyle complements their overall appearance, and they are carrying a black bag."
+        ]
+      },
+      "normalized": {
+        "RSTPReid": "RSTPReid",
+        "pseudo-captions (rich textual descriptions) and refined natural language queries": "refined natural language queries",
+        "textual descriptions (pseudo-labels) for person images": "pseudo-labels (detailed textual descriptions) for person images"
+      },
+      "explanation": "Removed 'Dialogue Generation' as a finalized task since dialogue is used internally for generation/refinement but not evaluated as standalone NLG outputs. Removed example output text (used for illustration only). Added 'refined natural language queries' as an output type. Normalized task to canonical form."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "RANK",
+      "MAP"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'Yes' because the paper explicitly uses Rank-k metrics and mAP to evaluate retrieval performance, validating generated textual queries."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "qwen_2_vl_7b"
+    ],
+    "methods": [
+      "alignment judgment"
+    ],
+    "criteria": [
+      "Alignment"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'Yes' because Qwen2-VL-7B is used during inference in MTI module to judge alignment between user queries and candidate images, acting as an LLM referee."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluations are mentioned; metadata fields remain empty."
+    }
+  },
+  "overall_notes": "The paper addresses NLG through image captioning and query refinement. Extracted metadata was mostly accurate but required corrections to answers for Q2 and Q3 after verifying paper content. Metric normalization rules did not require merging since metrics are retrieval-oriented."
+}

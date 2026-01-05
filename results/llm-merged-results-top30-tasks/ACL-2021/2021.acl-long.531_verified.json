@@ -1,0 +1,154 @@
+{
+  "paper_id": "2021.acl-long.531",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Simplification",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "NEWSELA AUTO",
+      "WIKIPEDIA AUTO",
+      "MULTIMWA MTREF",
+      "MULTIMWA NEWSELA",
+      "MULTIMWA ARXIV",
+      "MULTIMWA WIKI"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "editnts",
+      "neural_semi_crf_aligner",
+      "editnts+aligner"
+    ],
+    "outputs": [
+      "simplified sentences",
+      "paraphrases",
+      "edit operations (ADD, DEL, REPLACE)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "paraphrases",
+          "edit operations (ADD, DEL, REPLACE)"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text Simplification",
+          "Other:text simplification"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "The paper describes using word alignment to improve text simplification models, including generating paraphrases, deletions, and insertions in simplified text outputs."
+        ]
+      },
+      "normalized": {
+        "Other:Text Simplification": "Text Simplification",
+        "Other:text simplification": "Text Simplification",
+        "neural semi-CRF aligner": "Neural semi-CRF aligner"
+      },
+      "explanation": "Normalized task names to standard forms, removed redundant 'Other:' prefixes. Simplified outputs description to concrete types. Removed duplicate model entry."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SARI",
+      "BLEU",
+      "F1",
+      "PRECISION",
+      "RECALL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Recall"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "%new",
+          "%eq"
+        ]
+      },
+      "normalized": {
+        "precision": "Precision",
+        "F1": "F1"
+      },
+      "explanation": "Added Recall metric mentioned in evaluation. Removed %new and %eq as they are not standard automatic evaluation metrics but rather analysis metrics. Normalized metric names to standard capitalization."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Confirmed no LLM-as-judge evaluation is used in the paper. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual inspection of 50 sentences from Newsela-auto test set to assess paraphrase quality and deletion quality"
+    ],
+    "criteria": [
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual inspection of 50 sentences from Newsela-auto test set to assess paraphrase quality and deletion quality"
+        ],
+        "criteria": [
+          "Paraphrase quality",
+          "Deletion quality"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- The evaluation involved assessing whether paraphrases were good or bad, and counting good and bad deletions, indicating an implicit criterion-based human judgment."
+        ],
+        "criteria": [
+          "paraphrase quality",
+          "deletion quality"
+        ]
+      },
+      "normalized": {
+        "paraphrase quality": "Paraphrase quality",
+        "deletion quality": "Deletion quality"
+      },
+      "explanation": "Provided more specific guideline description based on actual methodology. Kept the same criteria but normalized capitalization. The human evaluation was limited to analyzing outputs from the text simplification application."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on monolingual word alignment as a core task, with downstream applications in NLG (text simplification). The automatic metrics and human evaluations are used to evaluate the text simplification outputs generated using the word alignment information. The paper does not use LLMs for evaluation."
+}

@@ -1,0 +1,167 @@
+{
+  "paper_id": "2022.acl-long.535",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Conditional Text Generation",
+      "Unconditional Text Generation",
+      "Language Modeling"
+    ],
+    "datasets": [
+      "ROCStories",
+      "EMNLP2017 WMT News",
+      "Penn Treebank"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LSTM",
+      "Transformer",
+      "GPT-2",
+      "DM-LSTM",
+      "DM-Transformer",
+      "DM-GPT-2"
+    ],
+    "outputs": [
+      "Generated story endings",
+      "Generated sentences",
+      "Next-token predictions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "DM-LSTM",
+          "DM-Transformer",
+          "DM-GPT-2"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Story Generation"
+        ],
+        "datasets": [
+          "Penn Treebank (PTB)"
+        ],
+        "languages": [],
+        "models": [
+          "AWD-LSTM"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Conditional Text Generation": "Conditional Text Generation",
+        "Other:Unconditional Text Generation": "Unconditional Text Generation",
+        "Other:Language Modeling": "Language Modeling"
+      },
+      "explanation": "Removed redundant dataset name, normalized task names to standard format, kept only core evaluation models and removed AWD-LSTM as it's just a specific implementation detail"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "UNION",
+      "BERTScore",
+      "BLEU",
+      "Distinct",
+      "Self-BLEU",
+      "LM Score",
+      "RLM Score",
+      "Perplexity"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-2 Perplexity"
+        ]
+      },
+      "normalized": {
+        "Perplexity (PPL)": "Perplexity",
+        "GPT‑2 Perplexity": "Perplexity",
+        "Self‑BLEU": "Self-BLEU"
+      },
+      "explanation": "Normalized metric names to standard forms - combined all perplexity variants into 'Perplexity' since GPT-2 was just used to calculate perplexity for fluency evaluation"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-2"
+        ],
+        "methods": [
+          "perplexity calculation",
+          "perplexity scoring",
+          "LM score computation",
+          "RLM score computation"
+        ],
+        "criteria": [
+          "fluency",
+          "quality"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to No - GPT-2 was used to calculate perplexity as a metric, not as a judge evaluating generated outputs. The paper uses automatic metrics with GPT-2 as a scoring tool, not as an LLM judge in the prompt-based evaluation sense."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluate pairs of stories on Grammaticality and Logicality for conditional text generation",
+      "Annotators judge human-origin for unconditional text generation (Turing test)",
+      "Five annotators hired with detailed questionnaires, Krippendorff's alpha for inter-annotator agreement"
+    ],
+    "criteria": [
+      "Grammaticality",
+      "Logicality",
+      "Human-origin"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Five annotators hired with detailed questionnaires, Krippendorff's alpha for inter-annotator agreement"
+        ],
+        "criteria": [
+          "Human-origin"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "grammaticality",
+          "logicality",
+          "fluency",
+          "coherence",
+          "causal dependencies",
+          "temporal dependencies"
+        ]
+      },
+      "normalized": {
+        "grammaticality": "Grammaticality",
+        "logicality": "Logicality"
+      },
+      "explanation": "Normalized criteria to standard capitalization, removed redundant criteria that were subsumed by main categories, added methodological details to guidelines"
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation across multiple tasks using both automatic metrics and human evaluation. The extraction was generally accurate but needed normalization and some corrections regarding GPT-2 usage (it's used as a metric calculator, not as an LLM judge). The paper conducts comprehensive evaluations with detailed human assessment protocols."
+}

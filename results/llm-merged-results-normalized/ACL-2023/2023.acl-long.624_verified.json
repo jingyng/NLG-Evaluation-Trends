@@ -1,0 +1,118 @@
+{
+  "paper_id": "2023.acl-long.624",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "G DRAGON",
+      "PLAY BY POST PBP"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_3b",
+      "t_5_large",
+      "t_5",
+      "gpt_3"
+    ],
+    "outputs": [
+      "guidance utterances",
+      "teacher guidance utterances that aim to induce specific player actions"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "T5"
+        ],
+        "outputs": [
+          "teacher guidance utterances that aim to induce specific player actions"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Play-By-Post D&D transcripts"
+        ],
+        "models": [
+          "RL4LMs"
+        ]
+      },
+      "normalized": {
+        "guidance utterances": "guidance utterances",
+        "teacher guidance utterances (natural language) that aim to induce specific player actions": "teacher guidance utterances that aim to induce specific player actions"
+      },
+      "explanation": "Removed 'Play-By-Post D&D transcripts' as redundant with 'Play-By-Post (PBP)'. Removed 'RL4LMs' as it's a training framework, not a model. Added 'T5' as base model. Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "ENTITY MATCHING",
+      "GUIDANCE CLASSIFIER",
+      "PLAYER ACTION MATCHING"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "IDM-Identify",
+          "Action Matching"
+        ]
+      },
+      "normalized": {
+        "Guidance Classifier (IDM-Identify)": "Guidance Classifier"
+      },
+      "explanation": "Consolidated duplicate metrics - 'IDM-Identify' and 'Action Matching' are redundant with 'Guidance Classifier' and 'Player Action Matching'. Used simplified base forms."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was used in this paper. GPT-3 was used for intent mining and as a baseline for IDM, but not for post-generation evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluate fluency (naturalness), groundedness (continuation of the story), and goal-fulfillment (guidance provision and action matching)",
+      "Annotators answer questions about fluency, groundedness, whether the response provides guidance, and the likely player action (ability check)",
+      "Evaluate whether the response sounds natural and fluent. If anything seems off or sounds weird-confusing, illogical, repetitive, or factually wrong-then choose No"
+    ],
+    "criteria": [
+      "Fluency",
+      "Groundedness",
+      "Guidance",
+      "Action"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "criteria": [
+          "goal-fulfillment",
+          "guidance",
+          "action prediction"
+        ]
+      },
+      "normalized": {
+        "guidance": "guidance presence",
+        "action prediction": "action matching"
+      },
+      "explanation": "Consolidated criteria to avoid redundancy. 'goal-fulfillment' is the overall concept encompassing guidance presence and action matching. Used consistent terminology."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on dialogue generation for goal-driven guidance in Dungeons & Dragons. Key contributions include inverse dynamics modeling for data labeling, explicit intent modeling, and theory-of-mind-inspired RL. Evaluation uses both automatic metrics (lexical overlap, entity matching, guidance classification, action matching) and human evaluation across three criteria."
+}

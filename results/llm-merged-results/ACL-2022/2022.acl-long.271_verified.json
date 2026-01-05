@@ -1,0 +1,151 @@
+{
+  "paper_id": "2022.acl-long.271",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Data-to-Text Generation"
+    ],
+    "datasets": [
+      "WebNLG",
+      "E2E",
+      "WikiFluent"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART-base",
+      "RoBERTa-large",
+      "Simple Pointer (BART+ptr)"
+    ],
+    "outputs": [
+      "natural language descriptions of RDF triples",
+      "restaurant descriptions",
+      "Wikipedia-style paragraphs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "restaurant descriptions",
+          "Wikipedia-style paragraphs"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Data-to-Text"
+        ],
+        "datasets": [
+          "WIKIFLUENT"
+        ],
+        "models": [
+          "BART",
+          "RoBERTa"
+        ]
+      },
+      "normalized": {
+        "WIKIFLUENT": "WikiFluent",
+        "Other:Data-to-Text Generation": "Other:Data-to-Text Generation",
+        "Other:Data-to-Text": "Other:Data-to-Text Generation"
+      },
+      "explanation": "Removed duplicate task entry, normalized dataset names to standard capitalization, removed generic model names without versions, added specific output types mentioned in the paper"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "Omission errors",
+      "Hallucination errors"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Omission/Hallucination (NLI-based)",
+          "oissions / # facts",
+          "hallucinations / # examples"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "METEOR": "METEOR",
+        "Omission errors": "Omission errors",
+        "Hallucination errors": "Hallucination errors"
+      },
+      "explanation": "Removed redundant and incorrectly formatted metric names, kept the core metrics mentioned in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges - it uses PLMs for generation but not for evaluation. Removed placeholder 'None' entries."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual examination to count errors in the outputs, categorizing them into factual errors (hallucinations, omissions, incorrect fact merging, redundancies) and grammatical errors"
+    ],
+    "criteria": [
+      "hallucinations",
+      "omissions",
+      "incorrect fact merging",
+      "redundancies",
+      "grammatical errors",
+      "disfluencies"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "disfluencies"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "grammar errors",
+          "grammar errors or disfluencies"
+        ]
+      },
+      "normalized": {
+        "grammar errors": "grammatical errors",
+        "grammar errors or disfluencies": "grammatical errors",
+        "disfluencies": "disfluencies"
+      },
+      "explanation": "Normalized criteria names and merged duplicates, added 'disfluencies' as a separate criterion mentioned in the paper"
+    }
+  },
+  "overall_notes": "The extraction was generally good but needed normalization of names and removal of duplicates. The paper focuses on zero-shot Data-to-Text generation using a pipeline approach with BART and RoBERTa models. Human evaluation was conducted with detailed error categorization."
+}

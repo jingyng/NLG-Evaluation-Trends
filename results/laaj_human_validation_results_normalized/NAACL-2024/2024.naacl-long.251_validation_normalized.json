@@ -1,0 +1,124 @@
+{
+  "paper_id": "2024.naacl-long.251",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-as-judge binary factual consistency predictions against human-annotated ground truth labels using quantitative metrics (balanced accuracy) on the same set of summary sentences and summaries"
+  },
+  "llm_judge_details": {
+    "num_models": 6,
+    "models": [
+      "GPT-4",
+      "GPT-3.5-Turbo",
+      "Vicuna-13B",
+      "Vicuna-33B",
+      "WizardLM-13B",
+      "WizardLM-30B"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper mentions using zero-shot prompts for binary factual consistency prediction (DIR method) and chain-of-thought prompts for explanations (EXP method). Full prompts are referenced as being in Appendix C.3."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "multiple groups (not explicitly specified count)",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.65,
+      "interpretation": "substantial agreement",
+      "per_criterion": [
+        {
+          "criterion": "factual_consistency",
+          "metric": "Cohen's kappa",
+          "value": 0.42
+        },
+        {
+          "criterion": "topic_categorization",
+          "metric": "Cohen's kappa",
+          "value": 0.47
+        },
+        {
+          "criterion": "relevance",
+          "metric": "Cohen's kappa",
+          "value": 0.25
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full annotation instructions and interfaces described in Appendix F, including definitions for factual consistency, relevance, completeness, and error taxonomy with examples"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Balanced Accuracy",
+      "False Positive Rate",
+      "False Negative Rate",
+      "Recall"
+    ],
+    "shared_criteria": [
+      "factual_consistency"
+    ],
+    "sample_size": {
+      "total_generated": 3966,
+      "validated_by_both": 3966,
+      "notes": "Validation uses all 3,966 summary sentences in the test set (30% split of benchmark), covering both main-topic (75%) and marginal-topic (25%) summaries"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Balanced Accuracy",
+        "value": "surpasses non-LLM metrics only for GPT-4",
+        "criterion": "factual_consistency",
+        "llm_model": "GPT-4",
+        "significance": "p<0.05",
+        "notes": "GPT-4 achieves best performance; other LLMs perform poorly compared to non-LLM metrics"
+      },
+      {
+        "metric": "Recall",
+        "value": "non-LLM metrics capture all error types better",
+        "criterion": "factual_consistency",
+        "llm_model": "all",
+        "significance": "",
+        "notes": "Non-LLM metrics outperform LLMs at detecting diverse error types, especially for nuanced meaning shift and contradiction errors"
+      },
+      {
+        "metric": "False Positive Rate",
+        "value": "higher for non-LLM metrics",
+        "criterion": "factual_consistency",
+        "llm_model": "all",
+        "significance": "",
+        "notes": "Non-LLM metrics produce frequent false alarms, while LLMs have higher false negative rates"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "moderate to strong",
+      "threshold_used": "Cohen's kappa > 0.6 considered substantial agreement",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM-as-judge performs poorly on factual consistency evaluation in dialogue summarization domain; non-LLM specialized metrics outperform most LLMs except GPT-4, which shows moderate alignment with human judgments"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Relevance",
+      "Completeness",
+      "topic_categorization"
+    ],
+    "shared_criteria": [
+      "factual_consistency"
+    ],
+    "notes": "Both LLM and human evaluate binary factual consistency at sentence level; human evaluation covers additional dimensions not assessed by LLMs"
+  }
+}

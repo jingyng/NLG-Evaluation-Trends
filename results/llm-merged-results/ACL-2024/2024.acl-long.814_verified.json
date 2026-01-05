@@ -1,0 +1,160 @@
+{
+  "paper_id": "2024.acl-long.814",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Question Answering",
+      "Multiple Choice Question Answering",
+      "Dialogue Generation",
+      "Code Generation",
+      "Mathematical Reasoning"
+    ],
+    "datasets": [
+      "∞BENCH"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "GPT-4",
+      "Claude 2",
+      "Kimi-Chat",
+      "YaRN-Mistral-7B-128K",
+      "Yi-6B-200K",
+      "Yi-34B-200K",
+      "ChatGLM3-6B-128K",
+      "MiniCPM-2.4B-128K"
+    ],
+    "outputs": [
+      "Text summaries",
+      "Answers to open-ended questions",
+      "Multiple-choice selections",
+      "Dialogue responses",
+      "Code debugging solutions",
+      "Mathematical calculations",
+      "Information retrieval from long contexts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Mathematical Reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Information retrieval from long contexts"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering",
+          "Other:Multiple Choice Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Yi-6B",
+          "Yi-34B",
+          "ChatGLM3-6B",
+          "MiniCPM-2.4B",
+          "YaRN-Mistral"
+        ],
+        "outputs": [
+          "Generated summaries, answers to QA, multiple-choice selections, dialogue responses, code snippets, and math results.",
+          "The models generate summaries, answers to questions, and responses in dialogue tasks based on long contexts."
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering",
+        "Other:Multiple Choice Question Answering": "Multiple Choice Question Answering",
+        "YaRN-Mistral": "YaRN-Mistral-7B-128K",
+        "Yi-6B-200K": "Yi-6B-200K",
+        "Yi-34B-200K": "Yi-34B-200K",
+        "ChatGLM3-6B-128K": "ChatGLM3-6B-128K",
+        "MiniCPM-2.4B-128k": "MiniCPM-2.4B-128K"
+      },
+      "explanation": "Normalized task names to standard forms, consolidated model names with proper version numbers, removed redundant output descriptions, and added missing Mathematical Reasoning task. Removed base model names without context length specifications since paper specifically tests 100K+ token models."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE-L",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L-Sum",
+          "exact match"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L-Sum": "ROUGE-L",
+        "exact match": "Accuracy"
+      },
+      "explanation": "Simplified ROUGE-L-Sum to ROUGE-L base form. 'exact match' is normalized to 'Accuracy' as it refers to exact match accuracy evaluation. Added Accuracy metric explicitly since multiple tasks use exact match scoring."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges. LLMs are used as generation models being evaluated, not as evaluators. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators are instructed to craft these options to be challenging. We employ the same annotation pipeline for both En.QA and Zh.QA tasks, ensuring that the questions necessitate long-range dependency and reasoning, beyond simple short passage retrieval."
+        ],
+        "criteria": [
+          "long-range dependency",
+          "reasoning"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'No' (no human evaluation of generated outputs). The guidelines mentioned are for dataset annotation/construction, not for evaluating model outputs. No human evaluation of LLM generations is conducted in this paper."
+    }
+  },
+  "overall_notes": "This paper primarily focuses on evaluating long-context capabilities of LLMs rather than NLG quality evaluation. The NLG tasks are used as a means to test contextual understanding over 100K+ tokens. The evaluation is automated using metrics like ROUGE-L and accuracy. The paper introduces a new benchmark (∞BENCH) but does not conduct human evaluation of generated outputs. The extraction was generally good but needed normalization of model names and metric variants."
+}

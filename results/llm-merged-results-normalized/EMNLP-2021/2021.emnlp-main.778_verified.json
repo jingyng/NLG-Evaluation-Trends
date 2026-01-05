@@ -1,0 +1,133 @@
+{
+  "paper_id": "2021.emnlp-main.778",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Sentence Fusion"
+    ],
+    "datasets": [
+      "ECB",
+      "DUC",
+      "TAC",
+      "MULTI NEWS",
+      "QA ALIGN"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "qa_align",
+      "bert",
+      "roberta",
+      "corefroberta"
+    ],
+    "outputs": [
+      "fused sentences",
+      "sentence-level summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "QA-Align"
+        ],
+        "languages": [],
+        "models": [
+          "QA-Align"
+        ],
+        "outputs": [
+          "sentence-level summaries"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:sentence fusion"
+        ],
+        "datasets": [
+          "Fusion dataset from Filippova (2020)",
+          "DUC sentence fusion dataset"
+        ],
+        "models": [
+          "Fuse-Align"
+        ],
+        "outputs": [
+          "Fused summary sentences",
+          "fused sentences that consolidate information from multiple input sentences"
+        ]
+      },
+      "normalized": {
+        "Other:sentence fusion": "Other:Sentence Fusion"
+      },
+      "explanation": "Normalized task name casing, removed duplicate/incorrect dataset references, added the main QA-Align dataset created in the paper, removed 'Fuse-Align' since it's not a separate model but an augmentation of BART, and simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "bigram-F1"
+        ]
+      },
+      "normalized": {
+        "ROUGE-2": "ROUGE",
+        "bigram-F1": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE-2 to ROUGE base form. Removed 'bigram-F1' as it's essentially the same as ROUGE-2 (bigram overlap) mentioned elsewhere in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Identifies QAs that refer to the same fact within sentence context based on: (1) main verbs refer to same event, (2) answers refer to same referent/meaning, (3) questions convey same relation/role"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Identifies QAs that refer to the same fact within sentence context based on: (1) main verbs refer to same event, (2) answers refer to same referent/meaning, (3) questions convey same relation/role"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from No to Yes because the paper conducted comprehensive human evaluation for QA-Align annotations using Amazon Mechanical Turk with detailed annotation guidelines and inter-annotator agreement analysis. Added the specific annotation criteria used."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on the QA-Align task for cross-text content alignment, with sentence fusion as an exploratory downstream application. Human evaluation was conducted for the core QA-Align task annotation quality assessment (inter-annotator agreement), though no human evaluation was mentioned for the sentence fusion outputs themselves."
+}

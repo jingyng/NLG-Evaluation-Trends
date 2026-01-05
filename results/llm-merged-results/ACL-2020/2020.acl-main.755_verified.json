@@ -1,0 +1,140 @@
+{
+  "paper_id": "2020.acl-main.755",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT18",
+      "MTNT",
+      "4SQ",
+      "newstest2019",
+      "KTJ"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "French",
+      "Finnish",
+      "Japanese"
+    ],
+    "models": [
+      "Transformer-base"
+    ],
+    "outputs": [
+      "translated text"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Transformer-base"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WMT18 news"
+        ],
+        "languages": [],
+        "models": [
+          "BPE",
+          "BPE-Dropout",
+          "SentencePiece"
+        ],
+        "outputs": [
+          "Translated sentences in the target language",
+          "Translations"
+        ]
+      },
+      "normalized": {
+        "bleu": "BLEU",
+        "WMT18 news": "WMT18",
+        "EN↔DE": "English, German",
+        "EN↔FI": "English, Finnish",
+        "EN↔FR": "English, French",
+        "EN↔JA": "English, Japanese"
+      },
+      "explanation": "Removed 'WMT18 news' as it is redundant with 'WMT18'. Removed 'BPE', 'BPE-Dropout', and 'SentencePiece' from 'models' as they are subword segmentation strategies/preprocessing methods, not the NMT models themselves. The core model architecture is 'Transformer-base'. Consolidated language pairs into individual language lists. Normalized 'bleu' to 'BLEU'. Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "TER"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "TER"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "consistency (harmonic mean of BLEU scores)"
+        ]
+      },
+      "normalized": {
+        "bleu": "BLEU"
+      },
+      "explanation": "Added 'TER' as it is explicitly mentioned as a metric (TQ). Removed 'consistency' as it is a proposed robustness measure defined *using* BLEU, not a standard automatic evaluation metric for the translation output quality itself."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The extracted metadata was correct. The paper does not use LLMs as judges. The placeholder 'None' values have been removed to leave the lists empty, as per the output format guidelines."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The extracted metadata was correct. The paper does not conduct human evaluations. The placeholder 'None' values have been removed to leave the lists empty, as per the output format guidelines."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating the robustness of Neural Machine Translation (NMT) models to input perturbations. The core contribution is the proposal of new metrics (Robustness and Consistency) for this purpose, rather than introducing new generation models. Therefore, the 'models' list for Q1 correctly focuses on the architecture used ('Transformer-base'), not the subword methods which are a variable in the experimental setup. The evaluation is entirely automatic, comparing quality (BLEU, TER) on original vs. perturbed inputs."
+}

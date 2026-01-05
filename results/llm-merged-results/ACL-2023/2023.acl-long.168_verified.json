@@ -1,0 +1,148 @@
+{
+  "paper_id": "2023.acl-long.168",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Answer-to-Sequence Generation",
+      "Other:Data-to-Text Generation"
+    ],
+    "datasets": [
+      "CATS",
+      "CATS-D",
+      "CATS-S",
+      "CoSQL",
+      "DuSQL"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "TEMP",
+      "POINTER-GEN",
+      "T5",
+      "T5 + FNN",
+      "T5-GRAPH",
+      "T5-GRAPH + FNN",
+      "UGT",
+      "UGT + NSE"
+    ],
+    "outputs": [
+      "natural language descriptions summarizing SQL queries and result tables"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Data-to-text Generation"
+        ],
+        "datasets": [
+          "Rotowire",
+          "WEATHERGOV"
+        ],
+        "languages": [
+          "English"
+        ],
+        "models": [
+          "OURS"
+        ],
+        "outputs": [
+          "natural language description (response) summarizing the SQL query and its result table",
+          "natural language description"
+        ]
+      },
+      "normalized": {
+        "Other:Data-to-Text Generation": "Other:Data-to-Text Generation",
+        "Other:Answer-to-Sequence Generation": "Other:Answer-to-Sequence Generation"
+      },
+      "explanation": "Removed datasets only mentioned in related works (Rotowire, WEATHERGOV), removed 'OURS' as it's not a distinct model name (refers to UGT + NSE), consolidated output descriptions, removed English as only Chinese generation is evaluated"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SacreBLEU",
+          "COVERAGE"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE-L to ROUGE base form. Removed SacreBLEU (implementation detail for BLEU) and COVERAGE (custom metric, not standard NLG evaluation metric)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation conducted in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluated FLUENCY (whether description is fluent), FAITHFULNESS (logical consistency with SQL and table), COVERAGE (percentage of table cells covered), REPETITION (number of repeated cells)"
+    ],
+    "criteria": [
+      "fluency",
+      "faithfulness",
+      "coverage",
+      "repetition"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Fluency",
+          "Faithfulness",
+          "Coverage",
+          "Repetition"
+        ]
+      },
+      "normalized": {
+        "fluency": "fluency",
+        "faithfulness": "faithfulness",
+        "coverage": "coverage",
+        "repetition": "repetition"
+      },
+      "explanation": "Normalized criteria to lowercase, removed duplicate capitalized versions"
+    }
+  },
+  "overall_notes": "The paper focuses on Chinese answer-to-sequence generation using SQL-table pairs. The extraction was generally accurate but included some datasets mentioned only in related work comparisons. The main contributions are the CATS dataset and the UGT+NSE method for handling structured inputs."
+}

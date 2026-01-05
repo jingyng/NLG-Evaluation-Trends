@@ -1,0 +1,102 @@
+{
+  "paper_id": "2024.emnlp-main.432",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares LLM-as-a-judge results with human evaluation results by reporting correlation coefficients between expert human evaluators (experts) and automated LLM evaluators (GPT-3.5-turbo and GPT-4) across the same set of explanations."
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-3.5-turbo",
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper specifies that automated evaluations use the same guidelines/rubric as human evaluation (adapted from Hoffman et al.) but does not show the exact LLM prompt text verbatim. Appendix J provides human evaluation guidelines but not the LLM-specific prompt."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 53,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Appendix J provides detailed human evaluation guidelines with seven evaluative questions (Q0-Q6) using a 3-point Likert scale, scoring rubrics for each question, and definitions of metrics."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "Overall Quality"
+    ],
+    "sample_size": {
+      "total_generated": 24204,
+      "validated_by_both": 20,
+      "notes": "Human and LLM evaluations were conducted on the same set of 20 randomly selected explanations from the dataset."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.7,
+        "criterion": "Overall Quality",
+        "llm_model": "GPT-3.5-turbo",
+        "significance": null,
+        "notes": "Correlation between expert and GPT-3.5 overall quality scores"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.6,
+        "criterion": "Overall Quality",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Correlation between expert and GPT-4 overall quality scores"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.66,
+        "criterion": "Overall Quality",
+        "llm_model": null,
+        "significance": null,
+        "notes": "Correlation between GPT-3.5 and GPT-4 overall quality scores"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "significant agreement",
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM evaluators show significant agreement with human experts (ρ=0.60-0.70), supporting the credibility of automated evaluation. GPT-3.5 exhibits slightly higher correlation with human experts than GPT-4 does."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Overall Quality",
+      "Understandability",
+      "Trustworthiness",
+      "Satisfaction",
+      "Detail",
+      "Completeness",
+      "Accuracy"
+    ],
+    "notes": "Both LLM and human evaluators used identical criteria and scoring rubrics (seven metrics adapted from Hoffman et al.). The paper shows alignment across all seven dimensions in Figure 3, but quantitative correlations are only reported for Overall Quality."
+  }
+}

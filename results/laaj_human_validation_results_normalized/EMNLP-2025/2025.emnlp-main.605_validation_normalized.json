@@ -1,0 +1,97 @@
+{
+  "paper_id": "2025.emnlp-main.605",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-as-a-judge against human evaluation through correlation analysis and ranking comparisons on the same set of model predictions"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "LLaMA-3.1-70B-Instruct"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The exact prompt is provided in List 9 of the appendix, detailing evaluation criteria and 5-point Likert scale scoring"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "weighted interrater agreement",
+      "value": 81,
+      "interpretation": "strong consensus",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed rubrics provided in List 10 using 4-point Likert scale (1=bad, 2=fair, 3=good, 4=excellent) for four dimensions"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "helpfulness"
+    ],
+    "sample_size": {
+      "total_generated": 50,
+      "validated_by_both": 50,
+      "notes": "50 random tasks with predictions from three model variants evaluated by both LLM and human annotators"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.47,
+        "criterion": "Helpfulness",
+        "llm_model": "LLaMA-3.1-70B-Instruct",
+        "significance": "p<0.01",
+        "notes": "Correlation between LLM overall helpfulness score and human judgment"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.44,
+        "criterion": "Helpfulness",
+        "llm_model": "LLaMA-3.1-70B-Instruct",
+        "significance": "p<0.01",
+        "notes": "Correlation between LLM overall helpfulness score and human judgment"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "positive alignment",
+      "threshold_used": "Not explicitly stated",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM-as-a-judge shows positive correlation with human judgment (Pearson=0.47, Spearman=0.44, p<0.01) and matches established baselines for automatic dialogue evaluation metrics despite the additional challenge of measuring response timing."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Correctness",
+      "Promptness",
+      "Efficiency"
+    ],
+    "human_only_criteria": [
+      "Alignment",
+      "Naturalness",
+      "Accuracy"
+    ],
+    "shared_criteria": [
+      "Helpfulness"
+    ],
+    "notes": "LLM evaluates four dimensions on 5-point scale while humans evaluate four dimensions on 4-point scale, with 'helpfulness' being the only overlapping criterion"
+  }
+}

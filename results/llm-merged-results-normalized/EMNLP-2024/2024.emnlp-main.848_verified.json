@@ -1,0 +1,149 @@
+{
+  "paper_id": "2024.emnlp-main.848",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Detoxification"
+    ],
+    "datasets": [
+      "MAGR",
+      "SBF",
+      "DYNAHATE",
+      "JIGSAW"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "decompx",
+      "marco",
+      "bart",
+      "roberta",
+      "roberta_toxic_classifier",
+      "xdetox",
+      "paragedi",
+      "condbert"
+    ],
+    "outputs": [
+      "Detoxified text sentences",
+      "Detoxified sentences with reduced toxicity"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BART (base model)",
+          "Perspective API"
+        ],
+        "outputs": [
+          "An amazing life for an ordinary man."
+        ]
+      },
+      "normalized": {
+        "ParaGedi": "ParaGeDi"
+      },
+      "explanation": "Removed 'BART (base model)' and 'Perspective API' as they are not NLG models (Perspective API is evaluation metric, BART base model is part of MARCO). Removed example sentence from outputs as it's too specific. Normalized 'ParaGedi' to 'ParaGeDi'."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PERSPECTIVE API",
+      "PERPLEXITY",
+      "BERTSCORE",
+      "BLEU",
+      "J"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Perspective API toxicity score",
+          "BLEU Score",
+          "J score (STA, SIM, FL)",
+          "Style Accuracy (STA)",
+          "Semantic Similarity (SIM)",
+          "Fluency (FL)"
+        ]
+      },
+      "normalized": {
+        "BLEU Score": "BLEU"
+      },
+      "explanation": "Simplified metric variants to base forms. Removed redundant entries like 'Perspective API toxicity score' (covered by 'Perspective API') and component metrics of J score (covered by 'J score')."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Determining which model's output was less toxic and more fluent",
+      "Task instruction includes warning about toxic content",
+      "Annotators paid average wage of USD 15 per hour"
+    ],
+    "criteria": [
+      "Toxicity",
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators paid average wage of USD 15 per hour"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- to determine which model's output was less toxic and more fluent",
+          "The task instruction provided to the annotators includes questions/criteria for evaluating fluency, toxicity, and content preservation.",
+          "The instruction includes a warning about toxic content in the task. We paid the annotators an average wage of USD 15 per hour."
+        ],
+        "criteria": [
+          "content preservation"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline descriptions. Removed 'content preservation' from criteria as human evaluation specifically focused on toxicity and fluency (content preservation was evaluated automatically via BERTScore/BLEU)."
+    }
+  },
+  "overall_notes": "The paper focuses on text detoxification as an NLG task. Extraction was generally accurate but included some redundant or incorrectly categorized items. Paper uses standard automatic metrics (Perspective API, BLEU, BERTScore, Perplexity, J score) and conducts human evaluation focused on toxicity and fluency. No LLM-as-judge evaluation is performed."
+}

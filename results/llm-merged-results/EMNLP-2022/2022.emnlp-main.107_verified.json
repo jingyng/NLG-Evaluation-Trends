@@ -1,0 +1,141 @@
+{
+  "paper_id": "2022.emnlp-main.107",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Multi-hop Knowledge Graph Reasoning"
+    ],
+    "datasets": [
+      "FB15K237",
+      "NELL995",
+      "FB15K237-20%",
+      "NELL23K",
+      "KACC-M",
+      "FB100K"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "SQUIRE",
+      "Transformer",
+      "TransE",
+      "MultiHopKG",
+      "MINERVA",
+      "DacKGR",
+      "AnyBURL"
+    ],
+    "outputs": [
+      "Sequences of entities and relations forming reasoning paths",
+      "Generated reasoning paths as sequences of entity and relation tokens"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:KG Path Generation",
+          "Other:multi-hop knowledge graph reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "The generated sequence corresponds to a path in KG."
+        ]
+      },
+      "normalized": {
+        "Other:Multi-hop Reasoning": "Other:Multi-hop Knowledge Graph Reasoning"
+      },
+      "explanation": "Consolidated task descriptions to a single canonical form and removed redundant/less precise descriptions. The paper focuses specifically on multi-hop knowledge graph reasoning."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MRR",
+      "Hits@1",
+      "Hits@3",
+      "Hits@10"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "H@1",
+          "H@3",
+          "H@10"
+        ]
+      },
+      "normalized": {
+        "H@1": "Hits@1",
+        "H@3": "Hits@3",
+        "H@10": "Hits@10"
+      },
+      "explanation": "Normalized metric names to consistent forms (Hits@N instead of H@N) and removed duplicates. The paper uses standard KG evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM-as-judge evaluation was conducted. The paper does not use LLMs for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Paths are scored as 1 (reasonable), 0.5 (partially reasonable), or 0 (unreasonable) based on defined rules: reasonable paths sufficiently deduce the relationship, partially reasonable paths are in highly positive correlation, and unreasonable paths are irrelevant."
+    ],
+    "criteria": [
+      "reasonableness",
+      "interpretability"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators score each generated path as 1 (reasonable), 0.5 (partially reasonable), or 0 (unreasonable) based on its ability to deduce the relationship.",
+          "1. Reasonable paths are those that can sufficiently deduce the relationship r between h and t. 2. Partially reasonable paths are those that cannot sufficiently deduce the relationship, but they are in highly positive correlation with the triple fact. 3. Unreasonable paths are those that are irrelevant to the triple fact."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant guideline descriptions into a single comprehensive description. The criteria remain accurate as described in the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on knowledge graph reasoning using sequence-to-sequence generation, which qualifies as NLG (generating sequences of entities/relations). The extraction was generally accurate but contained some redundancy in task descriptions and human evaluation guidelines. The paper does not use LLM-as-judge evaluation, relying instead on traditional automatic metrics and human evaluation for interpretability assessment."
+}

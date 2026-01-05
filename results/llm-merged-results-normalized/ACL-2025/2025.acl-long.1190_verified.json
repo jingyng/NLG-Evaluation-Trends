@@ -1,0 +1,152 @@
+{
+  "paper_id": "2025.acl-long.1190",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Mathematical Reasoning",
+      "Multi Step Reasoning"
+    ],
+    "datasets": [
+      "AIME",
+      "CN HIGH SCHOOL MATH",
+      "EN MATH HARD",
+      "GSM8K",
+      "GAOKAO BENCH MATH",
+      "SAT MATH",
+      "amc23",
+      "math500",
+      "OLYMPIADBENCH",
+      "OMNI MATH",
+      "CMATH"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "qwen_2.5_72b_instruct",
+      "qwen_2.5_7b",
+      "llama_3.2_3b",
+      "qwen_2.5_3b"
+    ],
+    "outputs": [
+      "Multi-step reasoning trajectories with explicit step labels",
+      "Chain-of-thought reasoning paths"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Reasoning Trajectory Generation"
+        ],
+        "datasets": [
+          "Chinese high school math",
+          "CN High School Math Hard",
+          "Chinese High School Math"
+        ],
+        "languages": [],
+        "models": [
+          "Llama-3.2-3bbase",
+          "Qwen2.5-3b-base"
+        ],
+        "outputs": [
+          "Reasoning trajectories (step-by-step solutions)",
+          "multi-step reasoning trajectories with explicit intermediate steps labeled as Step 1, Step 2, etc."
+        ]
+      },
+      "normalized": {
+        "Llama-3.2-3bbase": "Llama-3.2-3B",
+        "Qwen2.5-3b-base": "Qwen2.5-3B",
+        "multi-step reasoning trajectories (chain-of-thought) with explicit step labels": "Multi-step reasoning trajectories with explicit step labels"
+      },
+      "explanation": "Removed redundant/duplicate dataset names and normalized model names. Removed 'Reasoning Trajectory Generation' as it's not a standard NLG task - mathematical reasoning is the primary focus. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PROBLEM SOLVING RATE",
+      "CORRECT PATHS",
+      "EFFECTIVE TOKEN RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Pass Rate"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'Pass Rate' as it was used for preliminary dataset filtering, not for evaluating generated outputs. The three main metrics (Problem Solving Rate, Average Correct Paths, Effective Token Rate) are the actual evaluation metrics used."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "qwen_2.5_72b_instruct"
+    ],
+    "methods": [
+      "Majority voting with multiple trials",
+      "LLM verification with prompt template"
+    ],
+    "criteria": [
+      "Correctness",
+      "Detection"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "Majority voting",
+          "LLM judge with prompt template"
+        ],
+        "criteria": [
+          "Match to standard answer",
+          "whether answer is guessed"
+        ]
+      },
+      "normalized": {
+        "majority voting": "Majority voting with multiple trials",
+        "LLM verification with majority voting": "LLM verification with prompt template",
+        "correctness of final answer": "Final answer correctness",
+        "correctness of intermediate steps": "Intermediate step correctness"
+      },
+      "explanation": "Consolidated and normalized methods and criteria. The LLM judge uses majority voting with a specific prompt template to evaluate correctness and detect guessing."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted - all evaluation was automated using metrics and LLM judges."
+    }
+  },
+  "overall_notes": "The paper focuses on generating multi-step mathematical reasoning trajectories using FastMCTS sampling strategy. It evaluates generated outputs using automatic metrics and LLM-as-judge approach, but does not conduct human evaluation. The extraction was generally accurate but needed normalization and removal of redundant/irrelevant items."
+}

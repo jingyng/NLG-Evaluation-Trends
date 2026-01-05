@@ -1,0 +1,81 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "In this paper, we present a comprehensive document benchmark including three task categories: 1) Understanding: extracting information from documents by identifying keywords, parsing the structure of tables, etc. Answers are found directly in the document. 2) Numerical Reasoning: processing numerical information through counting, calculating, comparing, and summarizing, requiring both extracted information and reasoning for concluding. 3) Cross-Element Locating: ... models must summarize relevant sections to identify parts that match a given abstract and then determine the relation between the paragraph and its section titles.",
+            "We present a comprehensive document benchmark including three task categories: Understanding, Numerical Reasoning, Cross-Element Locating.",
+            "We introduce three primary tasks of long document and propose a comprehensive benchmark... Understanding: extracting information from documents by identifying keywords, parsing the structure of tables, etc. Answers are found directly in the document. Numerical Reasoning: processing numerical information through counting, calculating, comparing, and summarizing... Cross-Element Locating: ...models must summarize relevant sections to identify parts that match a given abstract and then determine the relation between the paragraph and its section titles."
+        ],
+        "tasks": [
+            "Other:Document Question Answering",
+            "Other:Cross-Element Locating",
+            "Other:Numerical Reasoning",
+            "Other:Understanding"
+        ],
+        "datasets": [
+            "LongDocURL"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-4o",
+            "Qwen2-VL",
+            "LLaVA-Next-Interleave",
+            "Gemini-1.5-Pro",
+            "LLaVA-OneVision-Chat"
+        ],
+        "outputs": [
+            "Generated answers to document-based questions",
+            "question-answering pairs"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Following MATHVISTA and MMLongBench-Doc, we implement a three-stage protocol: response generation, answer extraction, and score calculation. In the score calculation stage, we divide scores into five categories (Integer, Float, String, List, and None). Different from MMLongBench-Doc, we adopt a softer and more reasonable scoring standard.",
+            "We adopt a three-stage protocol: response generation, answer extraction, and score calculation... We divide scores into five categories (Integer, Float, String, List, and None)... We perform an exact match comparison and score the answer either 0 or 1.",
+            "Following MATHVISTA and MMLongBench-Doc, we implement a three-stage protocol: response generation, answer extraction, and score calculation."
+        ],
+        "automatic_metrics": [
+            "ANLS",
+            "Exact Match",
+            "Relative Tolerance",
+            "Custom List Scoring",
+            "ANLS (Average Normalized Levenshtein Similarity)",
+            "Relative Tolerance (1% for floats)",
+            "List Scoring (greedy matching)",
+            "exact match",
+            "1% relative tolerance for float",
+            "rule-based scoring for list with soft penalty"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [
+            "Therefore, we need an answer extractor (GPT4o) to convert detailed responses into concise ones."
+        ],
+        "models": [
+            "GPT-4o"
+        ],
+        "methods": [
+            "answer extraction from free-form responses"
+        ],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": [
+            "At the dataset verification stage, we have 21 fulltime data annotators responsible for the labeling work in the human verifying process, while 6 professional annotators with postgraduate degrees or above perform the final data quality verification and cross-checking work."
+        ],
+        "guideline": [
+            "The annotator reviews the intermediate process of machine verification to determine whether it is reasonable and whether the negative samples can be recovered by simply correcting the question-answer pair. Human annotators should oversee the question-answer pair process using the source visual document, not the parsed one. First, they need to verify if the evidence provided by the model aligns with the document's content, and then ensure that the final answer can be derived step by step from the intermediate process."
+        ],
+        "criteria": [
+            "Task Relevance",
+            "Format Correctness",
+            "Faithfulness",
+            "consistency between the question-answering pair and the visual source information"
+        ]
+    }
+}

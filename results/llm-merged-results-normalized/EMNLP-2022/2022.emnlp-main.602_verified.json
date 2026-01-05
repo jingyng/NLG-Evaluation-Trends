@@ -1,0 +1,172 @@
+{
+  "paper_id": "2022.emnlp-main.602",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Style Transfer",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "SHAKESPEARE AUTHOR IMITATION DATASET",
+      "CORPUS OF DIVERSE STYLES CDS",
+      "MRPC",
+      "QQP",
+      "STS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_star",
+      "iterative_t_star",
+      "vanilla_t_star",
+      "strap",
+      "unmt",
+      "dlsm",
+      "rlprompt"
+    ],
+    "outputs": [
+      "Generated stylized sentences",
+      "AMR graphs"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "MRPC",
+          "QQP",
+          "STS"
+        ],
+        "outputs": [
+          "AMR graphs"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Shakespeare Author Imitation Dataset (SAID)",
+          "CDS"
+        ],
+        "models": [
+          "T-STAR (T5-base)",
+          "T5-Base"
+        ]
+      },
+      "normalized": {
+        "Other:Text Style Transfer": "Other:Text Style Transfer",
+        "Paraphrase Generation": "Paraphrase Generation"
+      },
+      "explanation": "Removed duplicate/redundant dataset entries and added missing datasets mentioned in the paper. Added AMR graphs as outputs since they are generated as intermediate representations. Removed T5-Base model variants since they are the underlying architecture, not distinct models being evaluated."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SMATCH",
+      "BLEU",
+      "WMD",
+      "SIM",
+      "STYLE ACCURACY",
+      "SELF BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "SMATCH",
+          "BLEU",
+          "WMD",
+          "SIM",
+          "Style Accuracy",
+          "Weighted Style Accuracy",
+          "Self-BLEU"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-4",
+          "Word Mover Distance (WMD)",
+          "SIM (semantic similarity)",
+          "Style Accuracy (RoBERTa classifier)"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "Word Mover Distance (WMD)": "WMD",
+        "SIM (semantic similarity)": "SIM",
+        "Self-BLEU": "Self-BLEU"
+      },
+      "explanation": "Normalized all metric variants to base forms and removed redundant/verbose descriptions. Consolidated all metrics used in the paper including SMATCH for AMR evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Confirmed that no LLMs are used as judges for evaluation in this paper. The paper only uses RoBERTa classifiers for automated style accuracy measurement, not LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators must be proficient in English with minimum education of Diploma",
+      "Annotators must qualify on two simpler questions before proceeding",
+      "Each instance annotated by 3 taskers with majority vote determining final annotation",
+      "Side-by-side comparison of two stylized outputs for content preservation",
+      "Error categorization into hallucination, semantic drift, incomplete, or no error"
+    ],
+    "criteria": [
+      "Preservation",
+      "Hallucination",
+      "Drift",
+      "Content"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Side-by-side comparison of two stylized outputs for content preservation",
+          "Error categorization into hallucination, semantic drift, incomplete, or no error"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "content preservation",
+          "Hallucination",
+          "Semantic drift",
+          "Incomplete content",
+          "hallucinations",
+          "semantic drift",
+          "incomplete"
+        ]
+      },
+      "normalized": {
+        "content preservation": "Content Preservation",
+        "Hallucination": "Hallucination",
+        "Semantic drift": "Semantic Drift",
+        "Incomplete content": "Incomplete Content"
+      },
+      "explanation": "Consolidated and normalized human evaluation criteria, removed duplicates, and added complete description of human evaluation methodology including both study types conducted (side-by-side comparison and error categorization)."
+    }
+  },
+  "overall_notes": "This paper thoroughly evaluates text style transfer using both automatic metrics and extensive human evaluations. The extraction was generally good but missed some important details like the paraphrase datasets used for AMR validation and the comprehensive human evaluation methodology. The paper focuses on text style transfer with AMR graphs as intermediate representation, with strong experimental evaluation across multiple datasets."
+}

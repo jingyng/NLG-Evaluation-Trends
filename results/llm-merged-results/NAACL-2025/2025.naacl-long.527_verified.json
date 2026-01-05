@@ -1,0 +1,168 @@
+{
+  "paper_id": "2025.naacl-long.527",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "DOCCI"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaVA-7B",
+      "TinyLLaVA",
+      "PaliGemma"
+    ],
+    "outputs": [
+      "dense image captions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "TinyLLaVA",
+          "PaliGemma"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Synthetic Gemini captions"
+        ],
+        "languages": [],
+        "models": [
+          "Gemini",
+          "gemini-1.5-flash-001",
+          "gemini-1.5-pro",
+          "Gemma-2B"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "gemini-1.5-flash-001": "Gemini",
+        "gemini-1.5-pro": "Gemini"
+      },
+      "explanation": "Removed Gemini variants as they are used for evaluation/processing, not as NLG models being evaluated. Kept only the VLMs actually fine-tuned for caption generation. Removed 'Synthetic Gemini captions' as it's a variant of DOCCI, not a separate dataset."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "DNLI",
+      "Descriptiveness Recall",
+      "Descriptiveness Precision",
+      "Contradiction Precision",
+      "Contradiction Recall",
+      "CLIP"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "CLIP"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Decomposed NLI",
+          "Phi correlation coefficient"
+        ]
+      },
+      "normalized": {
+        "CLIP-based alignment": "CLIP",
+        "Decomposed NLI": "DNLI"
+      },
+      "explanation": "Normalized 'Decomposed NLI' to 'DNLI' (the paper's main metric). Removed 'Phi correlation coefficient' as it's not an evaluation metric but a correlation analysis. Added 'CLIP' as it's explicitly mentioned as a baseline metric."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Gemini"
+    ],
+    "methods": [
+      "textual entailment evaluation",
+      "question-answer correctness assessment",
+      "proposition extraction"
+    ],
+    "criteria": [
+      "entailed",
+      "contradicted",
+      "neutral"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "gemini-1.5-flash-001"
+        ],
+        "methods": [
+          "answer correctness evaluation",
+          "accuracy evaluation of generated answers",
+          "textual entailment computation"
+        ],
+        "criteria": [
+          "correctness",
+          "entailment",
+          "contradiction",
+          "neutrality"
+        ]
+      },
+      "normalized": {
+        "gemini-1.5-flash-001": "Gemini",
+        "entailment": "entailed",
+        "contradiction": "contradicted",
+        "neutrality": "neutral"
+      },
+      "explanation": "Normalized Gemini variants to base name. Simplified criteria to the three actual labels used. Consolidated similar evaluation methods."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Assess visual entailment of propositions (entailed, contradicted, or neutral) based on the image"
+    ],
+    "criteria": [
+      "entailed",
+      "contradicted",
+      "neutral"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators were instructed to label each proposition as entailed, contradicted, or neutral based on visual evidence.",
+          "Each proposition is evaluated by a distinct set of three annotators, and the final entailment label is determined by a majority vote."
+        ],
+        "criteria": [
+          "entailment",
+          "contradiction",
+          "neutrality"
+        ]
+      },
+      "normalized": {
+        "entailment": "entailed",
+        "contradiction": "contradicted",
+        "neutrality": "neutral"
+      },
+      "explanation": "Consolidated guideline into a single concise statement. Normalized criteria labels to match the three actual evaluation categories used."
+    }
+  },
+  "overall_notes": "The paper focuses on dense image captioning evaluation and proposes DNLI (Decomposed NLI) as a novel evaluation framework. It uses Gemini extensively for proposition extraction, entailment evaluation, and caption adaptation. The extraction was generally good but included some items that were part of the pipeline rather than the core NLG evaluation."
+}

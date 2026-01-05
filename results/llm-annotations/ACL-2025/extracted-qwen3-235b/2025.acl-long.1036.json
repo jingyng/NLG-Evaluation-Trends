@@ -1,0 +1,63 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We introduce Text-Scene Graph Bench (TSG Bench), a benchmark designed to rigorously evaluate LLMs' ability in scene graph understanding and generation.",
+        "tasks": [
+            "Other:Scene Graph Generation"
+        ],
+        "datasets": [
+            "TSG Bench"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-4o",
+            "GPT-4o-mini",
+            "Claude-3.5-Sonnet",
+            "Claude-3",
+            "LLaMA-3.3-70B",
+            "Qwen-2.5-72B",
+            "DeepSeek-V3",
+            "Mixtral-8x22B",
+            "Mistral-large",
+            "Qwen-2.5-7B",
+            "Mistral-7B"
+        ],
+        "outputs": "scene graphs in the form of triplets (node -> edge -> node)"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "Scene graph generation tasks are assessed with precision, recall, and macro F1 score.",
+        "automatic_metrics": [
+            "Exact Match (EM)",
+            "Accuracy",
+            "Precision",
+            "Recall",
+            "Macro F1 Score"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": "",
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "Three annotators worked on human annotation, and they are paid on the hourly rate exceeding $18, based on the estimated time required to complete the tasks.",
+        "guideline": "Sentences must accurately reflect the scene graph without exaggerating or downplaying its meaning. Redundant sentences must be removed. If the narrative lacks logical flow, new sentences should be added to resolve inconsistencies. The order of usage for hand1 and hand2 must be strictly maintained. Any newly added sentence must be expressible in the scene graph format. All elements must be lemmatized. All nodes must belong exactly to one of: person, action, object, or hand. All edges must clearly be of type: verb, dobj, or preposition. All major actions and relations described must be reflected in the scene graph without omission. When a narrative includes compound actions, each action must be separated and represented by distinct scene graphs. For repeated or sequential actions, actions must be represented in separate scene graphs reflecting order and frequency. When describing grasping actions, the first object must be assigned to hand1, the second to hand2, and after all objects are released, the sequence restarts from hand1. If synonyms are present in the predefined set of scenario-specific elements, only one representative term should be retained. The set of scenario-specific elements may be expanded with additional elements in the graph, if they are deemed necessary based on the context. If the meaning of the original sentence is not preserved in paraphrased versions, the original sentence should be retained. If the paraphrasing produces any different element that is present in the scenario-specific set, the original sentence should be retained, in order to avoid ambiguous annotation. If the paraphrased sentence is not representable with the target scene graph format, the original sentence should be retained. When multiple sentences are merged, the resulting sentence must comprehensively cover all the corresponding scene graphs. Unless, the original sentence should be retained. Even if multiple sentences are implicitly expressed as a single sentence, it's acceptable as long as the original sentences can be logically inferred.",
+        "criteria": [
+            "accuracy",
+            "logical flow",
+            "contextuality",
+            "coherency",
+            "complexity",
+            "expressibility in scene graph format",
+            "correct hand assignment",
+            "lemmatization",
+            "correct representation of compound and sequential actions"
+        ]
+    }
+}

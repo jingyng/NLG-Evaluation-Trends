@@ -1,0 +1,110 @@
+{
+  "paper_id": "2021.emnlp-main.342",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Generation"
+    ],
+    "datasets": [
+      "WikiSQL",
+      "WikiTableQuestions"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5",
+      "GPT-2"
+    ],
+    "outputs": [
+      "natural language questions",
+      "synthetic natural language questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "WikiTableQuestions"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "WikiTQ": "WikiTableQuestions"
+      },
+      "explanation": "Normalized 'WikiTQ' to its full name 'WikiTableQuestions' for consistency. The paper clearly addresses question generation as an NLG task."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "perplexity"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "perplexity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'Yes' because the paper explicitly uses perplexity as an automatic metric to filter generated questions: 'We removed questions with the highest perplexity scores before passing the rest to the TableQA training module.'"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-2"
+        ],
+        "methods": [
+          "perplexity scoring"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed GPT-2 and perplexity scoring because GPT-2 is used for generation/filtering, not as a judge to evaluate outputs. The paper does not use LLMs as evaluators - GPT-2 is used for perplexity calculation to filter low-quality generated questions, not to judge/score them."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. The evaluation focuses on automatic metrics (logical form accuracy) for the TableQA task, not on evaluating the quality of generated questions."
+    }
+  },
+  "overall_notes": "This paper primarily focuses on Table Question Answering with topic adaptation, but includes a significant NLG component (question generation using T5). The extracted metadata was mostly accurate, but needed correction for Question 2 (the paper does use automatic metrics) and Question 3 (GPT-2 is not used as an evaluator). The paper evaluates the TableQA system's performance on logical form accuracy, not the quality of generated questions per se."
+}

@@ -1,0 +1,196 @@
+{
+  "paper_id": "2025.emnlp-main.1178",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Other:Opinion-centric insight generation",
+      "Other:Feature-centric opinion extraction"
+    ],
+    "datasets": [
+      "OOMB"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o-mini",
+      "GPT-4o",
+      "Claude-3.5-Haiku",
+      "Claude-3.5-Sonnet",
+      "Llama-3-8B-Instruct",
+      "Llama-3-70B-Instruct",
+      "Gemma-2-9B-it",
+      "Gemma-2-27B-it",
+      "Qwen2.5-7B-Instruct",
+      "DeepSeek-V2-7B-chat"
+    ],
+    "outputs": [
+      "Free-form opinion-centric insights organizing opinions into high-level topics",
+      "Structured (entity, feature, opinion) tuples"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Feature-centric opinion extraction"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "DeepSeek-V2-7B-chat"
+        ],
+        "outputs": [
+          "Structured (entity, feature, opinion) tuples"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Opinion Insight Generation"
+        ],
+        "datasets": [
+          "Blog",
+          "Reddit",
+          "Review Site",
+          "YouTube"
+        ],
+        "languages": [],
+        "models": [
+          "Claude 3.5 Haiku",
+          "Claude 3.5 Sonnet",
+          "Llama-3-Instruct",
+          "Gemma 2-it"
+        ],
+        "outputs": [
+          "opinion-centric insights, structured opinion tuples"
+        ]
+      },
+      "normalized": {
+        "Llama3-8B-Instruct": "Llama-3-8B-Instruct",
+        "Llama3-70B-Instruct": "Llama-3-70B-Instruct",
+        "DeepSeek-7B-chat": "DeepSeek-V2-7B-chat"
+      },
+      "explanation": "Removed source platform names (Blog, Reddit, Review Site, YouTube) as they are data sources within OOMB dataset, not separate datasets. Added 'Other:Feature-centric opinion extraction' task. Normalized model names to standard formats."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Exact Match",
+      "Relaxed Match",
+      "Contextual Match",
+      "ROUGE",
+      "BERTScore",
+      "A3CU"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Exact Match (EM)",
+          "Relaxed Match (RM)",
+          "Contextual Match (CM)",
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "Exact Match (EM)": "Exact Match",
+        "Relaxed Match (RM)": "Relaxed Match",
+        "Contextual Match (CM)": "Contextual Match",
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric variants to base forms following guidelines (ROUGE variants → ROUGE)"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "LLM-as-a-judge evaluation with six criteria"
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Coverage",
+      "Specificity",
+      "Insightfulness",
+      "Intent",
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [],
+        "methods": [
+          "LLM-as-a-judge with six predefined criteria"
+        ],
+        "criteria": [
+          "faithfulness",
+          "coverage",
+          "specificity",
+          "insightfulness",
+          "intent",
+          "fluency"
+        ]
+      },
+      "normalized": {
+        "faithfulness": "Faithfulness",
+        "coverage": "Coverage",
+        "specificity": "Specificity",
+        "insightfulness": "Insightfulness",
+        "intent": "Intent",
+        "fluency": "Fluency"
+      },
+      "explanation": "Normalized criteria to title case and removed duplicate method description"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three human judges rate insights on 1-5 scale across six predefined criteria"
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Coverage",
+      "Specificity",
+      "Insightfulness",
+      "Intent",
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "guideline": [
+          "- Rated on 1-5 scale across six criteria",
+          "Each judge rates the quality of the insights on a 1 to 5 scale across six criteria."
+        ],
+        "criteria": [
+          "faithfulness",
+          "coverage",
+          "specificity",
+          "insightfulness",
+          "intent",
+          "fluency"
+        ]
+      },
+      "normalized": {
+        "faithfulness": "Faithfulness",
+        "coverage": "Coverage",
+        "specificity": "Specificity",
+        "insightfulness": "Insightfulness",
+        "intent": "Intent",
+        "fluency": "Fluency"
+      },
+      "explanation": "Consolidated guideline description and normalized criteria to title case"
+    }
+  },
+  "overall_notes": "Extraction was generally accurate but needed normalization of model names (e.g., DeepSeek-7B-chat should be DeepSeek-V2-7B-chat) and metric variants. The paper properly evaluates NLG tasks (both extraction and insight generation) using automatic metrics, LLM-as-judge, and human evaluation with consistent criteria across methods."
+}

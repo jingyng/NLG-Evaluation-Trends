@@ -1,0 +1,119 @@
+{
+  "paper_id": "2021.acl-long.324",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "ldc2015e86"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "d_2s_amrcoref_base",
+      "d_2s_amrcoref_bert",
+      "d_2s_rule_based",
+      "d_2s_pipeline"
+    ],
+    "outputs": [
+      "abstractive summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Machine Translation",
+          "Dialogue Generation"
+        ],
+        "datasets": [
+          "MS-AMR",
+          "Little Prince (LP)"
+        ],
+        "models": [
+          "D2S",
+          "AMRcoref-base",
+          "AMRcoref-bert"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed tasks/datasets/models that are for the core AMR coreference resolution task (not NLG). The paper only evaluates NLG (text summarization) as a downstream application using the LDC2015E86 dataset with D2S models."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "MUC",
+          "B3",
+          "CEAF"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "Rouge-1": "ROUGE",
+        "Rouge-2": "ROUGE",
+        "Rouge-L": "ROUGE"
+      },
+      "explanation": "Normalized all ROUGE variants to base ROUGE. Removed MUC/B3/CEAF metrics as they are used for evaluating the core AMR coreference resolution task, not the NLG (summarization) outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in this paper."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation of generated outputs is conducted in this paper."
+    }
+  },
+  "overall_notes": "The paper's primary contribution is AMR coreference resolution, with text summarization used as a downstream application to demonstrate the utility of their method. The NLG evaluation is limited to automatic ROUGE metrics on the summarization task using the LDC2015E86 dataset. The extracted metadata initially confused the core task with the downstream NLG application."
+}

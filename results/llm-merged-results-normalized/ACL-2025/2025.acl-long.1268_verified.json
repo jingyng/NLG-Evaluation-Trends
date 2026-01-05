@@ -1,0 +1,173 @@
+{
+  "paper_id": "2025.acl-long.1268",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Generation"
+    ],
+    "datasets": [
+      "EDUAGENT",
+      "DBE KT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4o"
+    ],
+    "outputs": [
+      "quiz questions",
+      "multiple-choice questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "multiple-choice questions"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BERTScore",
+          "KDA",
+          "QSalience",
+          "mistral-instruct"
+        ],
+        "outputs": [
+          "quiz questions (multiple-choice)",
+          "Generated quiz questions"
+        ]
+      },
+      "normalized": {
+        "Other:Question Generation": "Other:Question Generation"
+      },
+      "explanation": "Removed models that are evaluation metrics, not generation models. Simplified outputs description. The paper focuses on evaluating question generation, not generating new questions itself."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "BERTSCORE",
+      "KDA",
+      "QSALIENCE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "ROUGE",
+          "BLEU"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Vanilla",
+          "Chain-of-Thoughts",
+          "Self-Generated Metrics",
+          "Self-Generated Reference",
+          "Swap and Synthesize",
+          "ChatEval",
+          "QG-SMS"
+        ]
+      },
+      "normalized": {
+        "ROUGE": "ROUGE",
+        "BLEU": "BLEU",
+        "BERTScore": "BERTScore"
+      },
+      "explanation": "Removed LLM-based evaluation methods that belong to Question 3. Added ROUGE and BLEU which are mentioned as traditional reference-based metrics. Kept only traditional automatic metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o"
+    ],
+    "methods": [
+      "Vanilla",
+      "Chain-of-Thoughts",
+      "Self-Generated Metrics",
+      "Self-Generated Reference",
+      "Swap and Synthesize",
+      "ChatEval",
+      "QG-SMS"
+    ],
+    "criteria": [
+      "Coverage",
+      "Difficulty",
+      "Discrimination",
+      "Efficiency"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "pairwise evaluation",
+          "Swap",
+          "Chain-of-Thoughts (CoT)"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "Chain-of-Thoughts": "Chain-of-Thoughts",
+        "Swap and Synthesize": "Swap and Synthesize",
+        "topic coverage": "topic coverage",
+        "item difficulty": "item difficulty",
+        "item discrimination": "item discrimination",
+        "distractor efficiency": "distractor efficiency"
+      },
+      "explanation": "Removed duplicate/alternative names for methods. All methods listed are valid LLM-as-judge approaches used in the paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators were given definitions of each dimension (item difficulty, item discrimination, distractor efficiency) and asked to choose the better question according to the specified attribute"
+    ],
+    "criteria": [
+      "Difficulty",
+      "Discrimination",
+      "Efficiency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- We provided our human annotators the same definition of each dimension d in §2.1 and the desirable trait R_d in §4.1.",
+          "Annotators were given definitions of each dimension (DF, DC, DE) and asked to choose the better question according to the specified attribute.",
+          "We provided our human annotators the same definition of each dimension d in §2.1 and the desirable trait R d in §4.1."
+        ],
+        "criteria": [
+          "difficulty",
+          "discrimination"
+        ]
+      },
+      "normalized": {
+        "item difficulty": "item difficulty",
+        "item discrimination": "item discrimination",
+        "distractor efficiency": "distractor efficiency"
+      },
+      "explanation": "Consolidated redundant guideline entries into one clear description. Removed abbreviated criteria (DF, DC) in favor of full names. Kept only the specific educational evaluation criteria used."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating Question Generation (QG) systems using both traditional metrics and LLM-as-judge approaches. Key findings show that existing evaluation methods struggle with educational aspects like item discrimination, and the proposed QG-SMS framework addresses this gap. The extraction was generally good but needed clarification between generation models vs. evaluation methods."
+}

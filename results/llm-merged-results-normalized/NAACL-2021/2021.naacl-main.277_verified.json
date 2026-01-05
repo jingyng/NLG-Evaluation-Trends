@@ -1,0 +1,164 @@
+{
+  "paper_id": "2021.naacl-main.277",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Simplification",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "NEWSELA",
+      "NEWSELA AUTO",
+      "NEWSELA TURK",
+      "WIKI AUTO",
+      "ASSET",
+      "TURK"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "hybrid",
+      "transformer_bert_initialized",
+      "editnts",
+      "lstm",
+      "hybrid_ng",
+      "dissim",
+      "neural_deletion_and_split_module",
+      "pairwise_ranking_model"
+    ],
+    "outputs": [
+      "Simplified sentences",
+      "Simplified sentences with improved readability through deletion, paraphrasing, and sentence splitting"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Newsela"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Wikipedia"
+        ],
+        "languages": [],
+        "models": [
+          "Copy mechanism",
+          "Transformer",
+          "BERT-Initialized Transformer"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Text Simplification": "Text Simplification",
+        "Transformer bert": "Transformer BERT-initialized",
+        "Transformer BERT‑initialized seq2seq": "Transformer BERT-initialized",
+        "WIKI-AUTO": "WIKI-AUTO",
+        "TURK corpus": "TURK"
+      },
+      "explanation": "Normalized task names to standard forms, removed 'Wikipedia' dataset (only mentioned in passing), consolidated redundant model names, added 'Newsela' as a core dataset"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SARI",
+      "FKGL",
+      "SLEN",
+      "OLEN",
+      "CR",
+      "BLEU",
+      "BERTSCORE",
+      "JACCARD SIMILARITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEU"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "s-BL",
+          "%split",
+          "%new",
+          "%eq",
+          "self‑BLEU",
+          "add",
+          "keep",
+          "del",
+          "self-BLEU (s-BL)",
+          "Flesch-Kincaid (FK)",
+          "compression ratio (CR)",
+          "percentage of new words (%new)",
+          "percentage of identical outputs (%eq)"
+        ]
+      },
+      "normalized": {
+        "FK": "FKGL",
+        "Flesch-Kincaid (FK)": "FKGL"
+      },
+      "explanation": "Removed component metrics that are parts of SARI (add/keep/del) and operational statistics (%split/%new/%eq), kept only the main evaluation metrics. Added BLEU which is mentioned in the paper. Normalized FK to FKGL."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper (published in 2021 before LLM-as-judge became common)"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers rated fluency, adequacy, and simplicity on a 5-point Likert scale",
+      "For split-focused evaluation, workers provided binary answers for splitting occurrence and correctness"
+    ],
+    "criteria": [
+      "Fluency",
+      "Adequacy",
+      "Simplicity",
+      "Occurrence",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "sentence splitting correctness"
+        ]
+      },
+      "normalized": {
+        "splitting correctness": "splitting correctness"
+      },
+      "explanation": "Consolidated redundant criteria and kept the clear descriptions from the paper"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on controllable text simplification with explicit paraphrasing. It uses both automatic metrics (SARI, BLEU, BERTScore, etc.) and human evaluations. The main contributions are the hybrid approach combining rule-based and neural methods, and the ability to control different simplification operations. No LLMs were used as judges since this is a 2021 paper."
+}

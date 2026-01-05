@@ -1,0 +1,165 @@
+{
+  "paper_id": "2025.acl-long.388",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Question Answering",
+      "Spoken Question Answering",
+      "Emotion Recognition",
+      "Sarcasm Detection",
+      "Humor Recognition"
+    ],
+    "datasets": [
+      "COVOST 2",
+      "HEYSQUAD",
+      "SDQA",
+      "IEMOCAP",
+      "MELD",
+      "MUSTARD",
+      "urfunnyv2",
+      "COMMON VOICE"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "German",
+      "Indonesian",
+      "Japanese",
+      "Tamil",
+      "Turkish",
+      "Arabic"
+    ],
+    "models": [
+      "diva",
+      "blsp",
+      "ultravox",
+      "salmonn",
+      "qwen_audio_chat",
+      "qwen_2_audio_instruct",
+      "llama_3_8b_instruct",
+      "whisper_large_v_3"
+    ],
+    "outputs": [
+      "translated text",
+      "answers to spoken questions",
+      "emotion classifications",
+      "sarcasm detections",
+      "humor recognitions",
+      "text responses to spoken inputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Emotion Recognition",
+          "Sarcasm Detection",
+          "Humor Recognition"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "emotion classifications",
+          "sarcasm detections",
+          "humor recognitions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Other:Question Answering",
+          "Other:Spoken Question Answering"
+        ],
+        "datasets": [
+          "HeySquad",
+          "CoVoST2",
+          "MUS-TARD"
+        ],
+        "models": [
+          "Qwen 2 Audio",
+          "Qwen Audio"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "HeySquad": "HeySQUAD",
+        "CoVoST2": "CoVoST 2",
+        "MUS-TARD": "MUSTARD",
+        "Other:Question Answering": "Question Answering",
+        "Other:Spoken Question Answering": "Spoken Question Answering"
+      },
+      "explanation": "Removed 'Dialogue Generation' as it's not evaluated in the paper. Normalized dataset names and task categories. Added specific classification tasks that are actually evaluated. Removed redundant model names (Qwen 2 Audio vs Qwen 2 Audio Instruct)."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ACCURACY",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "PEDANTS"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'PEDANTS' as it appears to be a typo - the paper mentions 'PEDANTS' metric but this is likely meant to be 'PEDANTS' (which doesn't exist) or possibly refers to standard accuracy metrics. The paper clearly uses BLEU for translation, Accuracy for QA, and F1 for classification."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is used in this paper. The paper uses human evaluation and automatic metrics, but no LLM is used to evaluate the generated outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Preference ratings between model responses",
+      "Users shown responses from each model without knowledge of which model was which",
+      "Order shuffled to avoid positional bias",
+      "Side-by-side comparison of DiVA vs Qwen 2 Audio responses"
+    ],
+    "criteria": [
+      "Preference"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Side-by-side comparison of DiVA vs Qwen 2 Audio responses"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added more specific details about the human evaluation setup to better capture the methodology described in the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on speech-to-text NLG tasks including translation, question answering, and various classification tasks. The extraction was generally good but needed normalization of dataset names and removal of tasks not actually evaluated (like dialogue generation). The paper uses both automatic metrics (BLEU, Accuracy, F1) and human preference evaluations."
+}

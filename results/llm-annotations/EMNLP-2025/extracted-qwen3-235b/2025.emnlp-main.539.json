@@ -1,0 +1,64 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We compare three types of verbalization of the same set of knowledge facts to see if sentence-level translation helps factual retrieval: 1. Template filling: the translated template formulations are borrowed from the MLAMA dataset as is and filled with NEs from Wikidata. ... GT and ChatGPT verbalizations are split with the help of Stanza package that searches for the (possibly inflected) object NEs in the sentences.",
+        "tasks": [
+            "Machine Translation",
+            "Other:prompt verbalization"
+        ],
+        "datasets": [
+            "MLAMA"
+        ],
+        "languages": [
+            "Russian",
+            "Czech",
+            "Ukrainian",
+            "Croatian",
+            "Spanish",
+            "Chinese",
+            "Vietnamese",
+            "Indonesian",
+            "Danish"
+        ],
+        "models": [
+            "Llama-2-7b",
+            "ChatGPT",
+            "Google Translate"
+        ],
+        "outputs": "The generated outputs are sentence-level verbalizations of factual triplets (subject, relation, object) in multiple languages, used as prompts to probe factual knowledge in LLMs."
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We calculate the log probabilities of tokens corresponding to object NEs, and rank the possible endings of the verbalization by these log probabilities. Then, for a given fact, its score is 1 if the object is ranked among the top n results, and 0 otherwise. ... we calculate the percentage of such hits for a given verbalization type ... and note it as R@n.",
+        "automatic_metrics": [
+            "R@n",
+            "Precision at n",
+            "recall at n",
+            "average rank",
+            "chrf",
+            "log probability",
+            "COMET",
+            "QE score"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "ChatGPT: For the experiment with the Slavic languages, we provide the third verbalization: filled English templates (same as in GT) and the translations of the subject and object NEs (retrieved from Wikidata), and prompt GPT-4o-mini to translate the full sentence using the provided NE translations.",
+        "models": [
+            "GPT-4o-mini"
+        ],
+        "methods": [
+            "few-shot prompting for sentence-level translation"
+        ],
+        "criteria": [
+            "correct use of named entity translations",
+            "appropriate inflection of the relation verbalization"
+        ]
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": "",
+        "guideline": "",
+        "criteria": []
+    }
+}

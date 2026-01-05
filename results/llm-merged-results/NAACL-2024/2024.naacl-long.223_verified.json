@@ -1,0 +1,124 @@
+{
+  "paper_id": "2024.naacl-long.223",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Schema Guided Dialogue (SGD)",
+      "Synthetic dataset (inspired by SGD)"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4",
+      "GPT-3.5-Turbo",
+      "GPT-3 (ada, babbage, curie, davinci)",
+      "Llama-2-70b-chat"
+    ],
+    "outputs": [
+      "Guardrail classifications (rule index or None) for the last two turns of a conversation",
+      "Synthetic conversations (violations, nonviolations, contrastive nonviolations)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-70b-chat",
+          "GPT-3",
+          "llama-70b-chat"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Llama-2-70b-chat": "Llama-2-70b-chat",
+        "GPT-3 (ada, babbage, curie, davinci)": "GPT-3 (ada, babbage, curie, davinci)"
+      },
+      "explanation": "Removed duplicate/incorrect model names (Llama-70b-chat, llama-70b-chat, GPT-3 as generic term) and kept only distinct, correctly named models. Consolidated outputs to remove redundant descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "distinct@k",
+      "Cost",
+      "Latency"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Distinct@1",
+          "Distinct@2",
+          "Distinct@3"
+        ]
+      },
+      "normalized": {
+        "distinct@k": "distinct@k"
+      },
+      "explanation": "Consolidated distinct@1/2/3 variants into the base metric 'distinct@k' as per normalization rules. The paper mentions distinct@k as the general metric with specific k values reported."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is used in this paper. LLMs are used for data generation and as baseline classifiers, but not as evaluators of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators verified the correctness of labels for rule violations in generated conversations through Amazon Mechanical Turk"
+    ],
+    "criteria": [
+      "Correctness of rule-violation label"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Correctness of rule‑violation label": "Correctness of rule-violation label"
+      },
+      "explanation": "Minor normalization of hyphen in 'rule-violation'. The extracted metadata accurately reflects the human evaluation described in the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation for dialogue safety/guardrail systems. It uses LLMs (GPT-4, GPT-3.5) to generate synthetic dialogue data, then evaluates smaller models' ability to classify rule violations. The extraction was generally accurate, with minor issues in model name normalization. The paper does not use LLM-as-judge evaluation but does conduct human evaluation via Amazon Mechanical Turk to verify label correctness."
+}

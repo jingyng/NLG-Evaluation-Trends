@@ -1,0 +1,148 @@
+{
+  "paper_id": "2024.acl-long.358",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "StyleTalk"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Spoken-LLM",
+      "Llama 2-Chat 7B",
+      "emotion2vec",
+      "ParalinGPT"
+    ],
+    "outputs": [
+      "Response text and speaking style attributes (emotion, speed, volume) for expressive speech generation",
+      "Spoken dialogue responses with predicted text and speaking style"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "ParalinGPT"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LoRA",
+          "Azure Text-to-Speech",
+          "Llama 2-Chat"
+        ],
+        "outputs": [
+          "spoken responses (speech) with predicted speaking style and generated text"
+        ]
+      },
+      "normalized": {
+        "Llama 2-Chat": "Llama 2-Chat 7B"
+      },
+      "explanation": "Removed Azure TTS (not an NLG model), LoRA (training method), and duplicate Llama 2-Chat. Added ParalinGPT as a baseline model. Simplified outputs to focus on text and style generation rather than speech synthesis."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "BERTScore",
+      "F1 Score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1 emotion",
+          "F1 speed",
+          "F1 volume",
+          "Weighted F1",
+          "Weighted F1 score"
+        ]
+      },
+      "normalized": {
+        "BERT Score": "BERTScore",
+        "BERT f 1": "BERTScore"
+      },
+      "explanation": "Normalized metrics to base forms. Simplified F1 variants to general 'F1 Score' since the paper uses F1 for emotion, speed, and volume style attributes. Removed redundant 'Weighted F1' variants."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges/evaluators. LLMs are used for data generation (GPT-4) and as backbone models, but not for post-generation evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "A/B test where human evaluators compare model outputs based on text and speech quality",
+      "Listening test where participants choose the most suitable response among options or select 'None of the above is natural'"
+    ],
+    "criteria": [
+      "naturalness",
+      "appropriateness",
+      "reasonableness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Listening test where participants choose the most suitable response among options or select 'None of the above is natural'"
+        ],
+        "criteria": [
+          "naturalness",
+          "appropriateness",
+          "reasonableness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- An A/B test where human evaluators rate model outputs based on text and speech.",
+          "Human raters compare two model outputs and rate them based on the quality of generated text and speech.",
+          "The evaluators are instructed to rate the model based on both the generated text and speech. An illustration of the listening test is provided in Figure. Participants are presented with a dialogue context text, the current spoken turn and three response spoken turns. They are then instructed to choose the most suitable response among the three options."
+        ],
+        "criteria": [
+          "fluency",
+          "naturalness",
+          "style appropriateness",
+          "speech quality",
+          "coherence",
+          "appropriateness of response"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Simplified guidelines to essential procedures. Kept only explicitly mentioned criteria: 'natural and proper response' (naturalness), 'reasonable' (reasonableness), and 'proper' (appropriateness). Removed inferred criteria like fluency, coherence, speech quality that weren't explicitly stated."
+    }
+  },
+  "overall_notes": "The paper focuses on spoken dialogue generation with style modeling. The extraction was generally accurate but included some training methods (LoRA) and non-NLG components (Azure TTS) that shouldn't be listed as models. The human evaluation criteria were over-extracted - the paper mentions general qualities like 'naturalness' and 'reasonableness' but not the specific criteria listed. The paper uses both objective metrics and human evaluation to assess NLG outputs."
+}

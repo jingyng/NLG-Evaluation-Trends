@@ -1,0 +1,166 @@
+{
+  "paper_id": "2023.acl-long.181",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Long Form Question Answering"
+    ],
+    "datasets": [
+      "R EXPLAINLIKEIMFIVE",
+      "R ASKHISTORIANS",
+      "eli5"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3_text_davinci_002",
+      "webgpt",
+      "longformer_base",
+      "gpt_3_curie_001",
+      "gpt_3"
+    ],
+    "outputs": [
+      "long-form answers",
+      "long and complex answers to questions"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "datasets": [
+          "AskHistorians"
+        ],
+        "models": [
+          "T5",
+          "text-davinci-002",
+          "Longformer"
+        ]
+      },
+      "normalized": {
+        "Long-form Question Answering": "Other:Long-form Question Answering",
+        "GPT-3 text-davinci-002": "GPT-3 text-davinci-002",
+        "GPT-3 curie-001": "GPT-3 curie-001"
+      },
+      "explanation": "Removed redundant 'AskHistorians' dataset (already covered by r/AskHistorians). Removed T5 and Longformer as they were used for evaluation/assessment, not generation. Kept only NLG generation models."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE",
+      "BLEURT",
+      "SELF BLEU",
+      "GPT 2 PERPLEXITY",
+      "QG LIKELIHOOD",
+      "RANKGEN",
+      "BARTSCORE",
+      "QAFACTEVAL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT2-PPL",
+          "Zero-shot question likelihood",
+          "longformer",
+          "GPT3 curie",
+          "Longformer",
+          "GPT-3 curie"
+        ]
+      },
+      "normalized": {
+        "GPT2-PPL": "GPT-2 perplexity",
+        "QG likelihood": "QG likelihood",
+        "QAFactEval": "QAFactEval"
+      },
+      "explanation": "Removed supervised metrics (Longformer, GPT-3 curie) as they are trained models rather than standard automatic metrics. Kept only traditional/standard automatic evaluation metrics. Normalized 'GPT2-PPL' to 'GPT-2 perplexity'."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "t_5_220m",
+      "t_5_770m",
+      "t_5_3b",
+      "t_5_11b"
+    ],
+    "methods": [
+      "masked reference disambiguation"
+    ],
+    "criteria": [
+      "Preference"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-3 curie-001",
+          "Longformer-Base",
+          "T5"
+        ],
+        "methods": [
+          "pairwise preference prediction",
+          "fine-tuned ranking"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "zero-shot disambiguation of masked answer references in justifications": "masked reference disambiguation",
+        "T5": "T5-220M, T5-770M, T5-3B, T5-11B"
+      },
+      "explanation": "Removed GPT-3 curie-001 and Longformer-Base as they were fine-tuned for pairwise preference prediction, which is different from LLM-as-judge. Kept only T5 models used for zero-shot masked reference disambiguation task."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "choose which answer is better",
+      "indicate if decision was difficult",
+      "provide free-form justification"
+    ],
+    "criteria": [
+      "Preference",
+      "Coherence",
+      "Factuality",
+      "Completeness",
+      "Understanding",
+      "Conciseness",
+      "Specificity",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Overall preference": "overall preference",
+        "Factuality": "factuality",
+        "Completeness": "completeness",
+        "Ease of understanding": "ease of understanding"
+      },
+      "explanation": "No major changes needed. All criteria are explicitly mentioned in the paper's description of human evaluation aspects."
+    }
+  },
+  "overall_notes": "The paper provides a comprehensive evaluation of long-form question answering, focusing on both human and automatic evaluation methods. The extraction was generally accurate but needed some clarification between generation models vs. evaluation models. The paper is notable for its detailed analysis of expert vs. crowdworker evaluations and its critique of existing automatic metrics for LFQA."
+}

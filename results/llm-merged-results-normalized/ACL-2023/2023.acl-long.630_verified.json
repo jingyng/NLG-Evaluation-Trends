@@ -1,0 +1,165 @@
+{
+  "paper_id": "2023.acl-long.630",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Clarification Question Generation"
+    ],
+    "datasets": [
+      "CLARIFY",
+      "CLARIFY SILVER",
+      "SOCIAL CHEM 101",
+      "COMMONSENSE NORM BANK"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_large",
+      "gpt_3",
+      "delphi"
+    ],
+    "outputs": [
+      "clarification questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Other:Question Generation"
+        ],
+        "datasets": [
+          "SocialChem"
+        ],
+        "models": [
+          "DeBERTa",
+          "WaNLI"
+        ],
+        "outputs": [
+          "clarification questions and defeasible answers"
+        ]
+      },
+      "normalized": {
+        "SOCIAL-CHEM-101": "SocialChem-101",
+        "Other:clarification question generation": "Other: Clarification Question Generation"
+      },
+      "explanation": "Removed Dialogue Generation as it's not the main focus, kept only primary NLG task. Removed SocialChem (incorrect) and kept SocialChem-101. Removed DeBERTa and WaNLI as they are not NLG models. Simplified output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BERTSCORE",
+      "JSD",
+      "BLEU",
+      "ROUGE",
+      "QA NON ANSWERABLE PERCENTAGE",
+      "JUDGMENT FLIP RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "QA non-answerable percentage",
+          "Judgment Flip rate"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "non-answerable QA metric",
+          "BLEU-4",
+          "Jensen-Shannon Divergence",
+          "Judgment Flips"
+        ]
+      },
+      "normalized": {
+        "JSD (Jensen-Shannon Divergence)": "JSD",
+        "QA": "QA non-answerable percentage",
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "Judgment Flips": "Judgment Flip rate"
+      },
+      "explanation": "Normalized metric variants to base forms (BLEU-4→BLEU, ROUGE-L→ROUGE). Simplified metric names for clarity."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Delphi",
+          "Delphi (UNICORN)",
+          "GPT-3 (silver data generation)"
+        ],
+        "methods": [
+          "computing probability distributions and JSD divergence for defeasibility",
+          "JSD reward calculation",
+          "probability distribution comparison"
+        ],
+        "criteria": [
+          "bad",
+          "ok",
+          "good",
+          "moral judgment divergence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' because Delphi is used as part of the training reward function, not as a post-hoc evaluator/judge of generated outputs. LLMs are not used as judges in the evaluation phase."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Turkers rate questions on grammaticality, relevance, and informativeness",
+      "Turkers assess defeasibility by thinking of weakening/strengthening answers to questions",
+      "Questions rated irrelevant/uninformative by at least 2 annotators are excluded from defeasibility evaluation"
+    ],
+    "criteria": [
+      "Grammaticality",
+      "Relevance",
+      "Informativeness",
+      "Defeasibility",
+      "Weakener",
+      "Strengthener"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Questions rated irrelevant/uninformative by at least 2 annotators are excluded from defeasibility evaluation"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "defeasibility (weakener)",
+          "defeasibility (strengthener)"
+        ]
+      },
+      "normalized": {
+        "Defeasibility (weakener)": "Weakener",
+        "Defeasibility (strengthener)": "Strengthener"
+      },
+      "explanation": "Added important guideline about exclusion criteria. Normalized criteria names and separated Defeasibility from its components."
+    }
+  },
+  "overall_notes": "The paper focuses on clarification question generation for moral reasoning contexts. The extraction was generally good but included some models/datasets that were not primary to the NLG task. Key correction: Changed Q3 to 'No' as LLMs are used in training rewards, not as post-hoc evaluators/judges."
+}

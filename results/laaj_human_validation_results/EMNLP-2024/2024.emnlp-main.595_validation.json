@@ -1,0 +1,67 @@
+{
+  "paper_id": "2024.emnlp-main.595",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM-based reward model scoring and human evaluation but does not explicitly compare or validate the LLM judgments against human evaluation results. Both methods are used independently to assess speech-suitability without quantitative correlation, agreement metrics, or direct comparison between LLM and human scores."
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "GPT-J 6B",
+      "Falcon 7B Instruct",
+      "OLMo 7B Instruct",
+      "GPT-J 6B (reward model)"
+    ],
+    "prompts": {
+      "provided": "no",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "no",
+      "notes": "No explicit LLM-as-a-judge prompts are shown; LLMs are used via reward modeling (e.g., scoring responses for speech-suitability), but prompt details are not provided."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 71,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's Alpha",
+      "value": null,
+      "interpretation": "Inter-annotator agreement was measured but specific numerical values are not provided in the main text; thresholds adjusted for task subjectivity.",
+      "per_criterion": [
+        {
+          "criterion": "Text modality evaluation",
+          "metric": "Krippendorff's Alpha",
+          "value": "ranges provided (e.g., Rel. 0.988, Help. 0.963)"
+        },
+        {
+          "criterion": "Audio modality evaluation",
+          "metric": "Krippendorff's Alpha",
+          "value": "ranges provided (e.g., Rel. 0.983, Help. 0.910)"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines include criteria like helpfulness, accuracy, relevance, verbosity, informativeness, comprehension; annotators calibrated with sample annotations, and non-exhaustive criteria provided for speech-suitability judgments."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Suitability (via reward model scoring)"
+    ],
+    "human_only_criteria": [
+      "Helpfulness",
+      "Accuracy",
+      "Relevance",
+      "Verbosity",
+      "Informativeness",
+      "Comprehension"
+    ],
+    "shared_criteria": [],
+    "notes": "LLM evaluation uses a single suitability score from a reward model, while human evaluation assesses multiple fine-grained dimensions; no criteria are evaluated by both methods, and no cross-validation is performed."
+  }
+}

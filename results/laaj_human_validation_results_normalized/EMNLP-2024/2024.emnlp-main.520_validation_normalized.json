@@ -1,0 +1,94 @@
+{
+  "paper_id": "2024.emnlp-main.520",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares GPT-4 judgments against human expert ratings on a subset of 16 dialogues, reporting win/loss rates and discussing correlation verification."
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4",
+      "Vicuna-13B"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts shown in appendix figures, including detailed evaluation criteria and response format specifications."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "exact match and Jaccard overlap",
+      "value": [
+        0.52,
+        0.62
+      ],
+      "interpretation": "high agreement on subset selection problem",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed annotator instructions shown in \u00a7J with 4-point Likert scale definitions for each criterion."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "pairwise_agreement_rate",
+      "win_loss_rates"
+    ],
+    "shared_criteria": [
+      "Using B (game lore)",
+      "Using Q (quest objectives)",
+      "Game Effect"
+    ],
+    "sample_size": {
+      "total_generated": 16,
+      "validated_by_both": 16,
+      "notes": "Validated on subset of 16 dialogues from test set"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "pairwise_agreement_rate",
+        "value": "high",
+        "criterion": "overall",
+        "llm_model": "GPT-4",
+        "significance": "verified via bootstrap testing",
+        "notes": "GPT-4 can match both controlled and crowdsourced human preferences well according to cited prior work (Zheng et al., 2023)"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "matching controlled and crowdsourced human preferences",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GPT-4 judgments show strong correlation with human expert ratings, with GPT-4-based writers achieving high win rates (82.7-93.8%) on key criteria compared to baselines."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Coherence",
+      "Violation",
+      "Content Suggestion",
+      "Engagingness"
+    ],
+    "shared_criteria": [
+      "Using B",
+      "Using Q",
+      "Game Effect"
+    ],
+    "notes": "LLM evaluation focused on content-based criteria while human evaluation included additional qualitative aspects like coherence, violation checking, and engagingness."
+  }
+}

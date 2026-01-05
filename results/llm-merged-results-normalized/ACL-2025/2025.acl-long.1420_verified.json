@@ -1,0 +1,192 @@
+{
+  "paper_id": "2025.acl-long.1420",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Peer Review Generation",
+      "Scientific Paper Evaluation",
+      "Research Evaluation"
+    ],
+    "datasets": [
+      "DEEPREVIEW 13k",
+      "DEEPREVIEW BENCH"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "deepreviewer_14b",
+      "cyclereviewer",
+      "agentreview",
+      "ai_scientist"
+    ],
+    "outputs": [
+      "Generated qualitative assessment text and scores for research papers",
+      "Generated reviews, meta-reviews, ratings, and suggestions for research papers",
+      "Paper acceptance/rejection decisions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other: Scientific Paper Evaluation",
+          "Other: Research Evaluation"
+        ],
+        "datasets": [
+          "DeepReview-Bench"
+        ],
+        "models": [
+          "AgentReview",
+          "AI Scientist"
+        ],
+        "outputs": [
+          "Paper acceptance/rejection decisions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Scientific Paper Generation",
+          "Other:Review Generation",
+          "Other:Paper Review Generation"
+        ],
+        "datasets": [
+          "Review-5k",
+          "Research-8k"
+        ],
+        "models": [
+          "CycleResearcher",
+          "Mistral-Large-2"
+        ]
+      },
+      "normalized": {
+        "Other: Peer Review Generation": "Other: Peer Review Generation"
+      },
+      "explanation": "Removed tasks/datasets/models that belong to the CycleResearcher paper (cited as related work), not the main DeepReview system. Added more accurate descriptions of what DeepReview actually generates. Kept only the core DeepReview system components."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MAE",
+      "MSE",
+      "ACCURACY",
+      "F1",
+      "SPEARMAN CORRELATION",
+      "PAIRWISE ACCURACY"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Spearman correlation",
+          "Decision Accuracy",
+          "Acceptance Rate",
+          "ROUGE",
+          "BLEU",
+          "Pairwise Rating Accuracy"
+        ]
+      },
+      "normalized": {
+        "Rating MSE": "MSE",
+        "Rating MAE": "MAE",
+        "D. Acc.": "Accuracy",
+        "D. F1": "F1",
+        "R. Spearman": "Spearman Correlation",
+        "Pair. R. Acc": "Pairwise Accuracy"
+      },
+      "explanation": "Normalized metric variants to base forms. Removed ROUGE/BLEU as they were mentioned as metrics that 'fail to capture specific review capabilities' (paper states they rely on LLM-as-judge instead). Removed duplicates and normalized abbreviations from tables."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gemini_2.0_flash_thinking",
+      "gemini_2.5_pro"
+    ],
+    "methods": [
+      "Pairwise comparative evaluation",
+      "LLM-as-a-judge"
+    ],
+    "criteria": [
+      "Values",
+      "Depth",
+      "Plausibility",
+      "Accuracy",
+      "Judgment",
+      "Clarity"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Gemini-2.5-Pro"
+        ],
+        "criteria": [
+          "Communication Clarity"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "Gemini-2.0-Flash-Thinking": "Gemini-2.0-Flash-Thinking",
+        "pairwise evaluation": "Pairwise comparative evaluation",
+        "LLM-as-ajudge": "LLM-as-a-judge",
+        "constructive value": "Constructive Value",
+        "analytical depth": "Analytical Depth",
+        "technical accuracy": "Technical Accuracy",
+        "overall judgment": "Overall Judgment"
+      },
+      "explanation": "Normalized capitalization and added Gemini-2.5-Pro which is mentioned in the generalization experiments section. Added 'Communication Clarity' criterion from external evaluation tests."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluation conducted by experienced reviewers averaging 1,110 Google Scholar citations",
+      "Evaluation covering Overall Score, Soundness, Presentation, Contribution, and Response dimensions"
+    ],
+    "criteria": [
+      "Overall Score",
+      "Soundness",
+      "Presentation",
+      "Contribution",
+      "Response"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human evaluation conducted by experienced reviewers averaging 1,110 Google Scholar citations"
+        ],
+        "criteria": [
+          "Response"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Reviewers rated Overall Score, Soundness, Presentation, Contribution, and Response for each generated paper",
+          "The evaluation covers five critical dimensions: constructive value, analytical depth, plausibility, technical accuracy, and overall judgment."
+        ],
+        "criteria": [
+          "overall score",
+          "soundness",
+          "presentation",
+          "contribution",
+          "constructive value",
+          "analytical depth",
+          "plausibility",
+          "technical accuracy",
+          "overall judgment"
+        ]
+      },
+      "normalized": {
+        "Constructive value": "Constructive Value",
+        "Analytical depth": "Analytical Depth",
+        "Technical accuracy": "Technical Accuracy",
+        "Overall judgment": "Overall Judgment"
+      },
+      "explanation": "Corrected confusion between human evaluation criteria (for CycleResearcher paper evaluation) and LLM-as-judge criteria (for DeepReview system evaluation). The human evaluation mentioned is for evaluating CycleResearcher-generated papers, not for evaluating DeepReview outputs. Kept only the human evaluation that actually occurred in the cited work."
+    }
+  },
+  "overall_notes": "Important clarification: The paper evaluates DeepReview (a paper review system), but some extracted metadata mistakenly included components from the CycleResearcher paper (which is cited as related work). The human evaluation mentioned is actually from evaluating CycleResearcher-generated papers, not for evaluating DeepReview outputs. The paper primarily uses LLM-as-judge (Gemini) for evaluation rather than human evaluation of its own system."
+}

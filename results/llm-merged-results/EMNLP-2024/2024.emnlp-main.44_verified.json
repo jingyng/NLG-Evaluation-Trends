@@ -1,0 +1,160 @@
+{
+  "paper_id": "2024.emnlp-main.44",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question-Answer Generation",
+      "Other:Question Generation",
+      "Code Generation",
+      "Other:Geometric Problem Generation"
+    ],
+    "datasets": [
+      "UniGEO",
+      "Geometry3K",
+      "GeoQA",
+      "GeoGPT4V",
+      "ChartQA",
+      "GeoQA+"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4V",
+      "GPT-4",
+      "LLaVA-1.5",
+      "ShareGPT4V",
+      "InternVL-Chat"
+    ],
+    "outputs": [
+      "simplified geometric question-answer pairs",
+      "Wolfram code",
+      "geometric images",
+      "image descriptions",
+      "geometric problems with aligned image-text pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Wolfram code",
+          "geometric images"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Uni-GEO",
+          "MathVista",
+          "MathVision",
+          "UniGEO-Calculation"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Question Generation": "Other:Question Generation",
+        "GPT-4": "GPT-4",
+        "GPT-4V": "GPT-4V"
+      },
+      "explanation": "Removed evaluation datasets (MathVista, MathVision) that are not used for NLG tasks. Removed duplicate 'Uni-GEO' and kept standard 'UniGEO'. Kept only datasets used in the generation pipeline. Added explicit outputs like Wolfram code and geometric images."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-4V scoring (image-text matching)",
+          "GPT-4V alignment score",
+          "image-text matching score"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Removed GPT-4V scoring metrics since they are LLM-as-judge evaluations, not traditional automatic metrics. Kept only accuracy which is used for model performance evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4V"
+    ],
+    "methods": [
+      "scoring (0-1 scale)",
+      "pairwise comparison"
+    ],
+    "criteria": [
+      "image-text matching",
+      "alignment",
+      "correspondence",
+      "difficulty"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "relative difficulty"
+        ]
+      },
+      "normalized": {
+        "GPT-4V": "GPT-4V",
+        "difficulty comparison using GPT-4V": "pairwise comparison",
+        "pairwise difficulty comparison": "pairwise comparison",
+        "image-text alignment": "image-text matching"
+      },
+      "explanation": "Consolidated similar methods and criteria. GPT-4V is consistently used for scoring image-text matching on 0-1 scale and pairwise difficulty comparisons."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Compare difficulty between generated and original questions",
+      "Judge which image better matches the generated question text"
+    ],
+    "criteria": [
+      "difficulty",
+      "image-text matching"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators compared difficulty between generated and original questions and judged image-text matching quality of generated vs original images"
+        ],
+        "criteria": [
+          "difficulty level"
+        ]
+      },
+      "normalized": {
+        "image-text matching quality": "image-text matching"
+      },
+      "explanation": "Condensed the guideline to clearer, more concise statements. Consolidated criteria by removing redundant terms."
+    }
+  },
+  "overall_notes": "The paper focuses on generating geometric problems with aligned images and text. While it involves NLG tasks (question generation, code generation), the primary contribution is the dataset generation pipeline rather than novel NLG model development. The evaluation is comprehensive, using both automatic metrics (accuracy), LLM-as-judge (GPT-4V), and human evaluation. The metadata extraction was reasonably accurate but needed refinement to separate different types of evaluations and clarify which datasets are used for generation vs. evaluation."
+}

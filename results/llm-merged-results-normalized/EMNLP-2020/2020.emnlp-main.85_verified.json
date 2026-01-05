@@ -1,0 +1,153 @@
+{
+  "paper_id": "2020.emnlp-main.85",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Commonsense Question Answering"
+    ],
+    "datasets": [
+      "PRONTOQA",
+      "FAMILY FEUD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bert",
+      "gpt_2",
+      "roberta"
+    ],
+    "outputs": [
+      "ranked list of answers",
+      "answer strings"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Family Feud"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "answer strings"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Other:Common Sense QA"
+        ],
+        "datasets": [
+          "Family Feud QA dataset"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Common Sense QA": "Other:Commonsense Question Answering",
+        "Family Feud QA dataset": "Family Feud"
+      },
+      "explanation": "Removed 'Dialogue Generation' as it's not a focus of the paper. Normalized task name and dataset names. Added 'answer strings' to outputs for completeness."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MAX ANSWER",
+      "MAX INCORRECT",
+      "EXACT MATCH",
+      "WORDNET SIMILARITY",
+      "ROBERTA SIMILARITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Exact Match"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "MAX_ANSWERS@k",
+          "MAX_INCORRECT@k",
+          "WordNet similarity",
+          "RoBERTa similarity",
+          "RoBERTa-based similarity"
+        ]
+      },
+      "normalized": {
+        "MAX_ANSWERS@k": "MAX ANSWERS@k",
+        "MAX_INCORRECT@k": "MAX INCORRECT@k",
+        "WordNet similarity": "WordNet Similarity",
+        "RoBERTa similarity": "RoBERTa Similarity",
+        "RoBERTa-based similarity": "RoBERTa Similarity"
+      },
+      "explanation": "Normalized metric names to consistent capitalization. Removed duplicates and added 'Exact Match' which was mentioned but missing from the original list."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa"
+        ],
+        "methods": [
+          "vector‑based similarity scoring"
+        ],
+        "criteria": [
+          "semantic similarity"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items as RoBERTa is used for automatic similarity computation, not as an LLM judge evaluating outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Mapping answer strings to reference clusters",
+      "Collecting single best answers from multiple humans",
+      "Manual clustering by experts"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Collecting single best answers from multiple humans",
+          "Manual clustering by experts"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Mapping each answer string to an existing reference cluster",
+          "Human answers were aggregated by counts to produce a ranked list of responses.",
+          "asking many humans for a single best answer"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {
+        "- Mapping each answer string to an existing reference cluster": "Mapping answer strings to reference clusters",
+        "asking many humans for a single best answer": "Collecting single best answers from multiple humans"
+      },
+      "explanation": "Cleaned up and normalized guideline descriptions. No explicit evaluation criteria were mentioned for human evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on generative commonsense QA evaluation. The extraction was generally accurate but needed normalization and removal of some irrelevant items. The paper uses human evaluation for creating ground truth and comparing model performance, but doesn't specify explicit criteria like 'fluency' or 'coherence' for human ratings."
+}

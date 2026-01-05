@@ -1,0 +1,152 @@
+{
+  "paper_id": "2021.naacl-main.61",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "Switchboard Dialog Act Corpus",
+      "Topical Chat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-2-medium"
+    ],
+    "outputs": [
+      "Generated dialogue responses (g) that rephrase factual content (k) while incorporating conversational history (h)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Switchboard corpus",
+          "Topical Chat dataset"
+        ],
+        "languages": [],
+        "models": [
+          "ablation models (GPT2 without h or k)"
+        ],
+        "outputs": [
+          "generated responses",
+          "generated responses (g) that rephrase factual content (k) in context of conversational history (h)"
+        ]
+      },
+      "normalized": {
+        "GPT2-medium": "GPT-2-medium",
+        "Topical Chat dataset": "Topical Chat",
+        "Switchboard corpus": "Switchboard Dialog Act Corpus"
+      },
+      "explanation": "Consolidated duplicate dataset names (Topical Chat dataset → Topical Chat), normalized model name (GPT2-medium → GPT-2-medium), removed redundant output descriptions and simplified ablation model reference as it's not a distinct model being evaluated"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PMI",
+      "PCMI",
+      "Perplexity"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Perplexity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Max-PMI",
+          "pcmi h",
+          "pcmi k"
+        ]
+      },
+      "normalized": {
+        "PMI": "PMI",
+        "PCMI": "PCMI",
+        "perplexity": "Perplexity",
+        "Max-PMI": "PMI",
+        "pcmi h": "PCMI",
+        "pcmi k": "PCMI"
+      },
+      "explanation": "Normalized all PMI variants to base PMI (Max-PMI is just a selection method using PMI), all PCMI variants to base PCMI (pcmi_h and pcmi_k are specific applications), and added Perplexity which was used for model selection"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Confirmed LLMs were not used as judges. The paper uses human evaluation only. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Paired comparison where annotators choose between two candidate responses",
+      "Annotators can mark both responses as nonsensical if they don't make sense",
+      "For acknowledgement evaluation, annotators mark text spans that indicate acknowledgement"
+    ],
+    "criteria": [
+      "Overall quality",
+      "Acknowledgement"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Paired comparison where annotators choose between two candidate responses",
+          "For acknowledgement evaluation, annotators mark text spans that indicate acknowledgement"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators were asked to pick the overall better candidate response or the one with better acknowledgement, and could mark responses as nonsensical.",
+          "Annotators are asked to pick the overall better candidate, or the response that provides better acknowledgement, and to mark an acknowledgement span to support their choice.",
+          "Annotators are asked to pick the overall better candidate response, the response that provides better acknowledgement, or mark both as nonsensical if responses don't make sense."
+        ],
+        "criteria": [
+          "overall better quality",
+          "nonsensical"
+        ]
+      },
+      "normalized": {
+        "overall quality": "Overall quality",
+        "acknowledgement": "Acknowledgement"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into clear, distinct points. Normalized criteria capitalization and removed redundant variations."
+    }
+  },
+  "overall_notes": "The paper focuses on dialogue generation for informative conversations, specifically conversational rephrasing task. The extraction was generally accurate but needed normalization of metric variants and consolidation of redundant descriptions. The paper uses human evaluation with clear experimental design for assessing overall quality and acknowledgement, but does not use LLMs as judges."
+}

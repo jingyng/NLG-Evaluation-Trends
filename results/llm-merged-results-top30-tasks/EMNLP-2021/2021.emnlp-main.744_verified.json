@@ -1,0 +1,157 @@
+{
+  "paper_id": "2021.emnlp-main.744",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "XSUM",
+      "REDDIT TIFU",
+      "PUBMED",
+      "ARXIV"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "pegasus",
+      "bart",
+      "bertsum",
+      "matchsum",
+      "bottomup",
+      "ptgen",
+      "ptgen+cov",
+      "drm",
+      "extsum_lg+rdloss",
+      "tlm_i+e",
+      "bertsum+ta",
+      "bart+ta",
+      "vhtm",
+      "our_model"
+    ],
+    "outputs": [
+      "abstractive text summaries",
+      "generated summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BertSUM+TA",
+          "BART+TA",
+          "VHTM"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Transformer-based summarization model",
+          "Our proposed model",
+          "Our Model (flow-based neural topic model + contextualized gating)"
+        ],
+        "outputs": [
+          "summaries"
+        ]
+      },
+      "normalized": {
+        "Our Model": "Our Model",
+        "CNN/DailyMail": "CNN/DailyMail",
+        "Reddit TIFU": "Reddit TIFU"
+      },
+      "explanation": "Consolidated model names to remove redundant/descriptive entries and added missing baseline models mentioned in the paper. Normalized dataset names to standard forms."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Consolidated ROUGE variants into base ROUGE metric as per normalization rules"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Presented summaries from multiple systems and asked raters to rank from worst to best",
+      "Applied question answering paradigm with questions created to emphasize key information"
+    ],
+    "criteria": [
+      "Informativeness",
+      "Faithfulness",
+      "Coherence",
+      "Fluency",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Applied question answering paradigm with questions created to emphasize key information"
+        ],
+        "criteria": [
+          "answer correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "rate the summaries from worst to best in terms of informativeness, faithfulness, topic coherence, and fluency; apply the question answering (QA) paradigm to assess how well key information is preserved"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "informativeness": "informativeness",
+        "faithfulness": "faithfulness",
+        "topic coherence": "topic coherence",
+        "fluency": "fluency"
+      },
+      "explanation": "Cleaned up guideline description and added missing 'answer correctness' criterion from QA evaluation"
+    }
+  },
+  "overall_notes": "The paper focuses on abstractive text summarization with a novel approach integrating neural topic modeling. The extraction was generally accurate but needed consolidation of model names and metric normalization. The paper includes both automatic (ROUGE) and human evaluations, but no LLM-as-judge evaluation."
+}

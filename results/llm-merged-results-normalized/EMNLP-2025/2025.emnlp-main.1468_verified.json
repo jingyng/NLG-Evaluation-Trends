@@ -1,0 +1,189 @@
+{
+  "paper_id": "2025.emnlp-main.1468",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "ECHOMIST"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4",
+      "claude_3.5",
+      "gemini",
+      "llama_3.1_8b",
+      "llama_3.1_70b",
+      "llama_3.3_70b",
+      "mixtral_8x_7b",
+      "qwen_2.5_7b",
+      "qwen_2.5_72b",
+      "tulu_3_8b",
+      "tulu_3_70b",
+      "openai_o_1",
+      "deepseek_r_1"
+    ],
+    "outputs": [
+      "Responses to user queries containing implicit misinformation",
+      "Responses to user queries containing explicit misinformation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-3.1-8B",
+          "Llama-3.1-70B",
+          "Llama-3.3-70B",
+          "Qwen-2.5-7B",
+          "Qwen-2.5-72B",
+          "Tulu-3-8B",
+          "Tulu-3-70B",
+          "DeepSeek-R1"
+        ],
+        "outputs": [
+          "Responses to user queries containing explicit misinformation"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Gemini",
+          "Llama 3.1",
+          "Llama 3.3",
+          "Qwen 2.5",
+          "Tulu 3"
+        ],
+        "outputs": [
+          "model responses to user queries containing implicit misinformation"
+        ]
+      },
+      "normalized": {
+        "ECHOMIST": "EchoMist",
+        "Claude 3.5": "Claude-3.5",
+        "OpenAI-o1": "OpenAI-o1"
+      },
+      "explanation": "Normalized dataset name to 'EchoMist' and model names to standard formatting with versions. Added missing model variants explicitly mentioned in the paper. Expanded outputs to include both implicit and explicit misinformation responses."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "5 POINT LIKERT SCALE RATING"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "5-point Likert scale via LLM-as-judge"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed redundant metric variant and kept the base '5-point Likert scale rating' which is the actual automatic evaluation method."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "claude_3.5_sonnet"
+    ],
+    "methods": [
+      "LLM-as-a-judge"
+    ],
+    "criteria": [
+      "Misinformation",
+      "Correctness",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "misinformation detection capability",
+          "tendency to reinforce or correct false claims",
+          "accuracy and adequacy of correction"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "5-point Likert scale rating",
+          "LLM-as-a-judge prompting"
+        ],
+        "criteria": [
+          "misinformation detection",
+          "reinforcement/correction tendency",
+          "correction accuracy",
+          "detect false claim",
+          "correctness of correction",
+          "adequacy of explanation",
+          "detection of false claim",
+          "reinforcement or correction of false claim",
+          "accuracy and adequacy of correction"
+        ]
+      },
+      "normalized": {
+        "Claude-3.5": "Claude-3.5-Sonnet"
+      },
+      "explanation": "Kept only Claude-3.5-Sonnet as the primary judge model (correlation 0.92 with human). Simplified overlapping criteria to the three main aspects from the paper's metric definition. Removed GPT-4 as it was tested but not selected as the primary judge."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators rate model responses using a 5-point Likert scale where Score 1 indicates complete failure to recognize false claims (reinforcing misinformation) and Score 5 indicates perfect identification and correction with factual explanation"
+    ],
+    "criteria": [
+      "Misinformation",
+      "Correctness",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators rate model responses using a 5-point Likert scale where Score 1 indicates complete failure to recognize false claims (reinforcing misinformation) and Score 5 indicates perfect identification and correction with factual explanation"
+        ],
+        "criteria": [
+          "misinformation detection capability",
+          "tendency to reinforce or correct false claims",
+          "accuracy and adequacy of correction"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Rate model responses according to the 5-point rating criteria (detect false claim, correction quality, accuracy)",
+          "the 5-point rating criteria defined in the paper, including whether the model detects the false claim, corrects it, and provides an accurate explanation"
+        ],
+        "criteria": [
+          "misinformation detection",
+          "reinforcement/correction tendency",
+          "correction accuracy",
+          "detect false claim",
+          "correction quality",
+          "accuracy",
+          "detection of false claim",
+          "reinforcement or correction of false claim",
+          "accuracy and adequacy of correction"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline into one clear description of the human evaluation procedure. Simplified overlapping criteria to match the three main aspects from the paper's metric definition."
+    }
+  },
+  "overall_notes": "The paper comprehensively evaluates LLM responses to misinformation queries using both automatic (LLM-as-judge) and human evaluation. The extracted metadata was generally accurate but needed normalization and consolidation of overlapping items. The paper primarily addresses dialogue generation with implicit misinformation handling."
+}

@@ -1,0 +1,131 @@
+{
+  "paper_id": "2022.naacl-main.168",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Query Generation"
+    ],
+    "datasets": [
+      "MS MARCO",
+      "BeIR",
+      "FiQA",
+      "SciFact",
+      "BioASQ",
+      "TREC-COVID",
+      "CQADupStack",
+      "Robust04"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5",
+      "DistilBERT",
+      "MiniLM",
+      "DocT5Query"
+    ],
+    "outputs": [
+      "synthetic queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "BeIR"
+        ],
+        "languages": [],
+        "models": [
+          "DocT5Query"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other: Query Generation"
+        ],
+        "datasets": [
+          "BeIR (FiQA, SciFact, BioASQ, TREC-COVID, CQADupStack, Robust04)"
+        ],
+        "languages": [],
+        "models": [
+          "T5 encoder‑decoder",
+          "cross‑encoder (ms‑marco‑MiniLM‑L‑6‑v2)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Query Generation": "Other:Query Generation",
+        "T5 encoder‑decoder": "T5",
+        "cross‑encoder": "MiniLM",
+        "ms-marco-MiniLM-L-6-v2": "MiniLM"
+      },
+      "explanation": "Consolidated duplicate task entry, normalized model names (T5 instead of T5 encoder-decoder, MiniLM instead of cross-encoder), added BeIR as a consolidated dataset reference."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "nDCG@10"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "nDCG@10"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Added nDCG@10 which is the primary automatic metric used throughout the paper to evaluate retrieval performance."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "ms-marco-MiniLM-L-6-v2"
+        ],
+        "methods": [
+          "pseudo-labeling"
+        ],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items as they relate to the pseudo-labeling training process, not LLM-based evaluation of generated outputs. The cross-encoder is used for scoring during training, not as a judge of generated queries."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper - all evaluation is automatic using nDCG@10."
+    }
+  },
+  "overall_notes": "This paper focuses on unsupervised domain adaptation for dense retrieval using query generation as a means to create training data. The NLG aspect (query generation) is part of the training methodology, not the main evaluation focus. The primary evaluation uses automatic retrieval metrics (nDCG@10) rather than directly evaluating the quality of generated queries."
+}

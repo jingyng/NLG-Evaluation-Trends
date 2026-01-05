@@ -1,0 +1,134 @@
+{
+  "paper_id": "2024.emnlp-main.864",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Referring Expression Generation"
+    ],
+    "datasets": [
+      "FineCops-Ref"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3.5-turbo"
+    ],
+    "outputs": [
+      "Referring expressions (both positive and negative)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "referring expressions"
+        ]
+      },
+      "normalized": {
+        "Other:Referring Expression Generation": "Other:Referring Expression Generation",
+        "GPT-3.5-turbo": "GPT-3.5-turbo"
+      },
+      "explanation": "Removed 'Paraphrase Generation' as it's not a main task. The paper focuses on referring expression generation, not paraphrasing. Removed duplicate 'referring expressions' from outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Precision@k",
+      "Recall@k",
+      "AUROC",
+      "Vera",
+      "Grammar",
+      "CLIP",
+      "DIRE",
+      "DINOv2"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Precision@k",
+          "Recall@k",
+          "AUROC"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "vera score",
+          "grammar score",
+          "vera"
+        ]
+      },
+      "normalized": {
+        "CLIP similarity": "CLIP",
+        "vera": "Vera",
+        "grammar": "Grammar"
+      },
+      "explanation": "Added main evaluation metrics (Precision@k, Recall@k, AUROC) used for REC evaluation. Normalized metric names and removed redundant 'score' variants. Kept all metrics used for data filtering/quality assessment."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted. LLMs were used only for data generation, not for post-generation evaluation of outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Determine whether the natural language description can accurately and unambiguously refer to the subject target contained within the red box in the image. Guidelines: 1. Carefully consider the attributes and relationships to ensure they accurately correspond to the image; 2. Confirm whether the description can uniquely refer to the target; 3. Select 'Wrong expression' if description is inaccurate or difficult to understand"
+    ],
+    "criteria": [
+      "accuracy",
+      "unambiguity",
+      "attribute consistency",
+      "relationship consistency",
+      "uniqueness of reference"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "ambiguity detection",
+          "correctness of reference"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline text into a single coherent description. Removed redundant criteria that were already covered by the main criteria (ambiguity detection → unambiguity, correctness of reference → accuracy)."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on Referring Expression Comprehension (REC) evaluation, but does involve NLG through the generation of referring expressions for the dataset. The main contribution is the FineCops-Ref dataset and evaluation framework. Human evaluation was conducted for data quality filtering, not for evaluating model outputs. LLMs were used for data generation, not as judges."
+}

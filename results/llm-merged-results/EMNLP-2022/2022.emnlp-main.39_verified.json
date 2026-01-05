@@ -1,0 +1,147 @@
+{
+  "paper_id": "2022.emnlp-main.39",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Data-to-Text Generation",
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "FeTaQA",
+      "DART",
+      "ToTTo",
+      "SQL2Text",
+      "Logic2Text",
+      "MultiWoZ2.1",
+      "KVRET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5-base",
+      "T5-large",
+      "T5-3B",
+      "T0",
+      "GPT-3",
+      "Codex"
+    ],
+    "outputs": [
+      "natural language descriptions of structured data",
+      "dialogue states",
+      "text descriptions of structured data"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "dialogue states",
+          "text descriptions of structured data"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Data-to-text generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "T5"
+        ],
+        "outputs": [
+          "natural language text"
+        ]
+      },
+      "normalized": {
+        "Other:Data-to-text generation": "Other:Data-to-Text Generation",
+        "natural language responses, dialogue states, text descriptions of structured data": "dialogue states, text descriptions of structured data",
+        "T5": "T5-base, T5-large, T5-3B"
+      },
+      "explanation": "Removed duplicate task entry, normalized 'Data-to-text generation' to title case, expanded generic 'T5' to specific variants, and split combined output descriptions into separate items."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "BLEC",
+      "Acc",
+      "F1",
+      "Match"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "sacreBLEU"
+        ]
+      },
+      "normalized": {
+        "sacreBLEU": "BLEU"
+      },
+      "explanation": "Removed 'sacreBLEU' as it's an implementation of BLEU, not a distinct metric. All other metrics are correctly extracted and normalized."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges; it only uses them as generation models. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators assigned a binary score (0 or 1) based on overall correctness",
+      "For each generation task, randomly sample 100 development set samples"
+    ],
+    "criteria": [
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "For each generation task, randomly sample 100 development set samples"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators judge the correctness of each generated output on a 0‑1 scale"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline descriptions to avoid redundancy and added the sampling detail from the paper."
+    }
+  },
+  "overall_notes": "The extraction quality is generally good. The paper focuses on structured knowledge grounding tasks, with several involving NLG (data-to-text generation and dialogue generation). Human evaluation was conducted with binary correctness scoring. No LLM-judge evaluation was performed."
+}

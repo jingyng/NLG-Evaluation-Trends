@@ -1,0 +1,154 @@
+{
+  "paper_id": "2023.acl-long.386",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation",
+      "Other:Fact-Checking"
+    ],
+    "datasets": [
+      "HOVER",
+      "FEVEROUS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Codex",
+      "FLAN-T5",
+      "BERT-FC",
+      "LisT5",
+      "RoBERTa-NLI",
+      "DeBERTaV3-NLI",
+      "MULTIVERS"
+    ],
+    "outputs": [
+      "reasoning programs",
+      "veracity labels",
+      "explanations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BERT-FC",
+          "LisT5",
+          "RoBERTa-NLI",
+          "DeBERTaV3-NLI",
+          "MULTIVERS"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Fact-checking explanation generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Codex (code-davinci-002)",
+          "T5"
+        ],
+        "outputs": [
+          "reasoning programs and natural language answers",
+          "reasoning programs, veracity label, natural‑language explanations"
+        ]
+      },
+      "normalized": {
+        "Other:Fact-checking explanation generation": "Other:Fact-Checking",
+        "Codex (code-davinci-002)": "Codex",
+        "FLAN-T5-XXL": "FLAN-T5"
+      },
+      "explanation": "Removed 'fact-checking explanation generation' as redundant with main task; normalized model names by removing versions; added baseline models mentioned in experiments; simplified outputs description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "Recall@10"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Macro-F1"
+        ]
+      },
+      "normalized": {
+        "Macro-F1": "F1",
+        "recall@10": "Recall@10"
+      },
+      "explanation": "Normalized 'Macro-F1' to 'F1' since the paper refers to it as Macro-F1 but it's essentially F1 metric; normalized capitalization for Recall@10"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators analyzed errors in generated reasoning programs from 300 incorrect predictions across HOVER datasets"
+    ],
+    "criteria": [
+      "Syntactic errors",
+      "Semantic errors",
+      "Incorrect execution"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "Syntactic errors",
+          "Semantic errors",
+          "Incorrect execution"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "syntactic errors",
+          "semantic errors",
+          "incorrect execution",
+          "Syntactic errors",
+          "Semantic errors",
+          "Structure",
+          "Subtask",
+          "Token"
+        ]
+      },
+      "normalized": {
+        "syntactic errors": "Syntactic errors",
+        "semantic errors": "Semantic errors",
+        "incorrect execution": "Incorrect execution"
+      },
+      "explanation": "Normalized criteria capitalization and removed redundant/duplicate entries; kept main categories from the paper's error analysis"
+    }
+  },
+  "overall_notes": "This paper primarily focuses on fact-checking complex claims using program-guided reasoning. While it involves generating reasoning programs (which is an NLG task), the main evaluation is on fact-checking accuracy rather than the quality of the generated programs themselves. The human evaluation was error analysis rather than quality assessment of generated outputs."
+}

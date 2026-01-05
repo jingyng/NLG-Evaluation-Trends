@@ -1,0 +1,152 @@
+{
+  "paper_id": "2024.emnlp-main.1154",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Spreadsheet QA",
+      "Other:Spreadsheet Table Detection"
+    ],
+    "datasets": [
+      "Real-world spreadsheet dataset with annotated table boundaries",
+      "Spreadsheet QA dataset with 307 items"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4",
+      "GPT-3.5",
+      "Llama-2",
+      "Llama-3",
+      "Phi-3",
+      "Mistral-v2"
+    ],
+    "outputs": [
+      "Cell addresses and formulas",
+      "Table boundary ranges",
+      "Answers to spreadsheet questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Spreadsheet Table Detection"
+        ],
+        "outputs": [
+          "Table boundary ranges",
+          "Answers to spreadsheet questions"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "a benchmark dataset of real-world spreadsheets with annotated table boundaries"
+        ],
+        "outputs": [
+          "The model then processes this information to generate an accurate response to the query."
+        ]
+      },
+      "normalized": {
+        "GPT4": "GPT-4",
+        "GPT3.5": "GPT-3.5",
+        "Llama2": "Llama-2",
+        "Llama3": "Llama-3",
+        "Phi3": "Phi-3"
+      },
+      "explanation": "Added missing spreadsheet table detection task and normalized output descriptions. Removed duplicate dataset entry and normalized model names with version numbers. The paper addresses NLG tasks through spreadsheet question answering and table detection with text/code generation outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "Accuracy",
+      "Compression Ratio",
+      "EoB-0"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "micro F1 Score",
+          "Micro F1",
+          "Error-of-Boundary 0 (EoB-0)"
+        ],
+        "accuracy": []
+      },
+      "normalized": {
+        "micro F1 Score": "F1",
+        "Micro F1": "F1",
+        "accuracy": "Accuracy",
+        "EoB-0": "EoB-0"
+      },
+      "explanation": "Normalized metric variants to base forms (F1 instead of micro F1 Score, etc.) and removed redundant entries. Added F1 as a key normalized metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' entries. The paper does not use LLMs as judges - LLMs are used for spreadsheet processing and generation, not for evaluating outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Quality improvement pipeline with five annotators from top universities",
+      "Three annotation types (certain, multiple reasonable labels, uncertain)",
+      "Exclusion criteria for spreadsheets (non-English cells, same workbook similarity)"
+    ],
+    "criteria": [
+      "Table boundary accuracy",
+      "Label certainty"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Quality improvement pipeline with five annotators from top universities",
+          "Three annotation types (certain, multiple reasonable labels, uncertain)",
+          "Exclusion criteria for spreadsheets (non-English cells, same workbook similarity)"
+        ],
+        "criteria": [
+          "Table boundary accuracy",
+          "Label certainty"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- For each spreadsheet in the test set, we aggregate the annotations from all five annotators and preserve multiple reasonable labeling results for type 2 spreadsheets."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Added proper human evaluation details including annotation process, criteria, and guidelines. The paper clearly conducts human evaluation for test set quality improvement with five expert annotators evaluating table boundaries."
+    }
+  },
+  "overall_notes": "This paper focuses on spreadsheet encoding and processing using LLMs, with NLG tasks limited to spreadsheet question answering and table detection. The extraction was generally accurate but missed some key human evaluation details and had inconsistent normalization. The paper does not use LLMs as judges but does conduct substantial human evaluation for dataset quality."
+}

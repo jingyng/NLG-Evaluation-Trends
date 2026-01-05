@@ -1,0 +1,135 @@
+{
+  "paper_id": "2025.acl-long.1076",
+  "answer_1": {
+    "answer": "No",
+    "answer_changed": true,
+    "tasks": [],
+    "datasets": [],
+    "languages": [],
+    "models": [],
+    "outputs": [],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Open-Domain Question Answering"
+        ],
+        "datasets": [
+          "Natural Questions",
+          "TriviaQA",
+          "WebQuestions",
+          "CuratedTREC",
+          "TREC-DL-2019",
+          "TREC-DL-2020",
+          "Natural Questions (NQ)",
+          "TriviaQA (Trivia)",
+          "WebQuestions (WebQ)",
+          "CuratedTREC (TREC)"
+        ],
+        "languages": [
+          "English"
+        ],
+        "models": [
+          "BM25",
+          "FiD",
+          "Query2Doc",
+          "GAR",
+          "EAR",
+          "AGR",
+          "cross-encoder/msmarco-MiniLM-L-12",
+          "BAAI/bge-base-en-v1.5",
+          "Mistral-7B-Instruct-v0.2"
+        ],
+        "outputs": [
+          "generated answers from the reader model in ODQA",
+          "answers to factual questions"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper focuses on query expansion and retrieval for Open-Domain Question Answering (ODQA), but does not actually generate natural language. The 'generated answers' mentioned are extracted by a reader model from retrieved documents, not generated through NLG. This is an information retrieval/retrieval-augmented QA paper, not an NLG paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT MATCH",
+      "HIT",
+      "NDCG",
+      "MRR",
+      "MAP"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "LLM@k",
+          "Exact Match (EM)"
+        ]
+      },
+      "normalized": {
+        "EM@k": "EM",
+        "Exact Match (EM)": "EM"
+      },
+      "explanation": "Normalized EM@k and Exact Match (EM) to just EM. Removed LLM@k as it's an LLM-as-judge metric (covered in Q3), not a traditional automatic metric."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "mistral_7b_instruct_v_0.2"
+    ],
+    "methods": [
+      "few-shot prompting"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "few-shot prompting for answer validation"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "few-shot prompting for answer validation": "few-shot prompting"
+      },
+      "explanation": "Normalized the method description to be more concise. The paper clearly uses LLM-based evaluation with few-shot prompting to assess answer correctness."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper. All evaluations are automated using metrics and LLM judges."
+    }
+  },
+  "overall_notes": "This paper is primarily about query expansion and retrieval optimization for Open-Domain Question Answering, not natural language generation. While it evaluates end-to-end QA systems, the NLG component (answer generation) is not the focus - the main contribution is improving retrieval through adaptive term weighting. The extracted metadata incorrectly classified this as an NLG paper."
+}

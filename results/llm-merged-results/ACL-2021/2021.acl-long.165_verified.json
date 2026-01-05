@@ -1,0 +1,139 @@
+{
+  "paper_id": "2021.acl-long.165",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Counter-claim Generation"
+    ],
+    "datasets": [
+      "COVID-Fact"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BERT",
+      "RoBERTa"
+    ],
+    "outputs": [
+      "Counter-claims generated from true claims via salient word replacement"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Counter‑claim Generation",
+          "Paraphrase Generation"
+        ],
+        "datasets": [
+          "COVID‑Fact"
+        ],
+        "languages": [],
+        "models": [
+          "RoBERTa (MLM fine‑tuned on CORD‑19)",
+          "BERT (attention‑based salience)"
+        ],
+        "outputs": [
+          "automatically generated counter‑claims (false statements) supporting dataset creation",
+          "counter-claims"
+        ]
+      },
+      "normalized": {
+        "COVID‑Fact": "COVID-Fact",
+        "Other:Counter‑claim Generation": "Other:Counter-claim Generation"
+      },
+      "explanation": "Removed duplicate counter-claim generation task, removed 'Paraphrase Generation' as this is not the main task. Normalized dataset name and simplified model descriptions to canonical forms."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "precision",
+      "recall",
+      "F1",
+      "accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "contradiction score",
+          "F1 score"
+        ]
+      },
+      "normalized": {
+        "F1 score": "F1"
+      },
+      "explanation": "Removed 'contradiction score' as it's not a standard automatic metric for evaluating NLG outputs, but rather an intermediate scoring mechanism. Kept standard classification metrics used for veracity prediction."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa",
+          "RoBERTa (Multi‑NLI)"
+        ],
+        "methods": [
+          "contradiction scoring"
+        ],
+        "criteria": [
+          "contradiction"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The RoBERTa model is used for generating counter-claims and for contradiction scoring as part of the generation process, not as a judge to evaluate already-generated outputs after generation. This is part of the pipeline, not an evaluation method."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators judged whether candidate counter-claims were implied by the original claim",
+      "Annotators were asked to select words that could invert sentence meaning if replaced"
+    ],
+    "criteria": [
+      "contradiction"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators judged whether each generated counter‑claim is contradictory (i.e., not implied) to the original claim"
+        ],
+        "criteria": [
+          "implied",
+          "contradictory judgement"
+        ]
+      },
+      "normalized": {
+        "contradictory judgement": "contradiction"
+      },
+      "explanation": "Consolidated duplicate guideline descriptions and normalized criteria. The main criterion evaluated was whether generated counter-claims were contradictory to the original claims."
+    }
+  },
+  "overall_notes": "This paper focuses on fact-checking and counter-claim generation for COVID-19 misinformation detection. The NLG component is limited to counter-claim generation through word replacement using language models. The paper does not use LLMs as judges - the RoBERTa model is used for generation and intermediate scoring, not for evaluating generated outputs after generation."
+}

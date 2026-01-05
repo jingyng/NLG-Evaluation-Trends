@@ -1,0 +1,94 @@
+{
+  "paper_id": "2024.emnlp-main.815",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM judgments (G-Eval) against human ratings on the same 2,988 instances using correlation analysis and discusses the relationship between methods"
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "Llama-3.1-70B",
+      "GPT-4o-mini",
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "figure",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Figure shows G-Eval prompt template for evaluating Faithfulness. Paper states 'We adopt the official prompt of evaluation instruction to assess the faithfulness and comprehensiveness of the generated answers, separately. The evaluation prompts used are presented in Appendix.'"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 8,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": null,
+      "interpretation": "substantial inter-annotator agreements",
+      "per_criterion": [
+        {
+          "criterion": "Faithfulness",
+          "metric": "Krippendorff's alpha",
+          "value": 0.738
+        },
+        {
+          "criterion": "Comprehensiveness",
+          "metric": "Krippendorff's alpha",
+          "value": 0.714
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper provides detailed definitions for Faithfulness and Comprehensiveness with 1-5 Likert scale. Annotators received one-hour training and review guide. Case studies with examples shown in tables."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Kendall's tau"
+    ],
+    "shared_criteria": [
+      "Faithfulness",
+      "Comprehensiveness"
+    ],
+    "sample_size": {
+      "total_generated": 2988,
+      "validated_by_both": 2988,
+      "notes": "All 2,988 instances were evaluated by both LLM judges and human evaluators"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Kendall's tau",
+        "value": null,
+        "criterion": "Faithfulness and Comprehensiveness",
+        "llm_model": "G-Eval (general)",
+        "significance": null,
+        "notes": "Table shows instance-level Kendall's tau correlations but exact numerical values not provided in text. Results indicate G-Eval 'consistently achieves positive and high correlation scores'"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "high",
+      "threshold_used": "Not explicitly specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-based metrics demonstrate significant improvement over traditional automated metrics with positive and high correlation with human evaluation. GPT-4o yields higher correlation scores than Llama-3, indicating better alignment with human assessments."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Faithfulness",
+      "Comprehensiveness"
+    ],
+    "notes": "Both LLM judges and human evaluators assessed the exact same criteria (Faithfulness and Comprehensiveness) using the same evaluation paradigm"
+  }
+}

@@ -1,0 +1,79 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "This study proposes a multi-stage pipeline that activates language models to leverage both phonetic and semantic information... Our evaluation shows SFT with subtask datasets enhances the model's ability to use phonological information for basic phonetic tasks.",
+            "...we evaluate our method on three benchmark tasks: (1) Chinese Typing Correction (CTC), (2) Automatic Speech Recognition (ASR) Transcript Correction, and (3) Chinese Internet Homophone and Paronym Restoration...",
+            "We propose a multi-stage methodology to achieve the objective... s 1 involves detecting the target word (homophone or paronym) w in X; s 2 converts w into its pinyin representation p; s 3 generates a list of candidate words C = {c 1 , c 2 , . . . , c m } that are contextually appropriate based on the context of X and phonetically similar to w; and s 4 selects the word that is most likely to be the original word Ŷ from C."
+        ],
+        "tasks": [
+            "Other:Chinese Homophone/Paronym Restoration",
+            "Other:Error Correction",
+            "Other:Chinese phonological ambiguity resolution",
+            "Other:homophone and paronym restoration"
+        ],
+        "datasets": [
+            "Chinese Typing Correction (CTC)",
+            "Automatic Speech Recognition (ASR) Transcript Correction",
+            "Chinese Internet Homophone and Paronym Restoration (CIHP)",
+            "CTC",
+            "ASR",
+            "CIHP",
+            "Synthetic Dataset",
+            "CTC Dataset",
+            "ASR Dataset",
+            "CIHP Dataset"
+        ],
+        "languages": [
+            "Chinese"
+        ],
+        "models": [
+            "Qwen2.5-7B-Instruct",
+            "PhonoThink-Qwen-SFT",
+            "PhonoThink-Qwen-RL",
+            "PhonoThink-Qwen-SFT-MIX",
+            "Qwen2.5-72B",
+            "GPT-4o",
+            "DeepSeek-Distill-Qwen-7B",
+            "Qwen2.5-72B-Instruct"
+        ],
+        "outputs": [
+            "Restored original words from homophones/paronyms in Chinese sentences",
+            "corrected sentences with original words restored",
+            "The output is a corrected word selected through a four-step reasoning chain: error detection, pinyin conversion, candidate generation, and optimal selection."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "...the model's performance is directly measured by accuracy... Table shows the performance of different models in this experiment on synthetic data and three authentic datasets.",
+            "For evaluation, we generate outputs with temperature and top-p equal to 0.5, using max token lengths of 2048, and are directly measured by accuracy."
+        ],
+        "automatic_metrics": [
+            "accuracy"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "From this content, three native Chinese annotators collaboratively identified 352 high-frequency, representative pairs of target and original words. Each pair was included... only after reaching a consensus among all three annotators.",
+            "Independent annotation by three native Chinese speakers who were blinded to each other's selections, with only those words unanimously identified as valid homophones or paronyms by all annotators being ultimately designated as target words."
+        ],
+        "guideline": [
+            "Annotators determined valid homophones/paronyms by checking if phonological restoration maintains contextual semantic consistency ('1' valid if restorable, '0' invalid if semantic conflict)",
+            "Annotators were instructed to determine whether word pairs can be seen as homophones or paronyms based on phonetic similarity and contextual reconstructability, with semantic consistency as a key criterion."
+        ],
+        "criteria": [
+            "semantic consistency",
+            "phonetic similarity",
+            "contextual reconstructability"
+        ]
+    }
+}

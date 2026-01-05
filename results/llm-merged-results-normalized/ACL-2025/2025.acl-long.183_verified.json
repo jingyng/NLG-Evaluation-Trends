@@ -1,0 +1,120 @@
+{
+  "paper_id": "2025.acl-long.183",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "In Context Learning",
+      "Dialogue Generation",
+      "Machine Translation",
+      "Code Generation"
+    ],
+    "datasets": [
+      "LONGBENCH v2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4o",
+      "glm_4_plus",
+      "qwen_2.5_72b_instruct",
+      "o_1_preview",
+      "glm_4_9b_chat",
+      "qwen_2.5_7b_instruct",
+      "gpt_4o_mini",
+      "glm_4_air",
+      "glm_4_flash",
+      "o_1_mini"
+    ],
+    "outputs": [
+      "multiple-choice answers for natural language questions",
+      "multiple-choice answers for code understanding",
+      "translation outputs",
+      "classification labels"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering",
+          "Code Generation"
+        ],
+        "outputs": [
+          "multiple-choice answers for natural language questions",
+          "multiple-choice answers for code understanding",
+          "translation outputs",
+          "classification labels"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "outputs": [
+          "multiple-choice answers for translation tasks"
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering",
+        "multiple-choice answers for translation tasks": "translation outputs"
+      },
+      "explanation": "Corrected task categorization - this is primarily a QA benchmark, not MT. Added Code Generation as a task. Normalized outputs to accurately reflect what models generate for different task types."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from No to Yes - the paper explicitly uses accuracy as the evaluation metric for multiple-choice questions. This is an automatic metric used to evaluate model outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Correct answer - no LLM-as-judge evaluation is conducted. The paper only uses LLMs as generators, not as evaluators of outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human experts attempt to answer questions within 15-minute time limit",
+      "Reviewers download raw documents and use search tools",
+      "Questions must meet requirements: appropriate question with objective correct answer",
+      "Questions must have sufficient difficulty - human reviewer cannot answer correctly within 3 minutes",
+      "Reviewers can respond with 'I don't know the answer' after 15 minutes"
+    ],
+    "criteria": [
+      "Correctness",
+      "Appropriateness",
+      "Difficulty"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Human evaluation is clearly described with detailed guidelines for reviewers assessing question quality and establishing human baselines."
+    }
+  },
+  "overall_notes": "This paper primarily introduces a benchmark (LongBench v2) for evaluating long-context understanding capabilities of LLMs. While it evaluates generation capabilities through multiple-choice QA and other tasks, the main focus is on understanding/reasoning rather than pure generation. The evaluation uses accuracy as the primary metric. Human evaluation is conducted to establish baselines and verify data quality, but not to evaluate model outputs directly."
+}

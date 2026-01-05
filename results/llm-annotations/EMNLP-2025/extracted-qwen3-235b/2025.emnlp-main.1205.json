@@ -1,0 +1,58 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We use LLM generated biographies (FACTSCORE) and QA responses (LFQA) in our experiments.",
+        "tasks": [
+            "Other:biography generation",
+            "Other:QA response generation"
+        ],
+        "datasets": [
+            "FACTSCORE",
+            "LFQA"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-4o mini",
+            "gpt-3.5-turbo-instruct",
+            "Inst-LLAMA",
+            "LLAMA 7B"
+        ],
+        "outputs": "generated biographies and QA responses"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We use DECOMPSCORE, introduced by , which measures the average number of supported (highly correlated with NLI entailment) subclaims per passage produced.",
+        "automatic_metrics": [
+            "DECOMPSCORE",
+            "FACTSCORE",
+            "DNDSCORE"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We use Inst-LLAMA from FACTSCORE, which is a LLAMA 7B trained on the Super Natural Instructions dataset , and run FACTSCORE with the Inst-LLAMA + retrieval + NPM setting.",
+        "models": [
+            "Inst-LLAMA",
+            "GPT-4o mini"
+        ],
+        "methods": [
+            "FACTSCORE",
+            "DNDSCORE"
+        ],
+        "criteria": [
+            "truthfulness",
+            "factuality"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We perform human annotation on a small 100 instance subset of the LFQA data, specifically where FACTSCORE judgments flip (i.e. subclaim is true and decontextualized subclaim is false, or vice versa).",
+        "guideline": "For each subclaim and decontextualized subclaim we ask the annotator: 1. Given the grounding document, is the subclaim from the passage True or False? (options: True/False/Not enough information) 2. Given the grounding document, is the decontextualized subclaim from the passage True or False? (options: True/False/Not enough information) 3. Does the subclaim contain enough information to correctly judge it as true/false? (options: Yes/No) 4. Does the decontextualized subclaim contain enough information to correctly judge it as true/false? (options: Yes/No)",
+        "criteria": [
+            "truthfulness",
+            "sufficiency of information"
+        ]
+    }
+}

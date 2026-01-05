@@ -1,0 +1,116 @@
+{
+  "paper_id": "2024.naacl-long.221",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Other:Segmentation",
+      "Text Classification"
+    ],
+    "datasets": [
+      "XML-MT",
+      "SSENT",
+      "ISD",
+      "EDOS-A",
+      "EDOS-B",
+      "CLINC"
+    ],
+    "languages": [
+      "English",
+      "Japanese",
+      "Finnish",
+      "Spanish",
+      "Arabic"
+    ],
+    "models": [
+      "Flan-PaLM 2 (L)",
+      "Flan-T5 XXL",
+      "GPT-J"
+    ],
+    "outputs": [
+      "Translated text",
+      "Tagged text with sentiment markup",
+      "Classification labels"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Classification"
+        ],
+        "outputs": [
+          "Classification labels"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Sentiment Tagging"
+        ],
+        "models": [
+          "Flan-PaLM 2",
+          "mT5"
+        ],
+        "outputs": [
+          "class labels, tagged sentences, translated text",
+          "The goal of this task is to copy the given hotel review by tagging sentiment-expressing phrases with the markup tags: <Positive></Positive> or <Negative></Negative>."
+        ]
+      },
+      "normalized": {
+        "Other:Segmentation": "Other:Segmentation",
+        "Machine Translation": "Machine Translation"
+      },
+      "explanation": "Added 'Text Classification' as a main task, removed redundant/descriptive output texts, removed models used for retrieval/reranking (mT5) rather than generation"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "Macro F1",
+      "Joint Accuracy",
+      "BLEU",
+      "GLEU"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "word-level F1",
+          "macro F1",
+          "joint accuracy"
+        ]
+      },
+      "normalized": {
+        "Word-level F1": "F1"
+      },
+      "explanation": "Removed duplicate metrics with different capitalization, normalized 'Word-level F1' to base 'F1' form"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No changes made - paper does not use LLMs as judges, only for generation"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No changes made - paper does not mention human evaluation"
+    }
+  },
+  "overall_notes": "The paper focuses on demonstration selection for in-context learning rather than direct NLG evaluation. It uses NLG tasks (translation, segmentation) primarily as testbeds for studying demonstration utility. The evaluation is done via standard automatic metrics applied to LLM outputs, but the main contribution is the incremental utility method for demonstration selection."
+}

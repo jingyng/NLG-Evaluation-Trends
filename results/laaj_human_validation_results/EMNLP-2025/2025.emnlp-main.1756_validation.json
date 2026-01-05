@@ -1,0 +1,156 @@
+{
+  "paper_id": "2025.emnlp-main.1756",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM and human judgments on the same instances using both agreement analysis (Cohen's kappa) and correlation analysis (Spearman correlation) of rankings, with detailed results across four criteria"
+  },
+  "llm_judge_details": {
+    "num_models": 9,
+    "models": [
+      "gpt_4o",
+      "gpt_4o_mini",
+      "gpt_4",
+      "llama_3.3_70b",
+      "aya_23_8b",
+      "silma_9b_instruct_v_1.0",
+      "llama_3.1_8b_instruct",
+      "mixtral_8x_7b"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt adapted from AlpacaEval benchmark and tailored to evaluation criteria, full prompt in Appendix D; jais-13B-chat excluded as judge due to failure to follow structured response guidelines"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": null,
+      "interpretation": "Initial low agreement improved to sufficient level after adjudication",
+      "per_criterion": [
+        {
+          "criterion": "correctness",
+          "notes": "Low initial agreement primarily due to borderline cases involving tie vs preference decisions"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed evaluation criteria described including pairwise comparison options and individual Tunisian Arabic usage scoring rubric (0-2 scale)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis",
+      "ranking_comparison",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation",
+      "Cohen's kappa"
+    ],
+    "shared_criteria": [
+      "Quality",
+      "Correctness",
+      "Relevance",
+      "Tunisian Arabic Usage"
+    ],
+    "sample_size": {
+      "total_generated": 900,
+      "validated_by_both": 900,
+      "notes": "All 900 evaluation instances were evaluated by both human and LLM judges"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.9175,
+        "criterion": "overall",
+        "llm_model": "GPT-4o",
+        "significance": null
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.9075,
+        "criterion": "overall",
+        "llm_model": "GPT-4o-mini",
+        "significance": null
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.895,
+        "criterion": "overall",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.99,
+        "criterion": "Tunisian Arabic Usage",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.98,
+        "criterion": "Tunisian Arabic Usage",
+        "llm_model": "GPT-4o",
+        "significance": null
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.95,
+        "criterion": "Tunisian Arabic Usage",
+        "llm_model": "LLaMA-3.3-70B",
+        "significance": null
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.184,
+        "criterion": "Tunisian Arabic Usage",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.3105,
+        "criterion": "Tunisian Arabic Usage",
+        "llm_model": "GPT-4o",
+        "significance": null
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.1815,
+        "criterion": "Tunisian Arabic Usage",
+        "llm_model": "LLaMA-3.3-70B",
+        "significance": null
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "not explicitly stated but values above 0.9 considered strong",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4o showed strongest alignment with human judgments (average Spearman correlation 0.9175) and was selected as primary automated judge; while ranking correlations were high, absolute agreement on Tunisian usage showed systematic overestimation by LLMs."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Quality",
+      "Correctness",
+      "Relevance",
+      "Tunisian Arabic Usage"
+    ],
+    "notes": "Both LLM and human judges evaluated the same four criteria using identical evaluation methodology"
+  }
+}

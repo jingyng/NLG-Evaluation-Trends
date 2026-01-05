@@ -1,0 +1,142 @@
+{
+  "paper_id": "2024.emnlp-main.448",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Meta Context Question Answering",
+      "Image Contextualization Question Answering"
+    ],
+    "datasets": [
+      "5pils"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4",
+      "llama_2_7b_chat",
+      "llava_1.5_7b"
+    ],
+    "outputs": [
+      "Generated answers to the 5 Pillars questions (Provenance, Source, Date, Location, Motivation)",
+      "Free-form textual answers for each of the 5 Pillars"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "ViT (for manipulation detection)"
+        ],
+        "outputs": [
+          "The outputs are answers to the 5 Pillars questions (Provenance, Source, Date, Location, Motivation) based on the image and retrieved evidence."
+        ]
+      },
+      "normalized": {
+        "GPT4": "GPT-4",
+        "Llama2 7B-Chat": "Llama-2-7B-Chat",
+        "Llava 1.5 7B": "LLaVA-1.5-7B"
+      },
+      "explanation": "Removed 'Other:Question Answering' as too generic, removed ViT as it's not an NLG model but used for manipulation detection, normalized model names to standard forms, consolidated output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "METEOR",
+      "EXACT MATCH",
+      "DATE",
+      "CO LOCATION",
+      "HL LOCATION",
+      "BERTSCORE",
+      "RECALL PROVENANCE",
+      "NDCG"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "∆",
+          "Δ"
+        ]
+      },
+      "normalized": {
+        "RougeL": "ROUGE-L",
+        "Meteor": "METEOR",
+        "BertScore": "BERTScore"
+      },
+      "explanation": "Normalized metric names to standard forms, clarified Δ metrics by adding descriptions, removed duplicate Δ entries"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human raters categorized predictions into predefined categories: correct answer, partially correct answer, no answer with evidence available, no answer with no evidence available, wrong answer based on text, wrong answer based on image, content filtering error, predict misinformation",
+      "Annotators labeled GPT-4 extracted answers as 'Correct', 'Missing', or 'Incorrect' based on fact-checking articles"
+    ],
+    "criteria": [
+      "Correctness",
+      "Completeness",
+      "Classification"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "Completeness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Partial correctness",
+          "Error type: insufficient information",
+          "Error type: irrelevant evidence",
+          "Error type: wrong image interpretation",
+          "Error type: content filter blockage",
+          "Error type: misinformation elements"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Simplified criteria to higher-level concepts, added 'Completeness' as an implicit criterion in the human evaluation"
+    }
+  },
+  "overall_notes": "The paper focuses on automated image contextualization through question answering about image meta-context. It evaluates NLG outputs using both automatic metrics and human evaluation. The extraction was generally accurate but needed normalization of model and metric names."
+}

@@ -1,0 +1,91 @@
+{
+  "paper_id": "2024.acl-long.283",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates GPT-4 evaluations against human judgments through quantitative comparisons including accuracy and mean squared error metrics on both TriviaQA and Summarize-from-feedback datasets"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "figure",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper references figures showing the specific evaluation prompts used for GPT-4 evaluation, including binary correctness classification for TriviaQA and 4-category quality rating (Bad/Fair/Good/Excellent) for Summarize-from-feedback"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluation uses quality rating scale (Bad/Fair/Good/Excellent) for summaries, with numerical assignments (1/2/3/4) for mean squared error calculation"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "error_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Accuracy",
+      "Mean Squared Error"
+    ],
+    "shared_criteria": [
+      "Correctness",
+      "Quality"
+    ],
+    "sample_size": {
+      "total_generated": "multiple_datasets",
+      "validated_by_both": "tbd",
+      "notes": "Validation conducted on TriviaQA (600 samples mentioned in confusion matrix) and Summarize-from-feedback datasets, with statistical repetition of 500 experiments for the automated approach"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Accuracy",
+        "value": "reported_via_confusion_matrix",
+        "criterion": "Correctness",
+        "llm_model": "GPT-4",
+        "significance": "not_reported",
+        "notes": "Confusion matrix provided comparing GPT-4 evaluation versus true evaluation on 600 TriviaQA samples"
+      },
+      {
+        "metric": "Mean Squared Error",
+        "value": "reported_via_figure",
+        "criterion": "Quality",
+        "llm_model": "GPT-4",
+        "significance": "not_reported",
+        "notes": "MSE reported for GPT-4 based evaluation of summaries against human assessments"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 automated evaluation is not fully reliable, but BSDETECTOR confidence scores help identify when human evaluation is needed, leading to more accurate overall assessments."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Correctness",
+      "Quality"
+    ],
+    "notes": "Both LLM and human evaluate the same criteria (correctness for QA, quality for summaries) on the same datasets"
+  }
+}

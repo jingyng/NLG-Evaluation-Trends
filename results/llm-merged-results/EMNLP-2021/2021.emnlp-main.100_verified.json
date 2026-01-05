@@ -1,0 +1,210 @@
+{
+  "paper_id": "2021.emnlp-main.100",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Style Transfer"
+    ],
+    "datasets": [
+      "GYAFC",
+      "OpenSubtitles",
+      "XFORMAL"
+    ],
+    "languages": [
+      "English",
+      "Brazilian Portuguese",
+      "French",
+      "Italian"
+    ],
+    "models": [
+      "Rule-based",
+      "Round-trip translation",
+      "Bi-directional neural machine translation",
+      "Multi-task neural machine translation",
+      "Phrase-based machine translation",
+      "Unidirectional neural machine translation"
+    ],
+    "outputs": [
+      "Formal rewrites of informal sentences",
+      "Informal rewrites of formal sentences",
+      "Stylized text with controlled formality"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Style Transfer"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Unidirectional neural machine translation"
+        ],
+        "outputs": [
+          "Informal rewrites of formal sentences",
+          "Stylized text with controlled formality"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [],
+        "languages": [
+          "Brazilian-Portuguese"
+        ],
+        "models": [
+          "XLM-R",
+          "mBERT",
+          "KenLM",
+          "BERT-score",
+          "RoBERTa",
+          "BERT",
+          "CNN",
+          "LSTM",
+          "GRU"
+        ],
+        "outputs": [
+          "Rewritten sentences with controlled formality",
+          "generated formal or informal rewrites of input sentences"
+        ]
+      },
+      "normalized": {
+        "Brazilian-Portuguese": "Brazilian Portuguese",
+        "Multi-task variant": "Multi-task neural machine translation",
+        "formal rewrites of informal input sentences": "Formal rewrites of informal sentences"
+      },
+      "explanation": "Changed task from 'Paraphrase Generation' to 'Style Transfer' which is more accurate. Removed evaluation models (XLM-R, mBERT, etc.) as they are not generation models but evaluation models. Added missing generation models and output types. Consolidated language variations."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "chrF",
+      "BERTScore",
+      "Word Mover's Distance",
+      "Semantic Textual Similarity",
+      "Perplexity",
+      "Formality Classification",
+      "Formality Regression",
+      "Spearman's ρ"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Semantic Textual Similarity",
+          "Spearman's ρ"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "self-BLEU (s-BLEU)",
+          "cosine similarity",
+          "Likelihood (LL)",
+          "Pseudolikelihood (PSEUDO-LL)",
+          "pseudo-likelihood (PSEUDO-LL)",
+          "perplexity (PPL)",
+          "XLM-R formality regression",
+          "XLM-R pseudo-likelihood",
+          "r-BLEU",
+          "s-BLEU",
+          "cosine",
+          "WMD",
+          "PPL",
+          "LL",
+          "PSEUDO-LL",
+          "F1"
+        ]
+      },
+      "normalized": {
+        "BLEU (r-BLEU)": "BLEU",
+        "Word Mover's Distance (WMD)": "Word Mover's Distance",
+        "Perplexity (PPL)": "Perplexity",
+        "Formality binary classifier": "Formality Classification",
+        "Formality regression model": "Formality Regression",
+        "STS models": "Semantic Textual Similarity",
+        "BERT-score": "BERTScore"
+      },
+      "explanation": "Normalized all metric names to canonical forms. Removed redundant and variant-specific mentions. Consolidated similar metrics under base forms. Added missing main metric types."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "XLM-R",
+          "mBERT"
+        ],
+        "methods": [
+          "formality regression",
+          "pseudo‑likelihood scoring"
+        ],
+        "criteria": [
+          "formality",
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items as the paper does not use LLMs as judges. XLM-R and mBERT are used as evaluation models but not as LLM judges in the modern sense of prompt-based evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Formality: 7-point scale from -3 (Very Informal) to +3 (Very Formal)",
+      "Meaning Preservation: 6-point scale from 1 (Completely dissimilar) to 6 (Completely equivalent)",
+      "Fluency: 5-point scale from 1 (Incomprehensible) to 5 (Perfect)",
+      "Overall: Relative ranking of all system outputs considering formality, meaning preservation and fluency"
+    ],
+    "criteria": [
+      "Formality",
+      "Meaning Preservation",
+      "Fluency",
+      "Overall Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Formality: 7-point scale from -3 (Very Informal) to +3 (Very Formal)",
+          "Meaning Preservation: 6-point scale from 1 (Completely dissimilar) to 6 (Completely equivalent)",
+          "Fluency: 5-point scale from 1 (Incomprehensible) to 5 (Perfect)",
+          "Overall: Relative ranking of all system outputs considering formality, meaning preservation and fluency"
+        ],
+        "criteria": [
+          "Overall Quality"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Formality rated on a 7-point scale; meaning preservation rated on a 1-6 similarity scale; fluency rated on a 1-5 scale; overall via relative ranking.",
+          "Annotators rate each system output on separate scales for formality (−3 to +3), meaning preservation (1 to 6), fluency (1 to 5), and overall ranking of systems.",
+          "formality ratings are collected-for each system output-on a 7-point discrete scale... meaning preservation judgments adopt the Semantic Textual Similarity annotation scheme... fluency judgments are collected for each system output on a discrete scale of 1 to 5... overall judgments are collected following a relative ranking approach"
+        ],
+        "criteria": [
+          "overall"
+        ]
+      },
+      "normalized": {
+        "meaning preservation": "Meaning Preservation",
+        "fluency": "Fluency",
+        "formality": "Formality"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into clear, structured entries. Normalized criteria names to title case. Added missing 'Overall Quality' criterion."
+    }
+  },
+  "overall_notes": "The paper is a comprehensive meta-evaluation study of automatic metrics for style transfer evaluation, specifically focusing on formality transfer. It evaluates both automatic metrics and compares them against human judgments across four languages. The extraction was generally good but needed normalization and clarification between generation models vs. evaluation models."
+}

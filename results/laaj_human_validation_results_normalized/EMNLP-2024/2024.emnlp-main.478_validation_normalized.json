@@ -1,0 +1,88 @@
+{
+  "paper_id": "2024.emnlp-main.478",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "Both LLM and human evaluations assess the same criteria (targeted, correct, actionable) on the same 40 conversations, but no quantitative comparison or correlation metrics are reported between LLM and human judgments."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "LLAMA3-70B"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts for LLM-based evaluation include the same task and instructions as human evaluation, with 3-shot examples. Details found in Appendix E."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 4,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": [
+        {
+          "criterion": "targeted",
+          "value": 0.21
+        },
+        {
+          "criterion": "correctness",
+          "value": 0.25
+        },
+        {
+          "criterion": "actionable",
+          "value": 0.13
+        },
+        {
+          "criterion": "Error Description correctness",
+          "value": 0.3
+        }
+      ],
+      "interpretation": "Low agreement (\u03ba=0.13-0.30), though not explicitly interpreted in paper",
+      "per_criterion": [
+        {
+          "criterion": "targeted",
+          "metric": "Cohen's kappa",
+          "value": 0.21
+        },
+        {
+          "criterion": "correctness",
+          "metric": "Cohen's kappa",
+          "value": 0.25
+        },
+        {
+          "criterion": "actionable",
+          "metric": "Cohen's kappa",
+          "value": 0.13
+        },
+        {
+          "criterion": "Error Description correctness",
+          "metric": "Cohen's kappa",
+          "value": 0.3
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed annotation questions and instructions provided in Section 8.3, including exact wording of criteria definitions and yes/no decision rules."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Error Description correctness"
+    ],
+    "shared_criteria": [
+      "Targeted",
+      "Correctness",
+      "Actionable"
+    ],
+    "notes": "LLM and human evaluate the same three main criteria for response generation. Human evaluation additionally assesses correctness of verification output (Error Description), which LLM does not judge."
+  }
+}

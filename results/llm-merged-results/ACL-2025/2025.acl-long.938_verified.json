@@ -1,0 +1,151 @@
+{
+  "paper_id": "2025.acl-long.938",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Recipe Generation",
+      "Other:Nutrition Information Generation",
+      "Other:Recipe Recommendation"
+    ],
+    "datasets": [
+      "FoodKG",
+      "Recipe1M",
+      "test50k"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Phi-3-mini-128K",
+      "KERL-Recom",
+      "KERL-Recipe",
+      "KERL-Nutri"
+    ],
+    "outputs": [
+      "recipe names",
+      "cooking steps",
+      "nutritional information"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Recipe Recommendation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Nutrition Generation"
+        ],
+        "datasets": [
+          "KGQA benchmark",
+          "Nutrition generation benchmark",
+          "FoodKG benchmark",
+          "Recipe1M test50k"
+        ],
+        "languages": [],
+        "models": [
+          "Phi-3-mini",
+          "LoRA adapters (KERL-Recom, KERL-Recipe, KERL-Nutri)"
+        ],
+        "outputs": [
+          "list of recommended recipe names, cooking instructions, and micro-nutrient information",
+          "The system generates recipe names, cooking steps, and micro-nutritional information based on user constraints and preferences."
+        ]
+      },
+      "normalized": {
+        "Other:Nutrition Generation": "Other:Nutrition Information Generation"
+      },
+      "explanation": "Consolidated datasets to base forms (FoodKG, Recipe1M, test50k), removed verbose output descriptions, added recipe recommendation as a distinct task, normalized task naming"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Precision",
+      "Recall",
+      "F1",
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "CIDEr",
+      "MAE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "precision",
+          "recall",
+          "Rouge",
+          "CIDer",
+          "mean average error (MAE)"
+        ]
+      },
+      "normalized": {
+        "bleu": "BLEU",
+        "rouge": "ROUGE",
+        "cider": "CIDEr",
+        "meteor": "METEOR"
+      },
+      "explanation": "Normalized metric names to standard capitalization and removed duplicates"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM-as-judge evaluation was conducted"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no human evaluation was conducted"
+    }
+  },
+  "overall_notes": "The paper focuses on a food recommendation system using KG-augmented LLMs with three main NLG tasks: recipe recommendation, recipe generation, and nutrition generation. All evaluations are automatic using standard metrics. The extraction was generally accurate but needed normalization and consolidation of dataset names and metric variants."
+}

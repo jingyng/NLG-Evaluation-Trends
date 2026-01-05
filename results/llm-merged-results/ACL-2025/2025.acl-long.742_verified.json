@@ -1,0 +1,144 @@
+{
+  "paper_id": "2025.acl-long.742",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Medical Question Answering",
+      "Other:Long-form Answer Generation"
+    ],
+    "datasets": [
+      "MedQA",
+      "MedMCQA",
+      "MMLU-Med",
+      "PubMedQA",
+      "BioASQ",
+      "SEER",
+      "DDXPlus",
+      "MIMIC-IV-ED",
+      "LiveQA",
+      "MedicationQA",
+      "ExpertQA-Biomed"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Qwen2.5-7B",
+      "Qwen2.5-72B",
+      "Llama3.1-8B",
+      "Mistral-0.3-7B",
+      "Qwen2.5-7B-Instruct",
+      "Qwen2.5-72B-Instruct"
+    ],
+    "outputs": [
+      "Generated answers to medical questions",
+      "Generated long-form medical responses"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Mistral-0.3-7B"
+        ],
+        "outputs": [
+          "Generated long-form medical responses"
+        ]
+      },
+      "removed": {
+        "outputs": [
+          "Generated answers to medical questions (both short answer and long-form response).",
+          "The outputs are long-form medical answers generated in response to complex health-related inquiries."
+        ]
+      },
+      "normalized": {
+        "Mistral0.3-7B": "Mistral-0.3-7B"
+      },
+      "explanation": "Consolidated output descriptions, normalized model naming, and removed redundant/overly specific output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Rouge-L",
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "Rouge-L": "ROUGE",
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Normalized metric names to standard forms (ROUGE instead of Rouge-L, Accuracy instead of lowercase)"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "Qwen2.5-72B-Instruct"
+    ],
+    "methods": [
+      "LLM-as-a-judge"
+    ],
+    "criteria": [
+      "Support for gold answer"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Qwen2.5-72B-Instruct"
+        ],
+        "criteria": [
+          "Support for gold answer"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Qwen2.5-72B-Instruct-AWQ"
+        ]
+      },
+      "normalized": {
+        "Qwen2.5-72B-Instruct-AWQ": "Qwen2.5-72B-Instruct"
+      },
+      "explanation": "Corrected answer from 'No' to 'Yes' - paper explicitly uses LLM-as-a-judge paradigm. Removed AWQ suffix (implementation detail), added actual evaluation criteria"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Each response is scored across four aspects: Relevance, Completeness, Medical Proficiency, and Interpretability on a grading scale from 1 to 5"
+    ],
+    "criteria": [
+      "Relevance",
+      "Completeness",
+      "Medical Proficiency",
+      "Interpretability"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- each response is scored across four aspects-Relevance, Completeness, Medical Proficiency, and Interpretability-on a grading scale from 1 to 5",
+          "Annotators score each generated answer on Relevance, Completeness, Medical Proficiency, and Interpretability using a 1‑5 grading scale.",
+          "Each response is scored across four aspects—Relevance, Completeness, Medical Proficiency, and Interpretability—on a grading scale from 1 to 5."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement, kept criteria list as extracted"
+    }
+  },
+  "overall_notes": "The paper clearly addresses NLG tasks (medical QA and long-form generation) and uses both automatic metrics (Accuracy, ROUGE) and human evaluation. Importantly, it also uses LLM-as-a-judge methodology for query quality assessment, which was incorrectly marked as 'No' in the original extraction. The paper focuses on retrieval-augmented generation for medical applications with comprehensive evaluation across multiple datasets and models."
+}

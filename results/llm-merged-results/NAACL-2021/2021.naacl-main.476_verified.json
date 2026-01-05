@@ -1,0 +1,160 @@
+{
+  "paper_id": "2021.naacl-main.476",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Headline Generation"
+    ],
+    "datasets": [
+      "CNN/Daily Mail",
+      "SemEval Hyperpartisan News Detection",
+      "Wikipedia simplification pairs",
+      "AllSides news clusters",
+      "Gigaword"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART",
+      "RoBERTa",
+      "GPT-2"
+    ],
+    "outputs": [
+      "summaries with controlled styles (simplicity or ideological leaning)",
+      "headlines with different ideological stances"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Headline Generation"
+        ],
+        "datasets": [
+          "Gigaword"
+        ],
+        "models": [
+          "GPT-2"
+        ],
+        "outputs": [
+          "headlines with different ideological stances"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "SemEval",
+          "Wikipedia",
+          "AllSides",
+          "CNN/DailyMail"
+        ],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "CNN/DailyMail": "CNN/Daily Mail",
+        "SemEval Hyperpartisan News Detection": "SemEval Hyperpartisan News Detection",
+        "AllSides news clusters": "AllSides news clusters",
+        "Wikipedia simplification pairs": "Wikipedia simplification pairs"
+      },
+      "explanation": "Added headline generation as a separate task, added Gigaword dataset mentioned for headline generation experiments, added GPT-2 mentioned as evaluation metric. Normalized dataset names to full canonical forms. Removed redundant/partial dataset names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "simplicity level",
+      "Dale-Chall readability",
+      "GPT-2 perplexity",
+      "BERTScore",
+      "ideology score",
+      "edit distance",
+      "F1 score",
+      "perplexity",
+      "LIWC analysis",
+      "recall"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "recall"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Style scorer F1",
+          "Class-conditional LM perplexity",
+          "Relevance score"
+        ]
+      },
+      "normalized": {
+        "simplicity level (by style scorer)": "simplicity level",
+        "ideology score (by style scorer)": "ideology score"
+      },
+      "explanation": "Added recall metric used for word unit predictor evaluation. Removed redundant metric descriptions. Normalized metric names by removing explanatory parentheticals. All metrics mentioned are used for automatic evaluation of generated outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges in this paper. GPT-2 is only used for calculating perplexity as an automatic metric, not as a judge. The extracted metadata correctly shows no LLM-as-judge usage."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human judges evaluate informativeness (coverage of important information from input) on 1-5 scale",
+      "Human judges evaluate fluency (grammaticality) on 1-5 scale",
+      "Human judges rank summaries by simplicity level (ties allowed)",
+      "For headlines: human judges score relevance to neutral headline on 1-5 scale",
+      "For headlines: human judges identify if headline pairs have different stances and label them"
+    ],
+    "criteria": [
+      "informativeness",
+      "fluency",
+      "simplicity",
+      "relevance",
+      "stance identification"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "For headlines: human judges score relevance to neutral headline on 1-5 scale",
+          "For headlines: human judges identify if headline pairs have different stances and label them"
+        ],
+        "criteria": [
+          "stance identification"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "stance"
+        ]
+      },
+      "normalized": {
+        "stance": "stance identification"
+      },
+      "explanation": "Added specific guidelines for headline evaluation. Normalized 'stance' to 'stance identification' for clarity. The criteria list accurately reflects all human evaluation aspects mentioned in the paper."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on style-controlled text generation using inference-time methods. Key contributions include decoder state adjustment and word unit prediction techniques. All yes/no answers were correctly extracted. Main improvements were normalization of dataset names and addition of missing but important details like headline generation task and GPT-2 model usage."
+}

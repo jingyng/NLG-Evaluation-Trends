@@ -1,0 +1,152 @@
+{
+  "paper_id": "2024.emnlp-main.920",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Multi Step Reasoning"
+    ],
+    "datasets": [
+      "MATH",
+      "MEDQA",
+      "JEEBENCH"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3.5",
+      "llama_2_13b",
+      "mixtral_8x_7b",
+      "gpt_3.5_turbo",
+      "gpt_4"
+    ],
+    "outputs": [
+      "step-by-step reasoning",
+      "concepts",
+      "subquestions",
+      "subanswers",
+      "final answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Multistep Reasoning"
+        ],
+        "models": [
+          "GPT-4"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Complex Reasoning"
+        ],
+        "models": [
+          "LLaMA-2",
+          "LLaMA-2 13B"
+        ]
+      },
+      "normalized": {
+        "Other:Complex Reasoning": "Other:Multistep Reasoning",
+        "LLaMA-2": "LLaMA-2-13B",
+        "LLaMA-2 13B": "LLaMA-2-13B",
+        "GPT-3.5 Turbo": "GPT-3.5-Turbo",
+        "step-by-step reasoning, concepts, subquestions, subanswers, and final answers": "step-by-step reasoning, concepts, subquestions, subanswers, final answers"
+      },
+      "explanation": "Changed task name to be more specific about reasoning type. Normalized model names consistently (LLaMA-2-13B instead of LLaMA-2/LLaMA-2 13B). Added GPT-4 which is used for comparison experiments. Simplified outputs list."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No changes needed - accuracy is correctly identified as the only automatic evaluation metric used."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "llama_2_13b",
+      "gpt_4"
+    ],
+    "methods": [
+      "error classification",
+      "explanation generation",
+      "concept generation",
+      "subquestion generation"
+    ],
+    "criteria": [
+      "Conceptual",
+      "Computational",
+      "Procedural",
+      "Question",
+      "Step",
+      "Half",
+      "Mistakes"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "explanation generation"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "methods": [
+          "grading mistake classification"
+        ],
+        "criteria": [
+          "Conceptual Mistakes",
+          "Computational Mistakes",
+          "Procedural Mistakes",
+          "Mistake in understanding the question"
+        ]
+      },
+      "normalized": {
+        "LLaMA-2": "LLaMA-2-13B",
+        "classification of errors": "error classification",
+        "concept generation, sub-question and sub-answer generation": "concept generation, subquestion generation",
+        "Conceptual mistakes": "conceptual mistakes",
+        "Computational mistakes": "computational mistakes",
+        "Procedural mistakes": "procedural mistakes",
+        "Misunderstood question": "misunderstood question",
+        "Mistake in the first step": "mistake in first step",
+        "Mistake in first half": "mistake in first half",
+        "Mistake in second half": "mistake in second half",
+        "Mistake in last step": "mistake in last step",
+        "Conceptual Mistakes": "conceptual mistakes",
+        "Computational Mistakes": "computational mistakes",
+        "Procedural Mistakes": "procedural mistakes",
+        "Mistake in understanding the question": "misunderstood question"
+      },
+      "explanation": "Normalized model names and criteria to lowercase. Consolidated duplicate criteria. Added 'explanation generation' as a method since verifier generates explanations. Removed redundant method names."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not conduct human evaluations. Removed 'None' placeholders as empty arrays are preferred for no human evaluation."
+    }
+  },
+  "overall_notes": "Paper focuses on multistep reasoning evaluation using a multi-model framework (LM2). Uses LLM-as-judge extensively through verifier model for error classification. Only uses accuracy as automatic metric. No human evaluation conducted. The extraction was generally accurate with minor normalization needed for consistency."
+}

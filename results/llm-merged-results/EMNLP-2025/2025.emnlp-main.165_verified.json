@@ -1,0 +1,127 @@
+{
+  "paper_id": "2025.emnlp-main.165",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Mathematical Reasoning",
+      "Other:Commonsense Reasoning"
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH-500",
+      "MMLU-STEM",
+      "CommonsenseQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-3.1-8B-Instruct",
+      "Qwen2.5-7B-Instruct",
+      "Qwen2.5-14B-Instruct"
+    ],
+    "outputs": [
+      "Compressed Chain-of-Thought sequences",
+      "Final answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Commonsense Reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Reasoning Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Qwen2.5-32B-Instruct",
+          "Qwen2.5-72B-Instruct",
+          "Qwen2.5-Instruct series"
+        ],
+        "outputs": [
+          "Generated Chain-of-Thought sequences and answers",
+          "Chain-of-Thought token sequences (reasoning steps) and final answer predictions",
+          "Chain-of-Thought outputs and final answers for math word problems"
+        ]
+      },
+      "normalized": {
+        "Other:Reasoning Generation": "Other:Mathematical Reasoning",
+        "Qwen2.5-Instruct series": "Qwen2.5-7B-Instruct, Qwen2.5-14B-Instruct"
+      },
+      "explanation": "Removed models that were mentioned but not actually evaluated (Qwen2.5-32B-Instruct, Qwen2.5-72B-Instruct). Added Commonsense Reasoning task based on CommonsenseQA experiments. Normalized task names to be more specific."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "CoT token count",
+      "Inference latency"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "number of CoT tokens"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "number of CoT tokens": "CoT token count",
+        "inference latency": "Inference latency"
+      },
+      "explanation": "Normalized metric names to standard capitalization. Combined 'number of CoT tokens' and 'CoT token count' into single normalized form."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper. The paper uses LLMs for generation but not for post-generation evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. All evaluations used automatic metrics."
+    }
+  },
+  "overall_notes": "The paper focuses on Chain-of-Thought compression for LLMs, primarily evaluating on mathematical reasoning tasks (GSM8K, MATH-500) with some out-of-domain testing on commonsense reasoning (CommonsenseQA). The extraction was generally accurate but included some models that were mentioned but not evaluated. The paper uses standard automatic metrics but no LLM-as-judge or human evaluation."
+}

@@ -1,0 +1,161 @@
+{
+  "paper_id": "2025.acl-long.1530",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Generation",
+      "Brainstorming",
+      "Role Playing",
+      "Rewrite",
+      "Question Answering"
+    ],
+    "datasets": [
+      "LONGSAFETY"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "claude_3.5_haiku",
+      "claude_3.5_sonnet",
+      "gemini_1.5_flash",
+      "gemini_1.5_pro",
+      "gpt_4_turbo_2024_04_09",
+      "gpt_4o",
+      "gpt_4o_mini",
+      "glm_4_plus",
+      "qwen_2.5_72b_instruct",
+      "llama_3.1_70b_instruct",
+      "mixtral_8x_7b_instruct",
+      "qwen_2.5_7b_instruct",
+      "internlm_2.5_7b_instruct",
+      "glm_4_9b_chat",
+      "llama_3.1_8b_instruct",
+      "mistral_7b_instruct_v_0.3"
+    ],
+    "outputs": [
+      "Model responses to safety instructions in long-context tasks",
+      "Safety labels (safe/unsafe) for model responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "LONGSAFETY": "LongSafety",
+        "GPT-4o mini": "GPT-4o-mini",
+        "The models generate responses to safety-related instructions in long-context scenarios, which are then evaluated for safety.": "Safety labels (safe/unsafe) for model responses"
+      },
+      "explanation": "Removed 'Paraphrase Generation' as it's not explicitly mentioned in the paper (Rewrite is mentioned but not specifically as paraphrase generation). Normalized dataset name to 'LongSafety' and model names for consistency. Simplified outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SAFETY RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SR long",
+          "SR short"
+        ]
+      },
+      "normalized": {
+        "Safety Rate (SR_long)": "Safety Rate",
+        "SR long": "Safety Rate",
+        "SR short": "Safety Rate"
+      },
+      "explanation": "Normalized all metric variants to base 'Safety Rate' metric. The paper uses SR_long and SR_short as specific variants of the Safety Rate metric."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o_mini"
+    ],
+    "methods": [
+      "Multi-agent safety evaluation framework"
+    ],
+    "criteria": [
+      "Safety"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "multi-agent evaluation with Risk Analyzer, Context Summarizer, Safety Judge",
+          "multi-agent framework",
+          "Risk Analyzer",
+          "Context Summarizer",
+          "Safety Judge"
+        ],
+        "criteria": [
+          "relevance to instruction",
+          "presence of unsafe information"
+        ]
+      },
+      "normalized": {
+        "GPT-4o mini": "GPT-4o-mini",
+        "multi-agent safety evaluation": "Multi-agent safety evaluation framework"
+      },
+      "explanation": "Consolidated multiple method descriptions into 'Multi-agent safety evaluation framework'. Removed criteria that were part of the evaluation process but not explicitly stated as separate criteria - the primary criterion is safety."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three crowd workers annotate model responses as safe/unsafe based on consistency with context and instruction",
+      "Manual review of inconsistent labels to ensure high data quality"
+    ],
+    "criteria": [
+      "Safety"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three crowd workers annotate model responses as safe/unsafe based on consistency with context and instruction",
+          "Manual review of inconsistent labels to ensure high data quality"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotation guidelines for judging response safety, including rules similar to those in the multi-agent evaluator prompt.",
+          "Annotators assess whether the model response is safe or unsafe based on consistency with the context and instruction.",
+          "The label consistency within the workers on this test set is about 82%, and we manually review the cases with inconsistent labels, revising as necessary to assure high data quality."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated and simplified the guideline description while preserving the key information about the human evaluation process. Kept 'safety' as the primary criterion."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating LLM safety in long-context NLG tasks. It uses a comprehensive evaluation approach including automatic metrics (Safety Rate), LLM-as-judge (multi-agent framework), and human evaluation. The extraction was generally accurate but needed normalization and consolidation of redundant items."
+}

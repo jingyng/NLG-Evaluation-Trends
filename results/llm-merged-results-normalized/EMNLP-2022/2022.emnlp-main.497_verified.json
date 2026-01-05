@@ -1,0 +1,145 @@
+{
+  "paper_id": "2022.emnlp-main.497",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Counterfactual Recipe Generation",
+      "Recipe Generation"
+    ],
+    "datasets": [
+      "XIACHUFANG CHINESE RECIPE CORPUS",
+      "cluecorpus2020"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "gpt_2",
+      "educat",
+      "delorean"
+    ],
+    "outputs": [
+      "Counterfactual recipes",
+      "Generated recipes"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Chinese recipe dataset (from XIACHUFANG)",
+          "Chinese recipe corpus"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-2 (finetuned)"
+        ],
+        "outputs": [
+          "Generated recipes (text)",
+          "Generated recipe texts (counterfactual recipes)",
+          "counterfactual recipes where an ingredient has been changed"
+        ]
+      },
+      "normalized": {
+        "XIACHUFANG": "XIACHUFANG Chinese recipe corpus",
+        "Chinese recipe dataset (from XIACHUFANG)": "XIACHUFANG Chinese recipe corpus",
+        "Chinese recipe corpus": "XIACHUFANG Chinese recipe corpus",
+        "GPT-2 (finetuned)": "GPT-2"
+      },
+      "explanation": "Consolidated dataset references to canonical forms, removed redundant/descriptive output descriptions, normalized model names by removing 'finetuned' descriptor since all models were finetuned"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "BERTSCORE",
+      "INGREDIENT COVERAGE RATIO",
+      "ACTION LEVEL PRECISION",
+      "ACTION LEVEL RECALL",
+      "ACTION LEVEL F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Coverage of Ingredients",
+          "Precision",
+          "Recall",
+          "F1"
+        ]
+      },
+      "normalized": {
+        "Ingredient coverage ratio": "Ingredient Coverage Ratio",
+        "Coverage of Ingredients": "Ingredient Coverage Ratio"
+      },
+      "explanation": "Consolidated duplicate metric names, removed generic metric names that were covered by more specific ones"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges - only as generation models. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Best-Worst Scaling (BWS) where raters select best/worst recipes based on grammaticality, correctness, and preservation criteria"
+    ],
+    "criteria": [
+      "Grammaticality",
+      "Correctness",
+      "Preservation"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Ratings obtained via Best-Worst Scaling (BWS), where raters select best/worst recipes based on predefined criteria.",
+          "Raters select the best and worst recipes for each instance based on three questions: grammaticality, correctness, and preservation.",
+          "We randomly select one instance for each dish pair, and ask raters to choose the best and worst generated recipes on grammaticality (whether the text is grammatically correct and fluent), correctness (whether the text is a correct recipe of the target dish), and preservation (whether the text preserves the base recipe's cooking and writing style)."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated the lengthy guideline descriptions into a single concise description capturing the essential elements"
+    }
+  },
+  "overall_notes": "The extraction was reasonably accurate. The paper clearly addresses NLG (recipe generation and counterfactual modification), uses both automatic metrics (BLEU, BERTScore, ingredient/action coverage) and human evaluation (BWS with three criteria), but does not use LLMs as judges. The main improvements were normalization of dataset names and consolidation of duplicate/redundant entries."
+}

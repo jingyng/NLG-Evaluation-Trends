@@ -1,0 +1,194 @@
+{
+  "paper_id": "2024.naacl-long.62",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Sentence Completion",
+      "Paragraph Generation"
+    ],
+    "datasets": [
+      "FEVER",
+      "BOOLQ FV",
+      "fm2",
+      "PUBMEDQA",
+      "XSUMFAITH",
+      "SCIFACT",
+      "FAVIQ"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "flan_t_5_11b",
+      "llama_30b",
+      "llama_65b",
+      "gpt_3.5"
+    ],
+    "outputs": [
+      "sentence completions",
+      "paragraphs about Wikipedia entities"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "BoolQ-FV",
+          "FM2",
+          "PubMedQA",
+          "XsumFaith",
+          "SciFact",
+          "FaVIQ"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Wikipedia Paragraph Generation"
+        ],
+        "datasets": [
+          "Wikipedia",
+          "SENTCOM",
+          "PARAGEN"
+        ],
+        "languages": [],
+        "models": [
+          "LLama 30B",
+          "LLama 65B",
+          "GPT3.5",
+          "LLaMA 30B",
+          "LLaMA 65B"
+        ],
+        "outputs": [
+          "completions for sentence beginnings and paragraphs about entities",
+          "sentences and paragraphs",
+          "Sentences and paragraphs about various topics/entities"
+        ]
+      },
+      "normalized": {
+        "FLAN-T5 11B": "FLAN-T5-11B",
+        "GPT3.5": "GPT-3.5",
+        "GPT-3.5": "GPT-3.5",
+        "LLama 30B": "LLaMA-30B",
+        "LLama 65B": "LLaMA-65B",
+        "LLaMA 30B": "LLaMA-30B",
+        "LLaMA 65B": "LLaMA-65B",
+        "Other:Sentence Completion": "Other:Sentence Completion",
+        "Other:Paragraph Generation": "Other:Paragraph Generation"
+      },
+      "explanation": "Normalized model names to canonical forms (LLaMA, GPT-3.5). Removed 'Wikipedia Paragraph Generation' as it's redundant with 'Paragraph Generation'. Added all datasets actually used for evaluation from the paper. Removed vague output descriptions and replaced with specific descriptions from the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "KNOWLEDGE F1",
+      "NLI",
+      "FID",
+      "FACTSCORE",
+      "ECE",
+      "ACC",
+      "AUR",
+      "AUP",
+      "PEARSON"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Pearson-r"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "knowledgeF1": "knowledgeF1",
+        "NLI": "NLI",
+        "FiD": "FiD",
+        "FACTSCORE": "FACTSCORE",
+        "ECE": "ECE",
+        "ACC": "ACC",
+        "AUR": "AUR",
+        "AUP": "AUP",
+        "r": "Pearson-r"
+      },
+      "explanation": "Changed answer from 'No' to 'Yes' since the paper extensively uses automatic metrics to evaluate factuality. Normalized 'r' to 'Pearson-r' for clarity."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "flan_t_5_11b",
+      "gpt_3.5",
+      "chatgpt"
+    ],
+    "methods": [
+      "normalized generation probabilities with retrieval-augmented prompting"
+    ],
+    "criteria": [
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-3.5"
+        ],
+        "methods": [
+          "prompt-based verification with normalized answer probabilities",
+          "retrieval-augmented prompting",
+          "answer normalization"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "FLAN-T5 11B": "FLAN-T5-11B",
+        "GPT3.5": "GPT-3.5",
+        "ChatGPT": "ChatGPT",
+        "normalized generation probabilities of predefined answers": "normalized generation probabilities with retrieval-augmented prompting",
+        "factuality": "factuality"
+      },
+      "explanation": "Consolidated methods into one clear description. Removed redundant model entries. Kept 'factuality' as the single evaluation criterion used by LLM judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers search for evidence from Wikipedia and annotate each sentence as factual, unfactual, or not sure"
+    ],
+    "criteria": [
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "annotate the factuality label of each sentence in the statements, including factual, unfactual and not sure",
+          "search for evidence from Wikipedia and annotate the factuality label (factual, unfactual, not sure) for each sentence."
+        ],
+        "criteria": [
+          "factual",
+          "unfactual",
+          "not sure"
+        ]
+      },
+      "normalized": {
+        "factuality": "factuality"
+      },
+      "explanation": "Consolidated guideline description into one clear statement. Removed individual label names from criteria (they are part of the guideline, not separate criteria)."
+    }
+  },
+  "overall_notes": "The paper has a clear focus on NLG evaluation, specifically factuality assessment. The extraction had some issues with inconsistent naming (LLaMA vs LLama, GPT3.5 vs GPT-3.5) and missed several important datasets used in the evaluation. The answer for Question 2 was incorrect in the original extraction - the paper does use automatic metrics extensively. The paper's main contribution is using LLMs as factuality judges for NLG outputs."
+}

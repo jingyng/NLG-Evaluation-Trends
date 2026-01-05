@@ -1,0 +1,145 @@
+{
+  "paper_id": "2023.acl-long.713",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "QMSUM",
+      "SQUALITY",
+      "openwebtext2",
+      "books3",
+      "UNDIAL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart_large",
+      "segenc",
+      "mixqg"
+    ],
+    "outputs": [
+      "summaries",
+      "controllable summaries",
+      "query-focused summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "controllable summaries",
+          "query-focused summaries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "SOCRATIC pretraining"
+        ],
+        "outputs": [
+          "questions",
+          "pseudo-summaries"
+        ]
+      },
+      "normalized": {
+        "Generated summaries (controllable, query‑focused)": "controllable summaries, query-focused summaries"
+      },
+      "explanation": "Removed 'SOCRATIC pretraining' from models as it's a training methodology, not a model. Added more specific summary types. Removed 'questions, pseudo-summaries' from outputs as these are intermediate training artifacts, not final evaluated outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "Rouge"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "Rouge": "ROUGE"
+      },
+      "explanation": "Normalized all ROUGE variants to base 'ROUGE' form according to guidelines. Paper mentions using ROUGE and BERTScore for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is conducted in this paper. The paper explicitly states they did not use factuality metrics and relied on human evaluation and standard metrics."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators selected the best answer between two candidate summaries",
+      "Annotators judged whether sentences answer plan questions",
+      "Annotators selected the summary that better follows the oracle plan"
+    ],
+    "criteria": [
+      "Relevance",
+      "Adherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators judged whether sentences answer plan questions",
+          "Annotators selected the summary that better follows the oracle plan"
+        ],
+        "criteria": [
+          "adherence to plan"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- We ask annotators to select the best answer to the given query between two candidate summaries or mark if they are equally good.",
+          "Annotators selected the best answer to the given query between two candidate summaries and judged how well the summary followed the provided fine‑grained plan.",
+          "Annotators were asked to select the best answer to the given query between two candidate summaries or mark if they are equally good. In the finegrained planning task, annotators judged whether a sentence in the summary answers each question in the plan and then selected the summary that better follows the plan."
+        ],
+        "criteria": [
+          "fluency",
+          "coherence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated and normalized the guideline descriptions. Removed 'fluency' and 'coherence' from criteria as they were not explicitly mentioned as evaluation criteria in the human evaluation sections. The paper focuses on relevance and adherence to plan/oracle plans."
+    }
+  },
+  "overall_notes": "The paper focuses on controllable summarization with Socratic pretraining methodology. Human evaluation was conducted via Amazon Mechanical Turk with specific focus on query relevance and plan adherence. The extraction was generally accurate but needed normalization of ROUGE variants and clarification on what constitutes final evaluated outputs vs. training artifacts."
+}

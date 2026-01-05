@@ -1,0 +1,85 @@
+{
+  "paper_id": "2025.emnlp-main.95",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates DeepSeek-V3 autorater against GPT-4o Mini human evaluation by comparing ratings on a sample of 710 summary outputs and reporting Pearson correlation"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "DeepSeek-V3"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "partial",
+      "notes": "Prompts described as validated for correlation with human annotations (Liu et al., 2025), exact prompts referenced in Appendix A Figure"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "exact agreement rate",
+      "value": 93.67,
+      "interpretation": "not provided",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators evaluated three questions with 3-point scale (1-Not at all; 2-Somewhat; 3-Completely)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "relevance",
+      "consistency"
+    ],
+    "sample_size": {
+      "total_generated": 710,
+      "validated_by_both": 710,
+      "notes": "Sample of 710 output summaries re-evaluated by both DeepSeek-V3 and GPT-4o Mini"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 73.29,
+        "criterion": "overall",
+        "llm_model": "DeepSeek-V3",
+        "significance": "not reported",
+        "notes": "Correlation between ratings given by GPT-4o mini and DeepSeek-V3"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "DeepSeek-V3 autorater shows strong correlation (Pearson r=73.29) with GPT-4o Mini human evaluation, indicating robustness of the LLM-as-judge evaluation setup."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "question_address",
+      "structure_organization"
+    ],
+    "shared_criteria": [
+      "relevance",
+      "consistency",
+      "evidence_support"
+    ],
+    "notes": "LLM focuses on relevance and consistency, while human evaluation includes additional aspects like question addressing and structure"
+  }
+}

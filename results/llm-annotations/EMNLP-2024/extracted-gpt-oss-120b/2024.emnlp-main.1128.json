@@ -1,0 +1,61 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "Summarizing video content into a natural language description (i.e. 'video captioning') is a crucial aspect of video understanding.",
+        "tasks": [
+            "Other:Video Captioning"
+        ],
+        "datasets": [
+            "VIEWS",
+            "MSR-VTT",
+            "ActivityNet Captions",
+            "YouCook2"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GIT",
+            "BLIP-2",
+            "ViT-T5",
+            "PaLM-2",
+            "LLaMA-2"
+        ],
+        "outputs": "entity‑aware video captions"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We use the standard BLEU-4 (B-4), Rouge-L (R-L) and CIDEr metrics used in captioning tasks. We also calculate an Entity F1 (Ent. F1) score to measure how well the ground‑truth entities are covered in the generated caption.",
+        "automatic_metrics": [
+            "BLEU-4",
+            "ROUGE-L",
+            "CIDEr",
+            "Entity F1"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We input the captions to LLaMA-2 LLM ask it to rate whether the caption is of high quality or not. ... The LLM rater scores the quality of captions according to the following criteria: 1) It should contain the name of important entities; 2) It should not hallucinate; 3) It should not leave out critical information.",
+        "models": [
+            "LLaMA-2"
+        ],
+        "methods": [
+            "LLM rating via prompt"
+        ],
+        "criteria": [
+            "entity presence",
+            "no hallucination",
+            "completeness"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We employ a human‑in‑the‑loop procedure for this task. First, we ask a LLM rater to score the quality of captions ... The samples that the rater flagged as not being of high quality are separated for manual verification and correction.",
+        "guideline": "Human raters check whether captions contain important entity names, avoid hallucinations, and include all critical information from the video.",
+        "criteria": [
+            "entity presence",
+            "no hallucination",
+            "completeness"
+        ]
+    }
+}

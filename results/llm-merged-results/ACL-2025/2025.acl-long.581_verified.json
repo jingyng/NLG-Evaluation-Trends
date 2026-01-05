@@ -1,0 +1,146 @@
+{
+  "paper_id": "2025.acl-long.581",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Code Generation",
+      "Other:Long-form QA",
+      "Other:Document-level retrieval"
+    ],
+    "datasets": [
+      "LongBench",
+      "HumanEval",
+      "Multi-Needle In A Haystack",
+      "RULER",
+      "MMLU",
+      "GSM8K"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "Llama3-8B",
+      "Mistral-7B",
+      "Qwen2-7B"
+    ],
+    "outputs": [
+      "summaries",
+      "answers",
+      "generated code snippets",
+      "model responses in long-context tasks"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "MMLU",
+          "GSM8K"
+        ],
+        "models": [],
+        "outputs": [
+          "summaries",
+          "answers"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "SlimPajama"
+        ],
+        "models": [
+          "Llama3",
+          "Mistral",
+          "Qwen2",
+          "Gemini-1.5-Pro"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Multi-Needle In A Haystack": "Multi-Needle In A Haystack",
+        "Long-form QA": "Other:Long-form QA",
+        "Document-level retrieval": "Other:Document-level retrieval"
+      },
+      "explanation": "Removed datasets not used for NLG evaluation (SlimPajama is training data), removed model references without versions or non-evaluated models, added missing NLG datasets MMLU and GSM8K mentioned in evaluation section"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "accuracy",
+      "pass@k"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "exact match",
+          "F1",
+          "NIAH(M)",
+          "RULER",
+          "LongBench",
+          "MMLU",
+          "GSM8K",
+          "HumanEval"
+        ]
+      },
+      "normalized": {
+        "pass@k": "pass@k"
+      },
+      "explanation": "Removed dataset names and task names (NIAH(M), RULER, LongBench, MMLU, GSM8K, HumanEval) that are not actual metrics. Removed 'exact match' and 'F1' which are not explicitly mentioned as used metrics. Used standard metric names."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Correctly indicates no LLM-as-judge evaluation was conducted. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Correctly indicates no human evaluation was conducted. Removed placeholder 'None' values."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on efficient context window extension for LLMs rather than comprehensive NLG evaluation. While it evaluates on NLG tasks, the main contribution is the training methodology (LongRecipe). The NLG evaluation serves as validation of the approach rather than being the primary research focus. The extraction accurately captures the NLG aspects present in the paper."
+}

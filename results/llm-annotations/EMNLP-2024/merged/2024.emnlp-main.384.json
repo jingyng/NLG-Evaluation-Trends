@@ -1,0 +1,79 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "we use GPT-4 for fact decomposition",
+            "We use GPT-4 for fact decomposition...We prompt the model with the hypothesis fact ... The model's prediction serves as the final label for whether F ⊩ e_i.",
+            "we use GPT-4 for fact decomposition. Differently from , who decompose sentences, we decompose entire paragraphs, to provide more context to the model and allow it to resolve co-references."
+        ],
+        "tasks": [
+            "Other:Fact Decomposition",
+            "Other:fact decomposition"
+        ],
+        "datasets": [
+            "LGBTBIOCORPUS",
+            "Set of 22 biographies for validation"
+        ],
+        "languages": [
+            "English",
+            "French",
+            "Russian"
+        ],
+        "models": [
+            "GPT-4",
+            "flan-t5-large",
+            "mt5-large"
+        ],
+        "outputs": [
+            "List of decomposed facts",
+            "Decomposed factual statements, alignment labels (whether a fact is present in the other language), connotation labels",
+            "list of independent facts from a paragraph"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We use ROUGE-1 for fact decomposition... Micro-F1 for X-FACTMATCH... Macro‑averaged F1 for connotation prediction.",
+            "As for evaluation metrics, we used Rouge-1 for fact decomposition ( §2.1), and Micro-F1 for X-FACTMATCH ( §2.2) and connotation prediction ( §3.3)."
+        ],
+        "automatic_metrics": [
+            "ROUGE-1",
+            "Micro-F1",
+            "Macro-F1",
+            "Rouge-1"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "We prompt GPT-4 to compare an English fact to its aligned facts in F ... The model's prediction serves as the final label for whether F ⊩ e_i.",
+            "we prompt GPT-4 to compare an English fact to its aligned facts in F . Concretely, we prompt the model with the hypothesis fact e i and the two immediately preceding facts for context (e i-1 and e i-2 ), along with all of the premise facts f j and their contexts (f j-1 and f j-2 ). We instruct the model to determine whether e i can be inferred from any of the f j (j ∈ [k])."
+        ],
+        "models": [
+            "GPT-4"
+        ],
+        "methods": [
+            "prompt‑based entailment verification",
+            "entailment assessment via prompting"
+        ],
+        "criteria": [
+            "entailment (whether the fact is conveyed)"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We annotated a subset of the facts...We obtained substantial interannotator agreements, with Cohen's κ = 0.71 for En/Fr and κ = 0.78 for En/Ru.",
+            "One author annotated 80 facts in each language pair and for both directions within each language pair. Another author annotated 40 of those 80 for each language pair. We obtained substantial interannotator agreements, with Cohen's κ = 0.71 for En/Fr and κ = 0.78 for En/Ru."
+        ],
+        "guideline": [
+            "Annotators select whether the hypothesis fact can be inferred from the retrieved facts, from the article (but not the retrieved facts), or cannot be inferred at all.",
+            "Given a hypothesis e i , the retrieved candidate facts f j from X-FACTALIGN, and their contexts, we ask the annotator to choose between three options: (1) the hypothesis fact e i can be inferred from one of the retrieved f j ; (2) the hypothesis fact can be inferred from the article F , but not from the f j ; (3) e i cannot be inferred from F . We also provide relaxed versions of options (1) and (2), where e i can be partially inferred from one of the retrieved f j or partially inferred from F ."
+        ],
+        "criteria": [
+            "inference",
+            "partial inference",
+            "non‑inference"
+        ]
+    }
+}

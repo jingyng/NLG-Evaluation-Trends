@@ -1,0 +1,67 @@
+{
+  "paper_id": "2023.emnlp-main.600",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM evaluation and human evaluation but uses them for different purposes without explicit quantitative comparison. LLMs are used to benchmark factual consistency detection performance, while human evaluation is used to create ground truth labels for the SummEdits benchmark. There is no direct correlation or agreement analysis between LLM and human judgments on the same instances."
+  },
+  "llm_judge_details": {
+    "num_models": 10,
+    "models": [
+      "GPT-4",
+      "GPT-3.5-turbo",
+      "Cohere Command-XL",
+      "Claude V1.3",
+      "Bard",
+      "PaLM2-Bison",
+      "Vicuna-13b",
+      "DaVinci001",
+      "DaVinci002",
+      "DaVinci003"
+    ],
+    "prompts": {
+      "provided": "no",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "no",
+      "notes": "Paper mentions using 'a single Zero-Shot prompt that is used for all LLM models' but does not provide the exact prompt text. Appendix mentions prompts will be listed in open-source release."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 5,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's Kappa",
+      "value": 0.92,
+      "interpretation": "high agreement after filtering borderline cases",
+      "per_criterion": [
+        {
+          "criterion": "factual consistency",
+          "metric": "Cohen's Kappa",
+          "value": 0.92
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines describe specific questions for annotators: (1) 'Are there any flaws with the summary? (fluency, format, etc.)', (2) 'Is the summary factually consistent with the document?' Three labels for edited summaries: consistent, inconsistent, borderline. Examples of edit types shown in Table 3."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "factual consistency detection performance"
+    ],
+    "human_only_criteria": [
+      "fluency",
+      "format",
+      "summary flaws"
+    ],
+    "shared_criteria": [
+      "factual consistency"
+    ],
+    "notes": "LLMs are evaluated on their ability to detect factual inconsistencies in a benchmarking context, while humans establish ground truth labels for the benchmark. Humans also evaluate additional quality aspects like fluency and format that LLMs don't assess."
+  }
+}

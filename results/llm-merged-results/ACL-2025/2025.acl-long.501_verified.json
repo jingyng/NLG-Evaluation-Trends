@@ -1,0 +1,154 @@
+{
+  "paper_id": "2025.acl-long.501",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Other:Video Captioning",
+      "Other:Question Answering Generation"
+    ],
+    "datasets": [
+      "HAICTrain",
+      "HAICBench",
+      "WebVid-10M",
+      "Omega-MM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Gemini-1.5-Pro",
+      "LLaVA-Video-7B",
+      "LLaVA-Video-ActionPro-7B"
+    ],
+    "outputs": [
+      "video captions in standardized format describing human attributes, actions, and interactions",
+      "multiple-choice QA pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "WebVid-10M"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "multiple-choice QA pairs"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:QA Pair Generation",
+          "Image Captioning"
+        ],
+        "datasets": [
+          "WebVid",
+          "Omega-MM"
+        ],
+        "languages": [],
+        "models": [
+          "LLaVA-Video",
+          "LLaVA-Video-ActionPro"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "WebVid": "WebVid-10M",
+        "Omega-MM": "Omega-MM",
+        "Other:QA Pair Generation": "Other:Question Answering Generation"
+      },
+      "explanation": "Removed redundant 'Image Captioning' from tasks since video captioning is more precise. Normalized dataset names to exact forms used in paper. Simplified models list to main evaluated models. Clarified outputs to be more specific."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "GSB Score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "GSB score": "GSB Score"
+      },
+      "explanation": "Normalized capitalization for consistency."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Gemini-1.5-Pro",
+      "GPT-4o"
+    ],
+    "methods": [
+      "Caption Evaluation using LLM answering QA",
+      "GPT-4o automated accuracy evaluation"
+    ],
+    "criteria": [
+      "accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4o-0513"
+        ],
+        "methods": [
+          "QA-based caption assessment",
+          "automatic evaluation of open-ended answers"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4o-0513": "GPT-4o",
+        "QA-based caption assessment": "Caption Evaluation using LLM answering QA"
+      },
+      "explanation": "Normalized GPT-4o-0513 to GPT-4o as they refer to the same model. Removed redundant method descriptions. Kept accuracy as the main criterion used for LLM evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators assess semantic relevance between generated videos and original videos using Good/Same/Bad classification"
+    ],
+    "criteria": [
+      "semantic relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators assess semantic relevance between generated videos and original videos using Good/Same/Bad classification"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "The annotators are asked to make decisions upon the original videos in MovieGen.",
+          "Annotators classify generated videos as Good, Same, or Bad based on semantic relevance to the original video.",
+          "The annotators are asked to make decisions upon the original videos in MovieGen."
+        ],
+        "criteria": [
+          "Good/Same/Bad classification"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement. Moved 'Good/Same/Bad' from criteria to guideline description since it's part of the evaluation method, not the criterion."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on video captioning and evaluation of human action understanding using NLG. The main NLG outputs are detailed video captions describing human actions and interactions. While the paper mentions QA pair generation, this appears to be for evaluation purposes rather than a primary task. The human evaluation focuses on text-to-video generation quality using semantic relevance as the main criterion."
+}

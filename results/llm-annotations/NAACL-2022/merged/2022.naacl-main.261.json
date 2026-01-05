@@ -1,0 +1,76 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "we propose an automated pipeline that can generate contrast sets via verb and human entity manipulation.",
+            "We propose an automated pipeline that can generate contrast sets via verb and human entity manipulation… We leverage a generative T5 language model to manipulate the verb phrase…"
+        ],
+        "tasks": [
+            "Other: Text Manipulation for Contrast Sets",
+            "Other:Contrast Set Generation"
+        ],
+        "datasets": [
+            "MSR-VTT",
+            "LSMDC"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "T5-base",
+            "T5",
+            "GPT2-XL"
+        ],
+        "outputs": [
+            "manipulated textual descriptions",
+            "Generated alternative video captions (contrast sentences) with swapped entities or altered verb phrases"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We calculate perplexity score of original and manipulated sentence using GPT2-XL",
+            "We calculate perplexity score of original and manipulated sentence using GPT2-XL… The semantic inconsistency constraints are satisfied if the word embedding of the lemmatized verbs … have cosine similarity score lower than 0.4, and the sentence embeddings have cosine similarity score lower than 0.8.",
+            "we calculate the normalized difference of perplexity scores ppl diff = ppl o -ppl m ppl o to remove a candidate that is less plausible than the original. Specifically, candidates are kept if ppl diff < 0.6, or ppl diff < 1.4∩ppl m < 750."
+        ],
+        "automatic_metrics": [
+            "perplexity",
+            "cosine similarity",
+            "Perplexity (GPT2-XL)",
+            "Cosine Similarity (sentence and verb embeddings)"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [
+            "We calculate perplexity score of original and manipulated sentence using GPT2-XL, which we call ppl_o and ppl_m… candidates are kept if ppl_diff < 0.6 or ppl_diff < 1.4 ∩ ppl_m < 750."
+        ],
+        "models": [
+            "GPT2-XL"
+        ],
+        "methods": [
+            "Perplexity scoring of generated sentences"
+        ],
+        "criteria": [
+            "grammaticality",
+            "plausibility"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "we also confirm that humans can successfully select the correct description for a given video with our hard negatives.",
+            "We use the Amazon Mechanical Turk (AMT) platform and ask workers to modify a verb phrase such that a sentence becomes inconsistent with a video… Humans maintain accuracy greater than 90% on both contrast sets.",
+            "We use the Amazon Mechanical Turk (AMT) platform and ask workers to modify a verb phrase such that a sentence becomes inconsistent with a video"
+        ],
+        "guideline": [
+            "humans perform multiple-choice tasks to select the correct textual description for a given video",
+            "Annotators are instructed to rewrite verb phrases to make the caption inconsistent with the video and to select the correct caption among multiple choices.",
+            "modify a verb phrase such that a sentence becomes inconsistent with a video"
+        ],
+        "criteria": [
+            "consistency with video",
+            "fluency"
+        ]
+    }
+}

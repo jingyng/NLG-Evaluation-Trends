@@ -1,0 +1,129 @@
+{
+  "paper_id": "2023.emnlp-main.63",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Long Form Question Answering"
+    ],
+    "datasets": [
+      "ASQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3"
+    ],
+    "outputs": [
+      "long-form answers to ambiguous questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Long-form Answer Generation",
+          "Other:Open-domain Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "PaLM",
+          "T5-Large"
+        ],
+        "outputs": [
+          "Long-form answers that incorporate multiple disambiguated questions and their factual answers.",
+          "long-form answers addressing all disambiguated questions"
+        ]
+      },
+      "normalized": {
+        "Other:Long-form Question Answering": "Other:Long-form Question Answering"
+      },
+      "explanation": "Removed duplicate task descriptors and models that are baseline comparisons rather than the main model being evaluated. Consolidated outputs to one clear description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "DISAMBIG F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "DR",
+          "Answer-F1"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "D-F1": "Disambig-F1"
+      },
+      "explanation": "Simplified metrics to base forms (ROUGE-L becomes ROUGE). Removed DR score as it's a composite metric, and Answer-F1 which is used for intermediate validation rather than final output evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "gpt_3"
+    ],
+    "methods": [
+      "self-verification"
+    ],
+    "criteria": [
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-3"
+        ],
+        "methods": [
+          "self-verification"
+        ],
+        "criteria": [
+          "factual coherency between answer and ambiguous question"
+        ]
+      },
+      "removed": {
+        "models": [
+          "PaLM"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'Yes' since the paper uses LLMs for self-verification to prune unhelpful disambiguations. Added the specific criteria used in the self-verification process."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No mention of human evaluation found in the paper. Only automatic metrics are used for evaluation."
+    }
+  },
+  "overall_notes": "The paper proposes a retrieval-augmented framework (ToC) for generating long-form answers to ambiguous questions. It uses GPT-3 both for generation and for self-verification/pruning, which qualifies as LLM-as-judge usage. The extraction was generally accurate but needed simplification of metrics and clarification about which models were actually evaluated versus used as baselines."
+}

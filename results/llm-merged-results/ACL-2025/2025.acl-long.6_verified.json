@@ -1,0 +1,129 @@
+{
+  "paper_id": "2025.acl-long.6",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Text Summarization",
+      "Question Answering"
+    ],
+    "datasets": [
+      "UltraChat-200k",
+      "UltraFeedback-60k",
+      "TL;DR",
+      "ARC-Challenge",
+      "MMLU",
+      "TruthfulQA",
+      "WinoGrande",
+      "GSM8K"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Mistral-7B-v0.1",
+      "Mistral-7B-sft-beta",
+      "Gemma-2B",
+      "LLaMA3-8B",
+      "Zephyr-7B-beta",
+      "Mistral-ORPO-alpha"
+    ],
+    "outputs": [
+      "generated text for dialogue, summarization, and question answering tasks",
+      "model-generated responses to instructions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering"
+        ],
+        "outputs": [
+          "model-generated responses to instructions"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Mistral-7Bsft-beta"
+        ]
+      },
+      "normalized": {
+        "Mistral-7Bsft-beta": "Mistral-7B-sft-beta"
+      },
+      "explanation": "Added Question Answering as explicit task based on ARC/MMLU/GSM8K benchmarks. Normalized model naming consistency. Removed duplicate model variant."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "accuracy",
+      "mean squared error",
+      "win-rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ARC-Challenge",
+          "MMLU",
+          "TruthfulQA",
+          "WinoGrande",
+          "GSM8K"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed benchmark names (ARC-Challenge, etc.) as they are datasets/tasks, not metrics. The actual metrics used are accuracy, MSE, and win-rate."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "pairwise evaluation with win-rate",
+          "GPT-4 win-rate evaluation",
+          "pairwise evaluation"
+        ],
+        "criteria": [
+          "win-rate"
+        ]
+      },
+      "normalized": {},
+      "explanation": "GPT-4 is mentioned in reference to prior work ('using GPT-4 to judge the win-rate between model's generation and ground truth answer. We utilize chat template for all benchmarks') but this appears to be describing cited methodology, not their own evaluation method. The paper does not conduct LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted in the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on LM alignment methods rather than NLG evaluation methodology. Their evaluation uses standard benchmarks and automated metrics but does not include human evaluation or LLM-as-judge evaluation. The extracted metadata had some confusion between benchmarks (tasks/datasets) and evaluation metrics."
+}

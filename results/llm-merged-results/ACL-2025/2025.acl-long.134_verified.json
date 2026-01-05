@@ -1,0 +1,154 @@
+{
+  "paper_id": "2025.acl-long.134",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "MIMIC-III",
+      "MeQSum",
+      "ACI-Bench"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-3-8B",
+      "Gemma-7B",
+      "Meditron-7B",
+      "GPT-4"
+    ],
+    "outputs": [
+      "clinical summaries",
+      "radiology report impressions",
+      "patient question summaries",
+      "doctor-patient dialogue assessment and plan"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "radiology report impressions",
+          "patient question summaries",
+          "doctor-patient dialogue assessment and plan"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "ACI Bench"
+        ],
+        "languages": [],
+        "models": [
+          "LLaMA3 8B",
+          "LLaMA 3 8B"
+        ],
+        "outputs": [
+          "clinical summaries of radiology reports, patient questions, and doctor‑patient dialogues"
+        ]
+      },
+      "normalized": {
+        "LLaMA3 8B": "LLaMA-3-8B",
+        "LLaMA 3 8B": "LLaMA-3-8B",
+        "ACI Bench": "ACI-Bench",
+        "Gemma 7B": "Gemma-7B",
+        "Meditron 7B": "Meditron-7B"
+      },
+      "explanation": "Normalized model names with consistent hyphenation, removed duplicate dataset entry, and refined output descriptions for clarity"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTScore",
+      "SummaC",
+      "QuestEval",
+      "Entailment"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-LSum",
+          "ROUGE-Lsum"
+        ]
+      },
+      "normalized": {
+        "ROUGE-LSum": "ROUGE",
+        "ROUGE-Lsum": "ROUGE"
+      },
+      "explanation": "Simplified ROUGE variants to base form as per normalization rules"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLaMA3 8B",
+          "GPT-4"
+        ],
+        "methods": [
+          "Self-Reflection"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all items since paper does NOT use LLMs as judges - Self-Reflection is used as an ablation for confabulation detection during generation, not for post-generation evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Pairwise comparison of summaries",
+      "Annotators indicate preference between two summaries",
+      "Identify information that should be removed",
+      "Identify key information missing",
+      "Classify cases as difficult (containing confabulations or missing information) or straightforward"
+    ],
+    "criteria": [
+      "preference",
+      "confabulations",
+      "missing information",
+      "overall summary quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Classify cases as difficult (containing confabulations or missing information) or straightforward"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "presence of confabulations",
+          "missing key information"
+        ]
+      },
+      "normalized": {
+        "presence of confabulations": "confabulations",
+        "missing key information": "missing information"
+      },
+      "explanation": "Added missing guideline element about case classification and normalized criteria by removing redundant terms"
+    }
+  },
+  "overall_notes": "The paper focuses on clinical abstractive summarization with strong emphasis on faithfulness and informativeness. Extraction was generally accurate, though Question 3 metadata incorrectly included generation components as evaluation methods. Human evaluation was well-documented with clear pairwise comparison methodology."
+}

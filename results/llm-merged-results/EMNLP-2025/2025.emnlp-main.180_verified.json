@@ -1,0 +1,124 @@
+{
+  "paper_id": "2025.emnlp-main.180",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Text-to-Speech"
+    ],
+    "datasets": [
+      "ParaSpeechCaps",
+      "Expresso",
+      "EARS",
+      "VoxCeleb",
+      "LibriTTS-R",
+      "Emilia"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Parler-TTS",
+      "Mistral-7B-Instruct-v0.2",
+      "GPT-4"
+    ],
+    "outputs": [
+      "Generated speech",
+      "Style-prompted speech audio generated from text input and style descriptions"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text-to-Speech Generation"
+        ],
+        "models": [
+          "Gemini 1.5 Flash",
+          "VoxSim",
+          "WavLM Large",
+          "ECAPA-TDNN",
+          "Flan-T5-Large"
+        ]
+      },
+      "normalized": {
+        "Other:Text-to-Speech Generation": "Other:Text-to-Speech"
+      },
+      "explanation": "Removed duplicate tasks and non-NLG models (speech embedders/classifiers). Added GPT-4 which is used for style prompt generation. Kept only core NLG/evaluation models."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "WER"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "WER is correctly identified as the only automatic metric used for evaluating generated speech intelligibility"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "Gemini 1.5 Flash"
+        ],
+        "methods": [
+          "acoustic matching via Likert scale rating"
+        ],
+        "criteria": [
+          "acoustic match to emotion"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Gemini 1.5 Flash is used for data annotation/scaling pipeline, not as a judge for evaluating generated outputs. This is data creation, not LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rate on 5-point Likert scales for style consistency, naturalness, and intelligibility",
+      "Annotators indicate whether rich style tags are heard (tag recall)",
+      "Three annotations collected per example"
+    ],
+    "criteria": [
+      "style consistency",
+      "naturalness",
+      "intelligibility",
+      "tag recall"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three annotations collected per example"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "Tag Recall",
+          "Consistency MOS",
+          "Naturalness MOS",
+          "Intelligibility MOS"
+        ]
+      },
+      "normalized": {
+        "Tag Recall": "tag recall"
+      },
+      "explanation": "Removed metric names (MOS variants) and kept only evaluation criteria. Added details about annotation methodology."
+    }
+  },
+  "overall_notes": "Paper focuses on text-to-speech generation with style control. Human evaluation is comprehensive with multiple criteria. Gemini usage is for data scaling pipeline, not LLM-as-judge evaluation. Extraction was mostly accurate but included some non-NLG components."
+}

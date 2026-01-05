@@ -1,0 +1,169 @@
+{
+  "paper_id": "2024.naacl-long.390",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Factoid Question Answering",
+      "Commonsense Reasoning",
+      "Arithmetic Reasoning",
+      "Question Answering"
+    ],
+    "datasets": [
+      "FaVIQ",
+      "ComQA",
+      "GSM-8K",
+      "SVAMP",
+      "ARC-Challenge",
+      "CommonsenseQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ChatGPT",
+      "GPT-4",
+      "Vicuna-13B",
+      "Llama-2-13B"
+    ],
+    "outputs": [
+      "Generated responses (answers) to questions",
+      "non-factual responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Common-senseQA"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Factoid Question Answering": "Factoid Question Answering",
+        "Other:Commonsense Reasoning": "Commonsense Reasoning",
+        "Other:Arithmetic Reasoning": "Arithmetic Reasoning",
+        "Other:Question Answering": "Question Answering",
+        "Llama2-13B": "Llama-2-13B",
+        "Common-senseQA": "CommonsenseQA"
+      },
+      "explanation": "Normalized task names by removing 'Other:' prefix, normalized model names (Llama-2-13B), and removed duplicate dataset entry (Common-senseQA vs CommonsenseQA)"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PR-AUC",
+      "Exact Match",
+      "Token Probability",
+      "Perplexity",
+      "Consistency",
+      "Entropy",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Entropy",
+          "BERTScore"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "TokenProbs",
+          "SelfCheckGPT"
+        ]
+      },
+      "normalized": {
+        "PR AUC": "PR-AUC",
+        "TokenProbs": "Token Probability",
+        "SelfCheckGPT": "BERTScore"
+      },
+      "explanation": "Normalized metric names (PR-AUC, Token Probability), removed composite method (SelfCheckGPT) as it's not a base metric, added Entropy and BERTScore which are explicitly used in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "correctness verification against golden answer",
+      "pairwise consistency check"
+    ],
+    "criteria": [
+      "correctness",
+      "consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "ChatGPT",
+          "Vicuna-13B",
+          "Llama2-13B"
+        ],
+        "methods": [
+          "prompt-based verification of correctness",
+          "answer consistency check"
+        ],
+        "criteria": [
+          "Correctness",
+          "Consistency"
+        ]
+      },
+      "normalized": {
+        "correctness verification against golden answer": "correctness verification against golden answer",
+        "pairwise consistency check": "pairwise consistency check",
+        "Correctness": "correctness",
+        "Consistency": "consistency"
+      },
+      "explanation": "Removed models that are only used for generation, not as evaluators. Kept only GPT-4 explicitly mentioned for evaluation. Consolidated duplicate criteria and methods."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual labeling of whether rephrased versions describe the same thing as original questions",
+      "Human evaluators assess sub-steps of the self-detection pipeline"
+    ],
+    "criteria": [
+      "semantic equivalence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human evaluators assess sub-steps of the self-detection pipeline"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Semantic equivalence"
+        ]
+      },
+      "normalized": {
+        "semantic equivalence": "semantic equivalence",
+        "Semantic equivalence": "semantic equivalence"
+      },
+      "explanation": "Consolidated duplicate guidelines and criteria, removed capitalization variations"
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation through self-detection of non-factual responses. It evaluates multiple LLMs on reasoning and QA tasks. The extraction was generally accurate but needed normalization and removal of duplicate/irrelevant entries. Key contributions are the self-detection method combining consistency and atypicality components."
+}

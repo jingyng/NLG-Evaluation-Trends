@@ -1,0 +1,90 @@
+{
+  "paper_id": "2025.acl-long.561",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates GPT-4o against human evaluation by comparing their judgments on whether retrieved passages contain necessary information, reporting percentage agreement metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt provided in Appendix J with detailed instructions for scoring whether context contains or implies the correct answer"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Majority voting",
+      "value": "Final ground truth established through majority voting",
+      "interpretation": "Not explicitly interpreted",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators labeled whether retrieved passage contains necessary information to answer the question, with example case provided showing nuanced reasoning differences"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "Whether retrieved passage contains necessary information to answer question"
+    ],
+    "sample_size": {
+      "total_generated": "Not specified",
+      "validated_by_both": 100,
+      "notes": "100 (query, retrieval, answer) triples randomly sampled for validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": 93.0,
+        "criterion": "Retrieval knowledge boundary determination",
+        "llm_model": "GPT-4o",
+        "significance": "Not reported",
+        "notes": "Significantly outperforms traditional answer matching methods (76.0%)"
+      },
+      {
+        "metric": "Percentage agreement",
+        "value": 76.0,
+        "criterion": "Retrieval knowledge boundary determination",
+        "llm_model": "Answer Matching",
+        "significance": "Not reported",
+        "notes": "Baseline method compared against GPT-4o"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Not explicitly stated, but 93% agreement is considered high reliability",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GPT-4o achieves 93% agreement with human judgments for retrieval knowledge boundary determination, significantly outperforming traditional answer matching methods (76%), validating its reliability as an automated judge."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Answer correctness via lexical matching"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Whether retrieved passage contains necessary information to answer question"
+    ],
+    "notes": "GPT-4o is used for retrieval knowledge boundary determination (shared criterion) and humans validate this specific criterion. LLM also uses lexical matching for parametric knowledge boundary determination (LLM-only criterion)."
+  }
+}

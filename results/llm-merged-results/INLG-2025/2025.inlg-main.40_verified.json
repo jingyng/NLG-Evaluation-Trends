@@ -1,0 +1,105 @@
+{
+  "paper_id": "2025.inlg-main.40",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "CGA-Wiki",
+      "BNC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Mistral-7B",
+      "BART",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "Conversation continuations"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "BART"
+        ]
+      },
+      "removed": {
+        "models": [
+          "BART-Base",
+          "Mistral-7B-Base"
+        ],
+        "outputs": [
+          "generated future conversation turns (continuations)"
+        ]
+      },
+      "normalized": {
+        "Mistral-7B-Base": "Mistral-7B",
+        "Conversation continuations (future turns)": "Conversation continuations"
+      },
+      "explanation": "Normalized model names for consistency, merged duplicate output descriptions, and added BART which is used for generation"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No changes needed - BLEU metric is correctly identified and normalized"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "BART-Base",
+          "Mistral-7B",
+          "GPT-4o"
+        ],
+        "methods": [
+          "binary classification",
+          "few-shot prompting"
+        ],
+        "criteria": [
+          "derailment (offensive/ad hominem)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' because LLMs are used for generation and annotation, but not as judges to evaluate generated outputs after generation. Removed all metadata since the premise is incorrect."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "guideline": [
+          "Annotators assessed correctness of GPT-4o-generated social orientation labels on a turn-by-turn basis using categories: Agree, Somewhat Agree, Disagree, Not Applicable."
+        ],
+        "criteria": [
+          "label correctness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' because human evaluation assessed GPT-4o annotations of social orientation labels, not the generated conversation outputs. Removed all metadata since the premise is incorrect."
+    }
+  },
+  "overall_notes": "The paper focuses on conversation derailment forecasting using generation, but the human and LLM evaluations are for annotation quality (social orientation labels), not for evaluating the generated conversation outputs. The automatic metric (BLEU) is used to measure diversity between generated continuations."
+}

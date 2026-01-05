@@ -1,0 +1,108 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "The tasks are formulated in the instruction format, targeting various answer types: classification problems (9 tasks), multiple choice questions (5 tasks), free-form answers (8 tasks), and matching (1 task).",
+            "The benchmark comprises 21 textual tasks covering 10 skills in the instruction format, offering a comprehensive standardized evaluation of LLMs and FMs in Russian... includes tasks such as ruHumanEval (code generation), ruTiE (dialogue), ruDetox (style‑transfer), and free‑form answer tasks.",
+            "The dataset comprises tasks from the Unified State Exam (USE) for graduates of Russian schools. The exam consists of 26 questions: 26 test-type tasks and writing an essay based on a fiction text. Each task is designed to measure proficiency in specific domains of the Russian language, such as spelling, orthoepy, grammar, punctuation, stylistics, semantics, and text interpretation. Since writing an essay is a generative task that requires expert human assessment, this task was excluded from the dataset."
+        ],
+        "tasks": [
+            "Paraphrase Generation",
+            "Code Generation",
+            "Other:Question Answering",
+            "Other:Arithmetic Problem Solving",
+            "Dialogue Generation",
+            "Other:essay writing"
+        ],
+        "datasets": [
+            "ruDetox",
+            "ruHumanEval",
+            "MultiQ",
+            "CheGeKa",
+            "ruModAr",
+            "ruMultiAr",
+            "SimpleAr",
+            "ruTiE",
+            "ruOpenBookQA",
+            "USE"
+        ],
+        "languages": [
+            "Russian"
+        ],
+        "models": [
+            "Llama-2-7b",
+            "Llama-2-13b",
+            "Mistral",
+            "davinci-002",
+            "Yi-6B",
+            "ruGPT-3.5",
+            "ruGPT-3-small",
+            "ruGPT-3-medium",
+            "ruGPT-3-large",
+            "mGPT",
+            "mGPT-13B",
+            "FRED-T5-large",
+            "FRED-T5-1.7B",
+            "ruT5-base",
+            "ruT5-large",
+            "umT5-Small",
+            "umT5-Base",
+            "umT5-XL",
+            "umT5-XXL",
+            "FRED‑T5‑large"
+        ],
+        "outputs": [
+            "free-form text responses, code, and arithmetic answers",
+            "Task‑specific scores (Accuracy, EM, F1, pass@k, MCC, Grade norm, Joint score) aggregated into a total leaderboard score."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "The performance on the tasks is measured with the following metrics ... Exact Match, or EM, is the rate at which the predictions exactly match the true references ... Token-wise F1 is a harmonic mean between token precision and recall ... the pass@k evaluates the functional correctness of the generated code ... The Joint score, or J, is computed ... as a combination of three metrics: Style Transfer Accuracy (STA) ... Meaning Preservation Score (SIM) ... the naturalness score (FL) ...",
+            "We use the log-likelihood strategy for the classification and multiple-choice tasks... The performance on the tasks is measured with the following metrics: Accuracy, Token‑wise F1, macro‑averaged F1, Exact Match, Matthews correlation coefficient, pass@k, Grade norm, Joint score.",
+            "The performance on the tasks is measured with the following metrics (see Tab. 2 for the task metrics and the motivation for their choice is given in App. C): • Accuracy measures the fraction of true predictions. • Token-wise F1 is a harmonic mean between token precision and recall. • The macro-averaged F1 score, or F1 macro, is computed by taking the unweighted arithmetic mean of all the per-class F1 scores. • Exact Match, or EM, is the rate at which the predictions exactly match the true references. • Matthews correlation coefficient , or MCC, used for the ruEthics task, is computed between the binary predictions of the model for each of the three labels and five ethical criteria... • Following the methodology of , the pass@k evaluates the functional correctness of the generated code. • Grade norm, used to evaluate the performance of the USE task, is computed as a total grade normalized to the maximum possible sum of 34. • The Joint score, or J, is computed following the methodology of  and is calculated as a combination of three metrics: Style Transfer Accuracy (STA), assessed using a BERT-based classifier; Meaning Preservation Score (SIM), assessed as the cosine similarity of LaBSE sentence embeddings computed between the original text and the model prediction; the naturalness score (FL), assessed using a fluency classifier."
+        ],
+        "automatic_metrics": [
+            "Exact Match",
+            "Token-wise F1",
+            "Pass@k",
+            "Style Transfer Accuracy",
+            "Meaning Preservation Score",
+            "Fluency",
+            "Joint Score",
+            "Accuracy",
+            "F1",
+            "Macro‑averaged F1",
+            "Matthews correlation coefficient",
+            "pass@k",
+            "Grade norm",
+            "Joint score",
+            "F1 macro",
+            "naturalness score"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "The human baseline was also obtained using the Toloka and ABC platforms... Five different votes were required per sample, annotators were filtered based on accuracy, and majority voting was applied.",
+            "The human baseline was also obtained using Toloka and ABC platforms. We use the following annotation procedure on Toloka for a human baseline: • The test dataset part is preprocessed to be placed on the Toloka interface; ground truth values are excluded from the tasks and stored separately. Training, examination, and control tasks are created. All tasks are uploaded on the platform. • If it does not complicate understanding of each item, the items are grouped randomly so that one page comprises a few real tasks and at least one control task. For each test set sample, we require exactly five different votes. • Each annotator is supposed to pass training, examination, and main stages. To begin the next stage, the annotator should pass the threshold predefined for each task individually based on the task difficulty. • While labeling the uploaded dataset, annotators who show an accuracy of less than 30% or skip more than ten tasks are temporarily banned. • The labels are taken after the end of the annotation process. • For examination and control tasks containing test information, only the first attempt to solve such tasks is kept in the annotation table. • The annotators are filtered based on their performance on control tasks. Only the answers of annotators who show accuracy greater or equal to 50% are left. • The majority voting is executed. For each task, the votes for all options are counted. We use majority voting when there is an answer that dominates. In the case of answer equality, we prioritize the answers from more skilled annotators, where skills are estimated based on Toloka aggregation."
+        ],
+        "guideline": [
+            "Human annotators followed the official task instructions (e.g., exam scoring rules for USE, binary correctness for classification, pass@k for code) and their answers were aggregated by majority vote.",
+            "Each annotator is supposed to pass training, examination, and main stages. To begin the next stage, the annotator should pass the threshold predefined for each task individually based on the task difficulty. The annotators are filtered based on their performance on control tasks. Only the answers of annotators who show accuracy greater or equal to 50% are left. The majority voting is executed. For each task, the votes for all options are counted."
+        ],
+        "criteria": [
+            "accuracy",
+            "pass@k",
+            "exam scoring rules"
+        ]
+    }
+}

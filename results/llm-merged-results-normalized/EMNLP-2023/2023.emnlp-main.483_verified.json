@@ -1,0 +1,135 @@
+{
+  "paper_id": "2023.emnlp-main.483",
+  "answer_1": {
+    "answer": "No",
+    "answer_changed": true,
+    "tasks": [
+      "Claim Generation"
+    ],
+    "datasets": [
+      "SCITAB",
+      "SciGen",
+      "Sci-Fact",
+      "COVID FACT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "instructgpt",
+      "gpt_4",
+      "tapas",
+      "tapex",
+      "flan_t_5",
+      "llama",
+      "alpaca",
+      "vicuna"
+    ],
+    "outputs": [
+      "Scientific claims (supported, refuted, unverifiable)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Claim Generation"
+        ],
+        "outputs": [
+          "Scientific claims (supported, refuted, unverifiable)"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Scientific Fact-Checking"
+        ],
+        "datasets": [
+          "SC-ITAB",
+          "Sci-Fact Open"
+        ]
+      },
+      "normalized": {
+        "Flan-T5": "FLAN-T5",
+        "SC-ITAB": "SCITAB",
+        "Generated scientific claims": "Scientific claims (supported, refuted, unverifiable)"
+      },
+      "explanation": "Changed answer from Yes to No since the paper focuses on fact-checking and reasoning, not NLG evaluation. Removed 'Scientific Fact-Checking' as it's not an NLG task. Kept 'Claim Generation' as models are used to generate synthetic claims. Normalized model names and removed duplicate/incorrect dataset references."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Macro-F1"
+        ]
+      },
+      "removed": {},
+      "normalized": {},
+      "explanation": "Changed answer from No to Yes since the paper uses Macro-F1 to evaluate model performance on the factual correctness predictions (supported/refuted/NEI labels)."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Kept answer as No since no LLMs are used as judges/evaluators of generated outputs. The LLMs are used as generation models and fact-checking models, but not as evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators verify if original claims are exclusively supported by table information",
+      "Annotators verify if generated counter-claims are correctly refuted by table",
+      "Annotators verify if NEI claims are truly unverifiable with table"
+    ],
+    "criteria": [
+      "Verifiability",
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators verify if original claims are exclusively supported by table information",
+          "Annotators verify if generated counter-claims are correctly refuted by table",
+          "Annotators verify if NEI claims are truly unverifiable with table"
+        ],
+        "criteria": [
+          "Claim verifiability",
+          "Factual correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- For each pair of the true claim c and its corresponding generated counter-claim c′, we ask the annotator to choose one of the following three options: (A) c is not exclusively supported by the table, (B) c is exclusively supported by the table, but c′ is not refuted by the table, and (C) c is not exclusively supported by the table, and c′ is not refuted by the table. For each candidate NEI claim, we ask the annotator to judge whether it is unverifiable with respect to the table.",
+          "We ask each annotator to fill in a questionnaire, including their age, department, maximum workload per week, etc. After that, we provide a training session to ensure they understand the task and can use the annotation interfaces (Appendix B.2 and B.3). We also give them three samples to test their understanding."
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Kept answer as Yes. Simplified and extracted the core annotation guidelines while removing the verbose original text. Added relevant criteria based on the annotation task."
+    }
+  },
+  "overall_notes": "This paper primarily focuses on scientific fact-checking and reasoning evaluation using a newly created dataset (SCITAB). While it uses LLMs like InstructGPT for claim generation, the main contribution is in dataset creation and evaluation of reasoning capabilities, not in NLG evaluation methodologies. The extracted metadata needed significant correction as the original extraction incorrectly identified this as an NLG evaluation paper."
+}

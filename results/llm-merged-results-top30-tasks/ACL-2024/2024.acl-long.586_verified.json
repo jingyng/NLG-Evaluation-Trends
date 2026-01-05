@@ -1,0 +1,166 @@
+{
+  "paper_id": "2024.acl-long.586",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering"
+    ],
+    "datasets": [
+      "HALUEVAL 2 0"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "alpaca_7b",
+      "vicuna_7b",
+      "vicuna_13b",
+      "llama_2_chat_7b",
+      "llama_2_chat_13b",
+      "text_davinci_002",
+      "text_davinci_003",
+      "chatgpt",
+      "claude",
+      "claude_2"
+    ],
+    "outputs": [
+      "Responses to factual questions across five domains"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering"
+        ],
+        "models": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Other:Question Answering",
+          "Other:factuality hallucination evaluation"
+        ],
+        "models": [
+          "Alpaca 7B",
+          "Vicuna 7B",
+          "Llama 2-Chat 7B"
+        ]
+      },
+      "normalized": {
+        "Question Answering": "Question Answering",
+        "Vicuna (7B/13B)": "Vicuna (7B), Vicuna (13B)",
+        "Llama 2-Chat (7B/13B)": "Llama 2-Chat (7B), Llama 2-Chat (13B)",
+        "text-davinci-002/003": "text-davinci-002, text-davinci-003"
+      },
+      "explanation": "Removed 'Dialogue Generation' as the paper focuses on QA tasks, not dialogue. Normalized task naming to 'Question Answering'. Separated combined model names into distinct entries. Removed duplicate model entries."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MIHR",
+      "MAHR",
+      "BERTSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "All metrics are correctly identified: MiHR (micro hallucination rate), MaHR (macro hallucination rate), and BERTScore are used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "Extraction-then-Verification"
+    ],
+    "criteria": [
+      "Factuality",
+      "Hallucination"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4"
+        ],
+        "criteria": [
+          "Factuality",
+          "Hallucination"
+        ]
+      },
+      "removed": {
+        "models": [
+          "ChatGPT"
+        ],
+        "criteria": [
+          "truthfulness",
+          "trustfulness",
+          "hallucination (false vs true)",
+          "hallucination judgement (True, False, Unknown)"
+        ]
+      },
+      "normalized": {
+        "extract factual statements and verify trustfulness": "Extraction-then-Verification",
+        "fact verification via LLM prompting": "Extraction-then-Verification",
+        "ChatGPT": "GPT-4"
+      },
+      "explanation": "Corrected the LLM judge model from ChatGPT to GPT-4 (as stated in the paper). Simplified method description to the established name 'Extraction-then-Verification'. Normalized criteria to broader categories of 'Factuality' and 'Hallucination' since the paper focuses on detecting factual errors and hallucinations."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotate hallucination types for each statement using the taxonomy defined in Section 2"
+    ],
+    "criteria": [
+      "Entity",
+      "Relation",
+      "Incompleteness",
+      "Outdatedness",
+      "Overclaim",
+      "Unverifiability"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotate hallucination types for each statement using the taxonomy defined in Section 2"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotate the hallucination type for each statement using the taxonomy defined in Section 2.",
+          "annotate the hallucination type of each statement based on Section 2 taxonomy"
+        ],
+        "criteria": [
+          "Entity-error Hallucination",
+          "Relation-error Hallucination",
+          "Incompleteness Hallucination",
+          "Outdatedness Hallucination",
+          "Overclaim Hallucination",
+          "Unverifiability Hallucination"
+        ]
+      },
+      "normalized": {
+        "entity-error": "Entity-error",
+        "relation-error": "Relation-error",
+        "incompleteness": "Incompleteness",
+        "outdatedness": "Outdatedness",
+        "overclaim": "Overclaim",
+        "unverifiability": "Unverifiability"
+      },
+      "explanation": "Consolidated guideline descriptions into one clear statement. Removed redundant 'Hallucination' suffix from criteria names. Normalized criteria to title case."
+    }
+  },
+  "overall_notes": "The paper is well-extracted overall. Key corrections: (1) The LLM judge is GPT-4, not ChatGPT; (2) Focus is on Question Answering, not Dialogue Generation; (3) Model names needed normalization to separate combined entries. The paper provides comprehensive evaluation of LLM hallucinations using both automatic metrics and human evaluation focused on factuality."
+}

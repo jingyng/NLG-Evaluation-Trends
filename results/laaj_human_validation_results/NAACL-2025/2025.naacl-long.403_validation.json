@@ -1,0 +1,91 @@
+{
+  "paper_id": "2025.naacl-long.403",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares GPT-4 judgments with human evaluations on the same set of instances for personalization quality assessment, reporting inter-rater reliability between human and LLM evaluators."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Appendix I contains prompts used for dataset generation, but specific prompts for LLM evaluation are not explicitly shown. Evaluation questions are described in Appendix G.1."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's Alpha",
+      "value": 0.85,
+      "interpretation": "strong agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Appendix G.1 provides detailed evaluation questions and 4-point Likert scale options for naturalness, fluency, style alignment, content preservation, personalization, semantic consistency, and user experience."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Krippendorff's alpha",
+      "Inter-rater correlation"
+    ],
+    "shared_criteria": [
+      "user style appropriateness",
+      "user semantic consistency",
+      "system style personalization",
+      "system semantic consistency",
+      "overall user satisfaction"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "Same 100 dialogues were evaluated by both human evaluators and GPT-4"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Krippendorff's alpha",
+        "value": 0.84,
+        "criterion": "overall evaluation criteria",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "Inter-rater correlation between GPT-4 and human evaluators across all five evaluation questions"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "not explicitly interpreted",
+      "threshold_used": "not reported",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 achieved high inter-rater reliability (α=0.84) with human evaluators, closely matching the human inter-annotator agreement of 0.85, indicating strong alignment between LLM and human judgments."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "pairwise comparison with baseline methods"
+    ],
+    "shared_criteria": [
+      "user style appropriateness",
+      "user semantic consistency",
+      "system style personalization",
+      "system semantic consistency",
+      "overall user satisfaction"
+    ],
+    "notes": "Both LLM and human evaluated the same five criteria for personalization quality assessment, while human evaluators additionally conducted comparative evaluations against baseline methods."
+  }
+}

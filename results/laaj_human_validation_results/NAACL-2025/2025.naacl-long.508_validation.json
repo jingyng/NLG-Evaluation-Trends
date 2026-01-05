@@ -1,0 +1,102 @@
+{
+  "paper_id": "2025.naacl-long.508",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-based evaluations against human assessments across three tasks (Solution Checker, Domain Compliance, Response Quality) using accuracy metrics to measure alignment"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "Claude-3-Sonnet"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt texts provided in Appendix H (H.1, H.2, H.3) and Appendix J (J.6) with in-context examples and detailed instructions"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "Not specified",
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Percentage agreement",
+      "value": 96.0,
+      "interpretation": "demonstrating the reliability of our annotations across all domains",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Annotators were provided with the exact same instructions as the LLM evaluation prompts (H.2, H.3, J) ensuring consistency between human and LLM evaluations"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Accuracy"
+    ],
+    "shared_criteria": [
+      "Solution Checker",
+      "Domain Compliance",
+      "Response Quality"
+    ],
+    "sample_size": {
+      "total_generated": "Not specified",
+      "validated_by_both": "10% dual annotations for IAA measurement",
+      "notes": "Validation performed on a sample set for each task, with 10% of data used for dual annotations to measure inter-annotator agreement"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Accuracy",
+        "value": 97.0,
+        "criterion": "Solution Checker",
+        "llm_model": "Claude-3-Sonnet",
+        "significance": "Not reported",
+        "notes": "Between LLM-based and human evaluations"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 96.0,
+        "criterion": "Domain Compliance",
+        "llm_model": "Claude-3-Sonnet",
+        "significance": "Not reported",
+        "notes": "Between LLM-based and human evaluations"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 94.0,
+        "criterion": "Response Quality",
+        "llm_model": "Claude-3-Sonnet",
+        "significance": "Not reported",
+        "notes": "Between LLM-based and human evaluations"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "High accuracy numbers (94-97%) considered strong alignment",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-based evaluations show strong alignment with human judgments across all three tasks (94-97% accuracy), supporting the potential for fully automating the evaluation process without compromising reliability."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Retrieval Performance",
+      "Turn Optimization"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Solution Checker",
+      "Domain Compliance",
+      "Response Quality"
+    ],
+    "notes": "Human evaluation was conducted specifically to validate the LLM evaluations on the shared criteria, while evaluation metrics specific to Retrieval Performance and Turn Optimization were only assessed by LLM"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "paper_id": "2025.acl-long.1207",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates GPT-4o judge against human majority voting on attack success determination, reporting quantitative agreement metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Rubric details mentioned but not full prompt text: judge score ranges from 1 to 5, higher score means more harmful/detailed responses; successful attack defined as score of 5"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 10,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": "Not reported",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human annotators rate model outputs for safety/harmfulness using majority vote as ground truth, but detailed scoring rubric not explicitly described"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Percentage agreement",
+      "Difference from human baseline"
+    ],
+    "shared_criteria": [
+      "Attack success determination",
+      "Harmfulness",
+      "Safety"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": null,
+      "notes": "Exact sample size for validation not specified in provided text"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement with human",
+        "value": 74,
+        "criterion": "attack_success_determination",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Against Llama-3-8B-instruct (human=80%, GPT-4o=74%)"
+      },
+      {
+        "metric": "Percentage agreement with human",
+        "value": 82,
+        "criterion": "attack_success_determination",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Against Claude-3.5-sonnet (human=88%, GPT-4o=82%)"
+      },
+      {
+        "metric": "Percentage agreement with human",
+        "value": 74,
+        "criterion": "attack_success_determination",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Against unspecified model (human=70%, GPT-4o=74%)"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GPT-4o judge shows higher agreement with human majority voting compared to alternatives like Llama-Guard 2 and OpenAI Moderation API, making it more suitable for harmfulness evaluation"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Attack success determination",
+      "Harmfulness",
+      "Safety"
+    ],
+    "notes": "Both LLM and human evaluation use the same criteria for determining attack success and harmfulness/safety"
+  }
+}

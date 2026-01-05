@@ -1,0 +1,159 @@
+{
+  "paper_id": "2024.acl-long.227",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Feedback Generation",
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "FEEDBACKESCONV",
+      "PREFERENCES QESCONV",
+      "ESCONV"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_13b",
+      "gpt_4",
+      "m_self_imp"
+    ],
+    "outputs": [
+      "multi-level feedback (appropriateness, goal definition, areas for improvement, alternative responses)",
+      "multi-level feedback annotations for peer counselor utterances"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "ESConv test set"
+        ],
+        "languages": [],
+        "models": [
+          "Llama-2"
+        ],
+        "outputs": [
+          "The model generates multi-level feedback for peer counselor utterances, including appropriateness, goal alignment, areas for improvement, and alternative responses."
+        ]
+      },
+      "normalized": {
+        "Llama-2": "Llama-2-13B",
+        "Preferences QESconv": "Preferences QESConv",
+        "quality score": "Quality Score"
+      },
+      "explanation": "Removed 'ESConv test set' as it's not a distinct dataset, normalized model names to be more specific, removed redundant output description, and normalized dataset capitalization"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "QUALITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "quality score",
+          "mean score",
+          "worst-case score",
+          "Mean Score Overall",
+          "Mean Score Worst 1%",
+          "Mean Score Worst 5%"
+        ]
+      },
+      "normalized": {
+        "quality score": "Quality Score",
+        "mean score": "Quality Score",
+        "worst-case score": "Quality Score",
+        "Mean Score Overall": "Quality Score",
+        "Mean Score Worst 1%": "Quality Score",
+        "Mean Score Worst 5%": "Quality Score"
+      },
+      "explanation": "Consolidated all variations under 'Quality Score' as they all refer to the same custom automatic metric defined in the paper for evaluating feedback appropriateness"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "llama_2_13b"
+    ],
+    "methods": [
+      "self-scoring",
+      "Direct Preference Optimization (DPO)"
+    ],
+    "criteria": [
+      "Appropriateness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Llama-2 (fine-tuned)"
+        ],
+        "methods": [
+          "self-scoring of appropriateness"
+        ],
+        "criteria": [
+          "feedback quality"
+        ]
+      },
+      "normalized": {
+        "Llama-2 (fine-tuned)": "Llama-2-13B",
+        "self-scoring of appropriateness": "self-scoring",
+        "feedback quality": "appropriateness"
+      },
+      "explanation": "Normalized model name to be consistent, simplified method names, and consolidated criteria to the specific aspect being evaluated (appropriateness)"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Experts used a 5-point Likert scale for eight feedback aspects covering the multi-level feedback taxonomy components"
+    ],
+    "criteria": [
+      "Selection",
+      "Identification",
+      "Improvement",
+      "Quality",
+      "Alternatives",
+      "Style",
+      "Helpfulness",
+      "Overall"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Experts used a 5-point Likert scale for eight feedback aspects.",
+          "Domain experts evaluated the generated feedback using a 5-point Likert scale across multiple predefined criteria.",
+          "Experts evaluated feedback along eight aspects: Selection for Feedback, Strengths Identification, Improvement Areas Selection, Goal Description Quality, Rationale for Alternatives, Quality of Alternatives, Feedback Style, and Feedback Helpfulness."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated multiple guideline descriptions into one concise statement while preserving all evaluation criteria which are explicitly mentioned in the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on generating multi-level feedback for peer counseling conversations using LLMs. The extraction was generally accurate but needed normalization of metric names and consolidation of redundant items. The paper uses a custom 'Quality Score' metric rather than standard NLG metrics like BLEU/ROUGE. The LLM-as-judge aspect involves self-scoring where the model evaluates its own generated feedback for appropriateness."
+}

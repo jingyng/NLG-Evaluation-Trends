@@ -1,0 +1,136 @@
+{
+  "paper_id": "2023.inlg-main.30",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Chart Summarization",
+      "Text Summarization"
+    ],
+    "datasets": [
+      "c2t-small",
+      "c2t-big",
+      "Autochart"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5",
+      "BART-MNLI",
+      "Transformer",
+      "BART"
+    ],
+    "outputs": [
+      "Generated summaries for charts",
+      "Natural language summaries describing chart content"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "chart summaries"
+        ]
+      },
+      "normalized": {
+        "chart summaries": "Natural language summaries describing chart content"
+      },
+      "explanation": "Removed redundant 'chart summaries' from outputs and normalized the description for clarity"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "Perplexity",
+      "NUBIA"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "perplexity"
+        ]
+      },
+      "normalized": {
+        "ROUGE-2": "ROUGE",
+        "perplexity": "Perplexity"
+      },
+      "explanation": "Normalized ROUGE-2 to ROUGE base form and capitalized Perplexity for consistency"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BART-MNLI"
+        ],
+        "methods": [
+          "NUBIA"
+        ],
+        "criteria": [
+          "logical agreement",
+          "contradiction",
+          "neutrality"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items since the paper does NOT use LLMs as judges. BART-MNLI is used for data cleaning (preprocessing), not for evaluating generated outputs. NUBIA is an automatic metric, not an LLM-as-judge approach."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Value Correctness (VC): Numbers/values in the summary are from the chart",
+      "Outside Information Presence (OIP): The summary contains information not grounded in the chart",
+      "Informativeness (Inf): The summary conveys a lot of information about the chart",
+      "Coherence (Coh): The summary content is orderly and logically consistent",
+      "Fluency (Flu): The text is grammatically correct and is not repetitive"
+    ],
+    "criteria": [
+      "Value Correctness",
+      "Outside Information Presence",
+      "Informativeness",
+      "Coherence",
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed - human evaluation criteria are correctly extracted and comprehensive"
+    }
+  },
+  "overall_notes": "The paper focuses on chart summarization as a data-to-text NLG task. It uses both automatic metrics (BLEU, ROUGE, Perplexity, NUBIA) and human evaluation. The extracted metadata was generally accurate, with the main correction needed for Question 3 where BART-MNLI was incorrectly classified as an LLM judge when it's actually used for data preprocessing. The paper does not use LLMs for evaluation purposes."
+}

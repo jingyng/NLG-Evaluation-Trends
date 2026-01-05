@@ -1,0 +1,153 @@
+{
+  "paper_id": "2024.acl-long.182",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Other:Long-form Question Answering"
+    ],
+    "datasets": [
+      "DUC",
+      "TAC",
+      "Multi-News",
+      "Liu et al. (2023)"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Gemini",
+      "PRIMERA",
+      "Long-T5"
+    ],
+    "outputs": [
+      "Multi-document summaries with fine-grained attributions",
+      "Long-form question answers with fine-grained attributions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Long-form Question-answering"
+        ],
+        "datasets": [
+          "LFQA",
+          "EVALUATING (LIU ET AL., 2023)"
+        ],
+        "languages": [],
+        "models": [
+          "LongT5"
+        ],
+        "outputs": [
+          "The output, consisting of sentences s 1 , . . . , s n , should both fulfill the base underlying task (e.g., summarizing for MDS or generating a response for LFQA) and also include attributions C 1 , . . . , C n pointing back to supporting text from D."
+        ]
+      },
+      "normalized": {
+        "Other:Long-form Question-answering": "Other:Long-form Question Answering",
+        "Liu et al. (2023)": "Liu et al. (2023)",
+        "LongT5": "Long-T5"
+      },
+      "explanation": "Normalized task name to consistent format; removed duplicates and non-dataset names; unified model naming; simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTScore",
+      "AUTOAIS",
+      "Citation Length",
+      "Non-attributed sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE L",
+          "BERTSCORE",
+          "non-attributed sentences",
+          "citation length",
+          "average length (number of tokens) of the cited content per output sentence",
+          "average number of non-attributed sentences per instance"
+        ]
+      },
+      "normalized": {
+        "ROUGE L": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "BERTSCORE": "BERTScore",
+        "citation length": "Citation Length"
+      },
+      "explanation": "Simplified metric variants to base forms according to guidelines; removed verbose descriptions"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge methodology used; paper uses traditional NLI models (TRUE, TrueTeacher) for automatic attribution evaluation, but these are not LLMs used as judges"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Sentence-level AIS (Attributable to Identified Sources) framework",
+      "5-point Likert scale for coherence",
+      "Helpfulness rating for LFQA"
+    ],
+    "criteria": [
+      "coherence",
+      "helpfulness",
+      "attribution accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Sentence-level AIS (Attributable to Identified Sources) framework"
+        ],
+        "criteria": [
+          "attribution accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Annotators evaluate coherence on a 5-point Likert scale and (for LFQA) helpfulness; then judge attribution via the Attributable to Identified Sources (AIS) framework.",
+          "Annotators rate text coherence, helpfulness (for LFQA), and citation support (full/partial/no support) using provided criteria.",
+          "Annotators are asked to evaluate text coherence on a 5-point Likert scale, and in the LFQA setting also its helpfulness in addressing the query. Next, annotators proceed to evaluate the quality of citations. We follow the sentence-level attribution evaluation protocol from , which extends the Attributable to Identified Sources (AIS;  human evaluation framework of attribution to the sentence-level. Annotators judge whether each output sentence is fully supported by its attribution, scoring 1 for full support and 0 otherwise."
+        ],
+        "criteria": [
+          "citation support",
+          "fluency",
+          "full support by attribution"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated verbose guidelines into clear summary statements; normalized criteria to essential categories mentioned in paper"
+    }
+  },
+  "overall_notes": "Paper presents a novel 'Attribute First, then Generate' approach for fine-grained attribution in grounded text generation. The extraction was generally accurate but contained some redundancy and needed normalization. Key contributions include local attribution methodology evaluated on both MDS and LFQA tasks using automatic metrics and comprehensive human evaluation."
+}

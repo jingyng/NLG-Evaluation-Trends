@@ -1,0 +1,103 @@
+{
+  "paper_id": "2024.naacl-long.32",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly conducts correlation analysis between GPT-4 evaluation and human judgment for both faithfulness and coverage metrics, reporting quantitative correlation results."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts for various evaluation protocols (binary grading, Likert scale grading, pairwise comparison) are shown in appendix figures with detailed scoring rubrics"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "not_specified",
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": {
+        "faithfulness": 0.61,
+        "coverage": 0.6
+      },
+      "interpretation": "moderate to high agreement",
+      "per_criterion": [
+        {
+          "criterion": "faithfulness",
+          "metric": "Cohen's kappa",
+          "value": 0.61
+        },
+        {
+          "criterion": "coverage",
+          "metric": "Cohen's kappa",
+          "value": 0.6
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed annotation guidelines provided in appendix with examples of valid/invalid annotations for faithfulness and coverage evaluation"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "correlation coefficient unspecified"
+    ],
+    "shared_criteria": [
+      "faithfulness",
+      "coverage"
+    ],
+    "sample_size": {
+      "total_generated": "not_specified",
+      "validated_by_both": "subset_of_245_stories",
+      "notes": "Validation conducted on a subset of the 245 news story clusters, exact sample size not specified"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "correlation coefficient",
+        "value": "high",
+        "criterion": "Faithfulness",
+        "llm_model": "GPT-4",
+        "significance": "not_specified",
+        "notes": "Both-way pairwise comparison protocol shows high correlation with human judgment"
+      },
+      {
+        "metric": "correlation coefficient",
+        "value": "high",
+        "criterion": "Coverage",
+        "llm_model": "GPT-4",
+        "significance": "not_specified",
+        "notes": "Both coarse-grained (QA-pairs) and fine-grained (single QA) evaluation protocols show reasonably high correlation with human judgments"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "high",
+      "threshold_used": "not_specified",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GPT-4 evaluation shows high correlation with human judgment for both faithfulness and coverage assessment, though specific correlation coefficients are not numerically reported."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Faithfulness",
+      "Coverage"
+    ],
+    "notes": "Both LLM and human evaluation methods assess the same two criteria: faithfulness (factual consistency with source articles) and coverage (inclusiveness of diverse information)"
+  }
+}

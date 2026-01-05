@@ -1,0 +1,89 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We train the CodeLlama model on this massive dataset to emulate compiler behavior ... perform virtual compilations on existing code search datasets to produce an augmented assembly code search dataset.",
+            "The model exclusively provides the source code of the function body and is required to predict the corresponding assembly code.... We construct a high-quality assembly code dataset using a virtual compiler, and the model trained on this dataset achieved a 26% performance improvement in assembly code search tasks.",
+            "We postulate a novel modeling paradigm-let LLMs emulate a general compiler and understand the comprehensive compilation process, including optimization options and assembly code generation."
+        ],
+        "tasks": [
+            "Code Generation"
+        ],
+        "datasets": [
+            "Ubuntu Repository",
+            "CCSD",
+            "CodeSearchNet",
+            "UbuntuDocstring",
+            "VirtualAssembly"
+        ],
+        "languages": [
+            "English",
+            "C",
+            "C++",
+            "Python",
+            "Go",
+            "PHP",
+            "Golang",
+            "JavaScript",
+            "Ruby",
+            "Java"
+        ],
+        "models": [
+            "CodeLlama",
+            "Virtual Compiler (ViC)",
+            "CodeLlama 34B",
+            "ViC virtual compiler",
+            "roformer-base assembly encoder",
+            "sentence-transformers"
+        ],
+        "outputs": [
+            "assembly code",
+            "Generated assembly code for given source functions"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "A concise evaluation of the generated assembly code is carried out using the BLEU, ROUGE-L, and METEOR score ... we adopt a more contextualized assessment method, Binary Code Similarity Detection (BCSD), aligned with our code search task. In this task, we use CLAP for evaluation.",
+            "We adopt a concise evaluation of the generated assembly code using the BLEU, ROUGE-L, and METEOR score... We further adopt a more contextualized assessment method, Binary Code Similarity Detection (BCSD), aligned with our code search task.",
+            "A concise evaluation of the generated assembly code is carried out using the BLEU, ROUGE-L, and METEOR score, which are employed to show the similarity between generated assembly code and the reference ground truth."
+        ],
+        "automatic_metrics": [
+            "BLEU",
+            "ROUGE-L",
+            "METEOR",
+            "BINSIM (via CLAP)",
+            "BINSIM",
+            "Runtime similarity",
+            "RUNTIME"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "However, a thorough manual inspection reveals several distinct categories of mismatches ... we sample some generated assembly code for these languages and manually check these samples to verify the correctness of the assembly output",
+            "During this process, by leveraging the expertise of reverse engineering professionals, we write code search queries for functions that exhibit relatively independent functionalities... Manual inspection reveals several distinct categories of mismatches, which we highlight in green (address differences), cyan (alternate operation expressions), yellow (register allocation variances), and grey (stack allocation discrepancies).",
+            "By leveraging the expertise of reverse engineering professionals, we write code search queries for functions that exhibit relatively independent functionalities. These manually crafted queries, derived from real-world reverse engineering efforts, reflect the practical requirements encountered during actual reverse engineering tasks."
+        ],
+        "guideline": [
+            "Categorize mismatches between generated and real assembly code into predefined types: address differences, alternate operation expressions, register allocation variances, stack allocation discrepancies, and additional instructions.",
+            "Reverse engineers manually crafted natural‑language queries and manually inspected the generated assembly code, checking for correctness across multiple dimensions such as address handling, operation equivalence, register usage, and stack management.",
+            "reverse engineering professionals write code search queries for functions with relatively independent functionalities to reflect practical requirements"
+        ],
+        "criteria": [
+            "address differences",
+            "alternate operation expressions",
+            "register allocation variances",
+            "stack allocation discrepancies",
+            "additional instructions",
+            "missing or extra instructions"
+        ]
+    }
+}

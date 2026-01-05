@@ -1,0 +1,52 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "Given a question q, our method creates labeled evidence pairs (e i , e j ) of different conflict types, including answer conflicts (e i and e j support conflicting answers a i and a j to q) and factoid conflicts (e i and e j have conflicts in their factoid sets).",
+        "tasks": [
+            "Other:Evidence Generation"
+        ],
+        "datasets": [
+            "NaturalQuestions",
+            "ComplexWebQuestions",
+            "StrategyQA"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "llama3-70b-instruct",
+            "Claude 3 Sonnet"
+        ],
+        "outputs": "evidence texts and alternative answers"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "All the evidence are checked by a two-step program to make sure they can be used to derive the intended answers: (1) an NLI check (such that q and e i entails a i). (2) an LLM reasoning check (such that an LLM can infer a i when given q and e i).",
+        "automatic_metrics": [
+            "NLI-based entailment check",
+            "LLM-based consistency verification"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We evaluate state-of-the-art LLMs as conflict detectors, including Mixtral-8x7b, Llama 3 8B Instruct, Llama 3 70B Instruct (Meta, 2024), Claude 3 Haiku, Claude 3 Sonnet (Anthropic, 2024), ChatGPT (OpenAI, 2024b) ... under a zero-shot prompting setting.",
+        "models": [
+            "Mixtral-8x7b",
+            "Llama 3 8B Instruct",
+            "Llama 3 70B Instruct",
+            "Claude 3 Haiku",
+            "Claude 3 Sonnet",
+            "GPT-4"
+        ],
+        "methods": [
+            "zero-shot prompting for conflict classification"
+        ],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "we randomly sampled 200 pairs (50 each from {NQ-short, NQ-long, CWQ-short, CWQ-long}) for annotation. Given a question q, each pair of evidence (e i , e j ) is annotated by three independent annotators to determine its label from {Conflicting, Non-conflicting, Not sure}.",
+        "guideline": "Annotators determine if evidence pairs contain conflicting information based on whether they support conflicting answers or exhibit factual inconsistencies.",
+        "criteria": []
+    }
+}

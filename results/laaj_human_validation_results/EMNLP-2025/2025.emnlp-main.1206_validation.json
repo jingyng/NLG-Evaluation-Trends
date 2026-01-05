@@ -1,0 +1,96 @@
+{
+  "paper_id": "2025.emnlp-main.1206",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-as-a-judge (Meta-Llama-3-70B-Instruct) with human evaluation on the same 50 model responses, reporting Cohen's kappa agreement metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "Meta-Llama-3-70B-Instruct"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt provided in Appendix C.1 with detailed classification instructions and examples for CLASS A/B/C responses; uses Chain-of-Thought reasoning"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.97,
+      "interpretation": "very high agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Classification scheme detailed in main text with CLASS A/Explicit (acknowledge ambiguity), CLASS B/Implicit (describe one referent with attributes), CLASS C/High Risk (assume one referent without clarification); Appendix C.1 shows annotation examples"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Cohen's kappa"
+    ],
+    "shared_criteria": [
+      "Explicit",
+      "Implicit",
+      "High Risk"
+    ],
+    "sample_size": {
+      "total_generated": "Not specified for entire dataset",
+      "validated_by_both": 50,
+      "notes": "50 model responses randomly sampled from Section 4.1 models and annotated by both LLM and human evaluators"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.94,
+        "criterion": "overall response classification",
+        "llm_model": "Meta-Llama-3-70B-Instruct",
+        "significance": "Not reported",
+        "notes": "Agreement between human annotators and Meta-Llama-3-70B-Instruct output"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.97,
+        "criterion": "overall response classification",
+        "llm_model": "Not applicable",
+        "significance": "Not reported",
+        "notes": "Agreement between human annotators"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "very high agreement",
+      "threshold_used": "Not explicitly stated",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM shows very high agreement with human annotation (κ=0.94 vs human-human κ=0.97), validating Meta-Llama-3-70B-Instruct as reliable automatic evaluator for response classification"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "mention_of_multiple_entities_in_reasoning_steps"
+    ],
+    "human_only_criteria": [
+      "quality_validation_of_RAcQUET_BIAS_classification"
+    ],
+    "shared_criteria": [
+      "Explicit",
+      "Implicit",
+      "High Risk"
+    ],
+    "notes": "LLM and human evaluate the same three response categories; additional LLM-only analysis for CoT reasoning steps; human-only validation for sensitive RAcQUET-BIAS stereotypes evaluation"
+  }
+}

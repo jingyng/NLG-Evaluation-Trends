@@ -1,0 +1,162 @@
+{
+  "paper_id": "2023.acl-long.447",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "PARAAMR",
+      "PARANMT",
+      "parabank1",
+      "PARABANK 2",
+      "MRPC",
+      "PAN",
+      "PPDB",
+      "QUORA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_based_amr_to_text_generator",
+      "spring_amr_parser",
+      "simcse",
+      "scpn",
+      "bert_base_uncased",
+      "bart_base",
+      "gpt_2"
+    ],
+    "outputs": [
+      "paraphrase sentences",
+      "syntactically diverse paraphrase sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BART-base"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "T5‑based AMR‑to‑text generator",
+          "bert-base-uncased"
+        ],
+        "outputs": [
+          "syntactically diverse paraphrases"
+        ]
+      },
+      "normalized": {
+        "T5‑based AMR‑to‑text generator": "T5-based AMR-to-text generator",
+        "bert-base-uncased": "BERT-base-uncased"
+      },
+      "explanation": "Normalized model names to standard capitalization, removed duplicate model entries, and simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "TOKEN OVERLAP",
+      "TREE EDIT DISTANCE",
+      "SIMCSE COSINE SIMILARITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Token Overlap",
+          "Tree Edit Distance"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "1-BLEU",
+          "1-∩/∪",
+          "TED-3",
+          "TED-F",
+          "1 -BLEU",
+          "1 -∩/∪",
+          "Semantic similarity measure by SimCSE",
+          "SimCSE cosine similarity"
+        ]
+      },
+      "normalized": {
+        "1-BLEU": "BLEU",
+        "1-∩/∪": "Token Overlap",
+        "TED-3": "Tree Edit Distance",
+        "TED-F": "Tree Edit Distance",
+        "1 -BLEU": "BLEU",
+        "1 -∩/∪": "Token Overlap",
+        "Semantic similarity measure by SimCSE": "SimCSE Cosine Similarity",
+        "SimCSE cosine similarity": "SimCSE Cosine Similarity"
+      },
+      "explanation": "Normalized all metrics to their base forms: BLEU (not 1-BLEU), Token Overlap (not 1-∩/∪), Tree Edit Distance (not TED variants), and SimCSE Cosine Similarity"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-2"
+        ],
+        "methods": [
+          "perplexity computation"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed GPT-2 as it's used for perplexity filtering during generation, not as a judge for evaluation. The paper does not use LLMs as evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "3-point scale for semantic similarity: 3=near-equivalent meaning, 2=similar meaning with unimportant details differing, 1=important information differs or missing",
+      "3-point scale for syntactic diversity: 3=very different structures, 2=only some words differ, 1=almost the same"
+    ],
+    "criteria": [
+      "Similarity",
+      "Diversity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "3-point scale for semantic similarity: 3=near-equivalent meaning, 2=similar meaning with unimportant details differing, 1=important information differs or missing",
+          "3-point scale for syntactic diversity: 3=very different structures, 2=only some words differ, 1=almost the same"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators rated on 3-point scales for semantic similarity and syntactic diversity with defined scores for each level.",
+          "3‑point scale questions asking raters to score (1) semantic similarity (near‑equivalent, some details differ, important information differs) and (2) syntactic diversity (very different structures, some words differ, almost same).",
+          "For semantic similarity, we design a 3-point scale question... Score 3: The two sentences are paraphrases of each other. Their meanings are near-equivalent. Score 2: The two sentences have similar meanings but some unimportant details differ. Score 1: Some important information differs or is missing, which alters the intent or meaning. For syntactic diversity, we design a 3-point scale question... Score 3: The two sentences are written in very different ways or have much different sentence structures. Score 2: Only some words in the two sentences differ. Score 1: The two sentences are almost the same."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated the lengthy guideline descriptions into clear, concise statements of the evaluation scales and criteria"
+    }
+  },
+  "overall_notes": "The paper focuses on paraphrase generation using AMR back-translation. The extraction was generally good but needed normalization of metric names and clarification that GPT-2 was used for filtering, not as an evaluator. The human evaluation was well-documented with clear 3-point scales for both semantic similarity and syntactic diversity."
+}

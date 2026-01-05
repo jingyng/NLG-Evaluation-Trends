@@ -1,0 +1,72 @@
+{
+  "paper_id": "2024.emnlp-main.837",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "Both LLM and human evaluations are conducted but they are not explicitly compared; human evaluation provides ground truth labels for the TechNewsSumm dataset which are used for benchmarking, but no correlation or agreement metrics between LLM and human judgments are reported."
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "Claude 3 Sonnet",
+      "Command R+",
+      "Mistral Large"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "figure/appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt templates mentioned (e.g., for claim extraction and classification with/without CoT) but exact verbatim prompts not fully provided in main text; examples and instruction steps shown in tables."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 4,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.44,
+      "interpretation": "moderate agreement",
+      "per_criterion": [
+        {
+          "criterion": "main labels",
+          "metric": "Cohen's kappa",
+          "value": 0.44
+        },
+        {
+          "criterion": "subtypes",
+          "metric": "Cohen's kappa",
+          "value": 0.45
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluators trained on hallucination taxonomy; evaluation criteria and examples provided in tables (e.g., Table 2 for error subtypes), but full detailed guidelines not explicitly shown."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Supported",
+      "Contradicted",
+      "Absent",
+      "Supported",
+      "Unevaluatable",
+      "Entity",
+      "Concatenation",
+      "Attribution",
+      "Overgeneralization",
+      "Error",
+      "Hyperbole",
+      "Temporal",
+      "Error",
+      "Other"
+    ],
+    "notes": "Human and LLM evaluate identical criteria for both main labels (supported, contradicted, absent, partially supported, unevaluatable) and error subtypes (10 types). Human annotations serve as ground truth for benchmarking LLM performance, but no direct LLM-human comparison metrics are reported."
+  }
+}

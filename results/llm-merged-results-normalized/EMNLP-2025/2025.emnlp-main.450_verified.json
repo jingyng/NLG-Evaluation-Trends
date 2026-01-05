@@ -1,0 +1,219 @@
+{
+  "paper_id": "2025.emnlp-main.450",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Paraphrase Generation",
+      "Dialogue Generation",
+      "Machine Translation",
+      "Question Generation",
+      "Detoxification",
+      "Story Generation"
+    ],
+    "datasets": [
+      "ROCSTORIES",
+      "PARADETOX",
+      "QUORA QUESTION PAIRS QQP",
+      "DIALOGSUM",
+      "DEONTOLOGY",
+      "QUASAR T",
+      "18k EN DE"
+    ],
+    "languages": [
+      "English",
+      "German"
+    ],
+    "models": [
+      "diffusion_eags",
+      "gpt_2",
+      "gpt_3.5_turbo",
+      "cmlm_mask_predict",
+      "disco_easy_first",
+      "diffuseq",
+      "ld_4lg",
+      "di_noiser",
+      "diffusionbert",
+      "ar_diffusion",
+      "sedd",
+      "roberta_base",
+      "bert",
+      "t_5",
+      "mbart_50",
+      "nllb"
+    ],
+    "outputs": [
+      "Conditional text sequences",
+      "Detoxified sentences",
+      "Paraphrased questions",
+      "Summaries",
+      "Translations",
+      "Generated stories",
+      "Generated questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Generation"
+        ],
+        "datasets": [
+          "18k en↔de"
+        ],
+        "models": [
+          "DI-NOISER",
+          "NLLB"
+        ],
+        "outputs": [
+          "Generated questions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Paradigmatic Translation (en↔de)"
+        ],
+        "datasets": [
+          "Question Generation (QG)",
+          "Paradigmatic Translation (en↔de)"
+        ],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Detoxification": "Other: Detoxification",
+        "Other:Story Generation": "Other: Story Generation",
+        "Quora Question Pairs (QQP)": "QQP"
+      },
+      "explanation": "Normalized task names and removed redundant dataset entries. Added missing Question Generation task and related outputs. Consolidated dataset names for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PERPLEXITY PPL",
+      "MAUVE",
+      "SOME",
+      "LLM",
+      "VENDI VS",
+      "SELF BLEU",
+      "DISTINCT",
+      "OPINION MOS",
+      "SACREBLEU",
+      "COMET",
+      "XCOMET",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "LLM-t",
+          "COMET",
+          "XCOMET",
+          "ROUGE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "VS(ngram)",
+          "VS(emb)",
+          "SimCSE Vendi Score (VS(emb))",
+          "n-gram Vendi Score (VS(ngram))",
+          "Vendi Score (VS) n-gram",
+          "Vendi Score (VS) embedding"
+        ]
+      },
+      "normalized": {
+        "LLM-c": "LLM-c",
+        "LLM-t": "LLM-t",
+        "MOS": "Mean Opinion Score (MOS)"
+      },
+      "explanation": "Consolidated all Vendi Score variants into 'Vendi Score (VS)' since they refer to the same metric family with different variants. Removed redundant metric names and added missing metrics mentioned in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "gpt_3.5_turbo"
+    ],
+    "methods": [
+      "Pairwise evaluation",
+      "Direct scoring"
+    ],
+    "criteria": [
+      "Coherence",
+      "Grammaticality",
+      "Soundness",
+      "Diversity",
+      "Reasonableness",
+      "Toxicity"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "Direct scoring"
+        ],
+        "criteria": [
+          "Toxicity"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "coherence": "Coherence",
+        "grammatical correctness": "Grammatical correctness",
+        "semantic soundness": "Semantic soundness",
+        "diversity": "Diversity",
+        "reasonableness": "Reasonableness",
+        "reasonableness of the question": "Reasonableness",
+        "being a more reasonable question to the input (condition) text": "Reasonableness"
+      },
+      "explanation": "Normalized criteria names to title case. Added GPT-4 which is explicitly mentioned as evaluator. Added 'Direct scoring' method for LLM-based toxicity evaluation. Consolidated duplicate criteria."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rate semantic reflectiveness (0-1) and sentence completeness (0-1)",
+      "For diversity: score semantic reflectiveness and sentence diversity (1-5 scale)",
+      "Four NLP PhD students evaluate generated text",
+      "Scores normalized and averaged to obtain final MOS"
+    ],
+    "criteria": [
+      "Reflectiveness",
+      "Completeness",
+      "Diversity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Four NLP PhD students evaluate generated text",
+          "Scores normalized and averaged to obtain final MOS"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "diversity (for diversity MOS)"
+        ]
+      },
+      "normalized": {
+        "semantic reflectiveness": "Semantic reflectiveness",
+        "sentence completeness": "Sentence completeness",
+        "sentence diversity": "Sentence diversity"
+      },
+      "explanation": "Normalized criteria names to title case. Added missing guideline details about annotators and scoring process. Consolidated diversity criteria into 'Sentence diversity'."
+    }
+  },
+  "overall_notes": "The paper extensively evaluates NLG across multiple tasks using both automatic metrics and human evaluation. The extraction was generally accurate but needed consolidation of metric variants and addition of some missing details from the full paper text."
+}

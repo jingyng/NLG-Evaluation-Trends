@@ -1,0 +1,164 @@
+{
+  "paper_id": "2025.acl-long.402",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Multimodal Reasoning",
+      "Other:Mathematical Reasoning"
+    ],
+    "datasets": [
+      "XMMMLU",
+      "M3EXAM",
+      "MAXM",
+      "XMATHVISTA",
+      "MGSM",
+      "MGSM-SYMBOLIC",
+      "MATHVISION",
+      "MATHVISTA"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "German",
+      "French",
+      "Portuguese",
+      "Japanese",
+      "Spanish",
+      "Italian",
+      "Arabic",
+      "Hindi",
+      "Indonesian",
+      "Vietnamese",
+      "Thai",
+      "Hebrew",
+      "Romanian"
+    ],
+    "models": [
+      "Qwen2.5-VL",
+      "DeepSeek-VL2",
+      "GPT-4o",
+      "Gemini-1.5-Pro"
+    ],
+    "outputs": [
+      "rationales",
+      "captions",
+      "visual abstractions",
+      "stepwise reasoning",
+      "final answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "stepwise reasoning"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Image Captioning"
+        ],
+        "datasets": [
+          "MULTI-MATHVISTA"
+        ],
+        "languages": [],
+        "models": [
+          "Qwen2.5-VL-3B-Instruct",
+          "GPT-4o-mini",
+          "DeepSeek-VL2-Small",
+          "Qwen2.5-VL-7B-Instruct",
+          "DeepSeek-VL2-Tiny"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:multimodal reasoning": "Other:Multimodal Reasoning",
+        "Other:mathematical reasoning": "Other:Mathematical Reasoning"
+      },
+      "explanation": "Removed 'Image Captioning' as it's not a studied NLG task but rather a component of the multimodal reasoning process. Consolidated duplicate task entries. Removed model variants to keep only main models. Added 'stepwise reasoning' to outputs which is a key generation component."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU",
+          "cosine similarity"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Removed BLEU and cosine similarity as they were used for translation quality assessment during dataset creation, not for evaluating the generated outputs. Only kept Accuracy which is explicitly used to evaluate final answer correctness."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o-mini"
+    ],
+    "methods": [
+      "binary correctness evaluation"
+    ],
+    "criteria": [
+      "format compliance",
+      "answer correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "binary correctness evaluation"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "binary evaluation for correctness and format",
+          "binary correctness prompt",
+          "Evaluation Prompt"
+        ],
+        "criteria": [
+          "target answer correctness"
+        ]
+      },
+      "normalized": {
+        "binary evaluation for correctness and format": "binary correctness evaluation",
+        "target answer correctness": "answer correctness"
+      },
+      "explanation": "Consolidated method descriptions into a single normalized term. Simplified criteria while maintaining accuracy. Kept GPT-4o-mini as the explicit LLM judge used for output evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper. All evaluation is done through automatic metrics and LLM-as-judge approaches."
+    }
+  },
+  "overall_notes": "The paper focuses on enhancing multilingual multimodal reasoning capabilities in MLLMs using a two-stage approach (Multilingual Modality Bridging + Language-Agnostic Reasoning Alignment). Natural language generation is central to the paper through the production of rationales, reasoning steps, and final answers. Evaluation primarily uses accuracy metrics with GPT-4o-mini as an LLM judge for correctness verification. The extraction was generally accurate but needed some normalization and removal of items not directly related to NLG evaluation."
+}

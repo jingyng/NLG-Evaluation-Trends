@@ -1,0 +1,176 @@
+{
+  "paper_id": "2023.emnlp-main.149",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Temporal Question Answering"
+    ],
+    "datasets": [
+      "TEMPTABQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart_base",
+      "bart_large",
+      "t_5_base",
+      "t_5_large",
+      "t_5_xl",
+      "t_5_xxl",
+      "flan_t_5_base",
+      "flan_t_5_large",
+      "flan_t_5_xl",
+      "flan_t_5_xxl",
+      "gpt_3.5",
+      "gpt_4",
+      "palm",
+      "llama_2"
+    ],
+    "outputs": [
+      "text answers to temporal questions about semi-structured tables",
+      "Answers requiring temporal reasoning, numerical calculations, and abstractive generation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Temporal Question Answering"
+        ],
+        "models": [
+          "T5-base",
+          "T5-large",
+          "T5-XXL",
+          "Flan-T5-base",
+          "Flan-T5-large",
+          "Flan-T5-XXL",
+          "BART-base"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "models": [
+          "BART-Large",
+          "T5-XL",
+          "Flan-T5-XL",
+          "Flan-T5-XXL"
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Other:Temporal Question Answering",
+        "BART": "BART-large",
+        "T5": "T5-XL",
+        "Flan-T5": "Flan-T5-XL"
+      },
+      "explanation": "Refined task description to be more specific about temporal QA. Normalized model names to include size variants and added all model variants mentioned in the paper (BART-base/large, T5-base/large/XL/XXL, Flan-T5-base/large/XL/XXL)."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "EXACT MATCH",
+      "ROUGE",
+      "METEOR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "METEOR"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "R1",
+          "R2",
+          "MET",
+          "Rouge-1",
+          "Rouge-2",
+          "Meteor",
+          "Rouge 1",
+          "Rouge 2"
+        ]
+      },
+      "normalized": {
+        "EM": "Exact Match",
+        "R1": "ROUGE-1",
+        "R2": "ROUGE-2",
+        "MET": "METEOR",
+        "Rouge-1": "ROUGE-1",
+        "Rouge-2": "ROUGE-2",
+        "Meteor": "METEOR",
+        "Rouge 1": "ROUGE-1",
+        "Rouge 2": "ROUGE-2"
+      },
+      "explanation": "Normalized all metric variations to standard forms and consolidated duplicates. The paper clearly states these five metrics are used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since LLMs are not used as judges in this paper. The evaluation uses automatic metrics and human annotations, but not LLM-based evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Three annotators validate development and test sets",
+      "Use table information only, avoid external knowledge except common sense",
+      "Provide clear, concise, complete and unambiguous answers and explanations",
+      "Avoid personal opinions or assumptions",
+      "Avoid acronyms or abbreviations",
+      "Consider December 2022 as current date"
+    ],
+    "criteria": [
+      "Accuracy",
+      "Logic"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three annotators validate development and test sets",
+          "Use table information only, avoid external knowledge except common sense",
+          "Provide clear, concise, complete and unambiguous answers and explanations",
+          "Avoid personal opinions or assumptions",
+          "Avoid acronyms or abbreviations",
+          "Consider December 2022 as current date"
+        ],
+        "criteria": [
+          "accuracy",
+          "logical reasoning"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators are instructed to rely solely on the table information, avoiding external knowledge except for common sense reasoning. They are asked to provide clear, concise, complete, and unambiguous answers and explanations. They must refrain from including personal opinions or assumptions and avoid using acronyms or abbreviations."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Extracted and structured the actual human evaluation guidelines from the paper. The text mentions human validation of the development and test sets with specific instructions for annotators, indicating human evaluation was conducted for dataset validation and establishing human performance benchmarks."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on temporal question answering using semi-structured tables. It conducts comprehensive experiments with various models evaluated using automatic metrics. Human evaluation was conducted for dataset validation and establishing baseline performance, but not as the primary evaluation method for model outputs. The extraction was mostly accurate but needed normalization of model names and metric variants."
+}

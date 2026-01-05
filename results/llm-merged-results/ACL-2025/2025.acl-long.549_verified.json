@@ -1,0 +1,170 @@
+{
+  "paper_id": "2025.acl-long.549",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "PKU-SafeRLHF",
+      "HH-RLHF"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Mistral-7B-SFT",
+      "Mistral-7B",
+      "beaver-7b-v1.0-reward",
+      "beaver-7b-v1.0-cost",
+      "LLaMA-7B"
+    ],
+    "outputs": [
+      "Generated responses to user prompts",
+      "Generated assistant responses evaluated for helpfulness and harmlessness"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "beaver-7b-v1.0-reward",
+          "beaver-7b-v1.0-cost"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:content creation"
+        ],
+        "datasets": [],
+        "languages": [
+          "Chinese"
+        ],
+        "models": [
+          "beaver-7b-reward",
+          "beaver-7b-cost"
+        ],
+        "outputs": [
+          "generated responses to prompts"
+        ]
+      },
+      "normalized": {
+        "beaver-7b-reward": "beaver-7b-v1.0-reward",
+        "beaver-7b-cost": "beaver-7b-v1.0-cost"
+      },
+      "explanation": "Removed 'Other:content creation' as it's mentioned in abstract but not actually studied. Removed 'Chinese' as the paper focuses on English datasets. Corrected model names to include full version numbers. Removed redundant output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Helpfulness Score",
+      "Harmlessness Score",
+      "Harmless Ratio",
+      "Average Score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Helpfulness reward score",
+          "Harmlessness reward score",
+          "Harmless.ratio",
+          "GPT-4 win‑rate",
+          "Helpful",
+          "Harmless",
+          "Avg."
+        ]
+      },
+      "normalized": {
+        "Harmless.ratio": "Harmless Ratio",
+        "Helpful": "Helpfulness Score",
+        "Harmless": "Harmlessness Score",
+        "Avg.": "Average Score"
+      },
+      "explanation": "Consolidated redundant metric names and removed GPT-4 win-rate which belongs to LLM-as-judge evaluation, not automatic metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "Pairwise evaluation"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Harmlessness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "Helpfulness",
+          "Harmlessness"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "Accurate Information",
+          "Clarity and Comprehensibility",
+          "Completeness of the Response",
+          "Contextual Understanding",
+          "Creative Problem-Solving",
+          "Depth of Explanation",
+          "Politeness and Professionalism",
+          "Reference to Reliable Sources",
+          "User Engagement",
+          "Animal Abuse",
+          "Child Abuse",
+          "Controversial Topics, Politics",
+          "Discrimination, Stereotype, Injustice",
+          "Drug Abuse, Weapons, Banned Substance",
+          "Financial Crime, Property Crime, Theft",
+          "Hate Speech, Offensive Crime, Theft",
+          "Misinformation Regarding ethics, laws, and safety",
+          "Non-Violent Unethical Behavior",
+          "Privacy Violation",
+          "Self-Harm",
+          "Sexually Explicit, Adult Content",
+          "Terrorism, Organized Crime",
+          "Violence, Aiding, and Abetting, Incitement"
+        ]
+      },
+      "normalized": {
+        "pairwise evaluation": "Pairwise evaluation"
+      },
+      "explanation": "Removed detailed sub-criteria as they are part of the evaluation prompts but the paper only explicitly reports overall 'helpfulness' and 'harmlessness' scores. The detailed criteria are implementation details, not the reported evaluation metrics."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted - only automatic metrics and LLM-as-judge evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on multi-objective alignment of LLMs using GAPO/P-GAPO algorithms. It evaluates dialogue generation tasks using both automatic reward model scores and GPT-4o as a judge. The extraction was generally accurate but included some overly detailed criteria that were not the main reported metrics."
+}

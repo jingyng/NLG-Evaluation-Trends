@@ -1,0 +1,173 @@
+{
+  "paper_id": "2023.emnlp-main.708",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Commonsense Question Answering"
+    ],
+    "datasets": [
+      "OPENBOOKQA",
+      "ARC",
+      "ai2science",
+      "CommonsenseQA",
+      "QASC",
+      "PIQA",
+      "SIQA",
+      "WinoGrande",
+      "com2sense",
+      "SCIQ",
+      "QUAREL",
+      "QUARTZ",
+      "CYCIC",
+      "COMVE",
+      "WINOGRAD SCHEMA CHALLENGE",
+      "COPA",
+      "NUMERSENSE",
+      "PROST",
+      "SWAG",
+      "HellaSwag",
+      "CODAH",
+      "STORY CLOZE TEST",
+      "ALPHANLI"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_based",
+      "t_5_large",
+      "t_5_3b",
+      "t_5_11b",
+      "davinci"
+    ],
+    "outputs": [
+      "Knowledge statements",
+      "Answer predictions for commonsense multiple-choice questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "PIQA",
+          "SIQA",
+          "AlphaNLI"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Knowledge statements"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other: Commonsense Reasoning"
+        ],
+        "datasets": [
+          "PhysicalIQA",
+          "SocialIQA"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "knowledge statements and answers"
+        ]
+      },
+      "normalized": {
+        "PhysicalIQA": "PIQA",
+        "SocialIQA": "SIQA",
+        "αNLI": "AlphaNLI",
+        "knowledge statements and answers": "Knowledge statements"
+      },
+      "explanation": "Consolidated tasks to focus on Question Answering as the primary NLG task applied. Normalized dataset names to their canonical forms (PIQA, SIQA, AlphaNLI). Simplified output descriptions for clarity."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Correctly identified 'accuracy' as the primary automatic metric. Normalized capitalization."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Correctly identified that no LLM-as-judge evaluation was performed. The paper uses self-feedback for *training* (via RL), not for *post-hoc evaluation* of generated outputs by an LLM."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators evaluated the relationship between the generated knowledge and the final prediction by selecting one label from a predefined set: 'Support', 'Trivial', 'Repeat', 'Related', 'Unrelated', 'Contradict'."
+    ],
+    "criteria": [
+      "Support",
+      "Trivial",
+      "Repeat",
+      "Related",
+      "Unrelated",
+      "Contradicted"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators evaluated the relationship between the generated knowledge and the final prediction by selecting one label from a predefined set: 'Support', 'Trivial', 'Repeat', 'Related', 'Unrelated', 'Contradict'."
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators choose one of the following labels: Support, Trivial, Repeat, Related, Unrelated, Contradict.",
+          "Annotators were instructed to label each example with the relationship category (Support, Trivial, Repeat, Related, Unrelated, Contradict) between the generated knowledge and the model's prediction.",
+          "For each example, the annotator chooses one of the following labels: Support, Trivial, Repeat, Related, Unrelated, Contradict"
+        ],
+        "criteria": [
+          "support",
+          "trivial",
+          "repeat",
+          "related",
+          "unrelated",
+          "contradict"
+        ]
+      },
+      "normalized": {
+        "support": "Support",
+        "trivial": "Trivial",
+        "repeat": "Repeat",
+        "related": "Related",
+        "unrelated": "Unrelated",
+        "contradict": "Contradict"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into a single, clear statement. Normalized the criteria labels to title case. Removed duplicate and lowercase versions of the criteria."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The main corrections involved normalizing dataset and criterion names, and clarifying the distinction between using LLM-generated feedback for Reinforcement Learning (which the paper does) and using an LLM as a post-hoc judge (which it does not). The paper's primary NLG tasks are generating knowledge statements and answer predictions for Commonsense QA."
+}

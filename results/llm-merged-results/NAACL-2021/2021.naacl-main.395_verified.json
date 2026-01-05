@@ -1,0 +1,119 @@
+{
+  "paper_id": "2021.naacl-main.395",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Text Simplification"
+    ],
+    "datasets": [
+      "Cochrane Database of Systematic Reviews"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART"
+    ],
+    "outputs": [
+      "Simplified plain-language summaries",
+      "Paragraph-level simplified medical texts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Simplification"
+        ],
+        "outputs": [
+          "Paragraph-level simplified medical texts"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ]
+      },
+      "normalized": {
+        "Cochrane abstracts & plain-language summaries": "Cochrane Database of Systematic Reviews"
+      },
+      "explanation": "Removed 'Paraphrase Generation' as it's not the primary task (simplification is broader). Added 'Text Simplification' as the main task. Normalized dataset name and added more accurate output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Flesch-Kincaid",
+      "Automated Readability Index",
+      "SciBERT masked probability",
+      "SARI",
+      "BLEU",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "ARI"
+        ]
+      },
+      "normalized": {
+        "Automated Readability Index": "Automated Readability Index",
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Removed 'ARI' as duplicate of 'Automated Readability Index'. Normalized ROUGE variants to base form 'ROUGE'."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The paper uses SciBERT for scoring technicality, but this is an automatic metric, not an LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual examination of generated outputs noting text length, readability, coherence, presence of hallucinated information, repetition, and misspelling"
+    ],
+    "criteria": [
+      "text length",
+      "readability",
+      "coherence",
+      "hallucination",
+      "repetition",
+      "misspelling",
+      "information completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "information completeness"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "length",
+          "hallucinated information",
+          "misspelled words"
+        ]
+      },
+      "normalized": {
+        "hallucinated information": "hallucination",
+        "misspelled words": "misspelling"
+      },
+      "explanation": "Consolidated duplicate criteria (length → text length, hallucinated information → hallucination, misspelled words → misspelling). Added 'information completeness' which was mentioned in the human evaluation."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on paragraph-level medical text simplification using BART models. Key contributions include a new dataset from Cochrane reviews, a SciBERT-based technicality metric, and unlikelihood training to reduce jargon. Human evaluation was qualitative manual inspection rather than formal rating scales."
+}

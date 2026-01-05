@@ -1,0 +1,89 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "the generation module provides LLMs with a special prompt and requires LLMs to generate exploits in a specific format",
+            "We evaluate different LLMs on pwn benchmark... We analyze the result and find that LLMs demonstrate strong information analysis and coding capabilities but are not adept at vulnerability location and complex exploit chain construction.",
+            "In this work, we explore how to improve the ability and efficiency of exploit generation through LLMs, thereby deepening the understanding of vulnerability mechanisms and promoting the improvement of defence measures."
+        ],
+        "tasks": [
+            "Code Generation"
+        ],
+        "datasets": [
+            "github",
+            "CTF Wiki",
+            "CTFHub",
+            "BUUCTF",
+            "blogs",
+            "pwn benchmark",
+            "pwn benchmark based on Binary Exploitation challenges in CTF competitions"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "qwen-plus",
+            "qwen-max",
+            "o1-preview",
+            "GPT-4o",
+            "OpenAI o1-preview",
+            "OpenAI o1"
+        ],
+        "outputs": [
+            "exploit code in a specific format (introduction, imports, code)",
+            "exploit code (binary exploitation scripts)",
+            "exploit code for binary vulnerabilities"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "the verification module tests the generated exploit against the target and provides error feedback",
+            "The number of successful exploits of each LLM is shown... PwnGPT significantly improves exploit completion rates across multiple models: from 26.3% to 57.9% ..."
+        ],
+        "automatic_metrics": [
+            "Execution Success Rate",
+            "exploit success rate",
+            "percentage of successful exploits"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "If an exploit attempt fails, the module analyzes the execution information using LLMs and gets the reflection on the error",
+            "If an exploit attempt fails, the module analyzes the execution information using LLMs and gets the reflection on the error. Subsequently, it requests LLMs to modify the exploit based on the reflection."
+        ],
+        "models": [
+            "qwen-plus",
+            "qwen-max",
+            "o1-preview",
+            "GPT-4o",
+            "OpenAI o1"
+        ],
+        "methods": [
+            "error analysis and reflection",
+            "error reflection and modification"
+        ],
+        "criteria": [
+            "correctness",
+            "feasibility"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We invite 5 pwn experts to independently analyze our results",
+            "We invite 5 pwn experts to independently analyze our results. They adopt a unified standard in advance, and if three or more experts believe it meets the standard, the result is considered correct.",
+            "We invite 5 pwn experts to independently analyze our results. They adopt a unified standard in advance, and if three or more experts believe it meets the standard, the result is considered correct."
+        ],
+        "guideline": [
+            "Experts judged whether the exploit met a unified standard for correctness, ignoring specific errors like input/output format issues, stack offsets, and missing 'RET' instructions",
+            "Experts compare generated exploits against a unified standard; a result is considered correct if a majority of experts agree.",
+            "Experts determine the result by running and analyzing the output code. They ignore some errors: input and output format errors, offset errors about the stack, and missing 'RET' instruction for byte alignment."
+        ],
+        "criteria": [
+            "correctness",
+            "practicability"
+        ]
+    }
+}

@@ -1,0 +1,155 @@
+{
+  "paper_id": "2025.emnlp-main.626",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Travel Plan Generation"
+    ],
+    "datasets": [
+      "TP RAG"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "gpt_4o",
+      "qwen_2.5_72b_instruct",
+      "llama_3.3_70b_instruct",
+      "deepseek_r_1"
+    ],
+    "outputs": [
+      "multi-day travel plans with attraction POIs and scheduled visit times in JSON format"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Travel Itinerary Generation",
+          "Other:Travel Planning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LLaMA3.3-70B"
+        ],
+        "outputs": [
+          "Travel itineraries consisting of daily schedules with POI names, start/end times, and semantic descriptions",
+          "travel plans with daily tourist activities, POI names, start and end times"
+        ]
+      },
+      "normalized": {
+        "Deepseek-R1": "DeepSeek-R1"
+      },
+      "explanation": "Consolidated similar task descriptions into single canonical form, removed model variation without '-Instruct' suffix, merged redundant output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "FAILURE RATE FR",
+      "REPETITION RATE",
+      "DISTANCE MARGIN RATIO DMR",
+      "DURATION UNDERFLOW RATIO DUR",
+      "TIME BUFFER RATIO TBR",
+      "POI POPULARITY PP"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "POI Relevance",
+          "Time Schedule Relevance",
+          "STR",
+          "DUR",
+          "TBR",
+          "PP",
+          "FR",
+          "RR",
+          "DMR"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed duplicate metric names and metrics that are LLM-evaluated (POI Relevance, Time Schedule Relevance). Kept only canonical full names of automatic metrics explicitly listed in the paper section describing automatic evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "qwen_2.5_72b_instruct"
+    ],
+    "methods": [
+      "LLM-as-a-Judge"
+    ],
+    "criteria": [
+      "Rationality",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4o"
+        ],
+        "methods": [
+          "prompt-based evaluation",
+          "LLM‑as‑a‑Judge prompting"
+        ],
+        "criteria": [
+          "STR",
+          "PR",
+          "TSR"
+        ]
+      },
+      "normalized": {
+        "LLM-as-a-Judge": "LLM-as-a-Judge"
+      },
+      "explanation": "Removed GPT-4o as it's used for generation not evaluation, consolidated method descriptions, used full criterion names instead of abbreviations"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Same instructions as used for LLM evaluators for STR, PR, and TSR metrics"
+    ],
+    "criteria": [
+      "Rationality",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Same instructions as used for LLM evaluators for STR, PR, and TSR metrics"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "STR",
+          "PR",
+          "TSR"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Added proper guideline description based on paper text, used full criterion names instead of abbreviations"
+    }
+  },
+  "overall_notes": "The extraction was mostly accurate but contained some redundancy and inconsistencies. The paper clearly evaluates NLG for travel planning using both automatic metrics and LLM/human evaluation. Normalized naming conventions and removed duplicate/incorrect entries."
+}

@@ -1,0 +1,156 @@
+{
+  "paper_id": "2022.naacl-main.334",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "OpenSubtitles",
+      "IWSLT 2014"
+    ],
+    "languages": [
+      "German",
+      "English"
+    ],
+    "models": [
+      "Transformer",
+      "ACQ",
+      "Async-ACQ",
+      "A2C",
+      "A3C",
+      "Actor-Critic"
+    ],
+    "outputs": [
+      "machine-generated translations",
+      "generated target-language sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Actor-Critic"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "German‑English OpenSubtitles",
+          "IWSLT 2014 German‑English",
+          "IWSLT 2014 German-English"
+        ],
+        "languages": [],
+        "models": [
+          "SURF",
+          "OpenAI GPT Language Model (Hugging Face)",
+          "Sentence Transformers (XLM‑RoBERTa)"
+        ],
+        "outputs": [
+          "Generated translations in English from German source sentences"
+        ]
+      },
+      "normalized": {
+        "Actor‑Critic (AC)": "Actor-Critic",
+        "ME-TEOR": "METEOR"
+      },
+      "explanation": "Removed dataset variants that were redundant (same dataset with different formatting), removed SURF (reward function, not model) and pre-trained models (used for evaluation, not generation). Added Actor-Critic as a general model category. Normalized metric name."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Sentence Fluency",
+          "Token‑level Semantic Similarity (TLSS)",
+          "Sentence‑level Semantic Similarity (SLSS)",
+          "BERTScore",
+          "Token-level Semantic Similarity (TLSS)",
+          "Sentence-level Semantic Similarity (SLSS)",
+          "ME‑TEOR"
+        ]
+      },
+      "normalized": {
+        "ME‑TEOR": "METEOR"
+      },
+      "explanation": "Removed Sentence Fluency, TLSS, and SLSS as these are components of the SURF reward function itself, not independent automatic metrics used to evaluate the final outputs. BERTScore is mentioned in the appendix but not used for main results. Kept only BLEU and METEOR which are standard MT evaluation metrics applied to the final outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "OpenAI GPT",
+          "XLM RoBERTa",
+          "OpenAI GPT Language Model (Hugging Face)",
+          "Sentence Transformers (XLM‑RoBERTa)"
+        ],
+        "methods": [
+          "Sentence Fluency scoring",
+          "Semantic Similarity scoring",
+          "fluency scoring via log‑likelihood",
+          "semantic similarity via cross‑lingual embeddings"
+        ],
+        "criteria": [
+          "fluency",
+          "adequacy",
+          "semantic similarity (adequacy)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses pre-trained models (GPT, XLM-RoBERTa) as components to compute the SURF reward function DURING training/reinforcement learning, not as judges AFTER generation to evaluate the final outputs. This does not fit the definition of 'LLM-as-judge' which requires using an LLM post-hoc for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "A rank of quality is assigned by the human evaluator from 1 to 3, allowing ties. Each system was assigned a score reflecting how often it was judged better or equal to others."
+    ],
+    "criteria": [
+      "fluency",
+      "adequacy",
+      "overall quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "overall quality"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- A rank of quality is assigned by the human evaluator (second author, fluent speaker of both English and German) from 1 to 3, allowing ties.",
+          "Human raters assign a quality rank (1–3) to each translation, allowing ties; rankings reflect overall translation quality."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline descriptions into one clear statement. Added 'overall quality' as an implicit criterion based on the ranking task. The evaluation was conducted by the second author (a fluent speaker) ranking outputs from multiple systems."
+    }
+  },
+  "overall_notes": "The paper focuses on improving Machine Translation using Reinforcement Learning with a novel unsupervised reward function (SURF). The extraction was generally good but over-included components of the reward function as evaluation metrics. The key correction was for Q3: the pre-trained models are used to compute rewards during training, not as post-hoc judges."
+}

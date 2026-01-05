@@ -1,0 +1,129 @@
+{
+  "paper_id": "2025.acl-long.818",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Spoken Question Answering"
+    ],
+    "datasets": [
+      "VoxEval",
+      "MMLU"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "SpeechGPT",
+      "TWIST",
+      "SPIRIT-LM",
+      "Moshi",
+      "GLM-4-Voice"
+    ],
+    "outputs": [
+      "Spoken responses (audio)",
+      "Spoken answers converted to text for evaluation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering",
+          "Dialogue Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "spoken responses in audio format"
+        ]
+      },
+      "normalized": {
+        "Other:Spoken Question Answering": "Spoken Question Answering",
+        "spoken answers (audio) converted to text for evaluation": "Spoken answers converted to text for evaluation"
+      },
+      "explanation": "Removed 'Dialogue Generation' as the paper focuses on question answering, not dialogue. Removed redundant output description. Normalized task name."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "Word Error Rate (WER)",
+      "Character Error Rate (CER)",
+      "String matching"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "string matching accuracy",
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "string matching": "String matching"
+      },
+      "explanation": "Removed duplicate 'accuracy' entry and normalized metric names to standard forms."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "LLM-based answer extraction"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4o"
+        ],
+        "methods": [
+          "LLM-based answer extraction"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "answer extraction"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'Yes' because GPT-4o is explicitly used to extract answers from SLM responses when string matching fails (Table 8 and Appendix G). Added proper description of the method."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted - all evaluation is automated using ASR and string matching/LLM extraction."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating spoken language models through automated metrics. The extraction was mostly accurate but missed that GPT-4o was used as an evaluator (LLM-as-judge) for answer extraction in certain cases. The paper evaluates speech generation capabilities but focuses on knowledge understanding rather than pure NLG quality."
+}

@@ -1,0 +1,117 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "For each question, we sample 16 candidate reasoning traces",
+            "For each question, we sample 16 candidate reasoning traces and filter out traces with fewer than three or more than nine reasoning steps ... Our method employs a RAG-AS-A-JUDGE approach to perform stepwise evaluation conditioned on both the clinical question and retrieved medical documents.",
+            "Clinical decision making (CDM) is a complex, multi-step process involving the assessment of patient symptoms, retrieval of relevant clinical evidence, and formulation of diagnostic and treatment strategies."
+        ],
+        "tasks": [
+            "Other:Medical Question Answering",
+            "Other:Medical QA",
+            "Other:Clinical Decision Making"
+        ],
+        "datasets": [
+            "MedQA",
+            "MedMCQA",
+            "PubMedQA",
+            "MMLU",
+            "DDXPlus",
+            "AgentClinic*",
+            "MMLU-Med",
+            "AgentClinic"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Llama3.1-8B-Instruct",
+            "Gemma2",
+            "Ministral",
+            "Meerkat-8B",
+            "UltraMedical-8B",
+            "Llama-3.1-8B-Instruct",
+            "Gemini-2.0-flash",
+            "Med-PRM",
+            "GPT-4o-mini",
+            "GPT-3.5 turbo",
+            "DeepSeek-R1",
+            "QwQ",
+            "Sky-T1",
+            "R1-Distill-Llama",
+            "R1-Distill-Qwen",
+            "Marco-o1",
+            "TX-Gemma",
+            "Meditron3",
+            "Meerkat",
+            "UltraMedical",
+            "HuatuoGPT-o1"
+        ],
+        "outputs": [
+            "Step-by-step reasoning traces and final diagnostic answers",
+            "stepwise reasoning traces and final answer selections",
+            "reasoning traces, diagnostic answers, treatment strategies"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Med-PRM achieves state-of-the-art performance across six out of seven medical QA benchmarks",
+            "Med-PRM achieves average accuracy of 72.59% (Best-of-N) and 73.50% (SC+RM) across seven medical benchmarks, outperforming existing baselines.",
+            "We evaluate Med-PRM on MedQA (4 and 5 options), MedMCQA (validation set), six medical MMLU subsets , and two open-ended AgentClinic variants  based on NEJM and MedQA. AgentClinic adopts an open-ended format and is evaluated using Gemini-2.0-flash."
+        ],
+        "automatic_metrics": [
+            "accuracy",
+            "Pearson correlation"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "We use RAG-AS-A-JUDGE with a labeling strategy... To evaluate responses in open-ended settings, we adopted an LLM-as-a-judge framework (Gemini-2.0-flash)",
+            "We utilized the Gemini-2.0-flash model via the Google Generative AI API. The model was employed as a RAG-AS-A-JUDGE, specifically for generating training labels for the PRM and for scoring responses in the AgentClinic benchmark.",
+            "We utilized the Gemini-2.0-flash model via the Google Generative AI API. The model was employed as a RAG-AS-A-JUDGE, specifically for generating training labels for the PRM and for scoring responses in the AgentClinic benchmark."
+        ],
+        "models": [
+            "Gemini-2.0-flash",
+            "Med-PRM (LLM reward model)"
+        ],
+        "methods": [
+            "stepwise binary classification",
+            "binary correctness scoring",
+            "RAG-AS-A-JUDGE scoring",
+            "best-of-N selection",
+            "self-consistency plus reward model (SC+RM)",
+            "RAG-AS-A-JUDGE",
+            "LLM-as-a-Judge for stepwise supervision",
+            "binary classification of reasoning steps",
+            "scoring responses in open-ended format"
+        ],
+        "criteria": [
+            "logical coherence",
+            "based on medical evidence",
+            "correctness",
+            "stepwise correctness",
+            "factual accuracy",
+            "problem-solving relevance"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "Through in-depth qualitative analysis and collaboration with medical experts... each of the two medical students independently annotated all reasoning steps... adjudicated by the physician",
+            "The evaluation was conducted by one physician with four years of clinical experience and two senior medical students. Each of the two medical students independently annotated all reasoning steps, and all annotations ... were subsequently reviewed and adjudicated by the physician.",
+            "The evaluation was conducted by one physician with four years of clinical experience and two senior medical students. Each of the two medical students independently annotated all reasoning steps, and all annotations—including those with disagreements—were subsequently reviewed and adjudicated by the physician."
+        ],
+        "guideline": [
+            "Provide a critical evaluation of each step based on: Factual Accuracy, Problem-Solving Relevance, Logical Coherence. Assign 1 or 0 points to each step.",
+            "The evaluation followed the guidelines described below, assessing factual accuracy, problem‑solving relevance, and logical coherence for each reasoning step.",
+            "The following content presents a stepwise explanation of a medical problem. Provide a critical evaluation of each step based on an integrated assessment of the following criteria. -Factual Accuracy: Does the step accurately reflect established medical knowledge? Are there any inconsistencies or factual inaccuracies? -Problem-Solving Relevance: Does the step contribute meaningfully to solving the problem? Does it avoid diverging into irrelevant or tangential reasoning? -Logical Coherence: Is the reasoning based on appropriate medical knowledge and logically consistent within the clinical context? -Assign 1 or 0 points to each step."
+        ],
+        "criteria": [
+            "Factual Accuracy",
+            "Problem-Solving Relevance",
+            "Logical Coherence"
+        ]
+    }
+}

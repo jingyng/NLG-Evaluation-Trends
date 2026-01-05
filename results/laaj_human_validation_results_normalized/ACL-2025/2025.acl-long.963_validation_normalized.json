@@ -1,0 +1,120 @@
+{
+  "paper_id": "2025.acl-long.963",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM safety judgments against human annotations on a subset of 300 dialogue instances, reporting consistency scores for each annotator."
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "gpt_4o",
+      "SFT-LLM"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper provides detailed prompts for response safety judgment, strategy extraction, clustering, and cognitive reasoning processes in appendices A.1-A.5"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage_agreement",
+      "value": null,
+      "interpretation": "Not explicitly interpreted",
+      "per_criterion": [
+        {
+          "criterion": "safety_consistency",
+          "metric": "percentage_agreement",
+          "value": "95.54%"
+        },
+        {
+          "criterion": "safety_consistency",
+          "metric": "percentage_agreement",
+          "value": "95.90%"
+        },
+        {
+          "criterion": "safety_consistency",
+          "metric": "percentage_agreement",
+          "value": "96.43%"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluators used a questionnaire shown in Appendix F.2 to annotate safety judgments and consistency between prompts and construction information"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "percentage_agreement"
+    ],
+    "shared_criteria": [
+      "safety"
+    ],
+    "sample_size": {
+      "total_generated": 1790,
+      "validated_by_both": 300,
+      "notes": "Validation conducted on a random subset of 300 dialogue instances from the total 1,790 instances per category"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "percentage_agreement",
+        "value": 95.54,
+        "criterion": "Safety",
+        "llm_model": "gpt_4o",
+        "significance": "not_reported",
+        "notes": "Annotator 1 consistency score"
+      },
+      {
+        "metric": "percentage_agreement",
+        "value": 95.9,
+        "criterion": "Safety",
+        "llm_model": "gpt_4o",
+        "significance": "not_reported",
+        "notes": "Annotator 2 consistency score"
+      },
+      {
+        "metric": "percentage_agreement",
+        "value": 96.43,
+        "criterion": "Safety",
+        "llm_model": "gpt_4o",
+        "significance": "not_reported",
+        "notes": "Annotator 3 consistency score"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "high",
+      "threshold_used": "Not explicitly specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM safety judgments show high consistency (95.54%-96.43%) with human annotations, demonstrating reliable evaluation results, though a minimal gap between human annotations remains."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "response_judgment",
+      "prompt_generation",
+      "cognitive_reasoning"
+    ],
+    "human_only_criteria": [
+      "prompt_safety",
+      "consistency_with_construction_information",
+      "strategy_tree_quality"
+    ],
+    "shared_criteria": [
+      "Safety"
+    ],
+    "notes": "Human evaluation assessed additional aspects including prompt consistency with category/scenario/strategy, while LLM focused on safety judgment and dynamic evaluation generation"
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "paper_id": "2025.naacl-long.614",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Highlight Generation"
+    ],
+    "datasets": [
+      "HIGHLIGHT GENERATION",
+      "AMAZON BEAUTY",
+      "AMAZON TOY",
+      "MOVIE REVIEWS",
+      "EMAIL SPAM",
+      "CENSUS INCOME",
+      "HEART DISEASE",
+      "COMPREHENSIVE READING",
+      "SPAM DETECTION",
+      "AMAZON REVIEW SENTIMENT",
+      "ARTICLE SUMMARIZATION",
+      "HEART ATTACK DETECTION"
+    ],
+    "languages": [
+      "English",
+      "French",
+      "German",
+      "Japanese",
+      "Chinese",
+      "Spanish"
+    ],
+    "models": [
+      "gpt_4_turbo",
+      "gemini_1.5_pro",
+      "claude_3.5_sonnet",
+      "gemini_1.0_pro",
+      "llama_3.1_8b",
+      "gemma_2b"
+    ],
+    "outputs": [
+      "Generated highlights from obfuscated articles",
+      "Recommendation lists from obfuscated user histories",
+      "Classification decisions from obfuscated inputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [
+          "Heart Attack Detection"
+        ],
+        "models": [
+          "Gemma (2B)"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Recommendation"
+        ],
+        "datasets": [
+          "Highlight Generation dataset",
+          "Heart Attack (Spanish)"
+        ],
+        "models": [
+          "Gemini-1.5",
+          "Claude-3.5",
+          "Gemini-1.5 Pro"
+        ]
+      },
+      "normalized": {
+        "Other:Highlight Generation": "Text Summarization",
+        "Spam Detection (French/German)": "Spam Detection",
+        "Amazon Review Sentiment (Japanese)": "Amazon Review Sentiment",
+        "Article Summarization (Chinese)": "Article Summarization",
+        "Heart Attack (Spanish)": "Heart Attack Detection",
+        "Gemini 1.0 Pro": "Gemini 1.0 Pro",
+        "Llama 3.1 (8B)": "Llama 3.1 (8B)"
+      },
+      "explanation": "Removed 'Recommendation' as it's not NLG, normalized dataset names, added missing models, clarified that only Highlight Generation is the main NLG task with other tasks being understanding/classification"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "HIT",
+      "ACCURACY",
+      "BALANCED ACCURACY",
+      "COSINE SIMILARITY",
+      "ROUGE",
+      "METEOR",
+      "BERTSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "hit@10",
+          "acc",
+          "bacc",
+          "cos",
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "ROUGE (1, 2, and L)"
+        ]
+      },
+      "normalized": {
+        "Hit@10": "Hit@10",
+        "Accuracy": "Accuracy",
+        "Balanced Accuracy": "Balanced Accuracy",
+        "Cosine Similarity": "Cosine Similarity",
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "METEOR": "METEOR",
+        "BERTScore": "BERTScore"
+      },
+      "explanation": "Normalized metric variants to base forms (e.g., ROUGE-1/2/L → ROUGE), removed duplicates and abbreviations"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4 Turbo",
+          "Gemini 1.5 Pro",
+          "Claude 3.5 Sonnet"
+        ],
+        "methods": [
+          "recovery attack simulation",
+          "semantic and token-level similarity assessment"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all items as the paper does NOT use LLMs as judges - LLMs are used for generation and recovery attacks, but not for evaluating quality of generated outputs"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human recoverers identify original items from lists based on obfuscation",
+      "Human recoverers reconstruct original reviews from obfuscated versions"
+    ],
+    "criteria": [
+      "Accuracy",
+      "Similarity",
+      "Rouge",
+      "Meteor"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Human recoverers were asked to identify the original item from a list based on its obfuscation (identification task) and to reconstruct original reviews from obfuscated versions (recovery task). Scores such as identification rate, Cosine Similarity, ROUGE, and METEOR were computed.",
+          "For the Item Identification test, recoverers were asked to identify the correct item from a 500-item list based on its obfuscation. For the Review Recovery test, human recoverers were asked to recover the original review from the obfuscated version."
+        ],
+        "criteria": [
+          "identification accuracy",
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "item identification accuracy"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Simplified guideline descriptions and normalized criteria by removing duplicates and metric variants"
+    }
+  },
+  "overall_notes": "The paper is primarily about privacy-preserving obfuscation (EmojiPrompt) with NLG evaluation as a secondary application. The main NLG task is Highlight Generation (text summarization), while other tasks are understanding/classification. Human evaluation focuses on privacy/security (recovery attacks) rather than quality assessment of generated text."
+}

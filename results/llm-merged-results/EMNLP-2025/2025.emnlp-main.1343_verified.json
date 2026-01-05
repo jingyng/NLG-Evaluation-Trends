@@ -1,0 +1,130 @@
+{
+  "paper_id": "2025.emnlp-main.1343",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Controlled Sentence Generation",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "PAWS",
+      "GPTP"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART",
+      "sentence-t5-large",
+      "all-mpnet-base-v2",
+      "SGPT-125M"
+    ],
+    "outputs": [
+      "Transformed sentences (foils) generated from input sentences via AMR transformations",
+      "Transformed sentences that differ in meaning while remaining fluent"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text manipulation for meaning transformation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BART-based generator"
+        ],
+        "outputs": [
+          "The snake bites the tiger. The tiger bites the snake. The big tiger doesn't bite the snake."
+        ]
+      },
+      "normalized": {
+        "Other:Controlled Sentence Generation": "Other:Controlled Sentence Generation",
+        "Paraphrase Generation": "Paraphrase Generation"
+      },
+      "explanation": "Removed 'Other:Text manipulation for meaning transformation' as it duplicates the main task. Removed 'BART-based generator' since it's not a specific model name. Removed specific example sentences from outputs as they are too detailed. Kept semantic graph manipulation as the core NLG approach."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "NLI-based faithfulness score",
+      "Triplet Accuracy",
+      "AUC",
+      "Jaccard similarity",
+      "Spearman's rank correlation"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "NLI contradiction confidence",
+          "T ACC"
+        ]
+      },
+      "normalized": {
+        "Triplet Accuracy (T_ACC)": "Triplet Accuracy",
+        "Area Under Curve (AUC)": "AUC",
+        "Spearman's rank correlation coefficient": "Spearman's rank correlation"
+      },
+      "explanation": "Normalized metric names to standard forms. Removed 'NLI contradiction confidence' as it's part of the NLI-based faithfulness system. Removed 'T ACC' duplicate in favor of 'Triplet Accuracy'."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges for evaluation. The paper explicitly contrasts their approach with LLM-based methods."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators were asked: (1) Does the meaning of sentence B differ from that of sentence A? (no/yes) and (2) Given sentence A, is the fluency of sentence B worse, about the same, or improved?"
+    ],
+    "criteria": [
+      "meaning difference",
+      "fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "First, Does the meaning of sentence B differ from that of sentence A (no, or yes)? Second, we wonder about the fluency of the final generation: Given sentence A, is the fluency of sentence B worse, about the same, or improved?"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant guideline descriptions into a single clear statement. Criteria remained accurate as extracted."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper presents a controlled text generation framework (Sentence Smith) that uses semantic graph manipulation for generating meaning-transformed sentences, primarily for evaluating text embedding models. The NLG aspect is central to the contribution."
+}

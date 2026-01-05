@@ -1,0 +1,137 @@
+{
+  "paper_id": "2025.emnlp-main.1083",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Test Case Generation"
+    ],
+    "datasets": [
+      "PUBLIC RED TEAMING DATASET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_base",
+      "blenderbot_3b",
+      "dolly_v_2_7b",
+      "vicuna_7b_v_1.5",
+      "gpt_3.5_turbo",
+      "llama_2_7b_chat",
+      "qwen_2.5_7b_instruct",
+      "deepseek_r_1_distill_qwen_7b"
+    ],
+    "outputs": [
+      "generated test cases for eliciting unsafe responses from victim LLMs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other: Test Case Generation"
+        ],
+        "models": [
+          "GPT-3.5-turbo"
+        ],
+        "outputs": [
+          "generated test cases for eliciting unsafe responses from victim LLMs"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation"
+        ],
+        "datasets": [
+          "Red teaming dataset (conversations between humans and an AI assistant)"
+        ],
+        "models": [
+          "T5-base (base model for NDR)",
+          "GPT-3.5"
+        ],
+        "outputs": [
+          "Generated test cases for eliciting unsafe responses",
+          "Generated test cases (red‑team prompts) used to attack victim LLMs"
+        ]
+      },
+      "normalized": {
+        "Other:Test Case Generation": "Other: Test Case Generation",
+        "T5-base (base model for NDR)": "T5-base"
+      },
+      "explanation": "Removed 'Dialogue Generation' as the paper focuses on test case generation rather than dialogue generation. Consolidated datasets and standardized model names. Removed redundant outputs descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ATTACK SUCCESS RATE ASR",
+      "BLEU",
+      "BERTSCORE",
+      "PERPLEXITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BERTScore"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Self-BLEU",
+          "PPL"
+        ]
+      },
+      "normalized": {
+        "Perplexity (PPL)": "Perplexity"
+      },
+      "explanation": "Normalized metrics to base forms ('PPL' to 'Perplexity'), removed duplicates ('Self-BLEU' duplicates 'BLEU'), and added missing metric 'BERTScore'."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT-2-large"
+        ],
+        "methods": [
+          "compute perplexity"
+        ],
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "GPT-2-large is used only to compute perplexity for fluency measurement, not as a direct evaluator, so removed all metadata."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "validate the effectiveness of the classifier BAD and the performances of red teaming methods"
+    ],
+    "criteria": [
+      "Safety",
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Fluency"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "fluency": "Fluency"
+      },
+      "explanation": "Added missing criterion 'Fluency' based on human evaluation context and normalized capitalization."
+    }
+  },
+  "overall_notes": "The paper focuses on generating test cases as NLG output but uses them for red teaming. Automated metrics like ASR are central, but some normalization was needed for consistency."
+}

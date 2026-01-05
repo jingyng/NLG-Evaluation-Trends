@@ -1,0 +1,160 @@
+{
+  "paper_id": "2024.naacl-long.171",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Task Oriented Text Generation",
+      "Classification Instruction Following",
+      "Toxic Text Generation",
+      "Abstention Attack"
+    ],
+    "datasets": [
+      "SST 2",
+      "HATE SPEECH",
+      "TWEET EMOTION",
+      "TREC COARSE",
+      "ANLI",
+      "RTE",
+      "CB",
+      "WIC",
+      "WSC",
+      "COPA",
+      "HellaSwag",
+      "PAWS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "flan_t_5",
+      "llama_2",
+      "gpt_2"
+    ],
+    "outputs": [
+      "Generated classification labels for tasks like sentiment analysis, hate speech detection, emotion recognition, and question classification",
+      "Generated toxic text strings",
+      "Generated abstention responses",
+      "Generated target label predictions regardless of actual input content"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other: Task-oriented Text Generation",
+          "Other: Classification Instruction Following",
+          "Other: Toxic Text Generation",
+          "Other: Abstention Attack"
+        ],
+        "datasets": [
+          "ANLI",
+          "RTE",
+          "CB",
+          "WiC",
+          "WSC",
+          "CoPA",
+          "HellaSwag",
+          "PAWS"
+        ],
+        "outputs": [
+          "Generated toxic text strings",
+          "Generated abstention responses",
+          "Generated target label predictions regardless of actual input content"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other: Sentiment Analysis",
+          "Other: Hate Speech Detection",
+          "Other: Emotion Recognition",
+          "Other: Question Classification",
+          "Other:instruction-tuned generative tasks"
+        ],
+        "datasets": [
+          "TREC coarse"
+        ],
+        "outputs": [
+          "The act is still charming here. Model . . . SST-2 Please read... I had numerous problems with this film ... ) , The act is still charming here."
+        ]
+      },
+      "normalized": {
+        "Other:instruction-tuned generative tasks": "Other: Task-oriented Text Generation",
+        "TREC coarse": "TREC Coarse"
+      },
+      "explanation": "The extracted tasks were too specific to classification; the paper actually studies generative instruction-following models. Added additional datasets mentioned in poison transfer evaluation. Removed irrelevant output text that appeared to be example text rather than actual generated outputs. Focused on the generative nature of the instruction-tuned models being studied."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ASR",
+      "CACC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Attack Success Rate (ASR)",
+          "Clean Accuracy (CACC)"
+        ]
+      },
+      "normalized": {
+        "Attack Success Rate (ASR)": "ASR",
+        "Clean Accuracy (CACC)": "CACC"
+      },
+      "explanation": "Normalized metric names to their abbreviated forms as they are consistently referred to in the paper. The extracted metrics were correct but included full names; simplified to standard abbreviations used throughout the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values. The paper does not use LLMs as judges to evaluate generated outputs; it only uses LLMs as generation models or for creating poisoned instructions (ChatGPT), not for post-generation evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values. The paper does not conduct human evaluations of generated outputs; all evaluations are automatic using ASR and CACC metrics."
+    }
+  },
+  "overall_notes": "This paper studies backdoor vulnerabilities in instruction-tuned language models, focusing on how malicious instructions can manipulate model behavior. While the primary tasks involve classification (sentiment analysis, hate speech detection, etc.), the paper examines generative models (FLAN-T5, LLaMA2, GPT-2) that generate text outputs based on instructions. The paper uses automatic evaluation metrics (ASR and CACC) but does not employ human evaluation or LLM-as-judge evaluation. The extraction was generally accurate for the binary answers but needed refinement in task categorization and dataset coverage."
+}

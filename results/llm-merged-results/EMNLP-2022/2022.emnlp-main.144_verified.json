@@ -1,0 +1,184 @@
+{
+  "paper_id": "2022.emnlp-main.144",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Text Summarization",
+      "Dialogue Generation",
+      "Other:Prompt Completion",
+      "Other:Keyword-controlled Generation",
+      "Other:Sentiment-controlled Generation",
+      "Other:Toxicity Avoidance"
+    ],
+    "datasets": [
+      "CommonGen",
+      "ROC Stories",
+      "WMT17 English-German",
+      "SST-2",
+      "Yelp Polarity",
+      "Jigsaw Unintended Bias in Toxicity Classification",
+      "IATE EU Terminology Database"
+    ],
+    "languages": [
+      "English",
+      "German"
+    ],
+    "models": [
+      "GPT-2 Large",
+      "GPT-2 XL",
+      "RoBERTa-base",
+      "Transformer-based English-German Translation Model"
+    ],
+    "outputs": [
+      "Controlled text sequences for toxicity avoidance",
+      "Sentiment-controlled continuations",
+      "Keyword-guided generations",
+      "Terminology-constrained translations",
+      "Entity-guided summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Toxicity Avoidance"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Entity-guided summaries"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:dialog",
+          "Other:prompt completion"
+        ],
+        "datasets": [
+          "Jigsaw Toxicity Comments",
+          "Yelp Polarity",
+          "COMMON-GEN",
+          "WMT17 en-de",
+          "Jigsaw Unintended Bias In Toxicity Classification Kaggle Challenge"
+        ],
+        "languages": [],
+        "models": [
+          "Off-the-shelf English to German translation model",
+          "GPT2-XL (for evaluation)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "COMMONGEN": "CommonGen",
+        "ROC": "ROC Stories",
+        "roberta-base": "RoBERTa-base",
+        "GPT2-Large": "GPT-2 Large",
+        "GPT2-XL": "GPT-2 XL",
+        "WMT17 en-de test set": "WMT17 English-German",
+        "Other:Keyword-controlled Generation": "Other:Keyword-controlled Generation",
+        "Other:Sentiment-controlled Continuation": "Other:Sentiment-controlled Generation"
+      },
+      "explanation": "Normalized model and dataset names to standard forms. Removed duplicate dataset entries and consolidated task descriptions. Added missing task (toxicity avoidance) and output type (entity-guided summaries) mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Perplexity",
+      "Toxicity Score",
+      "Sentiment Accuracy",
+      "Coverage",
+      "Grammaticality Score",
+      "Distinct-n"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Distinct-1",
+          "Distinct-2",
+          "Distinct-3",
+          "Dist-1",
+          "Dist-2",
+          "Dist-3",
+          "CoLa accuracy",
+          "constraint satisfaction (via classifiers or APIs)",
+          "coverage (count and percent)",
+          "sentiment accuracy"
+        ]
+      },
+      "normalized": {
+        "Perspective API toxicity score": "Toxicity Score",
+        "Distinct n-grams (n=1,2,3)": "Distinct-n",
+        "Grammaticality score (CoLA)": "Grammaticality Score"
+      },
+      "explanation": "Consolidated metric variants under base forms (e.g., Distinct-1/2/3 → Distinct-n). Removed redundant descriptions and kept only the normalized metric names."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT2-XL"
+        ],
+        "methods": [
+          "perplexity scoring"
+        ],
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed incorrect items. GPT-2 XL was used for perplexity calculation as part of automatic evaluation, not as an LLM judge assessing outputs after generation. The paper does not use LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators ranked outputs from two methods in A/B testing setup comparing constraint satisfaction, topicality, and fluency"
+    ],
+    "criteria": [
+      "Constraint Satisfaction",
+      "Topicality",
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators ranked outputs from two methods in A/B testing setup comparing constraint satisfaction, topicality, and fluency"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators ranked outputs on constraint satisfaction, topicality, and fluency in an A/B setup",
+          "Annotators compare pairs of outputs and rank them according to (1) constraint satisfaction, (2) topicality (coherence with prompt), and (3) fluency (grammatical correctness).",
+          "Annotators are asked to compare and rank outputs from two methods on constraint satisfaction, topicality, and fluency in an A/B testing setup."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "constraint satisfaction": "Constraint Satisfaction",
+        "topicality": "Topicality",
+        "fluency": "Fluency"
+      },
+      "explanation": "Consolidated multiple guideline descriptions into one clear statement. Normalized criteria capitalization."
+    }
+  },
+  "overall_notes": "The paper presents MuCoLa, a gradient-based constrained sampling method for language models. It evaluates on multiple NLG tasks using both automatic metrics and human evaluation. The extraction was generally accurate but contained some redundancy and inconsistent naming. The paper does not use LLMs as judges - GPT-2 XL was used for perplexity calculation as part of automatic evaluation, not as a post-hoc evaluator."
+}

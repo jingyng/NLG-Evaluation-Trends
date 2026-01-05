@@ -1,0 +1,173 @@
+{
+  "paper_id": "2023.acl-long.910",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Question Answering",
+      "Explanation Generation",
+      "Text Summarization",
+      "Reasoning Chain Generation"
+    ],
+    "datasets": [
+      "NATURAL QUESTIONS",
+      "STRATEGYQA",
+      "QRECC",
+      "SUMMEVAL",
+      "eli5",
+      "MMLU"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "palm",
+      "gpt_3",
+      "lamda",
+      "efec"
+    ],
+    "outputs": [
+      "Long-form generated text including answers, reasoning chains, dialog responses, summaries, and explanations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Knowledge-intensive question answering"
+        ],
+        "datasets": [
+          "Natural Questions (NQ)",
+          "StrategyQA (SQA)"
+        ],
+        "languages": [],
+        "models": [
+          "PaLM 540B",
+          "GPT-3 text-davinci-002",
+          "T5-large relevance model"
+        ],
+        "outputs": [
+          "Long-form text passages (answers, reasoning chains, dialog responses, summaries).",
+          "long-form answers, reasoning chains, dialog responses"
+        ]
+      },
+      "normalized": {
+        "Dialogue Generation": "Dialogue Generation",
+        "Other:Question Answering": "Other:Question Answering",
+        "Other:Explanation Generation": "Other:Explanation Generation",
+        "Text Summarization": "Text Summarization",
+        "Other:Reasoning chain generation": "Other:Reasoning chain generation"
+      },
+      "explanation": "Removed redundant dataset entries and models that were not NLG models being evaluated (T5 relevance model is for retrieval, not generation). Removed duplicate output descriptions. Kept only core NLG tasks the paper actually addresses."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "AUTOAIS",
+      "LEVENSHTEIN SIMILARITY",
+      "F1 AP"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Attr auto",
+          "Pres Lev",
+          "F1 AP",
+          "NLI entailment score"
+        ]
+      },
+      "normalized": {
+        "auto-AIS": "auto-AIS",
+        "Levenshtein similarity": "Levenshtein similarity",
+        "F1_AP": "F1_AP"
+      },
+      "explanation": "Normalized metric names to canonical forms. Removed redundant/alias metrics (Attr auto = auto-AIS, Pres Lev = Levenshtein similarity, F1 AP = F1_AP). NLI entailment score is part of auto-AIS computation, not a separate metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "T5",
+          "PaLM 540B",
+          "PaLM",
+          "GPT-3"
+        ],
+        "methods": [
+          "entailment probability for attribution",
+          "prompt PaLM to extract short answer",
+          "few-shot prompting",
+          "chain-of-thought prompting"
+        ],
+        "criteria": [
+          "short answer accuracy",
+          "agreement with evidence",
+          "entailment"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. While the paper uses LLMs extensively for generation and editing tasks, it does NOT use LLMs as judges to evaluate the outputs after generation. The evaluation uses human annotators and automated metrics (AIS, Levenshtein), but not LLM-as-judge methodology."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluate attribution by checking if each sentence is fully supported by evidence",
+      "Annotators evaluate intent similarity between original and revised passages while ignoring factual details"
+    ],
+    "criteria": [
+      "Attribution",
+      "Similarity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators evaluate attribution by checking if each sentence is fully supported by evidence",
+          "Annotators evaluate intent similarity between original and revised passages while ignoring factual details"
+        ],
+        "criteria": [
+          "attribution",
+          "intent similarity"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Attribution (AIS)",
+          "Intent preservation",
+          "Intent similarity",
+          "Attribution",
+          "Intent Similarity"
+        ]
+      },
+      "normalized": {
+        "attribution": "attribution",
+        "intent similarity": "intent similarity"
+      },
+      "explanation": "Cleaned up criteria list to remove redundant entries. Added clearer guideline descriptions based on the human evaluation methodology described in the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on post-hoc attribution and revision of language model outputs. It evaluates RARR system across multiple NLG tasks but uses traditional human evaluation and automated metrics rather than LLM-as-judge approach. Extraction was generally good but needed normalization and removal of redundant entries."
+}

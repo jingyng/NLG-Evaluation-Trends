@@ -1,0 +1,96 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Generative baselines. To convert KTRL+F as generation problem, we use following instructions for generative models and then post-process the output text to only utilize the answer part.",
+            "We present a new problem KTRL+F (knowledge-augmented in-document search)... Given a natural language query and a long input document, KTRL+F is designed to fulfill three key criteria: (REQ 1) Find all semantic targets. (REQ 2) Utilizes external knowledge. (REQ 3) Operates in real-time."
+        ],
+        "tasks": [
+            "Other:Entity Listing Generation",
+            "Other:in-document search"
+        ],
+        "datasets": [
+            "KTRL+F dataset"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "LLAMA-2-7B",
+            "LLAMA-2-13B",
+            "GPT-4",
+            "GPT-3.5",
+            "Knowledge-Augmented Phrase Retrieval",
+            "LLAMA-2-Chat-70B",
+            "DeBERTaV3-large",
+            "DensePhrases"
+        ],
+        "outputs": [
+            "Lists of entities or phrases matching the query, generated as comma-separated text",
+            "semantic targets from a document based on a natural language query, augmented with external knowledge"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "To measure model performance in KTRL+F, we introduce a set of reformulated metrics tailored to measure processing speed while maintaining robust and high performance.",
+            "We employ a range of metrics that collectively measure the overall balance of performance and speed... List EM, List Overlap F1, Robustness Score... Latency is measured in ms/Q... We also measure MAP to quantify overall effectiveness.",
+            "To assess various aspects of KTRL+F, we employ a range of metrics that collectively measure the overall balance of performance and speed... List EM F1, List Overlap F1, Robustness Score... Latency."
+        ],
+        "automatic_metrics": [
+            "List EM",
+            "List Overlap F1",
+            "Robustness Score",
+            "Latency",
+            "Latency (ms per query)",
+            "Mean Average Precision (MAP)",
+            "List EM F1"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "We utilize GPT-3.5 (gpt-3.5-turbo-0613) to identify entities judged as potential answer targets. Subsequently, GPT-4 (gpt-4-0613) makes the final decision for entities where there is a disagreement between GPT-3.5 and the results of Step 2.",
+            "Initially, we utilize GPT-3.5 (gpt-3.5-turbo-0613) to identify entities judged as potential answer targets. Subsequently, GPT-4 (gpt-4-0613) (OpenAI, 2023) makes the final decision for entities where there is a disagreement between GPT-3.5 and the results of Step 2."
+        ],
+        "models": [
+            "gpt-3.5-turbo-0613",
+            "gpt-4-0613",
+            "GPT-3.5",
+            "GPT-4"
+        ],
+        "methods": [
+            "target verification post‑generation",
+            "target filtering based on external knowledge",
+            "majority voting between models"
+        ],
+        "criteria": [
+            "whether an entity is an answer to the query"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We conduct a user study to show the necessity of KTRL+F utilizing a Chrome extension plugin that operates in the real web environments, built upon our model.",
+            "Eight annotators participated... Annotators are tasked with responding to three specific questions: two for query-side verification (Q1 and Q2) and one for target-side verification (Q3).",
+            "To assess the quality of the auto-generated dataset, we conduct human verification on a randomly selected subset of 104 queries, representing about 20% of the entire dataset. Eight annotators participated, with three assigned to evaluate each sample to minimize personal bias."
+        ],
+        "guideline": [
+            "Instructions given to the participants are as follows: -Click Web Page URL -Find all candidate spans in the Web page which meets noted search intention. -You can utilize Answer information when you are using Ctrl+F & Regex -NOTE : use only specified used system per example -All extraction should be highlighted manually in the linked PDF URL -You only have to fill spent time per example manually in this sheet (max 5 min per example) ...",
+            "Annotators answer Q1 (need for external knowledge), Q2 (naturalness of the query), and Q3 (reliability of auto‑generated targets) by referencing Wikipedia and the document.",
+            "Annotators are tasked with responding to three specific questions: (Q1) Is it possible to answer using only the input doc? (Q2) Is it unnatural query? (Q3) Reliability of Target determination."
+        ],
+        "criteria": [
+            "search time",
+            "number of queries",
+            "visits to extra sources",
+            "handling of variations",
+            "need for external knowledge (Q1)",
+            "naturalness of query (Q2)",
+            "target reliability/agreement (Q3)",
+            "ability to answer from input document",
+            "naturalness of query",
+            "reliability of target determination"
+        ]
+    }
+}

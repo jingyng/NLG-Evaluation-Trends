@@ -1,0 +1,146 @@
+{
+  "paper_id": "2025.naacl-long.88",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Harmful Content Generation",
+      "Adversarial Prompt Generation"
+    ],
+    "datasets": [
+      "ALPACA SMALL",
+      "ANTHROPIC RED TEAMING DATASET",
+      "ADVBENCH",
+      "STRONGREJECT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3.5_turbo",
+      "gpt_4o_mini",
+      "claude_3.5_haiku",
+      "llama_3_8b_instruct",
+      "vicuna_7b_v_1.5"
+    ],
+    "outputs": [
+      "Harmful outputs generated in response to adversarial prompts",
+      "Adversarial prompts to elicit harmful responses from LLMs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Anthropic Red Teaming Dataset"
+        ],
+        "languages": [],
+        "models": [
+          "Vicuna-7B-v1.5"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Safety-tuned Llama"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Adversarial Prompt Generation": "Other: Adversarial Prompt Generation",
+        "adversarial prompts to elicit harmful responses from LLMs": "Adversarial prompts to elicit harmful responses from LLMs"
+      },
+      "explanation": "Added 'Anthropic Red Teaming Dataset' which is the source of 'Safety-tuned Llama' dataset. Added 'Vicuna-7B-v1.5' which is used as attacker LLM in PAIR baseline. Normalized formatting and capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ATTACK SUCCESS RATE ASR",
+      "EXACT MATCH DISCRIMINATOR J",
+      "SEMANTIC CLASSIFICATION DISCRIMINATOR J",
+      "Q REQUESTS PER INSTRUCTION",
+      "Q FLAGGED REQUESTS PER INSTRUCTION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Q (average requests per instruction)",
+          "Q_! (flagged requests per instruction)"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ASR_M",
+          "ASR_C"
+        ]
+      },
+      "normalized": {
+        "Attack Success Rate (ASR)": "Attack Success Rate (ASR)"
+      },
+      "explanation": "Removed ASR_M and ASR_C as they are specific instances of Attack Success Rate. Added explicit descriptions for Q and Q_! metrics which are used to evaluate attack stealth."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Llama Guard 3",
+      "meta-llama/Prompt-Guard-86M"
+    ],
+    "methods": [
+      "Semantic classification for harmful content",
+      "Binary harmful-content classification of model outputs"
+    ],
+    "criteria": [
+      "Detection",
+      "Violence",
+      "Harmfulness",
+      "Illegal",
+      "Sexual"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "binary classification"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "violence": "Violence",
+        "self-harm": "Self-harm",
+        "illegal activities": "Illegal activities",
+        "inappropriate sexual content": "Inappropriate sexual content"
+      },
+      "explanation": "Removed overly generic 'binary classification' method. Normalized capitalization of criteria. The LLMs are used explicitly as judges to classify outputs as harmful/benign."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation mentioned in the paper. The paper explicitly mentions using automatic metrics and LLM-based classifiers for evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on jailbreak attacks against LLMs, evaluating both the effectiveness (ASR) and stealth (Q, Q_!) of attacks. It uses LLMs (Llama Guard 3, Prompt-Guard-86M) as judges to classify outputs as harmful/benign. No human evaluation is conducted. The extraction was generally accurate with minor normalization needed."
+}

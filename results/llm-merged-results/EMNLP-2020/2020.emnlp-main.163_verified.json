@@ -1,0 +1,124 @@
+{
+  "paper_id": "2020.emnlp-main.163",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Other:Article Generation",
+      "Other:News Article Generation"
+    ],
+    "datasets": [
+      "NeuralNews",
+      "GoodNews"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GROVER",
+      "BERT",
+      "entity-aware image captioning model"
+    ],
+    "outputs": [
+      "Generated news articles and image captions",
+      "news articles with titles, main body, images, and captions"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "BERT"
+        ]
+      },
+      "removed": {
+        "models": []
+      },
+      "normalized": {
+        "GROVER": "GROVER",
+        "entity-aware image captioning model": "entity-aware image captioning model"
+      },
+      "explanation": "Added BERT as it's explicitly used for text encoding in the DIDAN model. The other NLG models remain correct."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "R@1",
+      "R@5",
+      "R@10"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Average",
+          "detection accuracy"
+        ]
+      },
+      "normalized": {
+        "R@1": "R@1",
+        "R@5": "R@5",
+        "R@10": "R@10"
+      },
+      "explanation": "Removed 'Average' as it's not a specific metric name, and 'detection accuracy' is redundant with 'Accuracy'. Kept standard retrieval metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges for evaluation in this paper. The paper uses human evaluations and automatic detection accuracy metrics."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers evaluated articles based on style, content, consistency between text and images, and overall trustworthiness using a four-point scale",
+      "Participants predict if articles are human or machine-generated based on their own judgments",
+      "Trained participants focus on visual-semantic inconsistencies between articles and image-caption pairs"
+    ],
+    "criteria": [
+      "style",
+      "content",
+      "consistency",
+      "overall trustworthiness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Participants predict if articles are human or machine-generated based on their own judgments",
+          "Trained participants focus on visual-semantic inconsistencies between articles and image-caption pairs"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Workers are asked to evaluate the article based on its style, content, consistency and overall trustworthiness."
+        ]
+      },
+      "normalized": {
+        "consistency between text and images": "consistency"
+      },
+      "explanation": "Expanded guidelines to include different experimental setups mentioned (trustworthiness rating, naive predictions, trained predictions). Consolidated criteria by removing redundant phrasing."
+    }
+  },
+  "overall_notes": "The paper focuses on detecting machine-generated news articles (NLG evaluation) rather than generating them. The extracted metadata was generally accurate but needed minor adjustments. Human evaluations were comprehensive with multiple experimental setups. Automatic metrics focused on detection accuracy and retrieval metrics for evaluating the detection model."
+}

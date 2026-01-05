@@ -1,0 +1,129 @@
+{
+  "paper_id": "2025.naacl-long.552",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Instruction Following"
+    ],
+    "datasets": [
+      "IFEval",
+      "Synthetic Evaluation Sets"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-3.1-8B-Instruct",
+      "Llama-3.1-70B-Instruct"
+    ],
+    "outputs": [
+      "Generated responses to instruction-following prompts with verifiable constraints"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Synthetic prompts (48K unique prompts)",
+          "Synthetic Prompts",
+          "Synthetic prompts with verifiable constraints"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Generated responses to instruction prompts with verifiable constraints",
+          "Generated responses to instruction-following prompts"
+        ]
+      },
+      "normalized": {
+        "llama-3.1-8b-instruct": "Llama-3.1-8B-Instruct",
+        "llama-3.1-70b-instruct": "Llama-3.1-70B-Instruct",
+        "Other:Instruction Following": "Other:Instruction Following"
+      },
+      "explanation": "Normalized model names to standard capitalization. Removed redundant dataset entries and simplified outputs description. The paper focuses on instruction following as the NLG task."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Constraint Satisfaction"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Constraint Satisfaction (hard)",
+          "Constraint Satisfaction (soft)",
+          "hard score",
+          "soft score"
+        ]
+      },
+      "normalized": {
+        "Constraint Satisfaction (hard)": "Constraint Satisfaction",
+        "Constraint Satisfaction (soft)": "Constraint Satisfaction",
+        "hard score": "Constraint Satisfaction",
+        "soft score": "Constraint Satisfaction"
+      },
+      "explanation": "Consolidated all constraint satisfaction metrics under a single normalized name since they represent the same evaluation approach with different scoring methods."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "llama-3.1-8b-instruct"
+        ],
+        "methods": [
+          "self-evaluation with self-consistency",
+          "self-evaluation prompting"
+        ],
+        "criteria": [
+          "topic adherence",
+          "matching descriptions",
+          "tone"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The LLM self-evaluation is used DURING tree search for guiding generation (MCTS), not AFTER generation for judging outputs. This is part of the generation process, not evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluations were conducted in this paper. The paper explicitly states they use automated verification of constraint satisfaction."
+    }
+  },
+  "overall_notes": "The paper systematically studies preference learning for instruction-following LLMs using synthetic data with verifiable constraints. It uses automated constraint satisfaction metrics but does not use LLMs as judges for evaluation - the LLM self-evaluation mentioned is part of the MCTS generation process, not post-generation assessment."
+}

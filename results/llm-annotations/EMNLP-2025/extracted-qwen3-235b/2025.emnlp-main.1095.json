@@ -1,0 +1,65 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "Retrieval-Augmented Generation (RAG) enables large language models (LLMs) to access and reason over external knowledge by retrieving relevant documents and conditioning generation on them.",
+        "tasks": [
+            "Other:Question Answering"
+        ],
+        "datasets": [
+            "NQ",
+            "TriviaQA",
+            "PopQA",
+            "HotpotQA",
+            "2WikiMultihopQA",
+            "Musique",
+            "MedQA-US",
+            "MedMCQA",
+            "PubMedQA*",
+            "BioASQ-Y/N",
+            "MMLU-Med"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Qwen2.5-7B-Instruct",
+            "Qwen2.5-14B-Instruct",
+            "Claude-3-Haiku"
+        ],
+        "outputs": "final answers to question-answering tasks"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We evaluate the effectiveness of retrieval strategies in improving answer generation, we adopt a composite metric called Generation Accuracy (GenAcc), which is designed to better reflect semantic correctness than surface-form exact match.",
+        "automatic_metrics": [
+            "Generation Accuracy",
+            "Exact Match",
+            "span_check",
+            "judge_check",
+            "recall",
+            "NDCG"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "If the span check fails (0), we invoke a lightweight correctness check using a frozen LLM (e.g., Qwen2.5-14B-Instruct-GPTQ-Int4 for training or Claude-3-Haiku for evaluation). We prompt the model with: Please check if any of the golden answers is contained in the following response: {p} Golden answers: {str(A)} Directly answer with 'yes' or 'no'.",
+        "models": [
+            "Qwen2.5-14B-Instruct",
+            "Claude-3-Haiku"
+        ],
+        "methods": [
+            "judge_check"
+        ],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We randomly sampled 1,000 answer generations from the general-domain QA test set. Each sample was labeled as Correct (1) or Incorrect (0) by human annotators, consisting of two Ph.D. students and one M.S. student majoring in computer science who evenly divided the annotation workload.",
+        "guideline": "An answer should be marked as correct (1) if it: • Contains the same key information as the golden answers; • Expresses the same meaning, even if using different wording; • Is factually consistent with the golden answers.",
+        "criteria": [
+            "Contains the same key information",
+            "Expresses the same meaning",
+            "Factual consistency"
+        ]
+    }
+}

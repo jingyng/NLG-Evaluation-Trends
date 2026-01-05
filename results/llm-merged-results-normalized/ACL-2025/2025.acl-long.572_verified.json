@@ -1,0 +1,113 @@
+{
+  "paper_id": "2025.acl-long.572",
+  "answer_1": {
+    "answer": "No",
+    "answer_changed": true,
+    "tasks": [],
+    "datasets": [],
+    "languages": [],
+    "models": [],
+    "outputs": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "tasks": [
+          "Other:Search Query Generation",
+          "Other:Rationale Generation",
+          "Other:academic paper search"
+        ],
+        "datasets": [
+          "AutoScholarQuery",
+          "RealScholarQuery"
+        ],
+        "languages": [
+          "English"
+        ],
+        "models": [
+          "Qwen2.5-7b",
+          "GPT-4o"
+        ],
+        "outputs": [
+          "Search queries and rationales",
+          "retrieved academic papers and decision rationales"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper is about academic paper search/retrieval, not natural language generation. It uses LLMs for search query generation and rationale generation as part of the retrieval process, but does not evaluate or study NLG tasks. All metadata related to NLG has been removed."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "RECALL",
+      "PRECISION",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "Recall@20": "Recall",
+        "Recall@50": "Recall",
+        "Recall@100": "Recall",
+        "F1 score": "F1"
+      },
+      "explanation": "Normalized metric variants to base forms (Recall instead of Recall@20/50/100, F1 instead of F1 score). The paper clearly uses precision, recall, and F1 to evaluate search performance."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "qwen_2.5_7b"
+    ],
+    "methods": [
+      "auxiliary reward model"
+    ],
+    "criteria": [
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT-4o"
+        ],
+        "methods": [
+          "decision token generation",
+          "decision token and rationale generation"
+        ],
+        "criteria": [
+          "correctness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed GPT-4o as it was used for data generation, not as a judge. Removed incorrect methods and criteria. The Selector (Qwen2.5-7b) acts as an LLM judge to assess relevance of papers for the Crawler's RL training."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Annotators read the paper and decide if it satisfies the query, providing a decision and brief explanation"
+    ],
+    "criteria": [
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "criteria": [
+          "fluency",
+          "coherence"
+        ]
+      },
+      "normalized": {
+        "correctness": "relevance"
+      },
+      "explanation": "Removed 'fluency' and 'coherence' as they are NLG evaluation criteria not mentioned for this paper search task. Normalized 'correctness' to 'relevance' which is the actual criterion used. The human evaluation focuses on whether papers are relevant to queries."
+    }
+  },
+  "overall_notes": "This paper is primarily about information retrieval/academic paper search, not natural language generation. The LLM is used as part of the search agent pipeline (for query generation, rationale generation, and relevance assessment), but the paper does not evaluate NLG tasks. The automatic metrics (precision, recall, F1) are used to evaluate search/retrieval performance, not generated text quality."
+}

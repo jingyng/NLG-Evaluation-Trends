@@ -1,0 +1,151 @@
+{
+  "paper_id": "2025.emnlp-main.1809",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Hallucination Detection"
+    ],
+    "datasets": [
+      "TruthfulQA",
+      "SciQ",
+      "Biographies",
+      "Cities",
+      "Movies",
+      "Inventions",
+      "Books",
+      "Artworks",
+      "Landmarks",
+      "Events"
+    ],
+    "languages": [
+      "English",
+      "Russian",
+      "Chinese",
+      "German"
+    ],
+    "models": [
+      "Mistral 7B Instruct v0.2",
+      "Gemma 2 9B Instruct",
+      "Llama series",
+      "Llama-3.1"
+    ],
+    "outputs": [
+      "uncertainty scores for claim-level hallucinations",
+      "generated text containing atomic claims"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-3.1"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:text generation"
+        ],
+        "datasets": [
+          "biographies",
+          "cities",
+          "movies",
+          "inventions",
+          "books",
+          "artworks",
+          "landmarks",
+          "events",
+          "Russian Biographies",
+          "Chinese Biographies",
+          "German Biographies"
+        ],
+        "languages": [],
+        "models": [
+          "Gemma 2",
+          "Mistral 7B Instruct v0.2",
+          "LLaMA series",
+          "Mistral"
+        ],
+        "outputs": [
+          "claim-level uncertainty scores indicating the likelihood of hallucination"
+        ]
+      },
+      "normalized": {
+        "Mistral 7b Instruct v0.2": "Mistral 7B Instruct v0.2",
+        "Gemma 2 9b Instruct": "Gemma 2 9B Instruct"
+      },
+      "explanation": "Removed 'Other:text generation' as the primary task is hallucination detection. Consolidated duplicate datasets (lowercase variants). Removed redundant model names and kept only distinct models. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PR-AUC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed; PR-AUC is correctly identified as the main automatic metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4o",
+          "Claude-3-Opus"
+        ],
+        "methods": [
+          "claim extraction and annotation",
+          "automatic claim classification via chain‑of‑thought prompting",
+          "chain-of-thought prompting",
+          "two-stage classification"
+        ],
+        "criteria": [
+          "supported",
+          "unsupported",
+          "unknown"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' because GPT-4o and Claude-3-Opus are used for generating training/test data and annotations, not for evaluating LLM outputs after generation as judges. The paper uses automatic PR-AUC for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes; the paper does not conduct human evaluations."
+    }
+  },
+  "overall_notes": "The extraction accurately captured the paper's focus on hallucination detection for text generation outputs. The main discrepancy was in Question 3, where LLMs were used for data preparation rather than as post-generation judges. The paper primarily uses automatic metrics (PR-AUC) for evaluation."
+}

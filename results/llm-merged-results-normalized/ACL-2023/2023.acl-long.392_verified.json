@@ -1,0 +1,171 @@
+{
+  "paper_id": "2023.acl-long.392",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Rationale Generation"
+    ],
+    "datasets": [
+      "STRATEGYQA",
+      "OBQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3",
+      "t_5_large",
+      "t_5_3b",
+      "t_5_base"
+    ],
+    "outputs": [
+      "free-text rationales",
+      "explanations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "T5-base"
+        ],
+        "outputs": [
+          "explanations"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Explanation Generation",
+          "Other:multi-choice question answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-3 (davinci‑instruct‑beta)",
+          "T5‑Large",
+          "T5‑3B",
+          "davinci-instruct-beta (GPT-3)"
+        ],
+        "outputs": [
+          "rationales",
+          "free‑text rationales (explanations)"
+        ]
+      },
+      "normalized": {
+        "GPT-3 (davinci‑instruct‑beta)": "GPT-3",
+        "davinci-instruct-beta (GPT-3)": "GPT-3",
+        "T5‑Large": "T5-large",
+        "T5‑3B": "T5-3B",
+        "rationales": "free-text rationales",
+        "free‑text rationales (explanations)": "free-text rationales"
+      },
+      "explanation": "Consolidated duplicate task names and model variants. Removed 'multi-choice question answering' as it's the underlying task, not the NLG task. Added T5-base which is used in GEN-U. Normalized model names and output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BERTSCORE",
+      "GEN",
+      "TASK ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Theil's U",
+          "task performance"
+        ]
+      },
+      "normalized": {
+        "Task Accuracy": "Task Accuracy"
+      },
+      "explanation": "Removed 'Theil's U' (statistical measure) and 'task performance' (general term) as they are not specific automatic metrics. Kept BERTScore, GEN-U, and Task Accuracy as proper evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "T5-base",
+          "T5‑base"
+        ],
+        "methods": [
+          "generalization simulation",
+          "GEN-U scoring",
+          "LM generalization as proxy for human utility"
+        ],
+        "criteria": [
+          "accuracy on generalisation questions",
+          "generalization accuracy"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' because while the paper uses T5-base for GEN-U scoring, this is better characterized as an automatic metric computation rather than 'LLM as judge' where the LLM qualitatively evaluates outputs. The LLM is used to simulate human generalization behavior, not to provide judgment scores."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Humans provide answer to question first, then shown rationale and answer again; utility calculated based on correctness change",
+      "Annotators rate rationales on properties: grammaticality, factuality, relevance, leakage, conciseness, novelty, coherence, association, contrast"
+    ],
+    "criteria": [
+      "Usefulness",
+      "Grammaticality",
+      "Factuality",
+      "Relevance",
+      "Leakage",
+      "Conciseness",
+      "Novelty",
+      "Coherence",
+      "Association",
+      "Contrast"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators rate rationales on properties: grammaticality, factuality, relevance, leakage, conciseness, novelty, coherence, association, contrast"
+        ],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "useful",
+          "not useful",
+          "unsure",
+          "usefulness (useful/not useful/unsure)",
+          "human utility"
+        ]
+      },
+      "normalized": {
+        "useful": "usefulness",
+        "not useful": "usefulness",
+        "unsure": "usefulness",
+        "usefulness (useful/not useful/unsure)": "usefulness",
+        "human utility": "usefulness"
+      },
+      "explanation": "Consolidated the three utility categories under 'usefulness'. Added 'relevance' which was mentioned in the property list. Simplified guideline descriptions while keeping the key evaluation procedures."
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive study of human utility of free-text rationales. The extraction was generally good but had some duplicates and minor issues. Key finding: While the paper uses LLMs in GEN-U, it's more of a metric computation than qualitative judging, so Q3 answer was changed to 'No'. The human evaluation methodology is particularly well-documented with clear criteria."
+}

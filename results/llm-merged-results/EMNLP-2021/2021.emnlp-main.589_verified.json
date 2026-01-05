@@ -1,0 +1,157 @@
+{
+  "paper_id": "2021.emnlp-main.589",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "AirDialog",
+      "ConvAI2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "RoBERTa",
+      "ENIGMA",
+      "Transformer-based agents"
+    ],
+    "outputs": [
+      "dialogue responses",
+      "human evaluation score estimates"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Transformer-based agents"
+        ],
+        "outputs": [
+          "human evaluation score estimates"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Transformer seller agent",
+          "Transformer customer agent"
+        ],
+        "outputs": [
+          "dialog responses",
+          "human evaluation scores (flight score, status score, overall reward) for each dialog",
+          "dialog responses in goal-oriented and open-domain chit-chat settings"
+        ]
+      },
+      "normalized": {
+        "Dialogue Generation": "Dialogue Generation"
+      },
+      "explanation": "Simplified and normalized model names, removed redundant output descriptions, consolidated dialogue-related terms to standard format"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "Perplexity",
+      "BLEURT",
+      "BERTScore",
+      "Self-Play Evaluation",
+      "ENIGMA"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "HCDFs",
+          "PPL",
+          "SPE"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "PPL": "Perplexity",
+        "BERTscore": "BERTScore",
+        "HCDFs": "Removed - not a standard automatic metric",
+        "SPE": "Self-Play Evaluation"
+      },
+      "explanation": "Normalized metric names to standard forms (Perplexity instead of PPL, BERTScore instead of BERTscore), removed HCDFs as it's not a standard automatic evaluation metric, normalized SPE to full name"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa"
+        ],
+        "methods": [
+          "reward prediction fine‑tuned classifier"
+        ],
+        "criteria": [
+          "reward score"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper does not use LLMs as judges. RoBERTa is used for representation learning in ENIGMA, not as a post-hoc evaluator of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluators interact with dialog systems via chat interface and assign scores between 0-1 for different quality aspects"
+    ],
+    "criteria": [
+      "flight score",
+      "status score",
+      "overall reward",
+      "language quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human evaluators interact with dialog systems via chat interface and assign scores between 0-1 for different quality aspects"
+        ],
+        "criteria": [
+          "language quality"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- evaluators give scores for flight score, status score, and overall reward based on task completion and language quality.",
+          "Annotators interact with the dialog system and assign scores for flight score, status score, and overall reward on a 0‑1 scale.",
+          "The final score an agent receives is the average of the 100 scores. We consider three types of scores: flight score, status score, and overall reward used in ."
+        ],
+        "criteria": [
+          "reward"
+        ]
+      },
+      "normalized": {
+        "overall reward": "overall reward",
+        "flight score": "flight score",
+        "status score": "status score",
+        "reward": "overall reward"
+      },
+      "explanation": "Consolidated guideline descriptions into a single clear statement, added 'language quality' as an explicit criterion mentioned in the paper, normalized reward terminology"
+    }
+  },
+  "overall_notes": "The paper presents ENIGMA, a model-free off-policy evaluation framework for dialog systems. It evaluates both goal-oriented (AirDialog) and open-domain chit-chat (ConvAI2) dialogue systems. The extraction was generally accurate but needed normalization of metric names and removal of redundant information. The paper does not use LLMs as judges despite mentioning RoBERTa, which is used for representation learning within the evaluation framework."
+}

@@ -1,0 +1,53 @@
+{
+  "paper_id": "2025.naacl-long.255",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper uses LLM (GPT-4-based QE system GEMBA) for error span prefilling and conducts human evaluation with ESA and ESA AI protocols, but there is no explicit quantitative comparison between LLM judgments and human judgments on the same criteria. The validation mentioned in the Abstract (88.02% agreement) refers to an MLLM-Bench validation but not LLM-as-judge vs human evaluation validation for the machine translation evaluation setup described in the main text."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper mentions using one-shot prompting with MQM-like error spans and severities. Full prompts are described as being available in Appendix C, but the exact prompt text is not shown in the provided text."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 21,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Spearman correlation",
+      "value": 0.533,
+      "interpretation": "ESA AI has higher agreement than ESA (0.376)",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Error Span Annotation (ESA) protocol described with error severity marking and final scoring from 0% (no meaning preserved) to 100% (perfect). Appendix B contains guidelines and Appendix Figure shows interface screenshot."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "error_span_detection",
+      "initial_severity_assignment"
+    ],
+    "human_only_criteria": [
+      "final_score_assignment",
+      "error_span_post_editing"
+    ],
+    "shared_criteria": [
+      "error_spans",
+      "severity"
+    ],
+    "notes": "LLM (GEMBA QE system) prefills error spans and severities, which humans then post-edit. Humans additionally assign final translation quality scores. There is partial overlap in error span annotation but no direct comparison of the same judgments."
+  }
+}

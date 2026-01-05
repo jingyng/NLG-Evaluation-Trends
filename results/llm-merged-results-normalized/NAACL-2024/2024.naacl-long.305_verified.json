@@ -1,0 +1,147 @@
+{
+  "paper_id": "2024.naacl-long.305",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Long Form Question Answering",
+      "Verifiable Generation"
+    ],
+    "datasets": [
+      "ASQA",
+      "QAMPARI",
+      "eli5"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3.5_turbo_0301",
+      "llama_2_70b",
+      "llama_2_13b"
+    ],
+    "outputs": [
+      "answers with citations to supporting documents"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-3.5"
+        ],
+        "outputs": [
+          "generated answers with citations to supporting documents",
+          "Answers with citations to supporting documents"
+        ]
+      },
+      "normalized": {
+        "gpt-3.5-turbo-0301": "GPT-3.5-turbo-0301",
+        "Other:Verifiable Generation": "Other:Verifiable Generation",
+        "answers with citations to supporting documents": "answers with citations to supporting documents"
+      },
+      "explanation": "Removed redundant 'Question Answering' task since it's covered by 'Long-form Question Answering'. Normalized model names to standard capitalization. Consolidated output descriptions to single consistent phrasing."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CITATION RECALL",
+      "CITATION PRECISION",
+      "CITATION F1",
+      "EXACT MATCH RECALL",
+      "ANSWER F1",
+      "ENTAILMENT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Entailment"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "EM-R",
+          "F1",
+          "exact match recall"
+        ]
+      },
+      "normalized": {
+        "EM-R": "Exact Match Recall",
+        "F1": "Answer F1"
+      },
+      "explanation": "Consolidated metric variants under base forms. Removed duplicates and normalized to standard naming conventions. Added 'Entailment' metric used for ELI5 evaluation as mentioned in Section 4."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "gpt_3.5_turbo_0301"
+    ],
+    "methods": [
+      "JudgeGPT",
+      "classification-based verification",
+      "score-and-filter verification"
+    ],
+    "criteria": [
+      "Question",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "classification-based verification",
+          "score-and-filter verification"
+        ],
+        "criteria": [
+          "whether retrieved documents can support answering the question",
+          "document support quality"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "direct, accurate, clear and engaging answer",
+          "closely related to the core of the corresponding question(s)"
+        ]
+      },
+      "normalized": {
+        "gpt-3.5-turbo-0301": "GPT-3.5-turbo-0301"
+      },
+      "explanation": "Changed answer from No to Yes because the paper explicitly uses LLMs for retrieval verification (Section 3.1). Updated criteria to reflect actual verification purpose stated in the paper rather than specific phrasing from instructions."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper. All evaluations are automated using the ALCE benchmark."
+    }
+  },
+  "overall_notes": "The paper focuses on verifiable generation with retrieval augmentation. The LLM is used both for generation and for verification of retrieval quality, but this verification occurs during the iterative retrieval process rather than as a post-generation evaluation. The extraction was generally accurate but needed normalization and consolidation of duplicate/redundant items."
+}

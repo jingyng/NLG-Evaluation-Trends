@@ -1,0 +1,133 @@
+{
+  "paper_id": "2023.emnlp-main.794",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Text Generation",
+      "Other:Language Modeling"
+    ],
+    "datasets": [
+      "WikiText-2",
+      "WritingPrompts",
+      "C4"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "OPT-1.3B",
+      "OPT-2.7B",
+      "RedPajama-3B"
+    ],
+    "outputs": [
+      "Generated text continuations",
+      "Language modeling predictions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Language Modeling"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Language modeling predictions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Open-ended Document Generation",
+          "Other:Document Generation",
+          "Other:open-ended document generation"
+        ],
+        "datasets": [
+          "C4 validation subset"
+        ],
+        "languages": [],
+        "models": [
+          "Pythia-1B"
+        ],
+        "outputs": [
+          "The paper evaluates generated outputs in zero-shot open-ended document generation, where a prefix is given and the model generates a continuation using nucleus sampling."
+        ]
+      },
+      "normalized": {
+        "Other:open-ended document generation": "Other:Text Generation",
+        "C4 validation subset": "C4"
+      },
+      "explanation": "Consolidated task names to 'Text Generation' and 'Language Modeling', removed Pythia-1B as it's an evaluation model not a generation model being evaluated, simplified outputs description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Perplexity",
+      "ROUGE",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "perplexity"
+        ]
+      },
+      "normalized": {
+        "perplexity": "Perplexity",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric names to standard forms (ROUGE instead of ROUGE-L)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Pythia-1B"
+        ],
+        "methods": [
+          "perplexity evaluation"
+        ],
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items since Pythia-1B is used for automatic perplexity calculation, not as an LLM judge evaluating generated outputs"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted in this paper"
+    }
+  },
+  "overall_notes": "This paper focuses on efficiency improvements for transformer inference via context compression. The NLG evaluation is secondary to demonstrating the effectiveness of their compression method. The paper uses standard automatic metrics but no human or LLM-as-judge evaluations. Extraction quality was good but needed some normalization and clarification of which models are actually being evaluated versus used for evaluation."
+}

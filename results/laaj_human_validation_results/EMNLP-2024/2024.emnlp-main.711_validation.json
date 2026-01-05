@@ -1,0 +1,100 @@
+{
+  "paper_id": "2024.emnlp-main.711",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-as-judge evaluations with human evaluations on the same set of 40 conversation histories, reporting mean scores and statistical significance tests"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4",
+      "Llama 3 70B"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper states 'we prompt LLM evaluators with the same instructions used in the questionnaire' for fidelity evaluation, and describes methodology for accuracy evaluation but full prompts are not provided verbatim"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 20,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper describes evaluation dimensions including 5-point Likert scales for individual measures and scaled pairwise comparisons (-2 to +2)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "comparison_analysis"
+    ],
+    "validation_metrics": [
+      "mean_scores",
+      "paired_t_tests"
+    ],
+    "shared_criteria": [
+      "fidelity_of_conversational_styles",
+      "fidelity_of_maladaptive_cognitions",
+      "accuracy_of_cognitive_model_components"
+    ],
+    "sample_size": {
+      "total_generated": 40,
+      "validated_by_both": 40,
+      "notes": "40 conversation histories between experts and PATIENT-Ψ were evaluated by both human experts and LLMs"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "mean_score_difference",
+        "value": "expert_4.10_vs_gpt4_3.53",
+        "criterion": "overall_fidelity",
+        "llm_model": "GPT-4",
+        "significance": "p<0.01",
+        "notes": "Expert mean score: 4.10, GPT-4 mean score: 3.53"
+      },
+      {
+        "metric": "mean_score_difference",
+        "value": "expert_4.10_vs_llama3_3.06",
+        "criterion": "overall_fidelity",
+        "llm_model": "Llama 3 70B",
+        "significance": "p<0.01",
+        "notes": "Expert mean score: 4.10, Llama 3 mean score: 3.06"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM evaluators consistently underestimate PATIENT-Ψ's fidelity compared to expert evaluations, with GPT-4 favoring the GPT-4 baseline in fidelity assessments, while achieving similar accuracy scores to experts for cognitive model evaluation"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "classification_accuracy_for_fine_grained_core_beliefs"
+    ],
+    "human_only_criteria": [
+      "usability",
+      "confidence_improvement",
+      "perceived_effectiveness"
+    ],
+    "shared_criteria": [
+      "fidelity_of_conversational_styles",
+      "fidelity_of_maladaptive_cognitions",
+      "fidelity_of_emotional_states",
+      "accuracy_of_cognitive_model_components"
+    ],
+    "notes": "LLMs and humans evaluated fidelity and accuracy on overlapping criteria, but humans provided additional assessments of usability, confidence improvement, and perceived effectiveness"
+  }
+}

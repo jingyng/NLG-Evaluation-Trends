@@ -1,0 +1,137 @@
+{
+  "paper_id": "2021.acl-long.318",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Generation",
+      "Code Generation",
+      "Semantic Parsing",
+      "Reading Comprehension"
+    ],
+    "datasets": [
+      "Quasar-T",
+      "WebQuestions",
+      "DROP",
+      "WikiSQL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART-base",
+      "Neural Symbolic Reader (NeRd)",
+      "SQLova",
+      "ELECTRA-base"
+    ],
+    "outputs": [
+      "Generated questions from reconstructor",
+      "Generated solutions (SQL queries, equations, spans) from task-specific models"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Generation"
+        ],
+        "models": [
+          "ELECTRA-base"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Generation",
+          "Other:Semantic Parsing",
+          "Other:Discrete Reasoning",
+          "Other:Reading Comprehension"
+        ],
+        "outputs": [
+          "solutions such as spans, equations, or SQL queries"
+        ]
+      },
+      "normalized": {
+        "BART base": "BART-base",
+        "NeRd": "Neural Symbolic Reader (NeRd)",
+        "Electra-base": "ELECTRA-base"
+      },
+      "explanation": "Removed 'Other:' prefixes from tasks and added 'Question Generation' as a main NLG task. Normalized model names to standard forms. Removed redundant output description that duplicated the main one."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Exact Match (EM)",
+      "F1",
+      "Logical Form Accuracy",
+      "Execution Accuracy"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "Exact Match (EM)": "Exact Match (EM)",
+        "F1 score": "F1",
+        "EM": "Exact Match (EM)",
+        "logical form accuracy": "Logical Form Accuracy",
+        "execution accuracy": "Execution Accuracy"
+      },
+      "explanation": "Consolidated duplicate metric names and normalized to consistent forms while maintaining descriptive names for clarity."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Verified that no LLMs are used as judges for evaluation. Removed placeholder 'None' values as paper clearly doesn't use this evaluation paradigm."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Manual analysis of 50 test examples from DROP for solution correctness",
+      "Manual analysis of another 50 test samples comparing HardEM, HardEM-thres, and our method"
+    ],
+    "criteria": [
+      "Solution correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual analysis of 50 test examples from DROP for solution correctness",
+          "Manual analysis of another 50 test samples comparing HardEM, HardEM-thres, and our method"
+        ],
+        "criteria": [
+          "Solution correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Added human evaluation details that were missed in original extraction. The paper explicitly mentions manual analysis of 100+ examples to evaluate solution quality across different methods."
+    }
+  },
+  "overall_notes": "This paper addresses NLG tasks through question generation and solution generation for weakly supervised QA. While the primary focus is on evaluation metrics for answer correctness, the paper includes manual evaluation of generated solutions. The extraction was mostly accurate but missed some human evaluation details and had inconsistent formatting."
+}

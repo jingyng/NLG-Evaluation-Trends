@@ -1,0 +1,55 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We adopt a propose-and-repair pipeline to obtain labels for code generation.",
+        "tasks": [
+            "Code Generation"
+        ],
+        "datasets": [
+            "APPS",
+            "Code-Contests"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-4",
+            "GPT-3.5-turbo",
+            "Code-LLaMA-13B"
+        ],
+        "outputs": "decomposed code solutions for competitive programming problems"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We measure the supervision quality in competitive programming by programs' passing rates on unit test cases. Specifically, we aggregate the program's performance on test cases with two metrics. Test Case Average Accuracy computes the average fraction of test cases passed among all the test cases. Strict Accuracy computes the average fraction of programs that pass all test cases.",
+        "automatic_metrics": [
+            "Test Case Average Accuracy",
+            "Strict Accuracy"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "Given a question Q, and a pair of decomposed solutions A 1 d and A 2 d , we adopt the following four methods to predict which decomposed solution leads to higher assistive value: ... Few-shot (π rank ): prompt a code language model M to select a more effective decomposition in a few-shot setting, where the few-shot demonstrations are collected from the feedback of real human labelers as illustrated in Section 2.",
+        "models": [
+            "GPT-3.5-turbo",
+            "GPT-4"
+        ],
+        "methods": [
+            "Few-shot (π rank )",
+            "Zero-shot"
+        ],
+        "criteria": [
+            "assistive value",
+            "human repair performance"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We recruit 30 Python programmers, including 11 experts and 19 nonexperts, to repair model-generated program solutions for competitive coding problems, resulting in a total of 177 worker hours.",
+        "guideline": "Labeling instruction: You are given an algorithmic coding problem and a model-generated solution. job is to debug the solution and improve its accuracy. ... Review your debugging process and answer the following questions. • Fixed Bugs: What bugs have you fixed during debugging? • Critique on Decomposition: how does the current decomposition impede or improve your debugging efficiency? • Other Assistance Forms: what other assistance forms do you need based on your debugging experience?",
+        "criteria": [
+            "debugging efficiency",
+            "helpfulness of decomposition"
+        ]
+    }
+}

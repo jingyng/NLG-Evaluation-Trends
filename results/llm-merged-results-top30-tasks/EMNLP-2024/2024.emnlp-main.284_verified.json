@@ -1,0 +1,141 @@
+{
+  "paper_id": "2024.emnlp-main.284",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Visual Question Answering"
+    ],
+    "datasets": [
+      "GQA",
+      "TEXTVQA",
+      "ST VQA",
+      "TALLYQA",
+      "COCO 2014"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "blip_2",
+      "instructblip",
+      "llava",
+      "qwen_vl",
+      "llava_1.5_7b"
+    ],
+    "outputs": [
+      "Generated answers to visual questions",
+      "Multi-step reasoning paths with sub-questions and tool invocations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "TallyQA"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Image Captioning"
+        ],
+        "datasets": [
+          "TallyQA-S",
+          "TallyQA-C"
+        ],
+        "languages": [],
+        "models": [
+          "BLIP",
+          "GPT-4o",
+          "LLaMA-3-8B-Instruct"
+        ],
+        "outputs": [
+          "captions"
+        ]
+      },
+      "normalized": {
+        "Other:Visual Question Answering": "Visual Question Answering",
+        "TallyQA-S": "TallyQA",
+        "TallyQA-C": "TallyQA"
+      },
+      "explanation": "Removed 'Image Captioning' as it's not evaluated as an NLG task, only used for intermediate processing. Consolidated TallyQA subsets. Removed models that are not evaluated NLG models (BLIP, GPT-4o, LLaMA-3-8B-Instruct are used for data synthesis or as components)."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT MATCH",
+      "ANSWER RECALL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ST-VQA official metric",
+          "Exact Matching",
+          "Exact Matching (EM)",
+          "answer recall"
+        ]
+      },
+      "normalized": {
+        "Exact Matching": "Exact Match",
+        "Exact Matching (EM)": "Exact Match",
+        "answer recall": "Answer Recall"
+      },
+      "explanation": "Normalized metric names to standard forms and removed redundant/descriptive entries. ST-VQA official metric is not a specific metric name."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges for evaluation in this paper - LLMs are used for data synthesis and as pipeline components, but not for post-generation assessment."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators check correctness of synthesized data in three aspects: Sub-Question (faithful to node profiles and resolvable with specified tool), Argument (correct tool invocation yielding expected output), and Main Question (covers all sub-questions with correct decomposition order)"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Sub-Question": "Sub-Question correctness",
+        "Argument": "Argument correctness",
+        "Main Question": "Main Question correctness"
+      },
+      "explanation": "Consolidated and normalized the criteria names for clarity. The extracted guidelines were comprehensive and accurate."
+    }
+  },
+  "overall_notes": "The paper focuses on visual reasoning and VQA as NLG tasks. The extraction was generally good but included some models that are not evaluated NLG models (they are used for data synthesis or as components in the pipeline). The paper uses standard VQA evaluation metrics and conducts a human evaluation specifically for data quality assessment."
+}

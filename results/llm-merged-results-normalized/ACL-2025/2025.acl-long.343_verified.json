@@ -1,0 +1,146 @@
+{
+  "paper_id": "2025.acl-long.343",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation"
+    ],
+    "datasets": [
+      "HUMANEVALPLUS",
+      "MBPP PLUS",
+      "LIVECODEBENCH",
+      "CODEFEEDBACK FILTERED INSTRUCTION",
+      "TACO"
+    ],
+    "languages": [
+      "Python"
+    ],
+    "models": [
+      "llama_3_8b",
+      "llama_3_70b",
+      "gpt_3.5_turbo",
+      "gpt_4o_mini",
+      "coderm_8b",
+      "llama_3.1_70b"
+    ],
+    "outputs": [
+      "Python code solutions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama3.1-70B"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "English"
+        ],
+        "models": [
+          "Llama3-8B-Instruct",
+          "Llama3-70B-Instruct",
+          "Gemma-2-27B-it",
+          "Llama3.1-8B",
+          "Gemma-2-27B",
+          "GPT-4o"
+        ],
+        "outputs": [
+          "generated code solutions",
+          "code solutions in Python"
+        ]
+      },
+      "normalized": {
+        "English": "Removed - not relevant to generated outputs",
+        "Llama3-8B-Instruct": "Llama3-8B",
+        "Llama3-70B-Instruct": "Llama3-70B",
+        "Gemma-2-27B-it": "Gemma-2-27B",
+        "generated code solutions": "Python code solutions",
+        "code solutions in Python": "Python code solutions"
+      },
+      "explanation": "Removed English as it's not the generated language. Normalized model names (removed '-Instruct' suffixes, consolidated Gemma variants). Removed models only used for unit test generation (GPT-4o, Gemma-2-27B) or mentioned in passing. Kept only policy models actually generating code solutions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PASS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Accuracy",
+          "F1 Score",
+          "False Acceptance Rate (FAR)",
+          "False Rejection Rate (FRR)",
+          "Pass@k"
+        ]
+      },
+      "normalized": {
+        "Pass@k": "Pass@1",
+        "Accuracy": "Removed - used for unit test quality, not NLG evaluation",
+        "F1 Score": "Removed - used for unit test quality, not NLG evaluation",
+        "False Acceptance Rate (FAR)": "Removed - used for unit test quality, not NLG evaluation",
+        "False Rejection Rate (FRR)": "Removed - used for unit test quality, not NLG evaluation"
+      },
+      "explanation": "Only Pass@1 is used to evaluate generated code solutions. Other metrics (Accuracy, F1, FAR, FRR) are used internally to evaluate unit test quality, not the NLG outputs themselves. Pass@k is normalized to Pass@1 since k=1 specifically."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Llama3.1-70B",
+          "CodeRM-8B",
+          "Gemma-2-27B",
+          "GPT-4o"
+        ],
+        "methods": [
+          "unit test-based majority voting"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all items. The paper uses LLMs to generate unit tests, but these are automated test cases, not LLMs judging the NLG outputs. The majority voting is based on test execution results, not LLM evaluation of code quality."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. All evaluations are automated using test execution."
+    }
+  },
+  "overall_notes": "This paper focuses on code generation evaluation using automated unit tests. The main NLG evaluation metric is Pass@1 based on test execution. The paper's contribution is in scaling and improving unit test generation for better code solution selection, rather than traditional NLG evaluation methods."
+}

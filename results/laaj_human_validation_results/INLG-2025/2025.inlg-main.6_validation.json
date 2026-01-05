@@ -1,0 +1,113 @@
+{
+  "paper_id": "2025.inlg-main.6",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-as-a-judge against human evaluation by computing Pearson correlation coefficients between LLM semantic consistency scores and mean human ratings on the same 100 input-output pairs from Dataset A and Dataset B."
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "command_r_plus",
+      "llama_3_70b",
+      "mistral_7b"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "The paper mentions using 'for-human instructions' with a 3-point scale for semantic consistency rating, but does not provide the exact prompt text."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Guidelines mention the WebNLG 2017 protocol with semantic adequacy criterion: 'Does the text correctly represent the input triples?' but detailed rubric or examples are not shown."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "semantic adequacy"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "Sample size is inferred as 100 instances from Dataset A (WebNLG 2017 subset) and 100 instances from Dataset B (new WebNLG-style dataset) that received both LLM and human semantic consistency evaluations"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.635,
+        "criterion": "semantic adequacy",
+        "llm_model": "Command-r-plus + Llama3-70B + Mistral-7B (ensemble)",
+        "significance": null,
+        "notes": "Dataset A, without textification"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.367,
+        "criterion": "semantic adequacy",
+        "llm_model": "Command-r-plus + Llama3-70B + Mistral-7B (ensemble)",
+        "significance": null,
+        "notes": "Dataset A, with textification"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.716,
+        "criterion": "semantic adequacy",
+        "llm_model": "Command-r-plus + Llama3-70B + Mistral-7B (ensemble)",
+        "significance": null,
+        "notes": "Dataset B, without textification"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.72,
+        "criterion": "semantic adequacy",
+        "llm_model": "Command-r-plus + Llama3-70B + Mistral-7B (ensemble)",
+        "significance": null,
+        "notes": "Dataset B, with textification"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.582,
+        "criterion": "semantic adequacy",
+        "llm_model": "SBERT Euclidean",
+        "significance": null,
+        "notes": "Dataset A, with textification (best automatic metric for comparison)"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "Lagging behind text-to-text tasks",
+      "threshold_used": "Correlations >0.8 commonly reported in text-to-text tasks",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM-based methods perform well overall, with LLM ensemble achieving Pearson's r=0.635 (Dataset A) and Command-r-plus achieving r=0.727 (Dataset B), but correlations still lag behind text-to-text tasks where values >0.8 are routinely reported."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "semantic adequacy"
+    ],
+    "notes": "Both LLMs and human evaluators assessed the same semantic consistency/semantic adequacy criterion defined as 'Does the text correctly represent the input triples?'"
+  }
+}

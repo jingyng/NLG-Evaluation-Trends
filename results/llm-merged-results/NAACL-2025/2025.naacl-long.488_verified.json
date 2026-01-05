@@ -1,0 +1,111 @@
+{
+  "paper_id": "2025.naacl-long.488",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Visual Question Answering"
+    ],
+    "datasets": [
+      "High-Quality Hallucination Benchmark (HQH)",
+      "TextVQA-X",
+      "VizWiz-G"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Qwen2-VL-7B",
+      "InternLM-XComposer2-VL-7B"
+    ],
+    "outputs": [
+      "generated answers to visual questions",
+      "answers and grounding maps",
+      "bounding boxes for visual grounding"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Visual Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "bounding boxes for visual grounding"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Visual Question Answering"
+        ],
+        "datasets": [
+          "HQH"
+        ],
+        "languages": [],
+        "models": [
+          "internlm-xcomposer2-vl-7b"
+        ],
+        "outputs": [
+          "generated textual answers to visual questions"
+        ]
+      },
+      "normalized": {
+        "Other:Visual Question Answering": "Visual Question Answering",
+        "internlm-xcomposer2-vl-7b": "InternLM-XComposer2-VL-7B"
+      },
+      "explanation": "Normalized task name to standard 'Visual Question Answering', removed duplicate 'HQH' dataset, normalized model name capitalization, simplified output descriptions and added bounding box output type"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Mean Average Precision (mAP)",
+      "Precision-Recall Curve"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "Mean Average Precision": "Mean Average Precision (mAP)"
+      },
+      "explanation": "Normalized 'Mean Average Precision' to include standard abbreviation (mAP) as used in the paper, kept both metrics since they serve different evaluation purposes (mAP for hallucination detection, Precision-Recall Curve for grounding)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT-3.5"
+        ],
+        "methods": [
+          "prompting",
+          "GPT-3.5 prompting"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'Yes' to 'No' because GPT-3.5 is used for creating dataset evaluations in the benchmark itself (as mentioned in Appendix), NOT as a judge to evaluate the paper's generated outputs after generation. The paper evaluates its own generated outputs using mAP and Precision-Recall metrics, not LLM-as-judge."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluations are mentioned in the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on hallucination detection and visual grounding in Vision-Language Models (VLMs) for Visual Question Answering. Evaluation is primarily automatic using mAP for hallucination detection and Precision-Recall curves for grounding performance. The GPT-3.5 mention refers to dataset benchmark creation, not LLM-as-judge evaluation of the paper's outputs."
+}

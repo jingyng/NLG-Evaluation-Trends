@@ -1,0 +1,140 @@
+{
+  "paper_id": "2024.inlg-main.5",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Other:Named Entity Recognition"
+    ],
+    "datasets": [
+      "WMT23 general translation shared task training set",
+      "WMT22 general test set",
+      "WMT23 general test set"
+    ],
+    "languages": [
+      "English",
+      "German"
+    ],
+    "models": [
+      "T5",
+      "T5-1.1",
+      "mT5",
+      "Flan-T5"
+    ],
+    "outputs": [
+      "translated text",
+      "NER-tagged text"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WMT23",
+          "WMT22",
+          "WMT23 general translation shared task",
+          "WMT22 test set",
+          "WMT23 test set"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "translated sentences and NER‑tagged text",
+          "translated sentences for Machine Translation and tagged sentences for Named Entity Recognition"
+        ]
+      },
+      "normalized": {
+        "T5 1.1": "T5-1.1",
+        "translated sentences and NER‑tagged text": "NER-tagged text"
+      },
+      "explanation": "Removed redundant/abbreviated dataset names and simplified output descriptions. Normalized model names to use consistent hyphenation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Precision",
+          "Recall"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'Precision' and 'Recall' as they are not used as automatic evaluation metrics for NLG outputs in this paper - they are only mentioned as NER tool performance metrics from SpaCy, not for evaluating the generated text."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values as the paper does not use LLMs as judges. The paper only uses T5-family models for generation, not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators manually inspected the generated output files for the NER task and performed manual evaluation included in the Appendix"
+    ],
+    "criteria": [
+      "NE tag correctness",
+      "alignment with reference",
+      "entity recognition accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators manually inspected the generated output files for the NER task and performed manual evaluation included in the Appendix"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Human annotators inspected the generated translations and NER outputs for correctness of named‑entity tags and alignment with the reference."
+        ],
+        "criteria": [
+          "mismatching NE beginning and ending tags",
+          "entity not tagged in reference but model identified"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Improved guideline description based on paper text. Removed criteria that were specific error types rather than evaluation criteria. The paper mentions manual evaluation in the Appendix but provides limited details about specific criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on multi-task training for machine translation with named entity recognition. The human evaluation is mentioned but details are limited (referenced as being in the Appendix). The automatic evaluation uses BLEU for MT and F1 for NER. The extracted metadata had some issues with distinguishing between evaluation metrics and tool performance metrics."
+}

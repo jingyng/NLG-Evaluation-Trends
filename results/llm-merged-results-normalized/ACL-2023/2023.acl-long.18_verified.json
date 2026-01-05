@@ -1,0 +1,146 @@
+{
+  "paper_id": "2023.acl-long.18",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Paraphrase Generation",
+      "Fact Checking"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "XSUM",
+      "WOW",
+      "PAWS",
+      "TRUE",
+      "MNBM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "mem_net",
+      "dodecadialogue",
+      "debertav_3"
+    ],
+    "outputs": [
+      "generated summaries",
+      "generated dialogues",
+      "generated paraphrases",
+      "factual consistency score"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Fact Checking"
+        ],
+        "outputs": [
+          "factual consistency score"
+        ]
+      },
+      "removed": {
+        "outputs": [
+          "factual consistency score (logit) for a hypothesis-premise pair"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Added 'Fact Checking' as a task since it's evaluated in TRUE benchmark, simplified outputs description, and removed overly specific output format description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "WECHECK",
+      "SUMMAC",
+      "QAFACT",
+      "ANLI",
+      "QUESTEVAL",
+      "QAFACTEVAL",
+      "Q",
+      "BERTSCORE",
+      "BARTSCORE",
+      "NLI WARMUP",
+      "ROC AUC",
+      "FACTCC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "FactCC"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SCZS",
+          "Q^2"
+        ]
+      },
+      "normalized": {
+        "SCZS": "SUMMAC",
+        "Q^2": "Q²"
+      },
+      "explanation": "Normalized SUMMAC variant (SCZS to SUMMAC) and Q^2 to Q², removed duplicate entries, added missing FactCC metric"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "DeBERTaV3"
+        ],
+        "methods": [
+          "b",
+          "i",
+          "n",
+          "a",
+          "r",
+          "y",
+          " ",
+          "c",
+          "l",
+          "s",
+          "f",
+          "t",
+          "o",
+          "u",
+          "e"
+        ],
+        "criteria": [
+          "factual consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as paper does not use LLMs as judges - DeBERTaV3 is used for metric training, not as an LLM evaluator"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "guideline": [
+          null
+        ],
+        "criteria": [
+          null
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleaned up empty/None values - paper uses TRUE benchmark with existing human annotations but does not conduct new human evaluations"
+    }
+  },
+  "overall_notes": "The paper focuses on developing a factual consistency evaluation metric (WeCheck) rather than generating text. It evaluates on TRUE benchmark which contains human-annotated ground truth, but does not conduct new human evaluations. The extracted metadata was generally good but needed some normalization and corrections."
+}

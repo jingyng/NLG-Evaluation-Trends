@@ -1,0 +1,161 @@
+{
+  "paper_id": "2024.emnlp-main.732",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Code Generation",
+      "Instruction Following"
+    ],
+    "datasets": [
+      "AdvBench",
+      "HEx-PHi",
+      "I-Controversial",
+      "MT-bench",
+      "IFEval",
+      "Alpaca",
+      "Lmsys-chat-1m",
+      "Code vulnerability evaluation set",
+      "Sleeper Agents dataset"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-2-7b-Chat",
+      "Llama-2-7b",
+      "Mistral-7b-Instruct-v0.2"
+    ],
+    "outputs": [
+      "Generated textual responses to harmful instructions",
+      "Generated code snippets",
+      "Safety refusal responses",
+      "Harmful content generation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Instruction Following"
+        ],
+        "datasets": [
+          "Sleeper Agents dataset"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:bomb-making guide",
+          "Other:review writing",
+          "Other:book writing",
+          "Other:virus creation"
+        ],
+        "datasets": [
+          "code_backdoor_train_data.jsonl",
+          "poison_long_trigger_llama2.jsonl"
+        ]
+      },
+      "normalized": {
+        "HEx-PHI": "HEx-PHi",
+        "Mistral-7b": "Mistral-7b-Instruct-v0.2",
+        "CWE code generation": "Code vulnerability evaluation set"
+      },
+      "explanation": "Normalized dataset names and model versions. Removed overly specific 'Other:' tasks as they are covered by Dialogue Generation and Instruction Following. Added 'Instruction Following' as a core task. Consolidated file references into dataset names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ASR (Attack Success Rate)",
+      "GPT-4 harmfulness score",
+      "Reward Score",
+      "MT-Bench",
+      "IFEval",
+      "Code vulnerability detection"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Code vulnerability detection"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ASR (keywords)",
+          "Harmful (gpt-4 score)",
+          "ASR (gpt-4)",
+          "ASR (keyword matching)",
+          "GPT-4 based harmfulness score",
+          "MT‑Bench helpfulness",
+          "Keyword matching rate"
+        ]
+      },
+      "normalized": {
+        "Harmful (gpt-4 score)": "GPT-4 harmfulness score",
+        "ASR (gpt-4)": "ASR (Attack Success Rate)",
+        "ASR (keywords)": "ASR (Attack Success Rate)"
+      },
+      "explanation": "Consolidated multiple ASR variants into 'ASR (Attack Success Rate)'. Normalized GPT-4 scoring metric names. Added code vulnerability detection as an automatic metric used for evaluating generated code safety."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "scoring on 1-5 scale",
+      "harmfulness classification"
+    ],
+    "criteria": [
+      "harmfulness",
+      "safety",
+      "maliciousness",
+      "benign vs malicious"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "harmfulness classification"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "pairwise evaluation using GPT‑4"
+        ],
+        "criteria": [
+          "helpfulness"
+        ]
+      },
+      "normalized": {
+        "benign": "benign vs malicious",
+        "malicious": "benign vs malicious"
+      },
+      "explanation": "Removed 'pairwise evaluation' as it's not mentioned in the paper. Removed 'helpfulness' from criteria as GPT-4 is only used for harmfulness evaluation, not helpfulness. Consolidated benign/malicious into a single criterion."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in the paper. Only automatic metrics and LLM-based evaluation were used."
+    }
+  },
+  "overall_notes": "The paper evaluates NLG primarily for safety backdoor mitigation, focusing on dialogue generation (responses to harmful instructions) and code generation. Evaluation uses automatic metrics including attack success rates, GPT-4-based harmfulness scoring, and code vulnerability detection. No human evaluation was conducted. The extraction was generally accurate but needed normalization of metric names and consolidation of related terms."
+}

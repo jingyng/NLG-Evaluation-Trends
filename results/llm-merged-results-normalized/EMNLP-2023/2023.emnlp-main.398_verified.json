@@ -1,0 +1,158 @@
+{
+  "paper_id": "2023.emnlp-main.398",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Long Form Question Answering",
+      "Question Answering With Citation Generation"
+    ],
+    "datasets": [
+      "ASQA",
+      "QAMPARI",
+      "eli5"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "chatgpt",
+      "gpt_4",
+      "llama_13b",
+      "vicuna_13b",
+      "llama_2_chat_13b",
+      "llama_2_chat_70b"
+    ],
+    "outputs": [
+      "Long-form answers with citations",
+      "Long-form answers that include citations to supporting passages"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Answer Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LLaMA-2-Chat"
+        ],
+        "outputs": [
+          "natural-language responses with citations to supporting passages"
+        ]
+      },
+      "normalized": {
+        "LLaMA-2-Chat-13B": "LLaMA-2-Chat-13B",
+        "LLaMA-2-Chat-70B": "LLaMA-2-Chat-70B"
+      },
+      "explanation": "Removed 'Other:Answer Generation' as it's redundant with the more specific tasks. Removed 'LLaMA-2-Chat' as it's ambiguous - kept the specific versions. Removed redundant output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MAUVE",
+      "EXACT MATCH",
+      "RECALL",
+      "CLAIM RECALL",
+      "CITATION RECALL",
+      "CITATION PRECISION",
+      "NLI"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Exact Match",
+          "Recall-5",
+          "Claim Recall",
+          "Citation Recall",
+          "Citation Precision",
+          "NLI"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "EM recall (for ASQA)",
+          "recall-5 (for QAMPARI)",
+          "claim recall (for ELI5)",
+          "Exact Match recall (EM recall)",
+          "NLI entailment model",
+          "exact match recall (EM recall)",
+          "NLI model (TRUE)"
+        ]
+      },
+      "normalized": {
+        "EM recall": "Exact Match",
+        "recall-5": "Recall-5",
+        "claim recall": "Claim Recall",
+        "citation recall": "Citation Recall",
+        "citation precision": "Citation Precision",
+        "NLI model (TRUE)": "NLI"
+      },
+      "explanation": "Normalized metric names to canonical forms and removed redundant/duplicate entries. Kept the core metrics used across datasets."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges - it uses LLMs for generation and NLI models for automatic evaluation, but not LLMs to evaluate the outputs post-generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers rate utility on a 1-5 Likert scale indicating whether generation helps answer the question",
+      "Workers judge citation recall: whether cited passages fully support statements",
+      "Workers judge citation precision: whether citations fully/partially support statements"
+    ],
+    "criteria": [
+      "Utility",
+      "Citation"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Workers rate utility on a 1-5 Likert scale indicating whether generation helps answer the question",
+          "Workers judge citation recall: whether cited passages fully support statements",
+          "Workers judge citation precision: whether citations fully/partially support statements"
+        ],
+        "criteria": [
+          "utility",
+          "citation recall",
+          "citation precision"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated the human evaluation guidelines into clear, concise descriptions and extracted the core criteria used."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating LLMs' ability to generate text with citations across three datasets. It uses a comprehensive set of automatic metrics (fluency, correctness, citation quality) and validates them with human evaluation. The extraction was generally accurate but needed normalization and removal of redundant entries."
+}

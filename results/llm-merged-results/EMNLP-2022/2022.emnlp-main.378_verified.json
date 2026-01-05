@@ -1,0 +1,158 @@
+{
+  "paper_id": "2022.emnlp-main.378",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "Cross-lingual Quizbowl (XQB)",
+      "WMT2020",
+      "XOR-TyDi QA"
+    ],
+    "languages": [
+      "Polish",
+      "English",
+      "Spanish",
+      "Russian",
+      "Finnish"
+    ],
+    "models": [
+      "WAIT-k",
+      "Transformer-big",
+      "SMT (Moses)",
+      "Google Translate",
+      "GRU Guesser",
+      "LSTM Buzzer",
+      "BERT",
+      "m2m_418M",
+      "m2m_1.2B",
+      "m2m_12B"
+    ],
+    "outputs": [
+      "simultaneous machine translation outputs",
+      "target-language translations for question answering"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "Russian",
+          "Finnish"
+        ],
+        "models": [
+          "m2m_418M",
+          "m2m_1.2B",
+          "m2m_12B"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "XQB (Cross‑lingual Quizbowl)"
+        ],
+        "languages": [],
+        "models": [
+          "WAIT‑k",
+          "Transformer‑big",
+          "SMT"
+        ],
+        "outputs": [
+          "translated target text and answers to trivia questions",
+          "Target‑language translations used by a QA system",
+          "translated text outputs in real time for question answering"
+        ]
+      },
+      "normalized": {
+        "XQB": "Cross-lingual Quizbowl (XQB)",
+        "SMT": "SMT (Moses)"
+      },
+      "explanation": "Normalized dataset names, removed duplicates, added languages and models mentioned in XOR-TyDi experiments, simplified outputs description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "COMET",
+      "BERTScore",
+      "Differentiable Average Lagging (DAL)",
+      "Expected Wins (EW)",
+      "Expected Wins with Oracle (EWO)",
+      "Full Accuracy",
+      "Mean Reciprocal Rank (MRR)",
+      "Exact Match (EM)",
+      "F1-Score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Exact Match (EM)",
+          "F1-Score"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Expected Win (EW)",
+          "Expected Win with Oracle (EWO)",
+          "BERTScore",
+          "Differentiable Average Lagging",
+          "Expected Win with Oracle Buzzer (EWO)"
+        ]
+      },
+      "normalized": {
+        "BertScore": "BERTScore",
+        "Differentiable Average Lagging": "Differentiable Average Lagging (DAL)",
+        "Expected Win (EW)": "Expected Wins (EW)",
+        "Expected Win with Oracle (EWO)": "Expected Wins with Oracle (EWO)"
+      },
+      "explanation": "Normalized metric names to standard forms, removed duplicates, added metrics from XOR-TyDi experiments (EM, F1-Score)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs used as judges in this paper - only for generation/QA, not evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "avoid biasing references toward a single MT system by using randomly ordered outputs from multiple systems for post-editing"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Corrected answer from 'No' to 'No' - while humans created reference translations, there was no direct human evaluation of generated outputs. The guideline mentioned was for reference translation creation, not evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating simultaneous machine translation using a downstream QA task. It uses extensive automatic evaluation but no LLM-as-judge or human evaluation of generated outputs. The extraction was generally good but needed normalization and removal of duplicates. Added missing metrics from the XOR-TyDi experiments in the appendix."
+}

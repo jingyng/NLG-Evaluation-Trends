@@ -1,0 +1,191 @@
+{
+  "paper_id": "2023.acl-long.793",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates their LLM-based MAE metric against human judgments on controllability using correlation analysis (Pearson, Spearman, Kendall) for both datasets"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "T5",
+      "BART"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Templates are described but exact prompts not fully shown. Templates mentioned: 'The emotion/act/persona controls the response [MASK]', 'The response is related to the emotion/act/persona [MASK]', 'The response is about the emotion/act/persona [MASK]'"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 5,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Unspecified agreement metric",
+      "value": [
+        0.63,
+        0.61,
+        0.58,
+        0.6
+      ],
+      "interpretation": "Not provided",
+      "per_criterion": [
+        {
+          "criterion": "controllability",
+          "metric": "Unspecified",
+          "value": 0.63,
+          "dataset": "DailyDialog-CG"
+        },
+        {
+          "criterion": "text_quality",
+          "metric": "Unspecified",
+          "value": 0.61,
+          "dataset": "DailyDialog-CG"
+        },
+        {
+          "criterion": "controllability",
+          "metric": "Unspecified",
+          "value": 0.58,
+          "dataset": "ConvAI2-CG"
+        },
+        {
+          "criterion": "text_quality",
+          "metric": "Unspecified",
+          "value": 0.6,
+          "dataset": "ConvAI2-CG"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Controllability rating scale provided (1-3: 1=completely inconsistent, 2=same meaning but no explicit words, 3=contains clear attribute words); text quality uses 1-5 scale for fluency and context relevancy"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation",
+      "Kendall correlation"
+    ],
+    "shared_criteria": [
+      "controllability"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "100 randomly sampled examples from two datasets used for both human and LLM evaluation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.6821,
+        "criterion": "emotion_controllability",
+        "llm_model": "T5",
+        "dataset": "DailyDialog-CG"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.75,
+        "criterion": "emotion_controllability",
+        "llm_model": "T5",
+        "dataset": "DailyDialog-CG"
+      },
+      {
+        "metric": "Kendall correlation",
+        "value": 0.6242,
+        "criterion": "emotion_controllability",
+        "llm_model": "T5",
+        "dataset": "DailyDialog-CG"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.5446,
+        "criterion": "act_controllability",
+        "llm_model": "T5",
+        "dataset": "DailyDialog-CG"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.4661,
+        "criterion": "act_controllability",
+        "llm_model": "T5",
+        "dataset": "DailyDialog-CG"
+      },
+      {
+        "metric": "Kendall correlation",
+        "value": 0.3936,
+        "criterion": "act_controllability",
+        "llm_model": "T5",
+        "dataset": "DailyDialog-CG"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.5793,
+        "criterion": "persona_controllability",
+        "llm_model": "T5",
+        "dataset": "ConvAI2-CG"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.5768,
+        "criterion": "persona_controllability",
+        "llm_model": "T5",
+        "dataset": "ConvAI2-CG"
+      },
+      {
+        "metric": "Kendall correlation",
+        "value": 0.4418,
+        "criterion": "persona_controllability",
+        "llm_model": "T5",
+        "dataset": "ConvAI2-CG"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.6829,
+        "criterion": "emotion_controllability",
+        "llm_model": "BART",
+        "dataset": "DailyDialog-CG"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.7396,
+        "criterion": "emotion_controllability",
+        "llm_model": "BART",
+        "dataset": "DailyDialog-CG"
+      },
+      {
+        "metric": "Kendall correlation",
+        "value": 0.6102,
+        "criterion": "emotion_controllability",
+        "llm_model": "BART",
+        "dataset": "DailyDialog-CG"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "",
+      "threshold_used": "Not provided",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "MAE metric (T5-based) shows moderate to strong correlations with human judgments across all attributes (Pearson: 0.54-0.68, Spearman: 0.47-0.75), outperforming traditional metrics like ACC and P-SIM"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Fluency",
+      "context_relevance"
+    ],
+    "shared_criteria": [
+      "Controllability"
+    ],
+    "notes": "LLM (MAE) only evaluates controllability, while human evaluates both controllability and text quality (fluency, relevance)"
+  }
+}

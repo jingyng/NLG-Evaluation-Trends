@@ -1,0 +1,178 @@
+{
+  "paper_id": "2024.acl-long.686",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "XSUM",
+      "MULTI NEWS",
+      "MLSUM",
+      "XL SUM"
+    ],
+    "languages": [
+      "English",
+      "French",
+      "Spanish"
+    ],
+    "models": [
+      "pegasus",
+      "bert_large",
+      "distilbert",
+      "mt_5",
+      "t_5",
+      "palm",
+      "bart"
+    ],
+    "outputs": [
+      "generated summaries",
+      "summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "BART"
+        ],
+        "datasets": [],
+        "languages": [],
+        "outputs": [],
+        "tasks": []
+      },
+      "removed": {
+        "models": [
+          "SEA-HORSE models",
+          "BERT large"
+        ],
+        "datasets": [],
+        "languages": [],
+        "outputs": [],
+        "tasks": []
+      },
+      "normalized": {
+        "BERT large": "BERT-large",
+        "SEA-HORSE models": "removed (not specific models)"
+      },
+      "explanation": "Normalized model names to standard forms (BERT-large), added BART which is explicitly mentioned, removed 'SEA-HORSE models' as it's not a specific model family but a benchmark"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "COSMIC",
+      "ROUGE",
+      "BLEU",
+      "BERTSCORE",
+      "BARTSCORE",
+      "MAUVE",
+      "BLANC",
+      "INFORMATION DIFFERENCE",
+      "CHRF",
+      "BLEURT",
+      "MOVERSCORE",
+      "SMS",
+      "SMART",
+      "RISE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "MAUVE",
+          "BLANC",
+          "Information Difference",
+          "CHRF",
+          "BLEURT",
+          "MoverScore",
+          "SMS",
+          "SMART",
+          "RISE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SEAHORSE metrics",
+          "ROUGE-L",
+          "MI (COSMIC)",
+          "MI",
+          "Normalized MI",
+          "SMART-1",
+          "SMART-2",
+          "SMART-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "MI (COSMIC)": "COSMIC",
+        "MI": "COSMIC",
+        "Normalized MI": "COSMIC",
+        "SEAHORSE metrics": "removed (human-judgment-based)",
+        "SMART-1": "SMART",
+        "SMART-2": "SMART",
+        "SMART-L": "SMART"
+      },
+      "explanation": "Consolidated all ROUGE variants to 'ROUGE', normalized MI variants to 'COSMIC', removed SEAHORSE metrics (they're human-judgment-based, not automatic), consolidated SMART variants, added missing metrics mentioned in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is conducted in this paper. The paper uses traditional automatic metrics and references to human judgments from existing datasets."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "System-level Kendall's Tau correlation with human judgments from SummEval dataset"
+    ],
+    "criteria": [
+      "Coherence",
+      "Consistency",
+      "Fluency",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "System-level Kendall's Tau correlation with human judgments from SummEval dataset"
+        ],
+        "criteria": [
+          "coherence",
+          "consistency",
+          "fluency",
+          "relevance"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Coher.": "coherence",
+        "Cons.": "consistency",
+        "Flu.": "fluency",
+        "Rel.": "relevance"
+      },
+      "explanation": "Expanded abbreviated criteria to full forms and added the guideline description from the paper's Table 2"
+    }
+  },
+  "overall_notes": "The paper focuses on text summarization evaluation and introduces COSMIC, a mutual information-based metric. It uses existing human evaluation datasets (SummEval) but does not conduct new human evaluations. The extraction was generally good but needed normalization of metric variants and clarification on what constitutes automatic vs. human-judgment-based metrics."
+}

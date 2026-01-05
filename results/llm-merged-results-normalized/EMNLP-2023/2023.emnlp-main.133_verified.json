@@ -1,0 +1,150 @@
+{
+  "paper_id": "2023.emnlp-main.133",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "MULTI NEWS",
+      "CQASUMM",
+      "DUC",
+      "OPINOSIS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "fabric",
+      "primera",
+      "bart",
+      "t_5",
+      "longt_5",
+      "pegasus",
+      "longformer",
+      "brio",
+      "pointer_generator",
+      "himap",
+      "transformer",
+      "bert"
+    ],
+    "outputs": [
+      "abstractive summaries",
+      "multi-document summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "multi-document summaries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated summaries"
+        ]
+      },
+      "normalized": {
+        "Multinews": "MultiNews",
+        "abstractive summaries of multiple documents": "multi-document summaries"
+      },
+      "explanation": "Normalized dataset name MultiNews (consistent capitalization), simplified outputs description, removed generic 'generated summaries'"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BARTSCORE",
+      "FACTCC",
+      "SUMMAC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized all ROUGE variants to base ROUGE metric as per guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BART"
+        ],
+        "methods": [
+          "semantic overlap scoring",
+          "BARTScore evaluation"
+        ],
+        "criteria": [
+          "semantic overlap"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because BARTScore is an automatic metric using BART as a scoring model, not an LLM used as a judge to evaluate outputs after generation. The paper uses BARTScore as a predefined automatic evaluation metric, not as an LLM judge with custom prompts or scoring criteria."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rated summaries on five parameters: Informativeness, Relevance, Coherence, Fluency, and Topic Coherence"
+    ],
+    "criteria": [
+      "Informativeness",
+      "Relevance",
+      "Coherence",
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators rated summaries on five parameters: Informativeness, Relevance, Coherence, Fluency, and Topic Coherence"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "The evaluation focused on five parameters: Informativeness, Relevance, Coherence, Fluency, and Topic coherence.",
+          "Annotators rated each summary on Informativeness, Relevance, Coherence, Fluency, and Topic Coherence.",
+          "The evaluation focused on five parameters -Informativeness (Inf), Relevance (Rel), Coherence (Coh), Fluency (Flu), and Topic coherence (Topic)."
+        ],
+        "criteria": [
+          "Topic coherence"
+        ]
+      },
+      "normalized": {
+        "Topic coherence": "Topic Coherence"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement, normalized criteria capitalization for consistency"
+    }
+  },
+  "overall_notes": "The paper focuses on multi-document abstractive summarization with strong emphasis on faithfulness and topic coherence. The extraction was generally accurate, except for Q3 where BARTScore was incorrectly categorized as LLM-as-judge rather than an automatic metric. The paper includes comprehensive evaluation with both automatic metrics and human evaluation across multiple datasets."
+}

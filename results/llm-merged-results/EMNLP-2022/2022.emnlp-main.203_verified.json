@@ -1,0 +1,144 @@
+{
+  "paper_id": "2022.emnlp-main.203",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Query Generation",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "XOR-Retrieve",
+      "MKQA",
+      "NQ"
+    ],
+    "languages": [
+      "English",
+      "Finnish",
+      "German",
+      "Spanish",
+      "French",
+      "Italian",
+      "Dutch",
+      "Portuguese"
+    ],
+    "models": [
+      "mT5-Base",
+      "XLM-R-Base",
+      "LaBSE"
+    ],
+    "outputs": [
+      "Generated queries in multiple languages",
+      "Paraphrased queries in different languages"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "German",
+          "Spanish",
+          "French",
+          "Italian",
+          "Dutch",
+          "Portuguese"
+        ],
+        "models": [
+          "XLM-R-Base",
+          "LaBSE"
+        ],
+        "outputs": [
+          "Paraphrased queries in different languages"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Machine Translation"
+        ],
+        "datasets": [],
+        "languages": [
+          "non-English (multiple languages)"
+        ],
+        "models": [
+          "mT5"
+        ],
+        "outputs": [
+          "generated queries in multiple languages",
+          "The paper generates queries in different languages given a passage and a span answer, using a generative model (mT5) with a prompt-based input format such as 'generate [language] query: answer: [span answer] content: [content]'"
+        ]
+      },
+      "normalized": {
+        "mT5 Base": "mT5-Base",
+        "XLM-R": "XLM-R-Base"
+      },
+      "explanation": "Removed 'Machine Translation' as it's not the main task (this is query generation/paraphrasing), normalized model names with version specifications, removed verbose output description, added specific languages mentioned in the paper, and kept only relevant NLG models"
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": false,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Confirmed no automatic NLG evaluation metrics are used. The paper uses retrieval metrics (R@2kt, R@5kt) but these evaluate retrieval performance, not NLG quality."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Confirmed no LLM-as-judge evaluation is performed. The paper uses mT5 as a generator, not as an evaluator."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Confirmed no human evaluation of generated outputs is conducted. The paper evaluates retrieval performance, not NLG quality."
+    }
+  },
+  "overall_notes": "This paper focuses on cross-lingual dense retrieval using query generation as a technique to enhance retrieval performance. While it does involve NLG (query generation), the primary evaluation is on retrieval effectiveness (R@k metrics) rather than NLG quality. The NLG aspect is a means to improve retrieval, not the main subject of evaluation."
+}

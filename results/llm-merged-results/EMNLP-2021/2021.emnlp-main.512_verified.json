@@ -1,0 +1,138 @@
+{
+  "paper_id": "2021.emnlp-main.512",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Visual Question Answering"
+    ],
+    "datasets": [
+      "VQA v2",
+      "VQA-CP v2",
+      "GQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Bottom-Up Top-Down (UpDn)",
+      "LMH",
+      "LXMERT"
+    ],
+    "outputs": [
+      "natural language answers",
+      "augmented image-question-answer (IQA) triplets"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "GQA"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "augmented image-question-answer (IQA) triplets"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Generation"
+        ],
+        "datasets": [
+          "VQA-CP"
+        ],
+        "models": [
+          "Faster R-CNN detector",
+          "spaCy POS tagger",
+          "UpDn (duplicate)"
+        ],
+        "outputs": [
+          "generated image-question-answer triplets (redundant)"
+        ]
+      },
+      "normalized": {
+        "Other:Visual Question Answering": "Other:Visual Question Answering"
+      },
+      "explanation": "Removed 'Question Generation' as it's not a main task but a side effect. Removed duplicate 'UpDn' and non-NLG models (detectors, taggers). Added missing GQA dataset and consolidated outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "VQA accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "accuracy": "VQA accuracy"
+      },
+      "explanation": "Consolidated 'accuracy' into 'VQA accuracy' as that's the specific metric used throughout the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges. Empty arrays indicate no relevant content found."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators evaluated 'relatedness' (whether question makes sense for image) and 'correctness' (whether answer is correct) on a binary scale (1/0)",
+      "500 images × 5 QA pairs evaluated by 5 crowd workers"
+    ],
+    "criteria": [
+      "relatedness",
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "500 images × 5 QA pairs evaluated by 5 crowd workers"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "relatedness": "relatedness",
+        "correctness": "correctness"
+      },
+      "explanation": "Added quantitative details about the human evaluation scale. Criteria were already correctly extracted."
+    }
+  },
+  "overall_notes": "The paper focuses on Visual Question Answering (VQA) as the main NLG task. It uses standard VQA accuracy metrics and conducts human evaluation. The augmentation method generates new IQA triplets but the core NLG task is answer generation. Extraction was mostly accurate but needed some refinement for precision."
+}

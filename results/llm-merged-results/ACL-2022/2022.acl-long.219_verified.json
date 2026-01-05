@@ -1,0 +1,139 @@
+{
+  "paper_id": "2022.acl-long.219",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Other:Crossword Solving"
+    ],
+    "datasets": [
+      "The New York Times",
+      "The LA Times",
+      "Newsday",
+      "The New Yorker",
+      "The Atlantic",
+      "USA Today"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BERT-base-uncased",
+      "GPT-2",
+      "ByT5"
+    ],
+    "outputs": [
+      "Crossword answers",
+      "Complete crossword puzzle solutions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Crossword Answer Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Bi-encoder (BERT-based)",
+          "ByT5small"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "GPT-2 small": "GPT-2",
+        "ByT5small": "ByT5",
+        "Crossword answers (words or phrases)": "Crossword answers",
+        "Crossword puzzle solutions, including predicted answers for clues and full grid fills": "Complete crossword puzzle solutions"
+      },
+      "explanation": "Removed 'Other:Crossword Answer Generation' as it's redundant with crossword solving. Normalized model names (GPT-2, ByT5) and simplified output descriptions. Added 'Question Answering' as a primary task since it's a core component."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Perfect puzzle accuracy",
+      "Word accuracy",
+      "Letter accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "perfect puzzle accuracy",
+          "word accuracy",
+          "letter accuracy"
+        ]
+      },
+      "normalized": {
+        "perfect puzzle accuracy": "Perfect puzzle accuracy",
+        "word accuracy": "Word accuracy",
+        "letter accuracy": "Letter accuracy"
+      },
+      "explanation": "Normalized metric names to consistent capitalization. Kept the three main evaluation metrics used throughout the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "ByT5small"
+        ],
+        "methods": [
+          "likelihood scoring of generated answers"
+        ],
+        "criteria": [
+          "likelihood"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper does NOT use LLMs as judges. ByT5 is used for generation/scoring within the system, not as an external evaluator/judge of outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Competitors are scored based on their accuracy and speed. For each puzzle, the judges award: • 10 points for each correct word in the grid, • 150 bonus points if the puzzle is solved perfectly, • 25 bonus points for each full minute of time remaining when the puzzle is completed."
+        ],
+        "criteria": [
+          "accuracy",
+          "speed"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper does NOT conduct human evaluations. The tournament scoring rules mentioned are for the automated system's performance comparison, not human evaluation of generated outputs."
+    }
+  },
+  "overall_notes": "The paper focuses on automated crossword solving using neural QA models and constraint satisfaction, but does not involve human evaluation or LLM-as-judge evaluation. The extraction incorrectly interpreted tournament scoring rules as human evaluation criteria. The paper's main NLG contribution is crossword answer generation and puzzle solving."
+}

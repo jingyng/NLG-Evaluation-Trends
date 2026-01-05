@@ -1,0 +1,165 @@
+{
+  "paper_id": "2025.emnlp-main.864",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Word Sense Disambiguation",
+      "Other:Definition Generation"
+    ],
+    "datasets": [
+      "SemEval-2007",
+      "SemEval-2013",
+      "SemEval-2015",
+      "Senseval-2",
+      "Senseval-3"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA2-7B",
+      "LLaMA3.1-8B",
+      "LLaMA3.1-70B",
+      "GPT-4o",
+      "DeepSeek-V3",
+      "LLaMA2-Dictionary",
+      "LLaMA3-Dictionary",
+      "T5-definition"
+    ],
+    "outputs": [
+      "sense definitions for polysemous words",
+      "multiple-choice selections for word sense disambiguation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "multiple-choice selections for word sense disambiguation"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Generated sense definitions for polysemous words",
+          "sense definitions and disambiguation decisions"
+        ]
+      },
+      "normalized": {
+        "LLaMA2-7b": "LLaMA2-7B",
+        "LLaMA3.1-8b": "LLaMA3.1-8B",
+        "LLaMA3.1-70b": "LLaMA3.1-70B",
+        "DeepSeek-v3": "DeepSeek-V3",
+        "SemEval2007": "SemEval-2007",
+        "SemEval2013": "SemEval-2013",
+        "SemEval2015": "SemEval-2015",
+        "Senseval2": "Senseval-2",
+        "Senseval3": "Senseval-3"
+      },
+      "explanation": "Normalized model and dataset names to standard capitalization. Added multiple-choice selection as an output type since the paper evaluates both generation and selection tasks. Removed redundant output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "DGQS",
+      "BLEU",
+      "ROUGE",
+      "F1",
+      "BERTScore",
+      "DS",
+      "DRoS",
+      "DReS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BERTScore"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "Relaxed Matching F1",
+          "F1 (relaxed matching)"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "F1 (relaxed matching)": "F1",
+        "Relaxed Matching F1": "F1"
+      },
+      "explanation": "Consolidated ROUGE variants under 'ROUGE'. Added BERTScore which is mentioned in the paper. Normalized F1 variants to base form."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper explicitly states they did not use GPT for secondary judgments to avoid LLM-as-judge approach. No LLMs were used as evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "verifying exact matches between model outputs and gold standards"
+    ],
+    "criteria": [
+      "correctness (exact match)"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- verifying exact matches between model outputs and gold standards",
+          "Human annotators checked whether the generated definitions exactly matched the gold-standard definitions.",
+          "We manually inspect 100 randomly sampled data instances and find that naively replacing all special characters with spaces introduces seven distinct error patterns, which either create new ambiguities or render contexts unintelligible."
+        ],
+        "criteria": [
+          "exact match"
+        ]
+      },
+      "normalized": {
+        "correctness (exact match)": "correctness (exact match)",
+        "exact match": "correctness (exact match)"
+      },
+      "explanation": "Consolidated guideline description to key point. Normalized criteria to single consistent description."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating LLMs for Word Sense Disambiguation tasks, including both multiple-choice selection and definition generation. It introduces novel metrics (DS, DRoS, DReS, DGQS) and compares them against traditional metrics. Human evaluation was limited to exact match verification. No LLM-as-judge approach was used."
+}

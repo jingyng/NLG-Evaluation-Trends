@@ -1,0 +1,97 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We apply the Reverse Question-Answering method to the mathematical domain for constructing our initial synthetic datasets. This technique involves providing the model with a few example solutions and instructing it to generate corresponding questions that align with those solutions. After generating the samples, we use gpt-4o and chatgpt-4o-latest as two primary models to generate solutions for the synthetic questions.",
+            "TP-as-a-Judge is integrated with a theorem prover, leveraging its step‑by‑step verification to ensure logical correctness. ... LLM Data Generation, where LLMs generate questions and answers;",
+            "We propose Theorem Prover as a Judge (TP-as-a-Judge), a framework for synthetic data generation that ensures the correctness of intermediate reasoning steps."
+        ],
+        "tasks": [
+            "Other:Mathematical Reasoning Generation",
+            "Other:Question Generation",
+            "Other:Mathematical Question Answering",
+            "Other:Mathematical Reasoning"
+        ],
+        "datasets": [
+            "GSM8K",
+            "MATH",
+            "SIMQA",
+            "SVAMP",
+            "MultiArith",
+            "AIME 2024",
+            "OlympiadBench",
+            "GSMSymbolic-p1",
+            "MATH-500",
+            "AIME (2024)"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "gpt-4o",
+            "chatgpt-4o-latest",
+            "Llama-2-7b-chat-hf",
+            "Llama-3.2-3B-Instruct",
+            "Llama-3.1-8B-Instruct",
+            "Mistral-7B-Instruct-v0.3"
+        ],
+        "outputs": [
+            "Generated questions and step-by-step reasoning solutions for mathematical problems.",
+            "synthetic mathematical questions and step‑by‑step solutions",
+            "step-by-step reasoning and final answers for mathematical problems"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We report Pass@1 accuracy as the primary evaluation metric for all baselines. The answers were parsed based on an exact match. For answers where exact matching failed, we parsed the numerical values from the model's final response and compared them against the ground truth. For the MATH-500, AIME, and Olympiad-Bench datasets, we adopt a similar evaluation strategy to . We use gpt-4o-mini to assess answer alignment by comparing the last two output sentences to the ground truth, generating a numerical score (1 or 0) without revealing the question.",
+            "We report Pass@1 accuracy as the primary evaluation metric for all baselines. For the MATH-500, AIME, and Olympiad-Bench datasets, we adopt a similar evaluation strategy ... TP-as-a-Judge achieves an F1 score of 0.87 and a Recall of 0.91 in correctly verifying reasoning steps.",
+            "We report Pass@1 accuracy as the primary evaluation metric for all baselines. The answers were parsed based on an exact match."
+        ],
+        "automatic_metrics": [
+            "Pass@1",
+            "Exact Match",
+            "Numerical Parsing",
+            "Model-based Alignment Score",
+            "F1",
+            "Recall",
+            "Pass@1 accuracy",
+            "exact match",
+            "F1 score"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "For the OlympiadBench datasets, where exact match is not a suitable evaluation metric, we used the gpt-4o-mini model as a benchmark to assess how closely the answers of the model aligned with the ground truth. ... System Message: You are a decider that decides whether the answer is the same as the correct answer. If the output doesn't align with the correct answer, respond with '0', whereas if it's correct, then respond with '1'.",
+            "For the OlympiadBench datasets, where exact match is not a suitable evaluation metric, we used the gpt-4o-mini model as a benchmark to assess how closely the answers of the model aligned with the ground truth."
+        ],
+        "models": [
+            "gpt-4o-mini"
+        ],
+        "methods": [
+            "binary alignment check",
+            "alignment check using final sentences"
+        ],
+        "criteria": [
+            "answer match",
+            "answer alignment"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We conduct a manual annotation process to verify the correctness of the theorem prover's validations. Manual annotation is performed by a mathematics and statistics bachelor's graduate, who is specifically instructed to solve the mathematical problems.",
+            "Manual annotation is performed by a mathematics and statistics bachelor's graduate, who is specifically instructed to solve the mathematical problems.",
+            "Manual annotation is performed by a mathematics and statistics bachelor's graduate, who is specifically instructed to solve the mathematical problems."
+        ],
+        "guideline": [
+            "Solve the problem and verify the theorem prover's validation of the model's solution.",
+            "Annotators solve each generated problem and verify the correctness of the solution against the ground‑truth answer.",
+            "solve the mathematical problems and verify correctness of model solutions"
+        ],
+        "criteria": [
+            "correctness"
+        ]
+    }
+}

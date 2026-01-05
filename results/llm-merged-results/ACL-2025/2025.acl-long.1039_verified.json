@@ -1,0 +1,193 @@
+{
+  "paper_id": "2025.acl-long.1039",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Text Detoxification",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "K/DA",
+      "K-OMG",
+      "CADD",
+      "KOLD",
+      "BEEP"
+    ],
+    "languages": [
+      "Korean",
+      "English"
+    ],
+    "models": [
+      "GPT-4 Turbo",
+      "Trillion-7B",
+      "Gemma2-9B",
+      "Ko-LLaMA3-Luxia-8B"
+    ],
+    "outputs": [
+      "Generated toxic texts from neutral inputs",
+      "neutral-toxic sentence pairs for detoxification"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Detoxification",
+          "Other:Language Detoxification"
+        ],
+        "datasets": [
+          "Translated CADD"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "detoxified (neutral) sentences"
+        ]
+      },
+      "normalized": {
+        "Other:Text Detoxification": "Other:Text Detoxification",
+        "Other:Detoxification": "Other:Text Detoxification",
+        "Other:Language Detoxification": "Other:Text Detoxification",
+        "neutral‑toxic sentence pairs and detoxified (neutral) sentences": "neutral-toxic sentence pairs for detoxification"
+      },
+      "explanation": "Consolidated detoxification task names under 'Other:Text Detoxification'. Removed redundant detoxification outputs and focused on the generation aspect. Kept 'Paraphrase Generation' as it involves generating toxic paraphrases of neutral sentences."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "G-Eval",
+      "Perspective API"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Overall offensiveness",
+          "Implicit offensiveness",
+          "Consistency",
+          "Fluency",
+          "Perspective",
+          "G‑Eval (GPT‑4 Turbo rating)",
+          "Perspective API score"
+        ]
+      },
+      "normalized": {
+        "G‑Eval (GPT‑4 Turbo rating)": "G-Eval",
+        "Perspective API score": "Perspective API"
+      },
+      "explanation": "Simplified metrics to base forms. Removed specific criteria names (Overall offensiveness, etc.) as these are evaluation criteria within metrics, not the metrics themselves. G-Eval and Perspective API are the actual metrics used."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4 Turbo"
+    ],
+    "methods": [
+      "LLM-based filtering",
+      "G-Eval scoring"
+    ],
+    "criteria": [
+      "pair consistency",
+      "implicit offensiveness",
+      "overall offensiveness",
+      "fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "LLM-based filtering",
+          "G-Eval scoring"
+        ],
+        "criteria": [
+          "pair consistency",
+          "implicit offensiveness",
+          "overall offensiveness",
+          "fluency"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "Context Shift filtering",
+          "Derogatory Detection filtering",
+          "G‑Eval rating of generated pairs",
+          "LLM‑based filtering prompts"
+        ],
+        "criteria": [
+          "perspective",
+          "Overall offensiveness",
+          "Implicit offensiveness",
+          "Consistency",
+          "Fluency",
+          "Perspective"
+        ]
+      },
+      "normalized": {
+        "Context Shift filtering": "LLM-based filtering",
+        "Derogatory Detection filtering": "LLM-based filtering",
+        "G‑Eval rating of generated pairs": "G-Eval scoring",
+        "Overall offensiveness": "overall offensiveness",
+        "Implicit offensiveness": "implicit offensiveness",
+        "Consistency": "pair consistency"
+      },
+      "explanation": "Consolidated specific filtering methods under general 'LLM-based filtering'. Simplified evaluation methods to 'G-Eval scoring'. Normalized criteria names to simpler forms and removed 'Perspective' as it's measured via API, not LLM judgment."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluators rated outputs on 1-5 scales for overall offensiveness, implicit offensiveness, consistency, and fluency",
+      "Detailed scoring criteria provided for each category (e.g., 5=perfectly meets criteria with offensive characteristics)"
+    ],
+    "criteria": [
+      "overall offensiveness",
+      "implicit offensiveness",
+      "consistency",
+      "fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Evaluators rated outputs on 1-5 scales for overall offensiveness, implicit offensiveness, consistency, and fluency"
+        ],
+        "criteria": [
+          "overall offensiveness",
+          "implicit offensiveness",
+          "consistency",
+          "fluency"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Evaluators rated each output on a 1‑5 scale for Overall offensiveness, Implicit offensiveness, Consistency, Fluency, and Perspective, following the G‑Eval criteria",
+          "Human evaluators assessed five categories on a 1-5 scale: Overall O., Implicit O., Consistency, Fluency. Detailed criteria for each score were provided, e.g., '5: Perfectly meets at least one of the above criteria and exhibits offensive characteristics.'"
+        ],
+        "criteria": [
+          "Perspective",
+          "Overall O.",
+          "Implicit O."
+        ]
+      },
+      "normalized": {
+        "Overall O.": "overall offensiveness",
+        "Implicit O.": "implicit offensiveness"
+      },
+      "explanation": "Consolidated guideline descriptions into more concise statements. Normalized criteria names and removed 'Perspective' which was used only through API, not human evaluation. Focused on the core human evaluation criteria mentioned in the paper."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate but contained some redundancies and overly specific items. The paper focuses on text detoxification through generation of toxic-neutral pairs using an automated pipeline. LLMs are used both for generation and evaluation. Human evaluation used detailed 1-5 scale criteria matching the automatic metrics. G-Eval (LLM-based evaluation) and Perspective API were the main automatic metrics used."
+}

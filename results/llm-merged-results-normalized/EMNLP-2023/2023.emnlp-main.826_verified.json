@@ -1,0 +1,142 @@
+{
+  "paper_id": "2023.emnlp-main.826",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Counterfactual Claim Generation",
+      "Evidence Editing"
+    ],
+    "datasets": [
+      "HOVER",
+      "FEVER",
+      "FEVEROUS",
+      "POLITIHOP",
+      "SCIFACT",
+      "HEALTHVER",
+      "PUBHEALTH",
+      "fm2",
+      "VITAMINC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart_base",
+      "t_5_base",
+      "t_5_large",
+      "gpt_2",
+      "roberta_base"
+    ],
+    "outputs": [
+      "counterfactual claims (c')",
+      "edited evidence (E')",
+      "counterfactual data with flipped verification labels"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Evidence Editing"
+        ],
+        "datasets": [
+          "FEVER",
+          "PolitiHop",
+          "SCIFACT",
+          "HealthVer",
+          "PubHealth",
+          "FM2",
+          "VITAMINC"
+        ],
+        "models": [
+          "RoBERTa-base"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Claim Generation"
+        ],
+        "models": [
+          "T5"
+        ]
+      },
+      "normalized": {
+        "Other:Counterfactual Claim Generation": "Other:Counterfactual Claim Generation",
+        "Other:Claim Generation": "REMOVED - duplicate/too broad",
+        "T5": "T5-base, T5-large"
+      },
+      "explanation": "Added missing datasets and models mentioned in experiments. Removed duplicate task and generalized model. Added evidence editing as a separate NLG task."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "FLIP RATE",
+      "FLUENCY PERPLEXITY",
+      "SIMILARITY MOVERSCORE",
+      "DIVERSITY INVERSE BLEU",
+      "MULTI HOP MOVERSCORE"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Flip rate",
+          "Similarity",
+          "Diversity",
+          "Multi hop"
+        ]
+      },
+      "normalized": {
+        "Flip rate": "Flip Rate",
+        "Fluency": "Fluency (perplexity)",
+        "Similarity": "Similarity (MoverScore)",
+        "Diversity": "Diversity (inverse BLEU)",
+        "Multi hop": "Multi-hop (MoverScore)"
+      },
+      "explanation": "Normalized metric names to include measurement methods and removed duplicates. Kept the most specific descriptions from the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs were used as judges - only for generation. The paper uses RoBERTa-based classifiers and human evaluation for assessment."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three postgraduate students with NLP background scored counterfactual claims on a 1-5 Likert scale",
+      "Evaluated 30 SUPPORTED and 30 REFUTED instances"
+    ],
+    "criteria": [
+      "Rate",
+      "Fluency",
+      "Diversity",
+      "Similarity",
+      "Hop"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Evaluated 30 SUPPORTED and 30 REFUTED instances"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "Flip rate": "Flip Rate",
+        "Multi hop": "Multi-hop"
+      },
+      "explanation": "Added specific details about the human evaluation setup. Normalized criteria names to match automatic metrics."
+    }
+  },
+  "overall_notes": "The paper focuses on counterfactual data augmentation for multi-hop fact verification. The main NLG contributions are generating counterfactual claims and editing evidence. Evaluation includes both automatic metrics and human assessment. The extraction was generally good but missed some experimental datasets and needed normalization of metric names."
+}

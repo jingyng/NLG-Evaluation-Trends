@@ -1,0 +1,181 @@
+{
+  "paper_id": "2022.naacl-main.162",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Fact Verification",
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Natural Questions Open",
+      "TriviaQA-unfiltered",
+      "FaVIQ-Ambig",
+      "FEVER",
+      "Wizard of Wikipedia"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5-base",
+      "FiD",
+      "RoBERTa-base",
+      "BART-base",
+      "BART-large",
+      "DPR+BART",
+      "RAG",
+      "evidentiality-guided generator G+"
+    ],
+    "outputs": [
+      "Generated answers (for QA)",
+      "Classification labels (for fact verification)",
+      "Dialogue responses (for knowledge-enhanced dialogue)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering",
+          "Fact Verification"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "T5-base",
+          "BART-base",
+          "BART-large",
+          "DPR+BART",
+          "RAG"
+        ],
+        "outputs": [
+          "Generated answers (for QA)",
+          "Classification labels (for fact verification)",
+          "Dialogue responses (for knowledge-enhanced dialogue)"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering",
+          "Other:Fact Verification",
+          "Other:open-domain QA",
+          "Other:fact verification"
+        ],
+        "datasets": [
+          "FaVIQ Ambig",
+          "TriviaQA unfiltered"
+        ],
+        "languages": [],
+        "models": [
+          "FiD (T5-base)",
+          "RoBERTa",
+          "BART",
+          "DPR retriever"
+        ],
+        "outputs": [
+          "answers, classification labels, dialogue responses"
+        ]
+      },
+      "normalized": {
+        "Dialogue Generation": "Dialogue Generation",
+        "Other:Question Answering": "Question Answering",
+        "Other:Fact Verification": "Fact Verification",
+        "Other:open-domain QA": "Question Answering",
+        "Other:fact verification": "Fact Verification",
+        "FaVIQ Ambig": "FaVIQ-Ambig",
+        "TriviaQA unfiltered": "TriviaQA-unfiltered",
+        "FiD (T5-base)": "FiD",
+        "RoBERTa": "RoBERTa-base",
+        "BART": "BART-base",
+        "DPR retriever": "DPR",
+        "answers, classification labels, dialogue responses": "Generated answers (for QA), Classification labels (for fact verification), Dialogue responses (for knowledge-enhanced dialogue)"
+      },
+      "explanation": "Normalized task names to standard forms, removed redundant 'Other:' prefixes. Consolidated datasets to consistent naming. Added all models explicitly mentioned in experiments. Clarified output descriptions. Removed 'DPR retriever' as it's not a generation model."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Exact Match",
+      "Accuracy",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Exact Match (EM)",
+          "accuracy",
+          "F1 score"
+        ]
+      },
+      "normalized": {
+        "Exact Match (EM)": "Exact Match",
+        "accuracy": "Accuracy",
+        "F1 score": "F1"
+      },
+      "explanation": "Normalized metric names to standard forms and removed duplicates. The paper uses Exact Match for QA, Accuracy for fact verification, and F1 for dialogue generation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges for evaluation. The paper uses traditional automatic metrics and human evaluation, but no LLM-based assessment."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual analysis of evidentiality of passages to determine whether they provide sufficient evidence for the answer"
+    ],
+    "criteria": [
+      "sufficiency of evidence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual analysis of evidentiality of passages to determine whether they provide sufficient evidence for the answer"
+        ],
+        "criteria": [
+          "sufficiency of evidence"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Manually analyze if positive passages provide sufficient evidence to answer and if negative passages lack evidence despite containing gold answer strings.",
+          "The authors manually analyze (i) if the positive passages actually provide sufficient evidence to answer, and (ii) if the negative passages actually do not provide sufficient evidence to answer, despite the existence of the gold answer strings."
+        ],
+        "criteria": [
+          "evidentiality-positive",
+          "evidentiality-negative"
+        ]
+      },
+      "normalized": {
+        "- Manually analyze if positive passages provide sufficient evidence to answer and if negative passages lack evidence despite containing gold answer strings.": "Manual analysis of evidentiality of passages to determine whether they provide sufficient evidence for the answer",
+        "evidentiality-positive": "sufficiency of evidence",
+        "evidentiality-negative": "sufficiency of evidence"
+      },
+      "explanation": "Consolidated guideline description and simplified criteria to focus on the core evaluation dimension of 'sufficiency of evidence'. Removed redundant descriptions and technical terms that are not evaluation criteria per se."
+    }
+  },
+  "overall_notes": "The paper focuses on improving retrieval-augmented generation models for knowledge-intensive NLP tasks. The extraction was generally accurate but needed normalization and consolidation. The paper conducts both automatic evaluation (Exact Match, Accuracy, F1) and human evaluation (evidentiality analysis). No LLM-based evaluation is used. The main contribution is the evidentiality-guided multi-task learning framework."
+}

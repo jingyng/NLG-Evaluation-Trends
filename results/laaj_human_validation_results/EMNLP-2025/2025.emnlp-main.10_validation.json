@@ -1,0 +1,116 @@
+{
+  "paper_id": "2025.emnlp-main.10",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper validates LLM-generated rewrites against human judgments through multiple stages: measuring annotator agreement on original vs rewritten claims, human preference testing, and explanation point evaluation"
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "Claude-3.5-Sonnet",
+      "GPT-4",
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts provided in Appendix A.2, including subjectivity-focused prompts and prompts targeting specific ambiguity types (wording, minor assumptions, causation, interpretation)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Percentage agreement",
+      "value": null,
+      "interpretation": "Reports percentage of claims where all three annotators assign same faithfulness label",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Appendix Figures 5 and 6 show study interfaces with evaluation instructions; annotators judged faithfulness, preference between original/rewritten claims, and importance of explanation points"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Percentage agreement",
+      "Balanced accuracy",
+      "F1-macro"
+    ],
+    "shared_criteria": [
+      "subjectivity",
+      "faithfulness"
+    ],
+    "sample_size": {
+      "total_generated": 568,
+      "validated_by_both": "subset_not_specified",
+      "notes": "Uses StorySumm dataset with 568 claims total; validation studies use subsets but exact sizes not specified"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": "significant_gain",
+        "criterion": "faithfulness",
+        "llm_model": "Claude-3.5-Sonnet",
+        "significance": "statistically_significant",
+        "notes": "Rewrites show statistically significant gains in annotator agreement compared to original claims"
+      },
+      {
+        "metric": "Balanced accuracy",
+        "value": 69.15,
+        "criterion": "subjectivity",
+        "llm_model": "Claude-3.5-Sonnet",
+        "significance": null,
+        "notes": "Against subjectivity labels on StorySumm"
+      },
+      {
+        "metric": "Preference rate",
+        "value": 77.0,
+        "criterion": "quality",
+        "llm_model": "Claude-3.5-Sonnet",
+        "significance": null,
+        "notes": "77% of rewrites preferred over original claims by human judges"
+      },
+      {
+        "metric": "Percentage important",
+        "value": 68.72,
+        "criterion": "explanation_quality",
+        "llm_model": "Claude-3.5-Sonnet",
+        "significance": null,
+        "notes": "68.72% of explanation points labeled IMPORTANT by majority vote"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-generated rewrites significantly improve annotator agreement (21% absolute improvement) and are preferred by humans 77% of the time, with explanation points mostly rated as important (69%) and rarely wrong (<1%)"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "edit_distance",
+      "number_of_explanation_points"
+    ],
+    "human_only_criteria": [
+      "preference",
+      "explanation_point_importance"
+    ],
+    "shared_criteria": [
+      "subjectivity",
+      "faithfulness"
+    ],
+    "notes": "LLM uses quantitative rewrite metrics while humans provide qualitative judgments, but both evaluate core aspects of claim subjectivity and faithfulness"
+  }
+}

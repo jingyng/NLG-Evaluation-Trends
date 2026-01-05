@@ -1,0 +1,208 @@
+{
+  "paper_id": "2024.acl-long.325",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates KIEval (LLM-as-judge) against human evaluation by comparing correlation between LLM evaluator scores and human-annotated scores on the same 100 conversation samples"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "System prompts mentioned to be in Appendix K, but not fully extracted in provided text. Scoring rubric with 1-4 scale criteria shown in table format."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's Kappa",
+      "value": 0.624,
+      "interpretation": "substantial agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators scored responses on 1-4 scale considering factual accuracy, logical structure, language conciseness, and coherence. Detailed annotation instructions provided in Appendix G."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation",
+      "Kendall-Tau"
+    ],
+    "shared_criteria": [
+      "Accuracy",
+      "Logic",
+      "Relevance",
+      "Coherence",
+      "Conciseness",
+      "Overall"
+    ],
+    "sample_size": {
+      "total_generated": 1000,
+      "validated_by_both": 100,
+      "notes": "Sampled 100 sets of conversations from all 5 datasets across 7 candidate models"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.761,
+        "criterion": "Accuracy",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.727,
+        "criterion": "Accuracy",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Kendall-Tau",
+        "value": 0.653,
+        "criterion": "Accuracy",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.768,
+        "criterion": "Logic",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.735,
+        "criterion": "Logic",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Kendall-Tau",
+        "value": 0.661,
+        "criterion": "Logic",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.633,
+        "criterion": "Relevance",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.643,
+        "criterion": "Relevance",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Kendall-Tau",
+        "value": 0.543,
+        "criterion": "Relevance",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.75,
+        "criterion": "Coherence",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.74,
+        "criterion": "Coherence",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Kendall-Tau",
+        "value": 0.644,
+        "criterion": "Coherence",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.611,
+        "criterion": "Conciseness",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.604,
+        "criterion": "Conciseness",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Kendall-Tau",
+        "value": 0.504,
+        "criterion": "Conciseness",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.814,
+        "criterion": "Overall",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.789,
+        "criterion": "Overall",
+        "llm_model": "GPT-4",
+        "significance": null
+      },
+      {
+        "metric": "Kendall-Tau",
+        "value": 0.721,
+        "criterion": "Overall",
+        "llm_model": "GPT-4",
+        "significance": null
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Not explicitly stated, but overall correlation of 0.814 described as robust",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "KIEval demonstrates robust correlation with human preferences (Pearson r=0.814 overall), outperforming traditional reference-based evaluators and showing stronger alignment than MT-Bench (r=0.520)."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Truthfulness",
+      "Logic",
+      "Relevance",
+      "Coherence",
+      "Conciseness"
+    ],
+    "notes": "Both LLM and human evaluators used identical 5-criteria evaluation framework with 1-4 scoring scale"
+  }
+}

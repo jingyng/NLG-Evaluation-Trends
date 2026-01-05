@@ -1,0 +1,159 @@
+{
+  "paper_id": "2025.emnlp-main.172",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "HUATUO",
+      "LAWYER LLAMA",
+      "PUBMEDQA",
+      "HF LAW QA",
+      "FINQA",
+      "CHATMUSICIAN",
+      "BEYOND DIALOGUE",
+      "CHATGPT CORPUS"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "llama_3_chinese_8b_chat",
+      "qwen_2.5_3b_instruct",
+      "qwen_2.5_7b_instruct"
+    ],
+    "outputs": [
+      "role-specific professional responses in conversational agents",
+      "professional responses to domain-specific queries",
+      "role-playing conversational responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "professional responses to domain-specific queries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "chatgpt-corpus (finance)",
+          "chatgpt-corpus (music)"
+        ],
+        "languages": [],
+        "models": [
+          "Qwen2.5-72B-Instruct"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Lawyer-LLama": "Lawyer-LLaMA",
+        "LLaMA3-Chinese-8Bchat": "LLaMA3-Chinese-8B-Chat"
+      },
+      "explanation": "Removed duplicate dataset entries and Qwen2.5-72B-Instruct (used only for data construction, not generation). Normalized model names. Added more descriptive output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "RAIDEN"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "RAIDEN"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Response Helpfulness",
+          "Response Thoroughness",
+          "Response Credibility",
+          "Response Feasibility",
+          "RAIDEN benchmark dimensions (SBK, SAK, SCK, RCB, PLS, ER, PB, CM, TS, TA, CC)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed the four response metrics (RH, RT, RC, RF) as they are LLM-based evaluation metrics, not automatic metrics. RAIDEN is the only true automatic benchmark used."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "pairwise evaluation with position bias swap",
+      "LLM-as-a-judge"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Thoroughness",
+      "Credibility",
+      "Feasibility"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4 (gpt4‑turbo‑2024‑04‑09)"
+        ],
+        "methods": [
+          "pairwise win‑rate evaluation",
+          "prompt‑based scoring of responses",
+          "pairwise evaluation",
+          "swap operation"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4 (gpt4‑turbo‑2024‑04‑09)": "GPT-4"
+      },
+      "explanation": "Normalized GPT-4 model name. Consolidated methods to eliminate redundancy while preserving key evaluation procedures."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human experts evaluated responses based on four professional dimensions: helpfulness, thoroughness, credibility, and feasibility"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Thoroughness",
+      "Credibility",
+      "Feasibility"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human experts evaluated responses based on four professional dimensions: helpfulness, thoroughness, credibility, and feasibility"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- assessing role-related professional knowledge response capabilities from multiple dimensions",
+          "Human experts evaluated each response according to the four professional dimensions: helpfulness, thoroughness, credibility, and feasibility.",
+          "experts evaluated responses based on four dimensions: Response Helpfulness, Response Thoroughness, Response Credibility, and Response Feasibility."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant guideline descriptions into a single clear statement. Criteria remain unchanged as they are correctly extracted."
+    }
+  },
+  "overall_notes": "The extraction was mostly accurate. Key clarification: The four response metrics (RH, RT, RC, RF) are LLM-based evaluation criteria, not traditional automatic metrics like BLEU/ROUGE. The paper properly conducts both automatic (RAIDEN) and human evaluations alongside LLM-as-judge assessment."
+}

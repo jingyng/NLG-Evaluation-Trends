@@ -1,0 +1,70 @@
+{
+  "paper_id": "2023.emnlp-main.397",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM and human evaluations independently but never compares them directly. LLMs are used primarily for generating hallucinated samples, while human evaluation is used for annotating ground truth data. The two evaluation methods operate on different streams without any quantitative or qualitative comparison between LLM and human judgments."
+  },
+  "llm_judge_details": {
+    "num_models": 11,
+    "models": [
+      "ChatGPT",
+      "GPT-3",
+      "InstructGPT (text-davinci-002/003)",
+      "Claude",
+      "Claude 2",
+      "Llama 2-Chat",
+      "ChatGLM",
+      "Falcon",
+      "Vicuna",
+      "Alpaca"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed instructions are provided for hallucination sampling and filtering, including specific hallucination patterns and demonstrations for each task (QA, dialogue, summarization). Examples show exact prompt templates with placeholder notation."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 30,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": 0.811,
+      "interpretation": "perfect agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines describe three aspects considered for hallucination (unverifiable, non-factual, irrelevant) and mention max-voting strategy. Examples show annotation format but comprehensive rubric details are limited."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "comprehension",
+      "factualness",
+      "specificity",
+      "inference",
+      "extrinsic-soft",
+      "extrinsic-hard",
+      "extrinsic-grouped",
+      "factual",
+      "non-factual",
+      "intrinsic"
+    ],
+    "human_only_criteria": [
+      "unverifiable",
+      "non-factual",
+      "irrelevant"
+    ],
+    "shared_criteria": [
+      "factuality"
+    ],
+    "notes": "LLM evaluation focuses on task-specific hallucination patterns while human evaluation uses broader categories. Both methods assess factuality but in different contexts and without direct comparison."
+  }
+}

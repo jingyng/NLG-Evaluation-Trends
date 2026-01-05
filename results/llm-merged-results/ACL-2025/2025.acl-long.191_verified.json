@@ -1,0 +1,178 @@
+{
+  "paper_id": "2025.acl-long.191",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering with Reasoning",
+      "Other:Chain of Thought Reasoning"
+    ],
+    "datasets": [
+      "GSM8K",
+      "ConditionalQA",
+      "HotpotQA",
+      "ARC",
+      "BoardgameQA",
+      "Quartz",
+      "StrategyQA",
+      "LLC",
+      "AQuA",
+      "CommonsenseQA",
+      "SVAMP",
+      "Big Bench Hard",
+      "CoinFlip"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Phi-1.5",
+      "Phi-2",
+      "LLaMA-2-7B",
+      "LLaMA-2-13B",
+      "LLaMA-2-70B",
+      "LLaMA-2-13B-Chat",
+      "GPT-3.5-Turbo"
+    ],
+    "outputs": [
+      "Reasoning chains (CoTs)",
+      "Final answers",
+      "Multiple reasoning chains in sequence"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "BGQA",
+          "ConditionalQA (CQA)",
+          "Hot-potQA (HQA)",
+          "StrategyQA (StrQA)",
+          "Object Count",
+          "CommonsenseQA"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-4o"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Reasoning for Question Answering": "Other:Question Answering with Reasoning",
+        "Phi 1.5": "Phi-1.5",
+        "Phi 2": "Phi-2",
+        "LLaMA-2 7B": "LLaMA-2-7B",
+        "LLaMA-2 13B": "LLaMA-2-13B",
+        "LLaMA-2 70B": "LLaMA-2-70B",
+        "LLaMA-2 13B Chat": "LLaMA-2-13B-Chat",
+        "GPT-3.5 Turbo": "GPT-3.5-Turbo",
+        "Reasoning chains and final answers": "Reasoning chains (CoTs)",
+        "multiple reasoning chains (CoTs) and final answers": "Multiple reasoning chains in sequence"
+      },
+      "explanation": "Normalized model names to standard hyphenated format. Removed duplicate/abbreviated dataset names (BGQA is BoardgameQA, etc.). Removed GPT-4o as it was only used in preliminary experiments, not main evaluation. Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "Exact Match",
+      "Macro Average F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Exact Match"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "squad-metric",
+          "SQuAD metric (Exact Match / F1)"
+        ]
+      },
+      "normalized": {
+        "macro average F1": "Macro Average F1",
+        "squad-metric": "Exact Match"
+      },
+      "explanation": "Normalized 'squad-metric' to 'Exact Match' (the primary SQuAD metric mentioned). Simplified metric names to base forms."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT4o-mini"
+        ],
+        "methods": [
+          "answer extraction"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "GPT4o-mini was used only for automated analysis of answer patterns (extracting answers from multiple-choice outputs), not as an evaluator/judge of quality. This does not constitute LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Selected instances where DCoT@1 produced incorrect answers but DCoT@2 produced correct answers",
+      "Analyzed reasoning patterns and error correction mechanisms",
+      "Examined whether second CoT showed different reasoning patterns or corrected first CoT"
+    ],
+    "criteria": [
+      "Answer correctness",
+      "Reasoning pattern differences",
+      "Error correction",
+      "Logical conclusion correction",
+      "Reasoning step correction",
+      "Final answer correction"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Selected instances where DCoT@1 produced incorrect answers but DCoT@2 produced correct answers",
+          "Analyzed reasoning patterns and error correction mechanisms"
+        ],
+        "criteria": [
+          "Answer correctness",
+          "Reasoning pattern differences",
+          "Error correction",
+          "Logical conclusion correction",
+          "Reasoning step correction",
+          "Final answer correction"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "different reasoning pattern": "Reasoning pattern differences",
+        "corrects logical conclusion": "Logical conclusion correction",
+        "corrects reasoning steps": "Reasoning step correction",
+        "corrects final answer": "Final answer correction"
+      },
+      "explanation": "Consolidated and normalized the human evaluation criteria from the paper. The manual evaluation specifically examined 31 instances where the second CoT corrected the first, analyzing reasoning patterns and correction types."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation of reasoning chains (CoTs) generated by LLMs. The human evaluation was well-documented with clear criteria. The automatic metrics were primarily F1-based for various task types. The paper does NOT use LLMs as judges - GPT4o-mini was used only for automated answer extraction from multiple-choice outputs, not quality evaluation."
+}

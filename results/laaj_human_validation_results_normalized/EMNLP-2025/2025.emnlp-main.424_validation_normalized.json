@@ -1,0 +1,104 @@
+{
+  "paper_id": "2025.emnlp-main.424",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-as-a-judge against human evaluation using correlation analysis on the same set of dialogues, reporting both Pearson and Spearman correlation metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "Qwen-2.5-72B-Instruct"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt shown in appendix Figure 20 with detailed consistency criteria: alignment with initial intent, logical information flow, and contextual relevance"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human evaluators scored dialogues on consistency using 10-point scale, following same criteria as LLM judge, but exact human evaluation guidelines not detailed"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "chat_consistency"
+    ],
+    "sample_size": {
+      "total_generated": 50,
+      "validated_by_both": 50,
+      "notes": "50 dialogues randomly selected from each benchmark (LIGHT and TOPDIAL) were evaluated by both LLM and human annotators"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.73,
+        "criterion": "chat_consistency",
+        "llm_model": "Qwen-2.5-72B-Instruct",
+        "significance": null,
+        "notes": "For LIGHT benchmark"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.7,
+        "criterion": "chat_consistency",
+        "llm_model": "Qwen-2.5-72B-Instruct",
+        "significance": null,
+        "notes": "For LIGHT benchmark"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.69,
+        "criterion": "chat_consistency",
+        "llm_model": "Qwen-2.5-72B-Instruct",
+        "significance": null,
+        "notes": "For TOPDIAL benchmark"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.66,
+        "criterion": "chat_consistency",
+        "llm_model": "Qwen-2.5-72B-Instruct",
+        "significance": null,
+        "notes": "For TOPDIAL benchmark"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Correlation > 0.7 considered strong alignment",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "Paper reports strong alignment between LLM and human evaluations with average Spearman correlation of 0.68, surpassing alternative NLG evaluation methods"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "chat_consistency"
+    ],
+    "notes": "Both LLM and human evaluators assessed the same chat consistency criteria: alignment with initial intent, logical information flow, and contextual relevance across turns"
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "paper_id": "2025.emnlp-main.1458",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Visual Question Answering",
+      "Image Captioning"
+    ],
+    "datasets": [
+      "INFOSEEK",
+      "OK VQA",
+      "VQA v2 0",
+      "MMBENCH",
+      "MME",
+      "LIFE VQA",
+      "PRIVATE VQA",
+      "DYN VQA",
+      "NOCAPS",
+      "visual7w",
+      "MIX"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "qwen_vl_7b_chat",
+      "deepseek_vl_7b_chat",
+      "qwen_vl_max",
+      "qwen_vl_2",
+      "gpt_4o"
+    ],
+    "outputs": [
+      "answers to visual questions",
+      "text responses to VQA queries"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Qwen-VL-Max",
+          "Qwen-VL-2",
+          "GPT-4o"
+        ],
+        "outputs": [
+          "text responses to VQA queries"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Qwen-Max"
+        ],
+        "outputs": [
+          "generated answers to visual questions"
+        ]
+      },
+      "normalized": {
+        "Other:Visual Question Answering": "Other:Visual Question Answering",
+        "Image Captioning": "Image Captioning",
+        "VQAv2.0": "VQAv2.0",
+        "answers to VQA queries": "answers to visual questions"
+      },
+      "explanation": "Removed Qwen-Max from models since it's used for evaluation, not generation. Added missing VLLM models. Simplified output descriptions for clarity."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "CIDER",
+      "SPICE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEU",
+          "ROUGE",
+          "METEOR",
+          "CIDEr",
+          "SPICE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Token Accuracy",
+          "LLM",
+          "LLM score (Qwen-Max)",
+          "Acc."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed LLM-based evaluation metrics as they belong to Question 3. Added standard VQA evaluation metrics commonly used in NLG evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "qwen_max",
+      "gpt_4"
+    ],
+    "methods": [
+      "prompt-based scoring against gold answers",
+      "LLM-as-judge evaluation"
+    ],
+    "criteria": [
+      "Correctness",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "LLM-as-judge evaluation"
+        ],
+        "criteria": [
+          "correctness",
+          "accuracy"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "prompting to score predictions against gold answer"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "prompt-based scoring of model predictions": "prompt-based scoring against gold answers",
+        "scoring model predictions against gold answers": "LLM-as-judge evaluation"
+      },
+      "explanation": "Added GPT-4 as an alternative evaluation LLM, normalized method descriptions, and added evaluation criteria based on scoring correctness."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper, only automatic and LLM-based evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on knowledge boundary detection for VLLMs in VQA tasks. While it evaluates generated outputs, the primary contribution is knowledge boundary identification rather than NLG evaluation methodology. The extracted metadata needed significant correction as it conflated generation models with evaluation models."
+}

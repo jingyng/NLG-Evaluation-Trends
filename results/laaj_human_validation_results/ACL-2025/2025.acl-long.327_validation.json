@@ -1,0 +1,120 @@
+{
+  "paper_id": "2025.acl-long.327",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates CritiqueVLM against human evaluation using multiple statistical metrics and reports quantitative results including mean absolute error reduction and correlation coefficients"
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "CritiqueVLM",
+      "gpt_4",
+      "chatglm_3_6b",
+      "chatgpt"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full general prompt template provided in Figure A.9 with detailed scoring rules, and task-specific prompts for 13 different task types shown in Appendix A.11"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 10,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed guidelines provided in Appendix A.6, with typical characteristics and illustrative examples for different scoring levels, following the same prompts used by CritiqueVLM"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Mean Absolute Error",
+      "Pearson correlation",
+      "Spearman correlation",
+      "Kendall correlation coefficient",
+      "Accuracy"
+    ],
+    "shared_criteria": [
+      "Overall quality"
+    ],
+    "sample_size": {
+      "total_generated": 4978,
+      "validated_by_both": "Portioned as 90% training, 10% internal test, plus external test set",
+      "notes": "Dataset partitioned with 90% training, 10% internal testing, and additional external testing dataset created using responses from new VLMs annotated by human experts"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Mean Absolute Error",
+        "value": -0.348,
+        "criterion": "Overall quality",
+        "llm_model": "CritiqueVLM",
+        "significance": null,
+        "notes": "34.8% reduction in MAE compared to human scoring"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": null,
+        "criterion": "Overall quality",
+        "llm_model": "CritiqueVLM",
+        "significance": null,
+        "notes": "Used but specific values not reported in text"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": null,
+        "criterion": "Overall quality",
+        "llm_model": "CritiqueVLM",
+        "significance": null,
+        "notes": "Used but specific values not reported in text"
+      },
+      {
+        "metric": "Kendall correlation coefficient",
+        "value": null,
+        "criterion": "Overall quality",
+        "llm_model": "CritiqueVLM",
+        "significance": null,
+        "notes": "Used but specific values not reported in text"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "CritiqueVLM achieves 34.8% reduction in mean absolute error compared to human scoring and outperforms GPT-4 in evaluation consistency, validating its reliability as an automated evaluator."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Accuracy",
+      "Relevance",
+      "Detail",
+      "Correctness",
+      "Factuality",
+      "Completeness",
+      "Quality",
+      "Fluency",
+      "Coherence",
+      "Logic"
+    ],
+    "notes": "Both LLM and human evaluators use identical criteria and prompts, following the same scoring guidelines and rubric"
+  }
+}

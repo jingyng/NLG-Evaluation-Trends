@@ -1,0 +1,143 @@
+{
+  "paper_id": "2025.naacl-long.419",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Other:Question Answering"
+    ],
+    "datasets": [
+      "ComPRed"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-2 7B",
+      "COMPO",
+      "DPO",
+      "SFT"
+    ],
+    "outputs": [
+      "Generated Reddit comment responses tailored to specific subreddits"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Dialogue Generation"
+        ],
+        "models": [
+          "SFT"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Response Generation"
+        ],
+        "datasets": [
+          "COMPRED (Reddit)"
+        ],
+        "models": [
+          "Llama-2 7B with LoRA adapters"
+        ]
+      },
+      "normalized": {
+        "Other:question-answering": "Other:Question Answering",
+        "COMPRED": "ComPRed"
+      },
+      "explanation": "Consolidated tasks to standard forms, removed redundant dataset entry, normalized model names, and added SFT as a key model used in experiments"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Win Rate",
+      "Classification Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-4 win-rate",
+          "Reward model classification accuracy"
+        ]
+      },
+      "normalized": {
+        "win-rate": "Win Rate",
+        "classification accuracy": "Classification Accuracy"
+      },
+      "explanation": "Normalized metric names to standard forms and removed redundant/overly specific entries"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "Pairwise A/B Testing"
+    ],
+    "criteria": [
+      "Upvote Likelihood"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "methods": [
+          "pairwise evaluation"
+        ],
+        "criteria": [
+          "relevance",
+          "community preference"
+        ]
+      },
+      "normalized": {
+        "pairwise A/B testing": "Pairwise A/B Testing",
+        "upvote likelihood": "Upvote Likelihood"
+      },
+      "explanation": "Normalized method and criteria names, removed criteria that were not explicitly used for LLM-as-judge evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators identify which response was more likely to receive more upvotes in the subreddit under consideration",
+      "Annotators flag gibberish or repetitive outputs"
+    ],
+    "criteria": [
+      "Upvote Likelihood",
+      "Quality Control"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators flag gibberish or repetitive outputs"
+        ],
+        "criteria": [
+          "Quality Control"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "gibberish detection",
+          "community preference"
+        ]
+      },
+      "normalized": {
+        "upvote likelihood": "Upvote Likelihood"
+      },
+      "explanation": "Consolidated guidelines, normalized criteria, and added quality control as an explicit criterion based on the gibberish detection task"
+    }
+  },
+  "overall_notes": "The paper focuses on personalizing language models for community-specific response generation using Reddit data. The extraction was generally accurate but needed normalization and consolidation. Key contributions include the ComPRed dataset and COMPO method for community preference optimization. The paper uses both automatic metrics (win rates, classification accuracy) and human/LLM evaluations with clear evaluation criteria focused on community preference alignment."
+}

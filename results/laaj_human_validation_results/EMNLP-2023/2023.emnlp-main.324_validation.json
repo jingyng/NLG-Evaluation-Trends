@@ -1,0 +1,66 @@
+{
+  "paper_id": "2023.emnlp-main.324",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM evaluation and human evaluation of coherence, but does not explicitly compare LLM judgments against human judgments. The LLM evaluations are treated as models being evaluated on the human-annotated benchmark rather than as judges being validated against human ratings."
+  },
+  "llm_judge_details": {
+    "num_models": 5,
+    "models": [
+      "bert",
+      "deberta",
+      "flan_t_5",
+      "gpt_3",
+      "gpt_3.5"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompts provided for both scoring and reasoning tasks. For coherence scoring: 'coherence score: title: <T> paragraph: <P> Task: Give just a discrete coherence score between 1 to 5 for the paragraph as a number (1 - not coherent, 5 - fully coherent)?' For reasoning: specific prompts for each coherence dimension (cohesion, consistency, relevance) with yes/no answers required."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 7,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Multiple metrics including ICC, quadratic weighted Cohen's κ, Krippendorff's α",
+      "value": "Various values reported (e.g., ICC up to 0.94 for incremental method)",
+      "interpretation": "Substantial agreement, with incremental method showing higher agreement than holistic method",
+      "per_criterion": [
+        {
+          "criterion": "cohesion",
+          "interpretation": "Higher agreement compared to relevance"
+        },
+        {
+          "criterion": "consistency",
+          "interpretation": "Moderate agreement"
+        },
+        {
+          "criterion": "relevance",
+          "interpretation": "Lower agreement due to subjective interpretation"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Comprehensive annotation guidelines based on Reinhart's linguistic framework with specific scoring protocols (0-100 scale) and incremental sentence-by-sentence evaluation approach. Annotators received qualification training."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "coherence",
+      "cohesion",
+      "consistency",
+      "relevance"
+    ],
+    "notes": "Both LLM and human evaluate the same four coherence criteria, though the LLMs are evaluated on predicting human annotations rather than being validated as judges. The human annotations serve as benchmark labels for evaluating LLM performance."
+  }
+}

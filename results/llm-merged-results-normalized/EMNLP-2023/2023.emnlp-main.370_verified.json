@@ -1,0 +1,165 @@
+{
+  "paper_id": "2023.emnlp-main.370",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Explanation Generation",
+      "Mental Health Analysis"
+    ],
+    "datasets": [
+      "DEPRESSION REDDIT",
+      "clpsych15",
+      "DREADDIT",
+      "T SID",
+      "SAD",
+      "CAMS",
+      "HUMAN ASSESSED EXPLANATION DATASET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "chatgpt",
+      "instructgpt_3",
+      "llama_13b",
+      "llama_7b"
+    ],
+    "outputs": [
+      "natural language explanations for mental health analysis decisions",
+      "step-by-step reasoning explanations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "step-by-step reasoning explanations"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Emotional Reasoning",
+          "Other:Cause/Factor Detection"
+        ],
+        "datasets": [
+          "IEMOCAP",
+          "MELD",
+          "EmoryNLP",
+          "DailyDialog",
+          "RECCON"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Explanation Generation": "Other: Explanation Generation",
+        "Other:Mental Health Analysis": "Other: Mental Health Analysis",
+        "Depression_Reddit (DR)": "Depression_Reddit",
+        "human-assessed explanation dataset (163 explanations)": "human-assessed explanation dataset"
+      },
+      "explanation": "Removed emotional reasoning and cause detection tasks as they are classification tasks, not NLG. Removed emotion reasoning datasets (IEMOCAP, MELD, etc.) as they are not used for NLG evaluation. Consolidated duplicate dataset names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "GPT 3",
+      "BART",
+      "BERT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "MentalBERT",
+          "MentalRoBERTa"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "GPT3-Score": "GPT-3-Score"
+      },
+      "explanation": "Normalized ROUGE variants to base ROUGE metric. Removed MentalBERT/MentalRoBERTa as they are classification models, not evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "davinci-003",
+          "BART-Score",
+          "GPT-3 (davinci-003)"
+        ],
+        "methods": [
+          "automatic scoring",
+          "model‑based scoring of generated explanations"
+        ],
+        "criteria": [
+          "fluency",
+          "reliability",
+          "completeness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does NOT use LLMs as judges/evaluators. GPT-3 is used for generation, and traditional metrics (BLEU, ROUGE, etc.) are used for automatic evaluation, not LLM-as-judge scoring."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Four key aspects are assessed: Fluency (coherence and readability), Reliability (trustworthiness to support predictions), Completeness (coverage of relevant aspects), Overall (general effectiveness). Each aspect rated 0-3 scale."
+    ],
+    "criteria": [
+      "Fluency",
+      "Reliability",
+      "Completeness",
+      "Overall"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "fluency",
+          "reliability",
+          "completeness",
+          "overall"
+        ]
+      },
+      "normalized": {
+        "fluency": "Fluency",
+        "reliability": "Reliability",
+        "completeness": "Completeness",
+        "overall": "Overall"
+      },
+      "explanation": "Normalized criteria to title case. Consolidated guideline description."
+    }
+  },
+  "overall_notes": "The main issue was Question 3 - the paper does NOT use LLMs as judges/evaluators, only as generators. The human evaluation protocol is well-documented with clear criteria. The NLG task is explanation generation for mental health analysis decisions using Chain-of-Thought prompting."
+}

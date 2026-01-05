@@ -1,0 +1,202 @@
+{
+  "paper_id": "2024.naacl-long.188",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Visual Question Answering",
+      "Question Generation",
+      "Open Ended Generation"
+    ],
+    "datasets": [
+      "COCO CAPTIONS",
+      "flickr30k",
+      "TEXTCAPS",
+      "vqav2",
+      "OK VQA",
+      "A OKVQA",
+      "SCIENCEQA",
+      "GQA",
+      "ICONQA",
+      "VSR",
+      "CLEVR",
+      "RAVEN FAIR",
+      "TEXTVQA",
+      "OCR VQA",
+      "HATEFUL MEMES",
+      "MORE",
+      "NEW YORKER EXPLANATION",
+      "NEW YORKER RANKING",
+      "OPENCQA",
+      "CHARTQA",
+      "OLIVE",
+      "WEB CAPFILT",
+      "LLAVA CONVERSATION",
+      "LLAVA DESCRIPTION",
+      "LLAVA REASONING"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "blip_2",
+      "minigpt_4",
+      "mplug_owl",
+      "llava"
+    ],
+    "outputs": [
+      "Image captions",
+      "Answers to visual questions",
+      "Generated questions",
+      "Explanations",
+      "Rankings",
+      "Open-ended responses to diverse instructions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Question Generation"
+        ],
+        "datasets": [
+          "ScienceQA",
+          "GQA",
+          "IconQA",
+          "VSR",
+          "CLEVR",
+          "RAVEN-FAIR",
+          "TextVQA",
+          "OCR-VQA",
+          "Hateful Memes",
+          "MORE",
+          "New Yorker Explanation",
+          "New Yorker Ranking",
+          "OpenCQA",
+          "ChartQA"
+        ],
+        "models": [],
+        "outputs": [
+          "Generated questions",
+          "Explanations",
+          "Rankings"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Visual Question Answering (Generative)",
+          "Other:visual question-answering",
+          "Other:open-ended generation"
+        ],
+        "datasets": [
+          "VQAv2 (G)",
+          "OK-VQA (G)",
+          "A-OKVQA (G)"
+        ],
+        "models": [
+          "Mini-GPT4"
+        ],
+        "outputs": [
+          "generated captions, instruction responses",
+          "The outputs include image captions, answers to visual questions, explanations, rankings, and open-ended responses to diverse instructions."
+        ]
+      },
+      "normalized": {
+        "Mini-GPT4": "MiniGPT-4",
+        "Other:Visual Question Answering (Generative)": "Other:Visual Question Answering",
+        "Other:open-ended generation": "Other:Open-ended Generation"
+      },
+      "explanation": "Consolidated VQA tasks under single category, added missing datasets mentioned in the paper, normalized model names, and simplified output descriptions. Removed redundant task variants and consolidated outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CIDER",
+      "ROUGE",
+      "ACCURACY",
+      "AUC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Exact Match",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "accuracy": "Accuracy",
+        "Exact Match": "Accuracy"
+      },
+      "explanation": "Normalized ROUGE variants to base form ROUGE. Exact Match is a form of accuracy measurement, so consolidated under Accuracy. Paper mentions using AUC for Hateful Memes, CIDEr for captioning tasks, ROUGE-L for text generation, and accuracy for most VQA tasks."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges/evaluators. LLMs (ChatGPT) are used only for data generation (creating OLIVE dataset), not for evaluating model outputs. All evaluation is done using automatic metrics or human annotation for dataset creation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Ensure instructions contain minimal shortcut information",
+      "Verify accuracy of outputs and confirm they are free from harmful content",
+      "Fact-check knowledge-based information"
+    ],
+    "criteria": [
+      "Accuracy",
+      "Absence",
+      "Factuality",
+      "Minimal"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "Factual correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- 1) ensure that the instructions contain minimal shortcut information, which could enable the model to produce correct outputs without having to understand the image, 2) verify the accuracy of the output and confirm that it is free from harmful content, and 3) fact-check knowledge-based information."
+        ],
+        "criteria": [
+          "fact-checking"
+        ]
+      },
+      "normalized": {
+        "fact-checking": "Factual correctness",
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Changed answer from No to Yes because the paper does conduct human evaluation - human annotators were hired to verify and refine the OLIVE dataset. Cleaned up guideline formatting and normalized criteria names."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating vision-language models through transfer learning experiments and factor analysis. It introduces a new dataset (OLIVE) and analyzes latent factors in VLM evaluation. While it doesn't conduct human evaluation of model outputs during the main experiments, it does use human annotators for dataset creation and verification. The paper extensively uses automatic metrics for evaluation across multiple NLG tasks."
+}

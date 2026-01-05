@@ -1,0 +1,168 @@
+{
+  "paper_id": "2025.naacl-long.283",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Other:Recalling",
+      "Other:Organizing",
+      "Other:Attributing"
+    ],
+    "datasets": [
+      "ETHIC",
+      "Project Gutenberg",
+      "Hansard",
+      "MS^2",
+      "CourtListener"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Gemini Pro 1.5",
+      "GPT-4o",
+      "GPT-4o mini",
+      "Phi-3.5-mini-instruct",
+      "Qwen2.5-7B-Instruct",
+      "Qwen2.5-72B-Instruct",
+      "GLM4-9B-Chat",
+      "Llama-3.1-8B-Instruct",
+      "Llama-3.1-70B-Instruct"
+    ],
+    "outputs": [
+      "Lists of character names/person names/numbers/legal citation numbers",
+      "Section-by-section summaries",
+      "Ordered document IDs",
+      "Labeled study IDs or segment IDs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Project Gutenberg",
+          "Hansard",
+          "MS^2",
+          "CourtListener"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Books",
+          "Debates",
+          "Medicine",
+          "Law"
+        ],
+        "languages": [],
+        "models": [
+          "Phi-3.5mini-instruct"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Phi-3.5mini-instruct": "Phi-3.5-mini-instruct",
+        "summaries, entity lists, ordered document IDs, citation segment labels": "Lists of character names/person names/numbers/legal citation numbers",
+        "The outputs include lists of entity names, summaries of text sections, ordered document IDs, and classified study or segment IDs based on relevance.": "Section-by-section summaries"
+      },
+      "explanation": "Added specific dataset names mentioned in the paper (Project Gutenberg, Hansard, MS^2, CourtListener) instead of generic domain names. Normalized model name format and consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "GPT-4o rating",
+      "Longest Common Subsequence",
+      "Repetition metrics"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Repetition metrics"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Consistency rating",
+          "Relevance rating",
+          "Faithfulness rating",
+          "F1 score"
+        ]
+      },
+      "normalized": {
+        "GPT-4o rating (consistency, relevance, faithfulness)": "GPT-4o rating",
+        "Longest Common Subsequence (LCS)": "Longest Common Subsequence",
+        "Rep-n": "Repetition metrics",
+        "Rep-r": "Repetition metrics"
+      },
+      "explanation": "Consolidated related metrics under broader categories. Removed redundant 'F1 score' since 'F1' was already listed. Grouped repetition metrics together."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "Rating scale evaluation",
+      "Binary classification"
+    ],
+    "criteria": [
+      "consistency",
+      "relevance",
+      "faithfulness",
+      "necessity"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Rating scale evaluation",
+          "Binary classification"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "prompting to rate on a scale",
+          "rating via prompt",
+          "binary necessity classification for IC scoring",
+          "rating generated summaries on consistency, relevance, and faithfulness"
+        ],
+        "criteria": [
+          "necessity (0/1)"
+        ]
+      },
+      "normalized": {
+        "necessity (0/1)": "necessity"
+      },
+      "explanation": "Normalized method descriptions to more concise forms. Simplified criteria naming."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The paper mentions manual review of GPT-4o annotations but this was for quality control of automated labeling, not for evaluating generated outputs."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating LLMs' ability to process long contexts using a new benchmark (ETHIC) and metric (Information Coverage). It evaluates four NLG tasks: recalling entities, summarizing sections, organizing shuffled summaries, and attributing citations. The paper uses GPT-4o extensively for both evaluation (rating summaries, calculating IC scores) and annotation. All evaluation is automated with no human evaluation of generated outputs. The extraction was generally accurate but needed normalization and addition of specific dataset names."
+}

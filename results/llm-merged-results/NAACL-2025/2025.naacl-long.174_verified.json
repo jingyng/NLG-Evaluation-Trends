@@ -1,0 +1,140 @@
+{
+  "paper_id": "2025.naacl-long.174",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Other:Tool-calling"
+    ],
+    "datasets": [
+      "When2Call",
+      "BFCL",
+      "APIGen",
+      "ToolSandbox",
+      "ToolBeHonest"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama 3.1",
+      "Llama 3.2",
+      "Qwen 2.5",
+      "xLAM",
+      "Mistral-NeMo-Minitron",
+      "GPT-4-Turbo",
+      "GPT-4o",
+      "GPT-4o-Mini"
+    ],
+    "outputs": [
+      "Tool calls in JSON format",
+      "Natural language responses (direct answers, follow-up questions, 'unable to answer')"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4o",
+          "GPT-4o-Mini"
+        ],
+        "outputs": [
+          "Tool calls in JSON format",
+          "Natural language responses (direct answers, follow-up questions, 'unable to answer')"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Code Generation"
+        ],
+        "outputs": [
+          "tool calls, follow-up questions, direct answers, unable-to-answer responses",
+          "Model responses (direct answer, tool call, follow‑up question, or unable‑to‑answer)"
+        ]
+      },
+      "normalized": {
+        "LLM-as-judge": "removed (not an output type)",
+        "tool calling": "Tool-calling"
+      },
+      "explanation": "Removed 'Code Generation' as it's not a primary task (tool calls use JSON format but not code generation as an NLG task). Added missing GPT-4o models. Consolidated output descriptions. Removed duplicate/verbose output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "F1",
+      "Tool hallucination rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "length-normalized accuracy",
+          "length‑normalized accuracy"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "F1": "F1"
+      },
+      "explanation": "Removed 'length-normalized accuracy' variants as they are method variants of accuracy. Added base 'Accuracy' metric. Kept 'Tool hallucination rate' as a distinct metric."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4-Turbo",
+      "GPT-4o"
+    ],
+    "methods": [
+      "LLM-as-judge classification into four behavior types"
+    ],
+    "criteria": [
+      "Correct behavior type (direct answer, tool call, follow-up question, unable to answer)"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4o"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT-4-Turbo-04-09",
+          "GPT-4o-Mini"
+        ],
+        "methods": [
+          "LLM‑as‑judge classification of model output",
+          "LLM-as-judge classification"
+        ],
+        "criteria": [
+          "correct category (direct answer, tool call, follow‑up question, unable to answer)"
+        ]
+      },
+      "normalized": {
+        "GPT-4-Turbo-04-09": "GPT-4-Turbo",
+        "classification into four behavior types": "LLM-as-judge classification into four behavior types"
+      },
+      "explanation": "Normalized model names (GPT-4-Turbo-04-09 → GPT-4-Turbo). Kept GPT-4o as main judge model. Consolidated methods and criteria descriptions."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation was conducted based on the paper text."
+    }
+  },
+  "overall_notes": "The paper focuses on tool-calling behavior evaluation for language models, which involves generating appropriate responses (tool calls or natural language) based on tool availability. The extraction was generally accurate but needed normalization of model names and consolidation of metric variants. The paper introduces a novel benchmark (When2Call) for evaluating when LMs should/shouldn't call tools."
+}

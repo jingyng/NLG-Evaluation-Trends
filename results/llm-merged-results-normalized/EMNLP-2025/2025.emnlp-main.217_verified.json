@@ -1,0 +1,215 @@
+{
+  "paper_id": "2025.emnlp-main.217",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT22",
+      "WMT23",
+      "WMT24",
+      "ACES",
+      "MSLC"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Hindi",
+      "Icelandic",
+      "Livonian",
+      "Yakut",
+      "Russian"
+    ],
+    "models": [
+      "remedy_9b",
+      "remedy_2b",
+      "remedy_0.5b",
+      "comet_22",
+      "metricx",
+      "gpt_4",
+      "palm_540b",
+      "xlm_r_large",
+      "gemma_2_2b",
+      "gemma_2_9b",
+      "palm_2",
+      "llama_2_70b",
+      "skywork_rm",
+      "alma_13b"
+    ],
+    "outputs": [
+      "translated text",
+      "machine-translated sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "languages": [
+          "Livonian",
+          "Yakut"
+        ],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "languages": [
+          "Chinese"
+        ],
+        "models": [
+          "ReMedy",
+          "COMET",
+          "PaLM",
+          "Llama2"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "machine-translated sentences (mt)": "machine-translated sentences"
+      },
+      "explanation": "Removed 'Chinese' as it's not explicitly mentioned as a generated language output. Removed generic model names without versions. Added Livonian and Yakut which are explicitly mentioned as low-resource languages in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "CHRF",
+      "KIWI",
+      "XCOMET",
+      "REMEDY",
+      "COMET",
+      "METRICX",
+      "SPA",
+      "ACC EQ"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "KIWI-10B",
+          "XCOMET-10.9B",
+          "ReMedy-9B",
+          "GPT-4",
+          "PaLM-540B",
+          "PaLM-2",
+          "Skywork-RM",
+          "Llama2-EAPrompt",
+          "GEMBA",
+          "xCOMET",
+          "ACES Score"
+        ]
+      },
+      "normalized": {
+        "acc * eq": "acc_eq",
+        "XCOMET": "XCOMET",
+        "MetricX": "MetricX"
+      },
+      "explanation": "Removed metrics that are not used to evaluate generated outputs (ReMedy is evaluated itself, not used to evaluate others). Simplified version numbers following normalization rules. Kept only metrics that are explicitly used to evaluate translation quality."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4",
+          "PaLM-540B",
+          "PaLM-2",
+          "Llama2-70B",
+          "Skywork-RM",
+          "PaLM",
+          "Llama2"
+        ],
+        "methods": [
+          "zero-shot prompting",
+          "error analysis prompting",
+          "chain-of-thought error analysis prompting",
+          "prompt-based scoring",
+          "Error Analysis Prompting",
+          "pairwise evaluation"
+        ],
+        "criteria": [
+          "translation quality",
+          "fluency",
+          "relevance",
+          "error analysis"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' because the paper discusses LLM-based metrics as alternatives/comparisons, but does not use LLMs as judges to evaluate their own generated outputs. The evaluation focuses on comparing ReMedy against existing metrics using established protocols."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Professional translators provide fine-grained error annotations (MQM)",
+      "Crowdsourced holistic quality ratings on a 0-100 scale (DA)",
+      "Simplified MQM with fewer error categories (SQM)",
+      "0-100 Ratings accompanied by error span annotations (ESA)"
+    ],
+    "criteria": [
+      "Addition",
+      "Omission",
+      "Mistranslation",
+      "Overtranslation",
+      "Undertranslation",
+      "Segments",
+      "Language",
+      "Punctuation"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Simplified MQM with fewer error categories (SQM)",
+          "0-100 Ratings accompanied by error span annotations (ESA)"
+        ],
+        "criteria": [
+          "addition",
+          "omission",
+          "mistranslation",
+          "overtranslation",
+          "undertranslation",
+          "untranslated segments",
+          "wrong language",
+          "punctuation errors"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- MQM provides fine-grained error annotations.",
+          "Human annotators provide MQM error categories, DA overall quality scores, and ESA error span annotations for each translation."
+        ],
+        "criteria": [
+          "MQM error categories",
+          "overall quality rating (DA)",
+          "error span annotations (ESA)",
+          "fluency",
+          "coherence"
+        ]
+      },
+      "normalized": {
+        "addition": "addition",
+        "omission": "omission",
+        "mistranslation": "mistranslation",
+        "overtranslation": "overtranslation",
+        "undertranslation": "undertranslation"
+      },
+      "explanation": "Refined guidelines to be more structured and comprehensive. Added specific error criteria from the ACES benchmark that are used in human evaluation. Removed vague criteria like 'fluency' and 'coherence' that aren't explicitly mentioned."
+    }
+  },
+  "overall_notes": "The paper focuses on machine translation evaluation rather than generation itself. While it evaluates MT systems, the main contribution is the ReMedy evaluation framework. The human evaluation data comes from WMT shared tasks rather than being conducted by the authors specifically for this paper."
+}

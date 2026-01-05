@@ -1,0 +1,180 @@
+{
+  "paper_id": "2024.emnlp-main.389",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Question Difficulty Ranking",
+      "Story Evaluation"
+    ],
+    "datasets": [
+      "SUMMEVAL",
+      "TOPICAL CHAT",
+      "CMCQRD",
+      "HANNA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "flant_5_3b",
+      "flant_5_11b",
+      "mistral_7b",
+      "llama_2_7b",
+      "llama_2_13b"
+    ],
+    "outputs": [
+      "machine-generated summaries",
+      "dialogue responses",
+      "multiple-choice questions",
+      "stories"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Story Generation",
+          "Other:Question Difficulty",
+          "Other:Question Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "machine‑generated summaries, dialogue responses, multiple‑choice questions, stories",
+          "machine-generated summaries, dialogue responses, stories, questions"
+        ]
+      },
+      "normalized": {
+        "Other:Question Difficulty Ranking": "Other:Question Difficulty Ranking",
+        "Other:Story Evaluation": "Other:Story Evaluation"
+      },
+      "explanation": "Removed duplicate/redundant task entries and simplified output descriptions. The paper evaluates NLG outputs but doesn't generate them - it focuses on evaluating existing generated content."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SPEARMAN CORRELATION",
+      "PEARSON CORRELATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "win-ratio",
+          "average-probability",
+          "Bradley-Terry",
+          "PoE-BT",
+          "PoE-g",
+          "PoE-g-hard"
+        ]
+      },
+      "normalized": {
+        "Spearman rank correlation coefficient": "Spearman correlation"
+      },
+      "explanation": "The removed items are not evaluation metrics but rather scoring methods/approaches. The actual metrics used to evaluate these scoring methods are correlation coefficients (Spearman/Pearson) against human judgments."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "flant_5_3b",
+      "flant_5_11b",
+      "mistral_7b",
+      "llama_2_7b",
+      "llama_2_13b"
+    ],
+    "methods": [
+      "pairwise comparative assessment",
+      "Product of Experts framework"
+    ],
+    "criteria": [
+      "Coherence",
+      "Consistency",
+      "Fluency",
+      "Relevance",
+      "Continuity",
+      "Engagingness",
+      "Naturalness",
+      "Complexity",
+      "Surprisingness",
+      "Difficulty"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "pairwise evaluation with probability output",
+          "pairwise probability comparisons",
+          "Product of Experts scoring"
+        ],
+        "criteria": [
+          "coherency",
+          "relevancy"
+        ]
+      },
+      "normalized": {
+        "coherency": "coherence",
+        "relevancy": "relevance"
+      },
+      "explanation": "Normalized criteria names to standard forms and consolidated method descriptions. The paper clearly uses LLMs as judges for pairwise comparisons."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [
+      "Human-annotated ground-truth scores used as reference for automatic evaluation"
+    ],
+    "criteria": [
+      "Coherence",
+      "Consistency",
+      "Fluency",
+      "Relevance",
+      "Continuity",
+      "Engagingness",
+      "Naturalness",
+      "Complexity",
+      "surprisingness",
+      "Difficulty"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human-annotated ground-truth scores used as reference for automatic evaluation"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Human raters assess generated outputs on specific criteria such as coherence, consistency, fluency, relevance, continuity, engagingness, naturalness, difficulty, complexity, and surprisingness"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "coherency": "coherence",
+        "relevancy": "relevance"
+      },
+      "explanation": "The paper does NOT conduct new human evaluations. It uses existing human-annotated datasets as ground truth to evaluate automatic methods. Updated guideline to reflect this accurately."
+    }
+  },
+  "overall_notes": "The paper focuses on improving LLM-as-a-judge evaluation methods for NLG tasks, specifically pairwise comparison efficiency. It uses existing human-annotated datasets as ground truth but does not conduct new human evaluations. The main contribution is the Product of Experts framework for efficient comparative assessment."
+}

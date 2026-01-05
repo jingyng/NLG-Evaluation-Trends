@@ -1,0 +1,152 @@
+{
+  "paper_id": "2020.acl-main.513",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "Yelp",
+      "HOTEL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Transformer",
+      "ABSA model",
+      "OpinionDigest"
+    ],
+    "outputs": [
+      "abstractive opinion summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "OpinionDigest"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "pre-trained opinion extractor",
+          "ABSA tagging model",
+          "Transformer seq2seq generator",
+          "Opinion merging and ranking pipeline"
+        ],
+        "outputs": [
+          "Abstractive opinion summaries",
+          "natural language summary"
+        ]
+      },
+      "normalized": {
+        "YELP": "Yelp",
+        "abstractive opinion summaries": "abstractive opinion summaries"
+      },
+      "explanation": "Simplified model names to main models used (Transformer, ABSA model, OpinionDigest). Removed redundant output descriptions and normalized dataset naming."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Consolidated ROUGE variants into base ROUGE metric according to normalization rules."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Best-worst scaling for informativeness, coherence, and non-redundancy",
+      "Content support evaluation (full/partial/none)",
+      "Aspect coverage evaluation (exclusive/partial/none)"
+    ],
+    "criteria": [
+      "informativeness",
+      "coherence",
+      "non-redundancy",
+      "content support",
+      "aspect coverage"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Aspect coverage evaluation (exclusive/partial/none)"
+        ],
+        "criteria": [
+          "content support",
+          "aspect coverage"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Annotators were asked to select the best and worst summaries based on informativeness, coherence, and non-redundancy",
+          "Annotators were asked to judge summaries based on informativeness, coherence, non-redundancy (best-worst), content support level (full/partial/none), and aspect coverage (exclusive/partial/none).",
+          "We asked the annotators to select the best and worst summaries w.r.t. the following criteria: • Informativeness: How much useful information about the business does the summary provide? • Coherence: How coherent and easy to read is the summary? • Non-redanduncy: Is the summary successful at avoiding redundant and repeated opinions?"
+        ],
+        "criteria": [
+          "Informativeness",
+          "Coherence",
+          "Non-redanduncy"
+        ]
+      },
+      "normalized": {
+        "Non-redanduncy": "non-redundancy"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into clear categories. Normalized criteria naming and added missing criteria from full paper text."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on abstractive opinion summarization using a pipeline approach combining ABSA extraction and Transformer generation. Human evaluation was comprehensive with multiple criteria. No LLMs were used for evaluation as this is a 2020 paper predating widespread LLM-as-judge practices."
+}

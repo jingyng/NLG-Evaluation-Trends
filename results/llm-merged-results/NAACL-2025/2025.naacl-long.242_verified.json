@@ -1,0 +1,167 @@
+{
+  "paper_id": "2025.naacl-long.242",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Text-to-Speech"
+    ],
+    "datasets": [
+      "LibriTTS",
+      "LibriLight",
+      "LibriSpeech"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "StyleTTS-ZS",
+      "XTTS-v2",
+      "HierSpeech++",
+      "Vall-E",
+      "NaturalSpeech 2",
+      "NaturalSpeech 3",
+      "FlashSpeech",
+      "VoiceCraft",
+      "StyleTTS 2"
+    ],
+    "outputs": [
+      "generated speech",
+      "synthesized speech from text and reference speaker prompt"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "LibriSpeech"
+        ],
+        "models": [
+          "StyleTTS 2"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Multilingual LibriSpeech (MLS)",
+          "GigaSpeech"
+        ]
+      },
+      "normalized": {
+        "XTTS-v2": "XTTS-v2",
+        "HierSpeech++": "HierSpeech++",
+        "NaturalSpeech 2": "NaturalSpeech 2",
+        "NaturalSpeech 3": "NaturalSpeech 3",
+        "FlashSpeech": "FlashSpeech",
+        "VoiceCraft": "VoiceCraft"
+      },
+      "explanation": "Removed MLS and GigaSpeech as they were mentioned in passing for other models, not used by StyleTTS-ZS. Added LibriSpeech which was used for evaluation. Added StyleTTS 2 which was evaluated. Normalized model names to standard capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "UT-MOS",
+      "WER",
+      "SIM",
+      "Pearson correlation",
+      "L_dur",
+      "L_f0",
+      "L_n",
+      "σ_error",
+      "ℓ1_distance"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "MOS-N",
+          "MOS-S",
+          "SIM (cosine similarity)",
+          "Prosody Pearson correlation",
+          "Pearson correlation coefficients"
+        ]
+      },
+      "normalized": {
+        "UT-MOS": "UT-MOS",
+        "WER": "WER",
+        "SIM": "SIM",
+        "Pearson correlation": "Pearson correlation",
+        "L dur": "L_dur",
+        "L f0": "L_f0",
+        "L n": "L_n",
+        "σ error": "σ_error",
+        "ℓ1 distance": "ℓ1_distance"
+      },
+      "explanation": "Removed MOS-N and MOS-S as these are human evaluation metrics, not automatic. Removed redundant/descriptive versions of metrics. Normalized metric names to consistent formatting with underscores for multi-word metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleaned up the empty metadata by removing placeholder 'None' values. The paper does not use LLMs as judges for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate naturalness on a 1-5 scale (completely unnatural to completely natural)",
+      "Rate speaker similarity on a 1-5 scale (completely different speakers to exactly the same speaker)",
+      "For CMOS: Rate naturalness comparison on -6 to 6 scale (B much worse to B much better than A)",
+      "For CMOS: Rate similarity comparison on -6 to 6 scale (B much less to B much more similar than A)"
+    ],
+    "criteria": [
+      "naturalness",
+      "similarity",
+      "speaker similarity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "For CMOS: Rate naturalness comparison on -6 to 6 scale (B much worse to B much better than A)",
+          "For CMOS: Rate similarity comparison on -6 to 6 scale (B much less to B much more similar than A)"
+        ],
+        "criteria": [
+          "speaker similarity"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Naturalness",
+          "Similarity"
+        ]
+      },
+      "normalized": {
+        "naturalness": "naturalness",
+        "similarity": "similarity",
+        "Naturalness": "naturalness",
+        "Similarity": "similarity"
+      },
+      "explanation": "Added CMOS evaluation guidelines which were missing. Normalized criteria to lowercase. Added 'speaker similarity' as an explicit criterion mentioned in the guidelines. Consolidated redundant guideline descriptions."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper is clearly an NLG paper focused on Text-to-Speech generation. It uses both automatic metrics (UT-MOS, WER, SIM, etc.) and human evaluations (MOS-N, MOS-S, CMOS) but does not use LLMs as judges. The main corrections were removing human evaluation metrics from automatic metrics list and cleaning up dataset/model lists to focus on what was actually used by the main model being evaluated."
+}

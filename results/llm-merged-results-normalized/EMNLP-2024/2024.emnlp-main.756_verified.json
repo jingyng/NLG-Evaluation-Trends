@@ -1,0 +1,133 @@
+{
+  "paper_id": "2024.emnlp-main.756",
+  "answer_1": {
+    "answer": "No",
+    "answer_changed": true,
+    "tasks": [
+      "Entity Linking"
+    ],
+    "datasets": [
+      "ace2004",
+      "AIDA",
+      "AQUAINT",
+      "CWEB",
+      "MSNBC",
+      "WIKI",
+      "ZESHEL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "zephyr_7b_beta",
+      "glm",
+      "chatgpt"
+    ],
+    "outputs": [
+      "linked entities in a knowledge base"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama"
+        ],
+        "outputs": [
+          "summarized entity descriptions, linked entity predictions, classification outputs"
+        ]
+      },
+      "normalized": {
+        "bleu": "BLEU",
+        "gpt-3.5-turbo-1106": "ChatGPT",
+        "Zephyr": "Zephyr-7b-beta"
+      },
+      "explanation": "Removed 'Text Summarization' as it's not an NLG task being evaluated - summarization is used internally for entity description compression. Removed 'Llama' as it's only mentioned in passing as having poor performance. Removed non-NLG outputs like summarization and classification. Entity Linking is an information extraction task, not natural language generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "The extracted answer and metric are correct. The paper uses micro F1 score for entity linking evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "llm"
+    ],
+    "methods": [
+      "consistency algorithm for resolving disagreements"
+    ],
+    "criteria": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "LLM"
+        ],
+        "methods": [
+          "consistency algorithm for resolving disagreements"
+        ],
+        "criteria": [
+          "entity linking accuracy"
+        ]
+      },
+      "removed": {
+        "models": [
+          "auxiliary LLM"
+        ],
+        "methods": [
+          "LLM judgment for resolving disagreements"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "auxiliary LLM": "LLM"
+      },
+      "explanation": "Changed answer to 'Yes' because the Entity Consensus Judger uses an LLM to resolve disagreements between contextual and prior linkers. This qualifies as LLM-as-judge since it evaluates the outputs of other components. Added specific method description and criteria."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not conduct human evaluations, only automatic evaluation using micro F1."
+    }
+  },
+  "overall_notes": "This paper focuses on Entity Linking (information extraction), not Natural Language Generation. The main contribution is a framework for few-shot entity linking using LLM prompting without fine-tuning. While LLMs are used extensively, they are primarily for the entity linking task itself, not for generating natural language. The LLM-as-judge component is used internally for resolving disagreements between modules."
+}

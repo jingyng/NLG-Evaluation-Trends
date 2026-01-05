@@ -1,0 +1,193 @@
+{
+  "paper_id": "2024.acl-long.459",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "Evidence Inference 2.0",
+      "FACT-PICO"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4",
+      "Llama-2-Chat",
+      "Alpaca"
+    ],
+    "outputs": [
+      "plain language summaries of RCT abstracts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Evidence Inference 2.0 dataset"
+        ],
+        "languages": [],
+        "models": [
+          "Mistral"
+        ],
+        "outputs": [
+          "plain language summaries"
+        ]
+      },
+      "normalized": {
+        "Evidence Inference 2.0 dataset": "Evidence Inference 2.0",
+        "FACT-PICO": "FACT-PICO"
+      },
+      "explanation": "Fixed dataset name normalization (removed 'dataset' suffix). Removed 'Mistral' from models since it was only used for evaluation, not generation. Simplified outputs descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "Flesch-Kincaid",
+      "DAE",
+      "QuestEval",
+      "QAFactEval",
+      "AlignScore",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Dependency-Arc Entailment (DAE)": "DAE",
+        "QuestEval": "QuestEval",
+        "QAFactEval": "QAFactEval",
+        "AlignScore": "AlignScore",
+        "ROUGE-L": "ROUGE",
+        "Flesch-Kincaid Grade Level": "Flesch-Kincaid",
+        "Flesch-Kincaid Grade": "Flesch-Kincaid",
+        "BERTScore": "BERTScore"
+      },
+      "explanation": "Normalized metric variants to base forms (ROUGE-L → ROUGE, Flesch-Kincaid variants → Flesch-Kincaid). Kept exact metric names for specialized metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4",
+      "Llama-2-Chat",
+      "Alpaca",
+      "Mistral"
+    ],
+    "methods": [
+      "Full-Text Evaluation",
+      "PICO-R Extraction Pipeline"
+    ],
+    "criteria": [
+      "Population factuality",
+      "Intervention factuality",
+      "Comparator factuality",
+      "Outcome factuality",
+      "Evidence Inference factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Mistral"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "PICO‑R extraction pipeline",
+          "full‑text evaluation prompts",
+          "pairwise rating via prompts"
+        ],
+        "criteria": [
+          "PICO element factuality",
+          "evidence inference accuracy",
+          "added information correctness",
+          "factuality with respect to PICO elements",
+          "Evidence Inference",
+          "correctness of added information"
+        ]
+      },
+      "normalized": {
+        "factuality of Population": "Population factuality",
+        "factuality of Intervention": "Intervention factuality",
+        "factuality of Comparator": "Comparator factuality",
+        "factuality of Outcome": "Outcome factuality",
+        "factuality of Evidence Inference": "Evidence Inference factuality",
+        "PICO-R Extraction Pipeline": "PICO-R Extraction Pipeline",
+        "Full-Text Evaluation": "Full-Text Evaluation"
+      },
+      "explanation": "Consolidated criteria to avoid redundancy. Added Mistral to models list since it was used as an LLM judge. Removed vague methods descriptions and focused on the two main evaluation approaches."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluate PICO elements (Population, Intervention, Comparator, Outcome) on 1-4 scale",
+      "Annotators evaluate Evidence Inference on 1-4 scale",
+      "Annotators identify and assess correctness of added information",
+      "Annotators provide natural language rationales for all ratings"
+    ],
+    "criteria": [
+      "Population factuality",
+      "Intervention factuality",
+      "Comparator factuality",
+      "Outcome factuality",
+      "Evidence Inference factuality",
+      "Added Information correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators identify and assess correctness of added information",
+          "Annotators provide natural language rationales for all ratings"
+        ],
+        "criteria": [
+          "Added Information correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Annotators are shown a 'source' input ... and asked a series of 7 questions for evaluation."
+        ],
+        "criteria": [
+          "Population",
+          "Intervention",
+          "Comparator",
+          "Outcome",
+          "Evidence Inference",
+          "Added Information",
+          "readability"
+        ]
+      },
+      "normalized": {
+        "factuality of Population": "Population factuality",
+        "factuality of Intervention": "Intervention factuality",
+        "factuality of Comparator": "Comparator factuality",
+        "factuality of Outcome": "Outcome factuality",
+        "factuality of Evidence Inference": "Evidence Inference factuality",
+        "correctness of added information": "Added Information correctness"
+      },
+      "explanation": "Improved guideline descriptions to be more concise and comprehensive. Normalized criteria names for consistency. Added missing elements like rationale collection and added information assessment."
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive evaluation of plain language summarization in the medical domain. Extraction was generally accurate but required normalization and consolidation of duplicated/overlapping items. The paper clearly addresses NLG tasks (text summarization), uses automatic metrics, employs LLMs as judges, and conducts detailed human evaluations."
+}

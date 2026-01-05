@@ -1,0 +1,137 @@
+{
+  "paper_id": "2022.emnlp-main.511",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "DGT TM",
+      "EUR LEX",
+      "AUTODESK POST EDITING DATASET"
+    ],
+    "languages": [
+      "English",
+      "Spanish",
+      "German",
+      "Czech",
+      "Finnish"
+    ],
+    "models": [
+      "labse",
+      "comet",
+      "xlm_roberta"
+    ],
+    "outputs": [
+      "Translation proposals for post-editing"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "DGT-TM 2020",
+          "DGT-TM 2019"
+        ],
+        "languages": [],
+        "models": [
+          "Faiss"
+        ],
+        "outputs": [
+          "translation proposals (target‑language sentences retrieved or generated for a source sentence)",
+          "translation proposals"
+        ]
+      },
+      "normalized": {
+        "COMET (with XLM-RoBERTa)": "COMET"
+      },
+      "explanation": "Removed dataset variants (DGT-TM 2020/2019 are just different versions of DGT-TM), removed Faiss (it's a search library, not a model), normalized COMET naming, and consolidated output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "TER"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Kendall's tau",
+          "Pearson's correlation",
+          "Kendall rank correlation coefficient (τ)",
+          "Pearson's correlation coefficient (ρ)"
+        ]
+      },
+      "normalized": {
+        "Translation Edit Rate": "TER"
+      },
+      "explanation": "Removed correlation coefficients as they are not evaluation metrics for NLG outputs - they measure correlation between scoring methods. TER is the primary automatic metric used to evaluate translation proposals."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Translators assessed which translation proposal required less post-editing effort or if both were equally useful, without knowing the retrieval method",
+      "Translators indicated whether they would use a proposal as a draft for post-editing or translate from scratch"
+    ],
+    "criteria": [
+      "Usefulness",
+      "Effort"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Translators assessed which proposal required less post-editing effort or if both were equally useful, without knowing the retrieval method.",
+          "Translators indicated whether they would use a proposal as a draft for post‑editing or translate from scratch, and if both proposals were acceptable they chose the one requiring less post‑editing effort.",
+          "They were asked to indicate which translation proposals they would use as a draft translation to be post-edited, or if they would rather translate the source sentence from scratch. In those cases in which they considered both translation proposals acceptable for post-editing, they could indicate if one of them would require less post-editing effort (they could also indicate that both were of similar quality)."
+        ],
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "normalized": {
+        "post‑editing effort": "Post-editing effort",
+        "usefulness": "Usefulness"
+      },
+      "explanation": "Consolidated redundant guideline descriptions, removed 'fluency' (not explicitly mentioned as evaluation criterion), normalized criteria capitalization"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on computer-aided translation using neural methods to retrieve and rank translation proposals from translation memories and monolingual corpora. TER is used as the main automatic metric, and human evaluation was conducted with professional translators. The metadata needed some normalization and removal of non-core elements."
+}

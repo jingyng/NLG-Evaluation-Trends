@@ -1,0 +1,146 @@
+{
+  "paper_id": "2024.naacl-long.399",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Diagnosis Extraction"
+    ],
+    "datasets": [
+      "MIMIC III"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "flan_t_5_xxl",
+      "clinical_bert"
+    ],
+    "outputs": [
+      "abstractive evidence snippets",
+      "synthetic diagnosis label lists"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "abstractive evidence snippets from EHR text"
+        ]
+      },
+      "normalized": {
+        "Clinical BERT": "Clinical BERT",
+        "FLAN-T5-XXL": "FLAN-T5-XXL"
+      },
+      "explanation": "Removed redundant output description 'abstractive evidence snippets from EHR text' as it duplicates the main output. Kept 'abstractive evidence snippets' and 'synthetic diagnosis label lists' as distinct outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "PRECISION",
+      "RECALL",
+      "F1",
+      "AUROC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Precision",
+          "Recall",
+          "F1",
+          "AUROC"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'Yes' because the paper explicitly mentions using standard metrics (precision, recall, F1, AUROC) to evaluate risk prediction performance. These are automatic metrics used to evaluate the model outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. LLMs were used for generation (evidence extraction and diagnosis extraction) but not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Clinicians review patient records and estimate likelihood of conditions ('unlikely', 'somewhat likely', 'very likely')",
+      "Annotators evaluate model predictions for alignment with intuition",
+      "Annotators rate usefulness of evidence snippets ('Very Useful', 'Useful', 'Weak Correlation', 'Not Relevant')",
+      "Annotators indicate if evidence was seen during initial review",
+      "Annotators assess if evidence changed their likelihood assessments"
+    ],
+    "criteria": [
+      "Usefulness",
+      "Alignment",
+      "Unseen",
+      "Assessment"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Clinicians review patient records and estimate likelihood of conditions ('unlikely', 'somewhat likely', 'very likely')",
+          "Annotators evaluate model predictions for alignment with intuition",
+          "Annotators rate usefulness of evidence snippets ('Very Useful', 'Useful', 'Weak Correlation', 'Not Relevant')",
+          "Annotators indicate if evidence was seen during initial review",
+          "Annotators assess if evidence changed their likelihood assessments"
+        ],
+        "criteria": [
+          "usefulness",
+          "alignment with intuition",
+          "seen/unseen",
+          "impact on likelihood assessment"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Useful",
+          "Very Useful",
+          "Weak Correlation",
+          "Not Relevant",
+          "Partially Hallucinated",
+          "Hallucinated",
+          "Seen",
+          "Alignment with intuition"
+        ]
+      },
+      "normalized": {
+        "impact alignment": "alignment with intuition"
+      },
+      "explanation": "Restructured guidelines into clear procedural descriptions. Normalized criteria to remove specific rating labels and focus on the underlying evaluation dimensions. Kept the core criteria mentioned in the evaluation process."
+    }
+  },
+  "overall_notes": "The paper focuses on using LLMs for evidence extraction and diagnosis extraction from EHR data, with a strong emphasis on interpretable risk prediction. The main NLG tasks are abstractive evidence generation (summarization) and diagnosis extraction. The paper uses both automatic metrics (precision, recall, F1, AUROC) and extensive human evaluation by clinical experts. The extraction was mostly accurate but missed the automatic metrics used for evaluation."
+}

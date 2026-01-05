@@ -1,0 +1,175 @@
+{
+  "paper_id": "2022.naacl-main.374",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Moral Generation (ST2MO)",
+      "Other:Story Generation (MO2ST)",
+      "Other:Moral Understanding (MOCPT)",
+      "Other:Preference Alignment (MOPREF)"
+    ],
+    "datasets": [
+      "STORAL-ZH",
+      "STORAL-EN"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "BERT",
+      "RoBERTa",
+      "T5",
+      "BERT-base",
+      "RoBERTa-Post",
+      "T5-Post",
+      "RA-RoBERTa",
+      "RA-T5",
+      "ConvS2S",
+      "Fusion",
+      "GPT2",
+      "PlotMachines"
+    ],
+    "outputs": [
+      "Generated moral text from given story (ST2MO)",
+      "Generated story from given moral (MO2ST)",
+      "Selected moral from candidate set (MOCPT)",
+      "Selected moral from antonym pairs (MOPREF)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Moral Understanding (MOCPT)",
+          "Other:Preference Alignment (MOPREF)"
+        ],
+        "models": [
+          "BERT-base"
+        ],
+        "outputs": [
+          "Selected moral from candidate set (MOCPT)",
+          "Selected moral from antonym pairs (MOPREF)"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Story-Moral Generation"
+        ],
+        "models": []
+      },
+      "normalized": {
+        "Other:ST2MO": "Other:Moral Generation (ST2MO)",
+        "Other:MO2ST": "Other:Story Generation (MO2ST)",
+        "Other:Story Generation": "Other:Story Generation (MO2ST)",
+        "GPT2": "GPT2",
+        "T5": "T5",
+        "BERT": "BERT",
+        "RoBERTa": "RoBERTa"
+      },
+      "explanation": "Added two understanding tasks (MOCPT, MOPREF) that involve moral selection, normalized task names to be more descriptive, added BERT-base variant, and clarified output types for all four tasks"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "BERTScore",
+      "Repetition",
+      "Distinct",
+      "Coverage",
+      "Order",
+      "Length",
+      "Faithfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Faithfulness"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-1",
+          "BLEU-2",
+          "BERTScore-F1",
+          "Repetition-2",
+          "Repetition-4",
+          "Distinct-2",
+          "Distinct-4"
+        ]
+      },
+      "normalized": {
+        "BLEU-1": "BLEU",
+        "BLEU-2": "BLEU",
+        "BERTScore-F1": "BERTScore",
+        "Repetition-2": "Repetition",
+        "Repetition-4": "Repetition",
+        "Distinct-2": "Distinct",
+        "Distinct-4": "Distinct"
+      },
+      "explanation": "Simplified metric variants to base forms as per guidelines, and added Faithfulness metric which was explicitly evaluated using a fine-tuned classifier"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa"
+        ],
+        "methods": [
+          "fine-tuned classifier"
+        ],
+        "criteria": [
+          "faithfulness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items since this paper does NOT use LLMs as judges. The faithfulness evaluation used a fine-tuned RoBERTa classifier, which is a supervised model, not an LLM-as-judge approach."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rating linguistic fluency using binary scores",
+      "Rating coherence using binary scores",
+      "Rating moral faithfulness using binary scores",
+      "Three annotators per text, majority voting"
+    ],
+    "criteria": [
+      "linguistic fluency",
+      "coherence",
+      "moral faithfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three annotators per text, majority voting"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "normalized": {
+        "fluency": "linguistic fluency"
+      },
+      "explanation": "Normalized 'fluency' to 'linguistic fluency' for consistency with paper terminology, and added detail about the evaluation procedure (three annotators, majority voting)"
+    }
+  },
+  "overall_notes": "The paper focuses on moral story understanding and generation tasks. It evaluates both understanding (moral selection) and generation (story/moral generation) tasks using automatic metrics and human evaluation. The extraction was mostly accurate but missed the understanding tasks. The paper does not use LLMs as judges - the faithfulness metric uses a fine-tuned classifier, not LLM evaluation."
+}

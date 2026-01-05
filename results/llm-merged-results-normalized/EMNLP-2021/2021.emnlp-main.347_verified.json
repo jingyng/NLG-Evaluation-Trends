@@ -1,0 +1,140 @@
+{
+  "paper_id": "2021.emnlp-main.347",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Story Generation",
+      "Text Summarization",
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "WRITINGPROMPTS",
+      "WIKIPLOTS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "discodvt",
+      "bart",
+      "bart_lm",
+      "bart_cvae",
+      "aristotelian_rescoring"
+    ],
+    "outputs": [
+      "long texts (stories)",
+      "multi-sentence texts given an input prompt"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Summarization",
+          "Dialogue Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Story Generation",
+          "Other:open story generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Story Generation": "Story Generation",
+        "Other:open story generation": "Story Generation"
+      },
+      "explanation": "Normalized 'Other:Story Generation' and 'Other:open story generation' to 'Story Generation'. Added 'Text Summarization' and 'Dialogue Generation' as they are mentioned as NLG tasks that pre-trained models excel at, though the paper's primary focus is story generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "MS JACCARD",
+      "REVERSE BLEU",
+      "DISTINCT",
+      "TOKEN REPETITION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU (B-n)",
+          "MS-Jaccard (MSJ-n)",
+          "reverse-BLEU (rB-n)",
+          "Distinct (D-n)",
+          "Token Repetition (rep-l)"
+        ]
+      },
+      "normalized": {
+        "BLEU (B-n)": "BLEU",
+        "MS-Jaccard (MSJ-n)": "MS-Jaccard",
+        "reverse-BLEU (rB-n)": "reverse-BLEU",
+        "Distinct (D-n)": "Distinct",
+        "Token Repetition (rep-l)": "Token Repetition"
+      },
+      "explanation": "Simplified metric variants to base forms per normalization rules. All variants (B-n, MSJ-n, etc.) are captured by the base metric names."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The paper uses BERT for discourse marker classification, but this is a component of the analysis, not an LLM-as-judge evaluation method."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Coherence measures whether the story stays on topic and is well-structured with correct logical, temporal, and causal relations",
+      "Informativeness measures whether the story contains informative details and is engaging on the whole"
+    ],
+    "criteria": [
+      "Coherence",
+      "Informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators were asked to choose win/lose/tie based on the story's coherence (stays on topic, logical structure) and informativeness/diversity."
+        ],
+        "criteria": [
+          "diversity"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed redundant guideline text that duplicated the main guideline description. Removed 'diversity' from criteria as the human evaluation specifically measured coherence and informativeness (not diversity - diversity was mentioned in the context but not as a human evaluation criterion)."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on story generation with DISCODVT model. Automatic metrics were well-documented. Human evaluation was conducted with clear criteria. No LLM-as-judge evaluation was used. The paper mentions other NLG tasks (summarization, dialogue) as context for pre-trained models but focuses evaluation on story generation."
+}

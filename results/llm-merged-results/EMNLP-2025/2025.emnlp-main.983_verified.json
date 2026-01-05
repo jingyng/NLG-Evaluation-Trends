@@ -1,0 +1,167 @@
+{
+  "paper_id": "2025.emnlp-main.983",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Medical Question Answering"
+    ],
+    "datasets": [
+      "CMB-Clin",
+      "MMCU-Med",
+      "CMB-Exam",
+      "CaseHOLD",
+      "MMLU"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "Baichuan2-13B-Chat",
+      "Qwen1.5-7B-Instruct",
+      "Qwen2.5-7B-Instruct",
+      "LLaMA3-8B-Instruct"
+    ],
+    "outputs": [
+      "medical responses for diagnosis, treatment recommendations, and clinical analysis",
+      "generated answers to multiple-choice medical questions",
+      "generated responses to open-ended medical Q&A"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Medical Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated answers to multiple-choice medical questions",
+          "generated responses to open-ended medical Q&A"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Domain Adaptation Fine-tuning",
+          "Other:Medical Question Answering",
+          "Other:open Q&A"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "DeepSeek-R1",
+          "MediTron-7B",
+          "Huatuo-II-7B",
+          "Huatuo-II-34B"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Dialogue Generation": "Dialogue Generation",
+        "Medical Question Answering": "Medical Question Answering"
+      },
+      "explanation": "Removed 'Other:' prefix from tasks and normalized task names. Removed models that are not used for NLG evaluation/comparison (DeepSeek-R1, MediTron-7B, Huatuo-II-7B, Huatuo-II-34B). Simplified outputs descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Exact Match",
+      "BLEU",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Exact Match (EM)",
+          "BLEU-1",
+          "BLEU-4",
+          "Accuracy",
+          "ROUGE-R"
+        ]
+      },
+      "normalized": {
+        "Exact Match (EM)": "Exact Match",
+        "BLEU-1": "BLEU",
+        "BLEU-4": "BLEU",
+        "ROUGE": "ROUGE",
+        "ROUGE-R": "ROUGE"
+      },
+      "explanation": "Simplified metric variants to base forms (BLEU-1/BLEU-4 → BLEU, ROUGE variants → ROUGE). Removed 'Accuracy' as it's redundant with 'Exact Match' for multiple-choice evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "pairwise comparison"
+    ],
+    "criteria": [
+      "addresses question directly",
+      "comprehensive symptom description",
+      "accurate diagnosis",
+      "effective treatment recommendation",
+      "appropriate prescription"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "addresses question directly",
+          "accurate diagnosis",
+          "effective treatment recommendation",
+          "appropriate prescription"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "pairwise evaluation"
+        ],
+        "criteria": [
+          "clinical accuracy",
+          "comprehensive and accurate",
+          "diagnosis should be the most reasonable",
+          "treatment recommendation should be effective and reliable",
+          "prescription should consider indications, contraindications, and dosages",
+          "High-Quality Answer Criteria"
+        ]
+      },
+      "normalized": {
+        "pairwise evaluation": "pairwise comparison",
+        "comprehensive and accurate": "comprehensive symptom description",
+        "diagnosis should be the most reasonable": "accurate diagnosis"
+      },
+      "explanation": "Consolidated and normalized criteria descriptions. Removed redundant phrasing and normalized to more concise criteria descriptions."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted in the paper - using LLM-as-judge only."
+    }
+  },
+  "overall_notes": "The paper focuses on data selection for domain adaptation fine-tuning of LLMs, with evaluation primarily on medical NLG tasks. Extracted metadata was generally accurate but required normalization and removal of non-NLG-related models. The paper uses both automatic metrics (Exact Match, BLEU, ROUGE) and LLM-as-judge (GPT-4o) for evaluation."
+}

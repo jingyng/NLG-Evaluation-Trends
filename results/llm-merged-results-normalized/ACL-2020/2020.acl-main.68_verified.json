@@ -1,0 +1,144 @@
+{
+  "paper_id": "2020.acl-main.68",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Rigid Formats Controlled Text Generation",
+      "Poetry Generation"
+    ],
+    "datasets": [
+      "SONGCI",
+      "SONNET"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "songnet",
+      "gpt_2",
+      "seq_2seq",
+      "gru",
+      "transformer",
+      "xlnet"
+    ],
+    "outputs": [
+      "Poems/lyrics following predefined formats, rhyming schemes, and sentence integrity",
+      "Natural language sentences that comply with defined rigid formats"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Machine Translation",
+          "Other:story telling",
+          "Other:dialogue systems"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Transformer-based auto-regressive language model"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "GPT2": "GPT-2",
+        "Other:poetry writing": "Other:Poetry Generation"
+      },
+      "explanation": "Removed tasks that were only mentioned in literature review but not actually evaluated in this paper. Normalized model names to standard forms. The core task is rigid formats controlled text generation with poetry generation as the evaluated application."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "FORMAT ACCURACY",
+      "RHYME ACCURACY",
+      "SENTENCE INTEGRITY",
+      "PERPLEXITY",
+      "DISTINCT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "PPL",
+          "Distinct-n",
+          "Macro-F1",
+          "Micro-F1"
+        ]
+      },
+      "normalized": {
+        "PPL": "Perplexity",
+        "Distinct": "Distinct",
+        "sentence integrity": "Sentence integrity"
+      },
+      "explanation": "Normalized metric names to standard forms. Removed Macro-F1 and Micro-F1 as they are implementation details rather than distinct metrics. The paper uses format accuracy, rhyme accuracy, sentence integrity, perplexity, and distinct as its main automatic evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT2"
+        ],
+        "methods": [
+          "prediction probability calculation",
+          "probability scoring of punctuation before sentence separator"
+        ],
+        "criteria": [
+          "sentence integrity"
+        ]
+      },
+      "normalized": {},
+      "explanation": "GPT-2 is used as a language model to calculate sentence integrity scores during evaluation, but this is not 'LLM-as-judge' evaluation. The paper uses GPT-2 to compute prediction probabilities for sentence integrity assessment, which is an automatic metric calculation, not an LLM judging the quality after generation. Therefore, the answer should be 'No'."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Relevance: +2: all sentences relevant to same topic; +1: partial sentences relevant; 0: not relevant at all",
+      "Fluency: +2: fluent; +1: readable with some grammar mistakes; 0: unreadable",
+      "Style: +2: match with genres; +1: partially match; 0: mismatch"
+    ],
+    "criteria": [
+      "Relevance",
+      "Fluency",
+      "Style"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The human evaluation criteria and guidelines are correctly extracted. Three helpers scored generated outputs on Relevance, Fluency, and Style using the specified rating scales."
+    }
+  },
+  "overall_notes": "The paper presents a rigorous evaluation framework for rigid formats controlled text generation. The extraction was generally good but over-included some tasks mentioned in related work that weren't actually evaluated. The LLM-as-judge question was misinterpreted - GPT-2 is used for automatic sentence integrity scoring, not as a quality judge. The paper has comprehensive evaluation with both automatic metrics and human assessments specifically designed for the poetry generation task."
+}

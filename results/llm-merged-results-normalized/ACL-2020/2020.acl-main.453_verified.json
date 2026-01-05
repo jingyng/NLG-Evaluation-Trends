@@ -1,0 +1,133 @@
+{
+  "paper_id": "2020.acl-main.453",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "NOVEL CHAPTER SUMMARIES FROM FIVE STUDY GUIDES BARRONSBOOKNOTES BOOKWOLF CLIFFSNOTES GRADESAVER NOVELGUIDE PAIRED WITH PROJECT GUTENBERG CHAPTERS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "hierarchical_cnn_lstm_extractor",
+      "seq_2seq_with_attention",
+      "rnn"
+    ],
+    "outputs": [
+      "Extractive summaries of novel chapters"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "models": [
+          "hierarchical CNN-LSTM extractor (Chen and Bansal, 2018)",
+          "Hierarchical CNN-LSTM extractor (CB)",
+          "Seq2seq with attention (K)",
+          "RNN (N)"
+        ],
+        "languages": [],
+        "outputs": [
+          "extractive summaries",
+          "Extractive summaries (sentences or syntactic constituents) of novel chapters"
+        ]
+      },
+      "normalized": {
+        "hierarchical CNN-LSTM extractor": "Hierarchical CNN-LSTM extractor",
+        "seq2seq with attention": "Seq2seq with attention",
+        "RNN": "RNN",
+        "summaries from five study guide websites paired with chapter text from Project Gutenberg": "Novel chapter summaries from five study guides (BarronsBookNotes, BookWolf, CliffsNotes, GradeSaver, NovelGuide) paired with Project Gutenberg chapters"
+      },
+      "explanation": "Consolidated duplicate dataset entries into a single normalized description. Removed model variants with author initials as these refer to the same base models. Normalized model names to standard capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "METEOR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized all ROUGE variants to base ROUGE metric according to simplification rules. Kept METEOR as separate metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM judges were used in this paper. The paper mentions BERT for alignment but not as a judge for evaluating generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Crowd workers indicate which sampled reference summary content units are conveyed in the generated summary"
+    ],
+    "criteria": [
+      "Overlap"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Crowd workers indicate which sampled reference summary content units are conveyed in the generated summary.",
+          "Crowd workers were asked to indicate which sampled reference summary content units are conveyed in the generated summary.",
+          "We ask the crowd workers to indicate which of the sampled reference summary content units are conveyed in the generated summary."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "- Crowd workers indicate which sampled reference summary content units are conveyed in the generated summary.": "Crowd workers indicate which sampled reference summary content units are conveyed in the generated summary",
+        "We ask the crowd workers to indicate which of the sampled reference summary content units are conveyed in the generated summary.": "Crowd workers indicate which sampled reference summary content units are conveyed in the generated summary",
+        "Crowd workers were asked to indicate which sampled reference summary content units are conveyed in the generated summary.": "Crowd workers indicate which sampled reference summary content units are conveyed in the generated summary"
+      },
+      "explanation": "Consolidated duplicate guideline descriptions into a single normalized statement. The paper specifically mentions using a crowd-sourced pyramid evaluation method focusing on content overlap."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on extractive summarization of novel chapters with extensive evaluation using both automatic metrics (ROUGE, METEOR) and human evaluation (pyramid analysis). No LLM judges were used. The main contribution is developing better alignment methods for creating gold-standard extractive summaries."
+}

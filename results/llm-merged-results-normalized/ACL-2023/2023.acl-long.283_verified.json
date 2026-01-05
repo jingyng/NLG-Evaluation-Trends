@@ -1,0 +1,180 @@
+{
+  "paper_id": "2023.acl-long.283",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Dialogue Generation",
+      "Data To Text Generation"
+    ],
+    "datasets": [
+      "WMT21",
+      "iwslt22",
+      "WEBNLG 2020",
+      "BAGEL"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Chinese",
+      "Japanese",
+      "Russian",
+      "Spanish"
+    ],
+    "models": [
+      "sescore_2",
+      "comet",
+      "bleurt",
+      "prism",
+      "bartscore",
+      "bertscore",
+      "sescore"
+    ],
+    "outputs": [
+      "machine translation outputs",
+      "dialogue responses",
+      "data-to-text descriptions",
+      "segment-level quality scores"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "PRISM",
+          "BARTScore",
+          "BERTScore",
+          "SEScore"
+        ],
+        "outputs": [
+          "segment-level quality scores"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Other:Data-to-Text",
+          "Other:Speech Translation"
+        ],
+        "datasets": [
+          "WMT21 News",
+          "WMT21 TED",
+          "IWSLT22 En-Ja"
+        ],
+        "models": [
+          "Rembert",
+          "XLM",
+          "XLM-R"
+        ],
+        "outputs": [
+          "reference and model‑generated hypothesis (segment‑level scores)",
+          "The paper evaluates generated outputs across multiple NLG tasks including machine translation, dialogue generation, data-to-text, and summarization using both automatic and human evaluations."
+        ]
+      },
+      "normalized": {
+        "Other:Data-to-Text": "Data-to-Text",
+        "Other:Speech Translation": "Machine Translation"
+      },
+      "explanation": "Removed summarization (mentioned but not evaluated), normalized task names, removed redundant dataset variants, kept only NLG models being evaluated (not backbone models)"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "CHRF",
+      "TER",
+      "BERTSCORE",
+      "BARTSCORE",
+      "PRISM",
+      "SESCORE2",
+      "COMET",
+      "BLEURT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ChrF"
+        ]
+      },
+      "normalized": {
+        "ChrF": "chrF"
+      },
+      "explanation": "Removed duplicate 'ChrF' (normalized to 'chrF'), kept all other metrics as they are explicitly used for evaluation"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges - cleared all metadata"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "MQM framework with error typologies and severity levels (major/minor)",
+      "Professional linguists annotating with source text and model outputs only (no reference)"
+    ],
+    "criteria": [
+      "Severity",
+      "Error",
+      "Naturalness",
+      "Informativeness",
+      "Quality",
+      "Correctness",
+      "Coverage",
+      "Fluency",
+      "Relevance",
+      "Structure"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Professional linguists annotating with source text and model outputs only (no reference)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- MQM framework with error typologies and severity levels (major and minor).",
+          "MQM evaluation procedure with error typologies and severity levels (major/minor)",
+          "Following the prior study , we hired 3 bilingual linguists in English and German. Following MQM evaluation procedure , each rater can only access the source (in German) and model output (in English), without any reference text. Rater is given all the choices of possible error typologies and definitions of the severity levels."
+        ],
+        "criteria": [
+          "accuracy"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline description, removed 'accuracy' (not explicitly mentioned as human eval criteria), kept all other criteria from the paper"
+    }
+  },
+  "overall_notes": "The extraction was generally good but included some items that were mentioned in passing rather than actually evaluated. The paper focuses on evaluating SESCORE2 across Machine Translation, Dialogue Generation, and Data-to-Text tasks using both automatic metrics and human evaluation with MQM framework. Text summarization is mentioned in the abstract but not actually evaluated in the experiments."
+}

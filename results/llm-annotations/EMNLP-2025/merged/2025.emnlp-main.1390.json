@@ -1,0 +1,92 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "Assay2Mol uses the LLM to generate molecules in batches of 10.",
+            "Given input such as protein target descriptions, phenotypic data, or other textual information, Assay2Mol retrieves relevant BioAssays and leverages in-context learning to generate molecules with the desired biological activity...",
+            "We propose Assay2Mol to maximize the use of BioAssay records with LLMs. Given input such as protein target descriptions, phenotypic data, or other textual information, Assay2Mol retrieves relevant BioAssays and leverages in-context learning to generate molecules with the desired biological activity"
+        ],
+        "tasks": [
+            "Other:Molecule Generation",
+            "Text Summarization"
+        ],
+        "datasets": [
+            "PubChem",
+            "ChEMBL",
+            "CrossDocked2020",
+            "PubChem BioAssay",
+            "ZINC20",
+            "FDA-approved drugs"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-4o",
+            "Gemma-3-27B",
+            "DeepSeekV3",
+            "GPT 4o"
+        ],
+        "outputs": [
+            "SMILES strings representing molecules",
+            "SMILES strings (textual representation of molecules)",
+            "SMILES strings of generated molecules"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We use Vina Dock to score the binding complementarity of a molecule, or the strength of interaction, with a protein target. High Affinity indicates the percentage of generated molecules that outperform the reference molecules in Vina Dock. Quantitative Estimate of Drug-likeness (QED)… Synthetic Accessibility (SA) score… Diversity is quantified as the average pairwise Tanimoto distance… We also track the Molecule Size… We use ADMETlab 3.0 to predict the hERG score.",
+            "We use Vina Dock to score the binding complementarity of a molecule... QED and SA are computed with RDKit... Diversity is quantified as the average pairwise Tanimoto distance between Morgan fingerprint of the generated molecules...",
+            "We use Vina Dock to score the binding complementarity of a molecule, or the strength of interaction, with a protein target. High Affinity indicates the percentage of generated molecules that outperform the reference molecules in Vina Dock. Quantitative Estimate of Drug-likeness (QED) is a metric that combines multiple molecular properties... Synthetic Accessibility (SA) score estimates synthetic feasibility..."
+        ],
+        "automatic_metrics": [
+            "Vina Dock score",
+            "High Affinity",
+            "QED",
+            "SA score",
+            "Diversity",
+            "Molecule validity rate",
+            "Molecule size",
+            "hERG score",
+            "Quantitative Estimate of Drug-likeness (QED)",
+            "Synthetic Accessibility (SA) score",
+            "Diversity (average pairwise Tanimoto distance)",
+            "Molecule Size (number of heavy atoms)",
+            "SA",
+            "Molecule Size",
+            "Tanimoto similarity"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [
+            "We use an LLM to determine whether the retrieved BioAssays are relevant to the query protein... We perform the manual assessment by reading through the assay description and abstract for each of the 10 retrieved AIDs for each target protein... and find that GPT 4o is fairly accurate in its relevance assessment but DeepSeek-V3 struggles"
+        ],
+        "models": [
+            "GPT 4o",
+            "DeepSeekV3"
+        ],
+        "methods": [
+            "relevance assessment of retrieved BioAssays"
+        ],
+        "criteria": [
+            "relevance"
+        ]
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": [
+            "We perform the manual assessment by reading through the assay description and abstract for each of the 10 retrieved AIDs for each target protein... and confirm whether the assay readout would correspond with a biochemical interaction of the tested compounds with a protein of the same family as the target protein"
+        ],
+        "guideline": [
+            "reading through the assay description and abstract for each of the 10 retrieved AIDs for each target protein and confirming whether the assay readout would correspond with a biochemical interaction of the tested compounds with a protein of the same family as the target protein. Also, where applicable we also confirmed the desired functional activity, inhibition or activation"
+        ],
+        "criteria": [
+            "biochemical interaction",
+            "functional activity",
+            "inhibition",
+            "activation"
+        ]
+    }
+}

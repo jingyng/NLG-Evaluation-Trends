@@ -1,0 +1,153 @@
+{
+  "paper_id": "2024.acl-long.58",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Instruction Following",
+      "Mathematical Reasoning",
+      "Code Generation",
+      "Tool Using"
+    ],
+    "datasets": [
+      "GSM8K",
+      "OPENFUNCTIONS",
+      "MAGICODER",
+      "ALPACA",
+      "DOLLY",
+      "LIMA",
+      "OPENHERMES",
+      "ADVBENCH",
+      "ALPACAEVAL",
+      "HumanEval",
+      "MULTIARITH"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b_chat",
+      "llama_2_chat",
+      "llama_3"
+    ],
+    "outputs": [
+      "Instruction completion responses",
+      "Mathematical reasoning explanations with answers",
+      "Generated code snippets",
+      "Function calling responses",
+      "Textual responses to various instructions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Instruction Following"
+        ],
+        "datasets": [
+          "MultiArith"
+        ],
+        "models": [
+          "Llama-2-chat"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Mathematical Reasoning",
+          "Other:Tool Using"
+        ],
+        "models": [
+          "GPT-4 (as evaluator)"
+        ]
+      },
+      "normalized": {
+        "Other:Mathematical Reasoning": "Mathematical Reasoning",
+        "Other:Tool Using": "Tool Using"
+      },
+      "explanation": "Added 'Instruction Following' as a primary task since the paper focuses on maintaining instruction-following capabilities. Normalized task names to standard forms. Removed GPT-4 from models since it's only used as evaluator, not for generation. Added MultiArith dataset which is used for evaluation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "ACCURACY",
+      "PASS",
+      "SAFETY RATE",
+      "JAILBREAK SAFE RATE",
+      "WIN RATE",
+      "EMBEDDING SIMILARITY",
+      "PARAMETER SHIFT NORM",
+      "COSINE SIMILARITY"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "safe rate",
+          "jailbreak safe rate",
+          "win rate",
+          "Raw safe rate",
+          "Jailbreak safe rate",
+          "AlpacaEval win rate",
+          "pass@1 (HumanEval)",
+          "MMLU accuracy",
+          "TruthfulQA score",
+          "ARC accuracy",
+          "HellaSwag accuracy",
+          "Winogrande accuracy",
+          "cosine similarity",
+          "parameter shift magnitude"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "embedding similarity": "Embedding Similarity",
+        "parameter shift norm": "Parameter Shift Norm",
+        "safe rate": "Safe Rate",
+        "jailbreak safe rate": "Jailbreak Safe Rate",
+        "win rate": "Win Rate",
+        "Cosine similarity (Sentence-BERT)": "Cosine Similarity",
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Normalized all metric variants to base forms (BLEU-4 → BLEU, ROUGE-L → ROUGE). Removed dataset-specific metric names and consolidated to general metric categories. Kept only the base metrics that were actually used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "Pairwise comparison"
+    ],
+    "criteria": [
+      "Helpfulness"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "pairwise evaluation": "Pairwise comparison",
+        "AlpacaEval pairwise comparison (GPT-4 judges which response is better)": "Pairwise comparison",
+        "helpfulness": "Helpfulness"
+      },
+      "explanation": "Normalized the method description to 'Pairwise comparison' and kept 'Helpfulness' as the single criterion used for LLM evaluation. The metadata was accurate and complete."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The extraction was correct."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on fine-tuning methods for LLMs to mitigate catastrophic forgetting. While it generates text outputs, the main contribution is the fine-tuning methodology rather than NLG evaluation itself. The automatic metrics are used to measure distribution shift and task performance, not specifically for NLG evaluation in the traditional sense. The LLM-as-judge usage is limited to AlpacaEval's standard pairwise comparison setup."
+}

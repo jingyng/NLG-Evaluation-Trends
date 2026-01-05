@@ -1,0 +1,110 @@
+{
+  "paper_id": "2025.emnlp-main.1241",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper conducts systematic validation where automated LLM evaluation (HAMLET pipeline using GPT-4o/GPT-4o-Mini) is quantitatively compared against expert human judgments on the same instances for key-fact alignment (recall) and fact-checking (faithfulness)"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4o",
+      "GPT-4o-Mini"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompts shown in appendix tables (Tables 12 and 13) for analytical and narrative key-fact tree generation; validation uses adapted FINESURE pipeline prompts detailed in Appendix E"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": "Experts resolved disagreements through discussion to consensus label",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Evaluation criteria clearly defined in Section 4: key-fact alignment (binary: whether each key-fact appears in summary) and fact-checking (binary: whether each summary sentence is supported by source)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Accuracy"
+    ],
+    "shared_criteria": [
+      "recall",
+      "faithfulness"
+    ],
+    "sample_size": {
+      "total_generated": 6000,
+      "validated_by_both": 600,
+      "notes": "Used 600 instances (sampled from total 4,884+632 summaries) for validation - 300 for key-fact alignment (recall) and 300 for fact-checking (faithfulness)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Accuracy",
+        "value": 98.1,
+        "criterion": "recall",
+        "llm_model": "GPT-4o",
+        "significance": "Not reported",
+        "notes": "Binary accuracy for key-fact alignment task"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 91.6,
+        "criterion": "faithfulness",
+        "llm_model": "GPT-4o",
+        "significance": "Not reported",
+        "notes": "Binary accuracy for fact-checking task"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 94.3,
+        "criterion": "recall",
+        "llm_model": "GPT-4o-Mini",
+        "significance": "Not reported",
+        "notes": "Binary accuracy for key-fact alignment task"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 64.3,
+        "criterion": "faithfulness",
+        "llm_model": "GPT-4o-Mini",
+        "significance": "Not reported",
+        "notes": "Binary accuracy for fact-checking task"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Over 90% agreement considered high reliability",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "HAMLET's automated pipeline achieves over 90% agreement with expert human judgments (98.1% recall accuracy, 91.6% faithfulness accuracy with GPT-4o), outperforming crowd-sourced workers and FINESURE baseline while reducing cost by 25×"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "key-fact tree validation (faithfulness, objectivity, significance)",
+      "query validation (naturalness, relevance)"
+    ],
+    "shared_criteria": [
+      "recall",
+      "faithfulness"
+    ],
+    "notes": "Humans additionally validated intermediate components (key-fact trees and queries) while LLM and human both evaluated final summaries on recall and faithfulness"
+  }
+}

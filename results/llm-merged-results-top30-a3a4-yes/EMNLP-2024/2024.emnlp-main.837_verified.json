@@ -1,0 +1,218 @@
+{
+  "paper_id": "2024.emnlp-main.837",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "TECHNEWSSUMM",
+      "SUMMEVAL",
+      "CNN/DailyMail",
+      "XSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "cohere_command",
+      "claude_2.1",
+      "claude_3_sonnet",
+      "mistral_large",
+      "cohere_command_r+"
+    ],
+    "outputs": [
+      "Generated summaries of news articles",
+      "Atomic claims extracted from LLM responses",
+      "Hallucination scores and error type distributions"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Claude"
+        ],
+        "outputs": [
+          "LLM responses in the form of summaries containing claims that are evaluated for hallucination against reference contexts."
+        ]
+      },
+      "normalized": {
+        "TechNews-Summ": "TechNewsSumm",
+        "CNN/DailyMail": "CNN/DailyMail",
+        "XSUM": "XSum",
+        "Command R+": "Cohere Command R+"
+      },
+      "explanation": "Normalized dataset names (XSUM → XSum), removed generic 'Claude' since specific versions are mentioned, simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "AUC ROC",
+      "FACTUAL CONSISTENCY VECTARA HHEM",
+      "ALIGNSCORE",
+      "HALLUMEASURE",
+      "HALLUCINATION RATE",
+      "ERROR TYPE DISTRIBUTION"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "RefChecker",
+          "RefChecker soft criteria score",
+          "Hallucination rate (claim-level)",
+          "Response hallucination rate"
+        ]
+      },
+      "normalized": {
+        "HalluMeasure": "HalluMeasure",
+        "F1": "F1",
+        "AUC ROC": "AUC ROC",
+        "factual consistency score (Vectara HHEM)": "Factual Consistency Score (Vectara HHEM)",
+        "AlignScore alignment score": "AlignScore"
+      },
+      "explanation": "Removed redundant metrics (RefChecker), normalized metric names to consistent format"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "claude_3_sonnet"
+    ],
+    "methods": [
+      "Chain-of-Thought prompting",
+      "Few-shot prompting",
+      "One-claim-at-a-time evaluation",
+      "Batch claim classification"
+    ],
+    "criteria": [
+      "Supported",
+      "Absent",
+      "Contradiction",
+      "Unevaluatable",
+      "Error",
+      "Entity",
+      "Concatenation",
+      "Attribution",
+      "Overgeneralization",
+      "Hyperbole",
+      "Temporal"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Claude 3 Sonnet"
+        ],
+        "methods": [
+          "One-claim-at-a-time evaluation",
+          "Batch claim classification"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Claude 2.1"
+        ],
+        "methods": [
+          "batch prompting",
+          "Chain‑of‑Thought prompting",
+          "few‑shot prompting",
+          "claim classification via LLM-based classifier"
+        ],
+        "criteria": [
+          "supported",
+          "absent",
+          "contradiction",
+          "partially supported",
+          "unevaluatable",
+          "error type sublabels",
+          "hallucination classification",
+          "error type classification"
+        ]
+      },
+      "normalized": {
+        "Chain-of-Thought Prompting": "Chain-of-Thought prompting",
+        "Claude 2.1": "Claude 2.1",
+        "few-shot prompting": "Few-shot prompting",
+        "Entity": "Entity Error",
+        "Temporal": "Temporal Error",
+        "Reasoning Error": "Reasoning Error",
+        "Attribution Failure": "Attribution Failure",
+        "Overgeneralization": "Overgeneralization",
+        "False Concatenation": "False Concatenation",
+        "Hyperbole": "Hyperbole",
+        "Context-based meaning error": "Context-based meaning error",
+        "Other": "Other Error"
+      },
+      "explanation": "Claude 2.1 is used only for claim extraction, not evaluation. Added specific evaluation methods, normalized criteria names to consistent format"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual annotation of claims against reference context",
+      "Evaluation of 400 claims from 35 summaries",
+      "Each claim annotated by two annotators with adjudication",
+      "Annotators trained on hallucination taxonomy"
+    ],
+    "criteria": [
+      "Supported",
+      "Contradicted",
+      "Absent",
+      "Unevaluatable",
+      "Error",
+      "Entity",
+      "Concatenation",
+      "Attribution",
+      "Overgeneralization",
+      "Hyperbole",
+      "Temporal"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual annotation of claims against reference context",
+          "Evaluation of 400 claims from 35 summaries",
+          "Each claim annotated by two annotators with adjudication",
+          "Annotators trained on hallucination taxonomy"
+        ],
+        "criteria": [
+          "Supported",
+          "Contradicted",
+          "Absent",
+          "Partially Supported",
+          "Unevaluatable",
+          "Number Error",
+          "Entity Error",
+          "False Concatenation",
+          "Attribution Failure",
+          "Overgeneralization",
+          "Reasoning Error",
+          "Hyperbole",
+          "Temporal Error",
+          "Context-based meaning error",
+          "Other Error"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Annotation based on taxonomy of hallucination labels and error types as described in Table 2 and Section 3.2."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "annotation based on taxonomy of hallucination labels and error types as described in table 2 and section 3.2.": "Manual annotation of claims against reference context"
+      },
+      "explanation": "Expanded guideline description based on full paper details, normalized criteria to match the taxonomy consistently"
+    }
+  },
+  "overall_notes": "The paper primarily focuses on news summarization task. Human evaluation was conducted to create the TechNewsSumm dataset used for benchmarking. The LLM-as-judge approach uses Claude 3 Sonnet with Chain-of-Thought prompting for hallucination detection. Extraction was generally good but needed normalization and clarification about which models were used for generation vs. evaluation."
+}

@@ -1,0 +1,142 @@
+{
+  "paper_id": "2022.acl-long.175",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Scientific Claim Generation",
+      "Claim Negation Generation"
+    ],
+    "datasets": [
+      "SCIFACT",
+      "CITEWORTH",
+      "MEDMENTIONS",
+      "SQuAD",
+      "qa2d"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "scispacy",
+      "gpt_2",
+      "roberta",
+      "longformer",
+      "cui_2vec"
+    ],
+    "outputs": [
+      "atomic scientific claims",
+      "negated scientific claims",
+      "decontextualized scientific claims",
+      "faithful scientific claims"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Claim Negation Generation"
+        ],
+        "models": [],
+        "outputs": [
+          "decontextualized scientific claims",
+          "faithful scientific claims"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "models": [
+          "LongChecker"
+        ],
+        "outputs": [
+          "atomic claims and claim negations",
+          "generated scientific claims and negated claims"
+        ]
+      },
+      "normalized": {
+        "Other:Claim Generation": "Other:Scientific Claim Generation"
+      },
+      "explanation": "Added 'Claim Negation Generation' as a distinct task, removed LongChecker (it's a fact-checking model, not a generation model), refined output descriptions to be more specific"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Only ROUGE is used as an automatic metric for evaluating generated claims against references"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-2",
+          "RoBERTa"
+        ],
+        "methods": [
+          "perplexity ranking",
+          "NLI contradiction prediction"
+        ],
+        "criteria": [
+          "fluency",
+          "contradiction"
+        ]
+      },
+      "normalized": {},
+      "explanation": "GPT-2 and RoBERTa are used as filtering/ranking components during the generation process, not as evaluators/judges after generation. No LLM-as-judge methodology is employed."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rate claims on Fluency (1-3 scale), De-Contextualized (binary), Atomicity (binary), Faithfulness (1-5 scale)",
+      "Annotators rate negations on Fluency (skip option if unreadable) and Entailment (definitely false/might be true/definitely true)"
+    ],
+    "criteria": [
+      "Fluency",
+      "Contextualized",
+      "Atomicity",
+      "Faithfulness",
+      "Entailment"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators rate negations on Fluency (skip option if unreadable) and Entailment (definitely false/might be true/definitely true)"
+        ],
+        "criteria": [
+          "entailment"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "de-contextualized": "de-contextualized"
+      },
+      "explanation": "Added explicit guidelines for negation evaluation and 'entailment' criterion. All criteria from the paper were already correctly captured."
+    }
+  },
+  "overall_notes": "The paper focuses on scientific claim generation and negation for zero-shot fact checking. Human evaluation is rigorous with multiple expert annotators and detailed criteria. Automatic evaluation is limited to ROUGE scores. LLMs are used as components in the generation pipeline but not as judges for evaluation."
+}

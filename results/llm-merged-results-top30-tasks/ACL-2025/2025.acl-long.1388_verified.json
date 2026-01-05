@@ -1,0 +1,133 @@
+{
+  "paper_id": "2025.acl-long.1388",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Controlled Text Generation"
+    ],
+    "datasets": [
+      "CSFCUBE",
+      "TOEFL QA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_13b",
+      "specter",
+      "scibert",
+      "minilm"
+    ],
+    "outputs": [
+      "facet summaries",
+      "similar/dissimilar facet fragments",
+      "facet-conditioned pseudo-documents"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Other:Text Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "The paper generates facet-wise similar and dissimilar text fragments, and reconstructs facet-conditioned pseudo-documents for training in faceted query-by-example retrieval."
+        ]
+      },
+      "normalized": {
+        "Other:Controlled Text Generation": "Other:Controlled Text Generation",
+        "facet summaries and similar/dissimilar facet fragments": "facet summaries"
+      },
+      "explanation": "Removed 'Text Summarization' and 'Other:Text Generation' as the paper uses summarization as an intermediate step for controlled text generation, not as an evaluated task. Simplified outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "NDCG",
+      "MAP"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "MiniLM similarity score"
+        ]
+      },
+      "normalized": {
+        "NDCG@K": "NDCG",
+        "MAP": "MAP"
+      },
+      "explanation": "Removed 'MiniLM similarity score' as it's used for hard negative selection during training, not for evaluating generated outputs. Normalized NDCG@K to NDCG."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleaned up empty/null values. The paper does not use LLMs as judges after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Experts rated relevance of query-candidate pairs on 0-3 scale for each facet"
+    ],
+    "criteria": [
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Experts rated relevance of query-candidate pairs on 0-3 scale for each facet"
+        ],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Experts rated the relevance of each query and candidate item on a 0-3 scale, similar to ; the rounded average of two ratings is the final score. • 3 (Near Identical): A strong and clear correlation exists between the facet of a query item and a candidate item. Significant overlap in content, background, context, or theme indicates a high association level. • 2 (Similar): An apparent degree of connection is observed between the facet of a query item and a candidate item. Shared elements or themes suggest a moderate level of association. • 1 (Related): A superficial connection exists but is minimal. There may be slight thematic or contextual similarities, but the items are mainly independent. • 0 (None or Irrelevant): Items that do not meet the criteria for the above categories should be labeled as 0."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Corrected answer from 'No' to 'Yes' since the paper clearly describes human evaluation for the FEIR dataset. Simplified guideline description and added 'relevance' as the evaluation criterion."
+    }
+  },
+  "overall_notes": "The paper focuses on retrieval augmentation using controlled text generation rather than direct NLG evaluation. The main NLG aspect is the generation of facet-specific text fragments for training data augmentation. Human evaluation was conducted for the FEIR benchmark dataset creation."
+}

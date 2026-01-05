@@ -1,0 +1,172 @@
+{
+  "paper_id": "2024.emnlp-main.115",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Detoxification",
+      "Toxic Induced Generation",
+      "Parallel Detoxification"
+    ],
+    "datasets": [
+      "REALTOXICITYPROMPTS",
+      "JIGSAW TOXIC COMMENT",
+      "PARADETOX",
+      "APPDIA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2_xl",
+      "llama_2_7b",
+      "mistral_7b_instruct",
+      "flan_t_5_xl",
+      "llama_2_13b"
+    ],
+    "outputs": [
+      "detoxified text continuations",
+      "text continuations in response to toxic and non-toxic prompts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "REALTOXIC-PROMPTS",
+          "JigSaw",
+          "REALTOXICITYPROMPTS (RTP)",
+          "JIGSAW TOXIC COMMENT (JigSaw)"
+        ],
+        "languages": [],
+        "models": [
+          "ChatGPT",
+          "gpt-3.5-turbo-instruct"
+        ],
+        "outputs": [
+          "generated text continuations"
+        ]
+      },
+      "normalized": {
+        "Other:toxic-induced generation": "Other:Toxic-induced Generation",
+        "Other:parallel detoxification": "Other:Parallel Detoxification",
+        "JigSaw": "Jigsaw Toxic Comment",
+        "REALTOXICITYPROMPTS (RTP)": "REALTOXICITYPROMPTS",
+        "JIGSAW TOXIC COMMENT (JigSaw)": "Jigsaw Toxic Comment",
+        "generated text continuations": "detoxified text continuations"
+      },
+      "explanation": "Removed duplicate dataset names and normalized to canonical forms. Removed ChatGPT/gpt-3.5-turbo-instruct as they were only used for dataset synthesis, not as NLG models being evaluated. Normalized task names to title case."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PERSPECTIVE API",
+      "PERPLEXITY",
+      "SEMANTIC SIMILARITY",
+      "EDIT",
+      "FLUENCY",
+      "BLEU",
+      "STYLE",
+      "EXPECTED MAXIMUM TOXICITY",
+      "TOXICITY PROBABILITY",
+      "DIVERSITY",
+      "BERTSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "PerspectiveAPI toxicity score",
+          "Semantic Similarity (SIM)",
+          "Perplexity (PPL)",
+          "semantic similarity (SIM)",
+          "Fluency score",
+          "EDIT score"
+        ]
+      },
+      "normalized": {
+        "PerspectiveAPI toxicity score": "PerspectiveAPI",
+        "Semantic Similarity (SIM)": "Semantic Similarity",
+        "Perplexity (PPL)": "Perplexity",
+        "semantic similarity (SIM)": "Semantic Similarity",
+        "Fluency score": "Fluency",
+        "EDIT score": "EDIT"
+      },
+      "explanation": "Removed duplicate and redundant metric names, keeping only the base forms. All metrics mentioned are used for automatic evaluation of generated outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges/evaluators. LLMs are used for generation and dataset synthesis, but not for post-generation evaluation of outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators compare outputs from different models and select which has better coherence or consistency, or indicate a tie",
+      "Each comparison pair contains one prompt and two corresponding outputs generated from different models",
+      "Annotators can choose 'Tie' if hard to distinguish between generation cases"
+    ],
+    "criteria": [
+      "Coherence",
+      "Consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators can choose 'Tie' if hard to distinguish between generation cases"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators compare outputs from different models and select which has better coherence or consistency, or indicate a tie",
+          "Annotators compare two model outputs and judge which one is better in terms of coherence and consistency (or choose tie).",
+          "Each comparison pair contains one prompt and two corresponding outputs generated from two different models. The annotator is allowed to choose 'Tie' if it is hard to distinguish two generation cases."
+        ],
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "normalized": {
+        "- Annotators compare outputs from different models and select which has better coherence or consistency, or indicate a tie": "Annotators compare outputs from different models and select which has better coherence or consistency, or indicate a tie",
+        "Annotators compare two model outputs and judge which one is better in terms of coherence and consistency (or choose tie).": "Annotators compare outputs from different models and select which has better coherence or consistency, or indicate a tie"
+      },
+      "explanation": "Consolidated redundant guideline descriptions. Removed 'fluency' from criteria as it was only mentioned in automatic evaluation context, not human evaluation criteria. The paper explicitly states human evaluation focused on coherence and consistency."
+    }
+  },
+  "overall_notes": "The paper focuses on text detoxification as an NLG task. It uses both automatic metrics and human evaluation, but does not use LLMs as judges. The extraction was generally accurate but contained some duplicates and minor inconsistencies that were normalized. The paper evaluates multiple LLMs on detoxification tasks using both automatic metrics and human judgments of coherence and consistency."
+}

@@ -1,0 +1,143 @@
+{
+  "paper_id": "2023.emnlp-main.947",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering",
+      "Other:Sentiment Analysis",
+      "Other:Classification",
+      "Other:Reasoning",
+      "Other:Reading Comprehension"
+    ],
+    "datasets": [
+      "SuperNI",
+      "Natural Questions",
+      "WebQuestions",
+      "RACE",
+      "SNLI",
+      "CQA",
+      "AQUA",
+      "Yelp"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-7B",
+      "LLaMA-13B"
+    ],
+    "outputs": [
+      "Generated responses to instructions",
+      "instruction-response pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Reading Comprehension"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [],
+        "languages": [
+          "Chinese"
+        ],
+        "models": [
+          "LLaMA 7B",
+          "LLaMA 13B"
+        ],
+        "outputs": [
+          "answers for question answering tasks and summaries for summarization tasks."
+        ]
+      },
+      "normalized": {
+        "LLaMA 7B": "LLaMA-7B",
+        "LLaMA 13B": "LLaMA-13B"
+      },
+      "explanation": "Removed 'Text Summarization' as it's mentioned only in passing but not evaluated. Removed 'Chinese' as RACE dataset contains Chinese exam texts but outputs are in English. Consolidated duplicate model names. Added 'Reading Comprehension' as RACE is used for evaluation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "F1",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy",
+          "F1 score"
+        ]
+      },
+      "normalized": {
+        "Rouge-L": "ROUGE",
+        "accuracy": "Accuracy",
+        "F1 score": "F1"
+      },
+      "explanation": "Normalized metric names to standard forms and removed duplicates. ROUGE-L is simplified to ROUGE per guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "ChatGPT"
+        ],
+        "methods": [
+          "generate semantically equivalent instructions"
+        ],
+        "criteria": [
+          "cross-instruction robustness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items as ChatGPT was used only to generate alternative instructions for testing cross-instruction robustness, not as an evaluator/judge of generated outputs. The paper does not use LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. Removed placeholder 'None' values."
+    }
+  },
+  "overall_notes": "The paper focuses on instruction tuning for specialist models using generalist data. It evaluates on various NLP tasks but primarily uses classification-style evaluation with accuracy/F1, rather than traditional NLG evaluation. The extraction was mostly accurate but included some items that weren't part of the core evaluation."
+}

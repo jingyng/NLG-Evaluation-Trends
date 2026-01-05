@@ -1,0 +1,111 @@
+{
+  "paper_id": "2024.acl-long.677",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares LLM-as-a-judge results with human evaluation results by using human annotations as ground truth for binary classification and span detection tasks, reporting balanced accuracy and F1 scores for various metrics including prompt-based LLM methods."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "gpt_4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper mentions prompts are detailed in appendices D.1, D.2, and D.3, but the exact prompt text is not reproduced in the main text. Instructions for identification and verification steps are described, with examples provided in tables."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "pairwise F-1 metric",
+      "value": 66.94,
+      "interpretation": "substantial agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines are detailed in Appendix A. Annotators were instructed to identify inconsistent spans that conflict with or inaccurately represent dialogue information or lack sufficient evidence. Examples of error categories are provided in tables."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "balanced accuracy",
+      "F1"
+    ],
+    "shared_criteria": [
+      "consistency",
+      "factuality",
+      "error detection"
+    ],
+    "sample_size": {
+      "total_generated": "annotated summaries from two LLMs (GPT-4 and Alpaca-13B) and fine-tuned models on SAMSum and DialogSum datasets",
+      "validated_by_both": "subset used for threshold setting (10% of evaluation data)",
+      "notes": "Full sample size not explicitly quantified, but annotations cover multiple models and datasets from prior benchmarks."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "balanced accuracy",
+        "value": 73.48,
+        "criterion": "binary inconsistency detection",
+        "llm_model": "gpt_4",
+        "significance": "not reported",
+        "notes": "Zero-shot ChatGPT-Span on FT-Summ models"
+      },
+      {
+        "metric": "balanced accuracy",
+        "value": 63.89,
+        "criterion": "binary inconsistency detection",
+        "llm_model": "gpt_4",
+        "significance": "not reported",
+        "notes": "Zero-shot ChatGPT-Span on LLM models"
+      },
+      {
+        "metric": "balanced accuracy",
+        "value": 75.61,
+        "criterion": "binary inconsistency detection",
+        "llm_model": "gpt_4",
+        "significance": "not reported",
+        "notes": "Few-shot ChatGPT-SpanMoE on FT-Summ models"
+      },
+      {
+        "metric": "balanced accuracy",
+        "value": 70.27,
+        "criterion": "binary inconsistency detection",
+        "llm_model": "gpt_4",
+        "significance": "not reported",
+        "notes": "Few-shot ChatGPT-SpanMoE on LLM models"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "",
+      "threshold_used": "",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "Prompt-based LLM methods (ChatGPT-Span and ChatGPT-SpanMoE) outperform standard metrics in detecting inconsistencies against human annotations, with improvements particularly noted for LLM-generated summaries, though performance gaps exist between FT-Summ and LLM models."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "categorization into specific error types (Logical Error, Circumstantial Inference, etc.)"
+    ],
+    "shared_criteria": [
+      "consistency",
+      "factuality",
+      "error detection"
+    ],
+    "notes": "Both LLM and human evaluations assess consistency and factuality, but human evaluation includes detailed error categorization not explicitly performed by LLM judges."
+  }
+}

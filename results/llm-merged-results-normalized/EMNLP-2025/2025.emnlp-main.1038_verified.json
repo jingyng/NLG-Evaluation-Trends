@@ -1,0 +1,127 @@
+{
+  "paper_id": "2025.emnlp-main.1038",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Event Detection"
+    ],
+    "datasets": [
+      "MAVEN",
+      "FEWEVENT",
+      "ACE",
+      "GENIA",
+      "SPEED",
+      "CASIE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_8b_instruct",
+      "llama_3_70b_instruct",
+      "qwen_2.5_14b_instruct",
+      "qwen_2.5_72b_instruct",
+      "gpt_3.5_turbo",
+      "gpt_4o"
+    ],
+    "outputs": [
+      "structured list of event mentions",
+      "list of tuples in the form [(event_type, trigger)]"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "Llama3-70b-Instruct"
+        ]
+      },
+      "normalized": {
+        "GPT3.5-turbo": "GPT-3.5-Turbo",
+        "structured list of event mentions, e.g., [(\"event_type\", \"trigger\")]": "structured list of event mentions",
+        "list of tuples in the form [(\"event_type_1\", \"event_trigger_word_1\"), ...]": "list of tuples in the form [(event_type, trigger)]"
+      },
+      "explanation": "Removed duplicate model name (Llama3-70b-Instruct) and normalized model names to standard capitalization. Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "F1 Score for Trigger Identification",
+          "F1 Score for Trigger Classification",
+          "F1 Score for Event Identification",
+          "F1 Trigger Identification",
+          "F1 Trigger Classification",
+          "F1 Event Identification"
+        ]
+      },
+      "normalized": {
+        "F1 Score for Trigger Identification": "F1",
+        "F1 Score for Trigger Classification": "F1",
+        "F1 Score for Event Identification": "F1",
+        "F1 Trigger Identification": "F1",
+        "F1 Trigger Classification": "F1",
+        "F1 Event Identification": "F1"
+      },
+      "explanation": "Simplified all F1 metric variants to base 'F1' form as per normalization rules. The paper uses F1 scores for Trigger Identification, Trigger Classification, and Event Identification, but these are all variants of F1."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o",
+      "llama_3_70b_instruct"
+    ],
+    "methods": [
+      "binary verification prompt"
+    ],
+    "criteria": [
+      "Validity",
+      "Alignment"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "Llama3-8B-Instruct",
+          "Qwen2.5-14B-Instruct",
+          "Qwen2.5-72B-Instruct",
+          "GPT3.5-turbo",
+          "LLM-Judge (e.g., GPT-4o, Llama3)",
+          "Llama3-70b-Instruct"
+        ],
+        "methods": [
+          "binary yes/no verification prompt",
+          "verification of event mention correctness"
+        ]
+      },
+      "normalized": {
+        "binary yes/no verification prompt": "binary verification prompt",
+        "verification of event mention correctness": "binary verification prompt",
+        "LLM-Judge (e.g., GPT-4o, Llama3)": "GPT-4o, Llama3-70B-Instruct"
+      },
+      "explanation": "Removed generation models and kept only LLM-Judge models explicitly mentioned. Simplified methods to 'binary verification prompt'. Kept criteria as specified in the paper."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The paper only uses automatic metrics and LLM-as-judge evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on Event Detection using a generative approach (DiCoRe framework) with LLMs. It evaluates generated event mentions using automatic F1 metrics and uses LLM-as-judge for verification. No human evaluation was conducted. The extraction was generally accurate but needed normalization of model names and simplification of metric variants."
+}

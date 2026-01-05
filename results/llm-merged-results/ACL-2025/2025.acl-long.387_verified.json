@@ -1,0 +1,134 @@
+{
+  "paper_id": "2025.acl-long.387",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Generation",
+      "Other:Question Answer Pair Generation"
+    ],
+    "datasets": [
+      "DOCCI",
+      "PixMo-Cap",
+      "Localized Narratives",
+      "VSR",
+      "What's Up",
+      "3DSRBench",
+      "RealWorldQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Qwen2.5-3B-Instruct",
+      "Qwen2VL-2B-Instruct",
+      "Qwen2VL-7B-Instruct",
+      "SpaRE-2B",
+      "SpaRE-7B"
+    ],
+    "outputs": [
+      "synthetic question-answer pairs for spatial reasoning tasks"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Visual Question Answering"
+        ],
+        "datasets": [
+          "TextVQA"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "synthetic question‑answer pairs about spatial relations": "synthetic question-answer pairs for spatial reasoning tasks",
+        "synthetic question-answer (QA) pairs": "synthetic question-answer pairs for spatial reasoning tasks"
+      },
+      "explanation": "Removed 'Visual Question Answering' as a task since the paper generates questions but evaluates VLM performance on answering them, which is not the main NLG focus. Removed TextVQA as it's only used for evaluation, not generation. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "accuracy",
+      "CLIPScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "MME perception",
+          "MME reasoning",
+          "MME code",
+          "MME commonsense",
+          "MME numerical",
+          "full-string matching",
+          "CLIP semantic similarity"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed MME sub-scores as they are not standard NLG metrics and are used for general VLM evaluation. Removed 'full-string matching' and 'CLIP semantic similarity' as they are implementation details for filtering, not evaluation metrics for generated outputs. Kept 'accuracy' (main evaluation metric) and 'CLIPScore' (used for quality assurance)."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Qwen2.5-3B-Instruct"
+        ],
+        "methods": [
+          "binary classification of spatial relation presence"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper does NOT use LLMs as judges. Qwen2.5-3B-Instruct is used for generating QA pairs, not for evaluating them after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual validation of 400 QA pairs sampled using finite population formula with 95% confidence level and 5% margin of error to assess quality and accuracy"
+    ],
+    "criteria": [
+      "error rate",
+      "relation hallucination",
+      "object hallucination"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Kept existing metadata as it accurately reflects the human evaluation described in the paper. The manual validation process is clearly documented with statistical sampling methodology."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on generating synthetic QA pairs for spatial reasoning (NLG task) and evaluates VLM performance on answering them. The NLG aspect is the question generation from image descriptions using LLMs. The evaluation focuses more on VLM capabilities than NLG quality assessment, but does include human evaluation of the generated QA pairs."
+}

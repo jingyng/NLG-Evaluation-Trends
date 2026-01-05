@@ -1,0 +1,153 @@
+{
+  "paper_id": "2024.acl-long.688",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "ICLR CONFERENCE REVIEWS 2017 2021"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "pegasus",
+      "bart",
+      "llama_7b_instruct",
+      "glimpse_speaker",
+      "glimpse_unique"
+    ],
+    "outputs": [
+      "Summaries for scholarly reviews",
+      "Summaries that highlight commonalities, differences, and unique perspectives in peer reviews"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "ICLR peer review dataset (28062 reviews for 8428 submissions)",
+          "ICLR conference reviews from 2017 to 2021"
+        ],
+        "languages": [],
+        "models": [
+          "GLIMPSE"
+        ],
+        "outputs": [
+          "Summaries of individual scholarly reviews (extractive or abstractive)."
+        ]
+      },
+      "normalized": {
+        "GLIMPSE": "GLIMPSE-Speaker, GLIMPSE-Unique"
+      },
+      "explanation": "Removed duplicate dataset entries and normalized GLIMPSE to its specific variants. Removed redundant output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "SEAHORSE",
+      "DISCRIMINATIVENESS",
+      "PERPLEXITY",
+      "COSINE SIMILARITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Cosine Similarity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "perplexity",
+          "Discriminativeness (cosine similarity of paraphrase embeddings)",
+          "discriminativeness",
+          "LM perplexity",
+          "cosine similarity",
+          "coverage",
+          "attribution",
+          "comprehensibility",
+          "grammar",
+          "repetition",
+          "conciseness"
+        ]
+      },
+      "normalized": {
+        "Discriminativeness": "Discriminativeness",
+        "Perplexity": "Perplexity"
+      },
+      "explanation": "Normalized metrics to base forms. Removed SEAHORSE sub-metrics (coverage, attribution, etc.) as they are components of the SEAHORSE framework. Added Cosine Similarity as a distinct metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators were asked to identify the source review for each summary"
+    ],
+    "criteria": [
+      "Discriminativeness",
+      "Uniqueness",
+      "Informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators were asked to identify the source review for each summary"
+        ],
+        "criteria": [
+          "Discriminativeness",
+          "Uniqueness",
+          "Informativeness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- identify the source review for each summary",
+          "Human annotators were asked to read a generated summary and select which review it originated from, measuring discriminativeness and uniqueness.",
+          "identifying the source review for each summary"
+        ],
+        "criteria": [
+          "accuracy in identifying source review",
+          "source identification (discriminativeness)"
+        ]
+      },
+      "normalized": {
+        "accuracy in identifying source review": "Discriminativeness"
+      },
+      "explanation": "Consolidated guideline descriptions and normalized criteria to match paper terminology."
+    }
+  },
+  "overall_notes": "The paper focuses on discriminative multi-document summarization for scholarly reviews using RSA-based methods. The extraction was generally accurate but contained some duplicates and minor inconsistencies. The paper uses both automatic metrics and human evaluation, but does not use LLMs as judges."
+}

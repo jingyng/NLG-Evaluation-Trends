@@ -1,0 +1,126 @@
+{
+  "paper_id": "2021.naacl-main.444",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation",
+      "Sql Parse Correction"
+    ],
+    "datasets": [
+      "SPLASH",
+      "SPIDER"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "nl_edit",
+      "bert_base_uncased",
+      "relation_aware_transformer",
+      "transformer_decoder"
+    ],
+    "outputs": [
+      "corrected SQL parses",
+      "SQL edits (add/remove operations) that are applied to an initial SQL query to produce a corrected SQL query"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:SQL Parse Correction"
+        ],
+        "outputs": [
+          "corrected SQL parses"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:SQL Explanation Generation"
+        ],
+        "outputs": [
+          "natural language explanations of SQL queries"
+        ]
+      },
+      "normalized": {
+        "BERT": "BERT-base-uncased",
+        "transformer decoder": "Transformer decoder"
+      },
+      "explanation": "Removed 'SQL Explanation Generation' as it's an input, not an output. Added 'SQL Parse Correction' as the main task. Normalized model names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT SET MATCH",
+      "EDIT SIZE",
+      "PROGRESS",
+      "CORRECTION ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Exact-Set-Match",
+          "Correction Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Edit ↓ (percentage of examples with reduced edit size)",
+          "Edit ↑ (percentage of examples with increased edit size)",
+          "Progress (average relative edit reduction)",
+          "correction accuracy",
+          "Edit ↓",
+          "Edit ↑"
+        ]
+      },
+      "normalized": {
+        "exact-set-match": "Exact-Set-Match"
+      },
+      "explanation": "Consolidated redundant metrics and normalized to base forms. 'Edit ↓' and 'Edit ↑' are components of the Edit Size/Progress analysis, not separate metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM-as-judge evaluation was conducted"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no human evaluation of generated outputs was conducted (only dataset creation)"
+    }
+  },
+  "overall_notes": "The paper focuses on semantic parse correction through natural language feedback. While it involves NLG (generating SQL edits), the primary contribution is in interactive semantic parsing. The extraction was generally accurate but included some inputs as outputs and had redundant metric listings."
+}

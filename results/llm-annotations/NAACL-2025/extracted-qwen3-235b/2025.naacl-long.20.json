@@ -1,0 +1,58 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "To address this gap, we propose debatable QFS (DQFS). As input, DQFS uses documents and a debatable query, defined as a yes/no query where documents have opposing, equally-valid \"yes\" and \"no\" perspectives (Fig ). Such queries are broad (Is law school worth it?), and decomposing broad concepts into more specific topics (cost, job market) improves comprehension ). Thus, DQFS creates a multi-aspect summary, with each paragraph covering one of an input number of topics (2 in Fig ).",
+        "tasks": [
+            "Text Summarization"
+        ],
+        "datasets": [
+            "ConflictingQA",
+            "DebateQFS"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-4",
+            "ColBERT"
+        ],
+        "outputs": "multi-aspect summaries with topic paragraphs covering debatable yes/no queries, containing citations to source documents"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "For comprehensiveness, we let document coverage (DC) be the percent of sources in D cited. For balance, we use the ground-truth yes/no document stances. We compute KL divergence of the distribution of D cite stances to: 1) a uniform distribution; and 2) the stance distribution of all input documents D.",
+        "automatic_metrics": [
+            "Document Coverage",
+            "Fairness",
+            "Faithfulness",
+            "Citation accuracy",
+            "Self-BLEU"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "For the summary quality evaluation (§6.2), we use the Prometheus-v2 LLM evaluator 9. Example rubrics given to this evaluator are in Table , which are adapted directly from .",
+        "models": [
+            "Prometheus"
+        ],
+        "methods": [
+            "1-5 scoring"
+        ],
+        "criteria": [
+            "interest",
+            "coherence",
+            "relevance",
+            "coverage",
+            "diversity"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We have 76 users compare 20 DQFS outputs per dataset from MODS-Topic to Hierarchical and Incremental-Topic, the next-best models, and long-context, the simplest model. MODS cites more documents (§6.1), so users rate Readability to ensure the extra perspectives do not harm comprehension. Users also rate Balance, as DQFS must fairly show yes/no stances.",
+        "guideline": "Participants rated summaries on two Likert scales: 1) Readability: 'Is the summary easy to read and understand?' with 5-point scale from 'very unclear' to 'exceptionally clear', and 2) Balance: 'Does the summary address both sides of the debatable query by using counterarguments to present a well-rounded view?' with 5-point scale from 'heavily biased' to 'perfectly balanced'.",
+        "criteria": [
+            "Readability",
+            "Balance"
+        ]
+    }
+}

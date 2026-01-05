@@ -1,0 +1,156 @@
+{
+  "paper_id": "2025.acl-long.632",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Definition Generation"
+    ],
+    "datasets": [
+      "CHEER"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "MASS-zh",
+      "SimpDefiner",
+      "DP",
+      "CoT",
+      "FOCUS",
+      "RESS",
+      "Qwen2-7B",
+      "Qwen2-72B",
+      "GPT-4o Mini",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "Generated definitions for internet buzzwords",
+      "Dictionary definitions for internet buzzwords"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "SDefiner"
+        ],
+        "outputs": [
+          "definitions"
+        ]
+      },
+      "normalized": {
+        "SDefiner": "SimpDefiner",
+        "Qwen2-7b": "Qwen2-7B",
+        "Qwen2-72b": "Qwen2-72B"
+      },
+      "explanation": "Normalized model names (SDefiner → SimpDefiner, Qwen2-7b → Qwen2-7B, Qwen2-72b → Qwen2-72B). Removed duplicate 'definitions' from outputs. Removed 'SDefiner' as it's the same as 'SimpDefiner'."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "BERTScore",
+      "Semantic Accuracy",
+      "Semantic Completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "ROUGE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE-L to ROUGE according to simplification guidelines. Kept Semantic Accuracy and Semantic Completeness as they are automatic metrics using LLM evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "Scoring with rubrics",
+      "Chain-of-Thought prompting for rationale"
+    ],
+    "criteria": [
+      "Semantic Accuracy",
+      "Semantic Completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "semantic accuracy",
+          "semantic completeness"
+        ]
+      },
+      "normalized": {
+        "semantic accuracy": "Semantic Accuracy",
+        "semantic completeness": "Semantic Completeness"
+      },
+      "explanation": "Normalized criteria to title case. Removed duplicate lowercase versions. Kept all methods mentioned for LLM evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Pairwise comparison between anonymized definitions",
+      "Win/Lose/Tie labeling based on consensus",
+      "Independent evaluation followed by discussion to resolve discrepancies"
+    ],
+    "criteria": [
+      "Semantic Accuracy",
+      "Semantic Completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Pairwise comparison between anonymized definitions",
+          "Win/Lose/Tie labeling based on consensus",
+          "Independent evaluation followed by discussion to resolve discrepancies"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "semantic accuracy",
+          "semantic completeness"
+        ]
+      },
+      "normalized": {
+        "semantic accuracy": "Semantic Accuracy",
+        "semantic completeness": "Semantic Completeness"
+      },
+      "explanation": "Added structured guideline descriptions from the paper text. Normalized criteria to title case and removed duplicates."
+    }
+  },
+  "overall_notes": "The paper clearly addresses NLG (definition generation task) with comprehensive evaluation including both automatic metrics and human evaluation. The extraction was generally accurate but required normalization of model names and metric variants. The paper uses GPT-4o for automatic evaluation of semantic accuracy and completeness, which qualifies as LLM-as-judge despite being integrated into the main evaluation framework."
+}

@@ -1,0 +1,129 @@
+{
+  "paper_id": "2024.emnlp-main.939",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Adversarial Text Generation"
+    ],
+    "datasets": [
+      "XSUM",
+      "SQuAD",
+      "ARXIV PAPER ABSTRACTS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3.5_turbo",
+      "llama_3_70b",
+      "mixtral_8x_7b_instruct"
+    ],
+    "outputs": [
+      "Adversarially perturbed machine-generated text that evades detection while preserving fluency and semantic consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Other:Question Answering",
+          "Other:Abstract Generation",
+          "Other:Text generation"
+        ],
+        "datasets": [
+          "ArXiv Paper Abstract dataset",
+          "ArXiV Paper Abstract"
+        ],
+        "models": [
+          "OPT-2.7B",
+          "GPT-NEO-2.7B",
+          "GPT-J-6B",
+          "RoBERTa-large"
+        ]
+      },
+      "normalized": {
+        "ArXiv Paper Abstract dataset": "ArXiv Paper Abstracts",
+        "ArXiV Paper Abstract": "ArXiv Paper Abstracts"
+      },
+      "explanation": "Removed tasks that are not actually evaluated as NLG tasks in this paper (the paper uses existing generated text from these domains but doesn't generate new summaries/answers/abstracts). Removed models that are used for detection/proxy scoring, not for text generation. Consolidated dataset variations."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "AUROC",
+      "TPR AT 1 FPR",
+      "PERPLEXITY",
+      "COSINE SIMILARITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "cosine similarity",
+          "perplexity"
+        ]
+      },
+      "normalized": {
+        "cosine similarity": "Cosine Similarity",
+        "perplexity": "Perplexity"
+      },
+      "explanation": "Normalized case variations and removed duplicates. The paper uses these metrics to evaluate the effectiveness of the adversarial attacks on detection systems."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. LLMs were used for generation and proxy tasks, but not for evaluation of outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "MTurk workers evaluated whether RAFT-perturbed text remained indistinguishable from human-written text in terms of fluency and semantic consistency"
+    ],
+    "criteria": [
+      "Fluency",
+      "Consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The extracted metadata was accurate. Human evaluation was conducted via Amazon Mechanical Turk to assess text quality preservation."
+    }
+  },
+  "overall_notes": "This paper focuses on adversarial attacks against LLM detection systems, not on generating NLG outputs for traditional tasks. The NLG aspect comes from perturbing existing machine-generated text to evade detection. The paper uses pre-generated text from various domains (summarization, QA, abstracts) but doesn't actually perform those NLG tasks - it modifies existing generated text. The automatic metrics evaluate detection evasion effectiveness rather than traditional NLG quality."
+}

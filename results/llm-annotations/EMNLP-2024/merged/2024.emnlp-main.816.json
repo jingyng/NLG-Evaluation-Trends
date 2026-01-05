@@ -1,0 +1,108 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We focus on fine-tuning smaller language models using text annotated with causal and effect spans for causal event extraction.",
+            "The emergence of powerful generative models leads to a shift from span-based extraction to the generation of structured information ... Our goal is to identify and extract cause and effect events from an input text.",
+            "The emergence of powerful generative models leads to a shift from span-based extraction to the generation of structured information."
+        ],
+        "tasks": [
+            "Other:Causal Event Extraction",
+            "Other:causal event extraction"
+        ],
+        "datasets": [
+            "FCR",
+            "FinCausal",
+            "SCITE"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "FLAN-T5",
+            "GPT-3.5",
+            "GPT-4",
+            "DeBERTa"
+        ],
+        "outputs": [
+            "Structured cause and effect spans in a tagged format",
+            "structured cause and effect spans in a tagged format",
+            "Structured outputs representing cause and effect using a tagged format (e.g., [Cause]...[Relation]...[Effect]...)"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Traditional metrics such as exact match (EM) and token F1 rely on the idea that a correct extraction is one that completely matches the annotation. There are other automated metrics such as ROUGE, BLEU, BLEURT and BERTScore that attempt to solve this problem.",
+            "Traditional metrics such as exact match (EM) and token F1 ... Other automated metrics such as ROUGE, BLEU, BLEURT and BERTScore that attempt to solve this problem, but we found them to not correlate well with human annotations.",
+            "Traditional metrics such as exact match (EM) and token F1 rely on the idea that a correct extraction is one that completely matches the annotation. There are other automated metrics such as ROUGE, BLEU, BLEURT and BERTScore that attempt to solve this problem, but we found them to not correlate well with human annotations."
+        ],
+        "automatic_metrics": [
+            "Exact Match",
+            "Precision",
+            "Recall",
+            "F1",
+            "ROUGE-L",
+            "BLEU",
+            "BLEURT",
+            "BertScore",
+            "SentTF",
+            "DeBERTa-Valid",
+            "ROUGE",
+            "BERTScore"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "In addition, we use GPT-3.5 with or without self-consistency as additional automated evaluators for the causal event extraction task.",
+            "GPT-3.5 was used as an evaluator. In both cases, GPT-3.5's evaluation results differ from those of human evaluators.",
+            "In addition, we use GPT-3.5 with or without self-consistency as additional automated evaluators for the causal event extraction task."
+        ],
+        "models": [
+            "GPT-3.5",
+            "GPT-3.5-self-consistency"
+        ],
+        "methods": [
+            "assess validity of extractions",
+            "self-consistency",
+            "LLM-based binary validity judgment via prompting"
+        ],
+        "criteria": [
+            "validity of cause span",
+            "validity of effect span",
+            "wording variation",
+            "hallucination",
+            "swapped events",
+            "Wording Variation",
+            "Hallucination",
+            "Swapped Events"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We sample event extraction results from GPT-3.5 and a fine-tuned model, inviting human annotators to label the correctness of these extractions as 'valid' or 'invalid'.",
+            "We built a platform to collect human annotations for causal-effect extraction tasks. Annotators are asked to make a binary decision on whether the Model Output is a valid extraction for the given source text, with a sample only being valid if both Cause and Effect are correct.",
+            "We conducted human evaluation on the extraction results from GPT-3.5 (10-shot) and FLAN-T5 on the training sets of the three datasets: FCR, FinCausal and SCITE."
+        ],
+        "guideline": [
+            "Only entries where both Cause and Effect satisfy all conditions should be considered as valid. Wording may differ between Reference and Model Output. This is fine, as long as the Model tokens come from the source text. There are no significant discrepancy between Model Output and Reference, such as numbers, subjects, time. If Cause and Effect happened to be in the same sentence but not overlapping, make sure the tokens in Cause are not included in the Effect and vice versa. In the rare cases where the Reference is obviously incorrect, ignore it and analyse the Model Output with relation to the source text only.",
+            "Annotators perform a binary decision (valid/invalid) based on whether both the cause and effect extractions are correct with respect to the source text.",
+            "Instructions For Human Annotators. To alleviate the issues observed in the existing evaluation methods, we establish criteria for annotators. Only entries where both Cause and Effect satisfy all conditions should be considered as valid. • Wording may differ between Reference and Model Output. This is fine, as long as the Model tokens come from the source text. • There are no significant discrepancy between Model Output and Reference, such as numbers, subjects, time. • If Cause and Effect happened to be in the same sentence but not overlapping, make sure the tokens in Cause are not included in the Effect and vice versa. • In the rare cases where the Reference is obviously incorrect, ignore it and analyse the Model Output with relation to the source text only."
+        ],
+        "criteria": [
+            "tokens from source text",
+            "no significant discrepancies",
+            "non-overlapping tokens",
+            "correctness relative to source text",
+            "cause correctness",
+            "effect correctness",
+            "overall validity",
+            "Wording Variation",
+            "Numbers/Subjects/Time Discrepancy",
+            "Cause-Effect Overlap",
+            "Reference Reliability"
+        ]
+    }
+}

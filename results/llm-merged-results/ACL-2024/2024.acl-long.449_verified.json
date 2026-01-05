@@ -1,0 +1,150 @@
+{
+  "paper_id": "2024.acl-long.449",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Style Transfer",
+      "Image Captioning",
+      "Other:Text Classification",
+      "Other:Textual Inversion from Images"
+    ],
+    "datasets": [
+      "Yelp",
+      "MS COCO",
+      "LAION",
+      "Lexica.art",
+      "SST-2",
+      "Yelp Polarity",
+      "MR",
+      "CR",
+      "Subj",
+      "AG's News",
+      "Yahoo"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "OPT-125M",
+      "OPT-350M",
+      "OPT-1.3B",
+      "RoBERTa-large",
+      "OpenCLIP-ViT/H",
+      "Stable Diffusion-v2"
+    ],
+    "outputs": [
+      "Hard prompts for classification",
+      "Generated text (style transfer)",
+      "Image captions (textual inversion)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Text Classification"
+        ],
+        "outputs": [
+          "Hard prompts for classification"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ]
+      },
+      "normalized": {
+        "Other:Text Style Transfer": "Text Style Transfer",
+        "Generated styled sentences, hard prompts for classification, image captions": [
+          "Hard prompts for classification",
+          "Generated text (style transfer)",
+          "Image captions (textual inversion)"
+        ]
+      },
+      "explanation": "Added missing Text Classification task since few-shot text classification using prompt-based generation is a core NLG evaluation. Removed Paraphrase Generation which is not explicitly evaluated. Normalized task names and split outputs into distinct types."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CLIP Score",
+      "CTC",
+      "Classification Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Classification Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Content",
+          "Style",
+          "Fluency",
+          "J",
+          "GM",
+          "CTC metric",
+          "Style classifier accuracy",
+          "Fluency classifier score",
+          "fluency"
+        ]
+      },
+      "normalized": {
+        "CTC metric": "CTC"
+      },
+      "explanation": "Simplified to base metrics actually used: CLIP Score for image-text similarity, CTC for content preservation, and classification accuracy for few-shot tasks. Removed task-specific scoring metrics like Content/Style/Fluency which are composite evaluations rather than standard NLG metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4V"
+    ],
+    "methods": [
+      "Direct scoring via template"
+    ],
+    "criteria": [
+      "Relevance",
+      "Interpretability"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "Direct scoring via template"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "rating via provided template",
+          "human-like evaluation using GPT-4V scoring",
+          "Humanlike ChatGPT evaluation method"
+        ]
+      },
+      "normalized": {
+        "interpretability": "Interpretability"
+      },
+      "explanation": "Normalized method description and criteria. GPT-4V is used as evaluator scoring relevance and interpretability of generated prompts on a 1-5 scale via template."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted - only LLM evaluation via GPT-4V. The paper explicitly states they use 'Humanlike ChatGPT evaluation method' but this is automated through GPT-4V API."
+    }
+  },
+  "overall_notes": "Paper focuses on interpretable hard prompt optimization using sparse entropy regularization. Evaluates on multiple NLG tasks including text classification, style transfer, and textual inversion from images. Uses standard automatic metrics and GPT-4V as LLM evaluator, but no human evaluation. Extraction was reasonably accurate but needed normalization and removal of composite/scoring metrics that aren't standard NLG evaluation metrics."
+}

@@ -1,0 +1,142 @@
+{
+  "paper_id": "2024.acl-long.54",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates GPT-4 evaluator against human evaluation through meta-evaluation with correlation analysis across all three criteria (faithfulness, fluency, attractiveness)"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "GPT-4 evaluator constructed by giving same instructions as human raters; prompts shown in appendix tables (Tables 10 and following)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Percentage agreement",
+      "value": 0.84,
+      "interpretation": "outstandingly high consensus when using majority criterion",
+      "per_criterion": [
+        {
+          "criterion": "faithfulness",
+          "metric": "Percentage agreement (all=3)",
+          "value": 0.3
+        },
+        {
+          "criterion": "fluency",
+          "metric": "Percentage agreement (all=3)",
+          "value": 0.25
+        },
+        {
+          "criterion": "attractiveness",
+          "metric": "Percentage agreement (all=3)",
+          "value": 0.17
+        },
+        {
+          "criterion": "attractiveness",
+          "metric": "Percentage agreement (majority\u22652)",
+          "value": 0.84,
+          "notes": "Loosened to majority criterion"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed instructions provided in Appendix G; annotators were trained with 60 ad texts total across all tasks"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "faithfulness",
+      "fluency",
+      "attractiveness"
+    ],
+    "sample_size": {
+      "total_generated": 2000,
+      "validated_by_both": 900,
+      "notes": "Manual evaluation used 2000 instances for faithfulness/fluency and 900 instances for attractiveness; validation appears to use entire evaluated set"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.88,
+        "criterion": "Faithfulness",
+        "llm_model": "GPT-4",
+        "notes": "Table 5 system-level meta-evaluation"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.83,
+        "criterion": "Faithfulness",
+        "llm_model": "GPT-4",
+        "notes": "Table 5 system-level meta-evaluation"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.83,
+        "criterion": "Fluency",
+        "llm_model": "GPT-4",
+        "notes": "Table 5 system-level meta-evaluation"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.75,
+        "criterion": "Fluency",
+        "llm_model": "GPT-4",
+        "notes": "Table 5 system-level meta-evaluation"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.2,
+        "criterion": "Attractiveness",
+        "llm_model": "GPT-4",
+        "notes": "Table 5 system-level meta-evaluation"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.03,
+        "criterion": "Attractiveness",
+        "llm_model": "GPT-4",
+        "notes": "Table 5 system-level meta-evaluation"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "",
+      "threshold_used": "",
+      "compared_to_prior_work": "yes",
+      "notes": "Paper notes this result is inconsistent with existing studies that report LLM evaluations produce results similar to expert human evaluations"
+    },
+    "summary_finding": "GPT-4 evaluator showed strong correlation with human for faithfulness (Pearson r=0.88, Spearman \u03c1=0.83) and fluency (r=0.83, \u03c1=0.75), but very low correlation for attractiveness (r=0.20, \u03c1=0.03), with results differing from prior LLM evaluation studies."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Faithfulness",
+      "Fluency",
+      "Attractiveness"
+    ],
+    "notes": "Both LLM and human evaluated identical criteria using the same instructions in the meta-evaluation validation"
+  }
+}

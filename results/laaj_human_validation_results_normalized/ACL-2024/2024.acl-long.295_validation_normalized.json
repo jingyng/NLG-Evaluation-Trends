@@ -1,0 +1,88 @@
+{
+  "paper_id": "2024.acl-long.295",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-as-a-judge against human evaluation by comparing relevance scores on the same question pairs, reporting accuracy metrics for LLM alignment with human judgments"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts shown in figures with detailed scoring rubrics (1-10 scale for relevance/interestingness)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage agreement",
+      "value": 70.2,
+      "interpretation": "Not explicitly interpreted but reported as overall agreement percentage",
+      "per_criterion": null
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluators judged which question in a pair is more relevant for a persona via pairwise preference annotation"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "LLM accuracy",
+      "percentage agreement"
+    ],
+    "shared_criteria": [
+      "relevance"
+    ],
+    "sample_size": {
+      "total_generated": 188,
+      "validated_by_both": 188,
+      "notes": "188 question pairs evaluated by both LLM and humans across different personas and product categories"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "percentage agreement",
+        "value": 70.2,
+        "criterion": "Relevance",
+        "llm_model": "GPT-4",
+        "significance": "Not reported",
+        "notes": "Human-human agreement on question relevance for persona"
+      },
+      {
+        "metric": "LLM accuracy",
+        "value": 77.3,
+        "criterion": "Relevance",
+        "llm_model": "GPT-4",
+        "significance": "Not reported",
+        "notes": "LLM alignment with human judgments for pairs where humans agreed"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM achieves 77.3% accuracy in aligning with human relevance judgments when humans agree (70.2% agreement rate), demonstrating LLMs can reliably predict question relevance for personas."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Relevance"
+    ],
+    "notes": "Both LLM and human evaluation focus exclusively on relevance to personas, making the validation direct and comparable"
+  }
+}

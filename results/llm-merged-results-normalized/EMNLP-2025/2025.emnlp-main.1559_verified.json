@@ -1,0 +1,125 @@
+{
+  "paper_id": "2025.emnlp-main.1559",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "HH RLHF",
+      "OASST 2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "mistral_7b",
+      "llama",
+      "deberta_large_v_2"
+    ],
+    "outputs": [
+      "Generated dialogue responses",
+      "Generated responses to instruction prompts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "gaze prediction models (up to 125M parameters)"
+        ],
+        "outputs": [
+          "generated sequences in response to instruction prompts"
+        ]
+      },
+      "normalized": {
+        "Mistral 7B": "Mistral-7B",
+        "LLaMa": "LLaMA",
+        "deberta-large-v2 (reward model)": "DeBERTa-large-v2"
+      },
+      "explanation": "Removed gaze prediction models as they are not NLG models being evaluated. Normalized model names to standard forms."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "REWARD",
+      "VALIDATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Validation Score"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "reward model score",
+          "validation score difference",
+          "hold-out reward model score",
+          "validation score (difference from SFT model)",
+          "steps to convergence"
+        ]
+      },
+      "normalized": {
+        "Reward Score": "Reward Score",
+        "Validation Score": "Validation Score"
+      },
+      "explanation": "Consolidated all reward-related metrics into two main categories: Reward Score and Validation Score. Removed 'steps to convergence' as it's not an evaluation metric for generated outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "deberta-large-v2"
+        ],
+        "methods": [
+          "hold-out reward model evaluation"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses a reward model (DeBERTa-large-v2) for evaluation, but this is not an LLM used as a judge in the LLM-as-judge paradigm. It's a traditional reward model trained on human preference data."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes made. The paper does not conduct human evaluations of generated outputs."
+    }
+  },
+  "overall_notes": "The paper focuses on RLHF efficiency improvements using human gaze modeling. While it evaluates dialogue generation outputs, the evaluation is primarily through automated reward models rather than human evaluation or LLM-as-judge methods. The main contribution is improving training efficiency rather than proposing new evaluation methodologies."
+}

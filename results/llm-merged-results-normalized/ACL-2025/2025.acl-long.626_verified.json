@@ -1,0 +1,166 @@
+{
+  "paper_id": "2025.acl-long.626",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Instruction Following",
+      "Question Answering",
+      "Code Generation",
+      "Reasoning"
+    ],
+    "datasets": [
+      "HumanEval",
+      "ALPACAEVAL",
+      "MMLU",
+      "GSM8K",
+      "BBH",
+      "TYDIQA",
+      "TruthfulQA",
+      "NATURAL QUESTIONS",
+      "TriviaQA",
+      "HotpotQA",
+      "T LU v2",
+      "ULTRAFEEDBACK",
+      "TRACE",
+      "WIZARDLM 143k",
+      "MATH",
+      "LIVECODEBENCH",
+      "MBPP"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b",
+      "llama_2_13b",
+      "llama_2_chat_7b",
+      "llama_3_8b",
+      "qwen_2.5_7b",
+      "llama_3.1_8b"
+    ],
+    "outputs": [
+      "Generated conversational responses to instructions",
+      "Generated code solutions",
+      "Generated reasoning solutions",
+      "Generated question-answering responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Instruction Following",
+          "Question Answering",
+          "Reasoning"
+        ],
+        "datasets": [
+          "WizardLM-143K",
+          "MATH",
+          "LiveCodeBench",
+          "MBPP"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "AlpacaEval 2.0": "AlpacaEval",
+        "Llama-3.1-8B": "LLaMA 3.1-8B",
+        "Code Generation": "Code Generation",
+        "Dialogue Generation": "Dialogue Generation"
+      },
+      "explanation": "Added missing NLG tasks explicitly evaluated in the paper (instruction following, QA, reasoning). Added datasets used in appendices and revisions. Normalized model naming for consistency (LLaMA vs Llama)."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "EXACT MATCH",
+      "F1",
+      "PASS",
+      "MC2",
+      "WIN RATE",
+      "ROUGE",
+      "SIMILARITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "exact match (EM)",
+          "F1 score",
+          "win rates"
+        ]
+      },
+      "normalized": {
+        "pass@10": "pass@k",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric variants to their base forms (ROUGE-L→ROUGE, pass@10→pass@k). Removed redundant descriptions that were already captured by the base metric names."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "pairwise comparison"
+    ],
+    "criteria": [
+      "Instruction"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4-preview-1106"
+        ],
+        "methods": [
+          "pairwise win-rate evaluation"
+        ],
+        "criteria": [
+          "helpfulness",
+          "correctness"
+        ]
+      },
+      "normalized": {
+        "GPT-4-preview-1106": "GPT-4",
+        "pairwise evaluation": "pairwise comparison"
+      },
+      "explanation": "Normalized GPT-4 model name and method description. Removed criteria not explicitly mentioned in the paper - only 'instruction-following' is specified for AlpacaEval evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluations were conducted in this paper. The metadata was correctly empty."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on fine-tuning methodology (HFT) rather than NLG evaluation per se, but does evaluate NLG capabilities extensively across multiple benchmarks. The extraction was generally accurate but missed some datasets and tasks mentioned in the appendices. The paper uses both automatic metrics and LLM-as-judge (GPT-4 for AlpacaEval) but no human evaluation."
+}

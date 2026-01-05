@@ -1,0 +1,182 @@
+{
+  "paper_id": "2025.acl-long.252",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other: Instruction Following"
+    ],
+    "datasets": [
+      "RewardBench",
+      "HelpSteer2",
+      "MTBench-Human",
+      "JudgeBench",
+      "EvalBias",
+      "LIMA",
+      "TULU3-SFT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o",
+      "Qwen-2.5-7B",
+      "Qwen-2.5-32B",
+      "Qwen-2.5-72B",
+      "Llama-3.3-70B",
+      "Mistral-Nemo-Instruct-2407",
+      "DeepSeek-v3",
+      "Claude-3.5-Sonnet"
+    ],
+    "outputs": [
+      "Responses to task instructions",
+      "LLM-generated responses for instruction-following tasks"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Mistral-Nemo-Instruct-2407",
+          "DeepSeek-v3",
+          "Claude-3.5-Sonnet"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation",
+          "Other: Sentiment Analysis",
+          "Other: Classification"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Qwen 2.5-7B-Instruct",
+          "Qwen 2.5-32B-Instruct",
+          "Qwen 2.5-72B-Instruct",
+          "Llama 3.3-70B-Instruct"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "MTBench Human": "MTBench-Human",
+        "Qwen 2.5-7B": "Qwen-2.5-7B",
+        "Qwen 2.5-32B": "Qwen-2.5-32B",
+        "Qwen 2.5-72B": "Qwen-2.5-72B",
+        "Llama 3.3-70B": "Llama-3.3-70B"
+      },
+      "explanation": "Removed specific NLG tasks from extracted list as the paper evaluates general-purpose instruction following rather than specific NLG tasks. Normalized model names and removed redundant '-Instruct' variants. Added missing models used for generating crowd responses."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Coverage Rate",
+          "Key Points Counting",
+          "PCA Coverage Volume",
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Removed metrics that are analysis tools rather than evaluation metrics. 'Coverage Rate' and 'Key Points Counting' are used to analyze CoT quality, not to evaluate generated outputs. 'PCA Coverage Volume' is a diversity analysis metric. Kept only 'Accuracy' as the main evaluation metric."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o",
+      "Qwen-2.5-7B",
+      "Qwen-2.5-32B",
+      "Qwen-2.5-72B",
+      "Llama-3.3-70B"
+    ],
+    "methods": [
+      "Crowd-based Comparative Evaluation (CCE)",
+      "Pairwise Evaluation",
+      "Majority Voting",
+      "Criticizing Selection",
+      "Outcome Removal"
+    ],
+    "criteria": [
+      "helpfulness",
+      "relevance",
+      "accuracy",
+      "depth",
+      "creativity",
+      "level of detail",
+      "coherence",
+      "correctness",
+      "complexity",
+      "verbosity"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Pairwise Evaluation"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Qwen 2.5-7B-Instruct",
+          "Qwen 2.5-32B-Instruct",
+          "Qwen 2.5-72B-Instruct",
+          "Llama 3.3-70B-Instruct"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "crowd-based comparative evaluation": "Crowd-based Comparative Evaluation (CCE)",
+        "Qwen 2.5-7B": "Qwen-2.5-7B",
+        "Qwen 2.5-32B": "Qwen-2.5-32B",
+        "Qwen 2.5-72B": "Qwen-2.5-72B",
+        "Llama 3.3-70B": "Llama-3.3-70B"
+      },
+      "explanation": "Normalized model names and removed redundant '-Instruct' variants. Added 'Pairwise Evaluation' as a core method. The criteria list is comprehensive and correctly extracted from the benchmarks."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "The evaluation should consider factors such as the helpfulness, relevance, accuracy, depth, creativity, and level of detail of their responses"
+        ],
+        "criteria": [
+          "helpfulness",
+          "relevance",
+          "accuracy",
+          "depth",
+          "creativity",
+          "level of detail"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all human evaluation metadata as the paper does not conduct human evaluations. The extracted items were actually LLM evaluation criteria, not human evaluation criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on improving LLM-as-a-Judge evaluation methods for instruction-following tasks. The extraction was generally good but included some non-evaluation metrics and misclassified LLM criteria as human evaluation criteria. The paper primarily evaluates instruction-following capabilities using accuracy as the main metric."
+}

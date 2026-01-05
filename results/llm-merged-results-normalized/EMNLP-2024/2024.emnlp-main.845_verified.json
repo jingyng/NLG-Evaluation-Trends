@@ -1,0 +1,147 @@
+{
+  "paper_id": "2024.emnlp-main.845",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Open Domain Question Answering",
+      "Retrieval Augmented Generation"
+    ],
+    "datasets": [
+      "NATURAL QUESTIONS",
+      "WEBQUESTIONS",
+      "ENTITYQUESTIONS",
+      "TriviaQA",
+      "SQuAD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "fid",
+      "llama_2_7b",
+      "simcse",
+      "contriever",
+      "dpr",
+      "gtr",
+      "flan_t_5_large"
+    ],
+    "outputs": [
+      "propositions from text passages",
+      "answers to open-domain questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Propositionizer (Flan-T5-large)",
+          "Fusion-in-Decoder (FiD)"
+        ],
+        "outputs": [
+          "propositions from text passages"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Natural Questions (NQ)",
+          "Web Questions (WebQ)",
+          "Entity Questions (EQ)",
+          "TQA"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "TQA": "TriviaQA",
+        "NQ": "Natural Questions",
+        "WebQ": "Web Questions",
+        "EQ": "Entity Questions",
+        "Fusion-in-Decoder": "Fusion-in-Decoder (FiD)",
+        "Flan-T5-large model (Propositionizer)": "Propositionizer (Flan-T5-large)"
+      },
+      "explanation": "Removed duplicate dataset entries (NQ, WebQ, EQ, TQA) since they're redundant with full names. Added the Propositionizer model (Flan-T5-large) which generates propositions, and clarified FiD as Fusion-in-Decoder. Added proposition generation as an output type."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT MATCH",
+      "RECALL",
+      "BERTSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1 score",
+          "EM@k"
+        ]
+      },
+      "normalized": {
+        "BertScore": "BERTScore"
+      },
+      "explanation": "Removed 'F1 score' as it was used for proposition generation evaluation, not NLG output evaluation. Removed 'EM@k' as it's a variant of Exact Match. Simplified metrics to base forms."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. LLM was only used for generation (LLaMA-2-7B for QA)."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators assessed each generated proposition on three criteria: (1) whether the proposition is fully supported by the passage (faithfulness), (2) whether the proposition is minimal and cannot be further split, (3) whether the proposition is self-contained"
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Minimality",
+      "Containedness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "self-containedness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "stand-alone"
+        ]
+      },
+      "normalized": {
+        "stand-alone": "self-containedness",
+        "minimal": "minimality",
+        "faithful": "faithfulness"
+      },
+      "explanation": "Normalized 'stand-alone' to 'self-containedness' for consistency with paper terminology. Added 'self-containedness' as a criterion. The metadata was already accurate."
+    }
+  },
+  "overall_notes": "This paper focuses on retrieval-augmented generation for open-domain QA, specifically studying how retrieval granularity (passages vs sentences vs propositions) affects NLG performance. The paper evaluates both retrieval performance and downstream QA generation. Human evaluation was conducted only on proposition generation quality, not on the final QA outputs. The extraction was mostly accurate with minor duplicates and normalization issues."
+}

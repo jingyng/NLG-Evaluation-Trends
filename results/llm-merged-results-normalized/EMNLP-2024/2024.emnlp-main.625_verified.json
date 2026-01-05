@@ -1,0 +1,171 @@
+{
+  "paper_id": "2024.emnlp-main.625",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Review Based Answer Generation"
+    ],
+    "datasets": [
+      "MCMARKET",
+      "MCMARKET Q"
+    ],
+    "languages": [
+      "English",
+      "Arabic",
+      "Chinese",
+      "German",
+      "Spanish",
+      "French",
+      "Italian",
+      "Dutch",
+      "Japanese",
+      "Portuguese",
+      "Turkish"
+    ],
+    "models": [
+      "t_5",
+      "llama_2",
+      "flan_t_5",
+      "bert",
+      "mbert",
+      "gpt_4"
+    ],
+    "outputs": [
+      "Generated answers for product-related questions using reviews and cross-market data"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Answer Generation"
+        ],
+        "datasets": [
+          "McMarket r",
+          "McMarket q"
+        ],
+        "languages": [],
+        "models": [
+          "BM25"
+        ],
+        "outputs": [
+          "Generated answers for product-related questions.",
+          "Generated answers to product questions (text)"
+        ]
+      },
+      "normalized": {
+        "Other:Review-based Answer Generation": "Other:Review-based Answer Generation",
+        "McMarket r": "McMarket_r",
+        "McMarket q": "McMarket_q"
+      },
+      "explanation": "Removed 'Other:Answer Generation' as it's redundant with 'Review-based Answer Generation'. Removed BM25 as it's a retrieval model, not an NLG model. Normalized dataset names with underscores. Consolidated outputs to one clear description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "MRR",
+      "PRECISION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Precision@"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Precision@3"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "MRR": "MRR",
+        "Precision@3": "Precision@"
+      },
+      "explanation": "Normalized metrics to base forms (BLEU instead of BLEU-4, ROUGE instead of ROUGE-L). Generalized Precision@3 to Precision@ since the paper uses P@3 specifically."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "quality assessment of LLM-generated annotations"
+    ],
+    "criteria": [
+      "Correctness",
+      "Completeness",
+      "Relevance",
+      "Naturalness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "quality assessment of LLM-generated annotations"
+        ],
+        "criteria": [
+          "correctness",
+          "completeness",
+          "relevance",
+          "naturalness"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'Yes' because GPT-4 is used to evaluate LLM-generated answers and question rankings before human assessment. The paper clearly states using GPT-4 for automatic annotation and quality assessment."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Assess GPT-4-generated answers using correctness, completeness, relevance, and naturalness with scores from -2 to +2",
+      "Assess GPT-4-generated question ranking quality with scores 0-2 (0=not correct, 1=partially correct, 2=completely correct)",
+      "Choose better answer between GPT-4 responses and human ground truth"
+    ],
+    "criteria": [
+      "Correctness",
+      "Completeness",
+      "Relevance",
+      "Naturalness",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Choose better answer between GPT-4 responses and human ground truth"
+        ],
+        "criteria": [
+          "ranking quality"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added missing evaluation component (comparison between GPT-4 and human ground truth) and added 'ranking quality' as an additional criterion for the question ranking task."
+    }
+  },
+  "overall_notes": "The extracted metadata was largely accurate but needed normalization and some corrections. The paper clearly studies NLG through review-based answer generation. Key finding: The paper does use LLMs as judges (GPT-4 for annotation quality assessment), contrary to the original extraction. Human evaluation is comprehensive with detailed scoring criteria."
+}

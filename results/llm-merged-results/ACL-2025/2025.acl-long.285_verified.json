@@ -1,0 +1,135 @@
+{
+  "paper_id": "2025.acl-long.285",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Text Summarization"
+    ],
+    "datasets": [
+      "Anthropic HH-RLHF",
+      "Reddit TL;DR",
+      "WebGPT",
+      "SHP",
+      "RMB",
+      "Oasst1",
+      "SafeRLHF",
+      "Alpaca Farm"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMa-3.1-8B",
+      "LLaMa-3.1-8B-Instruct",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "dialogue responses",
+      "summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "WebGPT",
+          "SHP",
+          "RMB",
+          "Oasst1",
+          "SafeRLHF",
+          "Alpaca Farm"
+        ],
+        "languages": [],
+        "models": [
+          "LLaMa-3.1-8B-Instruct"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Vicuna"
+        ],
+        "languages": [],
+        "models": [
+          "LLaMa-8B-Instruct"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Anthropic's HH-RLHF": "Anthropic HH-RLHF",
+        "Reddit TL;DR dataset": "Reddit TL;DR",
+        "HH-RLHF": "Anthropic HH-RLHF"
+      },
+      "explanation": "Normalized dataset names and removed Vicuna (used for SFT, not generation evaluation). Added missing datasets used in evaluation. Normalized model names and removed LLaMa-8B-Instruct (not used for generation)."
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": false,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "No automatic metrics mentioned for evaluating generated outputs. The paper focuses on preference modeling and RLHF evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "pairwise evaluation"
+    ],
+    "criteria": [
+      "quality",
+      "usefulness",
+      "harmlessness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "usefulness"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "pairwise win/tie/lose evaluation": "pairwise evaluation"
+      },
+      "explanation": "Normalized method name to 'pairwise evaluation' and added 'usefulness' criterion which was mentioned alongside quality and harmlessness in the evaluation prompt."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted. The paper uses GPT-4o for evaluation and mentions that studies show GPT-4o's evaluation aligns with human evaluators."
+    }
+  },
+  "overall_notes": "The paper focuses on reward modeling for RLHF and evaluates through policy model performance in dialogue generation and summarization tasks. Evaluation is done via LLM-as-judge (GPT-4o) with pairwise comparison. No traditional automatic metrics or human evaluation used. The extraction was generally accurate with minor normalization needed."
+}

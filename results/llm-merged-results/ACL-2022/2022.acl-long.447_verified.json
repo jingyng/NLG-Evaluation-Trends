@@ -1,0 +1,146 @@
+{
+  "paper_id": "2022.acl-long.447",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "SaFeRDialogues",
+      "BAD",
+      "BST",
+      "BSTnp",
+      "pushshift.io Reddit"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BST 2.7B",
+      "DialoGPT",
+      "pushshift.io Reddit",
+      "BST 2.7B with safety layer",
+      "Recovery (BST 2.7B)",
+      "Recovery (DialoGPT)"
+    ],
+    "outputs": [
+      "dialogue responses",
+      "apologetic responses to safety feedback",
+      "general conversational responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "general conversational responses"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "DialoGPT"
+        ],
+        "languages": [],
+        "models": [
+          "BST2.7B",
+          "pushshift.io Reddit 2.7B",
+          "BST+Safety Layer",
+          "BST2.7",
+          "BST 2.7B + Safety Layer"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "SaFeRDialogues (SD)": "SaFeRDialogues",
+        "BST 2.7B + Safety Layer": "BST 2.7B with safety layer",
+        "model-generated responses to feedback (apologetic, recovery utterances) and regular conversational replies": "apologetic responses to safety feedback"
+      },
+      "explanation": "Removed duplicate model names and normalized dataset names. DialoGPT is a model, not a dataset. Added 'general conversational responses' to outputs to cover both feedback and regular conversation scenarios."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Perplexity",
+      "F1",
+      "Safe%"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "percentage of safe responses"
+        ]
+      },
+      "normalized": {
+        "perplexity": "Perplexity",
+        "F1": "F1",
+        "safe%": "Safe%"
+      },
+      "explanation": "Normalized capitalization and removed duplicate 'percentage of safe responses' which is the same as 'Safe%'"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Crowdworkers pick preferred model response for engagingness: 'Which response would you prefer, in the context of a long conversation?'",
+      "Crowdworkers pick preferred model response for civility: 'Which response do you think will lead to a more civil conversation?'",
+      "ACUTE eval method: workers choose 'Who would you prefer to talk to for a long conversation?' after interactive conversations"
+    ],
+    "criteria": [
+      "Engagingness",
+      "Civility",
+      "Preference"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "ACUTE eval method: workers choose 'Who would you prefer to talk to for a long conversation?' after interactive conversations"
+        ],
+        "criteria": [
+          "Preference"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "engagingness": "Engagingness",
+        "civility": "Civility",
+        "preference": "Preference"
+      },
+      "explanation": "Normalized capitalization of criteria and added ACUTE eval method description for completeness"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main issues were duplicate model names and some inconsistent naming. The paper focuses on dialogue generation with human evaluation of engagingness and civility, using automatic metrics like perplexity and F1. No LLM-as-judge evaluation was used."
+}

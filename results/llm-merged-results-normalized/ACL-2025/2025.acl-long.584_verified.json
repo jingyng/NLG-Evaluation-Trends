@@ -1,0 +1,160 @@
+{
+  "paper_id": "2025.acl-long.584",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Charge Prediction",
+      "Article Prediction",
+      "Court View Generation",
+      "Legal Question Answering"
+    ],
+    "datasets": [
+      "cail2018 ARTICLE",
+      "cail2018 CHARGE",
+      "laic2021 CVG",
+      "LAWZHIDAO QA"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "bart",
+      "t_5",
+      "gpt_4",
+      "llama_3",
+      "glm_4",
+      "lexilaw",
+      "lawgpt",
+      "unilr"
+    ],
+    "outputs": [
+      "Predicted charges",
+      "Applicable law articles",
+      "Generated court view texts",
+      "Legal question answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Charge Prediction",
+          "Other:Law Article Prediction"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-4",
+          "GLM-4"
+        ],
+        "outputs": [
+          "Predicted charges",
+          "Applicable law articles"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Court View Generation",
+          "Other:Legal Question Answering",
+          "Other:court view generation",
+          "Other:legal question answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Lexi-Law"
+        ],
+        "outputs": [
+          "court views and answers",
+          "generated court view texts and legal answers"
+        ]
+      },
+      "normalized": {
+        "GPT4": "GPT-4",
+        "GLM4": "GLM-4",
+        "Lexi-Law": "LexiLaw",
+        "Other:Court View Generation": "Other:Court View Generation",
+        "Other:Legal Question Answering": "Other:Legal Question Answering"
+      },
+      "explanation": "Added the two main prediction tasks (charge and law article) that were missing. Normalized model names to standard forms. Removed duplicate/case-varied task entries. Kept the four main NLG tasks evaluated in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-1",
+          "BLEU-2",
+          "BLEU-N"
+        ]
+      },
+      "normalized": {
+        "BLEU-1": "BLEU",
+        "BLEU-2": "BLEU",
+        "BLEU-N": "BLEU",
+        "ROUGE-L": "ROUGE-L"
+      },
+      "explanation": "Consolidated all BLEU variants into the base metric 'BLEU' per normalization rules."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "LLMs are used for generation but not as judges/evaluators after generation. Removed placeholder 'None' entries."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human raters evaluated generated outputs according to specified criteria",
+      "Human evaluation assessed generated outputs based on fluency and rationality"
+    ],
+    "criteria": [
+      "Fluency",
+      "Rationality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human raters evaluated generated outputs according to specified criteria"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "fluency",
+          "rationality"
+        ]
+      },
+      "normalized": {
+        "fluency": "Fluency",
+        "rationality": "Rationality"
+      },
+      "explanation": "Normalized criteria to title case. Added missing guideline description. Kept the two explicit evaluation criteria mentioned in the paper."
+    }
+  },
+  "overall_notes": "Paper focuses on retrieval-augmented generation for legal tasks. The extracted metadata was reasonably accurate but needed normalization and inclusion of the two prediction tasks alongside the two generation tasks. No LLM-as-judge evaluation was conducted - LLMs were used only as generators."
+}

@@ -1,0 +1,149 @@
+{
+  "paper_id": "2022.acl-long.557",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Text Summarization",
+      "Other:Action Command Generation",
+      "Other:Quest Motivation Generation"
+    ],
+    "datasets": [
+      "LIGHT",
+      "LIGHT-Quests"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART",
+      "A2C",
+      "StarSpace",
+      "BERT",
+      "Poly-encoder"
+    ],
+    "outputs": [
+      "dialogue utterances",
+      "action commands",
+      "short motivations",
+      "goal action sequences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "A2C with transformer policies",
+          "poly-encoder"
+        ],
+        "outputs": [
+          "dialogue utterances, action commands, short motivations, and goal actions",
+          "short motivations, goal action sequences, dialogue utterances"
+        ]
+      },
+      "normalized": {
+        "Action Command Generation": "Other:Action Command Generation",
+        "Quest Motivation Generation": "Other:Quest Motivation Generation",
+        "poly-encoder": "Poly-encoder"
+      },
+      "explanation": "Removed duplicate entries and consolidated outputs. Normalized model names for consistency. The paper clearly addresses multiple NLG tasks including dialogue generation (utterances), summarization (goal actions as condensed motivations), and specialized task generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "hits@10",
+      "F1 ranking prediction score",
+      "F1",
+      "BLEU",
+      "ROUGE",
+      "perplexity",
+      "act goal rate",
+      "speech goal rate",
+      "all goal rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEU",
+          "ROUGE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1 (BLEU-1 and ROUGE-1)",
+          "BLEU-1",
+          "ROUGE-1",
+          "Hits@10"
+        ]
+      },
+      "normalized": {
+        "F1 (BLEU-1 and ROUGE-1)": "F1, BLEU, ROUGE",
+        "BLEU-1": "BLEU",
+        "ROUGE-1": "ROUGE",
+        "Hits@10": "hits@10"
+      },
+      "explanation": "Normalized metrics to base forms as per guidelines. The paper uses hits@10 and F1 ranking for retrieval models, F1 (BLEU and ROUGE) and perplexity for generative models, and goal achievement rates for reinforcement learning evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges. All evaluation is done through automatic metrics (metric-based) or reinforcement learning rewards. No LLM-based evaluation methods are mentioned."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not conduct human evaluations. All evaluations are automated using metrics and goal achievement rates. Human demonstrations are used only for training data, not for evaluation of generated outputs."
+    }
+  },
+  "overall_notes": "The paper focuses on procedural environment generation and reinforcement learning for text-based game agents. NLG evaluation is secondary to the main contribution of curriculum learning for generalization. Most NLG evaluation is done implicitly through goal achievement rates rather than traditional text quality metrics. The extraction was generally good but needed some normalization and consolidation of duplicate entries."
+}

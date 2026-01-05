@@ -1,0 +1,94 @@
+{
+  "paper_id": "2024.naacl-long.3",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares LLM and human performance on the same task of determining user similarity for information community formation, showing quantitatively that humans outperform LLMs and are essential for good performance."
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-3",
+      "Chat-GPT"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompts shown for GPT-3 user summarization and community assignment tasks, including specific format and output expectations"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 1,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Humans read user summaries and determine similarity based on whether users discuss the same entity in a similar way, with examples provided"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "error_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Accuracy",
+      "Macro F1",
+      "Performance comparison"
+    ],
+    "shared_criteria": [
+      "user similarity",
+      "perspective alignment"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": null,
+      "notes": "Validation performed on entire test sets for Black Lives Matter and Abortion/Feminism emerging news events"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Performance comparison",
+        "value": "33% improvement",
+        "criterion": "fake news source detection",
+        "llm_model": "LLM+Humans vs LLM Only",
+        "significance": "significant improvements",
+        "notes": "LLM+Human interaction models achieve ~33% improvement in macro F1 over LLM-only baseline"
+      },
+      {
+        "metric": "Performance comparison",
+        "value": "40% improvement",
+        "criterion": "bias news source detection",
+        "llm_model": "LLM+Humans vs LLM Only",
+        "significance": "significant improvements",
+        "notes": "LLM+Human interaction models achieve ~40% improvement in macro F1 over LLM-only baseline"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Human interaction is critical for accurate information community formation - LLM-only models perform similarly to baseline while LLM+Human models achieve significant improvements (33-40% in F1), showing humans are necessary to correct LLM errors in user similarity judgments."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Similarity",
+      "Alignment",
+      "community formation"
+    ],
+    "notes": "Both LLM and human evaluators perform the exact same task of determining user similarity for information community formation, but LLMs struggle with this reasoning task without human correction"
+  }
+}

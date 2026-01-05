@@ -1,0 +1,82 @@
+{
+  "paper_id": "2024.acl-long.92",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates GPT-4 judgments against human labels by having human labelers annotate 100 simulated path pairs and comparing consistency with GPT-4 decisions"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt for path comparison shown in Table 5 of appendix, includes detailed evaluation dimensions (persuasiveness, user feedback, semantic relevance, emotional factors, factual correctness, overall evaluation)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "5-point scale provided: 5 - correct and highly persuasive, 4 - correct and persuasive, 3 - correct but not convincing, 2 - acceptable with minor errors, 1 - irrelevant or invalid response"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "path_quality_preference"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": 100,
+      "notes": "100 simulated path pairs were annotated by both human labelers and GPT-4 for preference comparison"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": 0.85,
+        "criterion": "path_quality_preference",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "85% of human labels consistent with GPT-4 decisions"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 shows high consistency (85%) with human preferences in evaluating simulated conversation paths, indicating reliable alignment between LLM judgments and human evaluations."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "correctness",
+      "quality"
+    ],
+    "shared_criteria": [
+      "persuasiveness"
+    ],
+    "notes": "LLM evaluates persuasiveness along with other dimensions in path comparisons, while humans evaluate persuasiveness via ratings and correctness/quality via the 5-point scale"
+  }
+}

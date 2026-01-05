@@ -1,0 +1,145 @@
+{
+  "paper_id": "2023.acl-long.133",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Medical Instruction Generation"
+    ],
+    "datasets": [
+      "CUSTOM DATASET OF 14k MEDICAL PROFESSIONAL PATIENT ENCOUNTERS WITH PAIRED DIALOGUE AND CARE PLANS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "fairseq",
+      "dba",
+      "unweighted,_concept_weighted,_semantic_weighted"
+    ],
+    "outputs": [
+      "Generated after-visit care instructions",
+      "Care plan instructions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation"
+        ],
+        "datasets": [
+          "internal primary care dialogue-careplan dataset (14K encounters, 48K source‑reference pairs)",
+          "14K medical professional-patient encounters"
+        ],
+        "languages": [],
+        "models": [
+          "transformer sequence-to-sequence model",
+          "transformer_iwslt_de_en architecture in FairSeq"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Medical Instruction Generation": "Other:Medical Instruction Generation",
+        "Dynamic Beam Allocation (DBA)": "Dynamic Beam Allocation (DBA)"
+      },
+      "explanation": "Removed 'Dialogue Generation' as this is not evaluated - the dialogue is the input, not the output. Consolidated duplicate dataset entries. Removed redundant model descriptions. The paper focuses on instructional text generation from medical dialogues."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BERTSCORE",
+      "CONCEPT F1",
+      "GPT 2 PERPLEXITY",
+      "SEMANTIC RELATIVE ERROR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Semantic Relative Error"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Concept Overlap (Concept-F1)",
+          "concept overlap"
+        ]
+      },
+      "normalized": {
+        "Concept-F1": "Concept-F1",
+        "BERTScore": "BERTScore",
+        "GPT-2 Perplexity": "GPT-2 Perplexity"
+      },
+      "explanation": "Removed duplicates ('concept overlap' is the same as 'Concept-F1'). Added 'Semantic Relative Error' which is explicitly defined and used. Kept the four main automatic metrics used in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. GPT-2 was only used for perplexity calculation, not for judging quality."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Five medical experts evaluated relevance, medical usability, fluency, and degeneracies on a scale from 1 to 5"
+    ],
+    "criteria": [
+      "Relevance",
+      "Medical",
+      "Fluency",
+      "Degeneracies"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Medical experts rate each generated instruction on relevance, medical usability, fluency, and indicate whether the output is degenerate.",
+          "We ask five doctors to evaluate the relevance to the dialogue, medical usability (if the generated instruction can be used in any care plan), and grammatical correctness (fluency) on a scale from 1 to 5. Additionally, we ask assessors to indicate degenerate generations, i.e., premature or repetitive sequences."
+        ],
+        "criteria": [
+          "usability",
+          "Relevance",
+          "Medical Usability",
+          "Fluency",
+          "Degeneracies"
+        ]
+      },
+      "normalized": {
+        "medical usability": "medical usability",
+        "relevance": "relevance",
+        "fluency": "fluency",
+        "degeneracies": "degeneracies"
+      },
+      "explanation": "Consolidated repetitive guideline descriptions. Normalized criteria to lowercase and removed duplicates. Kept the four main evaluation criteria used by medical experts."
+    }
+  },
+  "overall_notes": "The paper is well-focused on NLG evaluation for medical instruction generation. The metadata extraction was generally accurate but had some redundancy. The paper uses both automatic metrics and human evaluation with medical experts, making it a strong NLG evaluation paper. The human evaluation methodology is particularly rigorous with domain experts."
+}

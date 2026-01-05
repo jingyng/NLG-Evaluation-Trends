@@ -1,0 +1,165 @@
+{
+  "paper_id": "2020.acl-main.432",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Other:Bigram Flipping",
+      "Other:Sequence Copying",
+      "Other:Sequence Reversal"
+    ],
+    "datasets": [
+      "Multi30K",
+      "Synthetic Bigram Flipping",
+      "Synthetic Sequence Copying",
+      "Synthetic Sequence Reversal"
+    ],
+    "languages": [
+      "English",
+      "German"
+    ],
+    "models": [
+      "GRU-based encoder-decoder",
+      "BiLSTM",
+      "BERT"
+    ],
+    "outputs": [
+      "Generated German translations",
+      "Generated sequences for bigram flipping",
+      "Generated sequences for sequence copying",
+      "Generated sequences for sequence reversal"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:synthetic seq2seq",
+          "Other:Sequence-to-sequence generation"
+        ],
+        "datasets": [
+          "Synthetic (bigram flipping)",
+          "Synthetic (sequence copying)",
+          "Synthetic (sequence reversal)",
+          "synthetic bigram flipping / copying / reversal datasets"
+        ],
+        "languages": [],
+        "models": [
+          "GRU encoder-decoder",
+          "bidirectional GRU encoder, unidirectional GRU decoder with dot-product attention"
+        ],
+        "outputs": [
+          "generated token sequences (translations or synthetic task outputs)",
+          "generated output sequences in synthetic tasks and English-to-German translation"
+        ]
+      },
+      "normalized": {
+        "Other:Bigram Flipping": "Other:Bigram Flipping",
+        "Other:Sequence Copying": "Other:Sequence Copying",
+        "Other:Sequence Reversal": "Other:Sequence Reversal",
+        "Multi30K": "Multi30K",
+        "Synthetic (bigram flipping)": "Synthetic Bigram Flipping",
+        "Synthetic (sequence copying)": "Synthetic Sequence Copying",
+        "Synthetic (sequence reversal)": "Synthetic Sequence Reversal",
+        "GRU-based encoder-decoder": "GRU-based encoder-decoder",
+        "BiLSTM": "BiLSTM",
+        "BERT": "BERT"
+      },
+      "explanation": "Consolidated duplicate task descriptions and normalized dataset names. Removed redundant model descriptions and output descriptions. The paper clearly evaluates NLG tasks including machine translation and synthetic sequence generation tasks."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "Token-by-token accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy",
+          "token-by-token accuracy",
+          "BLEU score"
+        ]
+      },
+      "normalized": {
+        "Token-by-token accuracy": "Token-by-token accuracy",
+        "BLEU": "BLEU",
+        "BLEU score": "BLEU"
+      },
+      "explanation": "Removed duplicate metrics ('accuracy' and 'token-by-token accuracy' are the same, kept the more specific one). Normalized 'BLEU score' to 'BLEU'. The paper uses both BLEU for machine translation and token-by-token accuracy for synthetic tasks."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values. The paper does not use LLMs as judges for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Do you think that this prediction was influenced by the gender of the individual?",
+      "Do you believe the highlighted tokens capture the factors that drive the models' prediction?"
+    ],
+    "criteria": [
+      "influence of gender",
+      "trustworthiness of attention-based explanations"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Do you think that this prediction was influenced by the gender of the individual?",
+          "Do you believe the highlighted tokens capture the factors that drive the models' prediction?"
+        ],
+        "criteria": [
+          "influence of gender",
+          "trustworthiness of attention-based explanations"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Do you think that this prediction was influenced by the gender of the individual? ... Do you believe the highlighted tokens capture the factors that drive the models' prediction?"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "trustworthiness of attention-based explanation": "trustworthiness of attention-based explanations"
+      },
+      "explanation": "Changed answer from 'No' to 'Yes' because the paper conducts human evaluation of attention-based explanations. The human study evaluates whether predictions are influenced by gender and the trustworthiness of attention explanations. Split the guideline into two clear questions and normalized the criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation through attention mechanism manipulation. It evaluates both classification tasks (used to demonstrate attention manipulation) and NLG tasks (machine translation and synthetic sequence generation). The human evaluation is about evaluating the attention explanations, not the generated outputs themselves, but still qualifies as human evaluation. The paper uses standard automatic metrics (BLEU, accuracy) for NLG evaluation."
+}

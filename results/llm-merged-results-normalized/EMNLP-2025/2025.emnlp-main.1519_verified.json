@@ -1,0 +1,162 @@
+{
+  "paper_id": "2025.emnlp-main.1519",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Fact Verification",
+      "Verification Justification Generation"
+    ],
+    "datasets": [
+      "TSVER"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gemini_2.5_pro",
+      "gpt_4",
+      "mistral",
+      "llama",
+      "llama_3.1_8b",
+      "gemini_2.5_flash"
+    ],
+    "outputs": [
+      "verdicts",
+      "textual justifications"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Gemini-2.5-flash"
+        ],
+        "outputs": [
+          "verdicts"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Gemini"
+        ],
+        "outputs": [
+          "textual justifications for verdicts",
+          "verdicts and textual justifications",
+          "verdict and justification"
+        ]
+      },
+      "normalized": {
+        "TSVER": "TSVer",
+        "Gemini-2.5-Pro": "Gemini-2.5-Pro",
+        "Llama-3.1-8B": "Llama-3.1-8B"
+      },
+      "explanation": "Normalized dataset name to TSVer, added Gemini-2.5-flash which is used for generation, simplified outputs to two main types, removed generic 'Gemini' reference"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "F1",
+      "METEOR",
+      "EV2R",
+      "TSCS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Time Series Coverage Score (TSCS)",
+          "Ev 2 R"
+        ]
+      },
+      "normalized": {
+        "Ev 2 R": "Ev2R"
+      },
+      "explanation": "Removed duplicate metrics (TSCS and Time Series Coverage Score refer to same metric), normalized Ev2R formatting"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gemini_2.5_flash"
+    ],
+    "methods": [
+      "Ev2R scoring"
+    ],
+    "criteria": [
+      "Factuality",
+      "Precision",
+      "Recall",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "gemini-2.5-flash-preview-04-17",
+          "Gemini-2.5-flash"
+        ],
+        "methods": [
+          "Ev2R scoring via LLM",
+          "Ev 2 R scorer",
+          "atomic fact decomposition"
+        ],
+        "criteria": [
+          "evidence relevance"
+        ]
+      },
+      "normalized": {
+        "gemini-2.5-flash-preview-04-17": "Gemini-2.5-flash",
+        "Ev 2 R scorer": "Ev2R scoring"
+      },
+      "explanation": "Normalized model name to standard form, simplified methods to 'Ev2R scoring', removed 'atomic fact decomposition' as it's part of the method, removed 'evidence relevance' as it's not explicitly mentioned as evaluation criterion"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [
+      "Assign one of four verdict labels",
+      "Provide justification for verdicts",
+      "Identify truthful numerical statements and optionally incorporate into justifications"
+    ],
+    "criteria": [
+      "verdict accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Provide justification for verdicts",
+          "Identify truthful numerical statements and optionally incorporate into justifications"
+        ],
+        "criteria": [
+          "verdict accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "justification quality",
+          "numerical reasoning"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Added missing guidelines from paper, removed 'justification quality' and 'numerical reasoning' as they weren't explicitly mentioned as human evaluation criteria in the current evaluation context"
+    }
+  },
+  "overall_notes": "The paper focuses on fact verification with time-series evidence, where models generate verdicts and justifications. Human annotations were used for dataset construction rather than evaluating generated outputs. LLM-as-judge is used specifically for Ev2R scoring."
+}

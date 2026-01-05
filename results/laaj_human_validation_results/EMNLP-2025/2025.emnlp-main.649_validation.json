@@ -1,0 +1,144 @@
+{
+  "paper_id": "2025.emnlp-main.649",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-as-a-judge against human evaluation through agreement analysis and human validation studies"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4o",
+      "Gemini 2.0"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts for PANICEVAL evaluation, CTRS rating, strategy evaluation, response evaluation, stabilization detection, and intervention tagging are provided in Appendix J and K"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 6,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": 0.4,
+      "interpretation": "moderate agreement",
+      "per_criterion": [
+        {
+          "criterion": "Understanding",
+          "metric": "Krippendorff's alpha",
+          "value": 0.4
+        },
+        {
+          "criterion": "Empathy",
+          "metric": "Krippendorff's alpha",
+          "value": 0.4
+        },
+        {
+          "criterion": "Clarity",
+          "metric": "Krippendorff's alpha",
+          "value": 0.6
+        },
+        {
+          "criterion": "Directive Support",
+          "metric": "Krippendorff's alpha",
+          "value": 0.6
+        },
+        {
+          "criterion": "Stabilization",
+          "metric": "Krippendorff's alpha",
+          "value": 0.6
+        },
+        {
+          "criterion": "Closure",
+          "metric": "Krippendorff's alpha",
+          "value": 0.6
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed evaluation criteria with 5-point scales for each dimension, with clinical experts asked 'Which response is more appropriate for panic scenarios?' and lived-experience users asked 'Which would you prefer during a panic episode?'"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Gwet's AC2",
+      "Accuracy",
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "Counseling Quality",
+      "Preference Judgment"
+    ],
+    "sample_size": {
+      "total_generated": 300,
+      "validated_by_both": 130,
+      "notes": "130 dialogue samples for CTRS agreement analysis, 50 preference pairs for human validation, and 300 dialogue pairs for human evaluation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Gwet's AC2",
+        "value": 0.415,
+        "criterion": "CTRS ratings",
+        "llm_model": "GPT-4o",
+        "significance": "95% CI: 0.208-0.622",
+        "notes": "Human inter-rater agreement"
+      },
+      {
+        "metric": "Gwet's AC2",
+        "value": 0.438,
+        "criterion": "CTRS ratings",
+        "llm_model": "GPT-4o",
+        "significance": "95% CI: 0.252-0.623",
+        "notes": "Including LLM as fourth rater"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.88,
+        "criterion": "Preference judgments",
+        "llm_model": "GPT-4o",
+        "significance": "majority vote agreement",
+        "notes": "Human validation of LLM preference simulator"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "moderate to strong agreement",
+      "threshold_used": "α ≥ 0.8 strong, 0.4-0.6 moderate, ≤ 0.3 low",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM evaluations show moderate to strong alignment with human judgments, with 88% accuracy in preference validation and moderate inter-rater agreement when including LLM as a rater"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "First Sign of Stabilization",
+      "Intervention Turn Ratio",
+      "PANAS scoring",
+      "Strategy Preference"
+    ],
+    "human_only_criteria": [
+      "Clinical Appropriateness",
+      "User Preference"
+    ],
+    "shared_criteria": [
+      "Understanding",
+      "Empathy",
+      "Clarity",
+      "Directive Support",
+      "Stabilization",
+      "Closure"
+    ],
+    "notes": "PANICEVAL framework used by both LLM and human evaluators with identical 5-point scales, though humans also assessed clinical appropriateness and preference separately"
+  }
+}

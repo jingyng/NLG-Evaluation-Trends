@@ -1,0 +1,162 @@
+{
+  "paper_id": "2025.naacl-long.157",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Reasoning Generation"
+    ],
+    "datasets": [
+      "GSM8K",
+      "CommonsenseQA",
+      "TruthfulQA",
+      "ARC CHALLENGE",
+      "STRATEGYQA",
+      "HALUEVAL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_8b",
+      "mistral_7b",
+      "llama_2_7b"
+    ],
+    "outputs": [
+      "Generated step-by-step reasoning and answers to multiple-choice questions",
+      "TOW-augmented text generation with fine-grained reasoning thoughts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "TOW-augmented text generation with fine-grained reasoning thoughts"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-4o",
+          "GPT-4o-mini"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "LLaMA3-8B": "LLaMA3-8B",
+        "CommonsenseQA": "CommonsenseQA",
+        "TruthfulQA": "TruthfulQA"
+      },
+      "explanation": "Removed GPT-4o and GPT-4o-mini from models list as they are only used for data generation, not as NLG models being evaluated. Added description of TOW-augmented generation as an additional output type."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "chi-square test",
+          "McNemar's test"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Removed chi-square test and McNemar's test as they are statistical analyses, not evaluation metrics for generated outputs. Kept Accuracy as the primary automatic metric used to evaluate model performance."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o_mini"
+    ],
+    "methods": [
+      "Consistency check via prompting"
+    ],
+    "criteria": [
+      "Consistency",
+      "Quality",
+      "Entailment"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "Explanation quality"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "consistency check",
+          "judgement of thought-gold next word alignment"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4o-mini": "GPT-4o-mini",
+        "consistency check via prompting": "Consistency check via prompting",
+        "consistency with gold next word": "Consistency with gold next word",
+        "entailment": "Entailment"
+      },
+      "explanation": "Consolidated methods into single 'Consistency check via prompting' description. Added 'Explanation quality' as evaluation criterion based on paper's description of judging thought consistency with gold next words."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluation of TOW failure modes: repetitive intermediary TOW generation and misplaced TOW generation",
+      "Manual annotation of consistency between generated thoughts and gold next words for 200 examples"
+    ],
+    "criteria": [
+      "Repetition",
+      "Placement",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual annotation of consistency between generated thoughts and gold next words for 200 examples"
+        ],
+        "criteria": [
+          "Explanation quality",
+          "Entailment quality"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Identifying failure modes in generated outputs, specifically repetition and placement of TOW sequences.",
+          "Annotators evaluated TOW sequences for repetitiveness and whether they appeared after the answer.",
+          "judging whether generated thoughts could explain (for exact match words) or entail (for soft consistent words) the gold next words"
+        ],
+        "criteria": [
+          "repetitive intermediary TOW generation",
+          "misplaced TOW generation"
+        ]
+      },
+      "normalized": {
+        "repetition of TOW sequences": "Repetition of TOW sequences",
+        "placement of TOW sequences": "Placement of TOW sequences",
+        "explanation": "Explanation quality",
+        "entailment": "Entailment quality"
+      },
+      "explanation": "Consolidated guidelines into clearer descriptions. Normalized criteria names and added 'Explanation quality' and 'Entailment quality' based on the paper's description of human evaluation criteria."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on improving reasoning capabilities through TOW data augmentation rather than traditional NLG evaluation. Most metrics and evaluations are focused on reasoning accuracy rather than text quality. The human evaluation is modest (200 examples) and focuses on failure mode analysis rather than comprehensive output quality assessment."
+}

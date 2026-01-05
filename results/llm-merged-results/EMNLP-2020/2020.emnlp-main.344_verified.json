@@ -1,0 +1,175 @@
+{
+  "paper_id": "2020.emnlp-main.344",
+  "answer_1": {
+    "answer": "No",
+    "answer_changed": true,
+    "tasks": [
+      "Paraphrase Identification",
+      "Document Retrieval",
+      "Response Suggestion",
+      "Extractive Summarization"
+    ],
+    "datasets": [
+      "Microsoft Research Paraphrase Corpus (MRPC)",
+      "Quora Question Pairs (QQP)",
+      "TREC Core 2017/2018",
+      "Persona-chat",
+      "CNN/DailyMail"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BERT",
+      "RoBERTa",
+      "Birch",
+      "PreSumm",
+      "Bi-encoder",
+      "Poly-encoder",
+      "GPT-2"
+    ],
+    "outputs": [
+      "semantic collisions (adversarial texts that are judged semantically similar)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Paraphrase Identification",
+          "Document Retrieval",
+          "Response Suggestion",
+          "Extractive Summarization"
+        ],
+        "datasets": [
+          "TREC Core 2017/2018"
+        ],
+        "models": [],
+        "outputs": [
+          "semantic collisions (adversarial texts that are judged semantically similar)"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Dialogue Generation",
+          "Paraphrase Generation"
+        ],
+        "datasets": [
+          "Core17/18",
+          "Chat",
+          "CNNDM",
+          "Quora Question Pairs",
+          "Microsoft Research Paraphrase Corpus",
+          "Persona-chat",
+          "CNN/DailyMail",
+          "MRPC",
+          "QQP"
+        ],
+        "models": [],
+        "outputs": [
+          "semantic collisions (unrelated adversarial texts)",
+          "semantic collision texts (generated adversarial sentences)",
+          "collisions (unrelated texts that are judged semantically equivalent by the target model)"
+        ]
+      },
+      "normalized": {
+        "Core17/18": "TREC Core 2017/2018",
+        "Persona-chat (Chat)": "Persona-chat",
+        "CNN / DailyMail (CNNDM)": "CNN/DailyMail"
+      },
+      "explanation": "Changed answer from Yes to No because the paper focuses on adversarial attacks on NLU tasks (paraphrase identification, retrieval, etc.), not NLG tasks. The paper generates adversarial examples, not natural language generation. Updated tasks to reflect the actual NLP tasks studied. Normalized dataset names and removed incorrect NLG task labels."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Similarity Score",
+      "Rank",
+      "Success Rate",
+      "BERTScore",
+      "F1 Score",
+      "Precision",
+      "Perplexity"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1 Score",
+          "Precision"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "similarity score (S)",
+          "rank (r)",
+          "success rate (%)",
+          "Similarity score S",
+          "Precision@10",
+          "Ranking metrics (top-1, top-3, top-10, top-100)"
+        ]
+      },
+      "normalized": {
+        "similarity score (S)": "Similarity Score",
+        "rank (r)": "Rank",
+        "success rate (%)": "Success Rate",
+        "BERTSCORE": "BERTScore"
+      },
+      "explanation": "Normalized metric names to standard forms and simplified variants. Added F1 Score and Precision which are mentioned in the paper. Removed redundant descriptions and grouped ranking metrics under 'Rank'."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-2",
+          "BERT"
+        ],
+        "methods": [
+          "perplexity measurement",
+          "BERTSCORE similarity",
+          "BERTSCORE computation",
+          "Perplexity measurement"
+        ],
+        "criteria": [
+          "fluency",
+          "semantic similarity"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because GPT-2 and BERT are used as language models for generating/perplexity filtering, not as judges evaluating generated outputs after generation. The paper uses automatic metrics like BERTScore and perplexity directly, not LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in the paper. Removed placeholder 'None' values."
+    }
+  },
+  "overall_notes": "This paper primarily focuses on adversarial attacks on NLU tasks (semantic similarity tasks) rather than NLG evaluation. The metadata extraction incorrectly categorized many NLU tasks as NLG tasks. The paper generates adversarial examples to test model vulnerabilities, not natural language generation. Automatic metrics are used extensively but no human evaluation or LLM-as-judge evaluation is conducted."
+}

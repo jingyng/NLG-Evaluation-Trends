@@ -1,0 +1,204 @@
+{
+  "paper_id": "2025.acl-long.212",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Math Problem Solving",
+      "Scientific Reasoning",
+      "Commonsense Reasoning",
+      "Code Generation",
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "PRMBENCH",
+      "MT-Bench",
+      "ARENA HARD",
+      "QASC",
+      "STRATEGYQA",
+      "ARC C",
+      "CHEMISTRYQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "deepseek_r_1_distill_qwen_32b",
+      "deepseek_r_1_distill_qwen_7b",
+      "deepseek_r_1",
+      "o_1_mini",
+      "qwq_preview_32b",
+      "deepseek_r_1_distill_qwen_1.5b",
+      "deepseek_r_1_distill_qwen_14b"
+    ],
+    "outputs": [
+      "generated step-by-step solutions and responses for mathematical problem-solving",
+      "scientific reasoning outputs",
+      "commonsense reasoning responses",
+      "code generation evaluations",
+      "dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Math Problem Solving",
+          "Dialogue Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "code generation evaluations",
+          "dialogue responses"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other: Reasoning Tasks",
+          "Other:Math Problem Solving",
+          "Other:Scientific Reasoning",
+          "Other:Commonsense Reasoning",
+          "Other:mathematical problem-solving",
+          "Other:scientific tasks",
+          "Other:commonsense reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Qwen-2.5-7B",
+          "GPT-4o",
+          "o3-mini"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Dialogue Generation": "Dialogue Generation",
+        "Code Generation": "Code Generation",
+        "o1mini": "o1-mini"
+      },
+      "explanation": "Consolidated redundant 'Other:' task categories into canonical NLG task names. Removed models that were either evaluators (GPT-4o, o3-mini) or baseline components (Qwen-2.5-7B). Normalized model naming conventions and clarified output types."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "WIN RATE",
+      "F1",
+      "PRM"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "1-10 rating",
+          "Negative F1",
+          "F1 Score",
+          "Negative F1 Score"
+        ]
+      },
+      "normalized": {
+        "PRM-Score": "PRM-Score",
+        "accuracy": "Accuracy",
+        "win rate": "Win Rate",
+        "F1": "F1"
+      },
+      "explanation": "Consolidated redundant metric names ('F1 Score' → 'F1', 'Negative F1 Score' → part of PRM-Score calculation). Removed '1-10 rating' as it's not a named metric but a scale. Focused on the core metrics actually used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o",
+      "o_3_mini",
+      "deepseek_r_1"
+    ],
+    "methods": [
+      "step-wise labeling",
+      "automated validation",
+      "scoring function S",
+      "Critic Direct",
+      "Critic CoT"
+    ],
+    "criteria": [
+      "Correctness",
+      "Accuracy",
+      "Helpfulness",
+      "Relevance",
+      "Coherence",
+      "Complexity",
+      "Verbosity"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "DeepSeek-R1"
+        ],
+        "methods": [],
+        "criteria": [
+          "complexity",
+          "verbosity"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "pairwise win‑rate evaluation"
+        ],
+        "criteria": [
+          "Good",
+          "Ordinary",
+          "Bad",
+          "fluency"
+        ]
+      },
+      "normalized": {
+        "Critic Direct": "Critic Direct",
+        "Critic CoT": "Critic CoT",
+        "GPT-4o": "GPT-4o"
+      },
+      "explanation": "Added DeepSeek-R1 as it's used for scoring. Removed 'pairwise win‑rate evaluation' as it's an evaluation method, not LLM-as-judge method. Removed validation categories ('Good','Ordinary','Bad') and added explicit LLM judging criteria mentioned in the paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Carefully analyze each step to determine whether it is correct or incorrect",
+      "Label each intermediate step as correct or incorrect",
+      "Evaluate the overall quality of model's process rewards",
+      "Categorize reward criteria as Good, Ordinary, or Bad"
+    ],
+    "criteria": [
+      "Correctness",
+      "Alignment",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Categorize reward criteria as Good, Ordinary, or Bad"
+        ],
+        "criteria": [
+          "step analysis accuracy",
+          "reward alignment"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "overall reward alignment"
+        ]
+      },
+      "normalized": {
+        "process‑step correctness": "process-step correctness"
+      },
+      "explanation": "Added explicit validation categorization mentioned in the paper. Expanded criteria to better reflect what human annotators were actually evaluating. Normalized terminology for consistency."
+    }
+  },
+  "overall_notes": "The paper focuses on process reward modeling for NLG tasks with step-by-step reasoning. Extensive human evaluation was conducted with detailed guidelines. The extraction was generally accurate but contained some redundant categories and evaluator models that were incorrectly included as generation models. The paper uses both automatic metrics and LLM-as-judge extensively."
+}

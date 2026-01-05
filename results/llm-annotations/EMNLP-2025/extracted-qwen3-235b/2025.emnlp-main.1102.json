@@ -1,0 +1,73 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "The automatic generation of radiology reports from chest X-ray images has seen rapid progress with the advent of advanced generative AI technologies.",
+        "tasks": [
+            "Image Captioning"
+        ],
+        "datasets": [
+            "MIMIC-CXR",
+            "ReXVal",
+            "ReFiSco-v0",
+            "RadEvalX",
+            "RaTE-Eval"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "CheXagent",
+            "BiomedBERT"
+        ],
+        "outputs": "radiology reports"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "Current metrics for evaluating chest X-ray report generation fall into four main categories: overlap-based, embedding-based, named entity recognition (NER)-based, and large language model (LLM)-based approaches.",
+        "automatic_metrics": [
+            "BLEU",
+            "ROUGE",
+            "BERTScore",
+            "Sem-bScore",
+            "F1 RadGraph",
+            "RaTEScore",
+            "GREEN",
+            "FineRadScore",
+            "METEOR",
+            "RadCliQ",
+            "COMET",
+            "BLEURT"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "To identify and classify errors between reference and candidate reports, we used Gemini 2.5 Pro 03-25 preview version deployed via Vertex AI on Google Cloud.",
+        "models": [
+            "Gemini 2.5 Pro"
+        ],
+        "methods": [
+            "error analysis using LLM with structured prompt"
+        ],
+        "criteria": [
+            "False prediction of finding",
+            "Omission of finding",
+            "Incorrect location or position of finding",
+            "Incorrect severity of finding",
+            "Mention of comparison not present in the reference impression",
+            "Omission of comparison describing a change from a previous study"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We evaluated CREPE on four publicly available datasets containing radiologist-annotated errors: ReXVal, ReFiSco-v0, and RaTE-Eval.",
+        "guideline": "For each candidate report, determine: -The count of clinically significant errors. -The count of clinically insignificant errors. Errors can fall into one of these categories: a) False report of a finding in the candidate. b) Missing a finding present in the reference. c) Misidentification of a finding's anatomic location/position. d) Misassessment of the severity of a finding. e) Mentioning a comparison that isn't in the reference. f) Omitting a comparison detailing a change from a prior study.",
+        "criteria": [
+            "False prediction of finding",
+            "Omission of finding",
+            "Incorrect location or position of finding",
+            "Incorrect severity of finding",
+            "Mention of comparison not present in the reference impression",
+            "Omission of comparison describing a change from a previous study"
+        ]
+    }
+}

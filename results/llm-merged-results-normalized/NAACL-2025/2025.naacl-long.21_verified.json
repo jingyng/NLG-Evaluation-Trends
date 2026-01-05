@@ -1,0 +1,189 @@
+{
+  "paper_id": "2025.naacl-long.21",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Simplification"
+    ],
+    "datasets": [
+      "CEFR SP",
+      "TURKCORPUS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "phi_3_mini_3b",
+      "gpt_2",
+      "llama_3_8b_instruct",
+      "gpt_4",
+      "t_5"
+    ],
+    "outputs": [
+      "simplified sentences",
+      "simplified sentences aligned with target CEFR levels",
+      "simplified sentences for ESL learners"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Simplification"
+        ],
+        "models": [
+          "T5",
+          "GPT-4"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "models": [
+          "instruction-tuned phi3-3b",
+          "Proposed RL model (based on Phi-3-mini-3b)"
+        ]
+      },
+      "normalized": {
+        "Phi-3-mini-3b": "Phi-3-mini-3b",
+        "CEFR-SP": "CEFR-SP",
+        "TurkCorpus": "TurkCorpus",
+        "Llama-3-8b-instruct": "Llama-3-8b-instruct",
+        "GPT-4": "GPT-4"
+      },
+      "explanation": "Changed task from 'Paraphrase Generation' to 'Text Simplification' which is more accurate. Simplified model list to mention specific models used (Phi-3-mini-3b as base model, T5 and GPT-4 as baselines) rather than describing the proposed system architecture."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "LENS",
+      "SALSA",
+      "BLEU",
+      "FKGL",
+      "FK BLEU",
+      "SARI",
+      "D SARI",
+      "SAMSA",
+      "BERTSCORE",
+      "SLE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "FKBLEU",
+          "SLE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Fluency (LLM-based)",
+          "Adequacy (LLM-based)",
+          "Vocabulary Frequency",
+          "Vocabulary Diversity",
+          "semantic similarity",
+          "readability",
+          "vocabulary coverage"
+        ]
+      },
+      "normalized": {
+        "LENS": "LENS",
+        "SALSA": "SALSA",
+        "BLEU": "BLEU",
+        "FKGL": "FKGL",
+        "SARI": "SARI",
+        "D-SARI": "D-SARI",
+        "SAMSA": "SAMSA",
+        "BERTScore": "BERTScore"
+      },
+      "explanation": "Removed metrics that were mentioned in literature review but not actually used in evaluation (semantic similarity, readability). Kept only standard automatic metrics used in the paper. The LLM-based fluency/adequacy evaluations belong under question 3, not here."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "llama_3_8b_instruct"
+    ],
+    "methods": [
+      "binary prompt evaluation",
+      "prompt-based adequacy/fluency assessment"
+    ],
+    "criteria": [
+      "Fluency",
+      "Adequacy"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "binary prompt evaluation"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "prompt‑based binary yes/no evaluation",
+          "prompt to output 'yes' if adequate or fluent"
+        ]
+      },
+      "normalized": {
+        "Llama-3-8b-instruct": "Llama-3-8b-instruct",
+        "binary prompt for adequacy/fluency": "binary prompt evaluation",
+        "fluency": "fluency",
+        "adequacy": "adequacy"
+      },
+      "explanation": "Consolidated method descriptions and kept the core criteria (fluency, adequacy) that the LLM was explicitly asked to evaluate using binary prompts."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluators made binary judgments for fluency, simplicity, and adequacy",
+      "Judged if simplified sentence matches desired CEFR level vs reference ('Level')",
+      "Judged preference compared to different-level simplifications ('Prefer')",
+      "Evaluators trained with background knowledge and guidelines"
+    ],
+    "criteria": [
+      "Fluency",
+      "Simplicity",
+      "Adequacy",
+      "Matching",
+      "Preference"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Evaluators made binary judgments for fluency, simplicity, and adequacy",
+          "Judged if simplified sentence matches desired CEFR level vs reference ('Level')",
+          "Judged preference compared to different-level simplifications ('Prefer')",
+          "Evaluators trained with background knowledge and guidelines"
+        ],
+        "criteria": [
+          "fluency",
+          "simplicity",
+          "adequacy",
+          "CEFR level matching",
+          "preference"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "CEFR sentence level",
+          "prefer",
+          "Level",
+          "Prefer"
+        ]
+      },
+      "normalized": {
+        "CEFR sentence level": "CEFR level matching",
+        "prefer": "preference",
+        "Level": "CEFR level matching",
+        "Prefer": "preference"
+      },
+      "explanation": "Consolidated redundant criteria names and provided clearer descriptions of the human evaluation guideline based on the detailed description in the paper."
+    }
+  },
+  "overall_notes": "The paper clearly addresses NLG (text simplification), uses multiple automatic metrics, employs LLM-as-judge for fluency/adequacy, and conducts thorough human evaluation. The extraction was generally good but needed some normalization and removal of metrics mentioned in literature review but not actually used."
+}

@@ -1,0 +1,94 @@
+{
+  "paper_id": "2021.emnlp-main.531",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates the finetuned NLI model (LLM-as-judge) against human evaluation through correlation analysis on four meta-evaluation datasets, reporting both Pearson and Spearman correlations"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "roberta_large"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "The paper describes using NLI model to judge whether SCUs are entailed by system summaries using entailment probability or labels, but exact prompt templates are not shown"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 104,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Percentage agreement",
+      "value": null,
+      "interpretation": "Filtered responses from noisy worker who disagreed with majority in 72% of cases",
+      "per_criterion": [
+        {
+          "criterion": "presence",
+          "metric": "majority_vote",
+          "value": null
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper mentions annotation instructions and interfaces shown to crowdsourcing workers, with Figure illustrating data annotation instructions"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "presence"
+    ],
+    "sample_size": {
+      "total_generated": 460,
+      "validated_by_both": 460,
+      "notes": "Validation conducted on 4 meta-evaluation datasets: TAC2008 (96 examples), TAC2009 (88 examples), REALSumm (100 examples), PyrXSum (100 examples) - total 384 examples evaluated by both LLM and human"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.62,
+        "criterion": "Presence",
+        "llm_model": "roberta_large",
+        "significance": null,
+        "notes": "Lite 2 Pyramid outperforms other metrics by 0.08-0.16 higher summary-level correlations"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.61,
+        "criterion": "Presence",
+        "llm_model": "roberta_large",
+        "significance": null,
+        "notes": "Lite 2 Pyramid shows consistent advantage across datasets"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Correlation advantage of 0.08-0.16 considered substantial improvement",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "Lite 2 Pyramid (LLM-as-judge) consistently achieves the best summary-level correlations (0.08-0.16 higher than other metrics) and demonstrates that the finetuned NLI model can generalize to new data examples as a reliable proxy for human judgment."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Presence"
+    ],
+    "notes": "Both LLM and human evaluate the same criterion - presence of Summary Content Units (SCUs) in system summaries"
+  }
+}

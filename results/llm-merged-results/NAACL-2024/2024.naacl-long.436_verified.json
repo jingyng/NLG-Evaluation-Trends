@@ -1,0 +1,151 @@
+{
+  "paper_id": "2024.naacl-long.436",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation",
+      "Other:Entailment Generation",
+      "Other:Contradiction Generation"
+    ],
+    "datasets": [
+      "NLI",
+      "Wikipedia",
+      "STS-Benchmark",
+      "TED2020",
+      "LASER"
+    ],
+    "languages": [
+      "English",
+      "Tagalog"
+    ],
+    "models": [
+      "Flan-T5-XL",
+      "ChatGPT",
+      "BERT-base",
+      "RoBERTa-base"
+    ],
+    "outputs": [
+      "entailment and contradiction hypotheses",
+      "paraphrases",
+      "semantic similarity scores"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Flan-T5-XL"
+        ],
+        "outputs": [
+          "semantic similarity scores"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:entailment and contradiction generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Flan-T5"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Contradiction Generation": "Other:Contradiction Generation",
+        "BERT base": "BERT-base",
+        "RoBERTa base": "RoBERTa-base"
+      },
+      "explanation": "Normalized model names (added version specs), consolidated tasks, and added missing output type"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Spearman's correlation",
+      "nDCG",
+      "Cosine similarity"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Cosine similarity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "LLM-based semantic similarity score (0-5)",
+          "nDCG10"
+        ]
+      },
+      "normalized": {
+        "nDCG10": "nDCG",
+        "LLM-based semantic similarity score (0-5)": "LLM-based semantic similarity"
+      },
+      "explanation": "Normalized metrics to base forms, removed LLM-based score as it belongs to Q3, added cosine similarity"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Flan-T5-XL",
+      "ChatGPT"
+    ],
+    "methods": [
+      "semantic similarity scoring",
+      "LLM semantic similarity scoring via prompt"
+    ],
+    "criteria": [
+      "semantic similarity"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Flan-T5"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Flan-T5-XL": "Flan-T5-XL"
+      },
+      "explanation": "Normalized model names and kept LLM-as-judge content that appears in Stage 2 of the framework"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Human annotators were asked to evaluate the quality of the generated sentences.",
+          "The prompt for human evaluation is implied through the context of assessing the quality of generated entailment and contradiction hypotheses in relation to the premise, focusing on meaning preservation and logical opposition."
+        ],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "meaning preservation",
+          "logical opposition"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Corrected answer from Yes to No - while the paper mentions human evaluation in Appendix C for hyperparameter tuning (100 sentences sampled for ω optimization), this is not evaluation of generated outputs quality but rather for method validation"
+    }
+  },
+  "overall_notes": "The paper focuses on using LLMs to generate training data (entailment/contradiction hypotheses) for sentence representation learning, rather than evaluating NLG outputs directly. Most NLG evaluation is indirect through downstream tasks. The LLM-as-judge usage is for data curation within their framework, not final output evaluation."
+}

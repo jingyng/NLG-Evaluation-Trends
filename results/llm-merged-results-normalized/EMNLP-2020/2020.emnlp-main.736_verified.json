@@ -1,0 +1,142 @@
+{
+  "paper_id": "2020.emnlp-main.736",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Story Generation"
+    ],
+    "datasets": [
+      "ROCSTORIES",
+      "WRITINGPROMPTS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bert",
+      "gpt_2",
+      "fusion_convolutional_seq_2seq",
+      "plan&write",
+      "knowledge_enhanced_gpt_2"
+    ],
+    "outputs": [
+      "stories",
+      "generated stories"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BERT"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Machine Translation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-2 (fine-tuned)",
+          "fine-tuned GPT-2"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:story generation": "Other:Story Generation",
+        "plan&write": "Plan&Write",
+        "Knowledge-enhanced GPT-2": "knowledge-enhanced GPT-2"
+      },
+      "explanation": "Removed 'Machine Translation' as it's only mentioned in background, not evaluated. Normalized model names and removed duplicates. Added BERT as it's used for UNION metric."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "MOVERSCORE",
+      "PERPLEXITY",
+      "DISSCORE",
+      "RUBER BERT",
+      "BLEURT",
+      "UNION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "RUBER_r-BERT",
+          "RUBER_u-BERT",
+          "RUBER r -BERT",
+          "RUBER u -BERT"
+        ]
+      },
+      "normalized": {
+        "DisScore": "DisScore",
+        "RUBER-BERT": "RUBER-BERT",
+        "BLEURT": "BLEURT"
+      },
+      "explanation": "Removed redundant RUBER variants since RUBER-BERT covers them. Kept base metric names as specified in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper (published in 2020 before LLM-as-judge was common)."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators assigned binary scores (1 for reasonable story, 0 for unreasonable) and labeled error types for unreasonable stories (repeated plots, poor coherence, conflicting logic, chaotic scenes, others)"
+    ],
+    "criteria": [
+      "Reasonableness",
+      "Identification"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "reasonableness",
+          "error_type_identification"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "fluency",
+          "coherence"
+        ]
+      },
+      "normalized": {
+        "reasonableness (binary)": "reasonableness"
+      },
+      "explanation": "Normalized criteria to match what was actually evaluated: binary reasonableness and error type identification. Removed 'fluency' and 'coherence' as standalone criteria since they were part of error typing."
+    }
+  },
+  "overall_notes": "This paper introduces UNION, an unreferenced metric for story generation evaluation. The extraction was generally accurate but needed normalization and removal of background items not directly evaluated. The paper focuses on story generation specifically, uses traditional automatic metrics and human evaluation, but does not use LLMs as judges."
+}

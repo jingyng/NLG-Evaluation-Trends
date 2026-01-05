@@ -1,0 +1,166 @@
+{
+  "paper_id": "2022.acl-long.474",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "XSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "laam",
+      "ptlaam",
+      "lenatten",
+      "lpas",
+      "blpas",
+      "lenemb",
+      "lc",
+      "golc"
+    ],
+    "outputs": [
+      "Summaries with controlled lengths"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Summarization"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [
+          "CNNDM"
+        ],
+        "models": [
+          "Exact"
+        ],
+        "outputs": [
+          "summaries"
+        ]
+      },
+      "normalized": {
+        "Text Summarization": "Summarization",
+        "CNNDM": "CNN/Daily Mail"
+      },
+      "explanation": "Normalized task name from 'Text Summarization' to 'Summarization', removed 'CNNDM' as duplicate of 'CNN/Daily Mail', removed 'Exact' as it's a method not a model, simplified outputs"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "ROUGE PRECISION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "ROUGE Precision"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "Variance",
+          "R-2 Precision"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "R-2 Precision": "ROUGE Precision"
+      },
+      "explanation": "Normalized all ROUGE variants to 'ROUGE', added 'ROUGE Precision' specifically mentioned for R-2, removed 'Variance' as it's a length control metric not text quality metric"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges; cleaned up null values"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three human annotators scored summaries on grammaticality, informativeness, and overall quality using a 3-point scale (Poor:1.0, Barely Acceptable:3.0, Good:5.0)"
+    ],
+    "criteria": [
+      "Grammaticality",
+      "Informativeness",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three human annotators scored summaries on grammaticality, informativeness, and overall quality using a 3-point scale (Poor:1.0, Barely Acceptable:3.0, Good:5.0)"
+        ],
+        "criteria": [
+          "Grammaticality",
+          "Informativeness",
+          "Overall Quality"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- The score of each aspect will be judged as: Poor (1.0), Barely Acceptable (3.0) and Good (5.0).",
+          "Annotators scored each summary on grammaticality, informativeness, and overall quality.",
+          "We ask three human annotators who are native or proficient English speakers to score the generated summaries under 3 aspects: Grammatically correct (Gram.): How grammatical the sentences of a summary are?; Informativeness (Info.): How much important information about the source document is included in summary?; Overall: How good is the overall quality of the summary on you criterion?"
+        ],
+        "criteria": [
+          "Grammatically correct",
+          "Informativeness",
+          "Overall",
+          "Grammaticality",
+          "fluency",
+          "informativeness",
+          "overall"
+        ]
+      },
+      "normalized": {
+        "Grammatically correct": "Grammaticality",
+        "fluency": "Grammaticality",
+        "overall": "Overall Quality"
+      },
+      "explanation": "Consolidated guideline description and normalized criteria names, removing duplicates and consolidating similar terms"
+    }
+  },
+  "overall_notes": "The paper focuses on length-controllable abstractive summarization using a novel LAAM (Length-Aware Attention Mechanism) approach. Evaluation includes both automatic metrics (ROUGE variants) and human evaluation. The extraction quality was good overall, with some minor normalization needed for consistency."
+}

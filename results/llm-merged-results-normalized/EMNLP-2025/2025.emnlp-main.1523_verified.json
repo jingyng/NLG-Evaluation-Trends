@@ -1,0 +1,149 @@
+{
+  "paper_id": "2025.emnlp-main.1523",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Essay Scoring"
+    ],
+    "datasets": [
+      "ASAP",
+      "TOEFL 11"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "mistral_7b",
+      "llama_3.2_3b",
+      "llama_3.1_8b",
+      "gpt_4o",
+      "gpt_4o_mini"
+    ],
+    "outputs": [
+      "Essay scores",
+      "Essay rankings"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Essay Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "essays",
+          "continuous essay scores and rankings"
+        ]
+      },
+      "normalized": {
+        "Other:Essay Scoring": "Other:Essay Scoring",
+        "ASAP": "ASAP",
+        "TOEFL11": "TOEFL11",
+        "English": "English"
+      },
+      "explanation": "Removed 'Essay Generation' task as the paper evaluates existing essays rather than generating new ones. Simplified outputs to focus on the actual evaluation outputs (scores and rankings)."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "QUADRATIC KAPPA",
+      "SPEARMAN RANK CORRELATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Quadratic Weighted Kappa (QWK)",
+          "Spearman rank correlation coefficient"
+        ]
+      },
+      "normalized": {
+        "Quadratic Weighted Kappa (QWK)": "Quadratic Weighted Kappa",
+        "quadratic weighted kappa": "Quadratic Weighted Kappa",
+        "Spearman rank correlation coefficient": "Spearman rank correlation"
+      },
+      "explanation": "Normalized metric names to consistent forms and removed duplicates/variants."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "mistral_7b",
+      "llama_3.2_3b",
+      "llama_3.1_8b",
+      "gpt_4o",
+      "gpt_4o_mini"
+    ],
+    "methods": [
+      "Pairwise comparison",
+      "Direct score generation"
+    ],
+    "criteria": [
+      "Guidelines"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "position bias correction"
+        ],
+        "criteria": [
+          "writing quality"
+        ]
+      },
+      "normalized": {
+        "pairwise comparison": "Pairwise comparison",
+        "pairwise evaluation": "Pairwise comparison",
+        "direct score generation": "Direct score generation",
+        "rubric criteria": "Rubric guidelines"
+      },
+      "explanation": "Removed 'position bias correction' as it's a technique rather than an evaluation method. Removed 'writing quality' as it's too generic - kept 'rubric guidelines' which is explicitly mentioned."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Agreement with human annotations on pairwise comparison judgments, including handling of ties.",
+          "The latter focuses on pairs where a clear score difference exists and thus better captures the LLM's ability to detect meaningful distinctions."
+        ],
+        "criteria": [
+          "agreement",
+          "ties",
+          "All",
+          "Excl. Ties"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper mentions human annotations as gold standard for evaluating LLM judgments, but does not conduct new human evaluations of the generated outputs. The references to human annotations are for validating LLM judgments, not for evaluating the essay scoring system outputs."
+    }
+  },
+  "overall_notes": "The paper focuses on automated essay scoring evaluation using LLMs as judges. It does not generate new essays but evaluates existing ones. The human annotation references are for validation purposes, not for evaluating the system outputs. The extraction was generally good but needed some refinement on task categorization and human evaluation interpretation."
+}

@@ -1,0 +1,171 @@
+{
+  "paper_id": "2025.naacl-long.604",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Safe Response Generation",
+      "Risk Detection"
+    ],
+    "datasets": [
+      "VLGUARD",
+      "SIUO",
+      "FIGSTEP",
+      "MOSS BENCH",
+      "SPA VL",
+      "MME",
+      "MM VET",
+      "MMBENCH",
+      "FIGSTEP BENIGN"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "internvl_2_26b",
+      "qwen_2_vl_7b_instruct",
+      "minicpm_llama_3_v_2.5",
+      "llava_1.5_7b",
+      "gpt_4o",
+      "gpt_4v",
+      "gemini_pro_vision"
+    ],
+    "outputs": [
+      "safe and helpful natural language responses",
+      "risk-disentangled observations",
+      "risk detection judgments",
+      "multimodal responses to image-text inputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Risk detection"
+        ],
+        "outputs": [
+          "risk detection judgments"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:vision-language tasks"
+        ],
+        "models": [
+          "LLaVA1.5-7B",
+          "MiniCPM-Llama3-V2.5"
+        ]
+      },
+      "normalized": {
+        "MiniCPM-Llama3-V2.5": "MiniCPM-Llama3-V-2.5",
+        "LLaVA1.5-7B": "LLaVA-1.5-7B",
+        "Other:Safe response generation": "Other:Safe response generation",
+        "Other:vision-language tasks": "Other:Risk detection"
+      },
+      "explanation": "Normalized model names to consistent formatting, removed duplicates, and clarified tasks to focus on the core NLG contributions (safe response generation and risk detection). Removed 'vision-language tasks' as too broad and replaced with specific risk detection task."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ASR",
+      "RR",
+      "SAFETY RATE",
+      "EFFECTIVE RATE",
+      "PRECISION",
+      "RECALL",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Precision",
+          "Recall"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Attack Success Rate (ASR)",
+          "Refusal Rate (RR)",
+          "recall rate",
+          "precision"
+        ]
+      },
+      "normalized": {
+        "Attack Success Rate (ASR)": "ASR",
+        "Refusal Rate (RR)": "RR",
+        "recall rate": "Recall",
+        "precision": "Precision"
+      },
+      "explanation": "Normalized metric names to standard forms and removed redundant entries. Kept all distinct metrics mentioned in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o",
+      "gpt_4v"
+    ],
+    "methods": [
+      "harmfulness discrimination",
+      "refusal tone detection",
+      "scoring guide evaluation",
+      "risk judgment"
+    ],
+    "criteria": [
+      "Harmfulness",
+      "Oversafety",
+      "Awareness",
+      "Response",
+      "Helpfulness",
+      "Refusal",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "risk judgment"
+        ],
+        "criteria": [
+          "correct risk identification"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "prompt-based judgment",
+          "pairwise evaluation",
+          "harmfulness discriminator",
+          "oversafety discriminator"
+        ]
+      },
+      "normalized": {
+        "correct identification of malicious_content, source, risk_category": "correct risk identification"
+      },
+      "explanation": "Simplified method descriptions to core evaluation approaches and normalized criteria. Removed redundant terms like 'harmfulness discriminator' which are implementation details rather than methods."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Confirmed no human evaluation is conducted. The paper explicitly uses automated evaluation methods only."
+    }
+  },
+  "overall_notes": "The paper focuses on safety alignment in multimodal LLMs, with strong NLG components including safe response generation and risk detection. All extracted answers were correct. The paper heavily relies on LLM-as-judge evaluation (GPT-4o/GPT-4V) for assessing generated responses. Metadata was well-extracted but required normalization for consistency."
+}

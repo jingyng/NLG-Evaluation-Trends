@@ -1,0 +1,95 @@
+{
+  "paper_id": "2025.acl-long.1203",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares GPT-4 evaluator scores with human evaluation results across seven dimensions on 30 sampled dialogue groups, reporting both LLM and human scores side-by-side"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Specific prompts provided for S-IF goal relevance scoring and SOTOPIA-EVAL dialogue-level scoring in appendix sections"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 4,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluators scored according to SOTOPIA-EVAL standards across seven predefined dimensions (BEL, REL, KNO, SEC, SOC, FIN, GOAL)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "score_comparison"
+    ],
+    "shared_criteria": [
+      "BEL",
+      "REL",
+      "KNO",
+      "SEC",
+      "SOC",
+      "FIN",
+      "GOAL"
+    ],
+    "sample_size": {
+      "total_generated": 450,
+      "validated_by_both": 30,
+      "notes": "Used random seed=42 to sample 30 dialogue groups from the 450 SOTOPIA tasks for validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "score_comparison",
+        "value": "GPT-4 gives inflated scores",
+        "criterion": "all seven dimensions",
+        "llm_model": "GPT-4",
+        "significance": "not_reported",
+        "notes": "Human evaluations indicate GPT-4 as an evaluator tends to give inflated scores compared to human judgments"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GPT-4 evaluator consistently gives inflated scores across all seven evaluation dimensions compared to human judgments, with this tendency aligning with conclusions from prior work SOTOPIA-π"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "S_div",
+      "S_rel"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "BEL",
+      "REL",
+      "KNO",
+      "SEC",
+      "SOC",
+      "FIN",
+      "GOAL"
+    ],
+    "notes": "LLM evaluates additional S-IF metrics (S_div and S_rel) beyond the seven dimensions shared with human evaluation"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "paper_id": "2021.acl-long.111",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Keyphrase Generation",
+      "Text Summarization"
+    ],
+    "datasets": [
+      "KP20k",
+      "Inspec",
+      "Krapivin",
+      "NUS",
+      "SemEval",
+      "KPTimes",
+      "In-house"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "SEG-Net",
+      "catSeq",
+      "catSeqD",
+      "catSeqCorr",
+      "catSeqTG",
+      "Transformer"
+    ],
+    "outputs": [
+      "keyphrases",
+      "keyphrase sets"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "outputs": [
+          "keyphrase sets"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Keyphrase Generation": "Other:Keyphrase Generation",
+        "a set of keyphrases": "keyphrase sets"
+      },
+      "explanation": "Added Text Summarization as a secondary task since the paper mentions coverage attention to help summarize document content. Added 'keyphrase sets' to outputs to better capture that multiple keyphrases are generated per document."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1@M",
+      "F1@5",
+      "F1@10",
+      "F1@O",
+      "MAE",
+      "Precision",
+      "Recall"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1@10",
+          "F1@O",
+          "Precision",
+          "Recall"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "MAE": "MAE",
+        "F1@M": "F1@M",
+        "F1@5": "F1@5"
+      },
+      "explanation": "Added F1@10 and F1@O mentioned in Table 11, and added Precision/Recall used for sentence selector evaluation. MAE is correctly included for keyphrase count prediction."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges for evaluation. The paper focuses on automatic metrics and mentions no LLM-based evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. The evaluation is entirely based on automatic metrics comparing predicted keyphrases against ground truth."
+    }
+  },
+  "overall_notes": "The paper focuses on neural keyphrase generation using a novel architecture (SEG-Net) with sentence selection and coverage attention. Evaluation is comprehensive across 7 datasets but uses only automatic metrics. The extraction was generally accurate, with minor additions needed for complete metric coverage. The paper primarily addresses keyphrase generation but has connections to summarization through its coverage mechanisms."
+}

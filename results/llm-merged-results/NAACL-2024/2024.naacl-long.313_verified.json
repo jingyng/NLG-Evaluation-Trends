@@ -1,0 +1,148 @@
+{
+  "paper_id": "2024.naacl-long.313",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Counter-Misinformation Response Generation",
+      "Response Generation"
+    ],
+    "datasets": [
+      "Check-COVID",
+      "MisinfoCorrect",
+      "Constraint",
+      "ANTiVax"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BM25",
+      "E5",
+      "Llama 2",
+      "GPT-3.5",
+      "BART",
+      "DialoGPT",
+      "PARTNER",
+      "GODEL",
+      "DPR"
+    ],
+    "outputs": [
+      "Counter-responses to misinformation",
+      "Evidence-based counter-responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Response Generation"
+        ],
+        "outputs": [
+          "Evidence-based counter-responses"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation"
+        ],
+        "models": [
+          "Llama 2 (7B)",
+          "MisinfoCorrect"
+        ]
+      },
+      "normalized": {
+        "Other:Counter-Misinformation Response Generation": "Other:Counter-Misinformation Response Generation",
+        "Dialogue Generation": "Response Generation"
+      },
+      "explanation": "Changed 'Dialogue Generation' to 'Response Generation' since it's not conversational dialogue. Removed duplicate model variants and consolidated outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "NDCG",
+      "Recall",
+      "Refutation",
+      "Factuality",
+      "Politeness",
+      "Claim Relevance",
+      "Evidence Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "refutation",
+          "factuality",
+          "politeness",
+          "claim relevance",
+          "evidence relevance"
+        ]
+      },
+      "normalized": {
+        "refutation": "Refutation",
+        "factuality": "Factuality",
+        "politeness": "Politeness",
+        "claim relevance": "Claim Relevance",
+        "evidence relevance": "Evidence Relevance"
+      },
+      "explanation": "Removed duplicate lowercase versions of metrics and normalized capitalization for consistency."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BERT"
+        ],
+        "methods": [
+          "reward modeling based on binary human feedback"
+        ],
+        "criteria": [
+          "refutation",
+          "factuality",
+          "politeness",
+          "claim relevance",
+          "evidence relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper does not use LLMs as judges. BERT models are used for reward modeling during RLHF training, not for post-generation evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper explicitly states no human evaluation was conducted."
+    }
+  },
+  "overall_notes": "The paper focuses on retrieval-augmented response generation for countering misinformation. It uses a two-stage retrieval pipeline (BM25 + dense retriever) and RLHF-tuned Llama 2 for generation. Evaluation uses both retrieval metrics (NDCG, Recall) and generation quality metrics (Refutation, Factuality, etc.). The extraction was mostly accurate but needed normalization and removal of irrelevant metadata for Questions 3 and 4."
+}

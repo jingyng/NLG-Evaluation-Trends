@@ -1,0 +1,116 @@
+{
+  "paper_id": "2025.acl-long.1580",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper validates LLM judgments against human evaluation specifically for discourse role classification and persuasion level assessment, reporting quantitative metrics including F1 score (0.8) for discourse classification and correlation (r=0.43-0.68) for persuasion assessment."
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4o",
+      "Llama-3.1-70b"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix/main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt templates for discourse classification and source persuasion assessment are partially provided in appendices and main text, with schema definitions but not full verbatim prompts"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 5,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.6,
+      "interpretation": "moderate agreement",
+      "per_criterion": [
+        {
+          "criterion": "discourse_schema",
+          "metric": "Cohen's kappa",
+          "value": 0.6
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text/appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Discourse schema definitions provided and developed collaboratively between journalists, persuasion scoring uses 5-point scale with detailed criteria"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "F1 score",
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "discourse_role_classification",
+      "persuasion_level"
+    ],
+    "sample_size": {
+      "total_generated": 560,
+      "validated_by_both": 72,
+      "notes": "10 interviews for discourse validation by professional journalist; 72 trials (576 turns total) for persuasion validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "F1 score",
+        "value": 0.8,
+        "criterion": "discourse_role_classification",
+        "llm_model": "GPT-4o",
+        "significance": "not reported",
+        "notes": "LLM compared against professional journalist's labels"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.43,
+        "criterion": "persuasion_level",
+        "llm_model": "GPT-4o",
+        "significance": "p<0.0001",
+        "notes": "Overall correlation across all personas"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.68,
+        "criterion": "persuasion_level",
+        "llm_model": "GPT-4o",
+        "significance": "not reported",
+        "notes": "Correlation excluding adversarial personas"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "moderate",
+      "threshold_used": "r=0.43 considered moderate correlation",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM discourse classification achieves F1=0.8 against expert human labels; LLM persuasion assessment shows moderate correlation with human self-ratings (r=0.43 overall, r=0.68 excluding adversarial personas)."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "consistency_analysis",
+      "exact_match",
+      "informational_consistency",
+      "motivational_consistency",
+      "style_consistency",
+      "contextual_consistency",
+      "discourse_consistency"
+    ],
+    "human_only_criteria": [
+      "persuasion_level_self_rating"
+    ],
+    "shared_criteria": [
+      "discourse_role_classification",
+      "persuasion_level_assessment"
+    ],
+    "notes": "Human evaluation focused on persuadability self-ratings and discourse schema validation, while LLM evaluated multiple textual consistency dimensions"
+  }
+}

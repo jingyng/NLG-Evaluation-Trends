@@ -1,0 +1,180 @@
+{
+  "paper_id": "2020.acl-main.169",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Style Transfer",
+      "Other:Politeness Transfer"
+    ],
+    "datasets": [
+      "Enron corpus",
+      "Yelp restaurant reviews",
+      "Amazon product reviews",
+      "Captions dataset",
+      "Gender dataset",
+      "Political slant dataset"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Tag and Generate pipeline",
+      "Tagger (4-layer transformer)",
+      "Generator (4-layer transformer)",
+      "Delete-Retrieve-Generate (DRG)",
+      "Style Transfer Through Back-translation (BST)",
+      "Style transfer from non-parallel text by cross alignment (CAE)"
+    ],
+    "outputs": [
+      "Generated sentences in target style while preserving content",
+      "Polite sentences from non-polite input"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Political slant dataset"
+        ],
+        "languages": [],
+        "models": [
+          "Style transfer from non-parallel text by cross alignment (CAE)"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Wikipedia",
+          "StackExchange",
+          "Yelp",
+          "Amazon",
+          "Captions",
+          "Enron email corpus",
+          "Yelp reviews",
+          "Amazon reviews"
+        ],
+        "languages": [],
+        "models": [
+          "transformers",
+          "AWD-LSTM"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other: Style Transfer": "Other:Style Transfer",
+        "Other:Politeness Transfer": "Other:Politeness Transfer",
+        "BLEU-self": "BLEU",
+        "BLEU-reference": "BLEU",
+        "BL-s": "BLEU",
+        "BL-r": "BLEU",
+        "Acc": "Accuracy"
+      },
+      "explanation": "Consolidated datasets to canonical forms, removed redundant/incorrect entries, clarified model names. Added missing baseline model (CAE) and political slant dataset. Removed datasets only mentioned in references or preprocessing contexts."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Transfer Accuracy",
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "Classifier Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Classifier Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-self",
+          "BLEU-reference",
+          "BLEU-self (BL‑s)",
+          "BLEU-reference (BL‑r)",
+          "ROUGE (ROU)",
+          "METEOR (MET)",
+          "Acc"
+        ]
+      },
+      "normalized": {
+        "BLEU-self": "BLEU",
+        "BLEU-reference": "BLEU",
+        "BL-s": "BLEU",
+        "BL-r": "BLEU",
+        "ROUGE (ROU)": "ROUGE",
+        "METEOR (MET)": "METEOR",
+        "Acc": "Classifier Accuracy"
+      },
+      "explanation": "Normalized all BLEU variants to base BLEU form, kept only the base metric names as per simplification rules. Added 'Classifier Accuracy' as a distinct metric category."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM-as-judge evaluation was conducted."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human raters assign scores 1-5 for content preservation, grammaticality, and target attribute match"
+    ],
+    "criteria": [
+      "Content preservation",
+      "Grammaticality",
+      "Target attribute match"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human raters assign scores 1-5 for content preservation, grammaticality, and target attribute match"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- For each of these metrics, the reviewers give a score between 1-5 to each of the outputs, where 1 reflects a poor performance on the task and 5 means a perfect output.",
+          "Human raters assign a score from 1 to 5 for each of the three criteria (content preservation, grammaticality, target attribute match).",
+          "reviewers give a score between 1-5 to each of the outputs, where 1 reflects a poor performance on the task and 5 means a perfect output."
+        ],
+        "criteria": [
+          "content preservation",
+          "grammaticality"
+        ]
+      },
+      "normalized": {
+        "content preservation": "Content preservation",
+        "grammaticality": "Grammaticality",
+        "target attribute match": "Target attribute match"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement. Normalized criteria to title case. Removed duplicates while preserving all three evaluation criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on style transfer tasks, particularly politeness transfer, using a tag-and-generate approach. The extraction was generally accurate but contained redundant entries and needed normalization. The paper does NOT use LLMs as judges (this was correctly identified). All automatic metrics and human evaluation criteria were properly extracted but needed consolidation."
+}

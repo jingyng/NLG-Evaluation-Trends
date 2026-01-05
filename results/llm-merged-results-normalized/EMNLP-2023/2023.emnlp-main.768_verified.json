@@ -1,0 +1,139 @@
+{
+  "paper_id": "2023.emnlp-main.768",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Document Generation"
+    ],
+    "datasets": [
+      "MS MARCO",
+      "NATURAL QUESTIONS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_base",
+      "llama_13b",
+      "bm_25",
+      "dpr",
+      "ance",
+      "dsi",
+      "seal",
+      "dsi_qg",
+      "nci",
+      "ultron"
+    ],
+    "outputs": [
+      "Document identifiers (docids) which can be URLs or document summaries for document retrieval"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Document ID Generation"
+        ],
+        "models": [
+          "T5-base"
+        ],
+        "outputs": [
+          "Document identifiers (docids) which can be URLs or document summaries for document retrieval"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:docid generation"
+        ],
+        "models": [
+          "DocT5Query"
+        ]
+      },
+      "normalized": {
+        "Other:Docid Generation": "Other:Document ID Generation",
+        "MS MARCO Document Ranking": "MS MARCO",
+        "Natural Questions": "Natural Questions (NQ)",
+        "T5": "T5-base"
+      },
+      "explanation": "Consolidated task name to 'Document ID Generation', normalized dataset names, specified T5-base version, removed duplicate task, and improved output description clarity. DocT5Query is mentioned as a baseline method but not as a model being evaluated."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MRR",
+      "HITS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "HITS"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Hits@1",
+          "Hits@5",
+          "Hits@10"
+        ]
+      },
+      "normalized": {
+        "Hits@1": "HITS",
+        "Hits@5": "HITS",
+        "Hits@10": "HITS",
+        "MRR@10": "MRR"
+      },
+      "explanation": "Simplified metric variants to base forms as per guidelines - consolidated all HITS variants under 'HITS' and MRR@10 under 'MRR'"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "llama_13b"
+    ],
+    "methods": [
+      "Generation likelihood scoring"
+    ],
+    "criteria": [
+      "Contextual"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "Generation likelihood scoring"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "generation likelihood scoring for contextual dependency",
+          "computing generation likelihood"
+        ]
+      },
+      "normalized": {
+        "generation likelihood scoring for contextual dependency": "Generation likelihood scoring",
+        "contextual dependency": "Contextual dependency"
+      },
+      "explanation": "Consolidated method descriptions and normalized criteria. LLM (LLaMA-13b) is explicitly used after generation to assess contextual dependency between queries and documents."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper. The evaluation relies entirely on automatic metrics and LLM-based assessment."
+    }
+  },
+  "overall_notes": "The paper focuses on generative retrieval for document search systems, where the NLG task is generating document identifiers (docids). While this is technically NLG, it's a specialized application rather than traditional text generation. The paper uses LLaMA-13b as an evaluator for contextual dependency, which qualifies as LLM-as-judge. All evaluations are automated using standard IR metrics (MRR, HITS). Extraction was generally accurate with minor normalization needed."
+}

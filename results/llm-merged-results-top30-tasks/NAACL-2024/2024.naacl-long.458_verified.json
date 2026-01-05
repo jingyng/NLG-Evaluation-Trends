@@ -1,0 +1,180 @@
+{
+  "paper_id": "2024.naacl-long.458",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "SPACE DATASET",
+      "YELP DATASET",
+      "ACOS RESTAURANT",
+      "ABSA DATASET",
+      "ARGKP DATASET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ration",
+      "semae",
+      "hercules",
+      "snippext",
+      "deberta",
+      "roberta",
+      "tokencluster",
+      "instructgpt",
+      "roberta_large",
+      "deberta_base",
+      "simcse",
+      "summac"
+    ],
+    "outputs": [
+      "rationale-based opinion summaries consisting of representative opinions and corresponding rationales",
+      "extractive summaries containing representative opinions with grammatical structure 'noun is adjective'"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "ArgKP dataset"
+        ],
+        "languages": [],
+        "models": [
+          "SimCSE",
+          "SummaC"
+        ],
+        "outputs": [
+          "extractive summaries containing representative opinions with grammatical structure 'noun is adjective'"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "ABSA hotel domain dataset",
+          "ACOS-restaurant dataset"
+        ],
+        "languages": [],
+        "models": [
+          "Deberta",
+          "InstructGPT (gpt-3.5turbo-0613)",
+          "RoBERta",
+          "RoBERta-large"
+        ],
+        "outputs": [
+          "Extractive summaries consisting of representative opinions (e.g., \"location is great\") and associated rationales (supporting review sentences)."
+        ]
+      },
+      "normalized": {
+        "Deberta": "DeBERTa",
+        "roberta-large": "RoBERTa-large",
+        "gpt-3.5-turbo-0613": "InstructGPT"
+      },
+      "explanation": "Removed duplicate datasets, normalized model names to standard forms, added missing models (SimCSE, SummaC) that were used for evaluation, and clarified output descriptions based on paper content"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EMB REL",
+      "KEY SPEC",
+      "KEY POP",
+      "EMB DIV",
+      "SILHOUETTE",
+      "COHERENCE",
+      "ENTAILMENT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "emb_rel (embedding similarity)",
+          "key_spec (TF‑IDF specificity)",
+          "key_pop (popularity)",
+          "emb_div (diversity)",
+          "Silh",
+          "NPMI",
+          "SC",
+          "Overall"
+        ]
+      },
+      "normalized": {
+        "emb rel": "emb_rel",
+        "key spec": "key_spec",
+        "key pop": "key_pop",
+        "emb div": "emb_div",
+        "Silh": "Silhouette score",
+        "NPMI": "Coherence",
+        "SC": "Entailment"
+      },
+      "explanation": "Normalized metric names to remove explanatory text and variant indicators. Used descriptive names for Silh (Silhouette score), NPMI (Coherence), and SC (Entailment via SummaC). Removed 'Overall' as it's an aggregated score, not a distinct metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted. The paper used InstructGPT only as a baseline generation model, not as an evaluator. Cleared all metadata fields."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Pairwise comparison of summaries based on four criteria: informativeness, non-redundancy, coherence, and usefulness",
+      "Pairwise comparison of rationale sets based on three properties: relatedness, specificity, and diversity"
+    ],
+    "criteria": [
+      "Informativeness",
+      "Redundancy",
+      "Coherence",
+      "Usefulness",
+      "Relatedness",
+      "Specificity",
+      "Diversity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Pairwise comparison of rationale sets based on three properties: relatedness, specificity, and diversity"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators compared summaries pairwise based on four criteria: informativeness, non-redundancy, coherence, and usefulness",
+          "Pairwise comparison of generated summaries or rationale sets according to the listed criteria",
+          "We ask annotators to compare the two types of summaries in a pairwise manner based on four criteria: which summary includes more information (informativeness), which summary contains less repeated phrases (non-redundancy), which summary is easier to read (coherence), and which summary is more useful for decision making (usefulness)."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline descriptions and removed redundant/repetitive text. All extracted criteria were accurate and appropriate."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper presents a novel approach to opinion summarization (RATION) that generates representative opinions with supporting rationales. Key observations: (1) The paper clearly addresses NLG (opinion summarization), (2) Uses both automatic metrics and human evaluation extensively, (3) Does NOT use LLMs as judges (only as baseline generators), (4) Conducts thorough human evaluation via Amazon Mechanical Turk. The main improvements needed were normalization of names and removing redundant/duplicate items."
+}

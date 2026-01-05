@@ -1,0 +1,138 @@
+{
+  "paper_id": "2020.emnlp-main.649",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "NYT",
+      "NWS",
+      "GW",
+      "XSUM",
+      "PEERREAD",
+      "PUBMED",
+      "TL DR",
+      "AMI",
+      "MOVIESCRIPT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bert",
+      "lda"
+    ],
+    "outputs": [
+      "Reference summaries from datasets",
+      "Aspect-level quality scores for summarization datasets"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "LDA"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Newsroom",
+          "Gigaword"
+        ]
+      },
+      "normalized": {
+        "GW": "GW"
+      },
+      "explanation": "Removed 'Newsroom' (same as NWS) and 'Gigaword' (same as GW) duplicates. Added LDA as a model used for topic similarity. Kept 'GW' as it's the canonical name used in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CMPW",
+      "CMPS",
+      "JS DISTANCE",
+      "ABSTRACTIVITY",
+      "ROUGE",
+      "SEMANTIC COHERENCE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "JS Distance"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "CMPw (word-level compression)",
+          "CMPs (sentence-level compression)",
+          "TS (topic similarity using LDA and JS distance)",
+          "ABS1 (abstractivity using fragments)",
+          "RED (redundancy using ROUGE-L)",
+          "SC (semantic coherence using BERT)",
+          "Compression",
+          "Topic Similarity",
+          "Abstractivity",
+          "Redundancy",
+          "Semantic Coherence"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "BERT": "BERT"
+      },
+      "explanation": "Simplified and normalized metrics to canonical base forms. Removed redundant descriptive text and kept core metric names. Added JS Distance as it's the specific distance metric used for topic similarity."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "guideline": [
+          "- Judged examples for defects including disfluencies, exclusion of critical information, hallucination, ambiguity, inappropriateness, or inclusion of auxiliary details."
+        ],
+        "criteria": [
+          "disfluencies",
+          "exclusion of critical information",
+          "hallucination",
+          "ambiguity",
+          "inappropriateness",
+          "inclusion of auxiliary detail"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not conduct formal human evaluations. The extracted metadata describes the authors' manual analysis criteria for their qualitative study, not human evaluations of generated outputs."
+    }
+  },
+  "overall_notes": "This paper conducts an intrinsic evaluation of summarization datasets using automated metrics, not evaluations of generated NLG outputs. The focus is on dataset quality assessment rather than system evaluation. The paper mentions but does not formally conduct human evaluations - the criteria listed were for the authors' qualitative analysis."
+}

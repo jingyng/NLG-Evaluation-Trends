@@ -1,0 +1,148 @@
+{
+  "paper_id": "2024.emnlp-main.881",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "CANDOR",
+      "SODA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2",
+      "bart",
+      "mdeberta"
+    ],
+    "outputs": [
+      "dialogue responses",
+      "conversational responses"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "mDeBERTa"
+        ],
+        "outputs": [
+          "conversational responses"
+        ]
+      },
+      "removed": {
+        "models": [
+          "CNN affect classifier"
+        ],
+        "outputs": [
+          "generated dialogue responses"
+        ]
+      },
+      "normalized": {
+        "LLAMA-2": "LLaMA-2",
+        "generated dialogue responses": "dialogue responses"
+      },
+      "explanation": "Normalized LLaMA-2 capitalization, removed CNN affect classifier (not an NLG model), added mDeBERTa (used for sentiment classification), consolidated output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "MSE",
+      "GLOBAL LOSS",
+      "LOCAL DIFFERENCE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "MSE",
+          "Global Loss",
+          "Local Difference"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from No to Yes. The paper uses automatic metrics to evaluate the reward function: MSE for Global Loss (L_GE) and Local Difference (Δr_LI) metrics, though these are not traditional NLG metrics like BLEU/ROUGE"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'None' placeholders as no LLM-as-judge evaluation was conducted"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "users were asked to rate which model(s) satisfied the given criterion",
+      "annotators were asked to describe which chatbot they would talk to again"
+    ],
+    "criteria": [
+      "Sensibleness",
+      "Specificity",
+      "Emotion",
+      "Positivity",
+      "Social",
+      "Inclination",
+      "Interestingness",
+      "Reusability"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "reusability"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "Specific",
+          "Connection",
+          "Social",
+          "Inclination",
+          "Interestingness",
+          "Reuse",
+          "Sensible",
+          "specific",
+          "reuse"
+        ]
+      },
+      "normalized": {
+        "Specific": "specificity",
+        "Connection": "emotional connection",
+        "Social": "social understanding",
+        "Inclination": "inclination",
+        "Interestingness": "interestingness",
+        "Reuse": "reusability",
+        "Sensible": "sensibleness"
+      },
+      "explanation": "Consolidated duplicate criteria names and normalized to consistent forms based on paper descriptions"
+    }
+  },
+  "overall_notes": "The paper focuses on dialogue generation with a novel reward decomposition approach. While it uses automatic metrics, they are primarily for evaluating the reward function rather than traditional NLG metrics. Human evaluation was comprehensive with 8 distinct criteria. The extraction was generally accurate but needed normalization and correction for Question 2."
+}

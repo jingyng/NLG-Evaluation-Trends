@@ -1,0 +1,171 @@
+{
+  "paper_id": "2024.emnlp-main.496",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Instruction Following"
+    ],
+    "datasets": [
+      "OPENHERMES 2 5",
+      "SLIMORCA",
+      "METAMATHQA",
+      "ULTRACHAT",
+      "ORCA MATH",
+      "CAPYBARA",
+      "DEITA 10k",
+      "ULTRAFEEDBACK",
+      "HH RLHF",
+      "TLDR PREFERENCES",
+      "NECTAR",
+      "HELPSTEER",
+      "PKU SAFERLHF"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gemma_2b_base",
+      "llama_3_8b_base",
+      "gemma_2b_it",
+      "llama_3_8b_it"
+    ],
+    "outputs": [
+      "Generated responses to user queries and instructions",
+      "Instruction-following responses",
+      "Chat responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Gemma-2b-it",
+          "Llama-3-8b-it"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:instruction-following"
+        ],
+        "datasets": [
+          "Arena-Hard",
+          "AlpacaEval-2",
+          "MT-Bench",
+          "OpenLLM"
+        ],
+        "languages": [],
+        "models": [
+          "LION-sft",
+          "LION-dpo",
+          "LION-odpo"
+        ],
+        "outputs": [
+          "generated responses to prompts"
+        ]
+      },
+      "normalized": {
+        "LLaMA-3-8b-base": "LLaMA-3-8b-base",
+        "Other:instruction-following": "Other:Instruction Following"
+      },
+      "explanation": "Removed evaluation benchmarks from datasets list as they are not training datasets. Removed LION model variants as they are the paper's own models, not baseline models. Consolidated instruction-following task naming. Added official baseline models mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "OPENLLM",
+      "WIN RATE",
+      "LENGTH CONTROLLED WIN RATE",
+      "MT BENCH",
+      "EVALUATION LOSS",
+      "REWARD MARGIN",
+      "REWARD ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "OpenLLM average score",
+          "win rate",
+          "length-controlled metric",
+          "Arena-Hard-Auto* win rate"
+        ]
+      },
+      "normalized": {
+        "OpenLLM average score": "OpenLLM score",
+        "win rate": "Win rate",
+        "length-controlled metric": "Length-controlled win rate",
+        "Arena-Hard-Auto* win rate": "Win rate"
+      },
+      "explanation": "Normalized metric names to consistent capitalization and removed duplicates. Consolidated win rate variants under 'Win rate'."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4_turbo",
+      "gpt_4",
+      "GPT-4-Omni",
+      "Pair-RM",
+      "Nexusflow/Starling-RM-34B"
+    ],
+    "methods": [
+      "Pairwise evaluation",
+      "Scoring",
+      "Win rate comparison"
+    ],
+    "criteria": [
+      "Instruction",
+      "Helpfulness",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "judge model comparison",
+          "length-controlled metric"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "pairwise evaluation": "Pairwise evaluation",
+        "scoring": "Scoring",
+        "win rate comparison": "Win rate comparison"
+      },
+      "explanation": "Removed 'judge model comparison' and 'length-controlled metric' as they are not LLM-as-judge methods but rather evaluation setups. Normalized method names to consistent capitalization."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The paper mentions human preference data collection but does not conduct direct human evaluation of their own models."
+    }
+  },
+  "overall_notes": "The paper focuses on language model alignment through a three-stage pipeline (SFT, offline DPO, online DPO). It evaluates NLG performance primarily through automated benchmarks and LLM-as-judge methods. The extraction was generally accurate but included some evaluation benchmarks in the datasets list that should not be there. The paper does not conduct human evaluation of their models."
+}

@@ -1,0 +1,50 @@
+{
+  "paper_id": "2024.acl-long.668",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper uses both LLM-as-a-judge (for pseudo-labels during training) and human evaluation (for test set annotations), but does not explicitly compare LLM judgments against human judgments on the same instances or report any quantitative validation metrics between them."
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "llama_2_7b",
+      "llama_2_13b",
+      "mistral_7b"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts are described in appendix figures for question generation, response generation, consistency checking, and probe construction. The consistency checking prompt uses in-context demonstrations to judge 'Consistent', 'Neutral', or 'Non-Consistent' between responses."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": null,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human evaluation guidelines mention 'comparing with the original ground-truth of each question' but lack detailed scoring rubrics or examples."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Consistency"
+    ],
+    "human_only_criteria": [
+      "Factuality"
+    ],
+    "shared_criteria": [],
+    "notes": "LLM judges evaluate consistency between responses for pseudo-labeling, while human evaluators assess factuality against ground truth. The criteria are complementary rather than overlapping."
+  }
+}

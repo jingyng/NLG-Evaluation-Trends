@@ -1,0 +1,147 @@
+{
+  "paper_id": "2025.acl-long.1319",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "Flickr30k",
+      "Flickr8k-Expert",
+      "Flickr8k-CF",
+      "COCO"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "CLIP",
+      "Long-CLIP",
+      "I0T",
+      "I0T-async",
+      "I0T-post",
+      "PAC-S",
+      "BLIP",
+      "CLOOB",
+      "Unif-Align"
+    ],
+    "outputs": [
+      "Image-caption similarity scores (I0TScore, CLIPScore)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Flickr8k-Expert",
+          "Flickr8k-CF"
+        ],
+        "languages": [],
+        "models": [
+          "PAC-S",
+          "BLIP",
+          "CLOOB",
+          "Unif-Align"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Flickr-Expert"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "image captions"
+        ]
+      },
+      "normalized": {
+        "I0T async": "I0T-async",
+        "I0T post": "I0T-post",
+        "PAC‑S": "PAC-S",
+        "CLIP-S": "CLIPScore"
+      },
+      "explanation": "Added missing comparison models mentioned in the paper. Removed 'image captions' as outputs since the paper focuses on evaluation metrics, not generation. Corrected 'Flickr-Expert' to 'Flickr8k-Expert' based on paper text."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CLIPScore",
+      "I0TScore",
+      "PAC-S",
+      "Kendall's τ"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "PAC‑S",
+          "I0T-S",
+          "CLIP-S"
+        ]
+      },
+      "normalized": {
+        "PAC‑S": "PAC-S",
+        "I0T-S": "I0TScore",
+        "CLIP-S": "CLIPScore"
+      },
+      "explanation": "Normalized metric names to standard forms and removed duplicates. I0T-S is consistently referred to as I0TScore in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM judges are used in this paper. The extracted metadata correctly shows None values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators provided scores (1-5) for image-caption pairs; metrics are evaluated by correlating with these human scores"
+    ],
+    "criteria": [
+      "human judgment"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "human judgment"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Human annotators provided ranking scores (1–5) for image‑caption pairs; metrics are evaluated by correlating with these human scores.",
+          "human judgment scores ranging from 1 to 5"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "ranking scores (1–5)": "scores (1-5)"
+      },
+      "explanation": "Consolidated guideline description and added 'human judgment' as the criteria since no specific evaluation rubrics are mentioned."
+    }
+  },
+  "overall_notes": "This paper primarily focuses on reducing modality gaps in vision-language models and proposes I0TScore as an improved automatic evaluation metric for image captioning. The paper uses human judgments for correlation analysis but doesn't conduct extensive human evaluations of generated outputs. The extraction was generally accurate but needed normalization of naming conventions and addition of comparison models."
+}

@@ -1,0 +1,164 @@
+{
+  "paper_id": "2025.acl-long.756",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Question Answering",
+      "Chatbot Response Generation"
+    ],
+    "datasets": [
+      "HaluEval-Dialogue",
+      "TruthfulQA",
+      "Chatbot Arena"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Mistral-7B-Instruct-v0.2",
+      "Llama-3-8B-Instruct",
+      "Mixtral-8x7B-Instruct-v0.1",
+      "Llama-3-70B-Instruct",
+      "Qwen2-72B-Instruct",
+      "Gemma-2B"
+    ],
+    "outputs": [
+      "dialogue responses evaluated for truthfulness",
+      "question answers evaluated for truthfulness",
+      "chatbot responses evaluated for pairwise preference"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Chatbot Response Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "chatbot responses evaluated for pairwise preference"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:question-answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Mixtral-8x7B"
+        ],
+        "outputs": [
+          "LLM-generated responses and judgments on truthfulness or preference in dialogue and question answering"
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering",
+        "dialogue responses, question answers, and chatbot responses evaluated for truthfulness or preference": "dialogue responses evaluated for truthfulness",
+        "binary judgments (Yes/No) for truthfulness and pairwise preference decisions (A/B) between responses": "question answers evaluated for truthfulness"
+      },
+      "explanation": "Normalized task names, removed redundant models, clarified outputs by separating them by task type"
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": false,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU",
+          "ROUGE"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed BLEU and ROUGE as they are only mentioned as traditional metrics but not used for evaluation in this paper"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Mistral-7B-Instruct-v0.1",
+      "Mistral-7B-Instruct-v0.2",
+      "Llama-3-8B-Instruct",
+      "Llama-3-70B-Instruct",
+      "Mixtral-8x7B-Instruct-v0.1",
+      "Qwen2-72B-Instruct",
+      "dolphin-2.1-mistral-7b",
+      "StableBeluga-7B",
+      "zephyr-7b-beta",
+      "Mistral-7B-OpenOrca",
+      "OpenHermes-2-Mistral-7B",
+      "OpenHermes-2.5-Mistral-7B",
+      "Starling-LM-7B-alpha",
+      "Hermes-3-Llama-3.1-70B",
+      "Athene-70B"
+    ],
+    "methods": [
+      "binary truthfulness judgment",
+      "pairwise preference evaluation"
+    ],
+    "criteria": [
+      "truthfulness",
+      "helpfulness",
+      "relevance",
+      "accuracy",
+      "depth",
+      "creativity",
+      "level of detail"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Mistral-7B-Instruct-v0.1",
+          "Hermes-3-Llama-3.1-70B",
+          "Athene-70B"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Gemma-2B"
+        ],
+        "methods": [
+          "binary classification",
+          "zero-shot evaluation"
+        ],
+        "criteria": [
+          "detail"
+        ]
+      },
+      "normalized": {
+        "pairwise evaluation": "pairwise preference evaluation",
+        "detail": "level of detail"
+      },
+      "explanation": "Added missing LLM judges from Table 3, removed context encoder models not used as judges, normalized criteria names"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted in this paper"
+    }
+  },
+  "overall_notes": "The paper focuses on LLM-as-judge evaluation methods for NLG tasks. The extraction was generally good but included some context encoder models that weren't used as judges. The paper explicitly contrasts traditional metrics like BLEU/ROUGE with their LLM-based evaluation approach."
+}

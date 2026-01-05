@@ -1,0 +1,132 @@
+{
+  "paper_id": "2023.emnlp-main.1024",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Medical Report Generation",
+      "Image Captioning"
+    ],
+    "datasets": [
+      "MIMIC CXR",
+      "IU XRAY",
+      "CHEXPERT",
+      "RSNA PNEUMONIA",
+      "COVID CHEST X RAY IMAGES"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "resnet_50",
+      "transformer",
+      "medclip",
+      "remote",
+      "teacher_model",
+      "student_model"
+    ],
+    "outputs": [
+      "medical reports",
+      "clinical findings",
+      "radiology reports"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "IU-Xray",
+          "COVID chest X-ray images"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "clinical findings",
+          "radiology reports"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "COVID-19 dataset",
+          "COVID images",
+          "COVID-19"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Image Captioning": "Image Captioning",
+        "Other:Medical Report Generation": "Medical Report Generation",
+        "MIMIC-CXR": "MIMIC-CXR"
+      },
+      "explanation": "Normalized task name from 'Other:Medical Report Generation' to 'Medical Report Generation'. Added IU-Xray dataset mentioned in abstract. Removed ambiguous 'COVID-19 dataset/COVID images/COVID-19' variants in favor of specific 'COVID chest X-ray images'. Added additional output descriptions found in paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE",
+      "CIDER"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "CIDEr"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "METEOR": "METEOR",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE-L to ROUGE following simplification guidelines. Added CIDEr metric which is explicitly mentioned in the results section alongside BLEU-4, METEOR, and ROUGE-L scores."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges for evaluation in this paper. The paper uses MedCLIPScore for pseudo-report filtering, but this is used during training, not for final output evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. The evaluation is entirely based on automatic metrics (BLEU, METEOR, ROUGE, CIDEr) and qualitative analysis of generated reports."
+    }
+  },
+  "overall_notes": "The paper focuses on medical report generation from medical images using a self-training framework. Evaluation is based entirely on automatic metrics without human evaluation or LLM-as-judge approaches. The extraction was mostly accurate, but needed normalization of metric names and clarification of dataset naming. The paper contributes to NLG evaluation by proposing MedCLIPScore for filtering pseudo-reports during training."
+}

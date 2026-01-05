@@ -1,0 +1,103 @@
+{
+  "paper_id": "2025.emnlp-main.646",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares LLM judgments with human ratings during corpus preprocessing, reporting quantitative agreement metrics (Cohen's kappa) between LLM and human annotations on a 100-sample pre-experiment dataset."
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "GLM-4",
+      "QianFan Ernie-4.0 Turbo",
+      "GLM-4-Plus"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "figure",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt details referenced in figures (e.g., 'see Figure', 'see Table') but exact text not fully reproduced in main text; scoring criteria detailed in Table"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 1,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.853,
+      "interpretation": "strong agreement",
+      "per_criterion": [],
+      "notes": "Reported for GLM-4 vs expert ratings on 100-sample pre-experiment dataset; 95% CI [0.690, 1.00]"
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Evaluation framework described (CpsyCoun, FEEL, PMW-E matrices) with scoring criteria detailed in tables; six professional criteria adapted from psychotherapy frameworks"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Cohen's kappa"
+    ],
+    "shared_criteria": [
+      "professional quality screening"
+    ],
+    "sample_size": {
+      "total_generated": 1004,
+      "validated_by_both": 100,
+      "notes": "Validation conducted on 100-sample pre-experiment dataset randomly selected from the full corpus for screening purposes"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.853,
+        "criterion": "professional quality screening",
+        "llm_model": "GLM-4",
+        "significance": "95% CI [0.690, 1.00]",
+        "notes": "Strong agreement with expert ratings; QianFan Ernie-4.0 Turbo showed lower agreement (K=0.648)"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Cohen's kappa interpretation standard",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GLM-4 demonstrated strong agreement (κ=0.853) with human experts in screening dialogue quality, validating its effectiveness as a judge for data filtering."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Comprehensiveness",
+      "Professionalism",
+      "Authenticity",
+      "Safety",
+      "Informativeness",
+      "Comprehensibility",
+      "Helpfulness",
+      "Consistency",
+      "Coherence",
+      "Psychological Processes",
+      "Character Strengths",
+      "Interpersonal Relationships",
+      "Healthy Behaviors"
+    ],
+    "human_only_criteria": [
+      "Practicality",
+      "Relevance",
+      "Acceptance",
+      "Listening and Empathy",
+      "Clarity"
+    ],
+    "shared_criteria": [
+      "professional quality screening",
+      "Informativeness"
+    ],
+    "notes": "LLM evaluation used comprehensive framework matrices (CpsyCoun, FEEL, PMW-E) while human evaluation focused on practical therapeutic dimensions; some overlap in information/content evaluation"
+  }
+}

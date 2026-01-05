@@ -1,0 +1,225 @@
+{
+  "paper_id": "2020.emnlp-main.8",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "WMT19",
+      "WMT18",
+      "WIKIMATRIX",
+      "GLOBAL VOICES",
+      "EUROPARL",
+      "SETIMES",
+      "UNITED NATIONS",
+      "PARABANK 2"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "German",
+      "French",
+      "Russian",
+      "Czech",
+      "Finnish",
+      "Gujarati",
+      "Kazakh",
+      "Lithuanian",
+      "Arabic",
+      "Spanish",
+      "Portuguese",
+      "Italian",
+      "Japanese",
+      "Turkish",
+      "Polish",
+      "Ukrainian",
+      "Dutch",
+      "Catalan",
+      "Swedish",
+      "Hungarian",
+      "Danish",
+      "Macedonian",
+      "Slovak",
+      "Estonian",
+      "Vietnamese",
+      "Slovenian",
+      "Indonesian",
+      "Albanian",
+      "Latvian",
+      "Norwegian",
+      "Serbian",
+      "Hebrew",
+      "Bengali",
+      "Esperanto",
+      "Greek",
+      "Romanian",
+      "Bulgarian"
+    ],
+    "models": [
+      "prism",
+      "multilingual_nmt_transformer",
+      "parabank_2_paraphraser",
+      "mbart",
+      "bertscore",
+      "bleurt",
+      "yisi",
+      "laser"
+    ],
+    "outputs": [
+      "Machine Translation outputs",
+      "Probability scores for MT evaluation",
+      "Generated paraphrase sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "WMT 2018"
+        ],
+        "languages": [
+          "Greek",
+          "Romanian",
+          "Bulgarian"
+        ],
+        "models": [
+          "BERTScore",
+          "BLEURT",
+          "YiSi",
+          "LASER"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WMT19 MT metrics task",
+          "WMT18 MT metrics task"
+        ],
+        "languages": [
+          "Korean",
+          "Hindi"
+        ],
+        "models": [
+          "multilingual NMT model (Transformer with 745M parameters)",
+          "multilingual NMT Transformer (Prism)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "multilingual NMT model (Transformer with 745M parameters)": "multilingual NMT Transformer",
+        "multilingual NMT Transformer (Prism)": "Prism",
+        "WMT19 MT metrics task": "WMT 2019",
+        "WMT18 MT metrics task": "WMT 2018"
+      },
+      "explanation": "Added missing languages mentioned in Appendix B (39 total languages), removed languages not supported by the model, normalized model names, and added baseline models used for comparison. The paper primarily evaluates MT systems using the Prism metric."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "BERTSCORE",
+      "YISI",
+      "LASER",
+      "PRISM",
+      "MBART",
+      "EED",
+      "CHRF",
+      "METEOR",
+      "RUSE",
+      "BLEURT",
+      "ESIM",
+      "KENDALL",
+      "PEARSON CORRELATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "METEOR",
+          "ESIM"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "sentenceBLEU",
+          "Prism-ref",
+          "Prism-src"
+        ]
+      },
+      "normalized": {
+        "BERTscore": "BERTScore",
+        "YiSi-1": "YiSi",
+        "sentBLEU": "BLEU",
+        "sentenceBLEU": "BLEU"
+      },
+      "explanation": "Normalized metric names to base forms, removed variant-specific names, and added missing metrics mentioned in the paper. Prism-ref and Prism-src are configurations of the main Prism metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Prism",
+          "multilingual NMT model"
+        ],
+        "methods": [
+          "force-decoding and probability scoring"
+        ],
+        "criteria": [
+          "adequacy",
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items as the paper does NOT use LLMs as judges. Prism is a multilingual NMT model used for generation and scoring, not an LLM judge. The criteria mentioned are for human evaluation, not LLM evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human judgments collected as part of WMT 2019 shared task",
+      "Reference-based evaluation for into-English language pairs",
+      "Source-based evaluation for out-of-English language pairs"
+    ],
+    "criteria": [
+      "Fluency",
+      "Adequacy",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Reference-based evaluation for into-English language pairs",
+          "Source-based evaluation for out-of-English language pairs"
+        ],
+        "criteria": [
+          "overall quality"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "WMT19 shared task": "WMT 2019 shared task"
+      },
+      "explanation": "Enhanced guideline description based on paper details about WMT evaluation methodology. Added 'overall quality' as an implicit criterion in WMT evaluations."
+    }
+  },
+  "overall_notes": "The paper presents Prism, a multilingual MT evaluation metric based on zero-shot paraphrasing. It extensively evaluates on WMT 2019 metrics task across 39 languages. The extraction was generally good but needed some normalization and addition of missing languages from the 39-language model. The paper does NOT use LLMs as judges - Prism is a multilingual NMT model, not an LLM in the modern sense."
+}

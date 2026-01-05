@@ -1,0 +1,123 @@
+{
+  "paper_id": "2023.emnlp-main.590",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM evaluation against human evaluation by training and testing LLM scorers on human-labeled datasets, using Spearman correlation to quantitatively compare LLM scores with human scores across multiple dimensions and datasets"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "gpt-3.5-turbo",
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompts shown in appendix tables, including inversion prompts and task prompts specific to each evaluation dimension"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "multiple (varies by dataset, e.g., 4 annotators for DailyDialog-Zhao)",
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Spearman correlation and Krippendorff's alpha",
+      "value": "Spearman: 0.79 average; Krippendorff's alpha: >0.8 for DailyDialog-Zhao/Persona-Zhao",
+      "interpretation": "high inter-annotator agreement",
+      "per_criterion": [
+        {
+          "criterion": "various dimensions",
+          "metric": "Spearman correlation",
+          "value": "0.79 average"
+        },
+        {
+          "criterion": "appropriateness",
+          "metric": "Krippendorff's alpha",
+          "value": ">0.8"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Evaluation dimensions and score ranges specified, but specific scoring rubrics not detailed"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "Coherence",
+      "Diverse",
+      "Depth",
+      "Likeable",
+      "Understanding",
+      "Flexible",
+      "Informativeness",
+      "Overall",
+      "Appropriateness",
+      "Usage",
+      "Relevance",
+      "Content",
+      "Understandability",
+      "Naturalness",
+      "Maintenance",
+      "Interest",
+      "Quality"
+    ],
+    "sample_size": {
+      "total_generated": "varies by dataset (125-900 instances)",
+      "validated_by_both": "5-fold cross-validation across all datasets",
+      "notes": "Each dataset partitioned into training and test sets, with LLM trained on human labels and tested for correlation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.817,
+        "criterion": "appropriate",
+        "llm_model": "GPT-4",
+        "significance": "not specified",
+        "notes": "4.2% higher than baseline on Persona-Zhao dataset"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "high correlation",
+      "threshold_used": "Not explicitly stated, but results show strong correlation with human scores",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "ADOROR method achieves high Spearman correlation with human evaluation across all datasets and dimensions, with GPT-4 achieving 0.817 on Persona-Zhao, demonstrating LLM can effectively replicate human scoring."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Coherence",
+      "Diverse",
+      "Depth",
+      "Likeable",
+      "Understanding",
+      "Flexible",
+      "Informativeness",
+      "Overall",
+      "Appropriateness",
+      "Usage",
+      "Relevance",
+      "Content",
+      "Understandability",
+      "Naturalness",
+      "Maintenance",
+      "Interest",
+      "Quality"
+    ],
+    "notes": "LLM and human evaluated exactly the same criteria across all datasets"
+  }
+}

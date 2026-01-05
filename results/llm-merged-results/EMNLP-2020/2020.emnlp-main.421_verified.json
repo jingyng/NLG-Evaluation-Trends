@@ -1,0 +1,120 @@
+{
+  "paper_id": "2020.emnlp-main.421",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Causal Generation"
+    ],
+    "datasets": [
+      "CausalBank",
+      "COPA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Transformer",
+      "SBERT",
+      "LSH",
+      "SRoBERTa-L"
+    ],
+    "outputs": [
+      "causal statements (causes or effects for given propositions)",
+      "diverse generated sequences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Image Captioning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Sentence-BERT"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Sentence-BERT": "SBERT",
+        "Other:causal generation": "Other:Causal Generation"
+      },
+      "explanation": "Removed tasks that were only mentioned as examples of open-ended generation but not actually evaluated (Dialogue Generation, Image Captioning). Normalized model names and task format. SBERT and Sentence-BERT refer to the same model, so normalized to SBERT."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "SBERT cosine distance"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BLEU-1": "BLEU",
+        "BLEU-2": "BLEU",
+        "SBERT cosine distance": "SBERT cosine distance"
+      },
+      "explanation": "Normalized BLEU-1 and BLEU-2 variants to base BLEU metric following simplification guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper. The paper uses SBERT for semantic similarity measurement but not as a judge for quality assessment."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers judge plausibility of responses as causal completions on 0-5 Likert scale",
+      "Specifically rate completions of causal statements 'X because Y' or 'Y, so X'"
+    ],
+    "criteria": [
+      "plausibility"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Original extraction was accurate. No additional criteria beyond plausibility were explicitly mentioned in the human evaluation description."
+    }
+  },
+  "overall_notes": "The paper focuses specifically on causal generation as the main NLG task. While it mentions other open-ended generation tasks like dialogue and image captioning as motivation, only causal generation is actually implemented and evaluated. The extraction was generally accurate but included some tasks that were mentioned in passing but not actually studied."
+}

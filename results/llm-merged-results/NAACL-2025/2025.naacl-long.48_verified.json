@@ -1,0 +1,178 @@
+{
+  "paper_id": "2025.naacl-long.48",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Other:Cultural Norm Description Generation",
+      "Other:Symbolic Annotation"
+    ],
+    "datasets": [
+      "MPDD",
+      "CPED",
+      "LDC CCU Chinese Text"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "GPT-3.5",
+      "GPT-4o-mini",
+      "Llama-3.1-70B-Instruct"
+    ],
+    "outputs": [
+      "Conversation summaries",
+      "Cultural norm descriptions",
+      "Violation descriptions",
+      "Norm concept mappings",
+      "Symbolic annotations (actor/recipient roles, violation status)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Symbolic Annotation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Violation descriptions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Cultural norm description generation"
+        ],
+        "datasets": [
+          "LDC CCU Chinese Text datasets"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Llama-3.1-70b-Instruct": "Llama-3.1-70B-Instruct",
+        "Other:Cultural Norm Description": "Other:Cultural Norm Description Generation"
+      },
+      "explanation": "Consolidated duplicate task entries and normalized model naming. Added missing outputs and removed redundant dataset entry."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "frequency weighted-F1 score"
+        ]
+      },
+      "normalized": {
+        "frequency weighted-F1 score": "F1"
+      },
+      "explanation": "Changed answer from 'No' to 'Yes' since the paper uses F1 score to evaluate downstream tasks. Normalized metric name to standard form."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o-mini"
+    ],
+    "methods": [
+      "Self-Verification",
+      "Multi-Agent Verification (AgentEval)"
+    ],
+    "criteria": [
+      "Relevance",
+      "Correctness of description-concept mapping",
+      "Violation status",
+      "Actor roles",
+      "Recipient roles",
+      "Violation details"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "Actor roles",
+          "Recipient roles",
+          "Violation details"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "multi-agent verification"
+        ],
+        "criteria": [
+          "quality",
+          "retention",
+          "hallucination reduction",
+          "accuracy of mapping"
+        ]
+      },
+      "normalized": {
+        "self-verification": "Self-Verification",
+        "multi-agent verification (AgentEval)": "Multi-Agent Verification (AgentEval)",
+        "relevance": "Relevance",
+        "correctness of description-concept mapping": "Correctness of description-concept mapping",
+        "violation status": "Violation status"
+      },
+      "explanation": "Removed GPT-4 (not explicitly used), consolidated duplicate methods, and added missing criteria from symbolic annotation process. Removed meta-criteria like 'quality' and 'retention'."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Humans judge relevance of LLM-generated descriptions to conversations",
+      "Humans judge accuracy of norm concept mappings",
+      "Humans judge violation status of norm concepts in conversations"
+    ],
+    "criteria": [
+      "Relevance",
+      "Mapping accuracy",
+      "Violation status"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Humans judge relevance of LLM-generated descriptions to conversations",
+          "Humans judge accuracy of norm concept mappings",
+          "Humans judge violation status of norm concepts in conversations"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Humans judge relevance, mapping accuracy, and violation status via binary yes/no answers.",
+          "Humans were asked to judge relevance of the description, accuracy of the norm‑concept mapping, and whether a norm violation occurred.",
+          "We ask humans to (1) judge the relevance of the LLM-generated description to the conversation, (2) judge whether the mapping of the norm concept to the description is accurate, and (3) judge whether or not the norm concept is violated in that particular conversation. Each of the three decisions is a binary yes/no answer."
+        ],
+        "criteria": [
+          "accuracy of mapping"
+        ]
+      },
+      "normalized": {
+        "relevance": "Relevance",
+        "mapping accuracy": "Mapping accuracy",
+        "violation status": "Violation status"
+      },
+      "explanation": "Consolidated verbose guideline descriptions into clear statements. Normalized criteria names and removed duplicates."
+    }
+  },
+  "overall_notes": "The paper focuses on cultural norm description generation and evaluation rather than traditional NLG tasks. The extraction was generally accurate but needed normalization and removal of redundant entries. Key finding: The paper DOES use automatic metrics (F1 score) contrary to the original extraction."
+}

@@ -1,0 +1,145 @@
+{
+  "paper_id": "2024.emnlp-main.1244",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Text Summarization",
+      "Natural Language Inference",
+      "Other:Health Fact-Checking",
+      "Other:Recognizing Question Entailment"
+    ],
+    "datasets": [
+      "MedMCQA",
+      "MedQA",
+      "MMLU-Med",
+      "PubMedQA",
+      "BioASQ",
+      "MedNLI",
+      "MediQA-RQE",
+      "PubHealth",
+      "MediQA",
+      "Medical_CORD19"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3.5-turbo",
+      "GPT-4",
+      "LLaMA-2-7B",
+      "LLaMA-2-13B",
+      "LLaMA-3-8B",
+      "BioMistral-7B"
+    ],
+    "outputs": [
+      "candidate reasoning solutions",
+      "answers",
+      "summaries",
+      "open-ended responses",
+      "natural language inference judgments",
+      "fact-checking verdicts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering",
+          "Natural Language Inference",
+          "Other:Health Fact-Checking",
+          "Other:Recognizing Question Entailment"
+        ],
+        "datasets": [
+          "MedMCQA",
+          "MedQA",
+          "MMLU-Med",
+          "PubMedQA",
+          "BioASQ",
+          "MedNLI",
+          "MediQA-RQE",
+          "PubHealth"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Open-ended Question Answering",
+          "Other:open-ended question answering"
+        ],
+        "datasets": []
+      },
+      "normalized": {
+        "GPT-3.5-turbo": "GPT-3.5-turbo",
+        "gpt-3.5-turbo": "GPT-3.5-turbo",
+        "gpt-4": "GPT-4"
+      },
+      "explanation": "Added multiple NLG tasks beyond summarization and QA, including NLI and fact-checking. Added all 8 biomedical datasets used in experiments. Removed redundant task descriptions and normalized model names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Normalized 'accuracy' to 'Accuracy' as the main evaluation metric used throughout the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Confirmed LLMs are only used as generators, not as judges/evaluators. Removed placeholder 'None' entries."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluation guidelines provided for biomedical QA tasks and NLI tasks to assess which reasoning solution yields the correct ground-truth answer",
+      "Raters compare pairs of reasoning solutions (one from top-scored, one from bottom-scored) to determine which is better"
+    ],
+    "criteria": [
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Raters compare pairs of reasoning solutions (one from top-scored, one from bottom-scored) to determine which is better"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "The goal of this evaluation task is to assess the given task input, ground-truth answer, and a pair of reasoning solutions from the LLM. Your objective is to determine which reasoning the solution will ultimately yield the correct ground-truth answer for that input.",
+          "<Human Evaluation QA> Guideline The goal of this evaluation task is to assess the given task input, ground-truth answer, and a pair of reasoning solutions from the LLM. Your objective is to determine which reasoning the solution will ultimately yield the correct ground-truth answer for that input."
+        ]
+      },
+      "normalized": {
+        "accuracy": "correctness"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into a concise summary. Normalized 'accuracy' to 'correctness' as the primary human evaluation criterion."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on biomedical reasoning tasks where LLMs generate reasoning chains and answers. While not traditional NLG like summarization or translation, it involves significant text generation with evaluation. The main contribution is MedAdapter, which ranks candidate solutions rather than directly generating text. Human evaluation is well-documented with clear guidelines."
+}

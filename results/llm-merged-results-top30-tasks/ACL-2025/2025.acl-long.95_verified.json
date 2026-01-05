@@ -1,0 +1,173 @@
+{
+  "paper_id": "2025.acl-long.95",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "REFLECTASP",
+      "REFLECTSUMM",
+      "SPACE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_8b",
+      "llama_3.1_8b",
+      "llama_3.1_70b",
+      "gpt_3.5",
+      "gpt_4",
+      "gpt_4o",
+      "flan_t_5_xxl"
+    ],
+    "outputs": [
+      "Aspect-based abstractive summaries of student reflections"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "SPACE"
+        ],
+        "languages": [],
+        "models": [
+          "Flan-T5-XXL"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "REFLECTASP"
+        ],
+        "languages": [],
+        "models": [
+          "LLAMA3-8B",
+          "LLAMA3.1-8B",
+          "LLAMA 3-8B",
+          "LLAMA 3.1-8B",
+          "LLAMA 3.1-70B"
+        ],
+        "outputs": [
+          "aspect-based summaries",
+          "aspect-based summaries of student reflections"
+        ]
+      },
+      "normalized": {
+        "LLAMA3": "Llama-3-8B",
+        "LLAMA3.1": "Llama-3.1-8B",
+        "LLAMA3.1-70B": "Llama-3.1-70B",
+        "GPT-3.5": "GPT-3.5",
+        "GPT-4": "GPT-4",
+        "GPT-4o": "GPT-4o",
+        "Aspect‑based abstractive summaries of student reflections": "Aspect-based abstractive summaries of student reflections"
+      },
+      "explanation": "Normalized model names to standard capitalization, removed duplicates, added SPACE dataset mentioned in out-of-domain testing, and standardized output description. Kept only models that were explicitly evaluated in the experiments."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE",
+      "MINICHECK",
+      "GPT 4 FACTUALITY LIKERT SCALE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "MC EXT",
+          "MC INPUT"
+        ]
+      },
+      "normalized": {
+        "MINICHECK": "MiniCheck",
+        "MC EXT": "MiniCheck",
+        "MC INPUT": "MiniCheck",
+        "GPT-4 Factuality Likert Scale": "GPT-4 Factuality Likert Scale"
+      },
+      "explanation": "Normalized MiniCheck to standard capitalization. MC EXT and MC INPUT are not separate metrics but different configurations of using MiniCheck (with extracted clusters vs full input), so they are consolidated under MiniCheck."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o"
+    ],
+    "methods": [
+      "Likert scale scoring",
+      "Pairwise comparison"
+    ],
+    "criteria": [
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "Prompt‑based scoring with GPT‑4",
+          "Pairwise comparison of scores",
+          "GPT-4 Factuality Likert Scale Score",
+          "pairwise score difference (Pair ∆G)"
+        ],
+        "criteria": [
+          "relevance",
+          "overall quality"
+        ]
+      },
+      "normalized": {
+        "GPT-4o": "GPT-4o",
+        "factuality": "Factuality"
+      },
+      "explanation": "The paper explicitly states they used GPT-4o (not GPT-4) as the evaluator to avoid self-preference bias. Removed redundant method descriptions and criteria that were not explicitly part of the LLM-as-judge evaluation (relevance and overall quality were part of human evaluation, not LLM evaluation)."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Relevance to Aspect (3-point scale): assesses whether the summary discusses the aspect exclusively (3), partially (2), or not at all (1)",
+      "Consistency (3-point scale): determines whether the facts in the summary are consistent with the facts in the original input from fully (3) to not supported (1)",
+      "Aspect-based sentence-level faithfulness: measures the proportion of sentences that are Fully/Partially/Not supported by the annotated aspect-focused reflections"
+    ],
+    "criteria": [
+      "Relevance",
+      "Consistency",
+      "Faithfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Aspect‑based factuality",
+          "Aspect-based sentence-level faithfulness"
+        ]
+      },
+      "normalized": {
+        "Aspect-based Faithfulness": "Aspect-based Faithfulness",
+        "Aspect‑based factuality": "Aspect-based Faithfulness"
+      },
+      "explanation": "Consolidated criteria names and removed redundant entries. The guideline description accurately captures the human evaluation procedure described in the paper."
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive evaluation of aspect-based summarization using both automatic metrics and human evaluation. The extraction was generally accurate but contained some duplicates and inconsistent naming. The paper uses GPT-4o specifically (not GPT-4) for LLM-as-judge evaluation to avoid self-preference bias. Human evaluation was conducted via Amazon Mechanical Turk with clear evaluation criteria."
+}

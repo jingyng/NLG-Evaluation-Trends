@@ -1,0 +1,174 @@
+{
+  "paper_id": "2021.acl-long.522",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Controlled Text Generation"
+    ],
+    "datasets": [
+      "JIGSAW UNINTENDED BIAS IN TOXICITY CLASSIFICATION",
+      "REALTOXICITYPROMPTS",
+      "STANFORD SENTIMENT TREEBANK SST 5",
+      "OPENWEBTEXT CORPUS",
+      "IMDB"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2_small",
+      "gpt_2_medium",
+      "gpt_2_large",
+      "gpt_3",
+      "gpt_2_xl",
+      "bart"
+    ],
+    "outputs": [
+      "Text continuations with controlled attributes (toxicity, sentiment)",
+      "Stylistic rewriting"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "IMDb"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-2 XL"
+        ],
+        "outputs": [
+          "Stylistic rewriting"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "OpenWebText",
+          "Jigsaw Unintended Bias in Toxicity Classification Kaggle challenge"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-2 Large (base LM)",
+          "GPT-2 Small/Medium/Large (expert and anti‑expert)",
+          "GPT-3 Ada",
+          "GPT-2",
+          "BART (autoencoder for rewriting)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Jigsaw Unintended Bias in Toxicity Classification Kaggle challenge": "Jigsaw Unintended Bias in Toxicity Classification",
+        "GPT-2 Large (base LM)": "GPT-2 Large",
+        "GPT-2 Small/Medium/Large (expert and anti‑expert)": "GPT-2 Small, GPT-2 Medium, GPT-2 Large",
+        "GPT-3 Ada": "GPT-3",
+        "BART (autoencoder for rewriting)": "BART"
+      },
+      "explanation": "Consolidated duplicate dataset names and normalized model names. Added IMDb dataset which was mentioned but missing. Removed redundant model descriptions and kept only the base model names. Added stylistic rewriting as an additional output type."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "TOXICITY PERSPECTIVE API",
+      "PERPLEXITY",
+      "DISTINCT N GRAMS",
+      "SENTIMENT CLASSIFICATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "maximum toxicity",
+          "toxicity probability",
+          "Dist-1",
+          "Dist-2",
+          "Dist-3"
+        ]
+      },
+      "normalized": {
+        "Toxicity score (Perspective API)": "Toxicity Score (Perspective API)",
+        "Perplexity (GPT-2 XL)": "Perplexity",
+        "Distinct n-grams (Dist-1, Dist-2, Dist-3)": "Distinct n-grams",
+        "Sentiment classification (HuggingFace)": "Sentiment Classification",
+        "Perspective API toxicity score": "Toxicity Score (Perspective API)",
+        "Maximum toxicity over generations": "Toxicity Score (Perspective API)",
+        "Toxicity probability (>=0.5)": "Toxicity Score (Perspective API)"
+      },
+      "explanation": "Consolidated all toxicity-related metrics under 'Toxicity Score (Perspective API)', simplified perplexity and distinct n-grams to base forms, and normalized sentiment classification."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-2 XL"
+        ],
+        "methods": [
+          "perplexity scoring of generated text"
+        ],
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed GPT-2 XL and perplexity scoring since these are used for automatic evaluation, not as LLM judges. The paper does not use LLMs to evaluate outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Turkers select which of two continuations is: (1) less toxic/more positive/more negative, (2) more fluent, and (3) more topical"
+    ],
+    "criteria": [
+      "Toxicity",
+      "Sentiment",
+      "Fluency",
+      "Topicality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Turkers select which of two continuations is: (1) less toxic/more positive/more negative, (2) more fluent, and (3) more topical"
+        ],
+        "criteria": [
+          "Sentiment"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- select which of the two continuations is: (1) less toxic, (2) more fluent, and (3) more topical",
+          "Annotators choose which of two continuations is less toxic/more fluent/more topical (toxicity task) or which better matches the desired sentiment, as well as fluency and topicality (sentiment task).",
+          "Turkers select which of the two continuations is: (1) less toxic, (2) more fluent, and (3) more topical, i.e., whether the continuation is natural, relevant, and follows logically from the prompt."
+        ],
+        "criteria": [
+          "less toxic",
+          "more fluent",
+          "more topical"
+        ]
+      },
+      "normalized": {
+        "toxicity": "Toxicity",
+        "fluency": "Fluency",
+        "topicality": "Topicality"
+      },
+      "explanation": "Consolidated multiple guideline descriptions into one clear statement. Normalized criteria to base forms and added 'Sentiment' which was used in the sentiment control evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on controlled text generation using the DExperts method. It evaluates on detoxification and sentiment control tasks using both automatic metrics and human evaluation. The extraction was generally good but contained some redundancy and inconsistent naming. The paper does not use LLMs as judges - GPT-2 XL is used for perplexity calculation as an automatic metric."
+}

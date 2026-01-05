@@ -1,0 +1,170 @@
+{
+  "paper_id": "2025.acl-long.1282",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "THINKBEFORE ATTACK",
+      "BEAVERTAILS",
+      "COSAFE",
+      "ALPACAEVAL",
+      "MT-Bench",
+      "XSTEST"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "zephyr_7b_beta",
+      "llama_2_7b_chat",
+      "vicuna_7b",
+      "claude_3.5",
+      "gpt_3.5",
+      "gpt_4o",
+      "qwen_2.5_7b_instruct"
+    ],
+    "outputs": [
+      "Multi-turn dialogue responses between red-team and target models",
+      "Adversarial prompts for jailbreak attacks",
+      "Safety-aligned defensive responses"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "BeaverTails"
+        ],
+        "models": [
+          "Qwen2.5-7B-Instruct"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Think‑before‑attack dataset",
+          "Red‑Team datasets",
+          "Red-Team datasets",
+          "Cosafe",
+          "MT‑Bench"
+        ],
+        "models": [
+          "Zephyr‑7B‑beta",
+          "Llama‑2‑7B‑chat",
+          "Claude‑3.5",
+          "Vicuna‑7B",
+          "Qwen2.5‑7B‑Instruct"
+        ]
+      },
+      "normalized": {
+        "Thinkbefore-attack dataset": "Thinkbefore-attack",
+        "Cosafe": "CoSafe",
+        "MT-Bench": "MT-Bench"
+      },
+      "explanation": "Normalized dataset names to standard forms, removed duplicate variations, kept only explicitly mentioned datasets. Added Qwen2.5-7B-Instruct which is explicitly tested in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ATTACK SUCCESS RATE ASR",
+      "TOXICITY",
+      "HELPFULNESS",
+      "DIVERSITY",
+      "ALPACAEVAL",
+      "MT BENCH",
+      "XSTEST"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ASR",
+          "toxicity",
+          "diversity",
+          "R_tox",
+          "R_help",
+          "R_safe",
+          "R_div"
+        ]
+      },
+      "normalized": {
+        "Attack Success Rate": "Attack Success Rate (ASR)",
+        "AlpacaEval score": "AlpacaEval",
+        "MT‑Bench score": "MT-Bench",
+        "XSTest false‑rejection rate": "XSTest"
+      },
+      "explanation": "Normalized metric names to standard forms, removed redundant abbreviations (ASR, R_tox, etc.), simplified to base metric names without score specifics"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o"
+    ],
+    "methods": [
+      "GPT-4o Judge scoring with 1-5 scale"
+    ],
+    "criteria": [
+      "Compliance",
+      "Toxicity",
+      "Refusal",
+      "Warning",
+      "Information",
+      "Content",
+      "Fulfillment"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "policy compliance",
+          "toxicity",
+          "proactive refusal",
+          "warning",
+          "generalized information",
+          "prohibited content",
+          "direct fulfillment"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT‑4o"
+        ],
+        "methods": [
+          "pairwise scoring using a 1‑to‑5 rubric"
+        ],
+        "criteria": [
+          "helpfulness"
+        ]
+      },
+      "normalized": {
+        "safety scoring with scale 1-5": "GPT-4o Judge scoring with 1-5 scale",
+        "GPT-4o Judge Prompts": "GPT-4o Judge scoring with 1-5 scale"
+      },
+      "explanation": "Consolidated methods to unified description, extracted explicit criteria from the GPT-4o scoring rubric in the paper, removed helpfulness which is not part of the LLM judge rubric"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted in the paper as confirmed by text review"
+    }
+  },
+  "overall_notes": "The paper focuses on multi-turn dialogue safety evaluation using automated metrics and LLM-as-judge evaluation. Extracted metadata was generally accurate but needed normalization for consistency. The paper uses GPT-4o as a judge with explicit scoring criteria but does not conduct human evaluations."
+}

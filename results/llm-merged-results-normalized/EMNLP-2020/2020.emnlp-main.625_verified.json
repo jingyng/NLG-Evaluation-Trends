@@ -1,0 +1,156 @@
+{
+  "paper_id": "2020.emnlp-main.625",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Generation",
+      "Data To Text Generation"
+    ],
+    "datasets": [
+      "SQUAD NQG",
+      "WEBNLG"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "encoder_decoder_with_attention",
+      "lstm_rnn",
+      "bert_based_embeddings",
+      "seq_2seq_with_attention",
+      "pointer_generator",
+      "sm_bandit",
+      "hm_bandit"
+    ],
+    "outputs": [
+      "Generated natural language questions",
+      "Generated natural language text descriptions from RDF triples"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Generation",
+          "Data-to-Text Generation"
+        ],
+        "models": [
+          "BERT-based embeddings",
+          "Pointer-Generator"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Dialogue Generation",
+          "Machine Translation",
+          "Image Captioning",
+          "Other:Data-to-Text",
+          "Other:Data-to-Text Generation"
+        ],
+        "datasets": [
+          "SQuAD QG dataset",
+          "WebNLG dataset"
+        ],
+        "models": [
+          "seq2seq with copy mechanism",
+          "LSTM-RNN with attention"
+        ],
+        "outputs": [
+          "Generated questions for question generation and text descriptions for data-to-text generation"
+        ]
+      },
+      "normalized": {
+        "Other:Question Generation": "Question Generation",
+        "Generated natural language questions and textual descriptions of RDF triples": "Generated natural language questions",
+        "questions and natural language text descriptions": "Generated natural language text descriptions from RDF triples"
+      },
+      "explanation": "Removed NLG tasks only mentioned in background/literature review but not actually evaluated in the paper. Kept only the two main tasks that were experimentally evaluated: Question Generation and Data-to-Text Generation. Simplified model names and standardized task/dataset naming."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE",
+      "TER",
+      "Q BLEU",
+      "QPP",
+      "QAP",
+      "ENTAILMENT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "TER"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-4",
+          "ROUGE-L",
+          "BLEU"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric variants to base forms (BLEU-4 → BLEU, ROUGE-L → ROUGE) as per guidelines. Added TER which was mentioned in the WebNLG evaluation. Removed duplicate BLEU entry."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper. The paper uses policy gradient RL with traditional automatic metrics and human evaluation, but no LLM-based evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Amazon Mechanical Turk annotators rated generated outputs on 5-point Likert scale for relevance and coherence",
+      "For Question Generation: relevance defined as how clearly generated question points to right answer given context paragraph; coherence based on logic, readability, fluency",
+      "For Data-to-Text: relevance defined as how related generated description is to given RDF facts; coherence based on logic, readability, fluency"
+    ],
+    "criteria": [
+      "Relevance",
+      "Coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Amazon Mechanical Turk annotators rated generated outputs on 5-point Likert scale for relevance and coherence",
+          "For Question Generation: relevance defined as how clearly generated question points to right answer given context paragraph; coherence based on logic, readability, fluency",
+          "For Data-to-Text: relevance defined as how related generated description is to given RDF facts; coherence based on logic, readability, fluency"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- asking the annotators to rate the quality of the generated outputs based on relevance and coherence on 5-point scale.",
+          "Annotators rated each generated output for relevance and coherence using a 5-point Likert scale.",
+          "For question generation, relevance is defined as how clearly the generated question will be able to point to the right answer, given an input paragraph as context. For WebNLG data-to-text, relevance is defined as how related is the generated description w.r.t. the given RDF data such as mentioning the facts. For both tasks, coherence is based on the logic, readability, and fluency of the generated question or description."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Condensed and streamlined the guideline descriptions while preserving all key information about the human evaluation methodology, rating scale, and specific definitions of evaluation criteria for both tasks."
+    }
+  },
+  "overall_notes": "The paper presents a multi-armed bandit approach (DORB) for dynamically optimizing multiple rewards in NLG tasks. The extraction was generally good but included some background/literature review items that weren't part of the actual experimental evaluation. The paper focuses on two main NLG tasks (Question Generation and Data-to-Text) with comprehensive automatic and human evaluation."
+}

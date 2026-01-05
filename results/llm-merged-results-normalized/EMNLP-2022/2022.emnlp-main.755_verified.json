@@ -1,0 +1,161 @@
+{
+  "paper_id": "2022.emnlp-main.755",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Natural Language Inference"
+    ],
+    "datasets": [
+      "XNLI",
+      "INDICXNLI",
+      "TAX IXNLI",
+      "MIDAS NLI"
+    ],
+    "languages": [
+      "Assamese",
+      "Gujarati",
+      "Kannada",
+      "Malayalam",
+      "Marathi",
+      "Odia",
+      "Punjabi",
+      "Tamil",
+      "Telugu",
+      "Hindi",
+      "Bengali",
+      "English",
+      "Urdu"
+    ],
+    "models": [
+      "indictrans",
+      "indicbert",
+      "muril",
+      "mbert",
+      "xlm_roberta"
+    ],
+    "outputs": [
+      "Translated premises and hypotheses in eleven Indic languages",
+      "Natural language inference predictions for Indic languages",
+      "Cross-lingual transfer performance across Indic languages"
+    ],
+    "changes_made": {
+      "added": {
+        "languages": [
+          "Urdu"
+        ],
+        "outputs": [
+          "Natural language inference predictions for Indic languages",
+          "Cross-lingual transfer performance across Indic languages"
+        ]
+      },
+      "removed": {
+        "languages": [
+          "Gujarat",
+          "As",
+          "Gu",
+          "Kn",
+          "Ml",
+          "Mr",
+          "Or",
+          "Pa",
+          "Ta",
+          "Te",
+          "Bn"
+        ]
+      },
+      "normalized": {
+        "Gujarat": "Gujarati",
+        "Other:Natural Language Inference": "Other:Natural Language Inference"
+      },
+      "explanation": "Normalized language names to standard forms, removed language codes, added Urdu which is mentioned in the paper, and refined output descriptions to be more accurate"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BERTSCORE",
+      "ACCURACY",
+      "PEARSON CORRELATION",
+      "SPEARMAN CORRELATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU"
+        ]
+      },
+      "normalized": {
+        "BERTScore": "BERTScore",
+        "Pearson correlation": "Pearson correlation",
+        "Spearman correlation": "Spearman correlation"
+      },
+      "explanation": "Added Accuracy metric which is explicitly mentioned as the evaluation metric, removed BLEU since it's only mentioned in passing as a comparison point but not actually used for evaluation"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleared all fields since the paper does not use LLMs as judges - the paper uses traditional evaluation methods and the models mentioned are used for inference, not evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Sentence pairs are assigned integer scores 0-5 based on semantic equivalence: 0=completely dissimilar, 1=not equivalent but same topic, 2=not equivalent but share details, 3=roughly equivalent with important differences, 4=mostly equivalent with minor differences, 5=exactly equivalent"
+    ],
+    "criteria": [
+      "Equivalence",
+      "Preservation"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Sentence pairs are assigned integer scores 0-5 based on semantic equivalence: 0=completely dissimilar, 1=not equivalent but same topic, 2=not equivalent but share details, 3=roughly equivalent with important differences, 4=mostly equivalent with minor differences, 5=exactly equivalent"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- The native speaker access the sentence pairs assign an integer score between 0 and 5, as follows: 0: The two sentences are completely dissimilar. 1: The two sentences are not equivalent, but are on the same topic. 2: The two sentences are not equivalent, but share some details. 3: The two sentences are roughly equivalent, but some important information differs/missing. 4: The two sentences are mostly equivalent, but some unimportant details differ. 5: The two sentences are exactly equivalent, as they mean the same.",
+          "Annotators scored sentence similarity on a 0-5 scale (0: completely dissimilar, 1: not equivalent but same topic, 2: not equivalent but share details, 3: roughly equivalent with important differences, 4: mostly equivalent with minor differences, 5: exactly equivalent).",
+          "The native speaker access the sentence pairs assign an integer score between 0 and 5, as follows: 0: The two sentences are completely dissimilar. 1: The two sentences are not equivalent, but are on the same topic. 2: The two sentences are not equivalent, but share some details. 3: The two sentences are roughly equivalent, but some important information differs/missing. 4: The two sentences are mostly equivalent, but some unimportant details differ. 5: The two sentences are exactly equivalent, as they mean the same."
+        ]
+      },
+      "normalized": {
+        "semantics": "semantic equivalence",
+        "equivalence": "semantic equivalence"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into a single clear statement and normalized criteria to eliminate redundancy while preserving meaning"
+    }
+  },
+  "overall_notes": "The paper primarily focuses on evaluating multilingual NLI capabilities rather than traditional NLG generation. The main NLG aspect is machine translation used to create the dataset, but the core evaluation is on natural language inference classification. Human evaluation was conducted to validate translation quality, not to evaluate generated text in the traditional NLG sense. The paper is more about cross-lingual transfer learning and model evaluation than NLG generation per se."
+}

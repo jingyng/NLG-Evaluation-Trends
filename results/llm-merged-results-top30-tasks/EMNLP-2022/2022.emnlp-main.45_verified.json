@@ -1,0 +1,166 @@
+{
+  "paper_id": "2022.emnlp-main.45",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "xm3600",
+      "OPEN IMAGES DATASET",
+      "COCO CAPTIONS",
+      "CONCEPTUAL CAPTIONS 3m",
+      "multi30k"
+    ],
+    "languages": [
+      "Arabic",
+      "Bengali",
+      "Chinese",
+      "Croatian",
+      "Czech",
+      "Danish",
+      "Dutch",
+      "English",
+      "Filipino",
+      "Finnish",
+      "French",
+      "German",
+      "Greek",
+      "Hebrew",
+      "Hindi",
+      "Hungarian",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Korean",
+      "Maori",
+      "Norwegian",
+      "Persian",
+      "Polish",
+      "Portuguese",
+      "Quechua",
+      "Romanian",
+      "Russian",
+      "Spanish",
+      "Swahili",
+      "Swedish",
+      "Telugu",
+      "Thai",
+      "Turkish",
+      "Ukrainian",
+      "Vietnamese"
+    ],
+    "models": [
+      "bb+cc",
+      "bb",
+      "bg",
+      "lg"
+    ],
+    "outputs": [
+      "Multilingual image captions"
+    ],
+    "changes_made": {
+      "added": {
+        "languages": [
+          "Quechua"
+        ],
+        "models": [
+          "BB+CC",
+          "BB",
+          "Bg",
+          "Lg"
+        ]
+      },
+      "removed": {
+        "languages": [
+          "Farsi",
+          "Chinese-Simplified",
+          "Cusco Quechua"
+        ],
+        "models": [
+          "mT5-base",
+          "mT5-large",
+          "ViT-B/16",
+          "ViT-g/14"
+        ],
+        "datasets": [
+          "COCO",
+          "CC3M"
+        ]
+      },
+      "normalized": {
+        "Persian": "Persian",
+        "Chinese-Simplified": "Chinese",
+        "Cusco Quechua": "Quechua"
+      },
+      "explanation": "Removed model architecture components (mT5, ViT variants) since they are not the evaluated models but building blocks. Kept only the four evaluated model variations. Normalized language names to standard forms and removed duplicates. Removed redundant dataset abbreviations."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CIDER"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "CIDEr is the only automatic metric explicitly mentioned for evaluating generated captions."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'None' placeholders since paper does not use LLMs as evaluators. No LLM-based evaluation is mentioned."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "7-point scale: MUCH-BETTER, BETTER, SLIGHTLY-BETTER, SIMILAR, SLIGHTLY-WORSE, WORSE, MUCH-WORSE",
+      "Annotators compare two model captions per image and assign a rating on a 7-point scale reflecting relative quality",
+      "How well does the caption describe the image to a visually impaired friend?"
+    ],
+    "criteria": [
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "relative quality"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "fluency",
+          "coherence",
+          "relevance",
+          "no hallucination"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed criteria that were mentioned in the annotation guidelines for caption generation but not explicitly stated as criteria for the human evaluation of model outputs. The actual human evaluation focused on relative quality comparison between model outputs."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on creating and validating a multilingual image captioning evaluation dataset (XM3600). It evaluates multilingual image captioning models using CIDEr metric and human evaluations, but does not use LLMs as evaluators. The extraction was generally accurate but included some extraneous details from model architecture and annotation guidelines that weren't directly relevant to the evaluation criteria."
+}

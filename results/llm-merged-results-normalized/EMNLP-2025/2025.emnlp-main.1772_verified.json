@@ -1,0 +1,157 @@
+{
+  "paper_id": "2025.emnlp-main.1772",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Text To Image Generation",
+      "Spatial Reasoning"
+    ],
+    "datasets": [
+      "FOREST"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_70b",
+      "llama_3_8b",
+      "qwen_2_72b",
+      "qwen_2_vl_72b",
+      "gpt_4o",
+      "gpt_4o_mini",
+      "stable_diffusion_sd_1.5",
+      "stable_diffusion_sd_2.1",
+      "gligen"
+    ],
+    "outputs": [
+      "Spatial relation answers (left, right, front, back)",
+      "Generated images from spatial descriptions",
+      "Layout bounding boxes for image generation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama3-8B",
+          "GPT-4o-mini"
+        ],
+        "outputs": [
+          "Layout bounding boxes for image generation"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering",
+          "Other:Text-to-Image Generation",
+          "Other:Spatial Reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Answers to spatial reasoning questions",
+          "The paper generates spatial descriptions, answers to spatial reasoning questions, and layouts for text-to-image generation, which are then used to generate images. These outputs are evaluated in QA and T2I tasks."
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering",
+        "Other:Text-to-Image Generation": "Text-to-Image Generation",
+        "Other:Spatial Reasoning": "Spatial Reasoning",
+        "GPT-4o-mini-high": "GPT-4o-mini"
+      },
+      "explanation": "Normalized task names to standard format without 'Other:' prefix. Added models that were mentioned in the paper but missing from original extraction. Simplified and normalized output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "VISOR",
+      "SPATIALEVAL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "bias distribution",
+          "VISOR cond",
+          "VISOR uncond"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "spatialEval": "spatialEval",
+        "VISOR cond": "VISOR",
+        "VISOR uncond": "VISOR"
+      },
+      "explanation": "Normalized 'accuracy' to 'Accuracy'. Consolidated VISOR variants into single 'VISOR' metric. Removed 'bias distribution' as it's not a standard automatic evaluation metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Correctly kept answer as 'No' since the paper does not use LLMs as post-hoc evaluators. Removed placeholder 'None' values since no LLM-as-judge methodology is used."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants were shown textual scene descriptions and corresponding questions from the FoREST dataset",
+      "They were asked to answer based on their understanding of the given spatial relationship",
+      "Object orientation information was provided when applicable",
+      "Questions asked about spatial relationships from either camera's perspective or objects' perspective"
+    ],
+    "criteria": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Object orientation information was provided when applicable",
+          "Questions asked about spatial relationships from either camera's perspective or objects' perspective"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Instruction : You will be provided with a scene description that describes the spatial relationship between two objects ..."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "Instruction : You will be provided with a scene description that describes the spatial relationship between two objects . The scene description may include object orientation , such as A is facing toward the camera , to indicate the direction A is facing . You will then receive a question asking about the spatial relationship between A and B from either the camera 's perspective or an object 's perspective . Your task is to answer the question based on your understanding of the given spatial relationship .": "Participants were shown textual scene descriptions and corresponding questions from the FoREST dataset"
+      },
+      "explanation": "Reformatted the lengthy instruction into clear guideline statements. Added missing descriptive elements from the human evaluation methodology."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating spatial reasoning capabilities in NLG tasks, specifically question answering and text-to-image generation using the FoREST benchmark. The extraction was generally accurate but needed normalization of task names and metrics. The human evaluation was well-documented but the guidelines needed restructuring for clarity."
+}

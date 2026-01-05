@@ -1,0 +1,184 @@
+{
+  "paper_id": "2021.emnlp-main.152",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Style Obfuscation",
+      "Text Rewriting"
+    ],
+    "datasets": [
+      "YELP",
+      "BLOGS",
+      "TWITTER",
+      "DIAL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "seq_2seq",
+      "lstm",
+      "attentional_lstm_seq_2seq",
+      "vae"
+    ],
+    "outputs": [
+      "obfuscated text",
+      "rewritten text with obfuscated stylistic features"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Text Style Obfuscation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [
+          "Yelp Synthetic",
+          "Twitter (PAN16)"
+        ],
+        "languages": [],
+        "models": [
+          "Recurrent Language Models",
+          "GPT-2 (for evaluation)",
+          "GPT-2",
+          "VAE with Gumbel-softmax"
+        ],
+        "outputs": [
+          "Obfuscated/re-written sentences with reduced stylistic cues"
+        ]
+      },
+      "normalized": {
+        "Other:Text Rewriting": "Other:Text Rewriting",
+        "Yelp": "Yelp",
+        "Blogs": "Blogs",
+        "Twitter": "Twitter",
+        "DIAL": "DIAL",
+        "English": "English",
+        "Seq2Seq": "Seq2Seq",
+        "LSTM": "LSTM",
+        "Attentional LSTM Seq2Seq": "Attentional LSTM Seq2Seq",
+        "VAE": "VAE",
+        "obfuscated text": "obfuscated text",
+        "rewritten text with obfuscated stylistic features": "rewritten text with obfuscated stylistic features"
+      },
+      "explanation": "Added 'Other:Text Style Obfuscation' as primary task. Removed 'Paraphrase Generation' as it's not the main focus. Removed duplicate/synthetic dataset variants. Removed models that are not NLG models being evaluated (language models are used for priors, GPT-2 for evaluation only). Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "TPR GAP",
+      "BACK TRANSLATION ACCURACY",
+      "PERPLEXITY",
+      "BLEU",
+      "GLEU",
+      "LEXICAL DIVERSITY",
+      "CLASSIFIER ACCURACY",
+      "ENTROPY",
+      "CONFIDENT RESPONSE RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Perplexity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-2 PPL",
+          "GPT-2 Perplexity",
+          "Back‑Translation Accuracy",
+          "TPR‑gap",
+          "Sensitive‑attribute Classifier Accuracy",
+          "Confident Response Rate",
+          "BLEU Score",
+          "GLEU Score",
+          "Back-Translation (BT) accuracy",
+          "Lexical Diversity (Lex. Div.)",
+          "Confident Response (CR) percentage",
+          "Sensitive-attribute Classifier accuracy"
+        ]
+      },
+      "normalized": {
+        "TPR-gap": "TPR-gap",
+        "Back-Translation accuracy": "Back-Translation Accuracy",
+        "GPT-2 PPL": "Perplexity",
+        "BLEU": "BLEU",
+        "GLEU": "GLEU",
+        "Lexical Diversity": "Lexical Diversity",
+        "Sensitive-attribute Classifier accuracy": "Classifier Accuracy",
+        "Entropy": "Entropy",
+        "Confident Response percentage": "Confident Response Rate"
+      },
+      "explanation": "Consolidated duplicate metric names and normalized to base forms. Removed GPT-2 specification from perplexity since it's the implementation detail. Simplified 'Sensitive-attribute Classifier accuracy' to 'Classifier Accuracy'."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values. The paper does not use LLMs as judges - GPT-2 is used only for perplexity calculation, not for judging output quality."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Which sentence is more fluent in English?",
+      "Which sentence is closer in meaning to the original sentence below?"
+    ],
+    "criteria": [
+      "Fluency",
+      "Consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "For fluency, workers answered: 'Which sentence is more fluent in English?'; for semantic consistency, workers answered: 'Which sentence is closer in meaning to the original sentence below?'",
+          "Workers were asked to choose the more fluent sentence and to choose the sentence that is closer in meaning to the original sentence.",
+          "For fluency, we asked: \"Which sentence is more fluent in English?\" For semantic consistency, we asked: \"Which sentence is closer in meaning to the original sentence below?\""
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "fluency": "fluency",
+        "semantic consistency": "semantic consistency"
+      },
+      "explanation": "Consolidated duplicate guideline descriptions into clear question format. Criteria remain unchanged as they are correctly extracted."
+    }
+  },
+  "overall_notes": "The paper focuses on text style obfuscation using VAE-based models. It evaluates generated text using both automatic metrics and human evaluations. The extraction was generally good but contained some duplicates and included components that weren't part of the NLG evaluation (like language models used as priors). The paper does not use LLMs as judges."
+}

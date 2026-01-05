@@ -1,0 +1,158 @@
+{
+  "paper_id": "2024.inlg-main.6",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Counterfactual Text Generation"
+    ],
+    "datasets": [
+      "IMDB",
+      "SNLI"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BERT",
+      "Llama-2",
+      "ChatGPT",
+      "Mistral-7B",
+      "MICE",
+      "GBDA",
+      "CREST"
+    ],
+    "outputs": [
+      "Counterfactual text that minimally modifies original text to change classifier predictions"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "BERT"
+        ],
+        "outputs": [
+          "Counterfactual text that minimally modifies original text to change classifier predictions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "models": [
+          "T5",
+          "RoBERTa",
+          "GPT-2"
+        ],
+        "outputs": [
+          "counterfactual text",
+          "counterfactual text instances that modify the original text to change the classifier's prediction with minimal changes"
+        ]
+      },
+      "normalized": {
+        "LLAMA-2": "Llama-2",
+        "Other:counterfactual text generation": "Other:Counterfactual Text Generation"
+      },
+      "explanation": "Removed 'Paraphrase Generation' as this is distinct from counterfactual generation. Removed T5, RoBERTa, GPT-2 as these are components of methods rather than main evaluated models. Normalized Llama-2 and task names. Added BERT as the target classifier model."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Flip Rate",
+      "Probability Change",
+      "Token Distance",
+      "Perplexity",
+      "Diversity"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Probability Change (ΔP)",
+          "Probability Change (∆P)",
+          "Levenshtein distance"
+        ]
+      },
+      "normalized": {
+        "Flip Rate (FR)": "Flip Rate",
+        "Token Distance (TD)": "Token Distance",
+        "Perplexity (PPL)": "Perplexity",
+        "Diversity (Div)": "Diversity"
+      },
+      "explanation": "Normalized metric names to remove abbreviations and duplicates. Levenshtein distance is the specific implementation of Token Distance, so it's consolidated under Token Distance."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "ChatGPT",
+      "Mistral-7B"
+    ],
+    "methods": [
+      "Scale-based evaluation with rating on 1-5 scale"
+    ],
+    "criteria": [
+      "Fluency",
+      "Cohesiveness",
+      "Grammar"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "Scale-based evaluation with rating on 1-5 scale"
+        ]
+      },
+      "removed": {
+        "models": [
+          "ChatGPT (gpt-3.5-turbo-0125)",
+          "ChatGPT (gpt-3.5-turbo)"
+        ],
+        "methods": [
+          "LLM‑based text quality scoring",
+          "scale-based evaluation with a prompt",
+          "evaluation prompt with temperature settings"
+        ],
+        "criteria": [
+          "fluency",
+          "cohesiveness",
+          "grammar",
+          "overall quality"
+        ]
+      },
+      "normalized": {
+        "fluency": "Fluency",
+        "cohesiveness": "Cohesiveness",
+        "grammar": "Grammar"
+      },
+      "explanation": "Normalized ChatGPT model name variants. Consolidated evaluation methods into a single clear description. Removed 'overall quality' as it's not explicitly mentioned as a separate criterion."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "guideline": [
+          "Annotators rate each generated text on a 1–5 scale for fluency, cohesiveness, and grammar.",
+          "Human annotators were asked to generate counterfactuals by minimally editing the original text to change the sentiment or entailment label, and their outputs were used as reference examples."
+        ],
+        "criteria": [
+          "fluency",
+          "cohesiveness",
+          "grammar",
+          "Fluency",
+          "Cohesiveness",
+          "Grammar"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses human-generated counterfactuals as references (from existing datasets), but does not conduct human evaluation of the generated outputs. The human examples are used as gold standards, not as evaluators of system outputs."
+    }
+  },
+  "overall_notes": "The paper introduces CEval, a benchmark for counterfactual text generation evaluation. It focuses on evaluating methods that generate counterfactual text by minimal modifications. The paper uses both automated metrics and LLMs as judges for evaluation, but does not conduct new human evaluations - it uses existing human-generated counterfactuals as reference data. The extraction was mostly accurate but incorrectly identified human evaluation where only reference human data was used."
+}

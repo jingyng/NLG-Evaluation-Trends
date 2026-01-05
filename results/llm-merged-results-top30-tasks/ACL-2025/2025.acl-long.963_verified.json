@@ -1,0 +1,187 @@
+{
+  "paper_id": "2025.acl-long.963",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "DO NOT ANSWER",
+      "ADVBENCH",
+      "SAFETY BENCH",
+      "DO ANYTHING NOW",
+      "SALAD BENCH",
+      "TRUSTLLM",
+      "SC SAFETY",
+      "FAIRMT BENCH",
+      "LMSYS CHAT 1m",
+      "COSAFE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gemini_exp_1206",
+      "chatgpt_4o_latest",
+      "deepseek_v_3",
+      "step_2_16k_exp",
+      "yi_lightning",
+      "claude_3.5_sonnet",
+      "qwen_2.5_plus_1127",
+      "gpt_3.5_turbo",
+      "deepseek_r_1",
+      "llama_3.1_8b"
+    ],
+    "outputs": [
+      "Multi-turn dialogues with harmful intent simulation",
+      "LLM responses during safety evaluation",
+      "Safety evaluation prompts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Safety-Bench",
+          "Do-Anything-Now"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Safety evaluation prompts"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Do Anything Now",
+          "Jailbreak Trigger",
+          "Do-not-Answer"
+        ],
+        "languages": [],
+        "models": [
+          "Claude 3.5 Sonnet",
+          "ChatGPT-4o",
+          "Gemini",
+          "GPT-4o",
+          "gpt-3.5-turbo"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Do-Not-Answer": "Do-Not-Answer",
+        "Claude-3.5-sonnet": "Claude-3.5-Sonnet",
+        "GPT-3.5-Turbo": "GPT-3.5-Turbo"
+      },
+      "explanation": "Normalized dataset names (removed duplicates and variations), removed redundant model names (e.g., 'gpt-3.5-turbo' is same as 'GPT-3.5-Turbo'), added missing datasets mentioned in paper"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SAFETY RATIO",
+      "PERPLEXITY",
+      "DISTINCT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Safety score (unsafe response ratio)",
+          "Distinct-1",
+          "Distinct-3",
+          "Distinct-5",
+          "safety score (ratio of safe responses)"
+        ]
+      },
+      "normalized": {
+        "Safety Ratio": "Safety Ratio",
+        "Perplexity (PPL)": "Perplexity",
+        "Distinct-n": "Distinct-n"
+      },
+      "explanation": "Simplified metric variants to base forms (e.g., Distinct-1/3/5 → Distinct-n), removed redundant descriptions"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o",
+      "SFT-LLM"
+    ],
+    "methods": [
+      "Binary safety classification",
+      "Cognitive reasoning for prompt generation",
+      "Response judgment model"
+    ],
+    "criteria": [
+      "Safety",
+      "Analysis",
+      "Weakness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4o"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLM judge (e.g., GPT‑4 or similar response‑judgment model)"
+        ],
+        "methods": [
+          "induction, abduction, and deduction reasoning steps for prompt generation"
+        ],
+        "criteria": [
+          "reason why unsafe reply was not induced",
+          "possible weaknesses"
+        ]
+      },
+      "normalized": {
+        "SFT-LLM (LLaMA-3.1-8B based)": "SFT-LLM",
+        "binary safety classification": "Binary safety classification",
+        "LLM‑based safety classification via prompting": "Binary safety classification",
+        "cognitive driver of safe response": "Cognitive driver analysis"
+      },
+      "explanation": "Consolidated model names, simplified method descriptions, normalized criteria to consistent forms"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators judge safety of responses as safe/unsafe",
+      "Evaluate prompt safety and consistency with category/scenario/strategy using questionnaire",
+      "Use 5-level scale for strategy tree quality assessment"
+    ],
+    "criteria": [
+      "Safety",
+      "Consistency",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "prompt safety",
+          "consistency with category",
+          "consistency with scenario"
+        ]
+      },
+      "normalized": {
+        "strategy tree quality": "Strategy reflection quality"
+      },
+      "explanation": "Consolidated criteria to avoid redundancy, maintained key evaluation aspects"
+    }
+  },
+  "overall_notes": "The paper focuses on safety evaluation of LLMs through multi-turn dialogue generation. The CogSafe framework generates dynamic prompts and evaluates LLM responses. Extracted metadata was generally accurate but needed normalization and deduplication. The paper uses both automatic metrics (safety ratio, perplexity, diversity) and human evaluation for validation."
+}

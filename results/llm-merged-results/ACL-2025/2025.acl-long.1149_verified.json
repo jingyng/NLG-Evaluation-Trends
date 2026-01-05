@@ -1,0 +1,145 @@
+{
+  "paper_id": "2025.acl-long.1149",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Other:Safe Response Generation",
+      "Other:Safety Alignment"
+    ],
+    "datasets": [
+      "PKU-SafeRLHF",
+      "MultiJail",
+      "AdvBench-X",
+      "CSRT"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "Korean",
+      "Arabic",
+      "Bengali",
+      "Swahili",
+      "Japanese"
+    ],
+    "models": [
+      "LLaMA-3.1-8B-Instruct",
+      "Gemma-2-9B-it",
+      "Qwen2.5-7B-Instruct"
+    ],
+    "outputs": [
+      "Generated responses to harmful prompts",
+      "Safe vs. unsafe model-generated responses to safety‑related prompts",
+      "Safe and unsafe responses in multiple languages"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Preference Optimization"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Safe Response Generation": "Other:Safe Response Generation",
+        "Other:Safety Alignment": "Other:Safety Alignment",
+        "LLaMA-3.1-8B-Instruct": "LLaMA-3.1-8B-Instruct",
+        "Gemma-2-9B-it": "Gemma-2-9B-it",
+        "Qwen2.5-7B-Instruct": "Qwen2.5-7B-Instruct"
+      },
+      "explanation": "Removed 'Other:Preference Optimization' as it's a training method rather than an NLG task. The paper focuses on generating safe responses to dialogue prompts, which is NLG evaluation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Attack Success Rate (ASR)",
+      "MT-Bench",
+      "M-MMLU",
+      "MGSM"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "MT-Bench score": "MT-Bench",
+        "M-MMLU accuracy": "M-MMLU",
+        "MGSM accuracy": "MGSM"
+      },
+      "explanation": "Normalized metric names to canonical forms by removing 'score' and 'accuracy' descriptors. These are standard benchmarks where the metric type is implied."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "Translation to English followed by three-class classification (safe, unsafe, irrelevant)",
+      "LLM-as-a-judge"
+    ],
+    "criteria": [
+      "Safety",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "Safety",
+          "Relevance"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "classification into categories": "Translation to English followed by three-class classification (safe, unsafe, irrelevant)",
+        "three-class classification": "Translation to English followed by three-class classification (safe, unsafe, irrelevant)",
+        "Safe": "Safety",
+        "Unsafe": "Safety",
+        "Irrelevant": "Relevance",
+        "GPT-4o": "GPT-4o"
+      },
+      "explanation": "Consolidated redundant method descriptions into the most complete one. Normalized criteria by grouping 'Safe'/'Unsafe' under 'Safety' criterion and 'Irrelevant' under 'Relevance' criterion."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper explicitly states it uses GPT-4o for evaluation and mentions strong agreement with human annotations (kappa=0.86) but does not conduct original human evaluations."
+    }
+  },
+  "overall_notes": "The paper focuses on multilingual safety alignment for LLMs, evaluating generated responses to harmful prompts across multiple languages. It uses automatic benchmarks (MT-Bench, M-MMLU, MGSM) and safety metrics (ASR) with GPT-4o as the primary evaluator. The extraction quality was generally good, with minor normalization needed for consistency."
+}

@@ -1,0 +1,96 @@
+{
+  "paper_id": "2025.acl-long.230",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM evaluation metrics with human judgments and reports consistency analysis"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-3.5-turbo"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Provides evaluation prompts for multiple-choice evaluation task, including role-playing as journalist with specific judgment criteria"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": null,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Provides detailed annotation criteria including question type validation, context relevance, minimal perturbation, realistic conflicts, key fact preservation, natural ad integration, and specific workflow for soft ad attack text generation"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "human consistency"
+    ],
+    "shared_criteria": [
+      "correctness",
+      "incorrectness"
+    ],
+    "sample_size": {
+      "total_generated": 110,
+      "validated_by_both": 100,
+      "notes": "Base dataset of 100 question-contexts pairs after manual verification, covering multiple attack tasks"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "human consistency",
+        "value": "high",
+        "criterion": "ASR and AFR metrics",
+        "llm_model": null,
+        "significance": null,
+        "notes": "Reported as 'high human consistency' for ASR and AFR metrics"
+      },
+      {
+        "metric": "human consistency",
+        "value": "strong agreement",
+        "criterion": "F1 scores using DeepSeek",
+        "llm_model": "DeepSeek",
+        "significance": null,
+        "notes": "F1(correct) and F1(incorrect) scores obtained using DeepSeek demonstrate strong agreement with human judgments"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "high/strong",
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM evaluation metrics (ASR/AFR and F1 scores) show high consistency with human judgments, leading to adoption of DeepSeek for uniform evaluation across experiments."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Accuracy",
+      "Coherence",
+      "Comprehensiveness",
+      "Naturalness",
+      "Fluency",
+      "Relevance"
+    ],
+    "shared_criteria": [
+      "Correctness",
+      "Incorrectness"
+    ],
+    "notes": "Human evaluation covers broader quality criteria while LLM evaluation focuses specifically on correctness judgments for multiple-choice questions"
+  }
+}

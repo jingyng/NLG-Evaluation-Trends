@@ -1,0 +1,126 @@
+{
+  "paper_id": "2025.acl-long.490",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Attributed Text Generation"
+    ],
+    "datasets": [
+      "ASQA",
+      "QAMPARI",
+      "ELI5"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-3.1-8B-Instruct",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "Responses with in-text citations",
+      "Long-form answers with in-text citations referencing retrieved passages"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "LLaMA-3.1-8B-Instruct"
+        ],
+        "outputs": [
+          "Long-form answers with in-text citations referencing retrieved passages"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Llama-3-8B-SFR-Iterative-DPO-R",
+          "T5-XXL-TRUE-NLI-Mixture"
+        ],
+        "outputs": [
+          "responses with in-text citations that provide evidence for any statement"
+        ]
+      },
+      "normalized": {
+        "GPT-4o": "GPT-4o",
+        "LLaMA-3.1-8B-Instruct": "LLaMA-3.1-8B-Instruct"
+      },
+      "explanation": "Removed reward/NLI models that are not generation models but evaluation models. Removed duplicate/redundant output description. Added more specific output description from the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Exact Match Recall",
+      "Recall-5",
+      "Precision",
+      "Claim Recall",
+      "Citation Recall",
+      "Citation Precision",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "EM Recall",
+          "F1 (citation)",
+          "Precision (QAMPARI)"
+        ]
+      },
+      "normalized": {
+        "Exact Match (EM) Recall": "Exact Match Recall",
+        "F1 score": "F1"
+      },
+      "explanation": "Simplified metric variants by removing qualifiers, merged duplicate metrics, normalized to base forms"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "T5-XXL-TRUE-NLI-Mixture"
+        ],
+        "methods": [
+          "entailment classification"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper uses a T5 NLI model for citation evaluation, but this is a traditional classification model, not an LLM-as-judge evaluation paradigm. No LLM is used to evaluate outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper - all evaluation is automated using metrics."
+    }
+  },
+  "overall_notes": "The paper focuses on attributed text generation (a type of NLG) using tree search methods. Evaluation is entirely automated using standard metrics for factual QA and citation quality. The extraction was mostly accurate but included some evaluation models that should not be listed as generation models."
+}

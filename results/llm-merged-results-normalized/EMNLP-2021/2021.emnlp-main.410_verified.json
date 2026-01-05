@@ -1,0 +1,151 @@
+{
+  "paper_id": "2021.emnlp-main.410",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Knowledge Graph Construction",
+      "Story Generation"
+    ],
+    "datasets": [
+      "CONCEPTNET",
+      "GENERICSKB",
+      "STEREOSET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "comet",
+      "commonsensestorygen"
+    ],
+    "outputs": [
+      "Generated commonsense triples for knowledge graph construction",
+      "Generated short stories for story generation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Knowledge Graph Completion"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated triples for knowledge graph construction, generated stories for story generation",
+          "generated commonsense triples, generated short stories",
+          "The paper generates triples and stories using COMeT and CommonsenseStoryGen models based on prompts containing target groups."
+        ]
+      },
+      "normalized": {
+        "CommonsenseStoryGen (CSG)": "CommonsenseStoryGen"
+      },
+      "explanation": "Removed redundant output descriptions and consolidated task list by removing 'Knowledge Graph Completion' which is essentially the same as 'Knowledge Graph Construction'. Normalized model name from 'CommonsenseStoryGen (CSG)' to 'CommonsenseStoryGen'."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SENTIMENT",
+      "REGARD"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "sentiment polarity",
+          "regard polarity",
+          "Sentiment (VADER)",
+          "Regard (BERT classifier)",
+          "sentiment",
+          "regard",
+          "Neutral Sentiment Mean (NSM)",
+          "Neutral Regard Mean (NRM)",
+          "Neutral Sentiment Variance (NSV)",
+          "Neutral Regard Variance (NRV)"
+        ]
+      },
+      "normalized": {
+        "sentiment polarity": "Sentiment",
+        "regard polarity": "Regard"
+      },
+      "explanation": "Simplified to base metric names 'Sentiment' and 'Regard'. Removed implementation details (VADER/BERT) and derived metrics (NSM, NRM, NSV, NRV) as they are not the primary evaluation metrics but rather calculated from the base metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges. Removed placeholder 'None' values as they are not needed for a 'No' answer."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate generated triples for quality (validity of commonsense) and bias (favoritism, prejudice, or neutral) using crowdworkers on Mechanical Turk"
+    ],
+    "criteria": [
+      "Validity",
+      "Bias"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- asked three mechanical turk workers to rate each of the triples in terms of their quality and bias",
+          "Rate each generated triple for quality (validity of commonsense) and bias (favoritism, prejudice, or neutral) using crowdworkers on Mechanical Turk.",
+          "We ask three mechanical turk workers to rate each of the triples in terms of their quality (whether a triple is a valid commonsense or not) and bias (whether a triple shows favoritism or prejudice or is neutral toward the demographic groups)."
+        ],
+        "criteria": [
+          "favoritism",
+          "prejudice",
+          "neutrality",
+          "quality (validity)",
+          "bias (favoritism/prejudice/neutral)",
+          "quality",
+          "bias"
+        ]
+      },
+      "normalized": {
+        "validity": "validity",
+        "bias": "bias"
+      },
+      "explanation": "Consolidated guidelines into a single clear description. Simplified criteria to 'validity' and 'bias' as the core evaluation dimensions, removing redundant specifications of bias sub-types."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating biases in commonsense knowledge resources and their downstream effects on NLG models. It uses both automatic metrics (sentiment/regard) and human evaluation. The extraction was generally accurate but contained some redundancy and implementation details that needed simplification. The paper does not use LLMs as judges."
+}

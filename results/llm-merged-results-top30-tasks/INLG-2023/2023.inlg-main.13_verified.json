@@ -1,0 +1,171 @@
+{
+  "paper_id": "2023.inlg-main.13",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "MIMIC CXR",
+      "OPEN I"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bertabs",
+      "gsum",
+      "wgsum",
+      "wgsum+cl",
+      "oracleext",
+      "bertext"
+    ],
+    "outputs": [
+      "Impressions (summaries of radiology findings)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LR-Approx",
+          "BERT-Approx",
+          "Thresholding"
+        ],
+        "outputs": [
+          "Impression summaries (concise abstractive summaries of radiology findings)",
+          "impression section of radiology reports"
+        ]
+      },
+      "normalized": {
+        "BertAbs": "BertAbs",
+        "GSum": "GSum",
+        "WGSum": "WGSum",
+        "WGSum+CL": "WGSum+CL",
+        "OracleExt": "OracleExt",
+        "BertExt": "BertExt"
+      },
+      "explanation": "Removed LR-Approx, BERT-Approx, and Thresholding as they are guidance extraction methods, not summarization models. Consolidated outputs into a single description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTSCORE",
+      "FACTUALITY F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "Factuality",
+          "factuality F1"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "Factuality": "Factuality F1",
+        "factuality F1": "Factuality F1"
+      },
+      "explanation": "Normalized ROUGE variants to base form and consolidated factuality metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RadNLI"
+        ],
+        "methods": [
+          "post-hoc factuality check using RadNLI for contradiction"
+        ],
+        "criteria": [
+          "factuality"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed RadNLI as it's not an LLM-based evaluation method. The paper does not use LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators highlight erroneous spans and classify them into 11 fine-grained error categories including omissions, additions, incorrect semantics, and other errors"
+    ],
+    "criteria": [
+      "Omission",
+      "Addition",
+      "Correctness",
+      "Error"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators highlight erroneous spans and classify them into 11 categories (e.g., omissions, additions, incorrect semantics).",
+          "Annotators followed detailed annotation guidelines defining 11 fine‑grained error categories (omissions, additions, incorrect location, incorrect severity, other, etc.) and marked spans accordingly.",
+          "Annotators are asked to highlight erroneous text spans and classify them into error categories including omissions, additions, incorrect location, incorrect severity, and other errors. They can also flag any additional errors in free-form."
+        ],
+        "criteria": [
+          "omission",
+          "addition",
+          "omissions",
+          "additions",
+          "contradicting finding",
+          "communication/followup",
+          "reference to prior report",
+          "comparison",
+          "finding/interpretation"
+        ]
+      },
+      "normalized": {
+        "omission of finding/interpretation": "Omission of finding/interpretation",
+        "omission of comparison": "Omission of comparison",
+        "omission of reference to prior report": "Omission of reference to prior report",
+        "omission of communication/followup": "Omission of communication/followup",
+        "addition of finding/interpretation": "Addition of finding/interpretation",
+        "addition of comparison": "Addition of comparison",
+        "addition of reference to prior report": "Addition of reference to prior report",
+        "addition of communication/followup": "Addition of communication/followup",
+        "addition of contradicting finding": "Addition of contradicting finding",
+        "incorrect location": "Incorrect location",
+        "incorrect severity": "Incorrect severity",
+        "other error": "Other error"
+      },
+      "explanation": "Consolidated guideline into a single description and normalized criteria names to consistent title case"
+    }
+  },
+  "overall_notes": "The paper focuses on radiology report summarization with thorough evaluation including both automatic metrics and detailed human error analysis. The extraction was generally good but needed normalization and removal of non-NLG models. The human evaluation is particularly comprehensive with 11 fine-grained error categories assessed by domain experts."
+}

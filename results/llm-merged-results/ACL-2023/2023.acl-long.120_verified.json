@@ -1,0 +1,152 @@
+{
+  "paper_id": "2023.acl-long.120",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Oracle",
+      "Oracle (discourse)",
+      "RNN Ext RL",
+      "BanditSumm",
+      "NeuSumm",
+      "Refresh",
+      "BERT+LSTM+PN+RL",
+      "MatchSumm",
+      "HeterGraph",
+      "Histruct+",
+      "Lead3",
+      "Textrank",
+      "PACSUM (tfidf)",
+      "PACSUM (bert)",
+      "MI-unsup"
+    ],
+    "outputs": [
+      "extractive summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "CNN/DailyMail"
+        ],
+        "languages": [],
+        "models": [
+          "Heter-Graph",
+          "Oracle (disco)",
+          "Pac-Sum (tfidf)",
+          "Pac-Sum (bert)",
+          "Textrank (ST)"
+        ],
+        "outputs": [
+          "extractive summaries (sentences or elementary discourse units)"
+        ]
+      },
+      "normalized": {
+        "CNN/DM": "CNN/DM",
+        "CNN/DailyMail": "CNN/DM",
+        "PacSum (tfidf)": "PACSUM (tfidf)",
+        "PacSum (bert)": "PACSUM (bert)",
+        "Textrank (ST)": "Textrank",
+        "Oracle (disco)": "Oracle (discourse)"
+      },
+      "explanation": "Normalized dataset names (CNN/DM is the standard form), removed duplicate/variant model names, normalized capitalization of PACSUM, consolidated Textrank variants, removed overly specific output description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "FactCC",
+      "DAE",
+      "QuestEval",
+      "BERTScore",
+      "EXTEVAL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-2-F1",
+          "BERTScore Precision"
+        ]
+      },
+      "normalized": {
+        "ROUGE-2-F1": "ROUGE",
+        "BERTScore Precision": "BERTScore",
+        "BERTScore": "BERTScore"
+      },
+      "explanation": "Simplified metric variants to base forms (ROUGE instead of ROUGE-2-F1, BERTScore instead of BERTScore Precision)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge approach used in this paper - only traditional metrics and human evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators judged each summary on five types of unfaithfulness problems via yes/no questions",
+      "For positive cases, annotators justified choices by pointing out unfaithful parts",
+      "Each summary was labeled by two annotators independently, then differences were resolved collaboratively"
+    ],
+    "criteria": [
+      "incorrect coreference",
+      "incomplete coreference",
+      "incorrect discourse",
+      "incomplete discourse",
+      "misleading information"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Each summary was labeled by two annotators independently, then differences were resolved collaboratively"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Enhanced guideline description to include the annotation process described in the paper"
+    }
+  },
+  "overall_notes": "The paper focuses exclusively on extractive text summarization evaluation. It introduces a new faithfulness evaluation metric (EXTEVAL) specifically designed for extractive summarization. The human evaluation was conducted by expert annotators (including two authors and two CS undergraduate researchers) rather than crowd workers. The paper makes significant contributions to understanding and evaluating faithfulness issues in extractive summarization."
+}

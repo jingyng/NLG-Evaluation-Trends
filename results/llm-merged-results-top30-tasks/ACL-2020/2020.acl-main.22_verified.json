@@ -1,0 +1,152 @@
+{
+  "paper_id": "2020.acl-main.22",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "PARANMT 50m"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "sow_reap",
+      "transformer_seq_2seq",
+      "scpn",
+      "lstm_with_attention_and_copy"
+    ],
+    "outputs": [
+      "paraphrases",
+      "structurally distinct paraphrases"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "SCPN",
+          "LSTM with attention and copy"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "SOW-REAP (Transformer)",
+          "SOW-REAP (LSTM)",
+          "REAP",
+          "SOW",
+          "Transformer"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "SOW-REAP (Transformer)": "SOW-REAP",
+        "SOW-REAP (LSTM)": "SOW-REAP",
+        "Transformer seq2seq": "Transformer seq2seq"
+      },
+      "explanation": "Consolidated model names to remove redundant variants. Added SCPN and LSTM baselines that were explicitly evaluated. Kept 'Transformer seq2seq' as distinct from SOW-REAP since it's a separate baseline."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "WER",
+      "PERPLEXITY",
+      "KENDALL S TAU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "WER",
+          "perplexity",
+          "Kendall's Tau"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "self-BLEU",
+          "self-WER",
+          "oracle BLEU",
+          "oracle perplexity",
+          "oracle-BLEU",
+          "oracle-ppl"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "self-BLEU": "BLEU",
+        "self-WER": "WER"
+      },
+      "explanation": "Normalized metric variants to base forms (BLEU, ROUGE). Removed 'oracle' and 'self-' prefixed metrics as they are methodological applications of the base metrics. Added WER, perplexity, and Kendall's Tau which were explicitly used."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this 2020 paper. The extracted metadata was correctly empty."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "3-point scale: 0=not a paraphrase, 1=paraphrase with grammatical errors, 2=correct paraphrase"
+    ],
+    "criteria": [
+      "Correctness",
+      "Grammaticality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "paraphrase correctness",
+          "grammaticality"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "semantic equivalence",
+          "fluency",
+          "paraphrase"
+        ]
+      },
+      "normalized": {
+        "semantic equivalence": "paraphrase correctness",
+        "grammatical errors": "grammaticality",
+        "paraphrase": "paraphrase correctness"
+      },
+      "explanation": "Simplified criteria to match the explicit 3-point scale used in human evaluation. Removed inferred criteria like 'fluency' that weren't explicitly mentioned. The scale directly measures paraphrase correctness and grammaticality."
+    }
+  },
+  "overall_notes": "The paper is a well-structured ACL 2020 paper on controlled paraphrase generation. The extraction was generally accurate but needed normalization of metric variants and consolidation of model names. The paper focuses on syntactic control for paraphrase diversity and uses both automatic metrics and human evaluation. No LLM evaluation was used (expected for a 2020 paper)."
+}

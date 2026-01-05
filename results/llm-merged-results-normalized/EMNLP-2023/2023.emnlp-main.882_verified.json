@@ -1,0 +1,118 @@
+{
+  "paper_id": "2023.emnlp-main.882",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Subjective Bias Neutralization"
+    ],
+    "datasets": [
+      "CROSS DOMAIN BIAS DATASET WIKIPEDIA MPQA IBC",
+      "WIKIPEDIA NPOV EDIT HISTORY",
+      "WIKIBIAS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "fairbalance",
+      "gan",
+      "maskgan",
+      "cyclegan",
+      "control_gen",
+      "delete_biased_word"
+    ],
+    "outputs": [
+      "neutral text from biased input"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [
+          "Non-parallel dataset from Wikipedia edit histories",
+          "Cross-domain bias dataset",
+          "Wikipedia"
+        ],
+        "models": [
+          "bias tagger (RoBERTa)",
+          "pre-trained bias classifier (RoBERTa)",
+          "Transformer generator",
+          "RoBERTa bias classifier",
+          "Bias Tagger"
+        ]
+      },
+      "normalized": {
+        "Other:bias neutralization": "Other:Subjective Bias Neutralization"
+      },
+      "explanation": "Removed 'Paraphrase Generation' as it's not a main task (only mentioned in related work). Consolidated datasets by removing redundant mentions. Removed component models (bias tagger, classifier) since they're part of FairBalance system, not standalone evaluated models. Kept only the main evaluated NLG models."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "NEUTRALITY",
+      "BLEU",
+      "BERTSCORE",
+      "PPL"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "BLEU": "BLEU",
+        "BERT-Score": "BERTScore",
+        "Perplexity (PPL)": "PPL",
+        "Neutrality score": "Neutrality"
+      },
+      "explanation": "Normalized metric names to standard forms and removed redundant mentions. All metrics are explicitly used to evaluate generated outputs (neutralized texts)."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs were used as judges for evaluation. The paper uses human evaluation and automatic metrics only."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Judges presented with original and neutralized text, rated on scales: bias (-2 to 2), fluency (-2 to 2), content preservation (0 to 4)"
+    ],
+    "criteria": [
+      "Bias",
+      "Fluency",
+      "Preservation"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "criteria": [
+          "neutrality"
+        ]
+      },
+      "normalized": {
+        "neutrality": "bias"
+      },
+      "explanation": "Consolidated guideline description. Removed 'neutrality' as duplicate of 'bias' criterion. The three main criteria are clearly defined in the human evaluation section."
+    }
+  },
+  "overall_notes": "The paper focuses on subjective bias neutralization as an NLG task using non-parallel data. The extraction was generally accurate but included some redundant items and component models that should be consolidated. The paper uses both automatic metrics (Neutrality, BLEU, BERTScore, PPL) and human evaluation with clear rating scales for bias, fluency, and content preservation."
+}

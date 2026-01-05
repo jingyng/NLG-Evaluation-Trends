@@ -1,0 +1,180 @@
+{
+  "paper_id": "2025.acl-long.1540",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Math Reasoning",
+      "Logical Reasoning",
+      "Code Generation"
+    ],
+    "datasets": [
+      "GSM8K",
+      "math500",
+      "FOLIO",
+      "RECLOR",
+      "HumanEval",
+      "MBPP"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_8b_instruct",
+      "mistral_7b_instruct"
+    ],
+    "outputs": [
+      "reasoning steps",
+      "final answers",
+      "entailment graphs",
+      "code solutions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "reasoning steps",
+          "final answers",
+          "entailment graphs",
+          "code solutions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Math Reasoning",
+          "Other:Logical Reasoning",
+          "Other:math reasoning",
+          "Other:logical reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Generated reasoning steps and final answers.",
+          "generated code solutions, mathematical derivations, logical proofs",
+          "entailment graphs, reasoning steps, and final answers"
+        ]
+      },
+      "normalized": {
+        "LLaMA3-8B-Instruct": "LLaMA-3-8B-Instruct",
+        "Other:Math Reasoning": "Math Reasoning",
+        "Other:Logical Reasoning": "Logical Reasoning",
+        "Other:math reasoning": "Math Reasoning",
+        "Other:logical reasoning": "Logical Reasoning"
+      },
+      "explanation": "Normalized task names to standard forms (removed 'Other:' prefix), normalized model names to standard capitalization, and simplified output descriptions while maintaining accuracy."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Symbolic Verification",
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "Symbolic Verification": "Accuracy"
+      },
+      "explanation": "Removed 'Symbolic Verification' as it's not an automatic metric for evaluating generated outputs (it's a verification process). Kept only 'Accuracy' as the main automatic metric used throughout the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o"
+    ],
+    "methods": [
+      "Contrastive Ranking",
+      "Pairwise Comparison"
+    ],
+    "criteria": [
+      "Plausibility",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Pairwise Comparison"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLaMA3-8B-Instruct",
+          "Mistral-7B-Instruct"
+        ],
+        "methods": [
+          "process supervision",
+          "preference labeling"
+        ],
+        "criteria": [
+          "symbolic verification",
+          "correctness of reasoning steps",
+          "error identification",
+          "preference between options"
+        ]
+      },
+      "normalized": {
+        "contrastive ranking": "Contrastive Ranking",
+        "pairwise comparison": "Pairwise Comparison"
+      },
+      "explanation": "Removed base models (LLaMA, Mistral) as they are used for generation, not evaluation. GPT-4o is used for evaluation tasks like generating training data and meta-knowledge. Kept only explicit evaluation criteria mentioned for LLM-as-judge."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "For each node in a graph, assess both content and dependency. Node content accuracy is the proportion of nodes with correct content. Dependency accuracy is the proportion of nodes with correct dependency. Node accuracy is the proportion of nodes correct in both content and dependency. A graph is fully correct if all nodes are accurate in both content and dependency."
+    ],
+    "criteria": [
+      "Accuracy",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "For each node in a graph, assess both content and dependency. Node content accuracy is the proportion of nodes with correct content. Dependency accuracy is the proportion of nodes with correct dependency. Node accuracy is the proportion of nodes correct in both content and dependency. A graph is fully correct if all nodes are accurate in both content and dependency."
+        ],
+        "criteria": [
+          "Node Content Accuracy",
+          "Dependency Accuracy",
+          "Node Accuracy",
+          "Graph Correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "node content accuracy",
+          "dependency accuracy",
+          "node accuracy",
+          "graph-level accuracy"
+        ]
+      },
+      "normalized": {
+        "node content accuracy": "Node Content Accuracy",
+        "dependency accuracy": "Dependency Accuracy",
+        "node accuracy": "Node Accuracy",
+        "graph-level accuracy": "Graph Correctness"
+      },
+      "explanation": "Consolidated the guideline into a single clear description and normalized criteria names to standard title case. The paper clearly describes human evaluation of entailment graphs with specific accuracy metrics."
+    }
+  },
+  "overall_notes": "The paper focuses on reasoning tasks (math, logic, coding) with natural language generation of reasoning steps and entailment graphs. Evaluation uses both automatic metrics (accuracy) and human evaluation (graph quality). LLM-as-judge is used primarily through GPT-4o for contrastive ranking and training data generation. The extraction was generally accurate but needed normalization and removal of items that were not actual evaluation methods."
+}

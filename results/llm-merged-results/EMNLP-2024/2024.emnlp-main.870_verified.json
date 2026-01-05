@@ -1,0 +1,185 @@
+{
+  "paper_id": "2024.emnlp-main.870",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Keyword-Constrained Generation",
+      "Other:Toxicity Reduction",
+      "Other:Factual Correctness in QA"
+    ],
+    "datasets": [
+      "CommonGen",
+      "REALTOXICITYPROMPTS",
+      "ALCE",
+      "FEVER",
+      "VitaminC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Falcon-7B-Instruct",
+      "LLaMA-2-13B-Chat",
+      "Falcon-40B-Instruct",
+      "Alpaca-7B-Instruct",
+      "Vicuna-13B-v1.3",
+      "ChatGPT",
+      "Text-Davinci-003"
+    ],
+    "outputs": [
+      "Generated sentences with specified keywords",
+      "Non-toxic continuations of prompts",
+      "Factually correct answers to questions supported by evidence"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:keyword-constrained generation",
+          "Other:toxicity reduction",
+          "Other:factual question answering",
+          "Other:factual correctness in question answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Generated sentences or passages that satisfy lexical, toxicity, or factual constraints.",
+          "The generated outputs include sentences incorporating given keywords, non-toxic continuations of prompts, and factually correct answers to questions supported by evidence."
+        ]
+      },
+      "normalized": {
+        "Other:Keyword-Constrained Generation": "Other:Keyword-Constrained Generation",
+        "Other:Toxicity Reduction": "Other:Toxicity Reduction",
+        "Other:Factual Correctness in QA": "Other:Factual Correctness in QA"
+      },
+      "explanation": "Removed duplicate task entries and simplified output descriptions. Consolidated tasks to remove redundant entries while keeping the main three NLG tasks studied."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "CIDEr",
+      "Coverage",
+      "Maximum Toxicity",
+      "Toxicity Probability",
+      "Diversity",
+      "Recall",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "CIDEr",
+          "ROUGE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "CIDER",
+          "constraint coverage",
+          "diversity",
+          "recall",
+          "ratio of sub-claims entailed",
+          "coverage score",
+          "recall of correct short answers"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "CIDER": "CIDEr",
+        "constraint coverage": "Coverage",
+        "maximum toxicity": "Maximum Toxicity",
+        "toxicity probability": "Toxicity Probability",
+        "diversity": "Diversity",
+        "recall": "Recall",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric names to standard forms (CIDER→CIDEr, ROUGE-L→ROUGE). Removed descriptive phrases and kept only metric names. Simplified variants to base forms."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Falcon-7B-Instruct",
+          "LLaMA-2-13B-Chat",
+          "Falcon-40B-Instruct",
+          "Alpaca-7B-Instruct",
+          "Vicuna-13B-v1.3",
+          "ChatGPT",
+          "Text-Davinci-003"
+        ],
+        "methods": [
+          "pairwise ranking accuracy",
+          "binary Yes/No prompting"
+        ],
+        "criteria": [
+          "constraint satisfaction",
+          "toxicity",
+          "factual correctness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper does NOT use LLMs as judges. The LLMs mentioned are used for generation and constraint estimation, not for post-hoc evaluation of outputs. The ranking benchmarks are used to validate the constraint estimation function, not to evaluate final outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers judge responses on fluency (1-5 scale), informativeness (1-5 scale), and correctness (0-3 scale)",
+      "Workers are instructed to judge whether each claim is fully supported by the response"
+    ],
+    "criteria": [
+      "Fluency",
+      "Informativeness",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Workers judge responses on fluency, informativeness, and correctness using specified scoring scales.",
+          "Workers were asked to rate each model response on fluency (1-5), informativeness (1-5), and correctness (0-3) based on provided instructions.",
+          "Workers were instructed to judge whether each claim is fully supported by the response, and to score fluency, informativeness, and correctness."
+        ],
+        "criteria": [
+          "Informative",
+          "fluency",
+          "informative",
+          "correctness"
+        ]
+      },
+      "normalized": {
+        "Fluency": "Fluency",
+        "Informative": "Informativeness",
+        "Correctness": "Correctness"
+      },
+      "explanation": "Consolidated guidelines into two clear statements and normalized criteria to consistent capitalization. Removed redundant guideline descriptions."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on constrained decoding methods for NLG tasks. The extraction was mostly accurate but contained some duplicates and inconsistent formatting. Key finding: While the paper uses LLMs extensively, they are used for generation and constraint estimation, not as post-hoc judges, so answer 3 should remain 'No'. The human evaluation was properly conducted on Amazon Mechanical Turk with clear criteria."
+}

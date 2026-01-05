@@ -1,0 +1,89 @@
+{
+  "paper_id": "2025.naacl-long.426",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-as-a-judge ratings with human expert ratings, stating they were 'strongly correlated' and reporting a Pearson correlation coefficient."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper mentions prompts were based on six evaluation criteria, with detailed prompts and scoring method in Appendix B and C, but full prompts are not shown in provided text."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 4,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed evaluation criteria provided in Appendix Section A; experts rated on 5-point scale for six clinical criteria; each summary independently rated by 2 experts in blind study."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "recall of diagnoses",
+      "accuracy of treatment plan",
+      "avoidance of false information",
+      "clarity and structure",
+      "inclusion of important positive clinical details",
+      "inclusion of important negative clinical details"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": null,
+      "notes": "Exact number of summaries used for validation not explicitly stated; validation performed on summaries generated from human transcripts (LLM-Eval-H scenario)."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.816,
+        "criterion": "overall",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Correlation reported between LLM-as-Judge ratings (LLM-Eval-H) and human expert ratings; applies to composite evaluation across all six criteria."
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Not explicitly mentioned",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM-as-Judge ratings showed strong correlation (Pearson=0.816) with human expert ratings, consistent with prior work demonstrating LLMs can effectively replicate human judgments for medical conversation summarization evaluation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "recall of diagnoses",
+      "accuracy of treatment plan",
+      "avoidance of false information",
+      "clarity and structure",
+      "inclusion of important positive clinical details",
+      "inclusion of important negative clinical details"
+    ],
+    "notes": "Both LLM-as-Judge and human experts evaluated summaries using the same six clinical criteria on identical 5-point scales; no criteria were evaluated by only one method."
+  }
+}

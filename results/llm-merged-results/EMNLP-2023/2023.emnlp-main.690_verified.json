@@ -1,0 +1,142 @@
+{
+  "paper_id": "2023.emnlp-main.690",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "REFRESD",
+      "FLORES",
+      "OPUS",
+      "WMT Critical Error Detection dataset"
+    ],
+    "languages": [
+      "English",
+      "French",
+      "Spanish",
+      "Portuguese"
+    ],
+    "models": [
+      "Divergent mBERT"
+    ],
+    "outputs": [
+      "contrastive phrasal highlights (explanations of meaning differences)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "OPUS parallel corpus"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "contrastive phrasal highlights that explain meaning differences in bilingual texts"
+        ]
+      },
+      "normalized": {
+        "OPUS parallel corpus": "OPUS",
+        "contrastive phrasal highlights that explain meaning differences in bilingual texts": "contrastive phrasal highlights (explanations of meaning differences)"
+      },
+      "explanation": "Removed duplicate dataset (OPUS parallel corpus is the same as OPUS) and simplified output description. All other metadata was correctly extracted and relevant."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Precision",
+      "Recall",
+      "F1",
+      "Minimality"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F-1",
+          "Minimality (token count)"
+        ]
+      },
+      "normalized": {
+        "F-1": "F1",
+        "Minimality (token count)": "Minimality"
+      },
+      "explanation": "Normalized F-1 to F1 and simplified 'Minimality (token count)' to 'Minimality'. The paper uses these metrics for proxy evaluation against human rationales."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The paper mentions using ChatGPT for data generation (creating synthetic examples), but not for evaluation of outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants determine whether sentence pairs contain meaning differences and characterize them as 'Added' vs. 'Changed'",
+      "For machine translation errors, participants detect accuracy errors and rate severity as minor/major"
+    ],
+    "criteria": [
+      "meaning difference detection",
+      "added vs. changed classification",
+      "error severity rating"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "For machine translation errors, participants detect accuracy errors and rate severity as minor/major"
+        ],
+        "criteria": [
+          "error severity rating"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Annotators read bilingual sentence pairs, decide if a meaning difference is present, classify the difference as Added or Changed, and for MT errors also rate severity (major/minor).",
+          "An annotation instance is a sentence pair in English and, e.g., French. Bilingual speakers are asked to read each sentence pair closely, determine whether the 'sentence pair contains any difference in meaning', and finally characterize the difference as 'Added' vs. 'Changed'."
+        ],
+        "criteria": [
+          "detection of meaning differences",
+          "severity rating of accuracy errors",
+          "Added",
+          "Changed"
+        ]
+      },
+      "normalized": {
+        "detection of meaning differences": "meaning difference detection",
+        "severity rating of accuracy errors": "error severity rating",
+        "added vs. changed classification": "added vs. changed classification"
+      },
+      "explanation": "Consolidated redundant guideline descriptions and normalized criteria names. Added missing MT error severity criterion that was mentioned in the paper but not in extracted metadata."
+    }
+  },
+  "overall_notes": "The paper focuses on explainability for NLG evaluation (specifically machine translation quality assessment) rather than NLG generation itself. The 'contrastive phrasal highlights' are explanations of model predictions about translation quality, not generated text. The human evaluations are well-documented with clear criteria. The automatic metrics are used for proxy evaluation against human rationales. No LLM-as-judge evaluation was conducted."
+}

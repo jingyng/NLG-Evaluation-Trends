@@ -1,0 +1,152 @@
+{
+  "paper_id": "2025.emnlp-main.1571",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other: Context Generation",
+      "Other: Toxic Language Detection"
+    ],
+    "datasets": [
+      "Toxigen",
+      "MODELCITIZENS",
+      "HateModerate",
+      "Counter-Context"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-3.1-8B-Instruct",
+      "Gemma-3-12B-IT",
+      "Qwen-2.5-7B-Instruct",
+      "Gemini-2.0-Flash",
+      "GPT-4o",
+      "GPT-o4-mini",
+      "Llama-Guard-3-8B",
+      "LLAMACITIZEN-8B",
+      "GEMMACITIZEN-12B",
+      "Qwen-2.5-32B-Instruct"
+    ],
+    "outputs": [
+      "Generated conversational contexts (previous and follow-up comments)",
+      "toxicity classifications"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other: Context Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-o4-mini",
+          "LLAMACITIZEN-8B",
+          "GEMMACITIZEN-12B",
+          "Qwen-2.5-32B-Instruct"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "LLaMA-3.1-8B-Instruct": "LLaMA-3.1-8B-Instruct",
+        "Gemma-3-12B-IT": "Gemma-3-12B-IT",
+        "Gemini-2.0-Flash": "Gemini-2.0-Flash",
+        "GPT-4o": "GPT-4o",
+        "Llama-Guard-3-8B": "Llama-Guard-3-8B",
+        "Other:Toxic Language Detection": "Other: Toxic Language Detection"
+      },
+      "explanation": "Replaced 'Dialogue Generation' with 'Other: Context Generation' since GPT-4o generates conversational contexts but not full dialogues. Added missing models (GPT-o4-mini, LLAMACITIZEN-8B, GEMMACITIZEN-12B, Qwen-2.5-32B-Instruct) that are evaluated for toxicity detection."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "accuracy",
+          "F1 score"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "F1 score": "F1"
+      },
+      "explanation": "Normalized duplicate metrics by removing case variants ('accuracy' → 'Accuracy', 'F1 score' → 'F1'). Accuracy and F1 are the primary automatic metrics used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT-4o"
+        ],
+        "methods": [
+          "harmfulness classification"
+        ],
+        "criteria": [
+          "harmful",
+          "not harmful"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper uses GPT-4o for generation tasks (context generation) and evaluation baselines, but not as a judge to assess generated outputs after generation. The 'harmfulness classification' prompt is used for training/finetuning models, not for LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate toxicity on a 1-5 scale (1=benign, 5=extremely toxic)",
+      "Rate generated context for naturalness and plausibility on a 3-point scale"
+    ],
+    "criteria": [
+      "Toxicity severity",
+      "Naturalness",
+      "Plausibility"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Rate generated context for naturalness and plausibility on a 3-point scale"
+        ],
+        "criteria": [
+          "Naturalness",
+          "Plausibility"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "toxicity"
+        ]
+      },
+      "normalized": {
+        "naturalness": "Naturalness",
+        "plausibility": "Plausibility",
+        "toxicity": "Toxicity severity"
+      },
+      "explanation": "Added missing human evaluation details for generated contexts. Normalized criteria to title case. 'toxicity' was replaced with more specific 'Toxicity severity' to match the 1-5 scale description."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on toxic language detection but includes NLG through GPT-4o-generated conversational contexts. Human evaluations cover both toxicity ratings and quality assessment of generated contexts. LLMs are used for generation but not as judges. Extracted metadata was generally accurate but missed some important models and evaluation details."
+}

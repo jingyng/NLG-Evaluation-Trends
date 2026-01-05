@@ -1,0 +1,146 @@
+{
+  "paper_id": "2025.emnlp-main.61",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering"
+    ],
+    "datasets": [
+      "MMBENCH",
+      "SCIENCEQA",
+      "STRATEGYQA",
+      "MATHVISTA",
+      "GSM8K",
+      "CommonsenseQA",
+      "RLHF V",
+      "VLFEEDBACK"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_2.5_vl_7b_instruct",
+      "internvl_3_8b",
+      "llama_3.1_8b_instruct"
+    ],
+    "outputs": [
+      "Generated responses to input questions",
+      "Generated chain-of-thought reasoning paths"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "RLHF-V",
+          "VLFeedback"
+        ],
+        "languages": [],
+        "models": [
+          "LLaMA-3.1-8B-Instruct"
+        ],
+        "outputs": [
+          "Generated chain-of-thought reasoning paths"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "strategyQA"
+        ],
+        "languages": [],
+        "models": [
+          "LLaVA-Critic"
+        ],
+        "outputs": [
+          "The model generates responses to questions and uses hidden representations to estimate difficulty without generating multiple outputs."
+        ]
+      },
+      "normalized": {
+        "strategyQA": "StrategyQA",
+        "commonsenseQA": "commonsenseQA",
+        "gsm8k": "gsm8k"
+      },
+      "explanation": "Removed duplicate 'strategyQA' and LLaVA-Critic (which is a reward model, not a generation model). Added missing datasets RLHF-V and VLFeedback mentioned in open-ended evaluation section. Added LLaMA-3.1-8B-Instruct used in cross-model generalization experiments. Simplified outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "ROC AUC",
+      "F1",
+      "TOTAL OUTPUT LENGTH"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "normalized": {
+        "accuracy": "accuracy",
+        "ROC-AUC": "ROC-AUC",
+        "Macro-F1": "Macro-F1",
+        "total output length": "total output length",
+        "Accuracy": "accuracy",
+        "Total output length": "total output length"
+      },
+      "explanation": "Removed duplicate 'Accuracy' (normalized to 'accuracy') and kept all unique metrics. All metrics are correctly extracted and relevant for evaluating generated outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [],
+    "methods": [
+      "difficulty rating on a numeric scale"
+    ],
+    "criteria": [
+      "Mistakes",
+      "Misunderstanding",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLMs-Ranking"
+        ],
+        "methods": [
+          "direct assessment of problem difficulty"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed 'LLMs-Ranking' from models since it's not clear which specific LLM is used as judge. Kept the method description and criteria which are correctly extracted from the prompt templates in Tables 11-12."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in the paper. The extracted metadata was already empty, which is correct."
+    }
+  },
+  "overall_notes": "The paper focuses on estimating question difficulty for LLMs using hidden representations, with applications to adaptive inference strategies. It evaluates on question answering tasks using automatic metrics. The LLM-as-judge is used in baseline methods (prompt-based difficulty assessment) but not as the main evaluation approach. Extraction quality was good overall, with minor normalization needed."
+}

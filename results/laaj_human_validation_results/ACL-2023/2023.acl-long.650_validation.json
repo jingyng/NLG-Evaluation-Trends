@@ -1,0 +1,48 @@
+{
+  "paper_id": "2023.acl-long.650",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper uses both LLM-as-a-judge (ChatGPT-based metrics) and human evaluation for factuality assessment, but never directly compares the two. LLM metrics are evaluated against human-annotated labels as ground truth, but no correlation or agreement analysis between LLM judgments and human judgments is performed."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "chatgpt"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "The paper mentions that more details about ChatGPT metrics, including exact prompts, are included in Appendix B, but the full prompts are not reproduced in the main text."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "varies by dataset",
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "kappa",
+      "value": "varies by dataset (e.g., 0.34, 0.51, 0.70, 0.81, 0.80, 0.53, 0.35, 0.45)",
+      "interpretation": "not provided",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "The paper describes the annotation schemes (e.g., binary consistency labels, span-level error types) but does not provide full detailed guidelines. Error type taxonomy and examples are discussed in Section 4."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "error type classification"
+    ],
+    "shared_criteria": [
+      "factuality"
+    ],
+    "notes": "Both LLM and human evaluate factuality (binary consistency), but only humans perform fine-grained error type classification. LLM metrics are treated as classifiers whose outputs are compared to human binary labels as ground truth, but no direct LLM-human judgment comparison is made."
+  }
+}

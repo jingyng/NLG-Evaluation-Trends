@@ -1,0 +1,170 @@
+{
+  "paper_id": "2025.emnlp-main.375",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Instruction Following"
+    ],
+    "datasets": [
+      "LONGBENCH",
+      "LONGBENCH CHAT",
+      "MT-Bench",
+      "SHAREGPT",
+      "LONGALIGN"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "llama_2",
+      "llama_3",
+      "claude_2.1",
+      "gateau_llama",
+      "gpt_4",
+      "chatglm_3"
+    ],
+    "outputs": [
+      "Generated summaries",
+      "Responses to questions",
+      "Instruction-following outputs"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "ChatGLM3"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "models": [
+          "LLaMA-2-7B-base-64k",
+          "LLaMA-2-7B-base-4k",
+          "LLaMA-3-base-8k",
+          "LLaMA-3-base-64k",
+          "ChatGLM3-6B-base-8k",
+          "ChatGLM3-6B-base-64k",
+          "LLaMA3-8B-base-8k",
+          "LLaMA3-8B-base-64k"
+        ],
+        "outputs": [
+          "model responses to long instruction‑following prompts (e.g., answers, summaries, dialogues)",
+          "generated responses to long instruction-following tasks, including open-ended questions, summarization, and multi-turn dialogue"
+        ]
+      },
+      "normalized": {
+        "Other:Instruction Following": "Other:Instruction Following"
+      },
+      "explanation": "Simplified model list to base model families, removed overly specific model variants. Consolidated output descriptions. Added ChatGLM3 which was mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "PERPLEXITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "CosSim"
+        ]
+      },
+      "normalized": {
+        "PPL": "Perplexity"
+      },
+      "explanation": "Removed CosSim as it's not used for evaluating generated outputs (it's used internally in GATEAU's CAM method). Normalized PPL to Perplexity."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "Rating scale with criteria",
+      "Pairwise evaluation"
+    ],
+    "criteria": [
+      "Correctness",
+      "Comprehensiveness",
+      "Coherence",
+      "Fluency",
+      "Helpfulness",
+      "Faithfulness",
+      "Complexity"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Fluency",
+          "Helpfulness",
+          "Faithfulness",
+          "Complexity"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "GPT-4 evaluation with prompting (pairwise rating, correctness/comprehensiveness scoring)",
+          "rating on a scale of 1 to 10",
+          "GPT-4 evaluation prompts for QA and summarization"
+        ],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "normalized": {
+        "correctness": "Correctness",
+        "comprehensiveness": "Comprehensiveness",
+        "coherence": "Coherence"
+      },
+      "explanation": "Consolidated methods into simpler descriptions. Added missing criteria mentioned in the paper. Removed 'relevance' as it wasn't explicitly mentioned as an evaluation criterion."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants compare model responses pairwise and choose Win/Tie/Loss based on overall quality",
+      "Majority voting determines final result",
+      "Principles shown in referenced Figure"
+    ],
+    "criteria": [
+      "Quality",
+      "Fluency",
+      "Coherence",
+      "Correctness",
+      "Comprehensiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Principles shown in referenced Figure"
+        ],
+        "criteria": [
+          "Overall quality"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Participants decide Win, Tie, or Loss based on pairwise comparisons of model responses, following specified principles for voting.",
+          "Participants compare model responses and choose Win, Tie, or Loss based on overall quality according to predefined principles (shown in Figure).",
+          "For each comparison, three options are given (Win, Tie, and Loss), and the final result is determined by majority voting. Participants follow the principles in Figure to make the decision."
+        ]
+      },
+      "normalized": {
+        "overall quality (win/tie/loss)": "Overall quality"
+      },
+      "explanation": "Consolidated repetitive guideline descriptions and normalized criteria. Added reference to the Figure containing evaluation principles."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation through instruction following, summarization, and dialogue generation tasks. It uses both automatic metrics (ROUGE, Perplexity) and LLM/human evaluation. The extraction was generally accurate but needed normalization and removal of overly specific model variants."
+}

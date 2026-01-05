@@ -1,0 +1,117 @@
+{
+  "paper_id": "2025.acl-long.444",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-as-a-judge results with human evaluation using human labels as ground truth, reports quantitative performance metrics (F1 scores), and discusses alignment between LLM probes and human raters"
+  },
+  "llm_judge_details": {
+    "num_models": 15,
+    "models": [
+      "llama_3.1_8b",
+      "llama_3.1_70b",
+      "gemma_2_2b",
+      "gemma_2_9b",
+      "gemma_2_27b",
+      "qwen_2.5_0.5b",
+      "qwen_2.5_1.5b",
+      "qwen_2.5_3b",
+      "qwen_2.5_7b",
+      "qwen_2.5_14b",
+      "qwen_2.5_32b",
+      "qwen_2.5_72b",
+      "mistral_nemo_12b",
+      "mistral_small_22b",
+      "mistral_large_123b"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "General prompt template provided for pairwise comparisons and contrast pair harvesting. Full prompt templates available in Appendix E and code repository."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": null,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage agreement",
+      "value": 80,
+      "interpretation": "panel of human judges reached 80% agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Evaluation criteria descriptions provided (Table 3) but detailed annotation instructions not specified"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "F1",
+      "accuracy"
+    ],
+    "shared_criteria": [
+      "Helpfulness",
+      "Relevance",
+      "Coherence",
+      "Fluency",
+      "Consistency",
+      "Informativeness",
+      "Empathy",
+      "Surprise",
+      "Engagement",
+      "Complexity",
+      "Sensibility",
+      "Correctness"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": 5000,
+      "notes": "Supervised probes trained on 5000 examples; human labels serve as ground truth for validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "F1",
+        "value": 0.8,
+        "criterion": "chatbot preferences",
+        "llm_model": "Llama 3.1 70B",
+        "significance": null,
+        "notes": "Both supervised and unsupervised probes achieve roughly F1=0.8 on MT-Bench with human majority-vote as ground truth"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": null,
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "Both supervised and unsupervised probes consistently outperform generation-based methods in aligning with human judgments, with F1 scores around 0.8 on MT-Bench and similar performance across diverse datasets and model families."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Helpfulness",
+      "Relevance",
+      "Coherence",
+      "Fluency",
+      "Consistency",
+      "Informativeness",
+      "Empathy",
+      "Surprise",
+      "Engagement",
+      "Complexity",
+      "Sensibility",
+      "Correctness"
+    ],
+    "notes": "LLM and human evaluate identical criteria across all evaluation tasks; human labels serve as ground truth for LLM validation"
+  }
+}

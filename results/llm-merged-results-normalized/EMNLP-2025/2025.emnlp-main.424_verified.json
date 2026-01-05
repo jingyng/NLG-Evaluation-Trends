@@ -1,0 +1,170 @@
+{
+  "paper_id": "2025.emnlp-main.424",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "CONSISTENTCHAT",
+      "SHAREGPT",
+      "CHATALPACA",
+      "ULTRACHAT",
+      "LMSYS CHAT 1m",
+      "LIGHT",
+      "TOPDIAL",
+      "MT EVAL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_2.5_72b_instruct",
+      "qwen_2.5_7b",
+      "llama_3.1_70b_instruct",
+      "llama_3.1_8b",
+      "mistral_7b_v_0.3"
+    ],
+    "outputs": [
+      "Multi-turn dialogue responses",
+      "Multi-turn dialogues with chat consistency annotations",
+      "High chat consistency multi-turn dialogues"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "LmsysChat"
+        ],
+        "languages": [],
+        "models": [
+          "Qwen-2.5",
+          "LLaMA-3.1",
+          "Mistral-7B"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Qwen-2.5-72B-Instruct": "Qwen-2.5-72B-Instruct",
+        "LLaMA-3.1-70B-Instruct": "LLaMA-3.1-70B-Instruct",
+        "LLaMA-3.1-8B": "LLaMA-3.1-8B",
+        "Mistral-7B-v0.3": "Mistral-7B-v0.3",
+        "Qwen-2.5-7B": "Qwen-2.5-7B",
+        "LmsysChat": "Lmsys-Chat-1M"
+      },
+      "explanation": "Removed generic model names without versions, normalized dataset naming, removed redundant output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CHAT CONSISTENCY",
+      "PEARSON CORRELATION",
+      "SPEARMAN CORRELATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "chat consistency metric",
+          "Spearman rank correlation"
+        ]
+      },
+      "normalized": {
+        "Spearman rank correlation": "Spearman correlation"
+      },
+      "explanation": "Removed redundant metrics ('chat consistency metric' is same as 'chat consistency score', 'Spearman rank correlation' normalized to 'Spearman correlation')"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "qwen_2.5_72b_instruct",
+      "llama_3.1_70b_instruct"
+    ],
+    "methods": [
+      "absolute scoring",
+      "LLM-as-a-Judge"
+    ],
+    "criteria": [
+      "Alignment",
+      "Information",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "LLM scoring of consistency",
+          "scoring prompt"
+        ],
+        "criteria": [
+          "Alignment with initial intent",
+          "Smooth information flow",
+          "Contextual relevance",
+          "chat consistency"
+        ]
+      },
+      "normalized": {
+        "Alignment with initial intent": "Alignment with initial conversational intent",
+        "Smooth information flow": "Smooth and logically connected information flow",
+        "Contextual relevance": "Contextual relevance of each response across turns"
+      },
+      "explanation": "Normalized criteria to use exact paper definitions, removed redundant method descriptions"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Score 50 randomly selected multi-turn dialogues using 10-point scale",
+      "Evaluate overall dialogue consistency based on specified criteria"
+    ],
+    "criteria": [
+      "Clarity",
+      "Logic",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Score 50 randomly selected multi-turn dialogues using 10-point scale"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators were asked to score the overall consistency of each dialogue on a 1‑10 scale.",
+          "Please judge the overall consistency of the dialogue based on these criteria and select a score from , where 1 indicates very poor consistency and 10 indicates excellent consistency."
+        ],
+        "criteria": [
+          "consistency"
+        ]
+      },
+      "normalized": {
+        "Clear alignment with the user's initial intent or goal throughout the conversation": "Clear alignment with user's initial intent or goal throughout conversation",
+        "Smooth and logical information flow between turns, without abrupt topic shifts or contradictions": "Smooth and logical information flow between turns without abrupt topic shifts or contradictions",
+        "Contextual relevance of each response, meaning every turn should meaningfully relate to what came before and contribute to the ongoing topic": "Contextual relevance of each response meaning every turn should meaningfully relate to previous content"
+      },
+      "explanation": "Consolidated guideline descriptions, normalized criteria formatting, removed redundant 'consistency' criterion"
+    }
+  },
+  "overall_notes": "Paper focuses on dialogue generation with strong emphasis on multi-turn consistency. Extracted metadata was generally accurate but needed normalization for consistency and removal of redundant/duplicate items. The paper uses both automatic metrics and human/LLM evaluation extensively."
+}

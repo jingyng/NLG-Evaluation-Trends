@@ -1,0 +1,130 @@
+{
+  "paper_id": "2025.acl-long.732",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates GPT-4o as an evaluator against human annotation through a consistency study with quantitative metrics (F1-score and agreement rate)"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Multiple detailed prompts shown in appendix figures for different evaluation tasks (QA verification, quality validation, RAG evaluation)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluation involved dual annotation, answer accuracy check, safety rule double check, quality criteria double check, sources check, and difficulty check"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "F1-score",
+      "Agreement Rate"
+    ],
+    "shared_criteria": [
+      "answer accuracy"
+    ],
+    "sample_size": {
+      "total_generated": 4000,
+      "validated_by_both": 140,
+      "notes": "Validation conducted on 140 randomly sampled questions (20 per category) covering all 7 main categories"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "F1-score",
+        "value": 55.71,
+        "criterion": "answer accuracy",
+        "llm_model": "GPT-4o",
+        "significance": "Not reported",
+        "notes": "GPT-4o as judge for Claude-3.5-sonnet"
+      },
+      {
+        "metric": "F1-score",
+        "value": 56.42,
+        "criterion": "answer accuracy",
+        "llm_model": "Human",
+        "significance": "Not reported",
+        "notes": "Human annotation for Claude-3.5-sonnet"
+      },
+      {
+        "metric": "F1-score",
+        "value": 49.29,
+        "criterion": "answer accuracy",
+        "llm_model": "GPT-4o",
+        "significance": "Not reported",
+        "notes": "GPT-4o as judge for Qwen2.5-14B-instruct"
+      },
+      {
+        "metric": "F1-score",
+        "value": 50.0,
+        "criterion": "answer accuracy",
+        "llm_model": "Human",
+        "significance": "Not reported",
+        "notes": "Human annotation for Qwen2.5-14B-instruct"
+      },
+      {
+        "metric": "Agreement Rate",
+        "value": 98.74,
+        "criterion": "answer accuracy",
+        "llm_model": "GPT-4o vs Human",
+        "significance": "Not reported",
+        "notes": "Between GPT-4o and human for Claude-3.5-sonnet evaluation"
+      },
+      {
+        "metric": "Agreement Rate",
+        "value": 98.58,
+        "criterion": "answer accuracy",
+        "llm_model": "GPT-4o vs Human",
+        "significance": "Not reported",
+        "notes": "Between GPT-4o and human for Qwen2.5-14B-instruct evaluation"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "very high",
+      "threshold_used": "Not explicitly stated",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4o shows very high agreement with human experts (98.5-98.7%), primarily attributed to meticulous dataset design with unique, unambiguous reference answers."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Consistency checks",
+      "Model version verification"
+    ],
+    "human_only_criteria": [
+      "Professional annotation",
+      "Dual annotation",
+      "Third-party check",
+      "Source credibility verification"
+    ],
+    "shared_criteria": [
+      "Answer accuracy",
+      "Quality criteria",
+      "Safety rules"
+    ],
+    "notes": "Human evaluation includes more comprehensive quality control aspects while LLM evaluation focuses on technical consistency and version verification"
+  }
+}

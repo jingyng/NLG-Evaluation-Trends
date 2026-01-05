@@ -1,0 +1,181 @@
+{
+  "paper_id": "2023.emnlp-main.100",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Entity Name Generation",
+      "Entity Description Generation",
+      "Knowledge Graph Enhancement"
+    ],
+    "datasets": [
+      "WIKIKGE 10"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Spanish",
+      "French",
+      "Italian",
+      "Chinese",
+      "Japanese",
+      "Arabic",
+      "Russian",
+      "Korean"
+    ],
+    "models": [
+      "nllb_200",
+      "google_web_search",
+      "mt_0",
+      "gpt_3",
+      "gpt_3.5",
+      "gpt_4",
+      "m_nta"
+    ],
+    "outputs": [
+      "Entity names in multilingual knowledge graphs",
+      "Entity descriptions in multilingual knowledge graphs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-3"
+        ],
+        "outputs": [
+          "Entity descriptions in multilingual knowledge graphs"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "Chinese"
+        ],
+        "models": [
+          "GPT-3/3.5/4",
+          "GPT‑3",
+          "GPT‑3.5",
+          "GPT‑4",
+          "NLLB‑200"
+        ],
+        "outputs": [
+          "entity names (and entity descriptions)"
+        ]
+      },
+      "normalized": {
+        "Simplified Chinese": "Simplified Chinese",
+        "GPT-3.5": "GPT-3.5",
+        "GPT-4": "GPT-4",
+        "mT0": "mT0",
+        "NLLB-200": "NLLB-200"
+      },
+      "explanation": "Removed duplicate model variants and consolidated language list. Added entity descriptions as a separate output type since both names and descriptions are generated. Removed 'Chinese' as a duplicate of 'Simplified Chinese'."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "COVERAGE",
+      "PRECISION",
+      "RECALL",
+      "F1",
+      "PPV",
+      "TPR",
+      "RECIPROCAL RANK"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Recall",
+          "Mean Reciprocal Rank"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "PPV_C",
+          "TPR_C",
+          "positive predictive value (PPV)",
+          "true positive rate (TPR)",
+          "F1 score"
+        ]
+      },
+      "normalized": {
+        "PPV_C": "PPV",
+        "TPR_C": "TPR",
+        "coverage": "Coverage",
+        "precision": "Precision",
+        "F1 score": "F1",
+        "Mean Reciprocal Rank (MRR)": "Mean Reciprocal Rank"
+      },
+      "explanation": "Simplified metric variants to base forms and removed duplicates. Added Recall and Mean Reciprocal Rank which are mentioned in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges in this paper. LLMs are used as generation models, not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rated entity names on 5-point scale: 1-Incorrect, 2-Spelling issues, 3-Generic/rare/incomplete, 4-Good fit, 5-Perfect fit",
+      "Annotators verified names using web search before finalizing ratings",
+      "Annotators could opt out if insufficient context or knowledge"
+    ],
+    "criteria": [
+      "Correctness",
+      "Specificity",
+      "Appropriateness",
+      "Completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators verified names using web search before finalizing ratings",
+          "Annotators could opt out if insufficient context or knowledge"
+        ],
+        "criteria": [
+          "Completeness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "correctness": "Correctness",
+        "specificity": "Specificity",
+        "appropriateness": "Appropriateness",
+        "Incorrect": "Correctness",
+        "Spelling issues": "Correctness",
+        "Generic": "Specificity",
+        "Good fit": "Appropriateness",
+        "Perfect fit": "Appropriateness",
+        "Generic, rare or incomplete": "Specificity"
+      },
+      "explanation": "Grouped the 5-point scale criteria into higher-level evaluation dimensions. Added missing guideline details about verification process and opt-out option."
+    }
+  },
+  "overall_notes": "This paper focuses on Knowledge Graph Enhancement (KGE) for generating entity names and descriptions in multiple languages. It involves NLG tasks but they are specialized (entity name/description generation rather than standard NLG tasks). Extensive human evaluation was conducted with detailed annotation guidelines. Automatic metrics include coverage, precision, recall, F1, and MRR for downstream tasks. No LLM-as-judge evaluation is used."
+}

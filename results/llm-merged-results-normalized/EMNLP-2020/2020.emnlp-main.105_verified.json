@@ -1,0 +1,143 @@
+{
+  "paper_id": "2020.emnlp-main.105",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Text Classification",
+      "Slot Filling",
+      "Relation Extraction"
+    ],
+    "datasets": [
+      "ZEST"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5",
+      "bart"
+    ],
+    "outputs": [
+      "Classification labels (yes/no/NA)",
+      "Extracted text spans",
+      "Structured JSON outputs for relation extraction"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering",
+          "Text Classification",
+          "Relation Extraction"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering",
+          "Other:Text Classification",
+          "Other:Slot Filling",
+          "Other:slot filling",
+          "Other:relation extraction",
+          "Other:text classification"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering",
+        "Other:Text Classification": "Text Classification",
+        "Other:Slot Filling": "Slot Filling",
+        "Other:slot filling": "Slot Filling",
+        "Other:relation extraction": "Relation Extraction",
+        "Other:text classification": "Text Classification"
+      },
+      "explanation": "Normalized task names to standard NLG task categories and removed redundant/duplicate entries. The paper specifically addresses zero-shot NLG tasks including QA, classification, slot filling, and relation extraction."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "C@T",
+      "PRECISION",
+      "RECALL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "partial overlap score",
+          "C@90",
+          "precision",
+          "recall"
+        ]
+      },
+      "normalized": {
+        "C@90": "C@T",
+        "precision": "Precision",
+        "recall": "Recall"
+      },
+      "explanation": "Normalized metric variants to base forms. Removed 'partial overlap score' as it's an implementation detail rather than a named metric. Kept C@T as it's a formal metric proposed in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Confirmed no LLM-as-judge evaluation. LLMs (T5, BART) are used for generation, not post-generation evaluation. Removed placeholder 'None' entries."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Workers were asked to generate questions that could apply to any entity in that domain... for tasks that could be answered with a yes or no response, final answers were chosen by taking the majority answer. For tasks that involved extracting information from the passage, we used the answer that was the subset of the other answers, preferring shorter responses over longer responses."
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Human evaluation was used only for dataset construction/annotation, not for evaluating the generated outputs of the models. Changed answer from 'No' to 'No' (consistent) but removed dataset annotation guidelines that don't pertain to output evaluation."
+    }
+  },
+  "overall_notes": "The paper introduces ZEST dataset for zero-shot learning from task descriptions and evaluates models on NLG tasks. It uses appropriate automatic metrics but no human or LLM evaluation of generated outputs. The extraction was generally accurate but needed normalization and removal of dataset construction details that don't pertain to output evaluation."
+}

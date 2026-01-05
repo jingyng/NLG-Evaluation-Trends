@@ -1,0 +1,154 @@
+{
+  "paper_id": "2022.emnlp-main.126",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Morphological Inflection"
+    ],
+    "datasets": [
+      "English nonce words from Albright & Hayes",
+      "German nonce nouns from Marcus et al. 1995",
+      "UniMorph German noun dataset"
+    ],
+    "languages": [
+      "English",
+      "German"
+    ],
+    "models": [
+      "LSTM (variants: BiLSTMAttn, UniLSTMAttn, BiLSTMNoAttn, UniLSTMNoAttn)",
+      "Transformer",
+      "MGL (Minimal Generalization Learner)"
+    ],
+    "outputs": [
+      "Inflected forms (English past tense verbs)",
+      "Inflected forms (German noun plurals)",
+      "Character-level morphological inflection outputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "UniMorph German noun dataset"
+        ],
+        "languages": [],
+        "models": [
+          "LSTM (variants: BiLSTMAttn, UniLSTMAttn, BiLSTMNoAttn, UniLSTMNoAttn)"
+        ],
+        "outputs": [
+          "Character-level morphological inflection outputs"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:morphological inflection"
+        ],
+        "datasets": [
+          "A&H nonce verbs",
+          "M95 German nonce nouns",
+          "English past tense nonce words",
+          "German noun plural wugs",
+          "German dataset from M&al."
+        ],
+        "languages": [],
+        "models": [
+          "BiLSTMAttn",
+          "BiLSTMNoAttn",
+          "UniLSTMAttn",
+          "UniLSTMNoAttn",
+          "MGL"
+        ],
+        "outputs": [
+          "Generated inflected word forms (character sequences)",
+          "inflected forms of words (past tense for English, plural for German)"
+        ]
+      },
+      "normalized": {
+        "Other:Morphological Inflection": "Other:Morphological Inflection",
+        "English nonce words from A&H": "English nonce words from Albright & Hayes",
+        "German wugs from M95": "German nonce nouns from Marcus et al. 1995"
+      },
+      "explanation": "Consolidated redundant entries, normalized dataset names to full citations, grouped LSTM variants under a single entry, and removed duplicate/overlapping descriptions. Added missing UniMorph dataset reference mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "F1",
+      "Spearman's ρ"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Spearman's rho",
+          "Production Probability Correlation",
+          "Rating Correlation"
+        ]
+      },
+      "normalized": {
+        "Spearman's ρ": "Spearman's ρ",
+        "Spearman's rho": "Spearman's ρ"
+      },
+      "explanation": "Consolidated Spearman's ρ variants into one normalized form. Removed 'Production Probability Correlation' and 'Rating Correlation' as these are descriptions of evaluation types rather than specific metric names. The core metric used is Spearman's ρ for both types of correlations."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values as the paper does not use LLMs as evaluators. The evaluation is done through correlation with human judgments and automatic metrics."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants generated plural forms for nonce nouns and rated each form's acceptability on a 1-5 scale"
+    ],
+    "criteria": [
+      "acceptability"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "acceptability (well-formedness)"
+        ]
+      },
+      "normalized": {
+        "acceptability (well-formedness)": "acceptability"
+      },
+      "explanation": "Consolidated duplicate criteria entries and simplified guideline description. The human evaluation involved both production (generating forms) and rating (acceptability on 1-5 scale)."
+    }
+  },
+  "overall_notes": "The paper focuses on morphological inflection as an NLG task, evaluating neural models against human judgments. The extraction was generally accurate but contained some redundancy and inconsistent naming. The paper uses human production probabilities and ratings as ground truth, then compares model outputs using Spearman's correlation. No LLM-based evaluation is used."
+}

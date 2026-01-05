@@ -1,0 +1,54 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We apply the Reverse Question-Answering method to the mathematical domain for constructing our initial synthetic datasets. This technique involves providing the model with a few example solutions and instructing it to generate corresponding questions that align with those solutions. After generating the samples, we use gpt-4o and chatgpt-4o-latest as two primary models to generate solutions for the synthetic questions.",
+        "tasks": [
+            "Other:Mathematical Reasoning Generation",
+            "Other:Question Generation"
+        ],
+        "datasets": [
+            "GSM8K",
+            "MATH",
+            "SIMQA"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "gpt-4o",
+            "chatgpt-4o-latest"
+        ],
+        "outputs": "Generated questions and step-by-step reasoning solutions for mathematical problems."
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We report Pass@1 accuracy as the primary evaluation metric for all baselines. The answers were parsed based on an exact match. For answers where exact matching failed, we parsed the numerical values from the model's final response and compared them against the ground truth. For the MATH-500, AIME, and Olympiad-Bench datasets, we adopt a similar evaluation strategy to . We use gpt-4o-mini to assess answer alignment by comparing the last two output sentences to the ground truth, generating a numerical score (1 or 0) without revealing the question.",
+        "automatic_metrics": [
+            "Pass@1",
+            "Exact Match",
+            "Numerical Parsing",
+            "Model-based Alignment Score"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "For the OlympiadBench datasets, where exact match is not a suitable evaluation metric, we used the gpt-4o-mini model as a benchmark to assess how closely the answers of the model aligned with the ground truth. ... System Message: You are a decider that decides whether the answer is the same as the correct answer. If the output doesn't align with the correct answer, respond with '0', whereas if it's correct, then respond with '1'.",
+        "models": [
+            "gpt-4o-mini"
+        ],
+        "methods": [
+            "binary alignment check"
+        ],
+        "criteria": [
+            "answer match"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We conduct a manual annotation process to verify the correctness of the theorem prover's validations. Manual annotation is performed by a mathematics and statistics bachelor's graduate, who is specifically instructed to solve the mathematical problems.",
+        "guideline": "Solve the problem and verify the theorem prover's validation of the model's solution.",
+        "criteria": [
+            "correctness"
+        ]
+    }
+}

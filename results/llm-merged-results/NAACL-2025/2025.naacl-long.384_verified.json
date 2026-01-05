@@ -1,0 +1,148 @@
+{
+  "paper_id": "2025.naacl-long.384",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "SciXGen",
+      "ROCStories",
+      "TLDR"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama2-70b-chat",
+      "GPT-3.5 Turbo",
+      "GPT-4 Turbo",
+      "Llama3-70b-instruct",
+      "Mixtral-8x7B"
+    ],
+    "outputs": [
+      "paraphrased texts",
+      "summarized texts",
+      "plagiarism detection predictions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "paraphrased and summarized suspicious documents",
+          "paraphrased and summarized texts"
+        ]
+      },
+      "normalized": {
+        "paraphrased and summarized suspicious documents": "paraphrased texts",
+        "paraphrased and summarized texts": "summarized texts"
+      },
+      "explanation": "Consolidated and simplified output descriptions for clarity"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BERTScore",
+      "AlignScore",
+      "Readability Index",
+      "CoLAScore",
+      "BLANC",
+      "BARTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "COLAScore"
+        ]
+      },
+      "normalized": {
+        "Readability index": "Readability Index",
+        "COLAScore": "CoLAScore"
+      },
+      "explanation": "Removed duplicate COLAScore and normalized capitalization"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Llama2-70b-chat",
+          "Llama3-70b-instruct",
+          "Mixtral-8x7B-instruct",
+          "GPT-3.5 Turbo",
+          "GPT-4 Turbo"
+        ],
+        "methods": [
+          "zero-shot vanilla prompting",
+          "zero-shot Chain-of-Thought prompting",
+          "few-shot vanilla prompting",
+          "few-shot Chain-of-Thought prompting"
+        ],
+        "criteria": [
+          "plagiarism detection (binary)",
+          "plagiarism type identification (verbatim, paraphrase, summary)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "LLMs are used for plagiarism detection (a classification task), not as judges evaluating NLG output quality. This does not meet the definition of 'LLM-as-judge' for NLG evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluate if provided texts plagiarize source text (for non-plagiarism cases)",
+      "Evaluate overall quality of provided texts given source text (for paraphrase cases)",
+      "Evaluate overall quality of provided texts given source text (for summary cases)"
+    ],
+    "criteria": [
+      "semantic equivalence",
+      "consistency",
+      "language quality",
+      "relevance",
+      "coherence",
+      "paraphrase plagiarism",
+      "summary plagiarism"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Guidelines were already well-extracted, no significant changes needed"
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating LLMs for plagiarism generation (paraphrasing/summarization) and detection. Key correction: LLMs are used for plagiarism detection classification, not as judges evaluating NLG output quality. The human evaluation is comprehensive and well-documented."
+}

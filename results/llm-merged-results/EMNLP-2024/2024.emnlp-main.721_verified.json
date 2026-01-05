@@ -1,0 +1,118 @@
+{
+  "paper_id": "2024.emnlp-main.721",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "KILOGRAM",
+      "human-human reference games"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "IDEFICS2-8B"
+    ],
+    "outputs": [
+      "descriptions of abstract tangram images",
+      "utterances for reference game communication"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "human-human reference games"
+        ],
+        "outputs": [
+          "utterances for reference game communication"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "human-model interaction data"
+        ],
+        "outputs": [
+          "image descriptions for tangram shapes"
+        ]
+      },
+      "normalized": {
+        "descriptions of images": "descriptions of abstract tangram images",
+        "utterances describing the target tangram image": "utterances for reference game communication"
+      },
+      "explanation": "Removed 'human-model interaction data' as it's evaluation data not a dataset; normalized output descriptions to be more precise; added 'human-human reference games' as a dataset used for initialization/validation"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MAUVE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "MAUVE is correctly identified as the only automatic metric used for NLG evaluation"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was used; the paper only uses LLMs as generation models, not as evaluators"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human listeners select target image based on model's generated description",
+      "Game succeeds if listener correctly identifies target from description"
+    ],
+    "criteria": [
+      "accuracy",
+      "target selection accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Game succeeds if listener correctly identifies target from description"
+        ],
+        "criteria": [
+          "target selection accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "You will be presented with a sequence of 10 images and a caption describing exactly one of them. Your task is to guess which image the caption describes."
+        ]
+      },
+      "normalized": {
+        "selection accuracy": "target selection accuracy"
+      },
+      "explanation": "Streamlined guidelines to focus on the core evaluation methodology; normalized criteria; removed verbatim interface instructions that are too specific"
+    }
+  },
+  "overall_notes": "The paper focuses on natural language generation evaluation in a reference game setting using abstract tangram images. The primary evaluation is through human interaction success rates, with MAUVE used as an automatic metric for language similarity analysis. The extraction was generally accurate with minor normalization needed."
+}

@@ -1,0 +1,172 @@
+{
+  "paper_id": "2023.acl-long.730",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Other:Semantic Parsing",
+      "Other:Question Answering",
+      "Other:Dialogue State Tracking"
+    ],
+    "datasets": [
+      "MultiATIS++SQL",
+      "XQuAD",
+      "MultiWoZ",
+      "Multi 2 WoZ",
+      "MultiWoZ 2.1",
+      "SQuAD"
+    ],
+    "languages": [
+      "English",
+      "French",
+      "Portuguese",
+      "Spanish",
+      "German",
+      "Chinese",
+      "Greek",
+      "Russian",
+      "Turkish",
+      "Arabic",
+      "Vietnamese",
+      "Thai",
+      "Hindi"
+    ],
+    "models": [
+      "OPUS",
+      "M2M100",
+      "mBART50",
+      "RoBERTa",
+      "Transformer model"
+    ],
+    "outputs": [
+      "Machine translations",
+      "Segment-level scores for MT evaluation",
+      "Breakdown-detection labels for downstream tasks"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "datasets": [
+          "SQuAD"
+        ],
+        "languages": [],
+        "models": [
+          "Transformer model"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Extractive Question Answering"
+        ],
+        "datasets": [
+          "OPUS translation models"
+        ],
+        "languages": [],
+        "models": [
+          "OPUS translation models",
+          "dialogue state tracking model"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Extractive Question Answering": "Other:Question Answering",
+        "OPUS translation models": "OPUS"
+      },
+      "explanation": "Normalized task names and model names. Fixed 'Extractive Question Answering' to 'Question Answering'. Replaced redundant 'OPUS translation models' with simpler 'OPUS'. Added 'SQuAD' dataset and 'Transformer model' which were mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "chrF",
+      "BERTScore",
+      "COMET",
+      "UniTE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "COMET-DA",
+          "COMET-MQM",
+          "COMET-QE-DA",
+          "COMET-QE-MQM",
+          "UniTE-QE"
+        ]
+      },
+      "normalized": {
+        "COMET-DA": "COMET",
+        "COMET-MQM": "COMET",
+        "COMET-QE-DA": "COMET",
+        "COMET-QE-MQM": "COMET",
+        "UniTE-QE": "UniTE"
+      },
+      "explanation": "Simplified metric variants to base forms as per guidelines. All COMET variants are normalized to 'COMET', all UniTE variants to 'UniTE'."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values. The paper does not use LLMs as judges - it evaluates traditional MT metrics only."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "based on the MQM ontology"
+        ],
+        "criteria": [
+          "mistranslation",
+          "omission",
+          "addition",
+          "fluency",
+          "undertranslation",
+          "untranslated",
+          "adequacy",
+          "comprehensibility"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'Yes' to 'No'. The paper references human evaluation protocols used in WMT metrics shared tasks (like MQM) but does NOT conduct new human evaluations in this study. The qualitative analysis with MT errors was done by the authors themselves as part of error analysis, not through formal human evaluation with raters."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating automatic MT metrics (like BLEU, COMET) using downstream task performance as ground truth, rather than generating NLG outputs. The main contribution is methodological - proposing a new extrinsic evaluation framework for MT metrics. The paper does NOT conduct new human evaluations despite mentioning existing human evaluation protocols."
+}

@@ -1,0 +1,103 @@
+{
+  "paper_id": "2024.emnlp-main.883",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates ESC-Eval framework against human evaluation through correlation analysis on selected instances"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "ESC-RANK",
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts shown in figures for dimensions like diversity, empathy, suggestion effectiveness, humanoid, and emotional knowledge evaluation"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 14,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed scoring rules provided across seven dimensions with clear criteria for different score levels (0-4 scale)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation",
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "Fluency",
+      "Empathy",
+      "Overall Average"
+    ],
+    "sample_size": {
+      "total_generated": 8500,
+      "validated_by_both": 20,
+      "notes": "Randomly selected 20 instances from ESConv dataset for correlation analysis"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": -0.04,
+        "criterion": "Fluency",
+        "llm_model": "ESC-Eval",
+        "significance": null
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": -2.56,
+        "criterion": "Fluency",
+        "llm_model": "ESC-Eval",
+        "significance": null
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": null,
+        "criterion": "Overall Average",
+        "llm_model": "ESC-Eval",
+        "significance": null,
+        "notes": "ESC-Eval demonstrates the most significant correlation compared to automated metrics"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "ESC-Eval exhibits best correlation with human evaluation metrics except for Fluency and Empathy indicators, where automated metrics outperform due to human bias towards natural expression"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Fluency",
+      "Expression",
+      "Empathy",
+      "Information",
+      "Humanoid",
+      "Skill",
+      "Overall"
+    ],
+    "notes": "Both LLM (ESC-RANK) and human evaluation use the same seven dimensions for scoring conversation quality"
+  }
+}

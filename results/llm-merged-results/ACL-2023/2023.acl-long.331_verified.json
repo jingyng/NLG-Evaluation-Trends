@@ -1,0 +1,148 @@
+{
+  "paper_id": "2023.acl-long.331",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT",
+      "FRMT",
+      "mC4"
+    ],
+    "languages": [
+      "English",
+      "Portuguese",
+      "Chinese",
+      "Mandarin"
+    ],
+    "models": [
+      "NANO",
+      "mT5",
+      "BLEURT",
+      "PRISM",
+      "COMET",
+      "YiSi",
+      "BLEU",
+      "CHRF"
+    ],
+    "outputs": [
+      "Translations evaluated across dialects (e.g., Brazilian vs. Iberian Portuguese, Mainland vs. Taiwanese Mandarin)",
+      "System outputs with dialect variations",
+      "Metric scores for dialect robustness evaluation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "Mandarin"
+        ],
+        "models": [],
+        "outputs": [
+          "System outputs with dialect variations",
+          "Metric scores for dialect robustness evaluation"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WMT 2015-2019",
+          "WMT 2020",
+          "FRMT benchmark",
+          "WMT 2015-2019 shared tasks"
+        ],
+        "languages": [
+          "Chinese"
+        ],
+        "models": [
+          "Google Translate"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Chinese": "Mandarin",
+        "YISI": "YiSi"
+      },
+      "explanation": "Simplified dataset names to base forms (WMT, FRMT, mC4). Added 'Mandarin' as language since it's specifically studied. Removed 'Google Translate' as it's not an evaluated NLG model but a tool for data creation. Normalized metric/model names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEURT",
+      "PRISM",
+      "COMET",
+      "YiSi",
+      "BLEU",
+      "CHRF",
+      "NANO",
+      "DaRR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "DaRR"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "YISI"
+        ]
+      },
+      "normalized": {
+        "YISI": "YiSi"
+      },
+      "explanation": "Added 'DaRR' metric mentioned in the paper. Normalized 'YISI' to 'YiSi'."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "mT5",
+          "LaMDA"
+        ],
+        "methods": [
+          "regression-based scoring",
+          "few-shot learning",
+          "automatic semantic perturbation"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. While LaMDA is used for generating semantic perturbations and mT5 is used as base model for NANO, these are not used as 'judges' to evaluate generated outputs. The evaluation is done through the metrics themselves (BLEURT, NANO, etc.), not via LLM-as-judge prompting."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper - all evaluations are automatic."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating NLG evaluation metrics (meta-evaluation) rather than evaluating generated text per se. It introduces dialect robustness as a property for NLG metrics and proposes NANO as a solution. The extraction was mostly accurate, but Question 3 was incorrectly answered - the paper does not use LLMs as judges for evaluation."
+}

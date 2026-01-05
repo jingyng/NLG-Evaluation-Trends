@@ -1,0 +1,179 @@
+{
+  "paper_id": "2024.emnlp-main.265",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Code Generation",
+      "Visual Question Answering",
+      "Visual Grounding"
+    ],
+    "datasets": [
+      "ShareGPT4V",
+      "LLaVA 665k",
+      "DocVQA",
+      "ChartQA",
+      "TextVQA",
+      "GQA",
+      "MME",
+      "MMT-Bench",
+      "MMStar",
+      "ScienceQA",
+      "POPE",
+      "RefCOCO",
+      "RefCOCO+",
+      "RefCOCOg"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaVA-1.5-7B",
+      "LLaVA-1.5-13B",
+      "LLaVA-NeXT-7B",
+      "LLaVA-NeXT-13B"
+    ],
+    "outputs": [
+      "general image captions",
+      "detailed image captions",
+      "region-level captions",
+      "OCR information",
+      "structured Python code representations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Visual Question Answering",
+          "Visual Grounding"
+        ],
+        "datasets": [
+          "LLaVA 665k",
+          "MMT-Bench",
+          "MMStar",
+          "ScienceQA",
+          "POPE"
+        ],
+        "models": [
+          "LLaVA-1.5-7B",
+          "LLaVA-1.5-13B",
+          "LLaVA-NeXT-7B",
+          "LLaVA-NeXT-13B"
+        ],
+        "outputs": [
+          "general image captions",
+          "detailed image captions",
+          "region-level captions",
+          "OCR information",
+          "structured Python code representations"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LLaVA-1.5",
+          "LLaVA-NeXT"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "ROUGE": "ROUGE",
+        "METEOR": "METEOR",
+        "BERTScore": "BERTScore",
+        "LLaVA-1.5": "LLaVA-1.5-7B/LLaVA-1.5-13B",
+        "LLaVA-NeXT": "LLaVA-NeXT-7B/LLaVA-NeXT-13B"
+      },
+      "explanation": "Added missing NLG tasks (Visual Question Answering, Visual Grounding) and datasets mentioned in evaluation. Normalized model names to include specific variants with parameter sizes. Simplified outputs descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "accuracy",
+      "ANLS",
+      "IoU"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "MMT-Bench score"
+        ]
+      },
+      "normalized": {
+        "Accuracy": "accuracy"
+      },
+      "explanation": "Capitalized 'Accuracy' to 'accuracy'. Removed 'MMT-Bench score' as it's not a standardized automatic metric but rather benchmark performance."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "LLaVA-1.5",
+      "LLaVA-NeXT"
+    ],
+    "methods": [
+      "counting filtering via VLM validation",
+      "caption reranking via VLM validation",
+      "generator-validator consistency checking"
+    ],
+    "criteria": [
+      "existence of visual concepts",
+      "correctness of captions"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "LLaVA-1.5-7B",
+          "LLaVA-NeXT-7B",
+          "LLaVA-NeXT-13B"
+        ],
+        "methods": [
+          "prompt-based validation",
+          "validation via prompting"
+        ],
+        "criteria": [
+          "Correctness (Yes/No)"
+        ]
+      },
+      "normalized": {
+        "LLaVA-1.5": "LLaVA-1.5",
+        "LLaVA-NeXT": "LLaVA-NeXT",
+        "counting filtering via consistency": "counting filtering via VLM validation",
+        "caption reranking via consistency": "caption reranking via VLM validation",
+        "generation‑validator consistency": "generator-validator consistency checking",
+        "existence": "existence of visual concepts"
+      },
+      "explanation": "Removed specific model variants since the paper uses VLMs generically for validation. Simplified methods descriptions. Simplified criteria to match what's explicitly mentioned in the paper."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted. Paper only uses automatic metrics and VLM-based validation methods."
+    }
+  },
+  "overall_notes": "The paper presents a methodology for generating multi-modal data using VLMs, focusing on code-structured captions. It evaluates on NLG tasks (image captioning, VQA) using automatic metrics but does not conduct human evaluation. The LLM-as-judge usage is for data filtering during generation, not for final output evaluation. The extraction was mostly accurate but needed some normalization and removal of redundant items."
+}

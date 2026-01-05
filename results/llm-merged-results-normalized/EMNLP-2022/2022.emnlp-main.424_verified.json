@@ -1,0 +1,157 @@
+{
+  "paper_id": "2022.emnlp-main.424",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "ZH EN NEWS",
+      "ZH EN TED",
+      "FR EN TED",
+      "LDC",
+      "NIST 2006",
+      "IWSLT 2014",
+      "IWSLT 2015"
+    ],
+    "languages": [
+      "Chinese",
+      "English",
+      "French"
+    ],
+    "models": [
+      "transformer",
+      "han",
+      "g_transformer",
+      "w_link",
+      "proposed_model"
+    ],
+    "outputs": [
+      "translated documents",
+      "English translations of source documents"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "IWSLT 2014",
+          "IWSLT 2015"
+        ],
+        "models": [
+          "Proposed model"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "2015 evaluation"
+        ],
+        "models": [
+          "Consistency-aware encoder",
+          "Lexical-consistency attention",
+          "General-Context attention",
+          "CVAE",
+          "CVAE-based module"
+        ]
+      },
+      "normalized": {
+        "ZH→EN (News)": "ZH→EN (News)",
+        "ZH→EN (TED)": "ZH→EN (TED)",
+        "FR→EN (TED)": "FR→EN (TED)",
+        "LDC": "LDC",
+        "NIST2006": "NIST2006",
+        "IWSLT 2014 and 2015": "IWSLT 2014, IWSLT 2015"
+      },
+      "explanation": "Simplified model names to main evaluated models, normalized dataset names, and separated combined entries"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "LTCR",
+      "HHI"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Discourse Coherence",
+          "Discourse Cohesion",
+          "s-BLEU",
+          "d-BLEU"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "LTCR": "LTCR",
+        "HHI": "HHI"
+      },
+      "explanation": "Removed non-standard metrics (Discourse Coherence/Cohesion are analysis methods, not metrics) and simplified BLEU variants to base form"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "bert-base-uncased"
+        ],
+        "methods": [
+          "Next Sentence Prediction (NSP)"
+        ],
+        "criteria": [
+          "cohesion"
+        ]
+      },
+      "normalized": {},
+      "explanation": "BERT is used for analysis/measurement, not as an LLM judge evaluating generated outputs. This paper does not use LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators compare translations from sentence-level Transformer vs proposed system",
+      "Presented with translation background (preceding/future sentences + references)",
+      "Judgments made without knowing which system produced which translation",
+      "Evaluate overall translation quality"
+    ],
+    "criteria": [
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators compare translations from sentence-level Transformer vs proposed system",
+          "Presented with translation background (preceding/future sentences + references)",
+          "Judgments made without knowing which system produced which translation"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "fluency",
+          "coherence"
+        ]
+      },
+      "normalized": {
+        "overall translation quality": "overall translation quality"
+      },
+      "explanation": "Removed 'fluency' and 'coherence' as they were not explicitly mentioned as human evaluation criteria. The paper only mentions 'overall translation quality' for human evaluation."
+    }
+  },
+  "overall_notes": "The paper is well-focused on document-level machine translation with lexical consistency. The extraction was generally good but included some analysis methods as metrics and inferred criteria not explicitly stated. The paper uses BERT for analysis but not as an LLM judge evaluating outputs."
+}

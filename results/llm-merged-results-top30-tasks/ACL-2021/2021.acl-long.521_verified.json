@@ -1,0 +1,165 @@
+{
+  "paper_id": "2021.acl-long.521",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Story Generation",
+      "Text Summarization",
+      "Question Answering"
+    ],
+    "datasets": [
+      "ROCSTORIES",
+      "NEWSROOM",
+      "MOCHA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "textrank",
+      "seq_2seq",
+      "pointer_n",
+      "fine_tuned",
+      "back_translation",
+      "mhpg",
+      "gpt_2"
+    ],
+    "outputs": [
+      "Story continuations",
+      "News summaries",
+      "Answers to questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering",
+          "Other:Story Generation"
+        ],
+        "datasets": [
+          "ROC stories dataset",
+          "Newsroom summary dataset",
+          "MOCHA dataset"
+        ],
+        "languages": [],
+        "models": [
+          "Solr",
+          "RoBERTa-large"
+        ],
+        "outputs": [
+          "Generated story continuations, news summaries, and question answers",
+          "generated story continuations, news summaries, and answer sentences",
+          "generated story endings, news summaries, and answers to questions"
+        ]
+      },
+      "normalized": {
+        "Other:Story Generation": "Story Generation",
+        "Other:Question Answering": "Question Answering",
+        "ROC stories": "ROC Stories",
+        "ROC stories dataset": "ROC Stories",
+        "Newsroom summary dataset": "Newsroom",
+        "MOCHA dataset": "MOCHA",
+        "finetuned GPT-2": "GPT-2 (fine-tuned)"
+      },
+      "explanation": "Normalized task names to standard NLG task categories without 'Other:' prefix. Removed dataset duplicates and normalized names. Removed 'Solr' (not clearly defined as NLG model) and 'RoBERTa-large' (used for scoring, not generation). Simplified output descriptions and removed overly detailed/redundant versions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "PERPLEXITY",
+      "BERTSCORE",
+      "MARS",
+      "NAIVE METHOD",
+      "MOVERSCORE",
+      "SENTENCE MOVER S SIMILARITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "MoverScore",
+          "Sentence Mover's Similarity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Sentence-BERT",
+          "BLEU-1",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "BLEU-1": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Added 'MoverScore' and 'Sentence Mover's Similarity' which are explicitly mentioned as metrics compared. Removed 'Sentence-BERT' (it's the embedding method used by MARS, not a separate metric). Normalized metric variants to base names (BLEU-1→BLEU, ROUGE-L→ROUGE)."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges to evaluate generated outputs after generation. GPT-2 is used for reference augmentation within the MARS metric framework, not as an independent evaluator."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluated augmented references compared to original human references on relevance to context, readability, and overall quality using a 1-7 Likert scale"
+    ],
+    "criteria": [
+      "Relevance",
+      "Readability",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Participants were asked to evaluate the relevance to context, readability, and overall quality of the generated text on a scale from 1-7.",
+          "Annotators were asked to judge each generated output for relevance to the generation context, readability, and overall quality using Likert‑style questions."
+        ],
+        "criteria": [
+          "Relevance",
+          "Readability",
+          "Overall quality"
+        ]
+      },
+      "normalized": {
+        "Relevance": "relevance to context",
+        "Readability": "readability",
+        "Overall quality": "overall quality"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into a single clear statement. Normalized criteria to lowercase consistent format and removed inconsistent capitalization variants."
+    }
+  },
+  "overall_notes": "The paper presents MARS, a new context-aware metric for NLG evaluation that uses language models to create augmented references. It comprehensively evaluates on three NLG tasks using both automatic metrics and human evaluation. The extraction was generally accurate but needed some normalization and removal of redundant/incorrect items. The paper does not use LLMs as judges (GPT-2 is used for augmentation, not evaluation)."
+}

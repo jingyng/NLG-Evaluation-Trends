@@ -1,0 +1,121 @@
+{
+  "paper_id": "2024.emnlp-main.299",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Long-text Generation",
+      "Other:Question Answering"
+    ],
+    "datasets": [
+      "FACTSCORE-BIO",
+      "FACTSCORE-DIS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4",
+      "GPT-3.5",
+      "Gemini 1.0 Pro",
+      "Yi-34B-Chat",
+      "Tulu-2-70B",
+      "Vicuna-33B"
+    ],
+    "outputs": [
+      "long-form answers to biographical and disease-related questions",
+      "long-form text (at least 100 words, averaging more than 200 words)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Question Answering"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Long-form Question Answering",
+          "Other:Long-form QA"
+        ]
+      },
+      "normalized": {
+        "Other:Long-Text Generation": "Other:Long-text Generation"
+      },
+      "explanation": "Consolidated redundant task descriptions and normalized capitalization"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "FACTSCORE",
+      "Pearson Correlation",
+      "Spearman Correlation"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "BERTScore",
+          "ROUGE",
+          "BLEU"
+        ]
+      },
+      "normalized": {
+        "Pearson correlation": "Pearson Correlation",
+        "Spearman correlation": "Spearman Correlation"
+      },
+      "explanation": "Removed metrics that were only mentioned as examples in baseline methods but not used to evaluate the proposed LUQ method. The paper primarily uses FACTSCORE and correlation coefficients for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "DeBERTa-v3-large"
+        ],
+        "methods": [
+          "FACTSCORE",
+          "sentence-level consistency"
+        ],
+        "criteria": [
+          "factuality",
+          "entailment",
+          "contradiction"
+        ]
+      },
+      "normalized": {},
+      "explanation": "DeBERTa-v3-large is used as an NLI classifier within the LUQ uncertainty quantification method, not as an LLM judge evaluating generated outputs. The paper does not use LLMs as judges after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Your task is to evaluate the veracity of each sentence in the provided passage. Assign each sentence a score based on its accuracy, using a specified range (e.g., 1 to 3). Flag any sentence that does not contribute to or is off-topic as Not Relevant."
+    ],
+    "criteria": [
+      "accuracy",
+      "relevance",
+      "factuality"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "criteria": [
+          "completeness",
+          "factual support"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'completeness' and 'factual support' as they were not explicitly mentioned as separate criteria in the human evaluation guidelines. The main criteria are accuracy, relevance, and factuality."
+    }
+  },
+  "overall_notes": "The paper focuses on uncertainty quantification for long-text generation in LLMs, particularly evaluating factuality. The extraction was mostly accurate but needed refinement for Q3 (misinterpreted NLI classifier as LLM judge) and minor normalization for consistency."
+}

@@ -1,0 +1,178 @@
+{
+  "paper_id": "2025.naacl-long.553",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Psych-ADR benchmark"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o",
+      "GPT-4 Turbo",
+      "Claude 3 Opus",
+      "Claude 3 Haiku",
+      "Claude 3.5 Sonnet",
+      "Llama-3.1-405B Instruct-Turbo",
+      "Llama-3.1-70B Instruct-Turbo",
+      "OpenBioLLM-Llama3-70B",
+      "Llama3-Med42-v2-70B"
+    ],
+    "outputs": [
+      "Long-form text responses to Adverse Drug Reaction (ADR) queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama‑3.1 405B",
+          "Llama‑3.1 70B",
+          "OpenBioLLM‑Llama3‑70B",
+          "Llama3‑Med42v2‑70B",
+          "Llama-3.1 405B Instruct-Turbo",
+          "Llama-3.1 70B Instruct-Turbo",
+          "Llama3-OpenBioLLM 70B",
+          "Claude 3 Sonnet"
+        ],
+        "outputs": [
+          "Long‑form response texts to Reddit ADR queries",
+          "long-form text responses to ADR-related queries"
+        ]
+      },
+      "normalized": {
+        "Llama3-Med42-v2 70B": "Llama3-Med42-v2-70B",
+        "Psych-ADR benchmark": "Psych-ADR benchmark"
+      },
+      "explanation": "Normalized model names to consistent format, removed duplicate and variant model names that refer to the same models. Consolidated output descriptions to a single consistent format."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SMOG",
+      "KL-divergence",
+      "AlignScore",
+      "F1",
+      "Accuracy",
+      "Weighted F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Weighted F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Empath",
+          "GPT-4o score",
+          "SMOG readability index",
+          "Empath emotion categories with KL‑divergence",
+          "GPT‑4o alignment score",
+          "Actionability sub‑dimension scores (practicality, relevance, specificity, clarity)",
+          "SMOG index"
+        ]
+      },
+      "normalized": {
+        "weighted F1 score": "Weighted F1",
+        "F1 score": "F1",
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Empath is a tool used for feature extraction, not an evaluation metric. GPT-4o score is an LLM-as-judge metric (covered in Q3). Actionability scores are also LLM-based evaluation. Kept only true automatic metrics that aren't based on LLM evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "In-context prompting with examples",
+      "Chain-of-thought prompting"
+    ],
+    "criteria": [
+      "Harm reduction strategy alignment",
+      "Practicality",
+      "Relevance",
+      "Specificity",
+      "Clarity"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "Prompt‑based alignment scoring with in‑context examples",
+          "in-context learning"
+        ],
+        "criteria": [
+          "actionability"
+        ]
+      },
+      "normalized": {
+        "Alignment with expert harm‑reduction strategies": "Harm reduction strategy alignment",
+        "practicality": "Practicality",
+        "relevance": "Relevance",
+        "specificity": "Specificity",
+        "clarity": "Clarity",
+        "alignment of harm-reduction strategies": "Harm reduction strategy alignment"
+      },
+      "explanation": "Consolidated similar method descriptions and normalized criteria names. 'Actionability' is the overall category while the four sub-dimensions are the specific criteria used for LLM evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluated extracted/composed harm-reduction strategies and judged GPT-4o alignment scores, checking correctness and agreement with expert strategies",
+      "Four annotators evaluated whether the harm reduction strategies and actionability dimensions were correctly identified by GPT-4o, based on expert rationales and predefined definitions"
+    ],
+    "criteria": [
+      "Extraction correctness",
+      "Strategy alignment with expert",
+      "Correlation with GPT-4o scores"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "extraction of harm reduction strategies",
+          "combination of strategies",
+          "practicality",
+          "relevance",
+          "specificity",
+          "clarity"
+        ]
+      },
+      "normalized": {
+        "Correlation with GPT‑4o scores": "Correlation with GPT-4o scores"
+      },
+      "explanation": "The criteria removed were either redundant with the main evaluation criteria or were aspects being validated rather than criteria used for human evaluation. The actionability sub-dimensions were evaluated by GPT-4o, not humans."
+    }
+  },
+  "overall_notes": "The paper has a clear NLG evaluation focus with strong human evaluation components. The extraction was generally good but included some redundant items and items that belong to other questions (like LLM-as-judge metrics listed under automatic metrics). The paper uses sophisticated multi-faceted evaluation combining traditional metrics, LLM-as-judge, and human evaluation."
+}

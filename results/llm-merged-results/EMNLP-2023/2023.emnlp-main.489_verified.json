@@ -1,0 +1,176 @@
+{
+  "paper_id": "2023.emnlp-main.489",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering"
+    ],
+    "datasets": [
+      "TheoremQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3",
+      "GPT-3.5",
+      "ChatGPT",
+      "GPT-4",
+      "PaLM-2",
+      "Claude-v1",
+      "Claude-instant",
+      "Alpaca-13B",
+      "Vicuna-13B",
+      "OpenAssistant-12B",
+      "MOSS-instruct-16B",
+      "StarChat-16B",
+      "InstructCodeT5+"
+    ],
+    "outputs": [
+      "Answers to theorem-based questions in formats: integer, float, list of integers/floats, boolean, multiple-choice"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Code Generation",
+          "Other:Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT‑4",
+          "Claude‑v1",
+          "Alpaca‑13B",
+          "Vicuna‑13B",
+          "OpenAssistant‑12B",
+          "MOSS‑instruct‑16B",
+          "StarChat‑16B",
+          "Instruct‑CodeT5+",
+          "GPT",
+          "Claude",
+          "LLaMA",
+          "Pythia",
+          "CodeGen",
+          "GLM",
+          "StarCoder",
+          "CodeT5+"
+        ],
+        "outputs": [
+          "integer, float, list of integers/floats, boolean, multiple‑choice",
+          "The models generate answers to theorem-driven questions, often via Chain-of-Thought or Program-of-Thought prompting, with final answers in formats like integer, float, boolean, or multiple-choice."
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering"
+      },
+      "explanation": "Normalized task to 'Question Answering' (not 'Code Generation'), removed duplicate/incomplete model names, simplified output descriptions to one clear statement"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "Executable Ratio"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Exact Match (via normalization)"
+        ]
+      },
+      "normalized": {
+        "Executable ratio of generated programs": "Executable Ratio"
+      },
+      "explanation": "Normalized 'Executable ratio of generated programs' to 'Executable Ratio'. Removed 'Exact Match (via normalization)' as it describes methodology rather than being a distinct metric - exact match is captured by Accuracy."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "ChatGPT"
+    ],
+    "methods": [
+      "Answer Span Extraction"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Answer Span Extraction"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "answer span extraction"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "answer span extraction": "Answer Span Extraction"
+      },
+      "explanation": "Changed answer from No to Yes - the paper explicitly uses ChatGPT for answer span extraction from model outputs. This qualifies as using an LLM for post-generation evaluation tasks. Normalized method name to title case."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Categorize errors into types: E1 (ignorance of theorem), E2 (wrong formula/algorithm), E3 (minor calculation mistakes)"
+    ],
+    "criteria": [
+      "Knowledge of Theorem",
+      "Correct Formula/Algorithm",
+      "Calculation Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "Knowledge of Theorem",
+          "Correct Formula/Algorithm",
+          "Calculation Accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Humans were asked to solve the selected questions and their answers were compared to the ground‑truth answers.",
+          "We pick GPT4, ChatGPT and Alpaca to understand their error sources. We include the following error types: (E1) the model does not even know this theorem, (E2) the model does know the theorem, but uses the wrong formula or algorithm, (E3) the model knows the theorem and the formula, the error is only caused by minor calculation mistakes."
+        ],
+        "criteria": [
+          "E1",
+          "E2",
+          "E3",
+          "accuracy",
+          "error type",
+          "calculation errors",
+          "rounding errors",
+          "ignorance of theorem",
+          "wrong formula or algorithm"
+        ]
+      },
+      "normalized": {
+        "E1": "Knowledge of Theorem",
+        "E2": "Correct Formula/Algorithm",
+        "E3": "Calculation Accuracy"
+      },
+      "explanation": "Simplified guideline to core error categorization framework. Normalized criteria from error codes (E1/E2/E3) to descriptive criteria names. Removed duplicated/extraneous items from criteria list."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating NLG capabilities for theorem-based question answering. Extraction was generally accurate but needed normalization of model names (removed duplicates/variants) and clarification that ChatGPT is used for post-generation evaluation (answer span extraction), changing Q3 answer from No to Yes. The primary contribution is TheoremQA benchmark evaluation with both automatic metrics and human error analysis."
+}

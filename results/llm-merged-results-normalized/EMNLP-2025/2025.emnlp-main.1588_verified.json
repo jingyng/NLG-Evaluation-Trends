@@ -1,0 +1,140 @@
+{
+  "paper_id": "2025.emnlp-main.1588",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Explanation Generation",
+      "Text To Video Retrieval Generation"
+    ],
+    "datasets": [
+      "MSR VTT",
+      "MSVD",
+      "LSMDC",
+      "DIDEMO"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_2.5_vl_7b_captioner_relaxed",
+      "clip_vit_b_32",
+      "vlm_2vec",
+      "x_pool",
+      "qwen_2_vl"
+    ],
+    "outputs": [
+      "Natural language explanations (rationales) for why a video matches a text query",
+      "The outputs include ranked video candidates and natural language explanations justifying the rankings, generated via LLM-based chain-of-thought reasoning."
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Image Captioning",
+          "Text Summarization"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Frame captions, video summaries, structured annotations (objects, actions, scenes), and retrieval explanations"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'Image Captioning' and 'Text Summarization' as they are not evaluated NLG tasks in this paper (frame captions are intermediate inputs, not evaluated NLG outputs). Removed frame captions and video summaries from outputs since they are intermediate data generation steps, not the main evaluated NLG outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "RECALL",
+      "MEDIAN RANK",
+      "RANK"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Recall@1",
+          "Recall@5",
+          "Recall@10",
+          "Median Rank",
+          "Mean Rank"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Embedding Similarity",
+          "Embedding cosine similarity",
+          "proxy explanation similarity",
+          "R@1",
+          "R@5",
+          "R@10",
+          "MdR",
+          "MnR"
+        ]
+      },
+      "normalized": {
+        "R@1": "Recall@1",
+        "R@5": "Recall@5",
+        "R@10": "Recall@10",
+        "MdR": "Median Rank",
+        "MnR": "Mean Rank"
+      },
+      "explanation": "Normalized metric abbreviations to full names. Removed 'Embedding Similarity' and 'Embedding cosine similarity' as these are input features, not evaluation metrics. Removed 'proxy explanation similarity' as it appears to be an analysis metric rather than primary evaluation metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Qwen2.5-VL-7B-Captioner-Relaxed"
+        ],
+        "methods": [
+          "pairwise evaluation"
+        ],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items since LLM is used for generation (chain-of-thought reasoning) but not as a judge/evaluator after generation. The paper does not use LLMs to assess or judge generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. The paper mentions future directions for human-centered evaluation but does not report conducting any human evaluations."
+    }
+  },
+  "overall_notes": "The paper focuses on explainable text-to-video retrieval using LLM-based chain-of-thought reasoning. The main NLG task is explanation generation, with text-to-video retrieval being the underlying application. Automatic metrics are used for evaluation, but no LLM-as-judge or human evaluation is conducted. The extraction was mostly accurate but included some intermediate data generation steps as NLG outputs."
+}

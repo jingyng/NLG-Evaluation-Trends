@@ -1,0 +1,133 @@
+{
+  "paper_id": "2024.emnlp-main.317",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Instruction Following",
+      "Question Answering",
+      "Other: Bias Detection"
+    ],
+    "datasets": [
+      "NLEBench",
+      "NO-CNN/DailyMail",
+      "NO-ConvAI2",
+      "NO-Alpaca-Plus",
+      "NO-Multi-QA-Sum",
+      "NO-CrowS-Pairs"
+    ],
+    "languages": [
+      "Norwegian",
+      "English"
+    ],
+    "models": [
+      "NorGPT-369M",
+      "NorGPT-3B",
+      "NorGPT-23B",
+      "NorLlama-3B",
+      "NorGPT-3B-continue",
+      "NB-GPT-J-6B",
+      "GPT-3.5-Turbo"
+    ],
+    "outputs": [
+      "Generated dialogue responses",
+      "Abstractive summaries",
+      "Instruction-following texts",
+      "Question-answer pairs",
+      "Bias analysis texts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering",
+          "Other: Bias Detection"
+        ],
+        "languages": [
+          "English"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Instruction Following",
+          "Other:Document-Grounded Question Answering",
+          "Other:Instruction Generation"
+        ],
+        "languages": [
+          "Chinese",
+          "German",
+          "Danish",
+          "Swedish"
+        ]
+      },
+      "normalized": {
+        "Other:Instruction Following": "Instruction Following"
+      },
+      "explanation": "Removed non-generated-output languages (German/Danish/Swedish appear only in training data), consolidated tasks, normalized task names, added missing Question Answering task"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "Distinct",
+      "MAUVE",
+      "Entailment",
+      "Perplexity",
+      "F1-score",
+      "Toxicity scores"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "Entailment scores": "Entailment",
+        "perplexity": "Perplexity",
+        "Perspective API toxicity": "Toxicity scores"
+      },
+      "explanation": "Normalized metric names to standard forms, removed duplicates"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "suggested annotations for human verification"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "GPT-4 was only used to suggest annotations for human annotators to verify, not as a judge of generated outputs. Removed all metadata as answer remains 'No'"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators scored each text on a 1-5 scale for Adequacy (meaning preservation) and Fluency (naturalness in Norwegian)"
+    ],
+    "criteria": [
+      "Adequacy",
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Human evaluation metadata is correctly extracted and formatted"
+    }
+  },
+  "overall_notes": "The extraction was mostly accurate. Main adjustments were removing languages that were only mentioned in the context of training data (not generated outputs) and clarifying the LLM-as-judge question where GPT-4 was used for annotation assistance but not output evaluation. The paper presents a comprehensive evaluation of Norwegian language models with both automatic and human evaluation."
+}

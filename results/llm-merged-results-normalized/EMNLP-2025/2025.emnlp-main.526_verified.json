@@ -1,0 +1,138 @@
+{
+  "paper_id": "2025.emnlp-main.526",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Spatial Pathfinding",
+      "Spatial Reasoning",
+      "Rule Based Reasoning"
+    ],
+    "datasets": [
+      "SPARC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "o_4_mini",
+      "o_3_mini",
+      "qwq",
+      "r_1",
+      "gpt_4.1",
+      "gemma_3",
+      "qwen_2.5"
+    ],
+    "outputs": [
+      "Generated spatial paths for 2D grid puzzles that satisfy spatial and rule-based constraints"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Spatial Puzzle Solving": "Other:Spatial Pathfinding",
+        "Other:spatial reasoning": "Other:Spatial Reasoning",
+        "Other:rule-based reasoning": "Other:Rule-Based Reasoning",
+        "Gemma 3": "Gemma-3",
+        "Qwen 2.5": "Qwen-2.5"
+      },
+      "explanation": "Normalized task names to title case and clarified 'Spatial Puzzle Solving' to 'Spatial Pathfinding' to better reflect the paper's focus. Added hyphens to model version numbers for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "PASS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Error Rate",
+          "pass@k",
+          "Error Rate (Invalid Path, Incorrect Start/End, Disconnected Line, Intersecting Line, Rule Cell Crossing)"
+        ]
+      },
+      "normalized": {
+        "pass@k": "Pass@k"
+      },
+      "explanation": "Removed 'Error Rate' and its detailed breakdown as these are not traditional NLG metrics but rather error categories specific to the pathfinding task. Kept 'Accuracy' and 'Pass@k' as the main automatic evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The LLMs mentioned are used as generators for the spatial reasoning task, not as evaluators of the outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators solve each puzzle by drawing a continuous path from Start to End node",
+      "Path must satisfy all puzzle rules (gaps, dots, stones, stars, triangles, polyshapes, negative polyshapes)",
+      "Majority vote among three annotators determines correctness"
+    ],
+    "criteria": [
+      "Correctness",
+      "Time",
+      "Attempts"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Majority vote among three annotators determines correctness"
+        ],
+        "criteria": [
+          "Solve Time",
+          "Number of Attempts"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Annotate all the samples in the dataset in as little time as possible per puzzle",
+          "Each puzzle is solvable, but if you can't think of a solution after a reasonable amount of time (5-10 minutes), you can click Show Solution or Skip Puzzle to continue"
+        ],
+        "criteria": [
+          "solution path correctness"
+        ]
+      },
+      "normalized": {
+        "correctness": "Correctness"
+      },
+      "explanation": "Simplified the guideline to focus on the core evaluation procedure. Added 'Solve Time' and 'Number of Attempts' as explicit criteria based on the paper's human evaluation analysis. Removed procedural details about annotation workflow."
+    }
+  },
+  "overall_notes": "This paper evaluates spatial reasoning and pathfinding capabilities rather than traditional NLG tasks. The 'generation' is of spatial paths in 2D grids rather than natural language text. The evaluation metrics are tailored to this specific task (path accuracy, rule satisfaction) rather than standard NLG metrics like BLEU/ROUGE."
+}

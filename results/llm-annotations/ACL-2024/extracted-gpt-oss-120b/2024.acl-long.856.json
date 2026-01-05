@@ -1,0 +1,67 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "Modern MT systems deliver mostly fluent and accurate translations, posing a challenge for their quality evaluation even when conducted by human annotators... We use WMT data spanning 2017 to 2022, incorporating Direct Assessments (DA) and Multidimensional Quality Metrics (MQM) scores.",
+        "tasks": [
+            "Machine Translation"
+        ],
+        "datasets": [
+            "WMT 2017-2022 test sets (ZH→EN, EN→DE, HE→EN)"
+        ],
+        "languages": [
+            "English",
+            "Chinese",
+            "German",
+            "Hebrew"
+        ],
+        "models": [
+            "XLM-RoBERTa large (backbone for sentinel metrics)",
+            "XCOMET",
+            "MetricX-23",
+            "GEMBA-MQM (GPT‑4 based)"
+        ],
+        "outputs": "Scalar quality scores for candidate translations (segment‑level and system‑level)"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We report the segment‑level Pearson correlation of the primary submissions to the Metrics Shared Task... The final ranking was computed from the following three statistics: system‑level pairwise ranking accuracy, system‑and segment‑level Pearson correlation, segment‑level pairwise ranking accuracy with tie calibration.",
+        "automatic_metrics": [
+            "XCOMET‑Ensemble",
+            "MetricX‑23",
+            "XCOMET‑QE‑Ensemble",
+            "MetricX‑23‑QE",
+            "mbr‑metricx‑qe",
+            "GEMBA‑MQM (GPT‑4 based)",
+            "MaTESe",
+            "COMET",
+            "BLEURT‑20",
+            "BLEU",
+            "chrF",
+            "BERTScore",
+            "KG‑BERTScore",
+            "embed_llama"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "GEMBA‑MQM, which is based on GPT‑4, has not been explicitly fine‑tuned on human assessments and is less likely to leverage spurious correlations.",
+        "models": [
+            "GPT‑4 (via GEMBA‑MQM)"
+        ],
+        "methods": [
+            "segment‑level metric scoring using an LLM‑based metric"
+        ],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We incorporate Direct Assessments where annotators rate individual translations on a scale from 0 to 100, and Multidimensional Quality Metrics where annotators tag the spans of a translation that contain errors, specifying their category and severity.",
+        "guideline": "Annotators provide a numeric quality score (0‑100) and/or annotate error spans with categories and severity levels.",
+        "criteria": [
+            "fluency",
+            "adequacy",
+            "error type",
+            "error severity"
+        ]
+    }
+}

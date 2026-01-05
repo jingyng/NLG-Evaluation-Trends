@@ -1,0 +1,74 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We propose an approach that can automatically suggest comment updates when the associated methods are changed.",
+            "Given a method, its corresponding comment, and an updated version of the method, the task is to update the comment so that it is consistent with the code in the new method. ... We propose an approach that can automatically suggest comment updates when the associated methods are changed.",
+            "We have addressed the novel task of automatically updating an existing programming comment based on changes to the related code."
+        ],
+        "tasks": [
+            "Other:Comment Update"
+        ],
+        "datasets": [
+            "a corpus constructed from open-source Java projects on GitHub",
+            "GitHub Java @return comment dataset (7,239 examples)",
+            "Large method/@return comment pair dataset (103,473 examples)",
+            "7,239 examples from open-source Java projects on GitHub"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "encoder-decoder architecture with GRUs and attention mechanism",
+            "Edit model (two-layer bidirectional GRU encoder for code edits and comment, GRU decoder with pointer network)",
+            "Generation model (two-layer bidirectional GRU encoder, attention‑based GRU decoder with copy mechanism)",
+            "GRU-based encoder-decoder with attention and pointer network"
+        ],
+        "outputs": [
+            "updated natural language comments",
+            "Updated @return comments that reflect code changes",
+            "Updated natural language comments for code methods"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We compute exact match... We also report two prevailing language generation metrics: METEOR , and average sentence-level BLEU-4 ... SARI ... GLEU",
+            "We compute exact match, i.e., the percentage of examples for which the model prediction is identical to the reference comment C new. ... We also report two prevailing language generation metrics: METEOR, and average sentence‑level BLEU‑4. ... we also include two text‑editing metrics to measure how well our system learns to edit: SARI, ... GLEU.",
+            "We compute exact match, i.e., the percentage of examples for which the model prediction is identical to the reference comment C new . This is often used to evaluate tasks involving source code edits . We also report two prevailing language generation metrics: METEOR , and average sentence-level BLEU-4 ... Therefore, we also include two text-editing metrics to measure how well our system learns to edit: SARI , originally proposed to evaluate text simplification, is essentially the average of N-gram F1 scores corresponding to add, delete, and keep edit operations; GLEU , used in grammatical error correction and style transfer, takes into account the source sentence and deviates from BLEU by giving more importance to n-grams that have been correctly changed."
+        ],
+        "automatic_metrics": [
+            "Exact Match",
+            "METEOR",
+            "BLEU-4",
+            "SARI",
+            "GLEU",
+            "exact match"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We also conduct human evaluation... User study design: Our study aims to reflect how a comment update system would be used in practice... by asking a user to select the most appropriate updated comment from a list of suggestions... Nine students... and one full-time developer... participated in our study.",
+            "Our study aims to reflect how a comment update system would be used in practice... we asked a user to select the most appropriate updated comment from a list of suggestions, given C old as well as the diff between M old and M new... Nine students (8 graduate/1 undergraduate) and one full‑time developer ... participated in our study.",
+            "Nine students (8 graduate/1 undergraduate) and one full-time developer at a large software company, all with 2+ years of Java experience, participated in our study."
+        ],
+        "guideline": [
+            "Users select the most appropriate updated comment from suggestions, given the code diff and old comment.",
+            "Participants were shown the old comment and the code diff, then asked to select the most appropriate updated comment (or None) from up to three model suggestions.",
+            "We simulated this setting by asking a user to select the most appropriate updated comment from a list of suggestions, given C old as well as the diff between M old and M new displayed using GitHub's diff interface. The user can select multiple options if they are equally good or a separate None option if no update is needed or all suggestions are poor."
+        ],
+        "criteria": [
+            "relevance",
+            "preservation of existing information",
+            "correctness of the update"
+        ]
+    }
+}

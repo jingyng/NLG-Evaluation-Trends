@@ -1,0 +1,137 @@
+{
+  "paper_id": "2025.emnlp-main.1482",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-as-a-judge (LITRANSPROQA) with human evaluation results, reporting correlation metrics (ACC-EQ and Kendall's \u03c4) between LLM judgments and human assessments across multiple datasets"
+  },
+  "llm_judge_details": {
+    "num_models": 5,
+    "models": [
+      "gpt_4o_mini",
+      "llama_3.3_70b",
+      "qwen_2.5_32b",
+      "gpt_3.5",
+      "gpt_4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Vanilla template: 'You are a professional literary translator with extensive experience. Now you are translating a work of great aesthetic value and cultural significance. You need to check if the translation covers all translation aspects by answering YES, NO or MAYBE to the following questions. Please be honest with your assessment and consider all aspects of translation quality.' PromptStep template includes step-by-step instructions. Questions cover 6 literary aspects."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 7,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Pearson correlation and Kendall's \u03c4",
+      "value": null,
+      "interpretation": "Distribution shown but no single aggregated value provided",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Used Multidimensional Quality Metrics (MQM) framework with professional translators rating questions on scale of 5. Appendix includes survey instructions and question evaluation criteria."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "ACC-EQ",
+      "Kendall's \u03c4"
+    ],
+    "shared_criteria": [
+      "overall translation quality"
+    ],
+    "sample_size": {
+      "total_generated": 4500,
+      "validated_by_both": null,
+      "notes": "Evaluation conducted on three datasets: LITEVAL-CORPUS (over 2k paragraphs), LITERARYTRAN (540 pairwise annotations), PAR3-ANNOTATED (372 comparison cases)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "ACC-EQ",
+        "value": 0.616,
+        "criterion": "Quality",
+        "llm_model": "gpt_4o_mini",
+        "significance": "p < 0.05",
+        "notes": "Best performance on LITEVAL-CORPUS with Vanilla w template"
+      },
+      {
+        "metric": "Kendall's \u03c4",
+        "value": 0.605,
+        "criterion": "Quality",
+        "llm_model": "gpt_4o_mini",
+        "significance": "p < 0.05",
+        "notes": "Best performance on LITEVAL-CORPUS with Vanilla w template"
+      },
+      {
+        "metric": "ACC-EQ",
+        "value": 0.57,
+        "criterion": "Quality",
+        "llm_model": "gpt_4o_mini",
+        "significance": null,
+        "notes": "On LITERARYTRAN with Vanilla w template"
+      },
+      {
+        "metric": "Kendall's \u03c4",
+        "value": 0.304,
+        "criterion": "Quality",
+        "llm_model": "gpt_4o_mini",
+        "significance": null,
+        "notes": "On LITERARYTRAN with Vanilla w template"
+      },
+      {
+        "metric": "ACC-EQ",
+        "value": 0.268,
+        "criterion": "Quality",
+        "llm_model": "gpt_4o_mini",
+        "significance": null,
+        "notes": "On PAR3-ANNOTATED with Vanilla w template"
+      },
+      {
+        "metric": "Kendall's \u03c4",
+        "value": 0.39,
+        "criterion": "Quality",
+        "llm_model": "gpt_4o_mini",
+        "significance": null,
+        "notes": "On PAR3-ANNOTATED with Vanilla w template"
+      },
+      {
+        "metric": "Adequacy",
+        "value": 42.4,
+        "criterion": "human translation preference",
+        "llm_model": "gpt_4o_mini",
+        "significance": null,
+        "notes": "Percentage where LLM rates human translation higher than MT (GPT-3.5 & Google Translate) on LITERARYTRAN"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "substantial gains over SOTA metrics",
+      "threshold_used": "Significance at p < 0.05",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LITRANSPROQA substantially outperforms SOTA metrics with up to 0.07 gain in correlation and 15-23 point gains in adequacy, approaching trained student evaluator performance but still lagging behind experienced professional translators."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "specific 25 QA-based literary translation aspects"
+    ],
+    "human_only_criteria": [
+      "professional translator expertise insights"
+    ],
+    "shared_criteria": [
+      "overall translation quality assessment"
+    ],
+    "notes": "LLM evaluation uses 25 selected questions covering 6 literary aspects, while human evaluation uses MQM framework and professional translator insights. Both evaluate overall translation quality on the same datasets."
+  }
+}

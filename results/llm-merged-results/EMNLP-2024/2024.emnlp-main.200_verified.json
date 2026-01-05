@@ -1,0 +1,192 @@
+{
+  "paper_id": "2024.emnlp-main.200",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Email Generation",
+      "Other:Article Generation",
+      "Other:Review Generation"
+    ],
+    "datasets": [
+      "Enron Email Corpus",
+      "New Yorker (All the News 2.0 subset)",
+      "LAMP 3U Amazon Reviews"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-3-8B-Instruct",
+      "Llama-3-70B-Instruct",
+      "Claude 3.5 Sonnet",
+      "Gemini 1.5 Pro"
+    ],
+    "outputs": [
+      "personalized emails",
+      "personalized news articles",
+      "personalized product reviews"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation"
+        ],
+        "datasets": [
+          "New Yorker subset of All the News 2.0",
+          "LAMP 3U Amazon Review Subset",
+          "All the News 2.0 (New Yorker subset)"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-4o"
+        ],
+        "outputs": [
+          "emails, articles, reviews",
+          "personalized text outputs in the form of emails, news articles, and product reviews"
+        ]
+      },
+      "normalized": {
+        "Other:email generation": "Other:Email Generation",
+        "Other:article generation": "Other:Article Generation",
+        "Other:product review generation": "Other:Review Generation",
+        "New Yorker (from All the News 2.0)": "New Yorker (All the News 2.0 subset)",
+        "LAMP 3U": "LAMP 3U Amazon Reviews"
+      },
+      "explanation": "Removed 'Dialogue Generation' as it's not actually studied in the paper. Removed duplicate dataset names and normalized to consistent forms. Removed GPT-4o from models as it's only used for evaluation, not generation. Simplified outputs to be more descriptive."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BERTScore",
+      "Win Rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Win percentage (GPT-4o)",
+          "win percentage",
+          "normalized BERT Score"
+        ]
+      },
+      "normalized": {
+        "BERT Score": "BERTScore",
+        "Win Rate": "Win Rate"
+      },
+      "explanation": "Normalized metric names to standard forms. Removed redundant variants and kept only the base metric names. The paper explicitly mentions using BERTScore and win rate as automatic metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "pairwise comparison"
+    ],
+    "criteria": [
+      "style",
+      "tone",
+      "characteristic phrases",
+      "overall resemblance",
+      "factual accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "factual accuracy"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "pairwise evaluation",
+          "pairwise comparison with win‑percentage evaluation"
+        ],
+        "criteria": [
+          "similarity to ground truth",
+          "preference alignment",
+          "similarity in style",
+          "overall resemblance to the ground truth content"
+        ]
+      },
+      "normalized": {
+        "GPT-4o": "GPT-4o",
+        "pairwise evaluation": "pairwise comparison",
+        "style": "style",
+        "tone": "tone"
+      },
+      "explanation": "Consolidated methods to 'pairwise comparison' and criteria to the essential evaluation dimensions mentioned. Added 'factual accuracy' which is explicitly mentioned in the evaluation criteria."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants select the response that best aligns with the ground truth using criteria matching GPT-4o evaluation"
+    ],
+    "criteria": [
+      "style",
+      "tone",
+      "characteristic phrases",
+      "overall resemblance",
+      "common phrases",
+      "length",
+      "factual accuracy",
+      "product details",
+      "personal experiences",
+      "ratings",
+      "comparisons",
+      "overall sentiment"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Participants select the response that best aligns with the ground truth using criteria matching GPT-4o evaluation"
+        ],
+        "criteria": [
+          "common phrases",
+          "length",
+          "factual accuracy",
+          "product details",
+          "personal experiences",
+          "ratings",
+          "comparisons",
+          "overall sentiment"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Participants are asked to select the response that best aligns with the ground truth.",
+          "Human raters compare candidate outputs to the ground truth and choose the one that best matches in style, tone, and content.",
+          "Participants are asked to select the response that they believe best aligns with the ground truth, using the same criteria as the GPT-4o evaluation."
+        ],
+        "criteria": [
+          "content fidelity",
+          "overall alignment with ground truth"
+        ]
+      },
+      "normalized": {
+        "style": "style",
+        "tone": "tone"
+      },
+      "explanation": "Consolidated guideline into a clear statement and expanded criteria list based on the detailed human evaluation protocol described in the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on personalized text generation using preference agents. Extraction quality was generally good, but needed normalization and removal of some items that were either redundant or not actually part of the core study (like Dialogue Generation). The paper uses a combination of automatic metrics (BERTScore, win rate), LLM evaluation (GPT-4o pairwise comparison), and human evaluation with detailed criteria."
+}

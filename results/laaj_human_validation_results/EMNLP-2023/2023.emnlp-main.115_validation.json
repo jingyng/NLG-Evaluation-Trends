@@ -1,0 +1,106 @@
+{
+  "paper_id": "2023.emnlp-main.115",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares GPT-3.5-Turbo and GPT-4 scores against human BWS ratings using correlation analysis and MSE metrics, reporting quantitative results in Table 6"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "gpt_3.5_turbo",
+      "gpt_4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt uses 8 in-context examples sampled from 4 equispaced score bins (2 examples per bin), exact prompt text in Appendix A.3"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 20,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Average split-half reliability (SHR)",
+      "value": 0.86,
+      "interpretation": "good annotation reliability",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Gender bias defined as 'the systematic, unequal treatment based on one's gender,' including stereotypical associations, systemic assumption, patronization, use of metaphors, slang, denigrating language"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "MSE"
+    ],
+    "shared_criteria": [
+      "gender_bias_score"
+    ],
+    "sample_size": {
+      "total_generated": 1000,
+      "validated_by_both": 1000,
+      "notes": "All 1000 GPT-generated statements were evaluated by both LLMs and humans"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.825,
+        "criterion": "gender_bias_score",
+        "llm_model": "gpt_3.5_turbo",
+        "significance": null,
+        "notes": "Reported in Table 6"
+      },
+      {
+        "metric": "MSE",
+        "value": 0.022,
+        "criterion": "gender_bias_score",
+        "llm_model": "gpt_3.5_turbo",
+        "significance": null,
+        "notes": "Reported in Table 6"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.864,
+        "criterion": "gender_bias_score",
+        "llm_model": "gpt_4",
+        "significance": null,
+        "notes": "Reported in Table 6"
+      },
+      {
+        "metric": "MSE",
+        "value": 0.017,
+        "criterion": "gender_bias_score",
+        "llm_model": "gpt_4",
+        "significance": null,
+        "notes": "Reported in Table 6"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "high correlation",
+      "threshold_used": "Not explicitly stated, but r≈0.86 suggests strong correlation",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 shows higher correlation (r=0.864) than GPT-3.5-Turbo (r=0.825) with human bias scores, though GPT-4's reasoning for scores is often flawed especially for implicit bias."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "gender_bias_score"
+    ],
+    "notes": "Both LLM and human evaluation focus exclusively on the degree of gender bias score (0-1 scale)"
+  }
+}

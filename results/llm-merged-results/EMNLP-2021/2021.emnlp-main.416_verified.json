@@ -1,0 +1,138 @@
+{
+  "paper_id": "2021.emnlp-main.416",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Generation",
+      "Text Summarization"
+    ],
+    "datasets": [
+      "(SC)^2 QA",
+      "CNN/DailyMail",
+      "MS MARCO",
+      "NewsQA",
+      "Natural Questions",
+      "SQuAD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Transformer-based encoder-decoder",
+      "PEGASUS",
+      "BART",
+      "ProphetNet",
+      "RoBERTa",
+      "DistilBART",
+      "D-S",
+      "D-S-DRIL",
+      "D-S-RL",
+      "D-D",
+      "QD-D",
+      "D-SD",
+      "QA-Gen 2S",
+      "CTRLSum"
+    ],
+    "outputs": [
+      "self-contained and summary-centric question-answer pairs",
+      "length-constrained article-summarizing answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Generation"
+        ],
+        "datasets": [
+          "SQuAD"
+        ],
+        "models": [
+          "ProphetNet",
+          "RoBERTa",
+          "DistilBART"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "Other:Question Generation": "Question Generation",
+        "(SC)2 QA": "(SC)^2 QA",
+        "MSMARCO": "MS MARCO",
+        "QAGen 2S": "QA-Gen 2S"
+      },
+      "explanation": "Normalized dataset names (MS MARCO, (SC)^2 QA), added explicitly mentioned models (ProphetNet, RoBERTa, DistilBART) and dataset (SQuAD), normalized task name from 'Other:Question Generation' to 'Question Generation'"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "QACS"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "BLEU": "BLEU",
+        "QA Pair Classifier Scores (QACS)": "QACS"
+      },
+      "explanation": "Normalized ROUGE-L to ROUGE following simplification rule, kept QACS as it's a custom metric specific to this paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder values since no LLM-as-judge evaluation was used"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "AT-1: Without referring to the answer or the article, are you able to understand the question? (Is the question self-contained?)",
+      "AT-2: Does the passage in the Answer text box answer the question?",
+      "AT-5: Does the question in the Question text box capture the gist of the Article?",
+      "AT-6: Which Question shown above best captures the gist of the Article?"
+    ],
+    "criteria": [
+      "self-contained",
+      "answer correctness",
+      "succinctness and sufficiency",
+      "captures the gist of the article"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "AT-6: Which Question shown above best captures the gist of the Article?"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "answers the question": "answer correctness",
+        "captures the gist": "captures the gist of the article",
+        "question captures article gist": "captures the gist of the article"
+      },
+      "explanation": "Added missing AT-6 guideline, normalized criteria to be more concise and consistent"
+    }
+  },
+  "overall_notes": "The paper extensively evaluates QA pair generation with both automatic metrics (ROUGE, BLEU, QACS) and detailed human evaluation. The extraction was generally accurate with minor normalization needed for dataset names and metric variants."
+}

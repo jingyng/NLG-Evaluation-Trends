@@ -1,0 +1,149 @@
+{
+  "paper_id": "2022.naacl-main.104",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Story Generation"
+    ],
+    "datasets": [
+      "ROCSTORIES",
+      "WRITINGPROMPTS",
+      "BOOKCORPUS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "megatron",
+      "temporal_bart",
+      "contentplanning",
+      "vanilla_gen",
+      "structured_prompt",
+      "pretrained",
+      "rl_based"
+    ],
+    "outputs": [
+      "generated stories",
+      "stories with flashbacks"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "TEMPORAL-BART"
+        ],
+        "outputs": [
+          "stories with flashbacks"
+        ]
+      },
+      "removed": {
+        "models": [
+          "BART",
+          "Temporal‑BART",
+          "RL‑based model",
+          "BART-base",
+          "MEGA-TRON"
+        ]
+      },
+      "normalized": {
+        "Temporal‑BART": "TEMPORAL-BART",
+        "MEGA-TRON": "MEGATRON",
+        "RL‑based model": "RL-based"
+      },
+      "explanation": "Removed duplicate model references and normalized capitalization. Added missing baseline model TEMPORAL-BART which was mentioned in the paper. Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "PERPLEXITY",
+      "DISTINCT RATIO"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Perplexity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Ref. PPL",
+          "Gen. PPL",
+          "Distinct Ratio (%)",
+          "BLEU-3",
+          "ROUGE L"
+        ]
+      },
+      "normalized": {
+        "Ref. PPL": "Perplexity",
+        "Gen. PPL": "Perplexity",
+        "BLEU-3": "BLEU",
+        "ROUGE L": "ROUGE",
+        "Distinct Ratio (%)": "Distinct Ratio"
+      },
+      "explanation": "Simplified metric variants to base forms (BLEU-3→BLEU, ROUGE-L→ROUGE). Combined perplexity variants under single 'Perplexity' metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholders and confirmed no LLM-as-judge evaluation was used in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rank stories on interest level using scale 1-K (K=most interesting)",
+      "Rate temporal coherence (yes/no binary scoring)",
+      "Evaluate flashback accuracy (correct incorporation of after prompts)"
+    ],
+    "criteria": [
+      "Interest",
+      "Coherence",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Evaluate flashback accuracy (correct incorporation of after prompts)"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "interest level",
+          "temporal coherence",
+          "fluency",
+          "Accuracy"
+        ]
+      },
+      "normalized": {
+        "interest level": "Interest Level",
+        "temporal coherence": "Temporal Coherence",
+        "Accuracy": "Flashback Accuracy"
+      },
+      "explanation": "Normalized criteria naming consistency and removed 'fluency' which was measured automatically but not specified as human evaluation criterion. Added missing flashback accuracy evaluation detail."
+    }
+  },
+  "overall_notes": "Paper focuses on story generation with temporal control for flashback insertion. Uses comprehensive evaluation including automatic metrics (BLEU, ROUGE, perplexity, diversity) and human evaluation (interest level, temporal coherence, flashback accuracy). No LLM-as-judge evaluation used. Extraction was generally accurate but needed normalization and removal of duplicates."
+}

@@ -1,0 +1,150 @@
+{
+  "paper_id": "2021.emnlp-main.798",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "NYT ANNOTATED CORPUS",
+      "XSUM",
+      "GIGAWORD",
+      "CONTRACT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "child_ext",
+      "child_ext_kd",
+      "ft_tinybert_ext",
+      "child_abs",
+      "ft_tinybert_abs",
+      "autosumm_create",
+      "autosumm_distill",
+      "bert_summ",
+      "tinybert",
+      "ft_bert_ext",
+      "ft_bert_abs"
+    ],
+    "outputs": [
+      "extractive summaries",
+      "abstractive summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "FT-BERT-ABS"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "CNN/DailyMail",
+          "NYT",
+          "CNN / Daily Mail",
+          "New York Times (NYT)"
+        ],
+        "languages": [],
+        "models": [
+          "CHILD-ABS-KD",
+          "BERT",
+          "GPT2",
+          "GPT3",
+          "PEGASUS",
+          "TINYBERT"
+        ],
+        "outputs": [
+          "Extractive summaries (sentence selections) and abstractive summaries (generated text)",
+          "The paper generates summaries for extractive and abstractive summarization tasks using auto-generated models."
+        ]
+      },
+      "normalized": {
+        "X-Sum": "XSum",
+        "TINYBERT": "TinyBERT"
+      },
+      "explanation": "Removed datasets that were duplicates or non-standard forms. Removed models that were only mentioned in background/literature review but not evaluated. Added FT-BERT-ABS which was used as a baseline. Simplified output descriptions to be more concise."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Simplified ROUGE variants to base form ROUGE as per normalization rules. The paper explicitly mentions using ROUGE-1, ROUGE-2, and ROUGE-L scores."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'None' strings and kept empty lists. The paper does not use LLMs as judges/evaluators - LLMs (BERT, GPT-2, GPT-3) are only used as teacher models for knowledge distillation, not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'None' strings and kept empty lists. The paper does not mention any human evaluation - it only uses automatic metrics (ROUGE) for evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on automatic model creation for text summarization using NAS and knowledge distillation. It evaluates generated models using ROUGE scores but does not conduct human evaluations or use LLMs as judges. The extraction was generally accurate but included some background models/datasets that weren't part of the main evaluation. The paper clearly addresses NLG tasks (text summarization) and uses automatic metrics."
+}

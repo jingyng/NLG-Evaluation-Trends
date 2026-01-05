@@ -1,0 +1,121 @@
+{
+  "paper_id": "2025.emnlp-main.1272",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-as-judge (DeepSeek-v3) against human evaluation for free-form justification questions using three complementary matching methods, with quantitative comparison of performance across evaluation formats"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "DeepSeek-v3"
+    ],
+    "prompts": {
+      "provided": "no",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "no",
+      "notes": "LLM-as-judge was used only for free-form response evaluation (matching responses to closest option), but specific judging prompts are not provided"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 12,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "majority voting",
+      "value": "2/3 majority required",
+      "interpretation": "conservative quality control threshold",
+      "per_criterion": [
+        {
+          "criterion": "coherence",
+          "metric": "binary agreement",
+          "value": "no conversations removed",
+          "notes": "7/100 received individual flags but none reached majority disapproval"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines included coherence, safety, and white lie authenticity assessment using binary assessment with written explanations; qualification tests used to filter annotators"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "accuracy",
+      "cosine similarity",
+      "token-F1",
+      "LLM-judge matching"
+    ],
+    "shared_criteria": [
+      "justification accuracy"
+    ],
+    "sample_size": {
+      "total_generated": 6700,
+      "validated_by_both": "subset of justification questions",
+      "notes": "Validation focuses specifically on justification questions comparing MCQ format versus free-form responses evaluated by three methods including LLM-as-judge"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "accuracy",
+        "value": 75.0,
+        "criterion": "justification MCQs",
+        "llm_model": "DeepSeek",
+        "significance": "not reported",
+        "notes": "Performance drops significantly in free-form responses"
+      },
+      {
+        "metric": "cosine similarity matching",
+        "value": 29.76,
+        "criterion": "justification free-form",
+        "llm_model": "DeepSeek",
+        "significance": "not reported",
+        "notes": "One of three matching methods used"
+      },
+      {
+        "metric": "token-F1 matching",
+        "value": 35.71,
+        "criterion": "justification free-form",
+        "llm_model": "DeepSeek",
+        "significance": "not reported",
+        "notes": "Second matching method"
+      },
+      {
+        "metric": "LLM-judge matching",
+        "value": 26.19,
+        "criterion": "justification free-form",
+        "llm_model": "DeepSeek",
+        "significance": "not reported",
+        "notes": "LLM-as-judge validation method"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "not provided",
+      "threshold_used": "not provided",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-as-judge shows substantial performance gap compared to human evaluation on justification tasks, with models struggling to independently infer prosocial intentions behind white lies without MCQ guidance"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "cosine similarity matching",
+      "token-F1 matching"
+    ],
+    "human_only_criteria": [
+      "Coherence",
+      "Safety",
+      "Authenticity"
+    ],
+    "shared_criteria": [
+      "justification accuracy"
+    ],
+    "notes": "LLM-as-judge was used specifically for evaluating free-form responses against human-validated ground truth, while humans handled broader quality assessment"
+  }
+}

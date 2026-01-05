@@ -1,0 +1,189 @@
+{
+  "paper_id": "2025.emnlp-main.837",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Medical Question Answering"
+    ],
+    "datasets": [
+      "MEDQA",
+      "MEDMCQA",
+      "PUBMEDQA",
+      "MMLU",
+      "DDXPLUS",
+      "AGENTCLINIC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3.1_8b_instruct",
+      "gemma_2",
+      "ministral_8b",
+      "meerkat_8b",
+      "ultramedical_8b",
+      "med_prm"
+    ],
+    "outputs": [
+      "Step-by-step reasoning traces",
+      "Diagnostic answers",
+      "Treatment strategies"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Medical QA",
+          "Other:Clinical Decision Making"
+        ],
+        "datasets": [
+          "MMLU-Med",
+          "AgentClinic*"
+        ],
+        "languages": [],
+        "models": [
+          "Llama3.1-8B-Instruct",
+          "Gemma2",
+          "Ministral",
+          "Meerkat",
+          "UltraMedical",
+          "Gemini-2.0-flash",
+          "GPT-4o-mini",
+          "GPT-3.5 turbo",
+          "DeepSeek-R1",
+          "QwQ",
+          "Sky-T1",
+          "R1-Distill-Llama",
+          "R1-Distill-Qwen",
+          "Marco-o1",
+          "TX-Gemma",
+          "Meditron3",
+          "HuatuoGPT-o1"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Llama3.1-8B-Instruct": "Llama-3.1-8B-Instruct",
+        "Gemma2": "Gemma-2",
+        "Ministral": "Ministral-8B",
+        "Meerkat-8B": "Meerkat-8B",
+        "UltraMedical-8B": "UltraMedical-8B",
+        "step-by-step reasoning traces and final diagnostic answers": "Step-by-step reasoning traces",
+        "stepwise reasoning traces and final answer selections": "Diagnostic answers",
+        "reasoning traces, diagnostic answers, treatment strategies": "Treatment strategies"
+      },
+      "explanation": "Consolidated tasks to 'Other:Medical Question Answering' only. Removed datasets that are subsets or variants (MMLU-Med, AgentClinic*). Kept only the main NLG models evaluated in the paper. Normalized model names to standard forms."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Pearson correlation"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Removed 'Pearson correlation' as it was used for human alignment analysis, not for evaluating generated outputs. Kept 'Accuracy' as the main automatic metric."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gemini_2.0_flash",
+      "med_prm"
+    ],
+    "methods": [
+      "RAG-as-a-Judge",
+      "Best-of-N selection",
+      "Self-Consistency + Reward Model (SC+RM)",
+      "Stepwise binary classification"
+    ],
+    "criteria": [
+      "Logic",
+      "Factuality",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Med-PRM (LLM reward model)"
+        ],
+        "methods": [
+          "binary correctness scoring",
+          "RAG-AS-A-JUDGE scoring",
+          "LLM-as-a-Judge for stepwise supervision",
+          "binary classification of reasoning steps",
+          "scoring responses in open-ended format"
+        ],
+        "criteria": [
+          "based on medical evidence",
+          "correctness",
+          "stepwise correctness"
+        ]
+      },
+      "normalized": {
+        "RAG-AS-A-JUDGE": "RAG-as-a-Judge",
+        "RAG-AS-A-JUDGE scoring": "RAG-as-a-Judge",
+        "stepwise binary classification": "Stepwise binary classification",
+        "best-of-N selection": "Best-of-N selection",
+        "self-consistency plus reward model (SC+RM)": "Self-Consistency + Reward Model (SC+RM)",
+        "logical coherence": "Logical coherence",
+        "factual accuracy": "Factual accuracy",
+        "problem-solving relevance": "Problem-solving relevance"
+      },
+      "explanation": "Consolidated methods to core evaluation approaches. Removed redundant criteria and kept the three main evaluation dimensions used for LLM-as-judge."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluate each reasoning step based on: Factual Accuracy (accuracy to established medical knowledge), Problem-Solving Relevance (meaningful contribution to solving the problem), Logical Coherence (consistent medical reasoning). Assign 1 or 0 points to each step."
+    ],
+    "criteria": [
+      "Factuality",
+      "Relevance",
+      "Logic"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Factual Accuracy": "Factual Accuracy",
+        "Problem-Solving Relevance": "Problem-Solving Relevance",
+        "Logical Coherence": "Logical Coherence"
+      },
+      "explanation": "Consolidated guideline description and kept the three explicit criteria used in human evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on medical question answering with step-by-step reasoning generation. It uses both automatic metrics (accuracy) and LLM-as-judge evaluation (Med-PRM and Gemini-2.0-flash) with RAG-as-a-Judge approach. Human evaluation was conducted by medical experts assessing reasoning steps. The extraction was generally accurate but included many baseline models mentioned in comparisons - kept only the main NLG models evaluated."
+}

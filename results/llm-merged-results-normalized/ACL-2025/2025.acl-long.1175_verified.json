@@ -1,0 +1,97 @@
+{
+  "paper_id": "2025.acl-long.1175",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering"
+    ],
+    "datasets": [
+      "2wikimultihopqa",
+      "HotpotQA",
+      "MUSIQUE",
+      "MULTIFIELDQA",
+      "QASPER"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_2.5_7b_instruct_1m",
+      "qwen_2.5_14b_instruct_1m",
+      "qwen_2.5_72b_instruct",
+      "chatglm_3_6b_128k",
+      "glm_4_9b_chat_1m"
+    ],
+    "outputs": [
+      "Answers to user queries"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "ChatGLM3-6B-128K",
+          "GLM-4-9B-Chat-1M"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT-4",
+          "BGE-base-en",
+          "BM25"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed retrieval models (BGE-base-en, BM25) and GPT-4 (mentioned only in example, not as evaluated NLG model). Added ChatGLM3-6B-128K and GLM-4-9B-Chat-1M which are evaluated extraction-based methods. Simplified outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT MATCH",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Exact Match",
+          "EM score",
+          "F1-score"
+        ]
+      },
+      "normalized": {
+        "EM score": "EM",
+        "F1-score": "F1",
+        "Exact Match": "EM"
+      },
+      "explanation": "Normalized metric names - 'EM score' and 'Exact Match' become 'EM'; 'F1-score' becomes 'F1'. Kept only base forms."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper. The LLMs are used for generation, not for evaluating outputs post-generation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation was mentioned in the paper - only automatic metrics (EM and F1) were used for evaluation."
+    }
+  },
+  "overall_notes": "The paper evaluates a retrieval-augmented generation system for question answering using automatic metrics (EM/F1). The NLG aspect is the answer generation by reader LLMs based on retrieved evidence. The paper focuses on evidence retrieval rather than generation evaluation methodology."
+}

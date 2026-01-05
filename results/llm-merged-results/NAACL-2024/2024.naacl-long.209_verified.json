@@ -1,0 +1,117 @@
+{
+  "paper_id": "2024.naacl-long.209",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Code Generation",
+      "Text-to-SQL Generation",
+      "Paraphrase Detection",
+      "Event Extraction"
+    ],
+    "datasets": [
+      "WMT16",
+      "SPIDER",
+      "PAWS",
+      "Logic",
+      "Pubmed45"
+    ],
+    "languages": [
+      "English",
+      "German"
+    ],
+    "models": [
+      "GPT-3.5-turbo-0613",
+      "GPT-4-0613",
+      "text-davinci-001",
+      "text-davinci-002",
+      "text-davinci-003"
+    ],
+    "outputs": [
+      "German translations",
+      "SQL queries",
+      "paraphrase detection judgments",
+      "validity classifications for biomedical relationships"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Paraphrase Detection",
+          "Event Extraction"
+        ],
+        "datasets": [
+          "PAWS",
+          "Logic",
+          "Pubmed45"
+        ],
+        "outputs": [
+          "paraphrase detection judgments",
+          "validity classifications for biomedical relationships"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text-to-SQL generation"
+        ],
+        "outputs": [
+          "Generated German translations and SQL queries.",
+          "translations, SQL queries"
+        ]
+      },
+      "normalized": {
+        "gpt-3.5-turbo-0613": "GPT-3.5-turbo-0613",
+        "gpt-4-0613": "GPT-4-0613",
+        "GPT-4": "GPT-4-0613",
+        "GPT-3.5": "GPT-3.5-turbo-0613",
+        "Other:Text-to-SQL generation": "Text-to-SQL Generation"
+      },
+      "explanation": "Added all NLG tasks actually evaluated in the paper (not just those listed in the extraction). Normalized model names and task names. Removed duplicate/verbose output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "BLEU",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "spBLEU"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed spBLEU as it was only mentioned in Appendix D.2 as an alternative metric used for WMT, but the paper explicitly states BLEU was the primary/reported metric. BERTScore was correctly included."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation methodology was used in this paper. The LLMs were used for generation only."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation was conducted according to the paper text. All evaluations were automated."
+    }
+  },
+  "overall_notes": "The paper primarily studies the utility of AMR as an intermediate representation for LLMs across multiple NLP tasks, only some of which are NLG tasks. The extraction was mostly accurate but missed some evaluated tasks/datasets. The paper uses standard automatic metrics for evaluation without human or LLM-as-judge assessment."
+}

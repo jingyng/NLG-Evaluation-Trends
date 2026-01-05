@@ -1,0 +1,149 @@
+{
+  "paper_id": "2025.acl-long.1485",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Visual Question Answering"
+    ],
+    "datasets": [
+      "AMBER",
+      "GQA",
+      "xFlickr&Co",
+      "XM3600"
+    ],
+    "languages": [
+      "English",
+      "Croatian",
+      "Welsh",
+      "Swahili",
+      "Czech",
+      "Dutch",
+      "Swedish",
+      "French",
+      "Spanish",
+      "Portuguese"
+    ],
+    "models": [
+      "GPT-4o",
+      "Gemini-1.5-Flash",
+      "Pixtral-12B-2409",
+      "Qwen2-VL-7B",
+      "Llama-3.2-11B-Vision",
+      "InternVL2-8B"
+    ],
+    "outputs": [
+      "Generated answers for VQA",
+      "Generated captions for Image Captioning",
+      "Hallucination classifications"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Hallucination classifications"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Visual Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-3.2-11B-Vision-Instruct",
+          "Qwen2-VL-7B-Instruct"
+        ],
+        "outputs": [
+          "Accuracy and Macro-F1 scores for hallucination detection across tasks"
+        ]
+      },
+      "normalized": {
+        "Other:Visual Question Answering": "Visual Question Answering"
+      },
+      "explanation": "Removed duplicate model variants (keeping base names), removed evaluation metrics from outputs (they belong in Q2), normalized task name, and clarified outputs to focus on NLG generation"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Macro-F1",
+          "Acc"
+        ]
+      },
+      "normalized": {
+        "Acc": "Accuracy",
+        "Macro-F1": "F1"
+      },
+      "explanation": "Normalized metric names to canonical forms - 'Acc' to 'Accuracy' and 'Macro-F1' to 'F1' since macro-F1 is the standard F1 score when averaging across classes"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Gemini-1.5-Flash"
+        ],
+        "methods": [
+          "UniHD framework for hallucination detection"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all items since the paper does NOT use LLMs as judges after generation. UniHD framework uses Gemini-1.5-Flash as part of hallucination detection during generation, not as a post-hoc evaluator."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "We provide the reviewers with a specific scoring rubric as a clear guide for evaluation."
+        ],
+        "criteria": [
+          "structure",
+          "length",
+          "logic",
+          "intended hallucinated elements",
+          "accuracy of meaning and context"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Human evaluation was conducted for dataset validation/creation, not for evaluating the generated outputs of the models. The human checks mentioned were for verifying the quality of the CCHall benchmark data, not for evaluating model performance."
+    }
+  },
+  "overall_notes": "The paper focuses on benchmarking hallucination detection in multimodal LLMs for VQA and Image Captioning tasks. Automatic metrics (Accuracy, F1) are used for evaluation, but there is no LLM-as-judge evaluation. Human evaluation mentioned was for dataset creation, not model output evaluation. The extraction was generally accurate but needed some cleanup of model variants and clarification of what constitutes evaluation vs. dataset creation."
+}

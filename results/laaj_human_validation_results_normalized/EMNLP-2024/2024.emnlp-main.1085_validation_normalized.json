@@ -1,0 +1,96 @@
+{
+  "paper_id": "2024.emnlp-main.1085",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares GPT-4 evaluations against human preferences using correlation analysis (R\u00b2 values), Mean Absolute Error (MAE), and ranking comparisons across all four evaluation dimensions for English, Chinese, and Indonesian"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt template replicates how human evaluators are prompted in the ranking task (see Appendix A.2), though exact wording not provided in main text"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 15,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed annotation dimensions provided: Self-Contained (key points understanding), Fluency (grammatical correctness), Accuracy (no contradictions), Subjective Preference (preference)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "R\u00b2 (Pearson correlation squared)",
+      "Mean Absolute Error (MAE)",
+      "Elo score comparisons"
+    ],
+    "shared_criteria": [
+      "Self-Contained",
+      "Fluency",
+      "Accuracy",
+      "Subjective Preference"
+    ],
+    "sample_size": {
+      "total_generated": 75,
+      "validated_by_both": 75,
+      "notes": "5 documents \u00d7 3 languages \u00d7 5 models = 75 summaries total, all evaluated by both GPT-4 and human evaluators"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "R\u00b2",
+        "value": null,
+        "criterion": "overall",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Chinese annotators' ratings for self-contained and subjective preference correlate highly with GPT-4; GPT-4 fluency in English most correlated with human annotation dimensions"
+      },
+      {
+        "metric": "Mean Absolute Error",
+        "value": null,
+        "criterion": "comparison_with_G-Eval",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "MAE ranges between 0.81-2.04 (1-2 points on 5-point scale) when comparing G-Eval ratings to human ratings"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "weak to moderate",
+      "threshold_used": "R\u00b2 > 0.5 considered stronger correlation",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GPT-4 evaluations do not align well with human preferences, showing higher preference for LLM-generated summaries and significant disagreement with human ratings, particularly in Chinese and Indonesian languages."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Self-Contained",
+      "Fluency",
+      "Accuracy",
+      "Subjective Preference"
+    ],
+    "notes": "Both LLM and human evaluators assess the same four criteria using pairwise comparisons, enabling direct validation"
+  }
+}

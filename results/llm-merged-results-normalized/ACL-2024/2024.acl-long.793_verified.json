@@ -1,0 +1,207 @@
+{
+  "paper_id": "2024.acl-long.793",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Disinformation News Article Generation"
+    ],
+    "datasets": [
+      "DISINFORMATION NARRATIVE DATASET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "chatgpt",
+      "falcon",
+      "gpt_3_davinci",
+      "gpt_3_curie",
+      "gpt_3_babbage",
+      "opt_iml_max",
+      "vicuna",
+      "gpt_4",
+      "llama_2",
+      "mistral"
+    ],
+    "outputs": [
+      "Generated disinformation news articles"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:News Article Generation"
+        ],
+        "datasets": [
+          "Narratives from fact-checkers (e.g., Snopes, AFP, EDMO)",
+          "1,200 generated news articles"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-3"
+        ],
+        "outputs": [
+          "Generated news articles (disinformation texts)",
+          "disinformation news articles"
+        ]
+      },
+      "normalized": {
+        "Other:Disinformation News Article Generation": "Other:Disinformation News Article Generation",
+        "Disinformation Narrative Dataset": "Disinformation Narrative Dataset"
+      },
+      "explanation": "Consolidated tasks to single most specific description, removed GPT-3 as duplicate (specific variants already listed), cleaned datasets to focus on the curated narrative dataset rather than sources or outputs"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "PEARSON",
+      "MAE",
+      "PRECISION",
+      "RECALL",
+      "F1",
+      "AUC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Pearson's ρ",
+          "MAE",
+          "Precision",
+          "Recall",
+          "F1-score",
+          "AUC"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "macro precision",
+          "macro recall",
+          "macro F1-score"
+        ]
+      },
+      "normalized": {
+        "mean absolute error (MAE)": "MAE",
+        "macro precision": "Precision",
+        "macro recall": "Recall",
+        "macro F1-score": "F1-score"
+      },
+      "explanation": "Changed answer to Yes because the paper uses detectors (classification metrics) to evaluate generated texts. Normalized metric names to base forms and removed redundant 'macro' prefixes."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "Prompt-based evaluation using narrative context and generated text"
+    ],
+    "criteria": [
+      "Formedness",
+      "Style",
+      "Agreement",
+      "Disagreement",
+      "Favor",
+      "Against",
+      "Safety"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Prompt-based evaluation using narrative context and generated text"
+        ],
+        "criteria": [
+          "Well-formedness",
+          "Article style",
+          "Agreement with narrative",
+          "Disagreement with narrative",
+          "Arguments in favor",
+          "Arguments against",
+          "Safety"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "Prompt-based evaluation",
+          "Prompt‑based rating using the six evaluation questions (Q1–Q6)",
+          "separate request for each generated text and question mimicking the rating done by humans",
+          "prompt contains narrative title and abstract, generated text, and one of the 6 evaluation questions with possible answers"
+        ],
+        "criteria": [
+          "well-formed",
+          "article-like style",
+          "Well‑formedness",
+          "Article",
+          "Agree",
+          "Disagree",
+          "Args in favor",
+          "Args against"
+        ]
+      },
+      "normalized": {
+        "GPT-4": "GPT-4",
+        "Well-formed": "Well-formedness",
+        "Agree": "Agreement with narrative",
+        "Disagree": "Disagreement with narrative",
+        "Args in favor": "Arguments in favor",
+        "Args against": "Arguments against"
+      },
+      "explanation": "Consolidated methods description and normalized criteria to consistent naming. Added 'Safety' criterion which was used in Q7 evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluation framework with 6 questions (Q1-Q6) measuring text coherence, news article style, stance toward narrative, and argument generation"
+    ],
+    "criteria": [
+      "Formedness",
+      "Style",
+      "Agreement",
+      "Disagreement",
+      "Favor",
+      "Against",
+      "Safety"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Evaluation framework with 6 questions (Q1-Q6) measuring text coherence, news article style, stance toward narrative, and argument generation"
+        ],
+        "criteria": [
+          "Safety"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "We devised an evaluation framework consisting of the six questions, shown in Table .",
+          "Evaluation framework consisting of six questions (Q1–Q6) covering well‑formedness, article style, stance, and arguments.",
+          "The first two questions pertain to the form of the generated text. Q1 measures whether the text is coherent, while Q2 focuses on the style, i.e., whether the text 'looks like' a news article. Q3 and Q4 are about the stance of the text towards the narrative -does the text support it and agree with it, or does it actively disprove it. Finally, Q5 and Q6 are measures of how many arguments for and against the narrative were generated by the LLM."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "Well-formed": "Well-formedness",
+        "Agree": "Agreement with narrative",
+        "Disagree": "Disagreement with narrative",
+        "Args in favor": "Arguments in favor",
+        "Args against": "Arguments against"
+      },
+      "explanation": "Consolidated guideline description and normalized criteria names. Added 'Safety' criterion which was evaluated separately as Q7."
+    }
+  },
+  "overall_notes": "The paper has a strong NLG evaluation component with both human and LLM-based evaluation. The extraction was generally accurate but needed normalization and consolidation of duplicate/redundant items. The detector evaluation metrics qualify as automatic metrics for generated text evaluation."
+}

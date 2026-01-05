@@ -1,0 +1,147 @@
+{
+  "paper_id": "2020.emnlp-main.23",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Gender Controlled Text Generation"
+    ],
+    "datasets": [
+      "REDDIT",
+      "convai2",
+      "OPENSUBTITLES",
+      "MDGENDER",
+      "WIKIPEDIA",
+      "FUNPEDIA",
+      "WIZARD OF WIKIPEDIA",
+      "YELP REVIEWS",
+      "IMAGE CHAT",
+      "LIGHT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "transformer_sequence_to_sequence_model",
+      "bert_base"
+    ],
+    "outputs": [
+      "Generated conversational utterances",
+      "Dialogue conditioned on gender control tokens (ABOUT, TO, AS)",
+      "Gender-controlled text generation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Gender-Controlled Text Generation"
+        ],
+        "datasets": [
+          "MDGENDER",
+          "Wikipedia",
+          "Funpedia",
+          "Wizard of Wikipedia",
+          "Yelp Reviews",
+          "ImageChat",
+          "LIGHT"
+        ],
+        "models": [
+          "BERT-base"
+        ],
+        "outputs": [
+          "Gender-controlled text generation"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "models": [],
+        "outputs": [
+          "conversational text"
+        ]
+      },
+      "normalized": {
+        "Transformer seq2seq model (pretrained on Reddit)": "Transformer sequence-to-sequence model",
+        "Generated dialogue utterances conditioned on gender control tokens (ABOUT, TO, AS)": "Dialogue conditioned on gender control tokens (ABOUT, TO, AS)"
+      },
+      "explanation": "Added missing datasets used for training/evaluation and the BERT model used for classification. Added 'Gender-Controlled Text Generation' as a more specific NLG task. Normalized model and output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "COUNT OF GENDERED WORDS",
+      "GENDER CLASSIFIER PROBABILITY SCORES",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "counting gendered words"
+        ]
+      },
+      "normalized": {
+        "Count of gendered words from gendered word list": "Count of gendered words"
+      },
+      "explanation": "Added 'Accuracy' metric used for classifier evaluation. Normalized gendered word counting metrics. Removed redundant descriptor."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in this paper. Cleared all metadata."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Crowdsourced evaluation benchmark collection",
+      "Rewriting utterances to make gender dimensions explicit",
+      "Confidence rating for gender predictability"
+    ],
+    "criteria": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Crowdsourced evaluation benchmark collection",
+          "Rewriting utterances to make gender dimensions explicit",
+          "Confidence rating for gender predictability"
+        ],
+        "criteria": [
+          "Gender dimension classification accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'Yes' - the paper conducted human evaluation for creating the MDGENDER dataset through crowdsourcing with specific guidelines. Added corresponding evaluation metadata."
+    }
+  },
+  "overall_notes": "Paper focuses on gender bias classification and controlled text generation. Main NLG contribution is gender-controlled dialogue generation. Extractor missed the human evaluation conducted for dataset creation and some key datasets/models used."
+}

@@ -1,0 +1,145 @@
+{
+  "paper_id": "2025.acl-long.658",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Generation",
+      "Other:Mathematical Reasoning"
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH",
+      "College Math",
+      "Olympiad Bench"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Qwen2-Math-7B-Instruct",
+      "DeepSeekMath-7B-RL",
+      "Qwen2-Math-7B",
+      "DeepSeekMath-7B",
+      "GPT-4o-mini",
+      "Llama3.1-70B-Instruct",
+      "Llama3-8B"
+    ],
+    "outputs": [
+      "Generated mathematical questions",
+      "Generated mathematical question-answer pairs with chain-of-thought explanations"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Llama3.1-70B-Instruct"
+        ],
+        "outputs": [
+          "Generated mathematical question-answer pairs with chain-of-thought explanations"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Response Generation"
+        ],
+        "datasets": [
+          "ScaleQuest",
+          "ScaleQuest (synthetic)"
+        ]
+      },
+      "normalized": {
+        "Llama3.1-70B": "Llama3.1-70B-Instruct"
+      },
+      "explanation": "Removed 'Response Generation' as a separate task since it's part of the question-answer pair generation. Removed 'ScaleQuest' datasets as they are synthetic datasets created by the paper, not external datasets used. Added more specific model names and output descriptions based on the paper content."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "pass@1"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "solvability ratio",
+          "difficulty ratio (fail rate)",
+          "reward model score"
+        ]
+      },
+      "normalized": {
+        "pass@1 accuracy": "pass@1"
+      },
+      "explanation": "Only 'pass@1' is used for automatic evaluation of generated outputs. Removed other metrics that are used during data generation/filtering but not for final output evaluation. Simplified 'pass@1 accuracy' to 'pass@1'."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o",
+      "GPT-4o-mini",
+      "Llama3.1-70B-Instruct"
+    ],
+    "methods": [
+      "solvability scoring",
+      "difficulty scoring"
+    ],
+    "criteria": [
+      "solvability",
+      "difficulty"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4o"
+        ],
+        "methods": [
+          "solvability scoring",
+          "difficulty scoring"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Qwen2-Math-7B-Instruct",
+          "GPT-4",
+          "Llama3.1-70B"
+        ],
+        "methods": [
+          "solvability filtering",
+          "difficulty evaluation",
+          "preference optimization (QPO)",
+          "Question Preference Optimization (QPO)",
+          "solvability and difficulty optimization"
+        ]
+      },
+      "normalized": {
+        "GPT-4o-mini": "GPT-4o-mini",
+        "Llama3.1-70B": "Llama3.1-70B-Instruct"
+      },
+      "explanation": "Removed models used for generation rather than evaluation. Removed methods that are part of the data generation process rather than LLM-as-judge evaluation. Added explicit models and methods used for evaluation. The paper uses GPT-4o for human evaluation proxy and mentions GPT-4o-mini and Llama3.1-70B-Instruct specifically for QPO optimization."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluators rated generated math problems on clarity, reasonableness, and real-world relevance using 1-5 scale"
+    ],
+    "criteria": [
+      "clarity",
+      "reasonableness",
+      "real-world relevance"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "coherence": "reasonableness"
+      },
+      "explanation": "Changed 'coherence' to 'reasonableness' to match the paper's terminology. Consolidated guideline descriptions into a single comprehensive statement."
+    }
+  },
+  "overall_notes": "The paper focuses on mathematical question generation and evaluation. It uses LLMs extensively for both generation and evaluation tasks. The metadata extraction was generally accurate but needed normalization and removal of items that were part of the methodology rather than the evaluation framework. The paper conducts both automatic evaluation (pass@1) and human evaluation of generated outputs."
+}

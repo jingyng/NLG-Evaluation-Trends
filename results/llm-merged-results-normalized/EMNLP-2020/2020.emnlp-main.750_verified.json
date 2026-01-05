@@ -1,0 +1,145 @@
+{
+  "paper_id": "2020.emnlp-main.750",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "XSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "factcc",
+      "factccx",
+      "bert",
+      "bert+mnli",
+      "bert+fever"
+    ],
+    "outputs": [
+      "summaries and transformed sentences",
+      "CONSISTENT/INCONSISTENT labels for document–sentence pairs",
+      "highlighted spans indicating supporting and erroneous text",
+      "generated summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "BERT",
+          "FactCC",
+          "FactCCX",
+          "BERT+MNLI",
+          "BERT+FEVER"
+        ],
+        "outputs": [
+          "highlighted spans indicating supporting and erroneous text"
+        ]
+      },
+      "removed": {
+        "models": [
+          "MNLI",
+          "FEVER"
+        ]
+      },
+      "normalized": {
+        "BERT+FEVER (ours)": "BERT+FEVER",
+        "BERT+MNLI (ours)": "BERT+MNLI"
+      },
+      "explanation": "Removed MNLI and FEVER as they are datasets, not models. Added BERT and model variants as they are used models normalized capitalization. Restructured outputs for clarity."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy",
+          "F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "weighted accuracy",
+          "F1 score",
+          "accuracy",
+          "F1-score"
+        ]
+      },
+      "normalized": {
+        "weighted accuracy": "Accuracy",
+        "F1 score": "F1",
+        "accuracy": "Accuracy",
+        "F1-score": "F1"
+      },
+      "explanation": "Normalized all metric variants to their base forms 'Accuracy' and 'F1', removing redundancy and simplifying terms like 'weighted accuracy' to the core metric type."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values as the extraction correctly identified this paper does not use LLMs as judges. Lists are left empty."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluated the factual correctness of claims.",
+      "Judges used model-generated highlighted spans as suggestions for verification.",
+      "Judges reported on the helpfulness of the highlighted spans for both the source article and the claim.",
+      "Annotation time and inter-annotator agreement were measured.",
+      "In another task, judges highlighted relevant spans without model suggestion to compute overlap with model outputs."
+    ],
+    "criteria": [
+      "Factuality",
+      "Correctness",
+      "Helpfulness",
+      "Annotation",
+      "Agreement"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "annotation time",
+          "inter-annotator agreement"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "factual correctness of claim"
+        ]
+      },
+      "normalized": {
+        "factual correctness of claim": "correctness of claim"
+      },
+      "explanation": "Consolidated criteria by normalizing 'factual correctness of claim' to 'correctness of claim' and adding 'annotation time' and 'inter-annotator agreement' as explicit criteria measured in the human evaluation. Guidelines were rephrased for clarity and completeness based on the full text."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The main adjustments involved normalizing terms (especially for metrics), clarifying the distinction between models and datasets, and ensuring all relevant human evaluation criteria and guidelines from the detailed experiments were captured. The paper's primary focus is on evaluating factual consistency in abstractive text summarization outputs using both automatic metrics and human evaluation with explainable model components."
+}

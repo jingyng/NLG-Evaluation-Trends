@@ -1,0 +1,155 @@
+{
+  "paper_id": "2022.emnlp-main.115",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering",
+      "Other:Visual Question Answering"
+    ],
+    "datasets": [
+      "BeliefBank",
+      "ConVQA",
+      "Natural Questions",
+      "Visual Genome"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Macaw-Large",
+      "Macaw-3B",
+      "LXMERT",
+      "ViLT",
+      "T5-Sm-NQ",
+      "T5-Lg-NQ",
+      "T5-3B-NQ",
+      "RoBERTa",
+      "ALBERT"
+    ],
+    "outputs": [
+      "answers to yes/no questions",
+      "visual question answering responses",
+      "answers to closed-book and open-book questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Visual Genome"
+        ],
+        "languages": [],
+        "models": [
+          "Macaw-Large",
+          "Macaw-3B",
+          "T5-Sm-NQ",
+          "T5-Lg-NQ",
+          "T5-3B-NQ"
+        ],
+        "outputs": [
+          "answers to yes/no questions",
+          "answers to closed-book and open-book questions"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Macaw",
+          "T5"
+        ],
+        "outputs": [
+          "generated answers to questions (textual QA and VQA responses)"
+        ]
+      },
+      "normalized": {
+        "Other:Visual Question Answering": "Other:Visual Question Answering",
+        "Other:Question Answering": "Other:Question Answering"
+      },
+      "explanation": "Normalized model names to specific versions (Macaw-Large, Macaw-3B, T5 variants), added explicit dataset 'Visual Genome' which is mentioned as source for ConVQA images, and clarified output descriptions to be more precise."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "Accuracy",
+      "Perfect Consistency",
+      "SQuAD F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy",
+          "Perfect Consistency"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy",
+          "perfect consistency",
+          "conditional constraint violation metric τ"
+        ]
+      },
+      "normalized": {
+        "F1": "F1",
+        "accuracy": "Accuracy",
+        "perfect consistency": "Perfect Consistency",
+        "SQuAD F1": "SQuAD F1"
+      },
+      "explanation": "Normalized metric names to standard capitalized forms, removed redundant 'conditional constraint violation metric τ' (implied by consistency metrics), and simplified to base metric forms."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleaned up placeholder values. The paper does not use LLMs as judges - it uses pre-trained models for generation and NLI, but not for evaluation/scoring."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleaned up placeholder values. The paper does not mention any human evaluation - all evaluations are automated using metrics like F1, accuracy, and consistency measures."
+    }
+  },
+  "overall_notes": "The paper focuses on improving model self-consistency using Natural Language Inference (NLI) models, applied primarily to question answering (both text-only and visual QA). Evaluation is entirely automated using standard metrics. Extraction was generally accurate but needed normalization of model names and metric capitalization. The methodology involves re-ranking candidate answers using factor graphs with constraints from NLI models, but does not involve human evaluation or LLM-as-judge approaches."
+}

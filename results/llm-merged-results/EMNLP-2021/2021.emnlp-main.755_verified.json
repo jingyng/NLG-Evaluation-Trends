@@ -1,0 +1,142 @@
+{
+  "paper_id": "2021.emnlp-main.755",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Semantic Parsing",
+      "Other:Knowledge Base Question Answering"
+    ],
+    "datasets": [
+      "WebQSP",
+      "CWQ",
+      "CFQ",
+      "ComplexWebQuestions",
+      "CompositionalFreebaseQuestions"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BIGBIRD",
+      "BART",
+      "CBR-KBQA",
+      "T5",
+      "RoBERTa-base"
+    ],
+    "outputs": [
+      "logical forms (SPARQL queries)",
+      "executable queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Knowledge Base Question Answering"
+        ],
+        "outputs": [
+          "executable queries"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "WebQuestionsSP"
+        ]
+      },
+      "normalized": {
+        "ROBERTA-base": "RoBERTa-base",
+        "Logical forms (SPARQL queries)": "logical forms (SPARQL queries)",
+        "logical forms (e.g., SPARQL queries)": "logical forms (SPARQL queries)"
+      },
+      "explanation": "Added KBQA as core task, removed duplicate dataset WebQuestionsSP (same as WebQSP), normalized model names, consolidated output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "accuracy",
+      "precision",
+      "recall",
+      "F1",
+      "exact match"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "exact match"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Exact Match Accuracy",
+          "Precision",
+          "Recall",
+          "F1 score"
+        ]
+      },
+      "normalized": {
+        "Exact Match Accuracy": "exact match",
+        "F1": "F1",
+        "accuracy": "accuracy",
+        "precision": "precision",
+        "recall": "recall"
+      },
+      "explanation": "Consolidated duplicate metric names (Exact Match Accuracy → exact match, etc.) and normalized to base forms"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges - removed empty placeholder values"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Users add simple NL query-SPARQL program pairs as cases to fix erroneous predictions"
+    ],
+    "criteria": [
+      "correctness of logical forms"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Users add simple NL query-SPARQL program pairs as cases to fix erroneous predictions"
+        ],
+        "criteria": [
+          "correctness of logical forms"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Users add simple 'cases' to point-fix erroneous predictions of CBR-KBQA for those queries. A simple case is a NL query paired with a program which only contain one KB relation."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Added explicit human evaluation component - the paper describes human-in-the-loop experiments where users create cases to fix predictions"
+    }
+  },
+  "overall_notes": "The paper focuses on CBR-KBQA, a case-based reasoning approach for knowledge base question answering that generates SPARQL queries. While it mentions NLG models (BART, T5, etc.), the primary task is semantic parsing/structured output generation rather than free-text NLG. The human evaluation is targeted at system intervention rather than output quality assessment."
+}

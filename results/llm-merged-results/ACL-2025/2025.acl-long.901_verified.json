@@ -1,0 +1,139 @@
+{
+  "paper_id": "2025.acl-long.901",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering"
+    ],
+    "datasets": [
+      "AntiLeakBench"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-2-7B",
+      "Llama-2-13B",
+      "Mistral-7B",
+      "Vicuna-v1.5-7B",
+      "LongChat-v1.5-7B",
+      "Llama-3.1-8B",
+      "Qwen-2-7B",
+      "Mistral-Nemo-12B",
+      "Gemma-2-9B",
+      "GPT-4o-mini",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "generated answers to questions in both generation and multi-choice formats"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated answers to questions in both generation and multi-choice formats"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "answers to questions in generation or multi-choice formats"
+        ]
+      },
+      "normalized": {
+        "answers to questions in generation or multi-choice formats": "generated answers to questions in both generation and multi-choice formats"
+      },
+      "explanation": "Normalized output description to be more precise about the generation aspect."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EM",
+      "F1",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Exact Match",
+          "Acc"
+        ]
+      },
+      "normalized": {
+        "Exact Match": "EM",
+        "Acc": "Accuracy"
+      },
+      "explanation": "Removed redundant metric names (Exact Match = EM, Acc = Accuracy) to avoid duplication."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is conducted in this paper. The paper evaluates LLMs as generators, not as evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Human annotators verify if the provided context contains sufficient information to answer the question, and if the answer is correct given the context"
+    ],
+    "criteria": [
+      "context sufficiency",
+      "answer correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators verify if the provided context contains sufficient information to answer the question, and if the answer is correct given the context"
+        ],
+        "criteria": [
+          "context sufficiency",
+          "answer correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- We ask annotators to determine (i) if the provided context contains sufficient information to answer the question, and (ii) if the answer is correct given the context."
+        ],
+        "criteria": [
+          "correctness of answer",
+          "sufficiency of context"
+        ]
+      },
+      "normalized": {
+        "correctness of answer": "answer correctness",
+        "sufficiency of context": "context sufficiency"
+      },
+      "explanation": "Changed answer from No to Yes based on human verification section. Reformatted guideline and criteria for clarity while maintaining the same meaning."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on question answering as the NLG task for contamination-free evaluation. Human evaluation was conducted for data quality verification of the benchmark itself, not for evaluating LLM outputs. The automatic metrics (EM, F1, Accuracy) are used to evaluate the LLMs' generated answers."
+}

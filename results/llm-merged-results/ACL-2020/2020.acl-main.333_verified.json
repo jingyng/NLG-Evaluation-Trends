@@ -1,0 +1,175 @@
+{
+  "paper_id": "2020.acl-main.333",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "DailyDialog"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-2",
+      "Sequence-to-Sequence with Attention (LSTM)",
+      "Transformer"
+    ],
+    "outputs": [
+      "dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Transformer"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "seq2seq",
+          "seq2seq LSTM",
+          "OpenNMT Transformer"
+        ],
+        "outputs": [
+          "generated dialogue responses"
+        ]
+      },
+      "normalized": {
+        "Sequence-to-Sequence with Attention": "Sequence-to-Sequence with Attention (LSTM)",
+        "GPT-2": "GPT-2"
+      },
+      "explanation": "Consolidated model names to canonical forms. Removed redundant entries like 'seq2seq' and 'seq2seq LSTM' (normalized to 'Sequence-to-Sequence with Attention (LSTM)'), and 'OpenNMT Transformer' (normalized to 'Transformer'). GPT-2 explicitly mentioned as base GPT-2 model with 12 layers."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE",
+      "RUBER",
+      "BERT-based RUBER",
+      "GPT-2 Coherence",
+      "GPT-2 Fluency (Perplexity)",
+      "N-gram Diversity (Entropy)",
+      "NLI-based Self-Consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEU",
+          "METEOR",
+          "ROUGE",
+          "RUBER",
+          "BERT-based RUBER"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-2 based context coherence",
+          "GPT-2 based fluency",
+          "n-gram entropy",
+          "entailment-based logical consistency",
+          "Context Coherence (GPT-2 log-likelihood)",
+          "Fluency (negative perplexity)",
+          "Response Diversity (n-gram entropy)",
+          "Logical Self-Consistency (NLI contradiction score)",
+          "context coherence",
+          "response fluency",
+          "response diversity",
+          "logical self-consistency"
+        ]
+      },
+      "normalized": {
+        "GPT-2 based context coherence": "GPT-2 Coherence",
+        "GPT-2 based fluency": "GPT-2 Fluency (Perplexity)",
+        "n-gram entropy": "N-gram Diversity (Entropy)",
+        "entailment-based logical consistency": "NLI-based Self-Consistency"
+      },
+      "explanation": "Normalized the proposed metrics to clearer, canonical names. Added standard NLG metrics (BLEU, METEOR, ROUGE) and prior dialogue metrics (RUBER, BERT-based RUBER) discussed as baselines/comparisons. Removed redundant or overly descriptive phrases from the extracted list."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-2"
+        ],
+        "methods": [
+          "log-likelihood calculation",
+          "perplexity calculation",
+          "log-likelihood scoring",
+          "perplexity scoring",
+          "fine-tuned language modeling",
+          "entailment-based approach"
+        ],
+        "criteria": [
+          "context coherence",
+          "fluency",
+          "coherence",
+          "language fluency",
+          "logical self-consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No'. The paper uses GPT-2 to *define/calculate* automatic metrics (like coherence, fluency scores), not as a judge to assess outputs after generation. This fits the definition for Question 2 (automatic metrics), not Question 3 (LLM-as-judge). Removed all associated metadata."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Ratings on a scale of 1 (worst) to 5 (best) for selected datapoints"
+    ],
+    "criteria": [
+      "Context Coherence",
+      "Response Fluency",
+      "Response Diversity",
+      "Logical Self-Consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Ratings on a scale of 1 (worst) to 5 (best) for selected datapoints"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- rate from 1 to 5 on context coherence, response fluency, response diversity, and logical self-consistency",
+          "Human raters rate each response on a 1‑5 scale for each evaluation metric.",
+          "each datapoint is to be rated from 1 to 5, with 1 being the worst and 5 being the best on each metric."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "context coherence": "Context Coherence",
+        "response fluency": "Response Fluency",
+        "response diversity": "Response Diversity",
+        "logical self-consistency": "Logical Self-Consistency"
+      },
+      "explanation": "Consolidated the guideline description. Normalized criteria to title case. The specific details about number of datapoints and raters are part of the experimental setup but not the core guideline for evaluators."
+    }
+  },
+  "overall_notes": "The paper's primary contribution is proposing a set of holistic automatic metrics for evaluating open-domain dialogue generation. It uses human evaluation (via Amazon Turk) to validate these proposed metrics. The use of GPT-2 is integral to the *definition* of some metrics (coherence, fluency), not as a separate 'judge' (LLM-as-judge). The extraction was generally good but needed normalization and clarification regarding the role of GPT-2."
+}

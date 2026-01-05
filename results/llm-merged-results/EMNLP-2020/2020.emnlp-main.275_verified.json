@@ -1,0 +1,151 @@
+{
+  "paper_id": "2020.emnlp-main.275",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Wizard of Wikipedia",
+      "Holl-E"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "SKT",
+      "BERT",
+      "TMN",
+      "TMN+BERT",
+      "PostKS",
+      "TMN+BERT+PostKS+Copy",
+      "SKT+PIPM+KDBTS"
+    ],
+    "outputs": [
+      "Generated dialogue responses leveraging external knowledge"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "TMN+BERT",
+          "TMN+BERT+PostKS+Copy"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "PIPM",
+          "KDBTS",
+          "TMN BERT"
+        ],
+        "outputs": [
+          "generated dialogue responses",
+          "generated responses in multi-turn dialogue settings leveraging external knowledge"
+        ]
+      },
+      "normalized": {
+        "TMN BERT": "TMN+BERT",
+        "PostKS": "PostKS",
+        "SKT+PIPM+KDBTS": "SKT+PIPM+KDBTS"
+      },
+      "explanation": "Removed PIPM and KDBTS as they are components/methods, not full models. Normalized model names to match paper conventions. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "Perplexity",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "ROUGE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "R-1",
+          "R-2",
+          "Unigram F1 (R-1)",
+          "Bigram F1 (R-2)",
+          "Acc",
+          "PPL"
+        ]
+      },
+      "normalized": {
+        "R-1": "ROUGE",
+        "R-2": "ROUGE",
+        "Unigram F1 (R-1)": "ROUGE",
+        "Bigram F1 (R-2)": "ROUGE",
+        "Acc": "Accuracy",
+        "PPL": "Perplexity"
+      },
+      "explanation": "Normalized all ROUGE variants to 'ROUGE' as per guidelines. Kept 'Accuracy' and 'Perplexity' as distinct metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators judged responses for sensibleness (whether response makes sense) and specificity (whether response is specific) given dialogue context"
+    ],
+    "criteria": [
+      "Sensibleness",
+      "Specificity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators judged responses for sensibleness and specificity.",
+          "Annotators were asked to judge whether the response makes sense (Sensibleness) and whether it is specific (Specificity) given the dialogue context.",
+          "judge whether the response makes sense (Sensibleness) or is specific (Specificity) with the dialogue context"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated multiple guideline descriptions into one clear statement. Criteria were already correctly normalized."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main issues were: (1) Including method components (PIPM, KDBTS) as models, (2) Not normalizing ROUGE variants, (3) Having redundant guideline descriptions. The paper clearly addresses NLG (dialogue generation) and uses both automatic metrics (Accuracy, Perplexity, ROUGE) and human evaluation (Sensibleness, Specificity)."
+}

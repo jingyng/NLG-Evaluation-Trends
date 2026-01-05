@@ -1,0 +1,95 @@
+{
+  "paper_id": "2025.emnlp-main.1652",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper uses both LLM evaluation (primarily GPT-4o) and human evaluation extensively, but they are used for different purposes - LLM for dataset quality control and filtering, human for model performance assessment. There is no direct comparison or validation between LLM judgments and human judgments on the same criteria or instances."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper references appendices (A.1-A.4, B.2) containing specific prompts for quality control and expert criteria evaluation, with Table 14 showing a detailed expert evaluation prompt format. However, the full verbatim prompts are not shown in the main text."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": {
+      "pointwise_eval": 10,
+      "pairwise_eval": 10,
+      "quality_scoring": 5,
+      "expert_validation": 3
+    },
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": 0.59,
+      "interpretation": "substantial agreement",
+      "per_criterion": [
+        {
+          "criterion": "Sensibleness",
+          "metric": "Fleiss' kappa",
+          "value": 0.61
+        },
+        {
+          "criterion": "Specificity",
+          "metric": "Fleiss' kappa",
+          "value": 0.7
+        },
+        {
+          "criterion": "Supportiveness",
+          "metric": "Fleiss' kappa",
+          "value": 0.66
+        },
+        {
+          "criterion": "Helpfulness",
+          "metric": "Fleiss' kappa",
+          "value": 0.62
+        },
+        {
+          "criterion": "Trustworthiness",
+          "metric": "Fleiss' kappa",
+          "value": 0.65
+        },
+        {
+          "criterion": "Overall",
+          "metric": "Fleiss' kappa",
+          "value": 0.59
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed evaluation criteria with definitions are provided for all six metrics (Sensibleness, Specificity, Supportiveness, Helpfulness, Trustworthiness, Overall). Annotators received training with pilot samples and qualification tests."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Therapist Standard (5 metrics)",
+      "Help-Seeker Standard (9 metrics)",
+      "Supervisor Standard (2 metrics)",
+      "basic quality criteria (unnatural/inappropriate/erroneous content)",
+      "safety criteria"
+    ],
+    "human_only_criteria": [
+      "Sensibleness",
+      "Specificity",
+      "Supportiveness",
+      "Helpfulness",
+      "Trustworthiness",
+      "Overall quality",
+      "pairwise preferences",
+      "PANAS affect scores"
+    ],
+    "shared_criteria": [],
+    "notes": "LLM and human evaluations address completely different aspects - LLM is used exclusively for dataset construction quality control, while human evaluation is used for assessing model performance and intervention effectiveness. There is no overlap in criteria between the two evaluation methods."
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "paper_id": "2025.emnlp-main.606",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "CONTRATICO",
+      "TICO-19"
+    ],
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "models": [
+      "Google Translate",
+      "XCOMET-XXL",
+      "LLaMA-3.3 70B"
+    ],
+    "outputs": [
+      "Spanish machine translation outputs",
+      "Error highlights",
+      "Natural language explanations",
+      "Backtranslations",
+      "Question-answer tables"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Error highlights",
+          "Natural language explanations",
+          "Backtranslations",
+          "Question-answer tables"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Explanation Generation",
+          "Other:Question Answer Generation"
+        ],
+        "datasets": [
+          "ASKQE"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Spanish MT outputs",
+          "Spanish translations of English sentences in the context of COVID-19 guidelines"
+        ]
+      },
+      "normalized": {
+        "LLAMA-3.3 70B": "LLaMA-3.3 70B"
+      },
+      "explanation": "Removed 'Other' tasks as they are not main evaluated NLG tasks but ancillary components. ASKQE is a framework, not a dataset. Normalized model name casing."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "COMET-QE",
+      "XCOMET-QE",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "COMET-QE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "QE scores",
+          "ASKQE",
+          "ASKQE scores",
+          "Gaussian Mixture Model (GMM)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed non-standard metric names and GMM (statistical method, not evaluation metric). Added COMET-QE explicitly mentioned. Kept base metric forms."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLAMA-3.3 70B"
+        ],
+        "methods": [
+          "natural language explanations of translation quality",
+          "shareability judgment via prompting"
+        ],
+        "criteria": [
+          "translation accuracy",
+          "error severity",
+          "contextual relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The LLM is used for generating explanations and QA content, not as a post-hoc judge of outputs. All metadata removed as they relate to generation, not evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants judged shareability (binary: Safe to share as-is or Needs bilingual review) and confidence (5-point Likert scale)",
+      "Gold labels collected by bilingual annotators for each translation"
+    ],
+    "criteria": [
+      "Shareability",
+      "Confidence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Participants judged shareability (binary: Safe to share as-is or Needs bilingual review) and confidence (5-point Likert scale)",
+          "Gold labels collected by bilingual annotators for each translation"
+        ],
+        "criteria": [
+          "Shareability",
+          "Confidence"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Participants judged shareability (binary) and confidence (5-point Likert scale). Gold labels collected by bilingual annotators.",
+          "Annotators were asked to label each translation as Safe to share as-is or Needs bilingual review before sharing.",
+          "To the best of your knowledge, is the Spanish translation good enough to safely share with your Spanish-speaking neighbor? How confident are you in your assessment?"
+        ],
+        "criteria": [
+          "shareability",
+          "confidence"
+        ]
+      },
+      "normalized": {
+        "shareability": "Shareability",
+        "confidence": "Confidence"
+      },
+      "explanation": "Consolidated guidelines for clarity, normalized criteria capitalization, removed redundant/repetitive guideline items."
+    }
+  },
+  "overall_notes": "Paper focuses on evaluating quality feedback mechanisms for machine translation decisions rather than evaluating the MT outputs themselves. Strong human evaluation design with appropriate reliance metrics. Automatic metrics used primarily for quality control and proxy measures, not main NLG evaluation."
+}

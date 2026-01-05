@@ -1,0 +1,123 @@
+{
+  "paper_id": "2022.acl-long.236",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "XSUM",
+      "CNN/DailyMail"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "pegasus"
+    ],
+    "outputs": [
+      "abstractive summaries",
+      "generated summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "CNN/DM"
+        ],
+        "models": [
+          "PEGASUS"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "MENT"
+        ],
+        "models": [
+          "CMLM",
+          "ENTFA",
+          "CLM",
+          "MLM"
+        ]
+      },
+      "normalized": {
+        "XSUM": "XSUM",
+        "BART": "BART"
+      },
+      "explanation": "Removed MENT as it's an evaluation dataset created from annotations, not a source dataset. Added CNN/DM which is used for training CMLM models. Kept only the summarization models being evaluated (BART, PEGASUS) and removed CMLM/ENTFA/CLM/MLM which are components of the evaluation methodology."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "FEQA",
+      "DAE",
+      "ENFS"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "ROUGE": "ROUGE",
+        "FEQA": "FEQA",
+        "DAE": "DAE",
+        "ENFS": "ENFS"
+      },
+      "explanation": "All metrics are correctly extracted and normalized. ROUGE evaluates summary quality, FEQA and DAE evaluate faithfulness, and ENFS (Entity Not Found in Source) measures hallucination."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs are used as judges. The paper uses pre-trained language models (MLM, CMLM) as components of their ENTFA system, but not as post-generation evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual entity-level annotation of 2,838 entities from BART-generated summaries",
+      "Three-way classification: non-hallucinated, factual hallucination, non-factual hallucination",
+      "Check inferability from source document using entailment",
+      "Verify factuality of hallucinated entities using external resources (Wikipedia, Google Search)",
+      "Calculate inter-annotator agreement using Fleiss' Kappa"
+    ],
+    "criteria": [
+      "Inferability",
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual entity-level annotation of 2,838 entities from BART-generated summaries",
+          "Three-way classification: non-hallucinated, factual hallucination, non-factual hallucination",
+          "Check inferability from source document using entailment",
+          "Verify factuality of hallucinated entities using external resources (Wikipedia, Google Search)",
+          "Calculate inter-annotator agreement using Fleiss' Kappa"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "factuality",
+          "entity hallucination type",
+          "hallucination status"
+        ]
+      },
+      "normalized": {
+        "factuality by world knowledge": "factuality by world knowledge"
+      },
+      "explanation": "Expanded guideline to include specific annotation methodology and agreement metrics. Simplified criteria to core evaluation dimensions mentioned in annotation process."
+    }
+  },
+  "overall_notes": "The paper focuses on abstractive summarization evaluation with emphasis on entity-level factuality and hallucination detection. Human evaluation includes detailed entity-level annotation with specific criteria. Automatic evaluation uses standard summarization metrics plus faithfulness-specific tools. The ENTFA system uses MLM/CMLM probabilities but these are methodology components, not LLM-as-judge evaluation."
+}

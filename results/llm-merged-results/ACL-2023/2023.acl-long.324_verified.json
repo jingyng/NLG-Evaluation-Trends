@@ -1,0 +1,187 @@
+{
+  "paper_id": "2023.acl-long.324",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Machine Translation",
+      "Other:Data-to-Text"
+    ],
+    "datasets": [
+      "WMT20",
+      "REALSumm",
+      "SummEval",
+      "NeR18",
+      "Rank19",
+      "QAGS",
+      "BAGEL",
+      "SFHOT",
+      "SFRES"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "German",
+      "Japanese",
+      "Russian",
+      "Czech",
+      "Inuktitut",
+      "Khmer",
+      "Polish",
+      "Pashto",
+      "Tamil"
+    ],
+    "models": [
+      "BART",
+      "BART-CNN",
+      "BART-CNN-PARA",
+      "BARTScore",
+      "BARTScore++",
+      "PRISM",
+      "COMET",
+      "BLEURT"
+    ],
+    "outputs": [
+      "Generated translations",
+      "Generated summaries",
+      "Generated data-to-text utterances"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "QAGS"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Data-to-text"
+        ],
+        "datasets": [
+          "DARR",
+          "DARR corpus",
+          "QAGS20"
+        ],
+        "languages": [
+          "Icelandic"
+        ],
+        "models": [
+          "Huoshan Translation",
+          "WeChat AI",
+          "Tencent Translation",
+          "ChatGPT",
+          "BART-large"
+        ],
+        "outputs": [
+          "generated texts (hypotheses) evaluated for quality"
+        ]
+      },
+      "normalized": {
+        "Other:Data-to-text": "Other:Data-to-Text",
+        "QAGS20": "QAGS"
+      },
+      "explanation": "Removed commercial MT systems and ChatGPT (mentioned only in future work), removed duplicate datasets, normalized task naming. Added QAGS as a proper dataset name."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "BERTScore",
+      "MoverScore",
+      "PRISM",
+      "COMET",
+      "BLEURT",
+      "BARTScore",
+      "BARTScore++",
+      "FactCC",
+      "QAGS",
+      "TER",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "TER",
+          "ROUGE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Added ROUGE and TER which are mentioned in the paper as baseline metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BART",
+          "ChatGPT"
+        ],
+        "methods": [
+          "generation probability scoring",
+          "error-analysis-based prompting",
+          "error-analysis-based prompt"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges in the post-hoc evaluation sense. BART is used for scoring generation probabilities, not as an evaluator. ChatGPT is only mentioned in future work."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "MQM framework: evaluators identify errors and categorize into Major (explicit) and Minor (implicit) categories based on severity",
+      "Weighted sum of Major/Minor errors produces final MQM score"
+    ],
+    "criteria": [
+      "Major errors",
+      "Minor errors",
+      "Mistranslations",
+      "Hallucinations",
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Weighted sum of Major/Minor errors produces final MQM score"
+        ],
+        "criteria": [
+          "Mistranslations",
+          "Hallucinations",
+          "Fluency"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "fluency": "Fluency",
+        "mistranslations": "Mistranslations",
+        "hallucinations": "Hallucinations"
+      },
+      "explanation": "Enhanced guideline description and added specific error types mentioned in the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on improving automatic NLG evaluation metrics (specifically BARTScore) by incorporating error analysis inspired by human evaluation frameworks. It uses existing human evaluation data (MQM) but does not conduct new human evaluations. The main contribution is the BARTScore++ metric that combines explicit and implicit error analysis."
+}

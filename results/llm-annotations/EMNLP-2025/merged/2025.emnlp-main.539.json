@@ -1,0 +1,91 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "automatic sentence-level translations",
+            "For the experiment with the Slavic languages, we provide the third verbalization: filled English templates (same as in GT) and the translations of the subject and object NEs (retrieved from Wikidata), and prompt GPT-4o-mini to translate the full sentence using the provided NE translations.",
+            "We compare three types of verbalization of the same set of knowledge facts to see if sentence-level translation helps factual retrieval: 1. Template filling: the translated template formulations are borrowed from the MLAMA dataset as is and filled with NEs from Wikidata. ... GT and ChatGPT verbalizations are split with the help of Stanza package that searches for the (possibly inflected) object NEs in the sentences."
+        ],
+        "tasks": [
+            "Machine Translation",
+            "Other:prompt verbalization"
+        ],
+        "datasets": [
+            "MLAMA"
+        ],
+        "languages": [
+            "Russian",
+            "Czech",
+            "Ukrainian",
+            "Croatian",
+            "Spanish",
+            "Chinese",
+            "Vietnamese",
+            "Indonesian",
+            "Danish"
+        ],
+        "models": [
+            "Google Translate",
+            "ChatGPT",
+            "LLaMA-2-7b",
+            "ChatGPT (GPT-4o-mini)",
+            "Llama-2-7b"
+        ],
+        "outputs": [
+            "translated verbalizations of facts",
+            "Generated verbalizations (prompts) in target languages",
+            "The generated outputs are sentence-level verbalizations of factual triplets (subject, relation, object) in multiple languages, used as prompts to probe factual knowledge in LLMs."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "surface-based metrics such as chrf that we applied to compare template sentences against GT or ChatGPT verbalizations",
+            "The scores that we obtained with the COMET model showed a considerable increase of QE scores (up to 9% for Slavic and up to 23% for non-Slavic languages), and the increase of QE scores shows positive correlation with the increase of our target metrics, for instance, R@1 (up to 0.8 Pearson's score).",
+            "We calculate the log probabilities of tokens corresponding to object NEs, and rank the possible endings of the verbalization by these log probabilities. Then, for a given fact, its score is 1 if the object is ranked among the top n results, and 0 otherwise. ... we calculate the percentage of such hits for a given verbalization type ... and note it as R@n."
+        ],
+        "automatic_metrics": [
+            "chrf",
+            "QE scores",
+            "log probabilities",
+            "COMET",
+            "Quality Estimation (QE) score",
+            "R@1",
+            "R@5",
+            "R@n",
+            "Precision at n",
+            "recall at n",
+            "average rank",
+            "log probability",
+            "QE score"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [
+            "ChatGPT: For the experiment with the Slavic languages, we provide the third verbalization: filled English templates (same as in GT) and the translations of the subject and object NEs (retrieved from Wikidata), and prompt GPT-4o-mini to translate the full sentence using the provided NE translations."
+        ],
+        "models": [
+            "GPT-4o-mini"
+        ],
+        "methods": [
+            "few-shot prompting for sentence-level translation"
+        ],
+        "criteria": [
+            "correct use of named entity translations",
+            "appropriate inflection of the relation verbalization"
+        ]
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": [
+            "In our experiments, we assume beforehand and then check manually the grammaticality of three types of verbalizations"
+        ],
+        "guideline": [
+            "manual verification of grammatical correctness"
+        ],
+        "criteria": [
+            "feminine verb form usage for female subjects"
+        ]
+    }
+}

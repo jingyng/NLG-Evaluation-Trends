@@ -1,0 +1,166 @@
+{
+  "paper_id": "2025.acl-long.1021",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates GPT-4 annotations against human expert annotations for multiple criteria including states, actions, receptivity scores, and profile components, reporting accuracy metrics and statistical significance"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed prompts are provided for profile annotation, state annotation, action annotation, receptivity scoring, and entailment assessment. Examples include Tables 6, 7, and specific prompt templates shown in the appendix sections."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 4,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.87,
+      "interpretation": "high agreement",
+      "per_criterion": [],
+      "notes": "Kappa coefficient of 0.87 (p-value ≤ 0.001) reported for receptivity annotations specifically"
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed scoring rubrics provided for consistency ratings (1-5 scale), realism ratings (1-5 Likert scale), and simplified receptivity scoring (1-3 scale). Tables include explicit criteria descriptions for each score level."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Accuracy",
+      "Precision",
+      "Recall",
+      "Cohen's kappa"
+    ],
+    "shared_criteria": [
+      "states",
+      "actions",
+      "receptivity",
+      "persona",
+      "beliefs",
+      "motivation",
+      "plan"
+    ],
+    "sample_size": {
+      "total_generated": 258,
+      "validated_by_both": 86,
+      "notes": "Validation performed on 86 selected counseling sessions from AnnoMI dataset that were annotated by both GPT-4 and human experts"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Accuracy",
+        "value": 87.31,
+        "criterion": "states",
+        "llm_model": "GPT-4",
+        "significance": "not specified"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 85.2,
+        "criterion": "actions",
+        "llm_model": "GPT-4",
+        "significance": "not specified"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 80.32,
+        "criterion": "receptivity",
+        "llm_model": "GPT-4",
+        "significance": "not specified"
+      },
+      {
+        "metric": "Precision",
+        "value": 81.93,
+        "criterion": "persona",
+        "llm_model": "GPT-4",
+        "significance": "not specified"
+      },
+      {
+        "metric": "Recall",
+        "value": 80.07,
+        "criterion": "persona",
+        "llm_model": "GPT-4",
+        "significance": "not specified"
+      },
+      {
+        "metric": "Precision",
+        "value": 77.48,
+        "criterion": "beliefs",
+        "llm_model": "GPT-4",
+        "significance": "not specified"
+      },
+      {
+        "metric": "Recall",
+        "value": 77.38,
+        "criterion": "beliefs",
+        "llm_model": "GPT-4",
+        "significance": "not specified"
+      },
+      {
+        "metric": "Precision",
+        "value": 82.72,
+        "criterion": "motivation",
+        "llm_model": "GPT-4",
+        "significance": "not specified"
+      },
+      {
+        "metric": "Recall",
+        "value": 79.98,
+        "criterion": "motivation",
+        "llm_model": "GPT-4",
+        "significance": "not specified"
+      },
+      {
+        "metric": "Precision",
+        "value": 78.38,
+        "criterion": "plan",
+        "llm_model": "GPT-4",
+        "significance": "not specified"
+      },
+      {
+        "metric": "Recall",
+        "value": 76.24,
+        "criterion": "plan",
+        "llm_model": "GPT-4",
+        "significance": "not specified"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "high reliability",
+      "threshold_used": "not explicitly stated",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 annotations achieve high accuracy (80.32-87.31%) across all criteria when validated against human expert annotations, confirming the reliability of automated LLM-based evaluation for counseling session analysis."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "turn-level response quality metrics (ROUGE, BERTScore)",
+      "KL divergence of action distributions"
+    ],
+    "human_only_criteria": [
+      "realism of client behavior"
+    ],
+    "shared_criteria": [
+      "profile consistency (persona, beliefs, motivation, plan)",
+      "receptivity",
+      "states",
+      "actions"
+    ],
+    "notes": "Both methods evaluate profile consistency and receptivity, but human evaluation adds realism assessment while LLM evaluation includes additional automated metrics for response quality and distribution similarity"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "paper_id": "2023.emnlp-main.607",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Dialogue Generation",
+      "Dialogue Summarization",
+      "Intent Detection",
+      "Stance Classification",
+      "Safety Detection"
+    ],
+    "datasets": [
+      "DIALOGSUM",
+      "WINO X",
+      "CIDER",
+      "CHINESE ENGLISH TEST SUITE",
+      "MISINFORMATION REACTION FRAMES",
+      "EXPLAGRAPHS",
+      "SAFETEXT"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "German",
+      "French",
+      "Russian"
+    ],
+    "models": [
+      "llama_7b",
+      "llama_13b",
+      "llama_33b",
+      "palm_540b",
+      "gpt_3.5",
+      "gpt_4",
+      "alpaca",
+      "bloomz_7b",
+      "mt_0_xxl",
+      "flan_t_5"
+    ],
+    "outputs": [
+      "Binary classification predictions for validity of targets",
+      "Translations for machine translation",
+      "Dialogue responses for dialogue generation",
+      "Summaries for dialogue summarization",
+      "Intent classifications for intent detection",
+      "Stance classifications for stance classification",
+      "Safety classifications for safety detection"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Intent Detection",
+          "Stance Classification",
+          "Safety Detection"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Flan-T5"
+        ],
+        "outputs": [
+          "Intent classifications for intent detection",
+          "Stance classifications for stance classification",
+          "Safety classifications for safety detection"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BloomZ",
+          "mT0",
+          "BloomZ-7B",
+          "mT0-xxl",
+          "PaLM-1-540B"
+        ],
+        "outputs": [
+          "translations, dialogue responses, summaries, intents, stances, safety actions",
+          "translations for MT, dialogue responses for DG, and summaries for DS"
+        ]
+      },
+      "normalized": {
+        "Text Summarization": "Dialogue Summarization",
+        "Dialogue Generation": "Dialogue Generation",
+        "Machine Translation": "Machine Translation",
+        "LLaMA": "LLaMA-7B, LLaMA-13B, LLaMA-33B",
+        "PaLM": "PaLM-540B",
+        "GPT-3.5": "GPT-3.5",
+        "GPT-4": "GPT-4"
+      },
+      "explanation": "Added missing tasks (Intent Detection, Stance Classification, Safety Detection) and model variants. Removed duplicate/incorrect model names. Normalized task names to be more specific. Added Flan-T5 which was mentioned in the oracle experiments."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "SITUATIONAL ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Metrics are correctly extracted and don't need normalization"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Corrected answer from 'No' to 'No' (no change needed) but removed placeholder 'None' values. The paper does NOT use LLMs as judges - it evaluates LLMs' performance on the benchmark."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluators (expert annotators) assessed whether targets were valid for contexts using task-specific criteria",
+      "Evaluators answered whether responses were plausible for dialogues, translations were correct, intents were correct for headlines, actions were safe in scenarios",
+      "Disagreements were resolved through discussion between two evaluators"
+    ],
+    "criteria": [
+      "Plausibility",
+      "Correctness",
+      "Safety"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human evaluators (expert annotators) assessed whether targets were valid for contexts using task-specific criteria",
+          "Disagreements were resolved through discussion between two evaluators"
+        ],
+        "criteria": [
+          "safety"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Evaluators classified whether targets were valid for contexts using task-specific criteria (e.g., plausibility for dialogue, correctness for translation). Disagreements were resolved through discussion.",
+          "Annotators answer whether a given response (or translation, summary, etc.) is correct/plausible, and discuss disagreements to reach a final label.",
+          "answer whether the given response can plausibly follow this dialogue... answer whether the intent is correct for the headline... answer whether the action is safe to do in this scenario"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "plausibility": "plausibility",
+        "correctness": "correctness"
+      },
+      "explanation": "Consolidated and clarified the guideline description. Added 'safety' as an explicit criterion mentioned for the safety detection task."
+    }
+  },
+  "overall_notes": "The paper presents CRoW, a multi-task benchmark for evaluating commonsense reasoning in real-world NLP tasks. It evaluates various LLMs on six tasks using automatic metrics and human evaluation. The extraction was mostly accurate but missed some tasks and model variants. The paper does NOT use LLMs as judges - it evaluates LLMs' performance on the benchmark tasks."
+}

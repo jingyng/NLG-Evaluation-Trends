@@ -1,0 +1,153 @@
+{
+  "paper_id": "2025.emnlp-main.49",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Adversarial Prompt Generation",
+      "Other:Refusal-Aware Red Teaming"
+    ],
+    "datasets": [
+      "ADV-BENCH",
+      "MALICIOUSINSTRUCT",
+      "TDC2023",
+      "HARMBENCH",
+      "ALPACA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-3-8B-Lexic-Uncensored",
+      "Meta-Llama-3-8B"
+    ],
+    "outputs": [
+      "adversarial test cases",
+      "test cases that expose inconsistencies between LLMs and safety evaluators"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Prompt Generation"
+        ],
+        "datasets": [
+          "MALICIOUSIN-STRUCT",
+          "AD-VBENCH"
+        ],
+        "models": [
+          "WildGuard",
+          "RoBERTa"
+        ],
+        "outputs": [
+          "refusal responses",
+          "corresponding model refusal or harmful responses"
+        ]
+      },
+      "normalized": {
+        "AD-VBENCH": "ADV-BENCH",
+        "MALICIOUSIN-STRUCT": "MALICIOUSINSTRUCT"
+      },
+      "explanation": "Removed 'Other:Prompt Generation' as it's redundant with 'Adversarial Prompt Generation'. Removed datasets with typos/normalized to canonical names. Removed WildGuard and RoBERTa as they are evaluation models, not NLG models. Removed output descriptors that described evaluation outputs rather than generated outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "IoU",
+      "Self-BLEU",
+      "BERTScore",
+      "Jensen-Shannon Divergence"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BERTScore"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BERT sentence embedding distances",
+          "BERT Cosine Similarity"
+        ]
+      },
+      "normalized": {
+        "BERT sentence embedding distances": "BERTScore",
+        "BERT Cosine Similarity": "BERTScore",
+        "BERT Cosine Similarity (1-cos)": "BERTScore",
+        "Jensen-Shannon divergence": "Jensen-Shannon Divergence"
+      },
+      "explanation": "Consolidated various BERT-based metrics under 'BERTScore' following simplification rules. Normalized 'Jensen-Shannon divergence' to standard form."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "WildGuard",
+      "RoBERTa",
+      "LLM M_top"
+    ],
+    "methods": [
+      "binary harmfulness scoring",
+      "harmfulness detection",
+      "LLM-guided topic extraction"
+    ],
+    "criteria": [
+      "harmfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "LLM M_top"
+        ],
+        "methods": [
+          "binary harmfulness scoring",
+          "harmfulness detection"
+        ],
+        "criteria": [
+          "harmfulness"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "harmfulness probability",
+          "topic distribution divergence"
+        ]
+      },
+      "normalized": {
+        "LLM M_top (e.g., LLaMA)": "LLM M_top",
+        "topic distribution divergence": "topic diversity"
+      },
+      "explanation": "Added LLM M_top explicitly as an LLM judge model. Refined criteria to focus on main evaluation criteria rather than specific technical implementations."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted - paper explicitly uses automated evaluation methods only."
+    }
+  },
+  "overall_notes": "The paper focuses on automated red teaming for LLM safety evaluation using adversarial prompt generation. All evaluations are automated (no human evaluation). The extraction was generally accurate but needed normalization of dataset names and consolidation of similar metrics."
+}

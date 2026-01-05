@@ -1,0 +1,120 @@
+{
+  "paper_id": "2022.naacl-main.315",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Grapheme To Phoneme Conversion Generation"
+    ],
+    "datasets": [
+      "THAI VOCABULARY FROM WIKTIONARY",
+      "JAPANESE HIRAGANA DATASET"
+    ],
+    "languages": [
+      "Thai",
+      "Japanese"
+    ],
+    "models": [
+      "neural_regression_model",
+      "encoder_decoder_sequence_models",
+      "transformer_architecture"
+    ],
+    "outputs": [
+      "phoneme sequences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Wiktionary"
+        ],
+        "languages": [],
+        "models": [
+          "hidden Markov model",
+          "weighted finite-state transducer"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Grapheme-to-Phoneme conversion": "Other:Grapheme-to-Phoneme Conversion"
+      },
+      "explanation": "Removed 'Wiktionary' as duplicate dataset entry, removed HMM and WFST models which were mentioned as background/related work but not evaluated in this paper"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "EDIT DISTANCE",
+      "ABSOLUTE ERROR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Accuracy",
+          "phoneme difference",
+          "difference between correct and predicted pronunciations counted by phoneme symbols"
+        ]
+      },
+      "normalized": {
+        "phoneme difference": "edit distance",
+        "difference between correct and predicted pronunciations counted by phoneme symbols": "edit distance",
+        "Accuracy": "accuracy"
+      },
+      "explanation": "Consolidated duplicate metric names and normalized to standard forms. All 'difference' metrics refer to edit distance between phoneme sequences."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "workers fluent in Thai described the correct pronunciations"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The human annotation was for creating ground truth pronunciation data, not for evaluating model outputs. This is data preparation, not human evaluation of generated outputs."
+    }
+  },
+  "overall_notes": "This paper focuses on grapheme-to-phoneme conversion for Thai using a neural regression approach. The extraction was generally accurate, but incorrectly identified human annotation for ground truth creation as human evaluation of model outputs. The paper uses standard automatic metrics for G2P evaluation but no human or LLM-based evaluation of generated outputs."
+}

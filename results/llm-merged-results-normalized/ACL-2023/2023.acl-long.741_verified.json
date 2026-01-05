@@ -1,0 +1,104 @@
+{
+  "paper_id": "2023.acl-long.741",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Brain To Text Generation",
+      "Fmri2Text",
+      "Eeg2Text"
+    ],
+    "datasets": [
+      "NARRATIVES",
+      "zuco1 0"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "unicorn",
+      "bart",
+      "cnn_based_snapshot_encoder",
+      "transformer_encoder"
+    ],
+    "outputs": [
+      "Generated text corresponding to brain signals",
+      "Generated text sentences from fMRI or EEG signals",
+      "Decoding text tokens from cognitive signal sequences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:EEG2text"
+        ],
+        "outputs": [
+          "Decoding text tokens from cognitive signal sequences"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Machine Translation"
+        ]
+      },
+      "normalized": {
+        "Other:Brain-to-Text Generation": "Other:Brain-to-Text Generation",
+        "Other:fMRI2text": "Other:fMRI2text",
+        "The task is to decode the corresponding text tokens W := {w 1 , w 2 , ..., w n } of the stimuli used during the acquisition of the fMRI volumes from an open vocabulary V.": "Decoding text tokens from cognitive signal sequences"
+      },
+      "explanation": "Removed 'Machine Translation' as the paper frames brain-to-text as analogous to translation but doesn't actually evaluate machine translation. Added 'EEG2text' task since the paper extensively evaluates this. Consolidated outputs for clarity."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-N",
+          "F",
+          "P",
+          "R"
+        ]
+      },
+      "normalized": {
+        "BLEU-1": "BLEU",
+        "BLEU-2": "BLEU",
+        "BLEU-3": "BLEU",
+        "BLEU-4": "BLEU",
+        "ROUGE-1": "ROUGE"
+      },
+      "explanation": "Normalized all BLEU variants to 'BLEU' and ROUGE-1 to 'ROUGE' following simplification guidelines. Removed 'BLEU-N' (unclear variant), 'F', 'P', 'R' which appear to be precision/recall metrics but are not clearly defined for NLG evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM evaluation was used in this paper. The paper uses traditional automatic metrics and case analysis only."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The evaluation relies solely on automatic metrics and qualitative case analysis."
+    }
+  },
+  "overall_notes": "The paper presents a novel brain-to-text generation task using cognitive signals (fMRI/EEG). Evaluation is based entirely on automatic metrics (BLEU, ROUGE) with qualitative case analysis. No human evaluation or LLM-as-judge methods were used. The extraction was generally accurate but needed normalization of metric variants and clarification of task scope."
+}

@@ -1,0 +1,168 @@
+{
+  "paper_id": "2022.acl-long.558",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT 2019 Metrics",
+      "WMT 2020 QE",
+      "WMT 2021 News Translation"
+    ],
+    "languages": [
+      "English",
+      "Czech",
+      "German",
+      "Japanese",
+      "Russian",
+      "Chinese",
+      "Finnish",
+      "Gujarati",
+      "Kazakh",
+      "Lithuanian",
+      "French"
+    ],
+    "models": [
+      "UniTE",
+      "COMET",
+      "BLEU",
+      "BLEURT",
+      "YiSi-1",
+      "YiSi-2",
+      "BARTScore",
+      "PRISM",
+      "MTransQuest",
+      "XLM-R",
+      "RoBERTa",
+      "BERTScore",
+      "TransQuest"
+    ],
+    "outputs": [
+      "Translation quality scores",
+      "Correlation with human judgments"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "UniTE"
+        ],
+        "outputs": [
+          "Translation quality scores",
+          "Correlation with human judgments"
+        ]
+      },
+      "removed": {
+        "models": [
+          "PRISM-ref",
+          "PRISM-src",
+          "XLM-R+Concat",
+          "RoBERTa+Concat",
+          "UniTE-MRA",
+          "UniTE-UP",
+          "UniTE-MUP"
+        ],
+        "datasets": [
+          "WMT 2020 QE task",
+          "WMT 2021 News Translation task"
+        ]
+      },
+      "normalized": {
+        "translation hypotheses": "Translation quality scores",
+        "Scalar quality scores / correlation with human judgments": "Correlation with human judgments",
+        "PRISM-ref": "PRISM",
+        "PRISM-src": "PRISM"
+      },
+      "explanation": "Consolidated model names (e.g., PRISM-ref/PRISM-src → PRISM), removed model variants/specific implementations, normalized output descriptions, and simplified dataset names"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Kendall's τ",
+      "Pearson correlation",
+      "BLEU",
+      "ChrF",
+      "YiSi-1",
+      "BERTScore",
+      "BLEURT",
+      "PRISM",
+      "BARTScore",
+      "YiSi-2",
+      "MTransQuest",
+      "COMET"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Pearson correlation"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "XLM-R+Concat",
+          "RoBERTa+Concat",
+          "PRISM-src",
+          "Kendall's Tau"
+        ]
+      },
+      "normalized": {
+        "Kendall's τ": "Kendall's τ",
+        "Pearson's correlation": "Pearson correlation",
+        "PRISM-ref": "PRISM"
+      },
+      "explanation": "Standardized metric names (Pearson's→Pearson), removed model-specific implementations, combined PRISM variants"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "XLM-R",
+          "RoBERTa",
+          "UniTE-MRA",
+          "UniTE-UP",
+          "COMET"
+        ],
+        "methods": [
+          "UniTE model: layerwise coordination and Monotonic Regional Attention",
+          "Regression scoring of translation quality using PLM representations"
+        ],
+        "criteria": [
+          "overall translation quality (as reflected in correlation with human judgments)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "This paper uses PLMs as metrics (UniTE, COMET, etc.) to evaluate MT outputs, but does NOT use LLMs as judges AFTER generation (Question 3 specifically refers to LLMs used post-generation for assessment, whereas this paper's PLMs ARE the evaluation models themselves)"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "guideline": [
+          "Fine‑tune and evaluate against human‑annotated quality scores for REF, SRC and SRC+REF tasks.",
+          "The evaluation is based on human-annotated data from WMT 2019 and WMT 2020 shared tasks, where human judgments are used to compute correlation scores (Kendall’s τ and Pearson’s) for system-level evaluation."
+        ],
+        "criteria": [
+          "translation quality (as captured by human scores)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does NOT conduct new human evaluations. It uses existing human annotations from WMT shared tasks to compute correlations with automatic metrics, but does not involve humans directly evaluating the generated outputs in this study."
+    }
+  },
+  "overall_notes": "This paper proposes UniTE, a unified framework for machine translation evaluation. It addresses NLG tasks (MT evaluation) and uses automatic metrics, but does NOT conduct new human evaluations nor use LLMs as judges post-generation. The extraction had some confusion between using PLMs as evaluation metrics vs. using LLMs as judges after generation."
+}

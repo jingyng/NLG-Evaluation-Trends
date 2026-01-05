@@ -1,0 +1,138 @@
+{
+  "paper_id": "2025.emnlp-main.1495",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Arithmetic Error Detection",
+      "Arithmetic Reasoning"
+    ],
+    "datasets": [
+      "SYSTEMATICALLY GENERATED MATH WORD PROBLEM TEMPLATES"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_2.5_1.5b_instruct",
+      "qwen_2.5_math_1.5b_instruct",
+      "llama_3.2_3b_instruct",
+      "phi_3_mini_4k_instruct"
+    ],
+    "outputs": [
+      "Validity predictions ('valid'/'invalid') for arithmetic solutions",
+      "Arithmetic solutions to math word problems"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Arithmetic solutions to math word problems"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "..."
+        ],
+        "languages": [],
+        "models": [
+          "Phi-3-Mini-3.8B"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Phi-3-Mini-3.8B": "Phi-3-Mini-4k-Instruct",
+        "The models generate solutions to math word problems and assess their validity (e.g., 'valid' or 'invalid').": "Validity predictions ('valid'/'invalid') for arithmetic solutions"
+      },
+      "explanation": "Normalized model name from 'Phi-3-Mini-3.8B' to 'Phi-3-Mini-4k-Instruct' based on paper text. Added 'Arithmetic solutions to math word problems' as an output type since the paper studies both generation and validation. Removed incomplete dataset entry."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "ACCURACY",
+      "FAITHFULNESS",
+      "LOGIT DIFFERENCE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "faithfulness",
+          "logit difference",
+          "Intersection over Union (IoU)",
+          "Intersection over Minimum (IoM)"
+        ]
+      },
+      "normalized": {
+        "faithfulness": "Faithfulness",
+        "accuracy": "Accuracy",
+        "logit difference": "Logit Difference"
+      },
+      "explanation": "Changed answer from No to Yes because the paper uses accuracy metrics to evaluate model performance. Kept 'Faithfulness' and 'Logit Difference' as they are used for circuit evaluation. Removed IoU/IoM as they are circuit analysis metrics, not NLG evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Qwen-2.5-1.5B-Instruct",
+          "Qwen-2.5-Math-1.5B-Instruct",
+          "Llama-3.2-3B-Instruct",
+          "Phi-3-Mini-4k-Instruct"
+        ],
+        "methods": [
+          "activation patching",
+          "edge attribution patching"
+        ],
+        "criteria": [
+          "numerical consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as the paper does NOT use LLMs as judges. The models listed are the ones being studied, not used for evaluation. The methods are mechanistic analysis techniques, not LLM-as-judge evaluation methods."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder entries as no human evaluation is conducted in this paper."
+    }
+  },
+  "overall_notes": "This paper focuses on mechanistic interpretability of LLMs for arithmetic error detection rather than traditional NLG evaluation. The NLG aspect is the generation and validation of arithmetic solutions. The evaluation metrics are primarily accuracy-based for the validation task, with circuit analysis metrics (faithfulness, logit difference) used for mechanistic analysis rather than NLG quality assessment."
+}

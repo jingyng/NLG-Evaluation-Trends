@@ -1,0 +1,204 @@
+{
+  "paper_id": "2024.emnlp-main.395",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Machine Translation",
+      "Closed Book Question Answering",
+      "Information Extraction"
+    ],
+    "datasets": [
+      "NATURAL QUESTIONS",
+      "MS MARCO",
+      "DATABRICKS DOLLY 15k",
+      "SELFCHECKGPT",
+      "KNOWHALBENCH"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4",
+      "gpt_3.5_turbo",
+      "instructgpt",
+      "claude_2",
+      "llama_2_70b_chat",
+      "falcon_40b_instruct",
+      "alpaca_7b",
+      "mistral",
+      "mixtral",
+      "mixtral_8x_7b",
+      "roberta",
+      "roberta_nli",
+      "alignscore"
+    ],
+    "outputs": [
+      "LLM-generated responses evaluated for hallucinations using claim-triplets across multiple NLP tasks"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Dialogue Generation",
+          "Machine Translation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:closed-QA",
+          "Other:information extraction"
+        ],
+        "datasets": [
+          "FActScore",
+          "FacTool"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Closed QA": "Closed-QA",
+        "Other:Information Extraction": "Information Extraction"
+      },
+      "explanation": "Normalized task names, removed datasets mentioned only as baselines (not used for NLG), added tasks explicitly mentioned in Section 2 but missing from original extraction"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "PRECISION",
+      "RECALL",
+      "PEARSON CORRELATION",
+      "SPEARMAN CORRELATION",
+      "ACCURACY",
+      "FACTUAL F1",
+      "NON FACTUAL F1",
+      "COPY RATE",
+      "ABSTAIN RATE",
+      "HALLUCINATION RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Macro-F1",
+          "Accuracy",
+          "Precision",
+          "Recall"
+        ]
+      },
+      "normalized": {
+        "Macro-F1": "macro-F1",
+        "Accuracy": "accuracy",
+        "Precision": "precision",
+        "Recall": "recall"
+      },
+      "explanation": "Normalized capitalization and removed duplicates - the metrics are correctly captured from Sections 5-6"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "roberta_nli",
+      "alignscore",
+      "mistral",
+      "gpt_3.5_turbo",
+      "chatgpt",
+      "mixtral_8x_7b"
+    ],
+    "methods": [
+      "3-way classification of claim-triplets (Entailment/Neutral/Contradiction)",
+      "faithfulness labeling",
+      "hard case selection",
+      "data filtering",
+      "query generation for knowledge checking",
+      "masking analysis for checker bias"
+    ],
+    "criteria": [
+      "Entailment",
+      "Neutrality",
+      "Contradiction",
+      "Faithfulness",
+      "Harmfulness",
+      "Ambiguity",
+      "Quality",
+      "Fairness",
+      "Presence"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "ChatGPT"
+        ],
+        "methods": [
+          "3-way classification of claim-triplets (Entailment/Neutral/Contradiction)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Mistral-based models",
+          "RoBERTa‑NLI",
+          "GPT-4 Turbo"
+        ],
+        "methods": [
+          "LLM‑based checking via prompting",
+          "assigning labels (Entailment, Neutral, Contradiction) to claim-triplets",
+          "claim faithfulness labeling"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "RoBERTa‑NLI": "RoBERTa-NLI",
+        "GPT-3.5": "GPT-3.5-Turbo",
+        "GPT-4 Turbo": "GPT-4"
+      },
+      "explanation": "Consolidated model names, removed redundant or vague descriptions, clarified the core LLM-as-judge method"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators assigned hallucination labels (Entailment, Neutral, Contradiction) to each claim-triplet based on reference comparison",
+      "Low-quality triplets were labeled as 'bad' and filtered"
+    ],
+    "criteria": [
+      "Entailment",
+      "Neutrality",
+      "Contradiction",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators labeled each claim‑triplet as Entailment, Neutral, Contradiction, or marked it as a low‑quality (bad) triplet.",
+          "Annotators were tasked with assigning a hallucination label to each triplet or identifying it as a low-quality triplet (referred to as a 'bad triplet') for subsequent filtering."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "Contradiction": "Contradiction",
+        "bad triplet": "bad triplet"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into a concise format while preserving all evaluation criteria"
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation through hallucination detection using claim-triplets. The original extraction was mostly accurate but contained some redundancies and minor inconsistencies in naming. The paper uses LLMs both as generation models (for responses) and as judges (for evaluating claim-triplets), making it clearly relevant for NLG evaluation research."
+}

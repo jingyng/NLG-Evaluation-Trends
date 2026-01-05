@@ -1,0 +1,90 @@
+{
+  "paper_id": "2023.acl-long.307",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares LLM-as-a-judge (InstructGPT-eval, GPT4-eval) with human evaluation on the same set of instances (NQ-OPEN and CuratedTREC 2002 datasets), reports quantitative metrics (Kendall's tau correlation), and discusses agreement/disagreement patterns including error analysis."
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "instructgpt",
+      "gpt_4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompt shown: 'Question: what was the city of Beijing previously known as? Answer: Peking Candidate: Jicheng Is candidate correct?' (binary correctness judgment)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": 0.728,
+      "interpretation": "substantial agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Guidelines described: annotators judge correctness of each answer, permitted to use search engines for evidence, majority vote used for disagreements. Specific categorization of failure cases provided."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Kendall's tau"
+    ],
+    "shared_criteria": [
+      "correctness"
+    ],
+    "sample_size": {
+      "total_generated": 1490,
+      "validated_by_both": 1490,
+      "notes": "All 1490 question/answer pairs from 12 models on 301 NQ-OPEN questions were evaluated by both LLM judges and human annotators; additional validation on CuratedTREC 2002 with 1872 instances"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Kendall's tau",
+        "value": 0.75,
+        "criterion": "correctness",
+        "llm_model": "instructgpt",
+        "significance": "not reported",
+        "notes": "Correlation between InstructGPT-eval and human evaluation rankings"
+      },
+      {
+        "metric": "Kendall's tau",
+        "value": 0.79,
+        "criterion": "correctness",
+        "llm_model": "gpt_4",
+        "significance": "not reported",
+        "notes": "Correlation between GPT4-eval and human evaluation rankings"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "",
+      "threshold_used": "",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-based evaluation shows strong correlation with human judgments (Kendall's τ=0.75-0.79) and correctly ranks most models, but struggles with hallucinated long-form answers where LLM judges overestimate correctness compared to human assessment."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "correctness"
+    ],
+    "notes": "Both LLM judges and human evaluators assessed the same criterion: binary correctness (correct/incorrect) of question-answer pairs."
+  }
+}

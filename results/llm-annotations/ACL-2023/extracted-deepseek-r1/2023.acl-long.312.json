@@ -1,0 +1,49 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We output a schema graph of event nodes and event-event relation edges, including temporal relations and hierarchical relations. Since our algorithm is designed to be opendomain, we represent each event e with a description string such as \"A person shows early symptoms of the disease\" instead of a type from a restricted ontology (e.g., Illness). Description strings are more flexible in representing different granularities of events and are more informative.",
+        "tasks": [
+            "Other:Event Schema Generation"
+        ],
+        "datasets": [
+            "ODIN",
+            "RESIN-11",
+            "ProScript"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-3"
+        ],
+        "outputs": "Event schemas with natural language event descriptions"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "For automatic evaluation of the schema quality against human-created schemas, we adopt Event F1 and Relation F1 metrics. Event F1 is similar to the Event Match metric proposed in but since here we are generating event descriptions instead of performing classification over a fixed set of event types, we first compute the similarity score s between each generated event description and ground truth event description using cosine similarity of SBERT embeddings.",
+        "automatic_metrics": [
+            "Event F1",
+            "Temporal Relation F1",
+            "Hierarchical Relation F1"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": "",
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "Human assessors are presented with the scenario name and a subgraph from the schema induction algorithm's output. We then ask the assessor to write a coherent short story by looking at the graph and indicate which events were included in their story. After they complete the story writing task, they will be asked to rate their experience from several aspects on a 5-point Likert scale.",
+        "guideline": "Assessors wrote a story based on the schema and rated it on criteria including description helpfulness, name helpfulness, relevance, temporal ordering, and readability.",
+        "criteria": [
+            "description helpfulness",
+            "name helpfulness",
+            "relevance",
+            "temporal ordering",
+            "readability"
+        ]
+    }
+}

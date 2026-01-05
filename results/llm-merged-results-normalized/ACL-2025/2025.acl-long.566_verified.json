@@ -1,0 +1,167 @@
+{
+  "paper_id": "2025.acl-long.566",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation",
+      "Question Answering",
+      "Mathematical Problem Solving",
+      "Reasoning",
+      "Instruction Generation"
+    ],
+    "datasets": [
+      "ALPACA",
+      "WIZARDLM",
+      "CONDOR",
+      "GSM8K",
+      "MATH",
+      "HumanEval",
+      "MBPP",
+      "HellaSwag",
+      "ARC C",
+      "GPQA",
+      "IFEVAL",
+      "MMLU",
+      "BBH"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3.1_8b_instruct",
+      "qwen_2.5_7b_instruct",
+      "mistral_7b_instruct_v_0.3",
+      "tulu_3_8b",
+      "qwen_2.5_32b_instruct",
+      "qwen_2.5_72b_instruct"
+    ],
+    "outputs": [
+      "Synthetic instruction-response pairs for training small language models"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Math Problem Solving"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Qwen-2.5-32B-Instruct-Distilled",
+          "Qwen-2.5-72B-Instruct-Distilled",
+          "Qwen-2.5-7B-GRA"
+        ],
+        "outputs": [
+          "synthetic instruction-response pairs",
+          "synthetic instruction-response pairs for training and evaluation"
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Other:Question Answering",
+        "Other:Mathematical Problem Solving": "Other:Mathematical Problem Solving",
+        "Qwen2.5-7B-Instruct": "Qwen2.5-7B-Instruct"
+      },
+      "explanation": "Removed duplicate 'Math Problem Solving' task, removed distilled/GRA model variants (not separate models), normalized model naming, consolidated output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "PASS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Exact Match",
+          "F1",
+          "accuracy",
+          "pass@k",
+          "score"
+        ]
+      },
+      "normalized": {
+        "Pass@k": "Pass@1",
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Removed metrics not explicitly mentioned (F1, Exact Match), normalized 'Pass@k' to 'Pass@1' (HumanEval standard), removed generic 'score'"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "qwen_2.5_72b_instruct"
+    ],
+    "methods": [
+      "LLM-as-judge scoring",
+      "Multi-agent review with adjudication"
+    ],
+    "criteria": [
+      "Correctness",
+      "Clarity",
+      "Completeness",
+      "Relevance",
+      "Coherence",
+      "Ethicality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Multi-agent review with adjudication"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Llama-3.1-8B-Instruct",
+          "Qwen2.5-7B-Instruct",
+          "Mistral-7B-Instruct-v0.3",
+          "Tulu-3-8B"
+        ],
+        "methods": [
+          "LLM scoring comparison",
+          "Reviewer scoring",
+          "Adjudicator arbitration",
+          "scoring based on evaluation criteria"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "LLM-as-judge": "LLM-as-judge scoring"
+      },
+      "explanation": "Removed small LMs used in GRA framework (they are generators/reviewers, not judges), kept only the explicit LLM-as-judge (Qwen2.5-72B-Instruct) used for quality assessment, improved method descriptions"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation mentioned in the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on a collaborative framework (GRA) using multiple small LMs for data synthesis. It uses automatic evaluation on multiple benchmarks and employs Qwen2.5-72B-Instruct as an LLM judge for quality assessment. No human evaluation is conducted. The extraction was generally accurate but needed normalization and removal of some redundant/incorrect items."
+}

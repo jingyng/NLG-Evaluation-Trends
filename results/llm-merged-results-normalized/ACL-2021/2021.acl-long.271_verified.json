@@ -1,0 +1,181 @@
+{
+  "paper_id": "2021.acl-long.271",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Conversational Question Generation"
+    ],
+    "datasets": [
+      "REDDIT CQG CORPUS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gtm",
+      "s_2s_attn",
+      "cvae",
+      "kgcvae",
+      "std",
+      "htd",
+      "rl_cvae"
+    ],
+    "outputs": [
+      "questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Conversational Question Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Generation"
+        ],
+        "datasets": [
+          "large-scale CQG corpus extracted from Reddit",
+          "Reddit"
+        ],
+        "languages": [],
+        "models": [
+          "GTM (Generative Triple-wise Model)"
+        ],
+        "outputs": [
+          "generated questions",
+          "Generated natural-language questions"
+        ]
+      },
+      "normalized": {
+        "Other:Question Generation": "Other:Conversational Question Generation",
+        "large-scale CQG corpus extracted from Reddit": "Reddit CQG corpus",
+        "Reddit": "Reddit CQG corpus",
+        "GTM (Generative Triple-wise Model)": "GTM"
+      },
+      "explanation": "Normalized task name to be more specific (Conversational Question Generation), consolidated dataset references to 'Reddit CQG corpus', removed redundant model reference, and simplified outputs to 'questions'"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "EMBEDDING",
+      "EMBEDDING GREEDY",
+      "EMBEDDING EXTREMA",
+      "DISTINCT",
+      "RUBER",
+      "COSINE SIMILARITY",
+      "MATCHING"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Distinct"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-1",
+          "BLEU-2",
+          "Average",
+          "Greedy",
+          "Extrema",
+          "Dist-1",
+          "Dist-2",
+          "RubG",
+          "RubA",
+          "Embedding Average",
+          "Embedding Greedy",
+          "Embedding Extrema",
+          "RUBER (RubG, RubA)"
+        ]
+      },
+      "normalized": {
+        "BLEU-1": "BLEU",
+        "BLEU-2": "BLEU",
+        "Average": "Embedding Average",
+        "Greedy": "Embedding Greedy",
+        "Extrema": "Embedding Extrema",
+        "Dist-1": "Distinct",
+        "Dist-2": "Distinct",
+        "RubG": "RUBER",
+        "RubA": "RUBER",
+        "RUBER (RubG, RubA)": "RUBER"
+      },
+      "explanation": "Normalized all metric variants to their base forms (BLEU, Embedding metrics, Distinct, RUBER) and removed redundant entries"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since paper does not use LLMs as judges"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators evaluate generated questions on three criteria: Fluency (grammatical correctness and logical reasonableness), Coherence (semantic consistency with the given post), and Willingness (likelihood to elicit further interactions)"
+    ],
+    "criteria": [
+      "Fluency",
+      "Coherence",
+      "Willingness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators evaluate generated questions on three criteria: Fluency (grammatical correctness and logical reasonableness), Coherence (semantic consistency with the given post), and Willingness (likelihood to elicit further interactions)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- three criteria for human evaluation: (1) Fluency ... (2) Coherence ... (3) Willingness ...",
+          "Human annotators evaluate each generated question according to specified criteria.",
+          "We use following three criteria for human evaluation: (1) Fluency measures whether the generated question is reasonable in logic and grammatically correct. (2) Coherence denotes whether the generated question is semantically consistent with the given post. Incoherent questions include dull cases. (3) Willingness measures whether a user is willing to answer the question. This criterion is to justify how likely the generated questions can elicit further interactions."
+        ],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "willingness"
+        ]
+      },
+      "normalized": {
+        "fluency": "Fluency",
+        "coherence": "Coherence",
+        "willingness": "Willingness"
+      },
+      "explanation": "Consolidated guideline information into a single clear description and normalized criteria to title case"
+    }
+  },
+  "overall_notes": "The paper focuses on Conversational Question Generation using a novel hierarchical variational model (GTM). The extraction was generally accurate but required normalization of metric variants and consolidation of dataset references. The paper conducts comprehensive automatic and human evaluations but does not use LLMs as judges."
+}

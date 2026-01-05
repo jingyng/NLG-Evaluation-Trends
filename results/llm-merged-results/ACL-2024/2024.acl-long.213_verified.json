@@ -1,0 +1,146 @@
+{
+  "paper_id": "2024.acl-long.213",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering",
+      "Other:Information Seeking"
+    ],
+    "datasets": [
+      "Wizard of Wikipedia",
+      "Natural Questions",
+      "FEVER",
+      "OpenBookQA",
+      "Arc-Easy",
+      "ASQA",
+      "KILT",
+      "ALCE",
+      "ELI5",
+      "HotpotQA",
+      "T-REx",
+      "zsRE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama2-7B",
+      "GPT2-large",
+      "TinyLlama",
+      "T5-11B"
+    ],
+    "outputs": [
+      "long-form answers to information-seeking queries",
+      "responses with external knowledge retrieval using [NSP] tokens",
+      "text generation with grounding markers [CS] and [CE]"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "zsRE"
+        ],
+        "outputs": [
+          "text generation with grounding markers [CS] and [CE]"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Llama2-7B (Gen)",
+          "Emb_seq (Llama2-7B)",
+          "Llama2 7B",
+          "TRUE"
+        ]
+      },
+      "normalized": {
+        "NQ": "Natural Questions",
+        "TRUE (T5-11B)": "T5-11B"
+      },
+      "explanation": "Normalized model names, removed redundant model variants, added missing dataset, and clarified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Correctness",
+      "Retrieval Performance",
+      "Retrieval Precision",
+      "Grounding"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "answer accuracy",
+          "Retrieval precision (Ret‑P)",
+          "Grounding (entailment via TRUE)",
+          "Retrieval performance (Ret)",
+          "Retrieval precision (Ret-P)",
+          "Correctness (answer accuracy)"
+        ]
+      },
+      "normalized": {
+        "Correctness (Cor)": "Correctness",
+        "Retrieval Performance (Ret)": "Retrieval Performance",
+        "Retrieval Precision (Ret-P)": "Retrieval Precision",
+        "Grounding (Gr)": "Grounding"
+      },
+      "explanation": "Simplified metric names to base forms and removed redundant/duplicate entries"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "T5-11B",
+          "TRUE (T5-11B)",
+          "TRUE"
+        ],
+        "methods": [
+          "entailment checking",
+          "NLI entailment evaluation",
+          "NLI-based entailment scoring"
+        ],
+        "criteria": [
+          "entailment",
+          "grounding (entailment)",
+          "grounding"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because TRUE (T5-11B) is used for automated entailment checking as part of the grounding metric, not as an LLM judge evaluating quality after generation. This is an automated NLI system, not an LLM-as-judge setup."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluations mentioned in the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on a novel training method (semiparametric token-sequence co-supervision) for language models, evaluated primarily on information-seeking QA tasks using automatic metrics. The main correction was for Question 3 - while TRUE (T5-11B) is used, it's for automated entailment checking as part of the grounding metric, not as an LLM judge in the typical sense of evaluating generation quality after the fact."
+}

@@ -1,0 +1,145 @@
+{
+  "paper_id": "2023.emnlp-main.463",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Question Answering"
+    ],
+    "datasets": [
+      "MultiNews",
+      "GovReport",
+      "BillSum",
+      "Finance",
+      "Medicine",
+      "Reddit ELI5"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ChatGPT (GPT-3.5-turbo)",
+      "text-davinci-003",
+      "text-davinci-002",
+      "Vicuna"
+    ],
+    "outputs": [
+      "Detected LLM-generated vs human-written texts",
+      "Generated summaries and answers used for detection experiments"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Detected LLM-generated vs human-written texts"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-2-medium",
+          "BART (fine‑tuned on CNNDM)",
+          "ChatGPT"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering",
+        "Reddit Eli5": "Reddit ELI5",
+        "GPT-2-medium": "GPT-2-medium (proxy model)",
+        "BART (fine‑tuned on CNNDM)": "BART (similarity metric)"
+      },
+      "explanation": "Removed GPT-2-medium and BART as they are detector models, not generation models. Consolidated duplicate ChatGPT entries. Kept only models that generate the evaluated texts. Added clarification about the detection task outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "BERTScore",
+      "BARTScore",
+      "AUROC",
+      "Log-Likelihood",
+      "Rank",
+      "Log-Rank",
+      "Entropy",
+      "DetectGPT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "DetectGPT"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU score",
+          "ROUGE score",
+          "BARTScore-CNN"
+        ]
+      },
+      "normalized": {
+        "BLEU score": "BLEU",
+        "ROUGE score": "ROUGE",
+        "BARTScore-CNN": "BARTScore"
+      },
+      "explanation": "Consolidated metric variants to base forms (BLEU, ROUGE, BARTScore). Added DetectGPT which was explicitly mentioned as a comparison method. Removed redundant suffix variations."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "ChatGPT"
+        ],
+        "methods": [
+          "text revision followed by similarity scoring"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all entries since the paper does not use LLMs as judges. ChatGPT is used for text revision as part of the detection method, not for evaluating NLG outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' entries. The paper does not conduct human evaluation of generated outputs."
+    }
+  },
+  "overall_notes": "The paper focuses on LLM-generated text detection rather than traditional NLG evaluation. The extracted metadata was generally accurate but needed normalization and clarification about which models are actually generating the evaluated texts vs. those used for detection. The paper uses ChatGPT for text revision as part of the detection methodology, not as an evaluator of NLG quality."
+}

@@ -1,0 +1,199 @@
+{
+  "paper_id": "2023.acl-long.539",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Data To Text Generation"
+    ],
+    "datasets": [
+      "SUMMEVAL",
+      "TOPICAL CHAT",
+      "SFRES",
+      "SFHOT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "flan_t_5_xl",
+      "flan_t_5_large",
+      "flan_t_5_base"
+    ],
+    "outputs": [
+      "Generated texts (summaries, dialogue responses, data-to-text outputs)",
+      "Evaluation scores (yes/no probabilities) for each NLG dimension"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Data-to-Text Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "FLAN-T5"
+        ],
+        "outputs": [
+          "generated texts"
+        ]
+      },
+      "normalized": {
+        "Other:Data-to-Text Generation": "Data-to-Text Generation",
+        "FLAN‑T5‑XL": "FLAN-T5-XL",
+        "FLAN‑T5‑Large": "FLAN-T5-Large",
+        "FLAN‑T5‑Base": "FLAN-T5-Base"
+      },
+      "explanation": "Normalized task name from 'Other:Data-to-Text Generation' to 'Data-to-Text Generation'. Removed duplicate 'FLAN-T5' entry and consolidated model names. Removed redundant 'generated texts' from outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE",
+      "MOVERSCORE",
+      "BERTSCORE",
+      "BARTSCORE",
+      "CTRLEVAL",
+      "UNIEVAL",
+      "USR",
+      "DECOMPEVAL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BARTScore (CNNDM)",
+          "UniEval (Summ)",
+          "UniEval (Dial)"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "METEOR": "METEOR",
+        "ROUGE": "ROUGE",
+        "BARTScore (CNNDM)": "BARTScore",
+        "UniEval (Summ)": "UniEval",
+        "UniEval (Dial)": "UniEval"
+      },
+      "explanation": "Normalized metric variants to base forms (e.g., BARTScore variants → BARTScore, UniEval variants → UniEval) as per simplification guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "flan_t_5_xl",
+      "flan_t_5_large",
+      "flan_t_5_base"
+    ],
+    "methods": [
+      "Instruction-style QA with question decomposition"
+    ],
+    "criteria": [
+      "Naturalness",
+      "Coherence",
+      "Consistency",
+      "Fluency",
+      "Engagingness",
+      "Groundedness",
+      "Understandability"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "Consistency",
+          "Fluency"
+        ]
+      },
+      "removed": {
+        "models": [
+          "FLAN-T5"
+        ],
+        "methods": [
+          "instruction‑style yes/no QA",
+          "question decomposition with sub‑questions",
+          "instruction-style question answering",
+          "question decomposition",
+          "subquestion answering",
+          "question recomposition"
+        ],
+        "criteria": [
+          "naturalness",
+          "coherence",
+          "engagingness",
+          "groundedness",
+          "understandability"
+        ]
+      },
+      "normalized": {
+        "FLAN‑T5‑XL": "FLAN-T5-XL",
+        "FLAN‑T5‑Large": "FLAN-T5-Large",
+        "FLAN‑T5‑Base": "FLAN-T5-Base",
+        "instruction-style QA with question decomposition": "Instruction-style QA with question decomposition",
+        "naturalness": "Naturalness",
+        "coherence": "Coherence",
+        "engagingness": "Engagingness",
+        "groundedness": "Groundedness",
+        "understandability": "Understandability"
+      },
+      "explanation": "Consolidated redundant method descriptions into single comprehensive description. Normalized criteria to title case and added missing dimensions (Consistency, Fluency) mentioned in the paper. Removed duplicate 'FLAN-T5' model entry."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators answer yes/no subquestions that assess each dimension of the generated response based on the dialogue history or other context",
+      "Human-annotated labels are used as ground-truth labels to measure the quality of generated answers"
+    ],
+    "criteria": [
+      "Naturalness",
+      "Coherence",
+      "Groundedness",
+      "Understandability"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators answer yes/no subquestions that assess each dimension of the generated response based on the dialogue history or other context.",
+          "The human-annotated labels are used as ground-truth labels to measure the quality of generated answers."
+        ],
+        "criteria": [
+          "naturalness",
+          "coherence",
+          "groundedness",
+          "understandability"
+        ]
+      },
+      "normalized": {
+        "Naturalness": "Naturalness",
+        "Coherence": "Coherence",
+        "Groundedness": "Groundedness",
+        "Understandability": "Understandability"
+      },
+      "explanation": "Consolidated and cleaned up guideline formatting. Normalized criteria to title case."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper proposes DecompEval, an NLG evaluation metric that uses instruction-tuned PLMs (FLAN-T5) as judges through a question decomposition approach. It evaluates text summarization, dialogue generation, and data-to-text generation. The metadata required normalization for consistency and removal of redundant entries, but the core information was correctly extracted."
+}

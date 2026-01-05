@@ -1,0 +1,50 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We first finetune BART-large to generate the wizard's response given only the corresponding knowledge sentence... The finetuned BART shows a low perplexity of 10.51 on WoW's validation set... We apply the finetuned BART to transfer each claim in FEVER to a colloquial one.",
+        "tasks": [
+            "Paraphrase Generation",
+            "Dialogue Generation"
+        ],
+        "datasets": [
+            "FEVER",
+            "Wizard of Wikipedia"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "BART-large",
+            "RoBERTa",
+            "Stanza NER"
+        ],
+        "outputs": "colloquial claims generated from formal FEVER claims"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "Following, we gauge the style of sentences by measuring the perplexity with a pretrained DialoGPT.",
+        "automatic_metrics": [
+            "perplexity"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We first embed the candidates with RoBERTa and train an ensemble of binary linear classifiers to determine each candidate whether it is from WoW or our colloquial claims.",
+        "models": [
+            "RoBERTa-large"
+        ],
+        "methods": [
+            "adversarial filtering (AFLITE) binary classification"
+        ],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We conduct human evaluation via Amazon Mechanical Turk to investigate the effectiveness of our filtering pipeline... Three human annotators choose the best suitable claim for each colloquial claim set (|Q_i| ≤ k) for the given label and evidence.",
+        "guideline": "Annotators rated the humanness of each sentence on a 4-point scale and classified the claim into SUPPORTED, REFUTED, or NOTENOUGHINFO given the gold evidence.",
+        "criteria": [
+            "humanness",
+            "veracity labeling"
+        ]
+    }
+}

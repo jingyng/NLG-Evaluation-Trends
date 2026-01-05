@@ -1,0 +1,61 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We generate the prediction explanation with the following template: \"The patient is diagnosed as disease d because (s)he is suffering from symptom s_i, and (s)he has the vital sign of v_j, and the lab test (or PACS report) shows (s)he has t_k. Besides, s_i, v_j and t_k have been found on the patients of d for n_i, n_j, n_k times, respectively, in the previous EMR documents that support this diagnosis.\"",
+            "We generate the prediction explanation with the following template: The patient is diagnosed as disease d because (s)he is suffering from symptom s i , and (s)he has the vital sign of v j , and the lab test (or PACS report) shows (s)he has t k . Besides, s i , v j and t k have been found on the patients of d for n i , n j , n k times, respectively, in the previous EMR documents that support this diagnosis."
+        ],
+        "tasks": [
+            "Other:Explanation Generation"
+        ],
+        "datasets": [
+            "275,797 EMR documents of two medical departments (Gynaecology and Respiration)",
+            "real EMR documents from hospitals"
+        ],
+        "languages": [
+            "Chinese"
+        ],
+        "models": [
+            "Entity-aware CNN",
+            "Bayesian Network ensembles",
+            "Entity-aware Convolutional Neural Networks"
+        ],
+        "outputs": [
+            "Generated diagnostic explanations in natural language using predefined templates.",
+            "diagnosis explanations in natural language"
+        ]
+    },
+    "answer_2": {
+        "answer": "No",
+        "quote": [
+            "Table shows the Top-k sensitivity (The micro average of the per-disease Top-k sensitivity, commonly used as the accuracy measurement in healthcare studies)."
+        ],
+        "automatic_metrics": [
+            "Top-k sensitivity"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "The explanation is evaluated by three certificated physicians.",
+            "We randomly select 50 testing samples per department whose Top-1 diagnosis prediction is correct and generate the explanation for the diagnosis prediction with the above template. The explanation is evaluated by three certificated physicians. The evaluation is subjective, but all of them agree that the prediction is well-supported by the generated explanation.",
+            "The explanation is evaluated by three certificated physicians. The evaluation is subjective, but all of them agree that the prediction is well-supported by the generated explanation."
+        ],
+        "guideline": [
+            "Physicians were asked to evaluate if the generated explanation supports the diagnosis.",
+            "Physicians were asked to judge whether the generated explanation adequately supported the predicted diagnosis.",
+            "The evaluation is subjective, but all of them agree that the prediction is well-supported by the generated explanation."
+        ],
+        "criteria": [
+            "support",
+            "well-supported"
+        ]
+    }
+}

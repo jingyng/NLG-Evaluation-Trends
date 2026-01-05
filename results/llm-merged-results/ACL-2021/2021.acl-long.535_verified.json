@@ -1,0 +1,150 @@
+{
+  "paper_id": "2021.acl-long.535",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "ConvoSumm",
+      "CNN-DailyMail",
+      "SAMSum",
+      "AMI",
+      "ICSI",
+      "CQASumm",
+      "BC3",
+      "ADS",
+      "SENSEI",
+      "XSum",
+      "MultiNews",
+      "WikiHowQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART",
+      "BART-large",
+      "Longformer",
+      "Pegasus",
+      "T5",
+      "RoBERTa",
+      "BERT"
+    ],
+    "outputs": [
+      "abstractive summaries of conversational threads",
+      "abstractive summaries of conversational data"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "CQASumm",
+          "XSum",
+          "MultiNews",
+          "WikiHowQA"
+        ],
+        "languages": [],
+        "models": [
+          "Pegasus",
+          "T5",
+          "RoBERTa",
+          "BERT"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "ConvoSumm (NYT comments, Reddit discussion forums, StackExchange QA, W3C email)",
+          "NYT Comments",
+          "CoarseDiscourse",
+          "StackExchange",
+          "W3C corpus"
+        ],
+        "languages": [],
+        "models": [
+          "BART-arg-graph",
+          "BART-arg-filtered"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "CQASUMM": "CQASumm"
+      },
+      "explanation": "Removed dataset components that are part of ConvoSumm, kept only main dataset names. Added missing datasets mentioned in benchmarking. Removed BART variants as they are not distinct models but rather the same model with different inputs. Added other models mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "Extractive Oracle"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized all ROUGE variants to just ROUGE. Removed Extractive Oracle as it's not an evaluation metric but a baseline method."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rated each summary on relevance and consistency using a 1-5 Likert scale after seeing the source article and randomly-ordered model outputs"
+    ],
+    "criteria": [
+      "relevance",
+      "consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Kept the extracted criteria and guideline as they accurately reflect the human evaluation methodology described in the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on conversation summarization and evaluates both with automatic metrics (ROUGE) and human evaluation. The extraction was generally accurate but needed normalization of metric names and consolidation of dataset names. The paper does not use LLMs as judges."
+}

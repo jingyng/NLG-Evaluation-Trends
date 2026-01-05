@@ -1,0 +1,137 @@
+{
+  "paper_id": "2020.inlg-1.40",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "STANFORD PARAGRAPH DATASET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "img",
+      "lng",
+      "img+lng",
+      "img+att",
+      "lng+att",
+      "img+lng+att",
+      "img+max",
+      "lng+max",
+      "img+lng+max",
+      "hierarchical_image_paragraph_model",
+      "discourse_level_lstm",
+      "sentence_level_lstm"
+    ],
+    "outputs": [
+      "multi-sentence image descriptions (paragraphs)",
+      "image paragraphs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Image Captioning"
+        ],
+        "models": [
+          "discourse-level LSTM",
+          "sentence-level LSTM"
+        ],
+        "outputs": [
+          "image paragraphs"
+        ]
+      },
+      "removed": {
+        "models": [
+          "visual LSTM",
+          "attention mechanism",
+          "max-pooling fusion"
+        ]
+      },
+      "normalized": {
+        "multi-sentence image paragraphs (generated descriptions)": "image paragraphs"
+      },
+      "explanation": "Added 'Image Captioning' task which better captures the specific NLG task. Removed technical components that are implementation details rather than distinct models. Simplified output descriptions for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "CIDER",
+      "WORD MOVER S DISTANCE",
+      "SELF BLEU",
+      "DIVERSITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "diversity metric"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-1",
+          "BLEU-2",
+          "BLEU-3",
+          "BLEU-4",
+          "mBLEU",
+          "LSA"
+        ]
+      },
+      "normalized": {
+        "BLEU-1": "BLEU",
+        "BLEU-2": "BLEU",
+        "BLEU-3": "BLEU",
+        "BLEU-4": "BLEU",
+        "diversity metric (LSA with CIDEr-based kernel)": "diversity metric"
+      },
+      "explanation": "Consolidated BLEU variants into single 'BLEU' metric. Removed LSA as it's part of the diversity metric implementation rather than a separate metric. Added 'diversity metric' as a normalized form."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM evaluation used in this paper - correct as extracted."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers judged paragraphs on word choice, object salience, sentence structure, and paragraph coherence",
+      "Workers were presented with instructions shown in Appendix A",
+      "Only Master workers with high reputation were used",
+      "Workers limited to 30 tasks each"
+    ],
+    "criteria": [
+      "Choice",
+      "Salience",
+      "Sentence",
+      "Coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Only Master workers with high reputation were used",
+          "Workers limited to 30 tasks each"
+        ]
+      },
+      "removed": {},
+      "normalized": {},
+      "explanation": "Enhanced guideline descriptions with additional implementation details about worker selection and task limits mentioned in the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on image paragraph generation, specifically multi-sentence descriptions. The extraction was generally accurate with minor normalization needed for metrics. The paper uses a comprehensive evaluation including both automatic metrics and human evaluation, but no LLM-based evaluation (consistent with 2020 publication date). All yes/no answers were correctly extracted."
+}

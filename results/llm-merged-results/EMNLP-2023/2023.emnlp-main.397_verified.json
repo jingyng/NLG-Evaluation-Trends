@@ -1,0 +1,181 @@
+{
+  "paper_id": "2023.emnlp-main.397",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Dialogue Generation",
+      "Text Summarization"
+    ],
+    "datasets": [
+      "HotpotQA",
+      "OpenDialKG",
+      "CNN/Daily Mail",
+      "Alpaca"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ChatGPT",
+      "GPT-3",
+      "Claude",
+      "Claude 2",
+      "Davinci-002",
+      "Davinci-003",
+      "Llama 2",
+      "ChatGLM",
+      "Falcon",
+      "Vicuna",
+      "Alpaca"
+    ],
+    "outputs": [
+      "Generated responses to user queries",
+      "Hallucinated QA answers",
+      "Hallucinated dialogue responses",
+      "Hallucinated text summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama 2-Chat"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering",
+        "Dialogue Generation": "Dialogue Generation",
+        "Text Summarization": "Text Summarization",
+        "Davinci002": "Davinci-002",
+        "Davinci003": "Davinci-003"
+      },
+      "explanation": "Normalized task names to standard format, corrected model names (Davinci-002/003), removed duplicate Llama 2-Chat variant"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Removed duplicate 'accuracy' lowercase variant, kept only 'Accuracy'"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "ChatGPT"
+    ],
+    "methods": [
+      "Binary hallucination classification",
+      "Hallucination pattern analysis"
+    ],
+    "criteria": [
+      "Factual contradiction",
+      "Context misunderstanding",
+      "Specificity level",
+      "Inference correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Claude",
+          "Claude 2",
+          "Davinci002",
+          "Davinci003",
+          "GPT-3",
+          "Llama 2",
+          "ChatGLM",
+          "Falcon",
+          "Vicuna",
+          "Alpaca"
+        ],
+        "methods": [
+          "classification based on hallucination types",
+          "prompt‑based binary classification of hallucination presence",
+          "sampling-then-filtering",
+          "hallucination filtering enhanced by ground-truth examples",
+          "select the best answer from two hallucinated candidates"
+        ],
+        "criteria": [
+          "factual contradiction",
+          "hallucination presence"
+        ]
+      },
+      "normalized": {
+        "context misunderstanding": "Context misunderstanding",
+        "specificity level": "Specificity level",
+        "inference correctness": "Inference correctness"
+      },
+      "explanation": "Removed models that were evaluated (generation models) not used as judges. Only ChatGPT is explicitly used as an evaluator/judge. Simplified methods to core evaluation procedures. Removed redundant criteria."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human labelers annotate whether responses contain hallucinated information (Yes/No) and mark corresponding spans",
+      "Hallucination considered from three aspects: unverifiable, non-factual, and irrelevant",
+      "Each response labeled by three human labelers using max-voting strategy"
+    ],
+    "criteria": [
+      "Unverifiable",
+      "Non-factual",
+      "Irrelevant"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Each response labeled by three human labelers using max-voting strategy"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "annotate whether the response contains hallucinated information (\"Yes\" or \"No\") and list the corresponding spans. The hallucination is considered from the following three aspects: unverifiable, non-factual, and irrelevant."
+        ],
+        "criteria": [
+          "hallucination presence",
+          "span annotation"
+        ]
+      },
+      "normalized": {
+        "unverifiable": "Unverifiable",
+        "non-factual": "Non-factual",
+        "irrelevant": "Irrelevant"
+      },
+      "explanation": "Consolidated guideline description, normalized criteria capitalization, removed redundant criteria that are covered by the main three aspects"
+    }
+  },
+  "overall_notes": "The paper presents HaluEval benchmark for evaluating LLM hallucination recognition. It uses both automatic metrics (Accuracy, BERTScore) and human evaluation. LLMs (primarily ChatGPT) are used as judges to classify hallucination presence. The extraction was generally accurate but needed normalization and removal of generation models from the LLM-as-judge question."
+}

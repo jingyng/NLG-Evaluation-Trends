@@ -1,0 +1,167 @@
+{
+  "paper_id": "2025.naacl-long.576",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Smart Word Suggestion"
+    ],
+    "datasets": [
+      "SWS",
+      "ls07",
+      "ls14",
+      "XSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bert",
+      "bart",
+      "gpt_4",
+      "llama",
+      "rule_based",
+      "mr+as"
+    ],
+    "outputs": [
+      "token-level word substitutions",
+      "alternative word suggestions for target tokens"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-4"
+        ],
+        "outputs": [
+          "token-level word substitutions",
+          "alternative word suggestions for target tokens"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation",
+          "Machine Translation",
+          "Text Summarization"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BERT-base-uncased",
+          "LLaMA-3.1-8B-Instruct",
+          "GPT-2",
+          "OPT-350M",
+          "GPT"
+        ],
+        "outputs": [
+          "substitute words for tokens in sentences"
+        ]
+      },
+      "normalized": {
+        "GPT-4o": "GPT-4",
+        "MR+AS": "MR+AS",
+        "Smart Word Suggestion": "Other:Smart Word Suggestion"
+      },
+      "explanation": "Removed tasks that are only mentioned as applications but not actually evaluated. Consolidated models to main versions only. Normalized GPT-4o to GPT-4. Clarified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BARTSCORE",
+      "GPTSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Cosine Similarity",
+          "ABR",
+          "cosine similarity"
+        ]
+      },
+      "normalized": {
+        "BARTScore": "BARTScore",
+        "GPTScore": "GPTScore"
+      },
+      "explanation": "Removed cosine similarity and ABR as they are analysis methods/statistics, not evaluation metrics. Kept only BARTScore and GPTScore which are proper automatic evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-2",
+          "OPT-350M",
+          "GPT"
+        ],
+        "methods": [
+          "GPTScore scoring of generated sentences",
+          "paraphrasing task prompt"
+        ],
+        "criteria": [
+          "sentence quality",
+          "substitution quality",
+          "semantic equivalence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. GPT-2 and OPT-350M are used as backbones for GPTScore (an automatic metric), not as judges. The paper does not use LLMs as evaluators after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators indicated preferences for order of substitute candidates and whether to replace target words; in a second study, they chose between candidates without target words",
+      "Annotators were asked to indicate their preference for the order and whether they preferred to replace the target word with either of the two candidates"
+    ],
+    "criteria": [
+      "Preference",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators were asked to indicate their preference for the order and whether they preferred to replace the target word with either of the two candidates"
+        ],
+        "criteria": [
+          "order preference",
+          "replacement preference",
+          "quality comparison between candidates"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Annotators were presented with two candidate replacements (order randomly flipped) and asked to (1) indicate which candidate is preferred, (2) state whether the target word should be replaced, and later to choose among equally good, top-1 better, or top-2 better"
+        ],
+        "criteria": [
+          "overall quality judgment",
+          "whether to replace target word"
+        ]
+      },
+      "normalized": {
+        "order preference": "order preference",
+        "replacement preference": "replacement preference",
+        "quality comparison between candidates": "quality comparison between candidates"
+      },
+      "explanation": "Consolidated guideline descriptions and refined criteria to be more precise based on the paper's description of the human evaluation studies."
+    }
+  },
+  "overall_notes": "The paper focuses on Smart Word Suggestion (SWS) task, using BARTScore and GPTScore as automatic evaluation metrics. It includes human evaluation studies with clear criteria. GPTScore is used as an automatic metric with GPT-2/OPT backbones, not as LLM-as-judge. The extraction quality was reasonable but needed refinement on distinguishing between evaluation methods and actual NLG tasks studied."
+}

@@ -1,0 +1,141 @@
+{
+  "paper_id": "2025.acl-long.80",
+  "answer_1": {
+    "answer": "No",
+    "answer_changed": true,
+    "tasks": [],
+    "datasets": [
+      "GSM8K"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [],
+    "outputs": [],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Solution Generation",
+          "Other:Automatic Error Detection"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-4o",
+          "Claude-3.5",
+          "Gemini-1.5",
+          "Llama-3.1",
+          "Qwen-2.5",
+          "Qwen-2.5-Math",
+          "Qwen2.5-Math"
+        ],
+        "outputs": [
+          "step-by-step solutions to math word problems",
+          "The generated outputs are error detection results, including identification of erroneous steps and their error categories (e.g., calculation error, reference error, missing step, hallucination)."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because the paper does NOT evaluate natural language generation. It focuses on error detection in existing solutions, not generating new text. LLMs are used as evaluators, not generators. Removed all tasks, models, and outputs since they relate to evaluation/detection tasks, not NLG."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "identification accuracy"
+        ]
+      },
+      "normalized": {
+        "identification accuracy": "Accuracy"
+      },
+      "explanation": "Normalized 'identification accuracy' to standard metric name 'Accuracy'. The paper uses this metric to evaluate error detection performance by comparing LLM outputs against known error annotations."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o",
+      "Claude-3.5",
+      "Gemini-1.5",
+      "Llama-3.1",
+      "Qwen-2.5"
+    ],
+    "methods": [
+      "Prompt-based error detection",
+      "Ask-Before-Detection (AskBD) framework",
+      "Chain-of-Thought (CoT) prompting"
+    ],
+    "criteria": [
+      "Calculation error",
+      "Reference error",
+      "Missing step",
+      "Hallucination",
+      "Secondary error",
+      "Error location",
+      "Error type"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Chain-of-Thought (CoT) prompting"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Qwen-2.5-Math",
+          "Qwen2.5-Math"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "prompt-based step-wise error detection": "Prompt-based error detection",
+        "prompt-based error detection": "Prompt-based error detection",
+        "Reference-Enhanced Grader (REG)": "Prompt-based error detection",
+        "prompt engineering": "Prompt-based error detection"
+      },
+      "explanation": "Consolidated similar prompt-based methods into 'Prompt-based error detection'. Added CoT prompting as it's used as a baseline. Removed Qwen2.5-Math variants (duplicates). Kept normalized error criteria."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Graduate student reviewed generated alternative solutions for quality and selected the highest-quality one per conventional solution based on reasonableness and correctness"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed. Human evaluation was conducted for dataset preparation (selecting best alternative solutions), but no explicit evaluation criteria were specified for judging LLM performance outputs."
+    }
+  },
+  "overall_notes": "This paper focuses on error detection in math solutions, not natural language generation. LLMs are used as evaluators to detect errors in existing solutions. The main contribution is the AskBD framework to mitigate conformity bias in LLM-powered error detectors. Human evaluation was limited to dataset preparation, not evaluation of LLM outputs."
+}

@@ -1,0 +1,111 @@
+{
+  "paper_id": "2024.acl-long.102",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM predictions with human judgments on 100 sampled cases for both option conversion and expert rating tasks, reporting Pearson's r, Spearman's ρ, Kendall's τ correlations and accuracy metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "GPT-4",
+      "GPT-3.5",
+      "Gemini",
+      "Qwen1.5-110B"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper states 'Details of our prompts for OC and ER are available in §G in the appendix.' Examples of option conversion are shown in Figure with response classification like 'Result: I score it as 3.9 (High)'"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 93,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa coefficient",
+      "value": 0.609,
+      "interpretation": "quadratic-weighted kappa used for ordinal classes",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text and appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper provides human annotation example prompts with scoring scales, exemplar items, and scoring instructions; annotators were screened for character understanding"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson's r",
+      "Spearman's ρ",
+      "Kendall's τ",
+      "Accuracy"
+    ],
+    "shared_criteria": [
+      "personality assessment"
+    ],
+    "sample_size": {
+      "total_generated": "not specified",
+      "validated_by_both": 100,
+      "notes": "For each task (OC and ER), 100 cases of state-of-the-art RPAs on the BFI were manually labeled by humans for comparison with LLM predictions"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Accuracy",
+        "value": 0.82,
+        "criterion": "expert rating (personality assessment)",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "82% of GPT-4 predictions rated as 'right' (deviation <1 point)"
+      },
+      {
+        "metric": "Wrong cases percentage",
+        "value": 0.04,
+        "criterion": "expert rating (personality assessment)",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "Only 4% of GPT-4 predictions were 'wrong' (deviation >1 point)"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.79,
+        "criterion": "expert rating (personality assessment)",
+        "llm_model": "Gemini",
+        "significance": "not reported",
+        "notes": "79% of Gemini predictions rated as 'right'"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.71,
+        "criterion": "expert rating (personality assessment)",
+        "llm_model": "GPT-3.5",
+        "significance": "not reported",
+        "notes": "71% of GPT-3.5 predictions rated as 'right'"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "partial",
+      "interpretation": "acceptable performance",
+      "threshold_used": "not explicitly stated",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 achieves the best performance with 82% accuracy and only 4% wrong cases in expert rating, primarily failing when RPAs give contradictory responses; state-of-the-art LLMs show adequate performance in simulating human interviewers"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "personality assessment"
+    ],
+    "notes": "Both LLMs and humans evaluate personality fidelity using the same criteria and psychological scales"
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "paper_id": "2025.emnlp-main.62",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation",
+      "Dialogue Generation",
+      "Function Calling"
+    ],
+    "datasets": [
+      "GLAIVEAI GLAIVE FUNCTION CALLING v2",
+      "TOOLACE",
+      "BFCL v3"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "deepseek_r_1",
+      "qwen_2.5_72b_instruct",
+      "xlam_2_8b_fc_r",
+      "toolace_2_8b",
+      "xlam_2_70b_fc_r",
+      "xlam_2_32b_fc_r",
+      "qwen_2.5_32b_instruct",
+      "mcip_guardian"
+    ],
+    "outputs": [
+      "Function call sequences",
+      "Natural language responses",
+      "Risk classifications"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "BFCL-v3"
+        ],
+        "languages": [],
+        "models": [
+          "xLAM-2-70B-fc-r",
+          "xLAM-2-32B-fc-r",
+          "MCIP Guardian"
+        ],
+        "outputs": [
+          "Risk classifications"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Salesforce/Llama-xLAM-2-8b-fc-r"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "xLAM-2-8b-fc-r": "xLAM-2-8B-fc-r",
+        "Other:Function Calling": "Other:Function Calling",
+        "function calls, dialogue responses, risk classifications": "Function call sequences, Natural language responses, Risk classifications"
+      },
+      "explanation": "Added missing models mentioned in evaluation results (xLAM-2-70B-fc-r, xLAM-2-32B-fc-r, MCIP Guardian) and benchmark dataset (BFCL-v3). Normalized model name capitalization. Removed duplicate Salesforce model reference."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "SAFETY AWARENESS",
+      "RISK RESISTANCE",
+      "BFCL OVERALL ACCURACY",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Macro-F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Ma-F1": "Macro-F1",
+        "Safety Awareness (binary classification accuracy)": "Safety Awareness",
+        "Risk Resistance (11-class identification accuracy)": "Risk Resistance",
+        "BFCL overall accuracy": "BFCL Overall Accuracy"
+      },
+      "explanation": "Normalized metric names to standard forms and expanded 'Ma-F1' to 'Macro-F1'. All metrics are used to evaluate NLG outputs (function calls and responses)."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "DeepSeek-R1"
+        ],
+        "methods": [
+          "label generation",
+          "function replacement"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper does NOT use LLMs as judges/evaluators. DeepSeek-R1 is used for data generation/annotation, not for evaluating generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. The paper relies entirely on automatic metrics for evaluation."
+    }
+  },
+  "overall_notes": "This paper focuses on safety evaluation of function calling in LLM agent systems (MCP/MCIP). While it involves NLG tasks (dialogue generation and function calling), the primary focus is on safety risk identification rather than traditional NLG quality evaluation. The paper uses multiple automatic metrics but does not employ LLM-as-judge or human evaluation methods. The extraction was generally accurate but missed some models mentioned in the evaluation results."
+}

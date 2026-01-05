@@ -1,0 +1,156 @@
+{
+  "paper_id": "2021.emnlp-main.807",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Language Modeling",
+      "Machine Translation"
+    ],
+    "datasets": [
+      "LAMBADA",
+      "iwslt14 DE EN",
+      "OPENWEBTEXT",
+      "SYNTHETIC MAJORITY CLASS LANGUAGE",
+      "ANALOGIES DATASET"
+    ],
+    "languages": [
+      "English",
+      "German"
+    ],
+    "models": [
+      "gpt_2",
+      "transformer"
+    ],
+    "outputs": [
+      "Generated tokens (words) in sequences",
+      "Translations",
+      "Extracted rationales for model predictions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Extracted rationales for model predictions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Other:Language Modeling",
+          "Other:language modeling"
+        ],
+        "datasets": [
+          "Open WebText",
+          "majority-class language"
+        ],
+        "models": [
+          "Transformer Decoder",
+          "Transformer Encoder-Decoder",
+          "transformer decoder"
+        ]
+      },
+      "normalized": {
+        "Text Summarization": "Removed (not evaluated)",
+        "Other:Language Modeling": "Language Modeling",
+        "Other:language modeling": "Language Modeling",
+        "Open WebText": "OpenWebText",
+        "majority-class language": "Synthetic Majority-Class Language",
+        "transformer decoder": "Transformer",
+        "Transformer Decoder": "Transformer",
+        "Transformer Encoder-Decoder": "Transformer"
+      },
+      "explanation": "Removed 'Text Summarization' as it's only mentioned in passing, not evaluated. Normalized language modeling variants. Removed redundant model specifications, keeping 'Transformer' and 'GPT-2' as main models. Kept only directly evaluated datasets."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PERPLEXITY",
+      "BLEU",
+      "IOU",
+      "F1",
+      "ALIGNMENT ERROR RATE AER",
+      "APPROXIMATION RATIO",
+      "CROSSOVER RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "AER"
+        ]
+      },
+      "normalized": {
+        "AER": "Alignment Error Rate (AER)",
+        "bleu": "BLEU"
+      },
+      "explanation": "Removed duplicate 'AER' entry and normalized capitalization. All metrics are correctly identified from the paper's experiments."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is conducted in this paper. The paper focuses on greedy rationalization algorithm and comparison to gradient/attention baselines."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Two-role annotation procedure: selectors rank words by informativeness for predicting final word, predictors attempt to guess final word using revealed words",
+      "Rationale defined as words revealed before correct prediction"
+    ],
+    "criteria": [
+      "Informativeness",
+      "Sufficiency",
+      "Minimality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Two-role annotation procedure: selectors rank words by informativeness for predicting final word, predictors attempt to guess final word using revealed words",
+          "Rationale defined as words revealed before correct prediction"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators (selectors) rank words by how informative they are for predicting the final word; predictors then try to predict the final word using the selected words.",
+          "Selectors rank words by how informative they are for predicting the final word; predictors attempt to guess the final word after seeing one word at a time in the order chosen by the selector. The rationale is formed by the words revealed before the predictor correctly guesses the target word or a synonym."
+        ],
+        "criteria": [
+          "informativeness for prediction",
+          "minimal and sufficient rationales"
+        ]
+      },
+      "normalized": {
+        "informativeness for prediction": "Informativeness",
+        "minimal and sufficient rationales": "Minimality, Sufficiency"
+      },
+      "explanation": "Consolidated guideline descriptions and normalized criteria to standard forms. All human evaluation components are correctly captured."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation through rationalization methods for sequence models. The extraction was generally accurate but needed some normalization and removal of items mentioned only in passing. The paper evaluates language modeling and machine translation tasks with both automatic metrics and human evaluations, but does not use LLMs as judges."
+}

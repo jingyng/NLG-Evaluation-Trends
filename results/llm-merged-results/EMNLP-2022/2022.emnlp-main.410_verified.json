@@ -1,0 +1,180 @@
+{
+  "paper_id": "2022.emnlp-main.410",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Paraphrase Generation",
+      "Other:Text Simplification",
+      "Other:Headline Generation",
+      "Other:Haiku Generation",
+      "Other:Question Answering",
+      "Other:Explanation Generation",
+      "Other:Twitter Generation"
+    ],
+    "datasets": [
+      "WikiAuto",
+      "ASSET",
+      "Gigaword",
+      "Reddit (Haiku)",
+      "COVID-QA",
+      "ELI5",
+      "Empathetic Dialogues",
+      "eSNLI",
+      "Twitter"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T0_3B",
+      "T0_11B",
+      "CT0_3B",
+      "CT0_11B",
+      "T5-small",
+      "T5-3B"
+    ],
+    "outputs": [
+      "Simplified text",
+      "Headlines with constraints",
+      "Haikus",
+      "COVID-19 answers",
+      "Inquisitive questions",
+      "Empathetic dialogue responses",
+      "Natural language explanations",
+      "Stylized tweets"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Summarization",
+          "Paraphrase Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "T5-small",
+          "T5-3B"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Headline Generation with Constraint",
+          "Other:Twitter Stylometry",
+          "Other:Inquisitive Question Generation"
+        ],
+        "datasets": [
+          "Reddit haiku",
+          "Empathetic Dialogue",
+          "Twitter Stylometry",
+          "Reddit"
+        ],
+        "languages": [],
+        "models": [
+          "T0pp",
+          "T0pp (11B)",
+          "CT0",
+          "T0"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Reddit (haiku)": "Reddit (Haiku)",
+        "Other:Text Simplification": "Other:Text Simplification",
+        "Other:Headline Generation": "Other:Headline Generation",
+        "Other:Haiku Generation": "Other:Haiku Generation",
+        "Other:Question Answering": "Other:Question Answering",
+        "Other:Explanation Generation": "Other:Explanation Generation",
+        "Other:Twitter Generation": "Other:Twitter Generation",
+        "T0pp": "T0_11B",
+        "CT0pp": "CT0_11B",
+        "T0": "T0_3B"
+      },
+      "explanation": "Consolidated and normalized model names (T0_11B instead of T0pp, CT0_11B instead of CT0pp). Removed redundant/duplicate dataset entries. Added T5 variants mentioned in ablation studies. Simplified task names by removing redundant qualifiers (e.g., 'Headline Generation with Constraint' → 'Headline Generation'). Added 'Text Summarization' and 'Paraphrase Generation' as these are core tasks in T0."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "SARI",
+      "ROUGE",
+      "BERTScore",
+      "Accuracy",
+      "Constraint Accuracy",
+      "Author Classification",
+      "Custom Haiku Metric"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Constraint Accuracy",
+          "Custom Haiku Metric"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "First Word Distribution",
+          "Jensen Shannon Divergence",
+          "Author Classification (Ridge Classifier)",
+          "H_cust",
+          "1Tok"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "SARI": "SARI",
+        "ROUGE": "ROUGE",
+        "BERTScore": "BERTScore",
+        "Accuracy": "Accuracy",
+        "Constraint accuracy": "Constraint Accuracy",
+        "Author Classification": "Author Classification"
+      },
+      "explanation": "Simplified metric variants to base form. Removed implementation-specific metric descriptions and consolidated into meaningful categories. Added 'Custom Haiku Metric' to represent the paper's custom evaluation approach for haiku generation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in this paper. The paper focuses on automatic metrics and mentions potential future human evaluation, but does not use LLMs for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper explicitly states it uses automatic metrics and mentions human evaluation would be expensive and is planned for future work. No human evaluation was conducted in this study."
+    }
+  },
+  "overall_notes": "This paper focuses on continual learning for instruction-tuned language models, specifically evaluating their ability to learn new NLG tasks without catastrophic forgetting. The paper uses a comprehensive set of automatic metrics but no human or LLM-based evaluation. The extraction was generally accurate but needed normalization and consolidation of model names and metric variants."
+}

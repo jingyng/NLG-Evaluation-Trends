@@ -1,0 +1,118 @@
+{
+  "paper_id": "2024.acl-long.469",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Chinese Character Correction",
+      "Visual Chinese Character Checking"
+    ],
+    "datasets": [
+      "VISUAL c3"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "ocr_based_method",
+      "clip_based_method",
+      "bert_base",
+      "resnet_50",
+      "roberta_base"
+    ],
+    "outputs": [
+      "correct sentences without wrong characters in text form",
+      "detected wrong character positions in text",
+      "corrected Chinese text from handwritten images"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Visual Chinese Character Checking"
+        ],
+        "outputs": [
+          "detected wrong character positions in text",
+          "corrected Chinese text from handwritten images"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text Correction"
+        ],
+        "models": [
+          "OCR-based",
+          "CLIP-based",
+          "BERT"
+        ]
+      },
+      "normalized": {
+        "Other:Chinese Character Correction": "Other:Chinese Character Correction",
+        "BERT BASE": "BERT-base",
+        "OCR-based": "OCR-based method",
+        "CLIP-based": "CLIP-based method"
+      },
+      "explanation": "Removed 'Text Correction' as too broad, kept more specific tasks. Normalized model names (BERT-base instead of BERT BASE). Removed duplicate model entries and grouped OCR/CLIP under 'method' naming."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PRECISION",
+      "RECALL",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "F1 score": "F1"
+      },
+      "explanation": "Minor normalization of 'F1 score' to 'F1'. The paper explicitly uses Precision, Recall, and F1 scores to evaluate both detection and correction performance."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper mentions testing GPT-4V and Qwen-VL-Max in Appendix C, but these are tested as generation models, not as evaluators/judges. No LLMs are used to evaluate the outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper uses human annotators for dataset creation (Fleiss' kappa of 85.20% for annotation agreement), but no human evaluation is conducted to assess the quality of the generated outputs from their models."
+    }
+  },
+  "overall_notes": "This paper focuses on visual Chinese character checking/correction rather than traditional NLG. The generation aspect involves correcting handwritten Chinese text with errors. The extracted metadata was generally accurate but needed some normalization and removal of duplicates. The paper uses standard Precision/Recall/F1 metrics and does not use LLM-as-judge or human evaluation for assessing generated outputs."
+}

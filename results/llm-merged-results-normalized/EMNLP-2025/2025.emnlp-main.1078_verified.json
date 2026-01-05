@@ -1,0 +1,131 @@
+{
+  "paper_id": "2025.emnlp-main.1078",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Query Rewriting",
+      "Query Reasoning"
+    ],
+    "datasets": [
+      "BRIGHT",
+      "h4 STACK EXCHANGE PREFERENCES",
+      "MS MARCO"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "tongsearch_qr_7b",
+      "tongsearch_qr_1.5b",
+      "gpt_4o",
+      "deepseek_r_1",
+      "qwq_32b",
+      "o_1_preview",
+      "llama_3_70b",
+      "qwen_2.5_7b_instruct",
+      "qwen_2.5_1.5b_instruct"
+    ],
+    "outputs": [
+      "rewritten queries",
+      "reasoned queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "MS-MARCO"
+        ],
+        "languages": [],
+        "models": [
+          "Llama3-70B",
+          "Qwen2.5-7B-Instruct",
+          "Qwen2.5-1.5B-Instruct"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "V1-R1",
+          "V1-QwQ",
+          "V2"
+        ],
+        "languages": [],
+        "models": [
+          "Seed 1.5-Embedding",
+          "ReasonIR",
+          "DeepSeek-R1"
+        ],
+        "outputs": [
+          "rewritten (reasoned) queries"
+        ]
+      },
+      "normalized": {
+        "Other:Query Reasoning and Rewriting": "Other:Query Reasoning",
+        "MS-MACRO": "MS-MARCO"
+      },
+      "explanation": "Removed dataset versions (V1-R1, V1-QwQ, V2) as they are training data splits, not evaluation datasets. Added MS-MARCO as mentioned dataset. Added LLM models used for comparison. Normalized task name and MS-MARCO spelling."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "NDCG"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Recall@K",
+          "Performance / Cost (Efficiency)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'Recall@K' as it's mentioned as a potential reward metric but not actually used for evaluation. Removed 'Performance / Cost' as it's not a standard automatic metric but rather a cost-effectiveness calculation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is used in this paper. The LLMs mentioned are used for generation/comparison, not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper."
+    }
+  },
+  "overall_notes": "This paper focuses on query reasoning and rewriting for information retrieval tasks, which qualifies as NLG. The main evaluation uses nDCG@10 metric on the BRIGHT benchmark. The paper compares various LLMs for query rewriting but does not use LLM-as-judge or human evaluation. The extraction was generally accurate but included some training data splits that should be excluded from evaluation datasets."
+}

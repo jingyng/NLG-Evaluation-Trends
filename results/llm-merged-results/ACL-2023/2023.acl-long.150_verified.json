@@ -1,0 +1,128 @@
+{
+  "paper_id": "2023.acl-long.150",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Chain-of-Thought Explanation Generation",
+      "Other:Commonsense QA"
+    ],
+    "datasets": [
+      "CommonsenseQA",
+      "OpenBookQA",
+      "QuaRel",
+      "IMDB",
+      "SST-2",
+      "ANLI"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "OPT-125M",
+      "OPT-350M",
+      "OPT-1.3B",
+      "GPT-3"
+    ],
+    "outputs": [
+      "Chain-of-thought rationales and classification labels"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Commonsense QA"
+        ],
+        "datasets": [
+          "ANLI"
+        ],
+        "models": [
+          "OPT-125M",
+          "OPT-350M"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Explanation Generation"
+        ],
+        "datasets": [],
+        "models": [
+          "OPT"
+        ]
+      },
+      "normalized": {
+        "OPT (125M-1.3B parameters)": "OPT-125M, OPT-350M, OPT-1.3B",
+        "GPT-3 (teacher)": "GPT-3",
+        "OPT-1.3B (student)": "OPT-1.3B"
+      },
+      "explanation": "Added explicit QA task and ANLI dataset; normalized model names to specific versions; removed redundant/generic entries"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Added Accuracy metric since the paper extensively uses classification accuracy to evaluate chain-of-thought effectiveness"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used; only human evaluation and accuracy metrics"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Pairwise comparison between OPT-1.3B vs OPT-1.3B+SCoTD",
+      "Pairwise comparison between OPT-1.3B+SCoTD vs GPT-3"
+    ],
+    "criteria": [
+      "quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Pairwise comparison between OPT-1.3B+SCoTD vs GPT-3"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "overall quality": "quality"
+      },
+      "explanation": "Added missing comparison setup; simplified criteria to 'quality'"
+    }
+  },
+  "overall_notes": "The paper focuses on chain-of-thought distillation for smaller models, with extensive evaluation using accuracy metrics and human pairwise comparisons. The extraction was mostly accurate but missed the primary automatic metric (accuracy) and some experiment details."
+}

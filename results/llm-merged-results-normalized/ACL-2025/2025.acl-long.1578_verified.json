@@ -1,0 +1,160 @@
+{
+  "paper_id": "2025.acl-long.1578",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Text Classification",
+      "Relation Extraction",
+      "Text Summarization",
+      "Natural Language Inference",
+      "Instruction Tuning"
+    ],
+    "datasets": [
+      "MEDMCQA",
+      "MEDQA",
+      "PUBMEDQA",
+      "MMLU MEDICAL",
+      "HOC",
+      "DDI 2023",
+      "BIONLI",
+      "MIMIC CXR"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_physician_8b",
+      "openllama_3b",
+      "tinyllama_1.1b",
+      "llama_3_8b"
+    ],
+    "outputs": [
+      "Answers to medical questions",
+      "Medical classifications",
+      "Drug-drug interaction relations",
+      "Radiology report impressions",
+      "Natural language inference labels"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering",
+          "Text Classification",
+          "Relation Extraction",
+          "Natural Language Inference"
+        ],
+        "datasets": [
+          "MMLU-Medical"
+        ],
+        "models": [
+          "TinyLlama-1.1B"
+        ],
+        "outputs": [
+          "Answers to medical questions",
+          "Medical classifications",
+          "Drug-drug interaction relations",
+          "Natural language inference labels"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Task-specific Fine-tuning"
+        ],
+        "datasets": [],
+        "models": [
+          "OpenLLaMa-3B",
+          "TinyLlama",
+          "Llama-3-8B-Full"
+        ],
+        "outputs": [
+          "impressions generated from radiology report findings",
+          "Generated summaries (impressions) of radiology reports"
+        ]
+      },
+      "normalized": {
+        "PubMedQA": "PubMedQA",
+        "DDI 2023": "DDI-2023",
+        "OpenLLaMa-3B": "OpenLlama-3B",
+        "TinyLlama": "TinyLlama-1.1B"
+      },
+      "explanation": "Added missing NLG tasks explicitly evaluated in the paper (QA, classification, RE, NLI). Removed duplicates and incorrect model variants. Added MMLU-Medical which is explicitly used. Normalized model names to standard forms."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "PERPLEXITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "perplexity (PPL)",
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "perplexity (PPL)": "Perplexity",
+        "accuracy": "Accuracy",
+        "perplexity": "Perplexity"
+      },
+      "explanation": "Normalized capitalization and removed duplicates. The paper primarily uses accuracy for task evaluation and perplexity for model quality assessment."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is conducted in this paper. The LLM use is only for generation, not post-hoc evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper. All evaluations are automated using accuracy and perplexity metrics."
+    }
+  },
+  "overall_notes": "The paper focuses on continual pre-training strategies for domain adaptation, with NLG evaluation being a secondary component used to validate the effectiveness of their methods. The NLG tasks are primarily medical question answering and classification tasks evaluated through accuracy metrics. No human evaluation or LLM-as-judge methodology is employed."
+}

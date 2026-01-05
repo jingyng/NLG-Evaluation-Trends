@@ -1,0 +1,106 @@
+{
+  "paper_id": "2025.acl-long.1057",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM evaluation against human evaluation for both summarization and perspective extraction tasks, reporting Pearson correlation for summarization and percentage agreement for perspective extraction"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4-Turbo"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper mentions specific criteria for summarization evaluation (e.g., distinctness, overlap, relevance) but full prompts are not shown verbatim in main text; perspective extraction prompts are detailed in Appendix B"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": "Not reported",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators scored summaries using criteria 1-5 from GPT-4 evaluation prompt (excluding format criteria) on 0-2 scale per criterion, resulting in total score from 0-10; for perspective extraction, annotators determined entailment vs non-entailment"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "overall_summary_quality",
+      "perspective_entailment"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": {
+        "summarization": 50,
+        "perspective_extraction": 100
+      },
+      "notes": "50 random samples from Perspectrumx for summarization validation; 100 random samples for perspective extraction validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.7,
+        "criterion": "overall_summary_quality",
+        "llm_model": "GPT-4-Turbo",
+        "significance": "Not reported",
+        "notes": "Human scores tended to be lower than GPT-4 scores, suggesting GPT-4 might overestimate performance"
+      },
+      {
+        "metric": "Percentage agreement",
+        "value": 83.0,
+        "criterion": "perspective_entailment",
+        "llm_model": "GPT-4-Turbo",
+        "significance": "Not reported",
+        "notes": "Consistency between GPT-4 and first human annotator"
+      },
+      {
+        "metric": "Percentage agreement",
+        "value": 86.0,
+        "criterion": "perspective_entailment",
+        "llm_model": "GPT-4-Turbo",
+        "significance": "Not reported",
+        "notes": "Consistency between GPT-4 and second human annotator"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "Not specified",
+      "threshold_used": "Not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 scores show positive correlation with human evaluation (Pearson r=0.70 for summarization, 83-86% agreement for perspective extraction), demonstrating effectiveness as an evaluator despite some overestimation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "format_requirements"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Distinctness",
+      "overlap",
+      "Relevance",
+      "perspective_entailment"
+    ],
+    "notes": "Human evaluation used same criteria 1-5 as GPT-4 evaluation but excluded format-related criteria; both methods evaluated overall summary quality and perspective entailment"
+  }
+}

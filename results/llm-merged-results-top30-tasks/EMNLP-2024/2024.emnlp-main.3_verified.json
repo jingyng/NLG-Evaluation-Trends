@@ -1,0 +1,164 @@
+{
+  "paper_id": "2024.emnlp-main.3",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "AGGREFACT",
+      "ROSE",
+      "CNN/DailyMail",
+      "XSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "mt_5",
+      "orca_2",
+      "gpt_3.5_turbo",
+      "zephyr",
+      "mistral",
+      "deberta",
+      "roberta",
+      "albert"
+    ],
+    "outputs": [
+      "abstractive summaries",
+      "atomic facts"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "ALBERT"
+        ],
+        "outputs": [
+          "atomic facts"
+        ]
+      },
+      "removed": {
+        "models": [
+          "NLI model",
+          "gpt-3.5-turbo",
+          "Zephyr-7B",
+          "Mistral-7B"
+        ],
+        "outputs": [
+          "generated summaries",
+          "generated abstractive summaries and derived atomic facts"
+        ]
+      },
+      "normalized": {
+        "Zephyr-7B": "Zephyr",
+        "Mistral-7B": "Mistral",
+        "gpt-3.5-turbo": "gpt-3.5-turbo",
+        "CNN/DailyMail": "CNN/DailyMail"
+      },
+      "explanation": "Removed duplicate/variant model names, normalized dataset names, added missing evaluation model ALBERT, simplified outputs description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BALANCED ACCURACY",
+      "ROUGE",
+      "BERTSCORE",
+      "DAE",
+      "QUESTEVAL",
+      "SUMMAC",
+      "QAFACTEVAL",
+      "ALIGNSCORE",
+      "FACTSCORE",
+      "FACTOOL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "balanced accuracy",
+          "ROUGE-1",
+          "Token Length",
+          "Number of Atomic Facts"
+        ]
+      },
+      "normalized": {
+        "balanced accuracy": "Balanced Accuracy",
+        "ROUGE-1": "ROUGE",
+        "SummaC-ZS": "SummaC",
+        "SummaC-Conv": "SummaC"
+      },
+      "explanation": "Normalized metric variants to base forms, removed non-standard evaluation metrics (Token Length, Number of Atomic Facts) which are analysis metrics rather than evaluation metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_3.5_turbo",
+      "chatgpt",
+      "orca_2",
+      "mistral",
+      "zephyr"
+    ],
+    "methods": [
+      "atomic fact entailment scoring",
+      "zero-shot prompting",
+      "chain-of-thought prompting",
+      "8-shot learning"
+    ],
+    "criteria": [
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "ChatGPT"
+        ],
+        "methods": [
+          "chain-of-thought prompting"
+        ]
+      },
+      "removed": {
+        "models": [
+          "NLI model"
+        ],
+        "methods": [
+          "ChatGPT-CoT",
+          "ChatGPT-DA",
+          "ChatGPT-Star"
+        ]
+      },
+      "normalized": {
+        "ChatGPT-CoT": "chain-of-thought prompting",
+        "ChatGPT-DA": "chain-of-thought prompting",
+        "ChatGPT-Star": "chain-of-thought prompting",
+        "Chain-of-Thought prompting": "chain-of-thought prompting"
+      },
+      "explanation": "Consolidated ChatGPT prompt variants under standardized method names, added missing ChatGPT reference, removed NLI model (base component rather than LLM judge)"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted in this paper - focuses exclusively on automatic evaluation"
+    }
+  },
+  "overall_notes": "The paper presents FIZZ, an automatic evaluation system for factual consistency in abstractive summarization. It uses automatic metrics extensively but does not conduct human evaluation. The extraction was generally accurate but needed normalization of model names and metric variants."
+}

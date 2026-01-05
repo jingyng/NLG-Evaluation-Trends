@@ -1,0 +1,83 @@
+{
+  "paper_id": "2024.emnlp-main.671",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares LLM and human judgments on the same set of instances, reporting agreement metrics between GPT-4 and human evaluators specifically for safety evaluations."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper mentions using GPT-4 for 'standalone grading for harmfulness' and 'pairwise preference for general performance', with details provided in Appendix E, but exact prompt text is not shown in the main text excerpts provided."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "Not specified",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": "Not reported",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed annotation guidelines provided in Appendix A, including definitions of global vs local harm with examples and annotation workflow instructions."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "Harmfulness"
+    ],
+    "sample_size": {
+      "total_generated": 600,
+      "validated_by_both": 600,
+      "notes": "Uniformly sampled 100 global and 100 local prompts across 6 languages (100\u00d76=600 total instances) from the Aya Red-teaming test dataset that was held-out from training data."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": "high",
+        "criterion": "Harmfulness",
+        "llm_model": "GPT-4",
+        "significance": "Not specified",
+        "notes": "Paper states 'We observe a high level of agreement between LLM and human judgments' but does not provide specific numerical values for the agreement percentage across all models."
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "high",
+      "threshold_used": "Not specified",
+      "compared_to_prior_work": "yes",
+      "notes": "Paper references prior work showing GPT-4's correlation to human preferences in multilingual settings."
+    },
+    "summary_finding": "GPT-4 shows high agreement with human judgments for harmfulness classification across 6 languages, reinforcing the validity of LLM-as-a-judge for safety evaluation in multilingual contexts."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Preference",
+      "Helpfulness"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Harmfulness"
+    ],
+    "notes": "Both LLM (GPT-4) and human evaluators assessed harmfulness on the same safety evaluation instances, while LLM additionally evaluated preference and helpfulness for general performance assessment."
+  }
+}

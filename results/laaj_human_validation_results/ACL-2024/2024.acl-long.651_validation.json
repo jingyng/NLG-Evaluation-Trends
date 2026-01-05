@@ -1,0 +1,103 @@
+{
+  "paper_id": "2024.acl-long.651",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates GPT-4-based metric against human annotations by comparing error counts at word, example, and domain levels using Pearson correlation coefficients"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt format described but exact wording not fully reproduced; description includes requirements for JSON output format and error categorization"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 100,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Pearson correlation",
+      "value": 0.36,
+      "interpretation": "weak agreement on word level, stronger on example level (0.53) and domain level (0.85)",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Provided error taxonomy descriptions and annotation interface details; full instructions in Appendix B with examples"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "Incorrect",
+      "Not Checkable",
+      "Misleading",
+      "Other"
+    ],
+    "sample_size": {
+      "total_generated": 500,
+      "validated_by_both": 500,
+      "notes": "Full test set evaluated by both methods; additional dual-annotation subset of 100 examples for human agreement analysis"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.26,
+        "criterion": "all errors",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "Correlation at word level"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.52,
+        "criterion": "all errors",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "Correlation at example level"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.93,
+        "criterion": "all errors",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "Correlation at domain level"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "weak to strong depending on granularity",
+      "threshold_used": "Not explicitly defined, but progression from weak (0.26) to strong (0.93) is noted",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GPT-4 shows weak agreement with humans at word level (r=0.26), moderate at example level (r=0.52), and strong at domain level (r=0.93), with agreement patterns similar to human inter-annotator agreement."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Incorrect",
+      "Not Checkable",
+      "Misleading",
+      "Other"
+    ],
+    "notes": "Both LLM and human evaluate the same four error categories with identical instructions and format"
+  }
+}

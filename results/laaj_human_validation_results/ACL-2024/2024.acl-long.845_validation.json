@@ -1,0 +1,104 @@
+{
+  "paper_id": "2024.acl-long.845",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-as-a-judge against human evaluation by comparing GPT-4 and human pairwise preference evaluations on the same Dolly test prompts, reporting agreement rates and conducting re-annotation studies to measure human-human and human-LLM agreement"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt template provided in Appendix H.3, including system preamble and detailed evaluation criteria"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 4,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.38,
+      "interpretation": "average across languages",
+      "per_criterion": [
+        {
+          "criterion": "preference_evaluation",
+          "metric": "Cohen's kappa",
+          "value": 0.38
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed human evaluation guidelines provided in Appendix H.4, including specific ranking criteria and instructions for handling ties and incomprehensible prompts"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Cohen's kappa",
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "task_fulfillment",
+      "grammaticality",
+      "coherence"
+    ],
+    "sample_size": {
+      "total_generated": 200,
+      "validated_by_both": 100,
+      "notes": "Validation conducted on subsets of 100 Dolly test prompts per language model comparison pair, with re-annotation studies"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.38,
+        "criterion": "overall_preference",
+        "llm_model": "GPT-4",
+        "significance": "not_reported",
+        "notes": "Average agreement across language-model comparisons"
+      },
+      {
+        "metric": "Percentage agreement",
+        "value": 67.4,
+        "criterion": "overall_preference",
+        "llm_model": "GPT-4",
+        "significance": "not_reported",
+        "notes": "Average human-human agreement rate"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "not_provided",
+      "threshold_used": "not_specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Human-GPT-4 agreement rates vary by language (61-83%), with overall moderate agreement (avg κ=0.38) suggesting LLM evaluation captures human preferences reasonably well but with notable differences in specific cases"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "factuality"
+    ],
+    "human_only_criteria": [
+      "creativity"
+    ],
+    "shared_criteria": [
+      "task_fulfillment",
+      "grammaticality",
+      "coherence",
+      "fluency"
+    ],
+    "notes": "GPT-4 evaluates based on factuality and semantic comprehensibility criteria, while human evaluators also consider creativity and personal preference when other criteria are fulfilled"
+  }
+}

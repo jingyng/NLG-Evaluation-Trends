@@ -1,0 +1,154 @@
+{
+  "paper_id": "2025.emnlp-main.1390",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Molecule Generation",
+      "Text Summarization"
+    ],
+    "datasets": [
+      "PubChem",
+      "ChEMBL",
+      "CrossDocked2020",
+      "ZINC20"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o",
+      "Gemma-3-27B",
+      "DeepSeek-V3"
+    ],
+    "outputs": [
+      "SMILES strings representing generated molecules"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "PubChem BioAssay",
+          "FDA-approved drugs"
+        ],
+        "languages": [],
+        "models": [
+          "GPT 4o"
+        ],
+        "outputs": [
+          "SMILES strings (textual representation of molecules)",
+          "SMILES strings of generated molecules"
+        ]
+      },
+      "normalized": {
+        "DeepSeekV3": "DeepSeek-V3",
+        "GPT 4o": "GPT-4o"
+      },
+      "explanation": "Removed duplicate datasets (FDA-approved drugs are not a dataset, PubChem BioAssay is part of PubChem), normalized model names, consolidated output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Vina Dock score",
+      "QED",
+      "SA score",
+      "Diversity",
+      "Molecule validity rate",
+      "Molecule size",
+      "hERG score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "High Affinity",
+          "Quantitative Estimate of Drug-likeness (QED)",
+          "Synthetic Accessibility (SA) score",
+          "Diversity (average pairwise Tanimoto distance)",
+          "Molecule Size (number of heavy atoms)",
+          "SA",
+          "Molecule Size",
+          "Tanimoto similarity"
+        ]
+      },
+      "normalized": {
+        "SA": "SA score",
+        "Molecule Size": "Molecule size"
+      },
+      "explanation": "Removed duplicates and verbose descriptions, kept only unique base metric names. 'High Affinity' is not a metric but a percentage calculation based on Vina Dock score"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT 4o",
+          "DeepSeekV3"
+        ],
+        "methods": [
+          "relevance assessment of retrieved BioAssays"
+        ],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items as the LLMs are used for BioAssay retrieval processing before generation, not as judges evaluating generated outputs after generation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Manual assessment of BioAssay relevance by reading assay descriptions and abstracts to confirm biochemical interaction and functional activity"
+    ],
+    "criteria": [
+      "biochemical interaction",
+      "functional activity",
+      "relevant"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual assessment of BioAssay relevance by reading assay descriptions and abstracts to confirm biochemical interaction and functional activity"
+        ],
+        "criteria": [
+          "relevant"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- reading through the assay description and abstract for each of the 10 retrieved AIDs for each target protein and confirming whether the assay readout would correspond with a biochemical interaction of the tested compounds with a protein of the same family as the target protein. Also, where applicable we also confirmed the desired functional activity, inhibition or activation"
+        ],
+        "criteria": [
+          "inhibition",
+          "activation"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Simplified guideline description, added 'relevant' as a criterion since this was the main evaluation focus, removed specific activity types (inhibition/activation) which were not consistently assessed"
+    }
+  },
+  "overall_notes": "This paper primarily focuses on molecule generation using LLMs with BioAssay context. The manual evaluation was specifically for validating LLM-based BioAssay relevance assessment, not for evaluating generated molecules. Most evaluations were automatic metrics applied to generated SMILES strings."
+}

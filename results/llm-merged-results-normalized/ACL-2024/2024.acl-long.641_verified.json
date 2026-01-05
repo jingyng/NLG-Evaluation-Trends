@@ -1,0 +1,133 @@
+{
+  "paper_id": "2024.acl-long.641",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Long Form Question Answering"
+    ],
+    "datasets": [
+      "ASQA",
+      "eli5",
+      "BIO",
+      "HAGRID"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b_chat",
+      "mistralorca_7b",
+      "mistral_instruct_7b",
+      "self_rag",
+      "chatgpt",
+      "gpt_4"
+    ],
+    "outputs": [
+      "long-form answers with citations",
+      "cited long-form answers"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Llama2-7B-chat"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Llama2",
+          "MistralOrca",
+          "Mistral-Instruct",
+          "Llama2-7B",
+          "MistralOrca-7B",
+          "Mistral-Instruct-7B"
+        ]
+      },
+      "normalized": {
+        "Llama2": "Llama2-7B-chat",
+        "Llama2-7B": "Llama2-7B-chat",
+        "MistralOrca": "MistralOrca-7B",
+        "Mistral-Instruct": "Mistral-Instruct-7B"
+      },
+      "explanation": "Normalized model names to include specific versions mentioned in the paper (7B variants) and added Llama2-7B-chat which appears in human evaluation results"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EM RECALL",
+      "MAUVE",
+      "CITATION F1",
+      "ROUGE",
+      "PASSAGE GROUNDED CORRECTNESS",
+      "FACTSCORE",
+      "CITATION RECALL",
+      "CITATION PRECISION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Citation Recall",
+          "Citation Precision"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L",
+          "passage-grounded correctness",
+          "EM Recall (Correctness)",
+          "Passage‑grounded Correctness",
+          "Correctness in P",
+          "Citation F1"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "passage-grounded correctness": "Passage-grounded Correctness",
+        "EM Recall (Correctness)": "EM Recall",
+        "Citation F1": "Citation F1",
+        "Correctness in P": "Passage-grounded Correctness"
+      },
+      "explanation": "Simplified ROUGE variants to base form, normalized naming consistency, and merged duplicate/redundant metrics. Added citation-specific metrics mentioned in evaluation methodology."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation mentioned in the paper. The paper uses automatic metrics and human evaluation, but no LLM evaluation of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Each subject was provided with detailed annotation guidelines with examples for each annotation option",
+      "Generated answers were judged on citation recall, citation precision, informativeness, coherence, and fluency using five-point Likert scale"
+    ],
+    "criteria": [
+      "Citation",
+      "Informativeness",
+      "Coherence",
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Generated answers were judged on citation recall, citation precision, informativeness, coherence, and fluency using five-point Likert scale"
+        ]
+      },
+      "removed": {},
+      "normalized": {},
+      "explanation": "Added concise summary of human evaluation methodology and maintained the five criteria mentioned consistently throughout the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on citation generation for long-form QA using factual consistency models. Metadata extraction was generally accurate but needed normalization of model versions and metric naming. The paper provides comprehensive evaluation with both automatic metrics and human evaluation, but does not use LLM-as-judge approaches."
+}

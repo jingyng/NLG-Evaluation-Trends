@@ -1,0 +1,127 @@
+{
+  "paper_id": "2025.acl-long.1376",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering",
+      "Other:Math Problem Solving"
+    ],
+    "datasets": [
+      "HotpotQA",
+      "Natural Questions",
+      "GSM8K"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o",
+      "GPT-4o-mini",
+      "Phi-3.5",
+      "Llama2-7B-Chat"
+    ],
+    "outputs": [
+      "generated answers to questions",
+      "mathematical problem solutions",
+      "responses based on retrieved documents"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "mathematical problem solutions"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Natural Question (NQ)"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-4o mini",
+          "Llama2-13B"
+        ],
+        "outputs": [
+          "Textual answers to QA prompts"
+        ]
+      },
+      "normalized": {
+        "Natural Question (NQ)": "Natural Questions",
+        "GPT-4o mini": "GPT-4o-mini"
+      },
+      "explanation": "Normalized dataset names (NQ→Natural Questions) and model names (GPT-4o mini→GPT-4o-mini). Removed Llama2-13B as it was only mentioned in comparison. Simplified outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Exact Match",
+      "F1",
+      "AUROC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1 score",
+          "EM",
+          "R10@k",
+          "R@10"
+        ]
+      },
+      "normalized": {
+        "EM": "Exact Match",
+        "F1 score": "F1"
+      },
+      "explanation": "Normalized metric names (EM→Exact Match, F1 score→F1). Removed R10@k and R@10 as they are attention analysis metrics, not NLG evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in the paper. The LLMs are used for generation and self-calibration, not for evaluating outputs post-generation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation mentioned in the paper. All evaluations are automated using metrics like Exact Match and F1."
+    }
+  },
+  "overall_notes": "The paper focuses on RAG evaluation using uncertainty scores for self-calibration. It evaluates NLG outputs (answers) using automatic metrics but does not use LLM-as-judge or human evaluation. The extraction was generally accurate but needed normalization of dataset/model names and removal of non-NLG evaluation metrics."
+}

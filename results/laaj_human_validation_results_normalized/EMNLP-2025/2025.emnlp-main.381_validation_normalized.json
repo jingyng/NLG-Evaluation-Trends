@@ -1,0 +1,75 @@
+{
+  "paper_id": "2025.emnlp-main.381",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "Both LLM and human evaluations are conducted but LLM evaluates outputs using automated metrics (BLEU, ROUGE-L, METEOR etc.) while human annotators rate specific outputs (samples 11-15) on Likert scales, and no direct quantitative comparison or correlation between LLM and human judgments is reported"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "gpt_4o_mini"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Appendix F provides the LLMScore rubric emphasizing perspective, style, plot structure, and language variation; Appendix E provides the degeneration rubric with four equally weighted dimensions (syntactic integrity, semantic coherence, lexical sanity, noise symptoms)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 7,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "ICC(2,k)",
+      "value": {
+        "Diversity": 0.93,
+        "Creativity": 0.91,
+        "Degeneration": 0.62
+      },
+      "interpretation": "indicates that all metrics achieved acceptable to excellent reliability",
+      "per_criterion": [
+        {
+          "criterion": "Diversity",
+          "metric": "ICC(2,k)",
+          "value": 0.93
+        },
+        {
+          "criterion": "Creativity",
+          "metric": "ICC(2,k)",
+          "value": 0.91
+        },
+        {
+          "criterion": "Degeneration",
+          "metric": "ICC(2,k)",
+          "value": 0.62
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Appendix I contains detailed description of task definitions, instructions, and samples provided to annotators; human evaluation rated outputs on 5-point Likert scale for diversity, degeneration, and creativity"
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "BLEU",
+      "ROUGE-L",
+      "METEOR",
+      "Sent-Sim",
+      "Degen"
+    ],
+    "human_only_criteria": [
+      "Creativity"
+    ],
+    "shared_criteria": [
+      "Diversity",
+      "Degeneration"
+    ],
+    "notes": "LLMScore evaluates diversity while human evaluates diversity on Likert scale; LLM uses automated metrics for degeneration while human uses Likert scale for degeneration; creativity is only evaluated by humans"
+  }
+}

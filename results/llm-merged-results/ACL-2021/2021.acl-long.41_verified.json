@@ -1,0 +1,146 @@
+{
+  "paper_id": "2021.acl-long.41",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Navigation Instruction Generation"
+    ],
+    "datasets": [
+      "OpenStreetMap-based navigation instructions dataset (7,672 instances)"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "graph-to-text model",
+      "pretrained graph-to-text model",
+      "seq2seq baseline",
+      "rule-based baseline"
+    ],
+    "outputs": [
+      "natural language route instructions containing landmarks",
+      "natural language landmark-based navigation instructions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "7,672 route‑instruction instances (OpenStreetMap)",
+          "7,672 instances of routes in OpenStreetMap and corresponding crowd-sourced natural language instructions"
+        ],
+        "languages": [],
+        "models": [
+          "graph‑to‑text (Transformer with graph attention)",
+          "Transformer with graph attentional layers"
+        ],
+        "outputs": [
+          "natural language route instructions that contain salient landmarks"
+        ]
+      },
+      "normalized": {
+        "graph‑to‑text (Transformer with graph attention)": "graph-to-text model",
+        "Transformer with graph attentional layers": "graph-to-text model"
+      },
+      "explanation": "Consolidated dataset entries to one normalized form. Removed redundant model descriptions that refer to the same graph-to-text model. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "Token Accuracy",
+      "Landmarks",
+      "SDTW",
+      "SR",
+      "SNT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SDTW (Success weighted by normalized Dynamic Time Warping)",
+          "SNT (Success normalized by time)"
+        ]
+      },
+      "normalized": {
+        "SDTW (Success weighted by normalized Dynamic Time Warping)": "SDTW",
+        "SNT (Success normalized by time)": "SNT"
+      },
+      "explanation": "Simplified metric names by removing detailed explanations, keeping just the acronyms as they're clearly defined in the paper. Removed duplicate entries."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values as they don't represent actual metadata. The paper does not use LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators follow generated navigation instructions in Google Street View and stop when they believe the goal is reached; success is defined by being within 25 meters of the true goal location"
+    ],
+    "criteria": [
+      "navigation success",
+      "navigation time"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- The task is successful if the annotator stops the run within a 25 meter radius around the goal location.",
+          "Human annotators (via Amazon Mechanical Turk) are asked to follow the generated navigation instructions in Google Street View and stop when they believe the goal is reached; success is defined by proximity to the true goal.",
+          "The task is successful if the annotator stops the run within a 25 meter radius around the goal location."
+        ],
+        "criteria": [
+          "goal location accuracy (within 25 m)",
+          "navigation time (used in SNT metric)",
+          "time-normalized success rate"
+        ]
+      },
+      "normalized": {
+        "goal location accuracy (within 25 m)": "navigation success",
+        "time-normalized success rate": "navigation time",
+        "navigation time (used in SNT metric)": "navigation time"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement. Normalized criteria to their core concepts (success and time), removing specific technical details that are implied."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main issues were redundancy in dataset names and guideline descriptions. The paper clearly addresses NLG (navigation instruction generation), uses automatic metrics (BLEU, success metrics), and conducts human evaluation via navigation tasks. No LLM-based evaluation is used."
+}

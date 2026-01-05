@@ -1,0 +1,107 @@
+{
+  "paper_id": "2024.emnlp-main.1046",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates GPT-4 automatic evaluation against human evaluation by calculating Cohen's kappa between each human annotator and GPT-4's evaluations on the same 300 stories, reporting agreement levels."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt for pairwise evaluation shown in Table showing format for comparing storylines A and B on interestingness, coherence, creativity, and relevance to premise"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": "reported per criterion (0.231-0.518)",
+      "interpretation": "fair to moderate agreement",
+      "per_criterion": [
+        {
+          "criterion": "Interesting",
+          "metric": "Fleiss' kappa",
+          "value": 0.231
+        },
+        {
+          "criterion": "Coherent",
+          "metric": "Fleiss' kappa",
+          "value": 0.399
+        },
+        {
+          "criterion": "Creative",
+          "metric": "Fleiss' kappa",
+          "value": 0.518
+        },
+        {
+          "criterion": "Relevant",
+          "metric": "Fleiss' kappa",
+          "value": 0.192
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluation questionnaire details provided in Appendix B with specific criteria definitions for Interesting, Coherence, Creativity, and Relevance"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Cohen's kappa"
+    ],
+    "shared_criteria": [
+      "Interesting",
+      "Coherent",
+      "Creative",
+      "Relevant"
+    ],
+    "sample_size": {
+      "total_generated": 300,
+      "validated_by_both": 300,
+      "notes": "All 300 story plans were evaluated by both human annotators and GPT-4"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Cohen's kappa",
+        "value": "fair to moderate agreement",
+        "criterion": "all criteria",
+        "llm_model": "GPT-4",
+        "significance": "not specified",
+        "notes": "Kappa scores reported as ranges rather than specific numerical values per criterion"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "fair to moderate agreement",
+      "threshold_used": "Standard Cohen's kappa interpretation scale",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 automatic evaluation shows fair to moderate agreement with human judgments across all criteria, with similar trends observed (e.g., lower agreement on 'Relevant' due to data bias where most stories were rated good)."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Interest",
+      "Coherence",
+      "Creativity",
+      "Relevance",
+      "Consistency"
+    ],
+    "notes": "Both LLM and human evaluation used identical criteria for story assessment, with additional Writing Style Consistency metric used specifically for story text evaluation"
+  }
+}

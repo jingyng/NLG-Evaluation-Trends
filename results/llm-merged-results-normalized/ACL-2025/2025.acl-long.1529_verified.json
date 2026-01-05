@@ -1,0 +1,161 @@
+{
+  "paper_id": "2025.acl-long.1529",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Political Stance Generation"
+    ],
+    "datasets": [
+      "POLITICAL COMPASS TEST",
+      "WORLD VALUES SURVEY",
+      "EUROPEAN VALUES SURVEY"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "falcon_7b",
+      "falcon_7b_instruct",
+      "llama_2_7b_hf",
+      "llama_2_7b_chat_hf",
+      "llama_2_13b_hf",
+      "llama_2_13b_chat_hf",
+      "mistral_7b_v_0.1",
+      "mistral_7b_instruct_v_0.1",
+      "gpt_3.5_turbo_0125",
+      "gpt_4",
+      "llama_3.1_405b_instruct",
+      "falcon_40b_instruct"
+    ],
+    "outputs": [
+      "Free-text responses to political statements",
+      "Stance-labeled responses (agree/disagree/neutral/unrelated)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-3.1-405B-Instruct",
+          "Falcon-40B-instruct"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Response Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "falcon-7b": "Falcon-7B",
+        "falcon-7b-instruct": "Falcon-7B-instruct",
+        "llama-2-7b-hf": "Llama-2-7B-hf",
+        "llama-2-7b-chat-hf": "Llama-2-7B-chat-hf",
+        "llama-2-13b-hf": "Llama-2-13B-hf",
+        "llama-2-13b-chat-hf": "Llama-2-13B-chat-hf",
+        "mistral-7b-v0.1": "Mistral-7B-v0.1",
+        "mistral-7b-instruct-v0.1": "Mistral-7B-instruct-v0.1",
+        "gpt-3.5-turbo-0125": "GPT-3.5-turbo-0125",
+        "gpt-4": "GPT-4",
+        "Other:Political stance generation": "Other:Political Stance Generation"
+      },
+      "explanation": "Normalized model names to standard capitalization, added two missing models (Llama-3.1-405B-Instruct and Falcon-40B-instruct), consolidated tasks to 'Political Stance Generation' which better captures the core NLG task"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "CONFIDENCE THRESHOLD",
+      "POLITICAL BIAS MEASURE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1-score"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "macro-averaged F1-Score",
+          "confidence scores (entailment probabilities)"
+        ]
+      },
+      "normalized": {
+        "macro-averaged F1-Score": "F1-score",
+        "confidence threshold (0.9)": "Confidence Threshold"
+      },
+      "explanation": "Simplified metrics to base forms, consolidated 'macro-averaged F1-Score' to 'F1-score', 'confidence threshold' to standardized name"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4",
+          "Llama-3.1-405B-Instruct"
+        ],
+        "methods": [
+          "labeling political statements",
+          "reformulating statements",
+          "flipping political meaning"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as the paper does NOT use LLMs as judges/evaluators. LLMs are used for dataset creation (labeling and reformulating statements) before generating responses, not for evaluating the generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual annotation of model responses into agree/disagree/neutral/unrelated categories"
+    ],
+    "criteria": [
+      "Agreement",
+      "Disagreement",
+      "Neutrality",
+      "Unrelated"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Assign labels: agree, disagree, neutral, or unrelated to the responses.",
+          "Annotators labeled each model answer with one of the categories: agree, disagree, neutral, unrelated.",
+          "The labels assigned are: {agree, disagree, neutral, unrelated}."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "agree": "Agreement",
+        "disagree": "Disagreement",
+        "neutral": "Neutral",
+        "unrelated": "Unrelated"
+      },
+      "explanation": "Consolidated guideline description, normalized criteria capitalization, removed redundant formatting"
+    }
+  },
+  "overall_notes": "Paper focuses on evaluating political bias in LLMs through response generation to political statements. The core NLG task is generating responses to political statements, with automatic evaluation via stance classification and bias measurement. Human evaluation was used to validate the stance classifier. LLMs were used for dataset preparation but not as judges of generated outputs."
+}

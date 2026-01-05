@@ -1,0 +1,168 @@
+{
+  "paper_id": "2022.naacl-main.363",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Controlled Text Generation",
+      "Toxicity Reduction"
+    ],
+    "datasets": [
+      "REALTOXICITYPROMPTS",
+      "JIGSAW TOXIC COMMENT",
+      "EPITOME REDDIT DATASET",
+      "EMPATHETICDIALOGUES"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "dexperts",
+      "gpt_2_xl",
+      "roberta",
+      "roberta_based_empathy_classifier"
+    ],
+    "outputs": [
+      "Generated text continuations from prompts",
+      "Text with controlled toxicity levels"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other: Controlled Text Generation",
+          "Other: Toxicity Reduction"
+        ],
+        "datasets": [
+          "Jigsaw Toxic Comments"
+        ],
+        "models": [
+          "RoBERTa"
+        ],
+        "outputs": [
+          "Text with controlled toxicity levels"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text Generation",
+          "Dialogue Generation"
+        ],
+        "datasets": [
+          "Reddit EPITOME",
+          "RealToxici-tyPrompts",
+          "Perspective API",
+          "Sharma et al.'s public Reddit data"
+        ],
+        "models": [
+          "Large pretrained language model",
+          "Base LM (GPT-2 XL)"
+        ],
+        "outputs": [
+          "generated text continuations (responses) to prompts",
+          "generated text continuations with reduced toxicity"
+        ]
+      },
+      "normalized": {
+        "RealToxici-tyPrompts": "RealToxicityPrompts",
+        "GPT-2 XL": "GPT-2 XL",
+        "RoBERTa‑based empathy classifier": "RoBERTa-based empathy classifier"
+      },
+      "explanation": "Refined tasks to more accurately reflect the paper's focus on controlled generation and toxicity reduction rather than general dialogue generation. Simplified models list to major evaluated systems. Removed Perspective API as it's an evaluation tool, not a dataset."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "TOXICITY",
+      "SEVERE TOXICITY",
+      "IDENTITY ATTACK",
+      "INSULT",
+      "PROFANITY",
+      "THREAT",
+      "SEXUALLY EXPLICIT",
+      "FLIRTATION",
+      "PERPLEXITY",
+      "DISTINCT N GRAMS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Severe Toxicity",
+          "Identity Attack",
+          "Insult",
+          "Profanity",
+          "Threat",
+          "Sexually Explicit",
+          "Flirtation"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Probability of toxicity",
+          "Average max toxicity",
+          "Perspective API toxicity score",
+          "Distinct n‑gram diversity",
+          "Diversity (distinct n-grams)"
+        ]
+      },
+      "normalized": {
+        "Toxicity score": "Toxicity",
+        "Perplexity (PPL)": "Perplexity"
+      },
+      "explanation": "Added the complete list of 8 toxicity metrics from Perspective API used in the paper. Kept only base metric names, removing redundant descriptions. Probability of toxicity and average max toxicity are evaluation methods using the base toxicity metrics, not distinct metrics themselves."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT-2 XL"
+        ],
+        "methods": [
+          "Perplexity calculation"
+        ],
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "GPT-2 XL was used for perplexity calculation as part of automatic evaluation, not as an LLM judge assessing quality after generation. This is standard automatic evaluation, not LLM-as-judge methodology."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators compared outputs from different models and selected which was better for toxicity, fluency, and topicality"
+    ],
+    "criteria": [
+      "Toxicity",
+      "Fluency",
+      "Topicality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators compared outputs from different models and selected which was better for toxicity, fluency, and topicality"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators evaluated for toxicity, fluency, and topicality",
+          "Annotators compared model outputs and answered questions about toxicity, fluency, and topicality.",
+          "Annotators were asked to compare model outputs based on toxicity, fluency, and topicality."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline description and kept criteria as specified. The annotation was comparative (A/B testing) rather than absolute scoring."
+    }
+  },
+  "overall_notes": "The paper focuses on controllable text generation for toxicity reduction using empathetic data. Main NLG task is text continuation with controlled attributes. Automatic evaluation uses comprehensive Perspective API metrics. Human evaluation was comparative A/B testing. No LLM-as-judge methodology was used despite GPT-2 XL being used for perplexity calculation."
+}

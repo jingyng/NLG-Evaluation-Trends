@@ -1,0 +1,120 @@
+{
+  "paper_id": "2022.emnlp-main.386",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "XSUM",
+      "XL-SUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART-base",
+      "BERTScore",
+      "BARTScore",
+      "DAE"
+    ],
+    "outputs": [
+      "abstractive summaries",
+      "summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "SummFC"
+        ],
+        "languages": [],
+        "models": [
+          "BERTScore_Art"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "CNN/DM": "CNN/DailyMail",
+        "XL-Sum": "XL-SUM",
+        "BERTScore_Art": "BERTScore"
+      },
+      "explanation": "Removed 'SummFC' from datasets since it's the output of their method, not an input dataset. Normalized dataset names and metric names to standard forms."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BERTScore",
+      "BARTScore",
+      "DAE",
+      "BLANC",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BERTScore_Art"
+        ]
+      },
+      "normalized": {
+        "BERTScore_Art": "BERTScore",
+        "ROUGE-2": "ROUGE"
+      },
+      "explanation": "Normalized metric names to base forms. Removed 'BERTScore_Art' which is just a variant of BERTScore used specifically for factual consistency evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs used as judges for evaluation - all evaluation is done through automatic metrics or factual consistency models trained for this purpose."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper explicitly states 'Another limitation of our work is the lack of human evaluation.'"
+    }
+  },
+  "overall_notes": "The paper focuses on improving factual consistency in summarization datasets by filtering out problematic samples using factual consistency models. The extracted metadata was generally accurate but needed normalization of metric/dataset names. The paper uses factual consistency models (BERTScore, BARTScore, DAE) for both dataset filtering and evaluation, but these are not LLMs used as Judges in the sense of Q3."
+}

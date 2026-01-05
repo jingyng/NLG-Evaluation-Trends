@@ -1,0 +1,204 @@
+{
+  "paper_id": "2025.acl-long.804",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Instruction Following",
+      "Biography Generation",
+      "Entity Description Generation",
+      "Question Answering"
+    ],
+    "datasets": [
+      "ALPACA",
+      "ALPACA gpt4",
+      "BIOGEN",
+      "LONGFACT",
+      "FOLLOWRAG",
+      "MT-Bench"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_8b",
+      "llama_3_70b",
+      "llama_1_7b",
+      "qwen_2"
+    ],
+    "outputs": [
+      "biographies of people entities",
+      "detailed entity descriptions",
+      "instruction-following responses",
+      "answers to complex queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "answers to complex queries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "FollowRAG-Faithfulness"
+        ],
+        "languages": [
+          "Chinese"
+        ],
+        "models": [
+          "DeBERTa-large-mnli"
+        ],
+        "outputs": [
+          "Generated responses (e.g., biographies, answers, instruction-following replies)",
+          "Generated responses to instructions, including biographies, entity descriptions, and answers to complex queries."
+        ]
+      },
+      "normalized": {
+        "Other:Instruction Following": "Other:Instruction Following",
+        "Other:Biography Generation": "Other:Biography Generation",
+        "Other:Entity Description Generation": "Other:Entity Description Generation"
+      },
+      "explanation": "Removed DeBERTa-large-mnli as it's not an NLG model but an NLI model used for evaluation. Removed Chinese as it's only mentioned in passing for translation tasks. Added Question Answering as a task based on FollowRAG evaluation. Simplified output descriptions to be more concise."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "FACTSCORE",
+      "ROUGE",
+      "PERPLEXITY",
+      "DIFFERENTIAL ENTROPY",
+      "EXACT MATCH",
+      "ACCURACY",
+      "PASS RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Average Score (faithfulness by GPT-4)",
+          "MT-Bench Score (by GPT-4)",
+          "% Respond",
+          "Rouge-L"
+        ]
+      },
+      "normalized": {
+        "Rouge-L": "ROUGE",
+        "FactScore": "FactScore",
+        "Perplexity": "Perplexity",
+        "Differential Entropy": "Differential Entropy",
+        "EM": "EM",
+        "Accuracy": "Accuracy",
+        "Pass Rate": "Pass Rate"
+      },
+      "explanation": "Normalized 'Rouge-L' to 'ROUGE' following simplification rules. Removed GPT-4 based scores as they belong to LLM-as-judge evaluation (covered in Q3). Kept core automatic metrics used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "gpt_3.5",
+      "gpt_4o"
+    ],
+    "methods": [
+      "scoring by correctness level",
+      "fact verification",
+      "instruction-following evaluation",
+      "point-based correctness scoring"
+    ],
+    "criteria": [
+      "Factuality",
+      "Correctness",
+      "Completeness",
+      "Quality",
+      "Instruction"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "instruction-following evaluation"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-3.5-Turbo-0125",
+          "GPT-4o-2024-05-13"
+        ],
+        "methods": [
+          "MT-Bench evaluation",
+          "score-based ranking (MT-Bench)",
+          "prompting as judges",
+          "pairwise evaluation"
+        ],
+        "criteria": [
+          "fluency",
+          "relevance",
+          "helpfulness",
+          "coherence"
+        ]
+      },
+      "normalized": {
+        "GPT-4": "GPT-4",
+        "GPT-3.5": "GPT-3.5",
+        "GPT-4o": "GPT-4o",
+        "factuality": "factuality",
+        "correctness": "correctness",
+        "completeness": "completeness",
+        "overall quality": "overall quality",
+        "instruction-following": "instruction-following"
+      },
+      "explanation": "Simplified model versions to base names (GPT-4, GPT-3.5, GPT-4o). Removed methods and criteria that were too specific or belonged to human evaluation (Q4). Kept core LLM-as-judge evaluation criteria explicitly mentioned."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluate biographies on factuality, helpfulness, relevance, and naturalness",
+      "Choose preferred biography among Win/Tie/Loss options",
+      "Use majority voting for final decision"
+    ],
+    "criteria": [
+      "Factuality",
+      "Helpfulness",
+      "Relevance",
+      "Naturalness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Use majority voting for final decision"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "You are asked to evaluate the biographies generated by different models. You should choose the preferred biography according to the following perspectives independently: 1. Factuality: Whether the biography provides relatively more factual statements over the non-factual statements? 2. Helpfulness: Whether the biography provides useful information? 3. Relevance: Whether the statements contained in the biography relevant to the provided people entity? 4. Naturalness: Whether the biography sound natural and fluent?"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "factuality": "factuality",
+        "helpfulness": "helpfulness",
+        "relevance": "relevance",
+        "naturalness": "naturalness"
+      },
+      "explanation": "Simplified verbose guideline to key points. Criteria remain the same as they are clearly specified in the human evaluation section."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation through instruction-following and hallucination reduction. The extraction was generally good but contained some redundancy and confusion between different evaluation types (automatic vs. LLM-as-judge vs. human). The paper clearly uses all three evaluation methods: automatic metrics (FactScore, ROUGE, etc.), LLM-as-judge (GPT-4 for MT-Bench and faithfulness scoring), and human evaluation (for biographies)."
+}

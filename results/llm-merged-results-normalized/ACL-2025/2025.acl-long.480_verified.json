@@ -1,0 +1,150 @@
+{
+  "paper_id": "2025.acl-long.480",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Evidence Generation",
+      "Evidence Rephrasing"
+    ],
+    "datasets": [
+      "POLITIFACT",
+      "GOSSIPCOP",
+      "ANTIVAX",
+      "HASOC",
+      "PHEME",
+      "twitter15",
+      "twitter16",
+      "RUMOREVAL",
+      "TWITTER",
+      "REDDIT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "mistral_7b",
+      "chatgpt"
+    ],
+    "outputs": [
+      "Rephrased social media comments",
+      "Generated fictional evidence comments",
+      "Polluted evidence for malicious social text detection"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "Politifact"
+        ],
+        "outputs": [
+          "Rephrased social media comments",
+          "Generated fictional evidence comments"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [
+          "Politicalfact",
+          "ANTI-Vax",
+          "Gossipcop",
+          "ANTi-Vax"
+        ]
+      },
+      "normalized": {
+        "Other:evidence generation": "Other: Evidence Generation",
+        "Other:Evidence Generation": "Other: Evidence Generation",
+        "Other:Evidence Rephrasing": "Other: Evidence Rephrasing",
+        "generated or rephrased comments used as evidence": "Polluted evidence for malicious social text detection"
+      },
+      "explanation": "Consolidated duplicate task descriptions, normalized dataset names to match paper usage (Politifact instead of Politicalfact, ANTiVax instead of ANTi-Vax/ANTI-Vax), removed incorrect dataset variations, and clarified output descriptions based on paper content."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SIMCSE",
+      "BERTSCORE",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SimCSE relevance"
+        ]
+      },
+      "normalized": {
+        "BERTscore": "BERTScore",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric names to standard forms and simplified ROUGE-L to ROUGE following simplification rules. Removed duplicate SimCSE reference."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges/evaluators of generated outputs. LLMs are only used for generation purposes."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators compared pairs of comments (original vs manipulated) and selected the higher-quality one based on relevance, tone, and platform suitability. Annotators were instructed not to consider length and grammatical errors."
+    ],
+    "criteria": [
+      "Relevance",
+      "Tone",
+      "Suitability"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators compared pairs of comments (original vs manipulated) and selected the higher-quality one based on relevance, tone, and platform suitability. Annotators were instructed not to consider length and grammatical errors."
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Thank you for attending our human evaluation. Social media users would comment on a post to express their opinions. You are asked to check which comment is of higher quality for a certain post (comment 1 or 2). Please consider factors such as relevance to the post, tone, suitability for the social platform (for the use of hashtags), etc. Please do not consider the length and grammatical errors of the comment. If you think two comments are of equal quality, please subjectively choose the one you like."
+        ],
+        "criteria": [
+          "suitability",
+          "suitability for platform",
+          "relevance to the post",
+          "suitability for the social platform"
+        ]
+      },
+      "normalized": {
+        "relevance to the post": "relevance"
+      },
+      "explanation": "Consolidated guideline into a concise description and normalized criteria by removing redundant variations while maintaining the core evaluation factors mentioned in the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation in the context of generating/rephrasing social media comments as evidence to pollute malicious text detection systems. The extraction was generally accurate but included some duplicate/variant entries that needed consolidation. The paper uses both automatic metrics (SimCSE, BERTScore, ROUGE) and human evaluation to assess the quality of generated evidence."
+}

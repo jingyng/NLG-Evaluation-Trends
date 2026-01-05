@@ -1,0 +1,115 @@
+{
+  "paper_id": "2022.naacl-main.248",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Response Generation",
+      "Multimodal Dialogue State Tracking"
+    ],
+    "datasets": [
+      "DVD-DST"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "VDTN",
+      "VDTN+GPT-2",
+      "TRADE",
+      "UniConv",
+      "NADST",
+      "RNN(+Att)",
+      "RNN(V)",
+      "RNN(D)",
+      "RNN(V+D)"
+    ],
+    "outputs": [
+      "Dialogue state sequences (slot-value pairs for visual objects)",
+      "System responses in dialogue response prediction task"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Multimodal Dialogue State Tracking"
+        ],
+        "models": [
+          "VDTN+GPT-2",
+          "RNN(+Att)",
+          "RNN(V)",
+          "RNN(D)",
+          "RNN(V+D)"
+        ],
+        "outputs": [
+          "Dialogue state sequences (slot-value pairs for visual objects)"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Transformer decoder"
+        ],
+        "outputs": [
+          "Predicted responses (answers) in the dialogue response prediction task",
+          "predicted dialogue responses"
+        ]
+      },
+      "normalized": {
+        "Dialogue Generation": "Dialogue Response Generation",
+        "dialogue states in the form of (slot, value) pairs and temporal segments": "Dialogue state sequences (slot-value pairs for visual objects)"
+      },
+      "explanation": "Updated to be more accurate - the paper's NLG focus is on dialogue state generation (slot-value sequences) and response prediction, not generic dialogue generation. Removed generic 'Transformer decoder' and focused on specific models evaluated. Added more specific model variants and outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "Joint Accuracy",
+      "F1",
+      "IoU"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Joint State Accuracy",
+          "Joint Acc IoU@0.5",
+          "Joint Acc IoU@0.7",
+          "Response Prediction Accuracy",
+          "Joint Acc IoU@p"
+        ]
+      },
+      "normalized": {
+        "Joint Acc": "Joint Accuracy"
+      },
+      "explanation": "Simplified metrics to their base forms and removed redundant variants. Kept the core evaluation metrics used for NLG outputs (state generation and response prediction)."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs used as judges/evaluators in this paper - GPT-2 is only used as a pretrained backbone for generation, not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluations mentioned in the paper - all evaluations are automatic metrics on synthetic data."
+    }
+  },
+  "overall_notes": "The paper focuses on Multimodal Dialogue State Tracking as an NLG task where models generate sequences of slot-value pairs representing visual object states. The main NLG outputs are dialogue state sequences and system responses. The paper uses automatic evaluation metrics but no human evaluation or LLM-as-judge evaluation. The extraction was generally accurate but needed normalization and focus on the core NLG contributions."
+}

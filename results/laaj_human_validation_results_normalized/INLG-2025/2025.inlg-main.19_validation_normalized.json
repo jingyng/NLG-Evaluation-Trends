@@ -1,0 +1,164 @@
+{
+  "paper_id": "2025.inlg-main.19",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares LLM evaluations with human judgments through correlation analysis on multiple datasets and also conducts human evaluation specifically for error span quality comparison between LLM methods"
+  },
+  "llm_judge_details": {
+    "num_models": 7,
+    "models": [
+      "llama_3.1_nemotron_70b",
+      "qwen_2.5_72b",
+      "gemma_2_27b",
+      "command_r+_104b",
+      "mistral_large_2_123b",
+      "llama_3.3_70b",
+      "llama_3.1_8b"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full annotator and consolidator prompt templates provided in Appendix (Listings 1-2), including detailed error identification steps, scoring scales, and evaluation rules"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 5,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.82,
+      "interpretation": "for error spans evaluation, and \u03ba = 0.46 for error explanations",
+      "per_criterion": [
+        {
+          "criterion": "error spans",
+          "metric": "Cohen's kappa",
+          "value": 0.82
+        },
+        {
+          "criterion": "error explanations",
+          "metric": "Cohen's kappa",
+          "value": 0.46
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators evaluated: (1) error spans marking as correctly identified, not containing error, hallucinated, or no span provided; (2) explanations marking as correct, partially correct, incomplete, vague, incorrect, or not describing error"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation",
+      "Kendall's tau"
+    ],
+    "shared_criteria": [
+      "factual consistency",
+      "coherence",
+      "relevance",
+      "fluency",
+      "naturalness",
+      "informativeness",
+      "understanding",
+      "engagement",
+      "empathy",
+      "surprise",
+      "complexity"
+    ],
+    "sample_size": {
+      "total_generated": "Multiple datasets with varying sizes",
+      "validated_by_both": "QAGS (474 summaries), SummEval (1600 outputs), HANNA (1056 stories), TopicalChat (dialogue responses), SFRES/SFHOT (data-to-text), Wiki-DA (text simplification)",
+      "notes": "Seven meta-evaluation datasets covering five NLG tasks used for correlation analysis; human evaluation of errors used 120 outputs with 950 error spans"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.684,
+        "criterion": "Factuality",
+        "llm_model": "OPENLGAUGEens",
+        "significance": "statistically significant differences reported",
+        "notes": "Average over QAGS datasets"
+      },
+      {
+        "metric": "Kendall's tau",
+        "value": 0.579,
+        "criterion": "Factuality",
+        "llm_model": "OPENLGAUGEens",
+        "notes": "Average over QAGS datasets"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.684,
+        "criterion": "Factuality",
+        "llm_model": "OPENLGAUGEens",
+        "notes": "Average over QAGS datasets"
+      },
+      {
+        "metric": "Error span accuracy",
+        "value": 0.83,
+        "criterion": "error span quality",
+        "llm_model": "OPENLGAUGEens",
+        "notes": "83% correct error spans in human evaluation"
+      },
+      {
+        "metric": "Error span accuracy",
+        "value": 0.72,
+        "criterion": "error span quality",
+        "llm_model": "OPENLGAUGEft",
+        "notes": "72% correct error spans in human evaluation"
+      },
+      {
+        "metric": "Error span accuracy",
+        "value": 0.32,
+        "criterion": "error span quality",
+        "llm_model": "TigerScore",
+        "notes": "Comparison baseline"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "competitive correlations with human judgments",
+      "threshold_used": "Not explicitly defined, but correlations compared against state-of-the-art metrics",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "OPENLGAUGE achieves competitive correlation with human judgments (\u03c1=0.684 on factual consistency) and significantly outperforms other metrics in error span annotation quality (83% accuracy vs 32% for TigerScore)."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Faithfulness",
+      "Fluency",
+      "Coherence",
+      "Coverage",
+      "Informativeness",
+      "Naturalness",
+      "Grammaticality",
+      "Relevance",
+      "Conciseness",
+      "Factuality",
+      "Appropriateness",
+      "Empathy",
+      "Engagingness",
+      "Interestingness",
+      "Understandability",
+      "Surprise",
+      "Complexity",
+      "Engagement",
+      "Correctness",
+      "Groundedness"
+    ],
+    "notes": "Both LLM and human evaluation assessed the same comprehensive set of NLG quality criteria across multiple tasks and datasets"
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "paper_id": "2024.naacl-long.73",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Multi Step Reasoning"
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH",
+      "STRATEGYQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b",
+      "llama_2_70b",
+      "palm_2"
+    ],
+    "outputs": [
+      "Generated step-by-step reasoning",
+      "Generated subquestions",
+      "Generated sub-solutions",
+      "Generated final answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "PaLM-2"
+        ],
+        "outputs": [
+          "Generated subquestions",
+          "Generated sub-solutions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering",
+          "Other:multi-step reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-3.5 (for SQC)",
+          "GPT-3.5"
+        ],
+        "outputs": [
+          "stepwise subsolutions and final answers",
+          "generated subquestions and subsolutions for multi-step reasoning problems"
+        ]
+      },
+      "normalized": {
+        "Other:Multi-step Reasoning": "Other:Multi-step Reasoning",
+        "GSM8K": "GSM8K",
+        "MATH": "MATH",
+        "StrategyQA": "StrategyQA",
+        "LLaMA-2-7B": "LLaMA-2-7B",
+        "LLaMA-2-70B": "LLaMA-2-70B"
+      },
+      "explanation": "Simplified tasks to 'Other:Multi-step Reasoning' only, removed question answering as it's part of the overall framework. Removed GPT-3.5 usage as it's auxiliary for SQC training. Consolidated output descriptions to be more concise."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "BERTSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BERTScore"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BERT Similarity",
+          "Perplexity",
+          "perplexity",
+          "BERT similarity",
+          "perplexity (PPL)"
+        ]
+      },
+      "normalized": {
+        "Accuracy": "Accuracy"
+      },
+      "explanation": "Simplified metrics: 'BERT Similarity' normalized to 'BERTScore' (the widely recognized metric name for this comparison technique). Removed perplexity as it's not used for the same evaluation purpose as the primary metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "reward model (language model)",
+          "GPT-3.5"
+        ],
+        "methods": [
+          "binary correctness prediction after each generated step",
+          "prompting to generate subquestions from subsolutions"
+        ],
+        "criteria": [
+          "correctness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'Yes' to 'No' because the paper does NOT use an LLM as an external judge to evaluate outputs after generation. The step-wise verifier/LM used is part of the model's own reasoning process (internal to AutoPRM framework), not an external evaluator. GPT-3.5 usage is only for auxiliary dataset preparation (SQC model training)."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed - the paper does not conduct human evaluation as confirmed by reading the full text."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate but over-inclusive on Question 3. The LLM-based verification is internal to the AutoPRM framework (part of the model's reasoning process) rather than an external LLM-as-judge evaluation setup. The paper focuses on automated evaluation using accuracy and BERTScore metrics without human evaluation. The core NLG task is multi-step reasoning with natural language generation of intermediate reasoning steps."
+}

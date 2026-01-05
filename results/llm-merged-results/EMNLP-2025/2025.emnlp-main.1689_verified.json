@@ -1,0 +1,167 @@
+{
+  "paper_id": "2025.emnlp-main.1689",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Other:Role-playing response generation"
+    ],
+    "datasets": [
+      "RoleKE-Bench"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3.5",
+      "LLaMA3-8b",
+      "Qwen2-7b",
+      "GPT-4o",
+      "DeepSeek-R1",
+      "DeepSeek-v2",
+      "QwQ-32B",
+      "ERNIE4",
+      "Yi-Large",
+      "GLM-4",
+      "LLaMA3-70b",
+      "Qwen2-72b",
+      "Mixtral-7×8B-Instruct-v0.1",
+      "CharacterGLM",
+      "Baichuan-NPC",
+      "MiniMax",
+      "Xingchen-Plus"
+    ],
+    "outputs": [
+      "Character-specific responses to queries containing knowledge errors",
+      "Role-playing agent responses aiming to correct known knowledge errors (KKE) or express doubt/refusal for unknown knowledge errors (UKE)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LLaMA3-70b",
+          "Qwen2-72b",
+          "Mixtral-7×8B-Instruct-v0.1"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT‑4o",
+          "GPT‑3.5‑turbo‑0125",
+          "others"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "DeepSeek‑v2": "DeepSeek-v2",
+        "role‑playing response generation": "Role-playing response generation",
+        "character‑specific knowledge": "character-specific knowledge",
+        "LLaMA3‑8b": "LLaMA3-8b",
+        "Qwen2‑7b": "Qwen2-7b"
+      },
+      "explanation": "Normalized model names to consistent format, removed duplicates and generic 'others' entry, added missing explicit models from experimental results"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed - only accuracy metric used"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "DeepSeek-v2"
+    ],
+    "methods": [
+      "LLM-as-judge binary evaluation with rationale"
+    ],
+    "criteria": [
+      "Correct identification and correction of known knowledge errors (KKE)",
+      "Expression of doubt or refusal for unknown knowledge errors (UKE)"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "LLM-as-judge binary evaluation with rationale"
+        ],
+        "criteria": [
+          "Correct identification and correction of known knowledge errors (KKE)",
+          "Expression of doubt or refusal for unknown knowledge errors (UKE)"
+        ]
+      },
+      "removed": {
+        "models": [
+          "DeepSeek‑v2"
+        ],
+        "methods": [
+          "binary judgment based on rationale",
+          "LLM‑as‑judge binary correctness evaluation",
+          "LLMs as Judges",
+          "evaluation prompt with rationale and yes/no judgment"
+        ],
+        "criteria": [
+          "identification/correction of known knowledge errors",
+          "doubt/refusal of unknown knowledge errors",
+          "correctness of error detection",
+          "correct identification of KKE",
+          "expression of doubt/refusal for UKE"
+        ]
+      },
+      "normalized": {
+        "DeepSeek‑v2": "DeepSeek-v2"
+      },
+      "explanation": "Normalized and consolidated methods/criteria into more descriptive, comprehensive forms that capture the essential evaluation approach"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Human annotators were asked to validate the suitability of DeepSeek‑v2 as the evaluator and to judge correctness of its judgments.",
+          "The human evaluators were trained and selected based on data annotation experience, and filtering specifications included binary actions (retain/delete), checking for hallucinations, word limits, identifiability of events, and correct memory categorization. Evaluators reviewed data in multiple stages with intersection-based consensus."
+        ],
+        "criteria": [
+          "presence of hallucinations",
+          "correct memory category label",
+          "key details in memory",
+          "conciseness (<30 words)",
+          "single error in query",
+          "error type conformity (KKE/UKE)",
+          "character's era and cognition"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all human evaluation metadata as the paper does NOT conduct human evaluation of generated outputs. The human evaluators described were used for dataset construction/filtering, not for evaluating the NLG outputs."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating LLMs' ability to detect character knowledge errors in role-playing scenarios. Corrected major error: human evaluation was for dataset construction, not output evaluation. Paper uses DeepSeek-v2 as LLM-as-judge for binary correctness evaluation with accuracy metric. All NLG outputs are in English."
+}

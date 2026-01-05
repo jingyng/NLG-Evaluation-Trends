@@ -1,0 +1,115 @@
+{
+  "paper_id": "2024.acl-long.586",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-as-a-judge against human evaluation by comparing judgments on the same 1,000 samples and reports percentage agreement metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts available in Appendix sections 'Table : Instruction of fact extraction for hallucination detection' and 'Table 10: Instruction of fact verification for hallucination detection' with intention descriptions and in-context demonstrations"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human labelers annotated hallucination types using the taxonomy defined in Section 2 (Entity-error, Relation-error, Incompleteness, Outdatedness, Overclaim, Unverifiability), with each sample labeled by two labelers and examined by one checker"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "factuality",
+      "hallucination"
+    ],
+    "sample_size": {
+      "total_generated": 8770,
+      "validated_by_both": 1000,
+      "notes": "Based on semantic similarity score, selected 1,000 questions (200 per domain) from HaluEval 2.0 for validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": 92.6,
+        "criterion": "factuality",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Biomedicine domain"
+      },
+      {
+        "metric": "Percentage agreement",
+        "value": 94.7,
+        "criterion": "factuality",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Finance domain"
+      },
+      {
+        "metric": "Percentage agreement",
+        "value": 92.7,
+        "criterion": "factuality",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Science domain"
+      },
+      {
+        "metric": "Percentage agreement",
+        "value": 91.5,
+        "criterion": "factuality",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Education domain"
+      },
+      {
+        "metric": "Percentage agreement",
+        "value": 93.9,
+        "criterion": "factuality",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Open domain"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "high",
+      "threshold_used": "Not explicitly stated, but described as 'high consistency'",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-based detection method achieves 91.5-94.7% agreement with human annotation across five domains, demonstrating high reliability for hallucination detection"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "specific hallucination types (Entity-error, Relation-error, Incompleteness, Outdatedness, Overclaim, Unverifiability)"
+    ],
+    "shared_criteria": [
+      "factuality",
+      "hallucination"
+    ],
+    "notes": "LLM judges overall factuality/hallucination at statement level (True/False/Unknown), while human evaluators provide finer-grained annotation using the hallucination taxonomy"
+  }
+}

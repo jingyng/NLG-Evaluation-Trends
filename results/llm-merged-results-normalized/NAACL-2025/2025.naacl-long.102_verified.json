@@ -1,0 +1,144 @@
+{
+  "paper_id": "2025.naacl-long.102",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Question Answering"
+    ],
+    "datasets": [
+      "NEWSCLIPPINGS",
+      "5pils OOC",
+      "5pils"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llavanext",
+      "llama_3",
+      "deberta_v_3"
+    ],
+    "outputs": [
+      "context items (source, date, location, motivation, people, things, event)",
+      "automated captions (for entire image, people, and objects)",
+      "veracity explanations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "DeBERTa-V3"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated image captions and context items",
+          "context items (source, date, location, motivation, people, things, event) and veracity explanations"
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering",
+        "Llama 3": "Llama 3"
+      },
+      "explanation": "Removed 'Text Summarization' as it isn't a core task in this paper. The paper uses question answering extensively for context prediction. Added DeBERTa-V3 which is used for veracity prediction. Consolidated redundant output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "METEOR",
+      "∆",
+      "CO",
+      "F1",
+      "ACCURACY",
+      "RECALL",
+      "ROUGE",
+      "EXACT MATCH",
+      "BERTSCORE",
+      "HL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Rouge-L",
+          "Exact Match",
+          "BERTScore",
+          "HL∆"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Meteor": "METEOR",
+        "F1": "F1",
+        "R_ACC": "Recall",
+        "R_OOC": "Recall"
+      },
+      "explanation": "Added metrics mentioned in Appendix F and Table 7 (Rouge-L, Exact Match, BERTScore, HL∆). Normalized METEOR capitalization. Consolidated R_ACC and R_OOC under Recall since they are recall metrics for different classes."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Correct answer is 'No' - LLMs are used for generation (context prediction, veracity prediction) but not as judges/evaluators of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants decide if captions are accurate or out-of-context for images",
+      "Rate confidence levels (not, somewhat, highly confident)",
+      "First phase: classify captions without artifacts, second phase: classify with AFC artifacts"
+    ],
+    "criteria": [
+      "Accuracy",
+      "Confidence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "First phase: classify captions without artifacts, second phase: classify with AFC artifacts"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "veracity (accurate/OOC)": "veracity (accurate/OOC)"
+      },
+      "explanation": "Added missing detail about the two-phase human evaluation design. Kept the veracity and confidence criteria as they are accurately extracted."
+    }
+  },
+  "overall_notes": "This paper focuses on multimodal misinformation detection through context prediction and veracity assessment. While it involves NLG tasks (image captioning, question answering), the primary focus is on fact-checking rather than pure generation evaluation. The extraction was generally good but missed some metrics mentioned in appendices."
+}

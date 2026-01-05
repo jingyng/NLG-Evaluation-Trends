@@ -1,0 +1,139 @@
+{
+  "paper_id": "2025.acl-long.227",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "PolySC"
+    ],
+    "languages": [
+      "Chinese",
+      "English",
+      "Thai",
+      "Spanish"
+    ],
+    "models": [
+      "GPT-3.5-Turbo",
+      "GPT-4o",
+      "Claude-3.5-Sonnet",
+      "Llama3.1-8B-Chinese-Chat",
+      "GLM-4-9B-Chat",
+      "Qwen2.5-14B-Instruct",
+      "SSPO"
+    ],
+    "outputs": [
+      "translated subtitle lines aligned with source speech duration",
+      "duration-aligned translations"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "outputs": [
+          "duration-aligned translations"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "outputs": [
+          "translated text in target language"
+        ]
+      },
+      "normalized": {
+        "Claude 3.5 Sonnet": "Claude-3.5-Sonnet",
+        "translated subtitle lines (target language text) aligned with source speech duration": "translated subtitle lines aligned with source speech duration"
+      },
+      "explanation": "Normalized model names, simplified output descriptions, and added more accurate output description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "P(s_i,t_i)",
+      "KIWI-XXL",
+      "XCOMET",
+      "S>T Rate",
+      "S>T Dur",
+      "T>S Rate",
+      "T>S Dur",
+      "Consistency Rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "P"
+        ]
+      },
+      "normalized": {
+        "Consistency Rate (CR)": "Consistency Rate",
+        "P (duration consistency penalty)": "P(s_i,t_i)"
+      },
+      "explanation": "Consolidated duplicate 'P' metrics under 'P(s_i,t_i)', normalized metric names, removed redundant entries"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "KIWI-XXL",
+          "XCOMET"
+        ],
+        "methods": [
+          "reference-free scoring of each translation candidate"
+        ],
+        "criteria": [
+          "translation quality (correlation with human judgment)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "KIWI-XXL and XCOMET are automatic translation quality assessment models, not LLMs used as judges. The paper uses them as automated metrics, not as LLM judges evaluating outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Pairwise comparison of translations with evaluators selecting superior translation or 'no significant difference' across accuracy, naturalness, and vividness dimensions"
+    ],
+    "criteria": [
+      "accuracy",
+      "naturalness",
+      "vividness"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": []
+      },
+      "removed": {
+        "criteria": [
+          "Accuracy",
+          "Naturalness",
+          "Vividness"
+        ]
+      },
+      "normalized": {
+        "Accuracy": "accuracy",
+        "Naturalness": "naturalness",
+        "Vividness": "vividness"
+      },
+      "explanation": "Normalized criteria to lowercase for consistency, consolidated duplicate entries"
+    }
+  },
+  "overall_notes": "The paper comprehensively evaluates video dubbing translation with both automatic metrics and human evaluation. The extraction was generally accurate except for Question 3 where KIWI-XXL and XCOMET were misinterpreted as LLM judges - they are automated translation assessment models, not LLMs used for evaluation."
+}

@@ -1,0 +1,126 @@
+{
+  "paper_id": "2025.naacl-long.406",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Instruction Generation"
+    ],
+    "datasets": [
+      "TOUCHDOWN",
+      "map2seq"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_7b",
+      "llama_2_7b",
+      "mistral_7b"
+    ],
+    "outputs": [
+      "synthetic navigational instructions generated from pattern templates"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [
+          "Synthetic augmentation dataset"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-4o",
+          "LLaMA 2"
+        ],
+        "outputs": [
+          "Paraphrase Generation",
+          "synthetic navigational instructions generated via templates and paraphrased using GPT-4o"
+        ]
+      },
+      "normalized": {
+        "LLaMA 7B": "LLaMA 7B",
+        "LLaMA2 7B": "LLaMA 2 7B",
+        "Mistral 7B": "Mistral 7B"
+      },
+      "explanation": "Removed 'Paraphrase Generation' as it's not a main NLG task being evaluated (GPT-4o paraphrase is just data preprocessing). Removed duplicate 'LLaMA 2' and kept only models used for NLG evaluation. Simplified output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "TASK COMPLETION",
+      "OVERSHOOT RATE",
+      "PRECISION",
+      "RECALL",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Task Completion (TC)",
+          "Overshoot Rate (OSR)",
+          "F1 score"
+        ]
+      },
+      "normalized": {
+        "Task Completion (TC)": "Task Completion",
+        "Overshoot Rate (OSR)": "Overshoot Rate",
+        "F1 score": "F1"
+      },
+      "explanation": "Removed redundant metric names with abbreviations and kept base forms. All metrics are used to evaluate VLN agent performance which includes instruction following."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper. LLMs (LLaMA, Mistral) are used as reasoning modules for the navigation agents, but not for evaluating generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. All evaluation is automatic using the metrics listed in Question 2."
+    }
+  },
+  "overall_notes": "This paper focuses on Vision-Language Navigation (VLN) evaluation, specifically investigating how route patterns affect agent generalization. The NLG aspect is instruction generation for navigation, but the primary focus is on evaluating navigation performance rather than textual quality of generated instructions. The extraction was generally good but included some preprocessing steps (paraphrasing) as NLG tasks."
+}

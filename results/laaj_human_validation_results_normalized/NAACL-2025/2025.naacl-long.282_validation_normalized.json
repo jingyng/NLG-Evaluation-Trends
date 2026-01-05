@@ -1,0 +1,101 @@
+{
+  "paper_id": "2025.naacl-long.282",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-as-a-judge against human evaluation by comparing agreement using Krippendorff's alpha and analyzing citation recovery performance metrics (precision, recall, F1)"
+  },
+  "llm_judge_details": {
+    "num_models": 6,
+    "models": [
+      "GPT-4",
+      "GPT-3.5",
+      "LLaMA2",
+      "LLaMA3.1",
+      "Mistral",
+      "Gemma"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt example provided in appendix Table 15 shows exact zero-shot instruction with example"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 68,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": "Not specified numerically in text (values discussed in context)",
+      "interpretation": "moderate to good agreement for GPT-4 and GPT-3.5",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full annotation guidelines and interface details provided in Appendix F with multiple examples"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Krippendorff's alpha",
+      "Precision",
+      "Recall",
+      "F1"
+    ],
+    "shared_criteria": [
+      "evidence_attribution",
+      "citation_recovery"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "Evaluation uses all 100 instances, with two settings: sample (one evidence passage per claim) and full (all evidence passages per claim)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Krippendorff's alpha",
+        "value": "Higher for LLM annotators than NLI annotators",
+        "criterion": "citation_recovery",
+        "llm_model": "GPT-4",
+        "significance": "Not reported",
+        "notes": "LLM annotators have much higher correlation with human annotators than NLI annotators"
+      },
+      {
+        "metric": "F1",
+        "value": 0.74,
+        "criterion": "citation_recovery",
+        "llm_model": "GPT-4",
+        "significance": "\u00b10.31 variance",
+        "notes": "Best attribution performance with machine-selected evidence"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong correlation",
+      "threshold_used": "Not explicitly stated",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM-based annotations have stronger correlation with human annotations compared to NLI models, with GPT-4 showing the best alignment as an automatic annotator."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Utility",
+      "Helpfulness"
+    ],
+    "shared_criteria": [
+      "evidence_attribution",
+      "citation_recovery"
+    ],
+    "notes": "Both LLM and human evaluate citation recovery and evidence attribution, while only human evaluates utility/helpfulness using sliding scale assessment"
+  }
+}

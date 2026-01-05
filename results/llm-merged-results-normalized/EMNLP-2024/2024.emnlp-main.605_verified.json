@@ -1,0 +1,150 @@
+{
+  "paper_id": "2024.emnlp-main.605",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Feedback Generation"
+    ],
+    "datasets": [
+      "DIRECT",
+      "DIRECT F",
+      "RACE M"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "t_5",
+      "bart",
+      "gpt_2",
+      "distilgpt_2",
+      "eli_5",
+      "gpt_4",
+      "gpt_3.5",
+      "deberta"
+    ],
+    "outputs": [
+      "personalized feedback",
+      "feedback",
+      "hints",
+      "explanations",
+      "correction feedback"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "hints",
+          "explanations",
+          "correction feedback"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "DPO",
+          "KL regularization"
+        ],
+        "outputs": [
+          "personalized feedback in the form of hints, explanations, or correction feedback"
+        ]
+      },
+      "normalized": {
+        "Other:feedback generation": "Other:Feedback Generation"
+      },
+      "explanation": "Removed DPO and KL regularization (these are methods, not models), added specific feedback types mentioned in the paper, normalized task name"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE",
+      "BERTSCORE",
+      "I2",
+      "FAITHFULNESS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "SacreBLEU": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "Informativeness Index I2": "I2",
+        "Faithfulness F": "Faithfulness"
+      },
+      "explanation": "Normalized metric names to their base forms (BLEU, ROUGE) and simplified proposed metrics (I2, Faithfulness)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "T5"
+        ],
+        "methods": [
+          "entailment probability calculation"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Paper uses T5 for informativeness calculation as part of an automatic metric, not as an LLM judge of generated outputs. No LLM-as-judge methodology is used."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rank feedback options according to overall quality",
+      "Penalize feedback with incorrect information more than feedback that discloses the correct answer",
+      "Assign contradiction/entailment/neutral labels based on alignment with student's understanding"
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Informativeness",
+      "Correctness",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Assign contradiction/entailment/neutral labels based on alignment with student's understanding"
+        ],
+        "criteria": [
+          "overall quality"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added missing human evaluation component (NLI label assignment) and clarified that overall quality was the primary ranking criterion"
+    }
+  },
+  "overall_notes": "The paper focuses on feedback generation for tutoring systems. Extraction was generally accurate, but needed clarification on what counts as LLM-as-judge (T5 is used for automated metric computation, not evaluation). The paper conducts substantial human evaluation but no traditional LLM-as-judge methodology."
+}

@@ -1,0 +1,132 @@
+{
+  "paper_id": "2025.inlg-main.2",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper systematically validates LLM-as-a-judge against human evaluation through correlation analysis between LLM-predicted ratings and human judgments from Experiment 1, including both construct ratings and pairwise preference tasks."
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "Gemini 2.0 Flash",
+      "Llama 3.1 8B",
+      "Mistral 7B",
+      "Phi-3 Medium 14B"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts were designed to provide complete context available to human annotators (scenario background, character roles, conversational goals) but exact prompt text is not shown. Few-shot prompting used random sampling of examples from dialogue turns."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 38,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Evaluation dimensions adapted from USR framework with specific rating scales and question prompts provided for each construct."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "Overall Quality",
+      "Natural",
+      "Maintains Context",
+      "Interesting",
+      "Uses Knowledge"
+    ],
+    "sample_size": {
+      "total_generated": 23,
+      "validated_by_both": 23,
+      "notes": "All 23 turns from the human evaluation experiment were used for validation, with responses evaluated by both human and LLM judges."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.519,
+        "criterion": "Quality",
+        "llm_model": "Gemini 2.0 Flash",
+        "significance": null,
+        "notes": "Zero-shot setting"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.452,
+        "criterion": "Quality",
+        "llm_model": "Gemini 2.0 Flash",
+        "significance": null,
+        "notes": "Zero-shot setting"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.659,
+        "criterion": "Quality",
+        "llm_model": "Gemini 2.0 Flash",
+        "significance": null,
+        "notes": "Random sampling 6-shot prompting"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.682,
+        "criterion": "Quality",
+        "llm_model": "Gemini 2.0 Flash",
+        "significance": null,
+        "notes": "Random sampling 6-shot prompting"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.656,
+        "criterion": "Preference",
+        "llm_model": "Gemini 2.0 Flash",
+        "significance": "p<0.001",
+        "notes": "Preference task validation"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.643,
+        "criterion": "Preference",
+        "llm_model": "Gemini 2.0 Flash",
+        "significance": "p=0.003",
+        "notes": "Preference task validation"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Not explicitly stated, but results described as 'strong alignment'",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Gemini 2.0 Flash with random 6-shot prompting achieved high alignment with human judgments (r=0.659, \u03c1=0.682 on Overall Quality), validating LLM-as-a-judge for automated evaluation of long-form dialogues."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Understandable",
+      "Naturalness",
+      "Context",
+      "Interest",
+      "Knowledge",
+      "Quality"
+    ],
+    "notes": "Both LLM and human evaluated the same six quality dimensions adapted from the USR framework, ensuring direct comparison validation."
+  }
+}

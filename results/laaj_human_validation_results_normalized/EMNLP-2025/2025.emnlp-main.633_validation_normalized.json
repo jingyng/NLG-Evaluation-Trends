@@ -1,0 +1,130 @@
+{
+  "paper_id": "2025.emnlp-main.633",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-as-a-judge against human evaluation on pairwise translationese judgments using accuracy metrics and compares LLM performance with human pointwise ratings"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "llama_3.3_70b_instruct",
+      "qwen_2.5_72b_instruct"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts for LLM-as-a-judge pairwise comparison are provided in Appendix D, though the exact prompt text is not verbatim in the provided text excerpt"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 35,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": 0.287,
+      "interpretation": "substantially lower than synthetic dataset (0.840)",
+      "per_criterion": [
+        {
+          "criterion": "translationese",
+          "metric": "Fleiss' kappa",
+          "value": 0.287
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Pointwise: rate translationese degree on 0-5 Likert scale; Pairwise: select translation with more translationese given source text"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Accuracy",
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "translationese"
+    ],
+    "sample_size": {
+      "total_generated": 150,
+      "validated_by_both": 150,
+      "notes": "150 (source, translation) pairs evaluated by both methods, with pairwise judgments categorized by agreement level (3, 4, or 5 unanimous votes)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Accuracy",
+        "value": 0.577,
+        "criterion": "Translationese",
+        "llm_model": "llama_3.3_70b_instruct",
+        "significance": "not reported",
+        "notes": "Pairs with 3-agreement level"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.53,
+        "criterion": "Translationese",
+        "llm_model": "llama_3.3_70b_instruct",
+        "significance": "not reported",
+        "notes": "Pairs with 4-agreement level"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.794,
+        "criterion": "Translationese",
+        "llm_model": "llama_3.3_70b_instruct",
+        "significance": "not reported",
+        "notes": "Pairs with 5-agreement level"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.622,
+        "criterion": "Translationese",
+        "llm_model": "qwen_2.5_72b_instruct",
+        "significance": "not reported",
+        "notes": "Pairs with 3-agreement level"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.681,
+        "criterion": "Translationese",
+        "llm_model": "qwen_2.5_72b_instruct",
+        "significance": "not reported",
+        "notes": "Pairs with 4-agreement level"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.846,
+        "criterion": "Translationese",
+        "llm_model": "qwen_2.5_72b_instruct",
+        "significance": "not reported",
+        "notes": "Pairs with 5-agreement level"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "not reported",
+      "threshold_used": "not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Qwen2.5-Instruct-72B achieves comparable accuracy to T-index (84.6%) on pairs with unanimous human agreement, but both LLM-judges show performance gaps compared to human pointwise ratings (92.3% agreement)"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "pointwise ratings"
+    ],
+    "shared_criteria": [
+      "pairwise translationese judgments"
+    ],
+    "notes": "Both LLM-as-a-judge and human evaluators used pairwise comparison for translationese; humans also provided pointwise ratings that were used as ground truth"
+  }
+}

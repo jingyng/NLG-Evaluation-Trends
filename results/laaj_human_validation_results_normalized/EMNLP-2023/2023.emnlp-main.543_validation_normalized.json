@@ -1,0 +1,123 @@
+{
+  "paper_id": "2023.emnlp-main.543",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares GPT-4 rankings with human rankings across three tasks, reporting quantitative agreement through Krippendorff's alpha and showing comparative ranking tables"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "github_repository",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts included evaluation criteria definitions and assessment scales, but exact prompt text is only available in GitHub repository. GPT-4 was asked to output in strict JSON format for processing."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": 0.88,
+      "interpretation": "generally very good inter-annotator agreement",
+      "per_criterion": [
+        {
+          "criterion": "Relevance",
+          "metric": "Krippendorff's alpha",
+          "value": 0.88
+        },
+        {
+          "criterion": "Fluency",
+          "metric": "Krippendorff's alpha",
+          "value": 0.88
+        },
+        {
+          "criterion": "Coherence",
+          "metric": "Krippendorff's alpha",
+          "value": 1.0
+        },
+        {
+          "criterion": "Consistency",
+          "metric": "Krippendorff's alpha",
+          "value": 0.97
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix_main_text_github",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed evaluation criteria with definitions and assessment scales provided. GEC criteria specifically detailed in Appendix C. Full instructions available in GitHub repository."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "ranking_comparison",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Krippendorff's alpha"
+    ],
+    "shared_criteria": [
+      "Relevance",
+      "Fluency",
+      "Coherence",
+      "Consistency",
+      "Semantics",
+      "Simplicity",
+      "Grammaticality",
+      "Over-correction"
+    ],
+    "sample_size": {
+      "total_generated": 3000,
+      "validated_by_both": 100,
+      "notes": "Both GPT-4 and human reviewers evaluated the same 100 samples per dataset (300 total instances for validation)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Krippendorff's alpha",
+        "value": 0.88,
+        "criterion": "human_only_agreement",
+        "llm_model": null,
+        "significance": null,
+        "notes": "Average across all metrics for human annotators only"
+      },
+      {
+        "metric": "Krippendorff's alpha",
+        "value": 0.7,
+        "criterion": "including_gpt4_agreement",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Average across all metrics when including GPT-4 as annotator"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong for summarization and simplification, moderate for GEC",
+      "threshold_used": null,
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GPT-4 has strong correlation with human judgement for summarisation and simplification tasks, and moderate correlation for GEC, with generally good alignment except for task-specific variations."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Relevance",
+      "Fluency",
+      "Coherence",
+      "Consistency",
+      "Semantics",
+      "Simplicity",
+      "Grammaticality",
+      "Correction"
+    ],
+    "notes": "Both GPT-4 and human evaluators used identical evaluation criteria and rating scales for all three tasks"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "paper_id": "2025.acl-long.1263",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation"
+    ],
+    "datasets": [
+      "SECURITY EVAL",
+      "ASLEEP",
+      "LLMSECEVAL",
+      "DISCO TEST",
+      "HumanEval",
+      "MBXP",
+      "DISCO"
+    ],
+    "languages": [
+      "Python",
+      "English"
+    ],
+    "models": [
+      "phi_2_2.7b",
+      "codellama_7b",
+      "mistral_7b",
+      "starcoder_2_7b",
+      "gpt_4o",
+      "claude_3.5_sonnet"
+    ],
+    "outputs": [
+      "Python code with security reasoning",
+      "Secure and insecure code pairs with security explanations"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "DiSCo"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "LLM-SecEval"
+        ]
+      },
+      "normalized": {
+        "LLM-SecEval": "LLMSecEval",
+        "Starcoder-2-7B": "Starcoder-2-7B"
+      },
+      "explanation": "Removed duplicate dataset 'LLM-SecEval' (correct spelling is LLMSecEval). Added DiSCo dataset which was mentioned but not in the original list. Normalized model name capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SECURITY ANALYSIS",
+      "PASS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Security Analysis",
+          "pass@k"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Insecurity (InS)",
+          "Issues per 100 (I@100)",
+          "pass@1",
+          "pass@5"
+        ]
+      },
+      "normalized": {
+        "Insecurity (InS)": "Security Analysis",
+        "Issues per 100 (I@100)": "Security Analysis",
+        "pass@1": "pass@k",
+        "pass@5": "pass@k"
+      },
+      "explanation": "Normalized specific security metrics to broader 'Security Analysis' category which includes both Insecurity percentage and Issues per 100. Consolidated pass@1 and pass@5 into 'pass@k' as they are variants of the same metric family."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper. The paper uses LLMs for generation but not for post-generation evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation was mentioned in the paper. Evaluation was conducted using automatic security analysis tools and code correctness tests."
+    }
+  },
+  "overall_notes": "This paper focuses on secure code generation using a novel Localized Preference Optimization (LPO) method and DiSCo dataset. The evaluation is entirely automatic using security analyzers (CodeQL, Bandit) and code correctness tests. The paper clearly addresses NLG (code generation) tasks and uses automatic metrics but does not employ human evaluation or LLM-as-judge methods."
+}

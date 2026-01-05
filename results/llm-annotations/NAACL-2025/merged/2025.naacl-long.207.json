@@ -1,0 +1,86 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "In generation tasks, we assess the quality and factual consistency of the model's outputs.",
+            "We also assess its generation ability using a free‑generation format ... The generation quality is evaluated using ROUGE‑L and a factuality score.",
+            "To evaluate classification performance, accuracy Acc is computed as following: where X is the set of questions, and I indicates correct predictions. To prevent catastrophic forgetting , where the model loses all previously learned information, we also assess its generation ability using a free-generation format."
+        ],
+        "tasks": [
+            "Other:Free-generation",
+            "Other:Profile Generation",
+            "Other:free-generation"
+        ],
+        "datasets": [
+            "Forget Set",
+            "Test Set",
+            "Retain Set",
+            "Real Celebrity Set",
+            "MLLMU‑Bench",
+            "MLLMU-Bench"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "LLaVA-1.5-7B",
+            "Idefics2-8B",
+            "LLaVA‑1.5‑7B",
+            "Idefics2‑8B"
+        ],
+        "outputs": [
+            "Generated text answers to profile-based questions.",
+            "Generated textual answers describing profile attributes",
+            "The model generates descriptions or answers related to forgotten profiles. If the generated output contains factual inconsistencies or a lack of information about the forgotten profile, the unlearning process is considered effective."
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "The generation quality is evaluated using two key metrics: ROUGE Score: We employ the ROUGE score to measure the longest common subsequence (LCS) between the model's generated answers and the ground-truth answers... Factuality Score: ... we use GPT-4o as an evaluator to assess the factuality...",
+            "The generation quality is evaluated using ROUGE‑L and a factuality score ... GPT‑4o is used as an evaluator.",
+            "The generation quality is evaluated using two key metrics: ROUGE Score: We employ the ROUGE score to measure the longest common subsequence (LCS) between the model's generated answers and the ground-truth answers extracted from the corresponding profiles. Specifically, we compute the ROUGE-L recall score , which evaluates the overlap of the longest matching subsequences between the generated and reference texts, capturing both precision and recall."
+        ],
+        "automatic_metrics": [
+            "ROUGE-L",
+            "Factuality Score",
+            "Cloze Accuracy",
+            "ROUGE‑L",
+            "Cloze Acc",
+            "Classification Acc"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "Factuality Score: Following the approach of several other benchmarks, we use GPT-4o as an evaluator to assess the factuality and quality of the generated answers.",
+            "We use GPT‑4o as an evaluator to determine the factual accuracy of the generated text compared to the ground truth.",
+            "Following the approach of several other benchmarks , we use GPT-4o as an evaluator to assess the factuality and quality of the generated answers. Given both the generated answer and the ground-truth answer, which are detailed pieces of information extracted from each person's profile, we few-shot prompted GPT-4o to score the factual accuracy of the model's output on a scale from 1 to 10."
+        ],
+        "models": [
+            "GPT-4o",
+            "GPT‑4o"
+        ],
+        "methods": [
+            "few-shot prompting for factual scoring",
+            "factuality scoring via prompted LLM",
+            "few-shot prompted evaluation"
+        ],
+        "criteria": [
+            "factuality",
+            "factual accuracy"
+        ]
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": [
+            "Before prompting GPT-4o for evaluation, we asked human experts to carefully define the evaluation scales (Figure ) and create a set of few-shot examples (Figure ) illustrating how answers should be evaluated based on their factuality in comparison to the ground truth, along with appropriate justifications. To validate this approach, we applied the prompt template to assess the factuality of 100 randomly selected questions from the Forget Set and asked human experts to review the quality of GPT-4o's evaluations, including its assigned scores and justifications."
+        ],
+        "guideline": [
+            "Human experts defined evaluation scales and created few-shot examples illustrating how answers should be evaluated based on factuality compared to the ground truth, with justifications."
+        ],
+        "criteria": [
+            "factuality"
+        ]
+    }
+}

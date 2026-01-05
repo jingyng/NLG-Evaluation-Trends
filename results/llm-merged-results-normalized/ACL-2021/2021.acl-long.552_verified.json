@@ -1,0 +1,148 @@
+{
+  "paper_id": "2021.acl-long.552",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation",
+      "Paraphrase Detection"
+    ],
+    "datasets": [
+      "TWITTERPPDB",
+      "APH",
+      "apt5",
+      "MSRP",
+      "PARAPARANMT",
+      "PPDB",
+      "PARANMT",
+      "CZENG"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "t_5_base",
+      "roberta_large",
+      "roberta_base"
+    ],
+    "outputs": [
+      "generated paraphrases",
+      "paraphrased sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Paraphrase Detection"
+        ],
+        "datasets": [
+          "CzEng"
+        ],
+        "models": [
+          "RoBERTa-base"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "PP-NMT",
+          "AP T 5",
+          "AP M T 5",
+          "AP T w T 5"
+        ]
+      },
+      "normalized": {
+        "T5 base": "T5-base",
+        "RoBERTa large": "RoBERTa-large",
+        "ParaParaNMT": "ParaParaNMT",
+        "AP H": "APH",
+        "AP T5": "APT5"
+      },
+      "explanation": "Added Paraphrase Detection as a task since both generation and detection are studied. Normalized dataset and model names. Consolidated redundant dataset variants (AP T 5, AP M T 5, AP T w T 5) into APT5. Added CzEng as a source dataset."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEURT",
+      "BLEU",
+      "BERTSCORE",
+      "MCC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "MCC"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Mutual Implication (MI)"
+        ]
+      },
+      "normalized": {
+        "Mutual Implication (MI)": "BLEURT",
+        "BertScore": "BERTScore"
+      },
+      "explanation": "Removed MI as it's not an automatic metric but a concept. Added MCC as it's used to evaluate paraphrase detection performance. BLEURT is used to operationalize MI measurement."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa large"
+        ],
+        "methods": [
+          "Natural Language Inference for bidirectional entailment",
+          "mutual implication",
+          "bidirectional textual entailment"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer to No because RoBERTa-large is used as part of the Mutual Implication detection process during dataset creation, not as an LLM judge evaluating generated outputs after generation. This is part of the adversarial filtering methodology, not LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Write a sentence that is the same in meaning as the given sentence but as structurally different as possible. Your sentence should be such that you can infer the given sentence from it AND vice-versa."
+    ],
+    "criteria": [
+      "Equivalence",
+      "Structural",
+      "Bidirectional"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Write a sentence that is the same in meaning as the given sentence but as structurally different as possible. Your sentence should be such that you can infer the given sentence from it AND vice-versa."
+        ],
+        "criteria": [
+          "bidirectional entailment"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "meaning equivalence": "meaning equivalence",
+        "structural difference": "structural difference"
+      },
+      "explanation": "Changed answer to Yes because the paper clearly conducts human evaluation through Amazon Mechanical Turk where humans generated paraphrases following specific guidelines. Added bidirectional entailment as a key criterion from the evaluation guidelines."
+    }
+  },
+  "overall_notes": "This paper primarily focuses on paraphrase detection and generation using adversarial methods. The extraction quality was reasonable but needed normalization and correction of answer 3 (LLM-as-judge) and answer 4 (human evaluation). The paper uses human evaluation for dataset creation and automatic metrics (BLEURT, BERTScore, MCC) for evaluation, but does not use LLMs as judges in the post-generation evaluation sense."
+}

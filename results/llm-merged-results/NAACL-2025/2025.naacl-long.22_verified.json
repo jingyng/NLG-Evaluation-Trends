@@ -1,0 +1,121 @@
+{
+  "paper_id": "2025.naacl-long.22",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering",
+      "Other:Answer Generation"
+    ],
+    "datasets": [
+      "PeerQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-3-8B-Instruct",
+      "Command-R",
+      "Mistral-7B-Instruct-v0.2",
+      "GPT-3.5-Turbo",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "Free-form answers to scientific questions",
+      "Answerability classification for scientific questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Answerability classification"
+        ],
+        "outputs": [
+          "Answerability classification for scientific questions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Free-Form Answer Generation"
+        ],
+        "models": [
+          "GPT-3.5-Turbo-0613-16k",
+          "GPT-4o-0806"
+        ]
+      },
+      "normalized": {
+        "GPT-3.5-Turbo-0613-16k": "GPT-3.5-Turbo",
+        "GPT-4o-0806": "GPT-4o"
+      },
+      "explanation": "Added answerability classification as a separate NLG task, normalized model names to remove version numbers, and clarified that the paper addresses both answer generation and answerability classification tasks"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "AlignScore",
+      "Prometheus"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Prometheus-2"
+        ]
+      },
+      "normalized": {
+        "Rouge-L": "ROUGE",
+        "Prometheus-2": "Prometheus"
+      },
+      "explanation": "Normalized ROUGE-L to ROUGE and consolidated Prometheus-2 to Prometheus since they refer to the same metric family"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Prometheus"
+    ],
+    "methods": [
+      "LLM-as-a-judge with scoring rubric"
+    ],
+    "criteria": [
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT-4",
+          "Prometheus-2"
+        ]
+      },
+      "normalized": {
+        "Prometheus-2 (7B-v2.0)": "Prometheus",
+        "Correctness": "correctness"
+      },
+      "explanation": "Removed GPT-4 as it's used for generation, not as a judge. Consolidated Prometheus models and normalized criteria to lowercase"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "guideline": [
+          "evaluating whether the generation matches the free-form answer"
+        ],
+        "criteria": [
+          "matches the free-form answer"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed the human evaluation metadata since the paper explicitly states they conducted correlation analysis with AlignScore but did not perform full human evaluations of the generated outputs"
+    }
+  },
+  "overall_notes": "The paper primarily focuses on question answering evaluation with three main tasks: evidence retrieval, answerability classification, and answer generation. While they mention correlating AlignScore with human judgments on 100 samples, this is for metric validation rather than full human evaluation of system outputs. The extraction was generally accurate but needed normalization of model names and metric variants."
+}

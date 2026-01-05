@@ -1,0 +1,180 @@
+{
+  "paper_id": "2024.acl-long.117",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Story Generation",
+      "Other:Automatic Story Generation"
+    ],
+    "datasets": [
+      "WritingPrompts",
+      "ROC-Stories",
+      "Storium",
+      "MoPS curated",
+      "MoPS moderate",
+      "MoPS complete",
+      "doc-story-gen-v2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3.5-turbo",
+      "Dramatron",
+      "RecurrentGPT",
+      "GPT-4-turbo",
+      "Llama2-13b-chat",
+      "OASST-30b"
+    ],
+    "outputs": [
+      "story premises",
+      "novels",
+      "scripts",
+      "short stories"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [],
+        "models": [
+          "Llama2-13b-chat",
+          "OASST-30b"
+        ],
+        "outputs": [
+          "short stories"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "WritingPrompts (WP)",
+          "ROC Stories (ROC)",
+          "MoPS generated premises",
+          "STORIUM"
+        ],
+        "models": [
+          "gpt-3.5-turbo",
+          "gpt-4-turbo",
+          "llama2-13b-chat",
+          "oasst-30b"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Automatic Story Generation": "Other:Automatic Story Generation",
+        "WritingPrompts": "WritingPrompts",
+        "gpt-3.5-turbo": "GPT-3.5-turbo",
+        "gpt-4-turbo": "GPT-4-turbo",
+        "llama2-13b-chat": "Llama2-13b-chat",
+        "oasst-30b": "OASST-30b"
+      },
+      "explanation": "Normalized model names to standard capitalization, removed duplicate dataset entries with different formatting, added missing models mentioned in baseline descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "semantic breadth",
+      "semantic density"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "fascination",
+          "completeness",
+          "originality",
+          "semantic breadth (polygon area)",
+          "semantic density (std of bin counts)",
+          "fascination score",
+          "completeness score",
+          "originality score",
+          "breadth_score",
+          "density_score"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed fascination/completeness/originality scores as these are LLM-based evaluations, not traditional automatic metrics. Kept only semantic breadth and density as true automatic metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4-turbo",
+      "Claude-3-opus"
+    ],
+    "methods": [
+      "prompt-based scoring",
+      "self-verification"
+    ],
+    "criteria": [
+      "fascination",
+      "completeness",
+      "originality",
+      "consistency",
+      "factual correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "factual correctness"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "scoring with specific prompts",
+          "prompt‑based scoring of each premise",
+          "score assessment with prompts",
+          "pairwise evaluation"
+        ],
+        "criteria": [
+          "fluency",
+          "coherence"
+        ]
+      },
+      "normalized": {
+        "gpt-4-turbo": "GPT-4-turbo",
+        "claude-3-opus": "Claude-3-opus"
+      },
+      "explanation": "Consolidated similar methods into 'prompt-based scoring' and 'self-verification'. Removed criteria not explicitly mentioned in paper. Added 'factual correctness' from self-verification prompt."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate each premise on Fascination, Completeness, and Originality using a 1-5 Likert scale"
+    ],
+    "criteria": [
+      "fascination",
+      "completeness",
+      "originality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": []
+      },
+      "removed": {
+        "guideline": [
+          "- Consistent with the quality metrics used in gpt-4-turbo evaluation (Tab. 2), we asked evaluators to rate each premise on Fascination, Completeness, and Originality on a 1 to 5 scale.",
+          "We asked evaluators to rate each premise on Fascination, Completeness, and Originality on a 1 to 5 scale..."
+        ],
+        "criteria": [
+          "Fascination",
+          "Completeness",
+          "Originality"
+        ]
+      },
+      "normalized": {
+        "Fascination": "fascination",
+        "Completeness": "completeness",
+        "Originality": "originality"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement. Normalized criteria to lowercase for consistency."
+    }
+  },
+  "overall_notes": "Paper focuses on story premise generation and evaluation. Strong focus on LLM-based evaluation (GPT-4, Claude-3) with human validation. The automatic metrics are custom-designed semantic diversity metrics rather than traditional NLG metrics like BLEU/ROUGE."
+}

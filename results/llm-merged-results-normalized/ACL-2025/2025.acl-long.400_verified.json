@@ -1,0 +1,169 @@
+{
+  "paper_id": "2025.acl-long.400",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Long Form Question Answering",
+      "Biography Generation"
+    ],
+    "datasets": [
+      "XSUM HALLUCINATION",
+      "QAGS",
+      "FRANK",
+      "RAGTRUTH",
+      "FACTSCORE",
+      "Q",
+      "FAITHDIAL",
+      "BEGIN",
+      "TruthfulQA",
+      "LLM AGGREFACT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b_chat",
+      "llama_3_8b_chat",
+      "llama_3_70b_chat",
+      "mistral",
+      "claude_3"
+    ],
+    "outputs": [
+      "summaries",
+      "dialogue responses",
+      "biographies",
+      "long-form answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "XSum"
+        ],
+        "languages": [],
+        "models": [
+          "Mistral-123B"
+        ],
+        "outputs": [
+          "generated responses (e.g., summaries, dialogue responses, biographies, answers)",
+          "generated responses and extracted factual claims",
+          "long-form text such as biographies, summaries, and dialogue responses"
+        ]
+      },
+      "normalized": {
+        "Other:Long-form QA": "Other:Long-form Question Answering",
+        "Other:biography generation": "Other:Biography Generation",
+        "Q2": "Q²",
+        "Mistral-123B": "Mistral"
+      },
+      "explanation": "Normalized task names to title case, simplified Mistral model name to base form, removed duplicate/redundant output descriptions, and removed XSum which is not directly evaluated but referenced as part of XSum Hallucination dataset."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "FACTS",
+      "TRUE INFO",
+      "BALANCED ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Balanced Accuracy (BAcc)",
+          "FActScore",
+          "TruthfulQA",
+          "LLM-AggreFact",
+          "balanced accuracy (BAcc)"
+        ]
+      },
+      "normalized": {
+        "Balanced Accuracy (BAcc)": "Balanced Accuracy",
+        "balanced accuracy (BAcc)": "Balanced Accuracy"
+      },
+      "explanation": "Removed dataset names (FActScore, TruthfulQA, LLM-AggreFact) as they are evaluation benchmarks, not metrics. Simplified Balanced Accuracy variations to base form. Kept the actual automatic metrics used: % Facts, % True*Info, and Balanced Accuracy."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "FENCE",
+      "llama_3_70b_chat"
+    ],
+    "methods": [
+      "factuality scoring",
+      "factuality critique generation",
+      "pairwise preference ranking"
+    ],
+    "criteria": [
+      "Factuality",
+      "Document",
+      "Contradiction",
+      "Verifiability"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "FENCE (based on Llama3-8B-chat)"
+        ],
+        "methods": [
+          "scoring by percentage of factual claims",
+          "scoring percentage of factual claims",
+          "pairwise preference ranking (DPO)",
+          "factuality evaluation with critique",
+          "pairwise evaluation",
+          "response scoring based on percentage of factual claims"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "FENCE (based on Llama3-8B-chat)": "FENCE",
+        "factuality evaluation with critique": "factuality critique generation",
+        "pairwise preference ranking (DPO)": "pairwise preference ranking"
+      },
+      "explanation": "Simplified model names (FENCE encompasses its implementation details), normalized methods to clearer descriptions, kept original criteria which are well-defined. Removed redundant/repetitive method descriptions."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'None' placeholders since no human evaluation is conducted. The paper relies on automatic metrics and LLM-based evaluation."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Key improvements included: (1) Removing dataset names from metrics list (they are evaluation benchmarks, not metrics themselves), (2) Normalizing model names and task descriptions, (3) Simplifying redundant method descriptions for LLM-as-judge. The paper clearly addresses NLG tasks (summarization, dialogue, QA, biography generation), uses automatic metrics, employs LLMs as judges (FENCE and Llama3-70B-chat), and does not conduct human evaluation."
+}

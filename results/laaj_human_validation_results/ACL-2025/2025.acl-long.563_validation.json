@@ -1,0 +1,90 @@
+{
+  "paper_id": "2025.acl-long.563",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM judges (GPT-4o and Qwen2.5-72B) with human evaluators on 1,405 Vi-DROP instances, reporting agreement rates and analyzing disagreements"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4o",
+      "Qwen2.5-72B"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full evaluation prompts provided in Appendix C, including detailed 7-criteria rubric and scoring rules for Vi-SQuAD and Vi-DROP tasks"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "Not specified (multiple reviewers per data point)",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Describes multi-layered quality assurance process with three independent reviewers per data point, but specific human evaluation guidelines for validation subset not detailed"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "semantic correctness"
+    ],
+    "sample_size": {
+      "total_generated": 1405,
+      "validated_by_both": 1405,
+      "notes": "Validation conducted on 1,405 Vi-DROP questions comparing LLM judgments with human evaluations"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.9736,
+        "criterion": "overall evaluation",
+        "llm_model": "GPT-4o vs Qwen2.5-72B",
+        "significance": "Not reported",
+        "notes": "High correlation between two LLM judges"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Not explicitly stated",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM judges show high accuracy and strong correlation with human evaluations for short-text comparison tasks, but dialog evaluation remains challenging with low human agreement (0.49)"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Safety",
+      "Neutrality",
+      "Compliance with facts",
+      "Relevance",
+      "Logicality",
+      "Language fluency",
+      "Information content"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "semantic correctness"
+    ],
+    "notes": "Human evaluation focuses on semantic accuracy comparison against ground truth, while LLM judges use comprehensive 7-criteria rubric adapted from TencentLLMEval"
+  }
+}

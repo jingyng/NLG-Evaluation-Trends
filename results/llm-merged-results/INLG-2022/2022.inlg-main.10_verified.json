@@ -1,0 +1,140 @@
+{
+  "paper_id": "2022.inlg-main.10",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Table-to-Text",
+      "Other:Data-to-Text"
+    ],
+    "datasets": [
+      "MeteoGalicia-ES"
+    ],
+    "languages": [
+      "Spanish"
+    ],
+    "models": [
+      "Transformer-based model",
+      "Chart-to-text",
+      "BETO"
+    ],
+    "outputs": [
+      "weather descriptions in Spanish",
+      "meteorological descriptions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "meteorological descriptions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Transformer‑based model",
+          "Chart‑to‑text"
+        ],
+        "outputs": [
+          "Spanish weather forecast descriptions"
+        ]
+      },
+      "normalized": {
+        "Other:D2T": "Other:Data-to-Text",
+        "weather descriptions": "weather descriptions in Spanish"
+      },
+      "explanation": "Removed 'Text Summarization' as it's only mentioned as background, not evaluated. Consolidated duplicate model entries. Added more specific output description from the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "divergence detector"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "omission_count",
+          "basic_hallucination_count",
+          "spatial_hallucination_count"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The counts are results from the divergence detector, not separate metrics. The detector is the actual automated evaluation tool used."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No LLM-based evaluation is used in this paper. The paper uses expert human evaluation and a custom divergence detector."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate the relevance of hallucinations on a 3-point Likert scale (admissible, partially admissible, inadmissible)"
+    ],
+    "criteria": [
+      "admissibility"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "admissibility"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Rate the relevance of hallucinations on a 3-point Likert scale.",
+          "Use a 3‑point Likert scale to judge each hallucination as admissible, partially admissible, or inadmissible.",
+          "3-points Likert scale (admissible, partially admissible, inadmissible)"
+        ],
+        "criteria": [
+          "admissible",
+          "partially admissible",
+          "inadmissible",
+          "relevance"
+        ]
+      },
+      "normalized": {
+        "relevance": "admissibility"
+      },
+      "explanation": "Consolidated repetitive guideline descriptions into single clear statement. Normalized criteria to 'admissibility' as the main evaluation dimension, with the three levels being rating options rather than separate criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on Data-to-Text generation with a custom divergence detection system for evaluating hallucinations and omissions in weather forecast generation. The extraction was generally accurate but needed consolidation of repetitive items and removal of metrics that were actually just outputs/results rather than evaluation methods."
+}

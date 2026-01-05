@@ -1,0 +1,174 @@
+{
+  "paper_id": "2025.emnlp-main.712",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Evaluation Generation",
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Math-PRM800K",
+      "Skywork-Reward-Preference-80K-v0.2",
+      "HelpSteer2",
+      "UltraFeedback",
+      "OffsetBias",
+      "WildGuardMix",
+      "proprietary dataset"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "RISE-Judge-Qwen2.5-32B",
+      "Qwen2.5-32B-Instruct",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "Generated judgments with chain-of-thought analysis and final verdicts for evaluation tasks",
+      "High-quality dialogue responses in general conversation tasks"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Code Generation",
+          "Other:Math Problem Solving"
+        ],
+        "datasets": [
+          "RewardBench",
+          "AlignBench",
+          "MT-Bench",
+          "Math-PRM800K Dataset"
+        ],
+        "models": [
+          "CompassJudger-1-32B-Instruct"
+        ],
+        "outputs": [
+          "judgments with chain-of-thought analysis and final verdict",
+          "The model generates step-by-step judgments (j_CoT) and final verdicts (j_res) on the quality of responses, and also produces high-quality dialogue responses in general tasks."
+        ]
+      },
+      "normalized": {
+        "Generated judgments with CoT analyses for evaluation tasks and responses for dialogue generation.": "Generated judgments with chain-of-thought analysis and final verdicts for evaluation tasks",
+        "BLEU": "BLEU"
+      },
+      "explanation": "Removed tasks that are not directly studied as NLG tasks (Code Generation, Math Problem Solving are used as evaluation domains, not generation tasks). Removed benchmarks that are evaluation tools, not datasets used for training. Removed model mentioned only in evaluation. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "RewardBench",
+      "AlignBench",
+      "MT-Bench",
+      "PPE Benchmark",
+      "MMLU",
+      "CMMLU",
+      "CEval",
+      "BBH",
+      "GSM",
+      "AlpacaEval 2.0"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "PPE Benchmark",
+          "MMLU",
+          "CMMLU",
+          "CEval",
+          "BBH",
+          "GSM",
+          "AlpacaEval 2.0"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "RewardBench Score",
+          "AlignBench Score",
+          "MT-Bench Score"
+        ]
+      },
+      "normalized": {
+        "RewardBench Score": "RewardBench",
+        "AlignBench Score": "AlignBench",
+        "MT-Bench Score": "MT-Bench"
+      },
+      "explanation": "Added missing metrics mentioned in the paper evaluation sections. Normalized score references to base metric names per guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "RISE-Judge-Qwen2.5-32B",
+      "GPT-4o"
+    ],
+    "methods": [
+      "pairwise evaluation",
+      "chain-of-thought analysis",
+      "tournament-style elimination"
+    ],
+    "criteria": [
+      "helpfulness",
+      "relevance",
+      "accuracy",
+      "depth",
+      "creativity",
+      "level of detail"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Qwen2.5-32B-Instruct"
+        ],
+        "methods": [
+          "DPO preference ranking",
+          "Chain-of-Thought reasoning",
+          "pairwise comparison"
+        ],
+        "criteria": [
+          "fluency",
+          "coherence"
+        ]
+      },
+      "normalized": {
+        "chain-of-thought analysis": "chain-of-thought analysis",
+        "Chain-of-Thought reasoning": "chain-of-thought analysis"
+      },
+      "explanation": "Removed Qwen2.5-32B-Instruct as it's primarily a generation model, not used as judge. Consolidated duplicate evaluation methods. Removed criteria not explicitly mentioned in judge instructions."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted - paper focuses exclusively on LLM-as-judge and automatic evaluation"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate but included some items that were mentioned in passing rather than being central to the paper's contributions. The paper focuses on training LLMs as judges for evaluation tasks, with dialogue generation as a secondary capability. All evaluation is done through LLM judges and automatic metrics, with no human evaluation."
+}

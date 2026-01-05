@@ -1,0 +1,108 @@
+{
+  "paper_id": "2024.naacl-long.167",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares automatic attribution (AutoAIS using NLI models) and factuality (FActScore using GPT-3.5) methods against human expert judgments, reporting quantitative metrics like precision, recall, and F1 scores."
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "t5_xxl_true_nli_mixture",
+      "gpt-3.5-turbo"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "supplementary",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompts for FActScore claim decomposition and factuality prediction are mentioned as using the same prompts as prior work (Min et al., 2023), but exact prompts not shown in the provided text. Examples of attribution errors are provided in analysis."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 484,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Percentage agreement",
+      "value": 0.85,
+      "interpretation": "high agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Evaluation properties (informativeness, citeworthiness, factuality, faithfulness, reliability) are defined in the main text and Table (not fully shown here). Experts also revise claims to ensure factual correctness."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Precision",
+      "Recall",
+      "F1 score"
+    ],
+    "shared_criteria": [
+      "Attribution (completeness)",
+      "Factuality"
+    ],
+    "sample_size": {
+      "total_generated": 2177,
+      "validated_by_both": 2177,
+      "notes": "All 2177 claims from ExpertQA dataset are used for validation against human judgments."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Precision",
+        "value": null,
+        "criterion": "Attribution",
+        "llm_model": "t5_xxl_true_nli_mixture",
+        "significance": null,
+        "notes": "AutoAIS shows high precision but low recall against human judgments of attribution completeness."
+      },
+      {
+        "metric": "Recall",
+        "value": null,
+        "criterion": "Attribution",
+        "llm_model": "t5_xxl_true_nli_mixture",
+        "significance": null,
+        "notes": "Low recall for attribution judgments compared to human experts."
+      },
+      {
+        "metric": "F1 score",
+        "value": null,
+        "criterion": "Factuality",
+        "llm_model": "gpt-3.5-turbo",
+        "significance": null,
+        "notes": "FActScore struggles with low recall for non-factual claims, especially for retrieve-and-read systems."
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "Automatic methods for attribution and factuality show high precision but low recall compared to human expert judgments, with particular challenges in identifying non-factual claims and handling multi-source attributions."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Informativeness",
+      "Citeworthiness",
+      "Faithfulness",
+      "Reliability",
+      "Usefulness",
+      "Support"
+    ],
+    "shared_criteria": [
+      "Attribution (completeness)",
+      "Factuality"
+    ],
+    "notes": "LLM methods (AutoAIS, FActScore) focus on attribution completeness and factuality, while human experts evaluate additional dimensions like informativeness and source reliability."
+  }
+}

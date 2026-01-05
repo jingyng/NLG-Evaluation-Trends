@@ -1,0 +1,61 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "The emergence of powerful generative models leads to a shift from span-based extraction to the generation of structured information.",
+        "tasks": [
+            "Other:Causal Event Extraction"
+        ],
+        "datasets": [
+            "FCR",
+            "FinCausal",
+            "SCITE"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "FLAN-T5",
+            "GPT-3.5",
+            "GPT-4"
+        ],
+        "outputs": "Structured outputs representing cause and effect using a tagged format (e.g., [Cause]...[Relation]...[Effect]...)"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "Traditional metrics such as exact match (EM) and token F1 rely on the idea that a correct extraction is one that completely matches the annotation. There are other automated metrics such as ROUGE, BLEU, BLEURT and BERTScore that attempt to solve this problem, but we found them to not correlate well with human annotations.",
+        "automatic_metrics": [
+            "Exact Match",
+            "F1",
+            "ROUGE",
+            "BLEU",
+            "BLEURT",
+            "BERTScore"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "In addition, we use GPT-3.5 with or without self-consistency as additional automated evaluators for the causal event extraction task.",
+        "models": [
+            "GPT-3.5"
+        ],
+        "methods": [
+            "self-consistency"
+        ],
+        "criteria": [
+            "Wording Variation",
+            "Hallucination",
+            "Swapped Events"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We conducted human evaluation on the extraction results from GPT-3.5 (10-shot) and FLAN-T5 on the training sets of the three datasets: FCR, FinCausal and SCITE.",
+        "guideline": "Instructions For Human Annotators. To alleviate the issues observed in the existing evaluation methods, we establish criteria for annotators. Only entries where both Cause and Effect satisfy all conditions should be considered as valid. • Wording may differ between Reference and Model Output. This is fine, as long as the Model tokens come from the source text. • There are no significant discrepancy between Model Output and Reference, such as numbers, subjects, time. • If Cause and Effect happened to be in the same sentence but not overlapping, make sure the tokens in Cause are not included in the Effect and vice versa. • In the rare cases where the Reference is obviously incorrect, ignore it and analyse the Model Output with relation to the source text only.",
+        "criteria": [
+            "Wording Variation",
+            "Numbers/Subjects/Time Discrepancy",
+            "Cause-Effect Overlap",
+            "Reference Reliability"
+        ]
+    }
+}

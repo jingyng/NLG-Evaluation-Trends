@@ -1,0 +1,151 @@
+{
+  "paper_id": "2024.acl-long.835",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Causal Claim Generation",
+      "Argument Structure Generation"
+    ],
+    "datasets": [
+      "CHECKWHY",
+      "WIKI WHY"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4",
+      "chatgpt",
+      "codet_5",
+      "codet_5+",
+      "bert",
+      "transformer_xh",
+      "unixcoder"
+    ],
+    "outputs": [
+      "claims",
+      "evidence",
+      "argument structures",
+      "verification labels"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "verification labels"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "models": {
+          "ChatGPT": "ChatGPT",
+          "GPT-4": "GPT-4",
+          "CodeT5": "CodeT5",
+          "CodeT5+": "CodeT5+",
+          "BERT": "BERT",
+          "Transformer-XH": "Transformer-XH",
+          "UniXcoder": "UniXcoder"
+        }
+      },
+      "explanation": "Added 'verification labels' to outputs as they are generated in Tasks 1-4. Normalized model names to standard capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "F1",
+      "STRUCTURE SIMILARITY",
+      "EXACT MATCH SIMILARITY",
+      "LEAF NODES F1",
+      "STEPS F1",
+      "INTERMEDIATES F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy",
+          "F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BERTScore",
+          "Leaf Nodes (F1, AllCorrect)",
+          "Steps (F1, AllCorrect)",
+          "Intermediates (F1, AllCorrect)"
+        ]
+      },
+      "normalized": {
+        "Structure Similarity": "Structure Similarity",
+        "Exact Match Similarity": "Exact Match Similarity",
+        "Leaf Nodes (F1)": "Leaf Nodes (F1)",
+        "Steps (F1)": "Steps (F1)",
+        "Intermediates (F1)": "Intermediates (F1)"
+      },
+      "explanation": "Added standard classification metrics (Accuracy, F1) that were used in the experiments. Removed BERTScore as it's used internally within Structure Similarity metric rather than as a standalone metric. Removed 'AllCorrect' variants as they are binary versions of the F1 metrics already listed."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges - LLMs were only used for generation tasks (GPT-4, ChatGPT) but not for evaluating generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluate generated argument structures based on Validity and Win/Tie/Lose criteria",
+      "Compare generated argument structure against provided reference structure"
+    ],
+    "criteria": [
+      "Validity",
+      "Lose"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Compare generated argument structure against provided reference structure"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Validity": "Validity",
+        "Win/Tie/Lose": "Win/Tie/Lose"
+      },
+      "explanation": "Added clarification about the comparison aspect in guidelines. The criteria remain the same as they are clearly specified in the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on causal fact verification through argument structure generation and evaluation. While the primary task is verification, it involves substantial NLG components including claim generation, evidence generation, and argument structure generation. The paper uses both automatic metrics and human evaluation, but does not use LLMs as judges. The extraction was generally accurate but needed minor refinements."
+}

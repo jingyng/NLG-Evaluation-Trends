@@ -1,0 +1,134 @@
+{
+  "paper_id": "2022.acl-long.591",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Other: Grammatical Error Correction"
+    ],
+    "datasets": [
+      "WMT19 English-German",
+      "CoNLL-2014 GEC",
+      "JFLEG",
+      "WMT19 German-English",
+      "WMT19 Finnish-English",
+      "WMT19 Lithuanian-English"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Finnish",
+      "Lithuanian"
+    ],
+    "models": [
+      "Transformer"
+    ],
+    "outputs": [
+      "translations",
+      "grammatically corrected sentences",
+      "target sequences given source sequences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "WMT19 German-English",
+          "WMT19 Finnish-English",
+          "WMT19 Lithuanian-English"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "MT-ende",
+          "MT-deen",
+          "MT-fien",
+          "MT-lten",
+          "GEC-conll14",
+          "GEC-jfleg"
+        ],
+        "languages": [],
+        "models": [
+          "BERT",
+          "GPT-3",
+          "T5",
+          "RoBERTa",
+          "XLNet"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Grammatical Error Correction": "Other: Grammatical Error Correction",
+        "WMT19 English-German test set": "WMT19 English-German",
+        "CoNLL-2014 shared task on GEC": "CoNLL-2014 GEC"
+      },
+      "explanation": "Removed models mentioned only in introduction (BERT, GPT-3, T5, RoBERTa, XLNet) as they're not actually used in the experiments. Normalized dataset names to standard forms and expanded WMT language pairs based on explicit mentions in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "BLEURT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Levenshtein distance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed Levenshtein distance as it's used only for calculating uncertainty scores between references, not for evaluating generated outputs. BLEU and BLEURT are correctly identified as the evaluation metrics used for system performance."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper. The extracted metadata was already empty, so no changes needed."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "The uncertainty u is defined as the average relative edit distance between two references, based on multi-reference annotations from human annotators."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed the uncertainty definition as it describes a methodological approach for quantifying uncertainty using existing multi-reference datasets, not a human evaluation of system outputs. The paper does not conduct human evaluations of the generated translations or corrections."
+    }
+  },
+  "overall_notes": "The paper is primarily an analysis paper studying how intrinsic uncertainty affects sequence-to-sequence models, with experiments focused on machine translation and grammatical error correction. The automatic metrics (BLEU, BLEURT) are used to evaluate system performance. No human evaluation or LLM-as-judge methods are employed. The extraction was mostly accurate but included some items that were mentioned in passing rather than actually used in the experiments."
+}

@@ -1,0 +1,152 @@
+{
+  "paper_id": "2024.emnlp-main.79",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM judgments against human evaluation on the same preference judgment task, reporting percentage agreement metrics for multiple languages and tasks"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "palm_2_l",
+      "gpt_4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper states evaluation prompts are included in \u00a7G.2, which contains more details such as evaluation prompts and positional bias control"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage agreement",
+      "value": "multiple values reported per dataset",
+      "interpretation": "Human-human agreement levels used as reference",
+      "per_criterion": [
+        {
+          "criterion": "summarization_english",
+          "metric": "percentage_agreement",
+          "value": 0.63
+        },
+        {
+          "criterion": "summarization_spanish",
+          "metric": "percentage_agreement",
+          "value": 0.67
+        },
+        {
+          "criterion": "dialog_generation",
+          "metric": "percentage_agreement",
+          "value": 0.63
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluation details including pairwise judgment setup and positional bias control mentioned in \u00a7G.2"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "percentage_agreement"
+    ],
+    "shared_criteria": [
+      "preference_judgment"
+    ],
+    "sample_size": {
+      "total_generated": "250 (RL) / 100 (best-of-n) instances per language pair",
+      "validated_by_both": "subset of language pairs and instances due to cost",
+      "notes": "Human evaluation conducted for a subset of language pairs and 250 (RL) / 100 (best-of-n) instances per pair"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "percentage_agreement",
+        "value": 0.65,
+        "criterion": "summarization_preference",
+        "llm_model": "palm_2_l",
+        "significance": "not reported",
+        "notes": "English summarization - matches human-human agreement of 63%"
+      },
+      {
+        "metric": "percentage_agreement",
+        "value": 0.69,
+        "criterion": "summarization_preference",
+        "llm_model": "gpt_4",
+        "significance": "not reported",
+        "notes": "English summarization - matches human-human agreement of 63%"
+      },
+      {
+        "metric": "percentage_agreement",
+        "value": 0.66,
+        "criterion": "summarization_preference",
+        "llm_model": "palm_2_l",
+        "significance": "not reported",
+        "notes": "Spanish summarization - matches human-human agreement of 67%"
+      },
+      {
+        "metric": "percentage_agreement",
+        "value": 0.62,
+        "criterion": "summarization_preference",
+        "llm_model": "gpt_4",
+        "significance": "not reported",
+        "notes": "Spanish summarization - matches human-human agreement of 67%"
+      },
+      {
+        "metric": "percentage_agreement",
+        "value": 0.69,
+        "criterion": "dialog_generation_preference",
+        "llm_model": "palm_2_l",
+        "significance": "not reported",
+        "notes": "English dialog - similar to human-human agreement of 63% in prior work"
+      },
+      {
+        "metric": "percentage_agreement",
+        "value": 0.59,
+        "criterion": "dialog_generation_preference",
+        "llm_model": "gpt_4",
+        "significance": "not reported",
+        "notes": "English dialog - similar to human-human agreement of 63% in prior work"
+      },
+      {
+        "metric": "percentage_agreement",
+        "value": 0.62,
+        "criterion": "dialog_generation_preference",
+        "llm_model": "palm_2_l",
+        "significance": "not reported",
+        "notes": "Spanish dialog - similar to human-human agreement of 66% in prior work"
+      },
+      {
+        "metric": "percentage_agreement",
+        "value": 0.6,
+        "criterion": "dialog_generation_preference",
+        "llm_model": "gpt_4",
+        "significance": "not reported",
+        "notes": "Spanish dialog - similar to human-human agreement of 66% in prior work"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "not explicitly labeled",
+      "threshold_used": "not provided",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM judges achieve 59-69% agreement with human preferences across languages and tasks, matching or approaching human-human agreement levels, suggesting reasonable reflection of output quality."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "preference_judgment"
+    ],
+    "notes": "Both LLM and human evaluators perform pairwise preference judgments comparing aligned model vs SFT model responses, using identical criteria"
+  }
+}

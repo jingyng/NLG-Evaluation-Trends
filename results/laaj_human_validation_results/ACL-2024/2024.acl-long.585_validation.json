@@ -1,0 +1,115 @@
+{
+  "paper_id": "2024.acl-long.585",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM hallucination detection results against human annotations on the same RAGTruth test set, reporting precision, recall, and F1 scores for both LLM judges and human evaluations as ground truth"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4-turbo",
+      "GPT-3.5-turbo"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "Prompts are described as 'manually crafted to instruct LLMs in assessing whether a given reference-response pair contains hallucinated content and to identify the corresponding hallucinated spans in the response' with detailed prompts in Appendix D (not shown in provided text)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": null,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage agreement",
+      "value": 91.8,
+      "interpretation": "high agreement at response level",
+      "per_criterion": [
+        {
+          "criterion": "span-level annotation",
+          "metric": "percentage agreement",
+          "value": 78.8
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed annotation guidelines include four hallucination types (Evident Conflict, Subtle Conflict, Baseless Info, Subjective Inference) and annotation examples shown in main text with span-level annotation interface described"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "precision",
+      "recall",
+      "F1"
+    ],
+    "shared_criteria": [
+      "hallucination_detection"
+    ],
+    "sample_size": {
+      "total_generated": 17790,
+      "validated_by_both": 450,
+      "notes": "Validation conducted on test set of 450 instances (150 from each task type) randomly selected from full corpus"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "F1",
+        "value": 63.4,
+        "criterion": "hallucination_detection",
+        "llm_model": "GPT-4-turbo",
+        "significance": null,
+        "notes": "Response-level detection average"
+      },
+      {
+        "metric": "F1",
+        "value": 58.8,
+        "criterion": "hallucination_detection",
+        "llm_model": "GPT-3.5-turbo",
+        "significance": null,
+        "notes": "SelfCheckGPT method response-level detection average"
+      },
+      {
+        "metric": "precision",
+        "value": 18.4,
+        "criterion": "hallucination_detection",
+        "llm_model": "GPT-4-turbo",
+        "significance": null,
+        "notes": "Span-level detection precision"
+      },
+      {
+        "metric": "F1",
+        "value": 52.7,
+        "criterion": "hallucination_detection",
+        "llm_model": "Llama-2-13B-finetuned",
+        "significance": null,
+        "notes": "Span-level detection average"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "sub-optimal",
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM judges show sub-optimal performance compared to human annotations, with GPT-4-turbo achieving 63.4% F1 at response level and only 18.4% precision at span level, highlighting the challenges of hallucination detection even for advanced LLMs."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "hallucination_intensity",
+      "hallucination_type_categorization"
+    ],
+    "shared_criteria": [
+      "hallucination_detection"
+    ],
+    "notes": "Both LLM judges and human evaluators detect hallucination presence, but humans provide additional fine-grained annotations including intensity assessment and categorization into four specific hallucination types"
+  }
+}

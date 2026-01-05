@@ -1,0 +1,158 @@
+{
+  "paper_id": "2022.emnlp-main.172",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "ARXIV",
+      "GOVREPORT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "pegasus",
+      "longformer_bart",
+      "longformer_pegasus"
+    ],
+    "outputs": [
+      "abstractive summaries",
+      "long document summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Longformer-BART",
+          "Longformer-PEGASUS"
+        ],
+        "outputs": [
+          "long document summaries"
+        ]
+      },
+      "removed": {
+        "models": [
+          "BART (ORACLE)",
+          "PEGASUS (ORACLE)",
+          "Longformer"
+        ],
+        "outputs": [
+          "summaries"
+        ]
+      },
+      "normalized": {
+        "Longformer-based BART": "Longformer-BART",
+        "Longformer-based PEGASUS": "Longformer-PEGASUS"
+      },
+      "explanation": "Normalized model names to consistent format. Removed 'ORACLE' variants as they are configurations rather than distinct models. Added 'long document summaries' to better describe the output type."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "METEOR",
+      "BERTSCORE",
+      "BARTSCORE",
+      "FACTCC",
+      "FEQA",
+      "QUAL",
+      "TE MNLI",
+      "SUMMAC",
+      "OPENIE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BARTS-ZS": "BARTScore",
+        "BARTS-FT": "BARTScore",
+        "MNLI-TE": "TE-MNLI"
+      },
+      "explanation": "Normalized metric names to base forms. Combined BARTScore variants into single metric. All extracted metrics are correctly identified from the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BART"
+        ],
+        "methods": [
+          "zero-shot evaluation",
+          "fine-tuned evaluation"
+        ],
+        "criteria": [
+          "relevance",
+          "factual consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as the paper does NOT use LLMs as judges. BART is used as an automatic metric (BARTScore), not as an LLM judge. The criteria listed are for human evaluation, not LLM evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Relevance: percentage of reference summary's main ideas contained in generated summary",
+      "Factual consistency: percentage of factually consistent sentences based on seven error types"
+    ],
+    "criteria": [
+      "Relevance",
+      "Factuality",
+      "Prede",
+      "Entity",
+      "Circe",
+      "Corefe",
+      "Linke",
+      "Oute",
+      "Grame"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Relevance: percentage of reference summary's main ideas contained in generated summary",
+          "Factual consistency: percentage of factually consistent sentences based on seven error types"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Relevance measures whether a summary contains the main ideas of the source. Factual consistency measures whether a candidate summary is factually consistent with the source.",
+          "Annotators rated each generated summary on relevance and factual consistency.",
+          "Relevance measures whether a summary contains the main ideas of the source. Factual consistency measures whether a candidate summary is factually consistent with the source."
+        ]
+      },
+      "normalized": {
+        "PredEpredicate": "PredE",
+        "EntityE": "EntityE",
+        "CircE": "CircE",
+        "CorefE": "CorefE",
+        "LinkE": "LinkE",
+        "OutE": "OutE",
+        "GramE": "GramE"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into clear, concise statements. Normalized error type abbreviations. All criteria are correctly extracted from the human evaluation section."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on long document abstractive summarization, evaluating both models (BART, PEGASUS with Longformer extensions) and metrics. Human evaluation was conducted by three annotators with detailed guidelines. The paper does NOT use LLMs as judges - BART is used as an automatic metric (BARTScore), not as an evaluator LLM. All automatic metrics are correctly identified and normalized."
+}

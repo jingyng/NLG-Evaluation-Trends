@@ -1,0 +1,148 @@
+{
+  "paper_id": "2020.acl-main.327",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT15",
+      "WMT16",
+      "WMT17"
+    ],
+    "languages": [
+      "Czech",
+      "German",
+      "Finnish",
+      "Latvian",
+      "Romanian",
+      "Russian",
+      "Turkish",
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "xlm",
+      "bert_regressor",
+      "xlm_15",
+      "xlm_100",
+      "multilingual_bert"
+    ],
+    "outputs": [
+      "translation hypothesis",
+      "translation hypotheses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "WMT-2016"
+        ],
+        "languages": [],
+        "models": [
+          "BERT regressor"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WMT-2017 Metrics Shared Task"
+        ],
+        "languages": [],
+        "models": [
+          "RUSE",
+          "BERT",
+          "InferSent",
+          "Quick Thought",
+          "Universal Sentence Encoder"
+        ],
+        "outputs": [
+          "translated hypothesis sentences"
+        ]
+      },
+      "normalized": {
+        "WMT2015": "WMT-2015",
+        "WMT2016": "WMT-2016",
+        "WMT2017": "WMT-2017"
+      },
+      "explanation": "Removed models mentioned only in background/literature review (RUSE, BERT, InferSent, QuickThought, Universal Sentence Encoder) since they're not the main models being evaluated. Added BERT regressor which was actually implemented and evaluated. Normalized dataset names to consistent hyphenated format. Only kept the main NLG models evaluated in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SENT BLEU",
+      "BERT REGRESSOR",
+      "PEARSON CORRELATION",
+      "BLEU",
+      "METEOR",
+      "WORD MOVER S DISTANCE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Pearson's correlation"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "bleu2vec",
+          "RUSE",
+          "hyp+src/hyp+ref",
+          "hyp+src+ref"
+        ]
+      },
+      "normalized": {
+        "Word Mover's Distance": "Word Mover's Distance"
+      },
+      "explanation": "Removed bleu2vec (mentioned in passing), RUSE (background metric), and the author's proposed method architectures (hyp+src/hyp+ref, hyp+src+ref) since these are not standard automatic metrics but rather model architectures. Added Pearson's correlation which is the main evaluation metric used to assess performance. Kept the standard automatic metrics mentioned."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges in this paper. The language models (XLM, BERT) are used as feature extractors for regression models, not as evaluators of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Correlation with human Direct Assessment (DA) scores"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "human judgments in the test set"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Streamlined the guideline description to focus on the main evaluation methodology. The paper uses existing human evaluation scores (Direct Assessment) from WMT shared tasks and calculates correlation, but doesn't specify explicit criteria like fluency/relevance that were used in the original human evaluation."
+    }
+  },
+  "overall_notes": "This paper focuses on machine translation evaluation using source language inputs with cross-lingual language models. The extraction was generally good but included some background/literature review items that weren't part of the actual evaluation. The paper uses existing human evaluation data (Direct Assessment scores from WMT) rather than conducting new human evaluations."
+}

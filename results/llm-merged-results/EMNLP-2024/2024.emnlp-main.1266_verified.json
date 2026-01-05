@@ -1,0 +1,158 @@
+{
+  "paper_id": "2024.emnlp-main.1266",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Instruction Following"
+    ],
+    "datasets": [
+      "AlpacaFarm",
+      "Anthropic HH Dataset"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Pythia-1.4B",
+      "Pythia-160M",
+      "Pythia-2.8B",
+      "GPT-2",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "instruction-following responses",
+      "dialogue responses",
+      "helpful and harmless responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Instruction Following"
+        ],
+        "models": [
+          "GPT-2"
+        ],
+        "outputs": [
+          "instruction-following responses",
+          "helpful and harmless responses"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "models": [
+          "Pythia 1.4B",
+          "Pythia 160M",
+          "Pythia 2.8B",
+          "Pythia",
+          "OpenAssistant/reward-model-deberta-v3-large-v2"
+        ],
+        "outputs": [
+          "generated responses for instruction following and dialogue"
+        ]
+      },
+      "normalized": {
+        "Anthropic HH": "Anthropic HH Dataset",
+        "Dialogue generation": "Dialogue Generation"
+      },
+      "explanation": "Removed reward models (non-NLG models) and tasks not evaluated (summarization). Added 'Instruction Following' as a core task. Normalized dataset names and corrected model list to include only NLG models actually used for generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Reward Model Score",
+      "KL Divergence",
+      "Win Rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Win Rate"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "gold reward score",
+          "Gold reward model score",
+          "gold RM score"
+        ]
+      },
+      "normalized": {
+        "gold reward score": "Reward Model Score",
+        "gold reward model sco": "Reward Model Score",
+        "gold RM score": "Reward Model Score",
+        "win rate": "Win Rate"
+      },
+      "explanation": "Normalized all reward model variants to 'Reward Model Score' and added missing 'Win Rate' metric. KL Divergence was correctly identified as an RL metric used during training."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "pairwise win-rate evaluation"
+    ],
+    "criteria": [
+      "helpfulness",
+      "harmlessness"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "helpfulness",
+          "harmlessness"
+        ]
+      },
+      "removed": {
+        "models": [
+          "OpenAssistant/reward-model-deberta-v3-large-v2"
+        ],
+        "methods": [
+          "pairwise evaluation",
+          "reward scoring of generated responses"
+        ],
+        "criteria": [
+          "overall preference"
+        ]
+      },
+      "normalized": {
+        "pairwise win‑rate evaluation": "pairwise win-rate evaluation"
+      },
+      "explanation": "Removed reward model (not an LLM judge) and focused on GPT-4o as the explicit LLM judge. Simplified criteria to those explicitly used by GPT-4o (helpfulness, harmlessness)."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators independently evaluated which response was preferable for each prompt"
+    ],
+    "criteria": [
+      "preference"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators independently evaluated which response was preferable for each prompt"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "helpfulness",
+          "harmlessness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Added proper guideline description from the paper. Removed specific criteria (helpfulness, harmlessness) as the human evaluation used only overall preference judgment, not specific criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on alignment methods (DPO/fDPO) for instruction following and dialogue generation. Extraction was generally good but included some reward models incorrectly as NLG models. The paper uses both automatic metrics (reward scoring), LLM judges (GPT-4o), and human evaluation to assess generated outputs."
+}

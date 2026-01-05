@@ -1,0 +1,100 @@
+{
+  "paper_id": "2025.emnlp-main.1160",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-as-a-judge against human evaluation by computing Pearson, Spearman, and Kendall correlation coefficients to quantify consistency between LLM judges and humans on GPT-4o-Audio-Preview responses"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4o",
+      "DeepSeek-R1"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "repository",
+      "rubric_or_examples_shown": "no",
+      "notes": "Paper mentions prompts are listed in the repository but exact prompt text is not provided in the paper text"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human experts manually label whether each response is correct, following best practice for human evaluation (van der Lee et al., 2019)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation",
+      "Kendall correlation"
+    ],
+    "shared_criteria": [
+      "correctness"
+    ],
+    "sample_size": {
+      "total_generated": 1079,
+      "validated_by_both": "GPT-4o-Audio-Preview responses for C3 data",
+      "notes": "Human evaluation conducted specifically on GPT-4o-Audio-Preview responses for C3 dataset"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": ">0.87",
+        "criterion": "Correctness",
+        "llm_model": "both",
+        "significance": "p<0.001",
+        "notes": "All coefficients' values are more than 0.87 in either English or Chinese subset, for both LLMs"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": ">0.87",
+        "criterion": "Correctness",
+        "llm_model": "both",
+        "significance": "p<0.001",
+        "notes": "All coefficients' values are more than 0.87 in either English or Chinese subset, for both LLMs"
+      },
+      {
+        "metric": "Kendall correlation",
+        "value": ">0.87",
+        "criterion": "Correctness",
+        "llm_model": "both",
+        "significance": "p<0.001",
+        "notes": "All coefficients' values are more than 0.87 in either English or Chinese subset, for both LLMs"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM judges have high consistency with humans (all correlations >0.87, p<0.001) in both English and Chinese subsets, validating the reliability of the automatic evaluation method."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "audio phonological features"
+    ],
+    "shared_criteria": [
+      "Correctness"
+    ],
+    "notes": "LLM judges evaluate transcribed text for most tasks, while humans also evaluate audio outputs for phonological features generation task"
+  }
+}

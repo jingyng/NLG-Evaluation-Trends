@@ -1,0 +1,135 @@
+{
+  "paper_id": "2025.acl-long.304",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Factoid Generation",
+      "Other:Question Answering",
+      "Other:Factuality Self-Evaluation"
+    ],
+    "datasets": [
+      "True-False Dataset",
+      "OPT-Generated Dataset",
+      "TriviaQA",
+      "SQuAD 2.0",
+      "TruthfulQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "OPT-6.7B",
+      "Llama 2-7B",
+      "GPT-4"
+    ],
+    "outputs": [
+      "Factoid statements",
+      "Question answers",
+      "True/false statements"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4"
+        ],
+        "outputs": [
+          "Question answers"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT-4o mini"
+        ],
+        "outputs": [
+          "generated statements, true and false facts, factoid sentences"
+        ]
+      },
+      "normalized": {
+        "OPT-6.7b": "OPT-6.7B",
+        "Llama 2-7b": "Llama 2-7B",
+        "True-False dataset": "True-False Dataset",
+        "Other:factuality self-evaluation": "Other:Factuality Self-Evaluation"
+      },
+      "explanation": "Normalized model names to standard capitalization, added GPT-4 as evaluator model, clarified outputs, and removed redundant output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "AUC"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No changes needed - Accuracy and AUC are correctly extracted as the main automatic metrics used for evaluating the factuality classification performance"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "3-shot prompting",
+      "Veracity annotation"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT-4o mini"
+        ],
+        "methods": [
+          "oracle annotation of veracity",
+          "3-shot learning strategy"
+        ],
+        "criteria": [
+          "veracity"
+        ]
+      },
+      "normalized": {
+        "GPT-4o mini": "GPT-4",
+        "correctness": "Correctness"
+      },
+      "explanation": "Normalized GPT-4o mini to GPT-4 (the actual model used), simplified method descriptions, and normalized criteria to 'Correctness'"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Manual fact-checking and annotation by three independent human judges"
+    ],
+    "criteria": [
+      "Factual accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual fact-checking and annotation by three independent human judges"
+        ],
+        "criteria": [
+          "Factual accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Non-factual responses were filtered out, resulting in a final set of 245 statements"
+        ]
+      },
+      "normalized": {
+        "factual accuracy": "Factual accuracy"
+      },
+      "explanation": "Changed answer from No to Yes because the paper explicitly mentions human annotation for the OPT-Generated Dataset. Added proper guideline description and criteria."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on factuality self-evaluation in LLMs through probing techniques. While it does involve NLG (generating factoid statements and QA responses), the main contribution is evaluating whether LLMs can internally detect their own factual errors. The human evaluation was limited to dataset construction rather than systematic output evaluation. The paper uses GPT-4 as an 'oracle' for veracity annotation of generated answers."
+}

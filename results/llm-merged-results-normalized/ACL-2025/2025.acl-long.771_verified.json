@@ -1,0 +1,146 @@
+{
+  "paper_id": "2025.acl-long.771",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation"
+    ],
+    "datasets": [
+      "HumanEval",
+      "MBPP",
+      "DS 1000",
+      "LIVECODEBENCH",
+      "EFFIBENCH"
+    ],
+    "languages": [
+      "Python",
+      "English"
+    ],
+    "models": [
+      "phi_2",
+      "deepseekcoder",
+      "deepseekcoder_v_2",
+      "starcoder_2",
+      "magicoder_cl_7b",
+      "magicoder_s_cl_7b",
+      "magicoder_ds_6.7b",
+      "magicoder_s_ds_6.7b",
+      "gpt_4",
+      "code_llama"
+    ],
+    "outputs": [
+      "source code",
+      "code snippets"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "EffiBench"
+        ],
+        "languages": [],
+        "models": [
+          "DeepSeekCoder-v2"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Phi-2-2.7B",
+          "DeepSeekCoder-base (1.3B)",
+          "DeepSeekCoder-base (6.7B)",
+          "StarCoder2-base (7B)",
+          "DeepSeekCoder-6.7B",
+          "StarCoder2-base",
+          "StarCoder"
+        ],
+        "outputs": [
+          "source code in Python"
+        ]
+      },
+      "normalized": {
+        "Phi-2 (2.7B)": "Phi-2",
+        "DeepSeekCoder-base (1.3B)": "DeepSeekCoder",
+        "DeepSeekCoder-base (6.7B)": "DeepSeekCoder",
+        "StarCoder2-base (7B)": "StarCoder2",
+        "DeepSeekCoder-base": "DeepSeekCoder"
+      },
+      "explanation": "Normalized model names by removing version details when redundant, added missing DeepSeekCoder-v2 model used for data generation, added EffiBench benchmark, consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PASS RATE",
+      "EXECUTION TIME",
+      "SPEEDUP RATIO",
+      "PERCENTAGE OF OPTIMIZED CODE",
+      "SPEARMAN CORRELATION",
+      "KENDALL S TAU",
+      "NDCG",
+      "MEMORY USAGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "memory usage"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "pass@1"
+        ]
+      },
+      "normalized": {
+        "Normalized Discounted Cumulative Gain (NDCG)": "NDCG",
+        "Spearman": "Spearman correlation"
+      },
+      "explanation": "Normalized metric names, removed pass@1 (not explicitly mentioned as metric), added memory usage metric mentioned in EffiBench experiments."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-judge evaluation used in the paper. The paper only uses automatic execution-based metrics and test case validation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted in the paper. All evaluations are automatic using code execution metrics."
+    }
+  },
+  "overall_notes": "The paper focuses exclusively on code generation evaluation using automatic execution-based metrics (correctness via test case pass rates and efficiency via execution time/memory usage). No human or LLM-based evaluation is performed. The extraction was generally accurate but needed normalization of model names and addition of one benchmark (EffiBench) and metric (memory usage) mentioned in the appendix."
+}

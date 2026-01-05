@@ -1,0 +1,118 @@
+{
+  "paper_id": "2025.emnlp-main.1587",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares LLM-as-a-judge with human evaluation by reporting Cohen's kappa agreement scores between GPT-4o and native speakers across the same evaluation metrics (GM, GA, Q) applied to the same summaries generated with and without guardrails."
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "gpt_4o",
+      "Phi-3.5-MoE-Instruct",
+      "qwen_2.5_vl_7b"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix/main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper includes verbatim prompts for GM, GA, and Q in Appendix E. Evaluation uses both Individual assessments (single summary evaluated on all metrics) and Side-by-Side evaluations comparing guardrail vs baseline summaries."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.75,
+      "interpretation": "weighted average across metrics",
+      "per_criterion": [
+        {
+          "criterion": "GM",
+          "metric": "Cohen's kappa",
+          "value": 0.42
+        },
+        {
+          "criterion": "GA",
+          "metric": "Cohen's kappa",
+          "value": 0.82
+        },
+        {
+          "criterion": "Q",
+          "metric": "Cohen's kappa",
+          "value": 0.63
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluations used same GM, GA, Q metrics as LLM evaluators. Human annotators were native speakers with linguistics training (76%) following detailed annotation practices described in Section 8."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Cohen's kappa"
+    ],
+    "shared_criteria": [
+      "GM",
+      "GA",
+      "Q"
+    ],
+    "sample_size": {
+      "total_generated": 20,
+      "validated_by_both": 20,
+      "notes": "Evaluations done on 20 gold transcripts per language (subsampled 27 languages for human evaluation). Validation uses same instances evaluated by both humans and LLMs."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.42,
+        "criterion": "GM",
+        "llm_model": "gpt_4o",
+        "significance": "not_reported",
+        "notes": "For Gender Assumption (GA)"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.14,
+        "criterion": "GM",
+        "llm_model": "gpt_4o",
+        "significance": "not_reported",
+        "notes": "For Gender Mistake (GM)"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.03,
+        "criterion": "Q",
+        "llm_model": "gpt_4o",
+        "significance": "not_reported",
+        "notes": "For Quality (Q)"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "moderate to weak alignment",
+      "threshold_used": "Not explicitly stated, but kappa values indicate varying agreement levels",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM judgments show moderate agreement with humans on GA (κ=0.42) but poor alignment on GM (κ=0.14) and Q (κ=0.03); LLMs particularly struggle with low-resource languages and show position bias in SBS evaluation for quality."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "GM",
+      "GA",
+      "Q"
+    ],
+    "notes": "Both LLM and human evaluators used identical criteria (Binary GM/GA, Ternary Quality) on the same set of summaries, enabling direct validation."
+  }
+}

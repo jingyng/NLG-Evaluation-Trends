@@ -1,0 +1,51 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We adapt the prompt design ... to generate N candidate positive queries per page. ... we use the Qwen2.5-7B-Instruct LLM to generate 12 variants of the positive query ... These are designed to be similar in topic and form but seek different information.",
+        "tasks": [
+            "Other:Question Generation"
+        ],
+        "datasets": [
+            "FinTabNet",
+            "ColPali training set"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Pixtral-12B",
+            "Qwen2.5-7B-Instruct",
+            "Qwen2.5-7B-Language Model"
+        ],
+        "outputs": "generated positive queries and hard negative queries (questions) for each document page"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "The generated negatives show a distribution closely aligned with the positives, indicating both diversity and realism. The Fréchet Distance between the two distributions is also very low (FD = 0.090), confirming statistical similarity.",
+        "automatic_metrics": [
+            "Fréchet Distance",
+            "t-SNE visualization"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "Each candidate query is validated using the Qwen2.5-VL-7B-Instruct VLM. We input the document page along with each negative candidate ... only queries that both prompts classify as unanswerable are kept as valid hard negatives.",
+        "models": [
+            "Qwen2.5-VL-7B-Instruct"
+        ],
+        "methods": [
+            "binary answerability verification via prompts"
+        ],
+        "criteria": [
+            "answerability (answerable vs unanswerable)"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "Six annotators were presented with a document page and two to five negative queries (242 queries in total). For each query, they judged whether the page contained an answer.",
+        "guideline": "Annotators were asked to judge whether the page contains an answer to each query.",
+        "criteria": [
+            "answerability correctness"
+        ]
+    }
+}

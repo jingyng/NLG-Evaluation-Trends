@@ -1,0 +1,142 @@
+{
+  "paper_id": "2021.emnlp-main.9",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "Human-annotated small dataset"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "SumFC",
+      "FactCC",
+      "FactCCX",
+      "QAGS",
+      "BERT+MNLI",
+      "BERT+FEVER"
+    ],
+    "outputs": [
+      "Factual consistency scores for summary sentences",
+      "Binary consistency labels"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Factual consistency scores for summary sentences",
+          "Binary consistency labels"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Abstractive Summarization Models"
+        ],
+        "outputs": [
+          "Generated summaries",
+          "abstractive summaries"
+        ]
+      },
+      "normalized": {
+        "SumFC (ours)": "SumFC",
+        "BERT+MNLI": "BERT+MNLI",
+        "BERT+FEVER": "BERT+FEVER",
+        "FactCC": "FactCC",
+        "FactCCX": "FactCCX",
+        "QAGS": "QAGS"
+      },
+      "explanation": "Removed 'Abstractive Summarization Models' as these are the target systems being evaluated, not models proposed. Removed 'Generated summaries' as outputs since the paper evaluates consistency, not generates summaries. Added more accurate output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Balanced Accuracy",
+      "F1 Score",
+      "Percentage Correct",
+      "Precision-Recall AUC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1",
+          "balanced accuracy (BA)",
+          "F1 score",
+          "Percentage of correctly ordered sentence pairs"
+        ]
+      },
+      "normalized": {
+        "balanced accuracy (BA)": "Balanced Accuracy",
+        "F1": "F1 Score",
+        "F1 score": "F1 Score",
+        "Percentage of correctly ordered sentence pairs": "Percentage Correct"
+      },
+      "explanation": "Normalized metric names to standard forms and removed duplicates"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleaned up empty values - paper does not use LLMs as judges"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "The dataset contains human-annotated labels for factual consistency, used to evaluate model performance on factual correctness."
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses human-annotated data for ground truth, but does not conduct human evaluation of generated outputs. The annotations are for creating test sets, not for evaluating the model outputs themselves."
+    }
+  },
+  "overall_notes": "The paper focuses on factual consistency evaluation for abstractive summarization. The main contribution is the SumFC framework for assessing whether generated summaries are factually consistent with source documents. The extraction was generally good but needed clarification on what constitutes human evaluation vs. using human-annotated ground truth data."
+}

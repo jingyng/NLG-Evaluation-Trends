@@ -1,0 +1,153 @@
+{
+  "paper_id": "2020.emnlp-main.58",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Abductive Reasoning Generation",
+      "Other:Counterfactual Story Rewriting"
+    ],
+    "datasets": [
+      "ART",
+      "TIMETRAVEL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-2",
+      "BERT",
+      "DELOREAN"
+    ],
+    "outputs": [
+      "Generated hypotheses for abductive reasoning",
+      "Rewritten story endings for counterfactual reasoning"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Abductive Reasoning",
+          "Other:Counterfactual Reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT2-345M"
+        ],
+        "outputs": [
+          "hypothesis Y for abductive reasoning; rewritten story ending Y for counterfactual reasoning",
+          "She hit the rope and the tire fell on top of her"
+        ]
+      },
+      "normalized": {
+        "GPT2-345M": "GPT-2"
+      },
+      "explanation": "Removed redundant task descriptions and simplified to the two main NLG tasks. Removed specific example output as it's not a general description. Normalized GPT2-345M to GPT-2 since it's the base model."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "BERTSCORE": "BERTScore"
+      },
+      "explanation": "Normalized metric variants to base forms (BLEU-4 → BLEU, ROUGE-L → ROUGE, BERTSCORE → BERTScore)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BERT"
+        ],
+        "methods": [
+          "next-sentence prediction (NSP) for coherence scoring",
+          "unsupervised ranking using BERT next-sentence prediction",
+          "next-sentence prediction"
+        ],
+        "criteria": [
+          "coherence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. BERT's NSP is used as an automatic metric for ranking, not as an LLM judge in the modern sense. This is not LLM-as-judge evaluation but rather using a pre-trained model's scoring function for automatic ranking."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers rate coherence on 4-point Likert scale for X-Y, Y-Z, and X-Y-Z relations",
+      "Workers judge minimal edits for counterfactual task",
+      "Pairwise comparison between systems for both tasks"
+    ],
+    "criteria": [
+      "coherence",
+      "minimal edits"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Pairwise comparison between systems for both tasks"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Workers were asked to rate coherence on a 4-point Likert scale for specific relations (e.g., X-Y, Y-Z, X-Y-Z) and judge minimal edits.",
+          "Workers rate coherence of generated text with respect to X, Z, and both using a 4‑point Likert scale.",
+          "workers were presented a pair of observations (X and Z) and a generated hypothesis Y , and asked to rate the coherence of the hypothesis with respect to the observation X (X-Y ), the observation Z (Y -Z), and both (X-Y -Z), on a 4-point Likert scale."
+        ],
+        "criteria": [
+          "coherence (X-Y)",
+          "coherence (Y-Z)",
+          "coherence (X-Y-Z)",
+          "X‑Y coherence",
+          "Y‑Z coherence",
+          "X‑Y‑Z coherence"
+        ]
+      },
+      "normalized": {
+        "coherence (X-Y)": "coherence",
+        "coherence (Y-Z)": "coherence",
+        "coherence (X-Y-Z)": "coherence",
+        "X‑Y coherence": "coherence",
+        "Y‑Z coherence": "coherence",
+        "X‑Y‑Z coherence": "coherence"
+      },
+      "explanation": "Consolidated redundant guideline descriptions and normalized specific coherence criteria to general 'coherence' criterion. Added mention of pairwise comparison method."
+    }
+  },
+  "overall_notes": "The paper presents DELOREAN, an unsupervised decoding method for NLG tasks. The extraction was generally good but needed normalization and some corrections. The most significant change was correcting Q3 - while BERT is used for automatic scoring via NSP, this is not 'LLM-as-judge' evaluation in the modern sense, but rather using a pre-trained model's capabilities as an automatic metric."
+}

@@ -1,0 +1,156 @@
+{
+  "paper_id": "2025.acl-long.896",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering"
+    ],
+    "datasets": [
+      "MedQA",
+      "MedMCQA",
+      "MMLU-Medical",
+      "StrategyQA",
+      "CommonsenseQA",
+      "PIQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA 3.2 3B",
+      "LLaMA 3.1 8B",
+      "LLaMA 3.1 70B",
+      "Meditron 70B",
+      "Mixtral 8x7B",
+      "GPT-3.5",
+      "GPT-4",
+      "GPT-4o"
+    ],
+    "outputs": [
+      "Generated reasoning paths and final answers for question-answering tasks",
+      "Multiple-choice answers with generated reasoning paths"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Mixtral (8x7B)": "Mixtral 8x7B",
+        "GPT-4o Mini": "GPT-4o"
+      },
+      "explanation": "Normalized model names to standard formats and removed 'GPT-4o Mini' as it's redundant with GPT-4o. Kept 'Other:Question Answering' as the paper focuses on reasoning-enhanced QA without traditional NLG tasks."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Factuality Score",
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Removed 'Factuality Score' as it's used for LLM-as-judge evaluation, not automatic metric evaluation. Kept only 'Accuracy' as the primary automatic metric used to evaluate generated outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "LLaMA 3.1"
+    ],
+    "methods": [
+      "Retrieval-Augmented Factuality Scorer (RAFS)",
+      "statement-level factuality scoring"
+    ],
+    "criteria": [
+      "factual accuracy",
+      "alignment with retrieved evidence"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLaMA 3.1 8B",
+          "LLaMA 3.2"
+        ],
+        "methods": [
+          "factuality scoring with retrieval"
+        ],
+        "criteria": [
+          "Supported vs Not Supported",
+          "Factuality"
+        ]
+      },
+      "normalized": {
+        "factuality scoring with retrieval-augmented LLM": "Retrieval-Augmented Factuality Scorer (RAFS)",
+        "LLaMA 3.1": "LLaMA 3.1"
+      },
+      "explanation": "Consolidated model references to 'LLaMA 3.1' as the paper clarifies all evaluations use Instruct versions. Simplified methods to the main RAFS approach and removed redundant criteria."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Medical experts labeled each reasoning statement as Correct or Incorrect based on alignment with medical knowledge and evidence",
+      "Annotators were medical experts who passed USMLE examination"
+    ],
+    "criteria": [
+      "factual accuracy",
+      "correctness of statements"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators were medical experts who passed USMLE examination"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators labeled each statement as Correct or Incorrect, corresponding to RAFS's Supported and Not Supported labels.",
+          "Medical experts labeled each statement as Correct or Incorrect, corresponding to Supported and Not Supported labels.",
+          "Label each reasoning statement as Correct or Incorrect based on alignment with medical knowledge and evidence."
+        ],
+        "criteria": [
+          "Correctness of statements",
+          "Correct",
+          "Incorrect"
+        ]
+      },
+      "normalized": {
+        "factual accuracy": "factual accuracy",
+        "Correctness of statements": "correctness of statements"
+      },
+      "explanation": "Consolidated guideline descriptions and simplified criteria to the essential evaluation dimensions. Added qualification information about annotators being medical experts."
+    }
+  },
+  "overall_notes": "The paper focuses on retrieval-augmented reasoning enhancement for question answering, using LLM-as-judge (RAFS) for factuality scoring. Automatic evaluation is primarily through accuracy metrics. The human evaluation was conducted by domain experts for medical factuality verification. The extraction was generally accurate but needed normalization of model names and clarification of evaluation methodology distinctions."
+}

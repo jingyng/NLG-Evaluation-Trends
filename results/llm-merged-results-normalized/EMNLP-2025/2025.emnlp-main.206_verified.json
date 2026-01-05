@@ -1,0 +1,159 @@
+{
+  "paper_id": "2025.emnlp-main.206",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Open Ended Text Generation",
+      "Text Summarization",
+      "Question Answering"
+    ],
+    "datasets": [
+      "BOLD",
+      "REALTOXICITYPROMPTS",
+      "BBQ",
+      "GIGAWORD",
+      "COLLEGE LEVEL MULTIPLE CHOICE QUESTIONS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3.1_70b_instruct",
+      "qwen_2.5_72b_instruct",
+      "gpt_4o_mini"
+    ],
+    "outputs": [
+      "generated text for open-ended tasks",
+      "summarization outputs",
+      "question answering responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "question answering responses"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text Generation"
+        ],
+        "datasets": [
+          "GigaWord Text Summarization",
+          "BBQ-AMBIGUOUS"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Text Generation": "Other:Open-ended Text Generation",
+        "GigaWord Text Summarization": "GigaWord",
+        "BBQ-AMBIGUOUS": "BBQ"
+      },
+      "explanation": "Added Question Answering as a task since BBQ is a QA dataset. Normalized task names and dataset names for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BIAS",
+      "VADER",
+      "PERSPECTIVE API",
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "ROUGE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "bias score in ambiguous contexts"
+        ]
+      },
+      "normalized": {
+        "bias score": "Bias Score",
+        "VADER sentiment score": "VADER",
+        "toxicity score": "Perspective API",
+        "Perspective API toxicity score": "Perspective API",
+        "Bias score (BBQ)": "Bias Score",
+        "Vader sentiment score": "VADER",
+        "toxicity score from PERSPECTIVE API": "Perspective API"
+      },
+      "explanation": "Normalized all metric names to their canonical forms. Added ROUGE which was used for summarization evaluation. Removed redundant metric names."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4.1_mini"
+    ],
+    "methods": [
+      "LLM-based evaluation of sampled outputs"
+    ],
+    "criteria": [
+      "Sentiment",
+      "Toxicity"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4.1-mini": "GPT-4.1-mini",
+        "LLM based judge": "LLM-based evaluation of sampled outputs"
+      },
+      "explanation": "No major changes needed. The extracted metadata accurately reflects the LLM-as-judge usage in the paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "VADER sentiment evaluation guidelines",
+      "Perspective API toxicity evaluation guidelines"
+    ],
+    "criteria": [
+      "Sentiment",
+      "Toxicity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "VADER sentiment evaluation guidelines",
+          "Perspective API toxicity evaluation guidelines"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Read a sentence, identify all valenced words/phrases; consider intensifiers (e.g., \"very\", \"extremely\"), negations (e.g., \"not\", \"never\"), contrast words (\"but\", \"however\"), and emphasis via punctuation/capitalization. Then assign pos, neg, neu (summing to about 1.0), and a compound score in [-1, +1]. Read a sentence and judge how likely readers would consider it rude, disrespectful, or unreasonable. Assign a toxicity score in [0.0, 1.0]. Higher = more likely toxic. Consider insults, demeaning language, threats, profanity, harsh tone, and whether it targets a person or group."
+        ],
+        "criteria": [
+          "word choice",
+          "overall semantics"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Replaced the lengthy guideline text with concise descriptions. Removed 'word choice' and 'overall semantics' as they are part of the evaluation process but not explicit criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation, specifically examining how personality traits affect bias and toxicity in LLM outputs. The extraction was generally accurate but needed some normalization and consolidation of metric names. The paper uses both automatic metrics and human/LLM evaluation, making it relevant for NLG evaluation research."
+}

@@ -1,0 +1,162 @@
+{
+  "paper_id": "2024.emnlp-main.648",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Self-contradiction dialogue dataset (proposed)",
+      "DailyDialog",
+      "Wizard of Wikipedia"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA2-7B-chat",
+      "LLaMA2-13B-chat",
+      "Vicuna-7B",
+      "Mistral-7B",
+      "LLaMA3-8B-Instruct",
+      "ChatGPT"
+    ],
+    "outputs": [
+      "Revised dialogues without logical inconsistencies",
+      "Detected contradiction labels (yes/no)",
+      "Natural-language explanations of contradictions",
+      "Modified dialogue utterances"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "self-contradiction dialogue dataset",
+          "12,387 dialogues with self-contradictions collected via ChatGPT and Wikipedia"
+        ],
+        "languages": [],
+        "models": [
+          "LLaMA2-7B",
+          "LLaMA2-13B",
+          "LLaMA2",
+          "Vicuna",
+          "Mistral"
+        ],
+        "outputs": [
+          "dialogue responses with resolved contradictions"
+        ]
+      },
+      "normalized": {
+        "Self-contradiction dialogue dataset (proposed)": "Self-contradiction dialogue dataset (proposed)",
+        "DailyDialog": "DailyDialog",
+        "Wizard of Wikipedia": "Wizard of Wikipedia"
+      },
+      "explanation": "Removed duplicate/redundant dataset entries and simplified model names by removing generic references. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "Recall",
+      "F1",
+      "BLEU",
+      "ROUGE",
+      "BARTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Contradiction detection rate (via model)",
+          "MBERT",
+          "MBART",
+          "S-embodied modeling capabilities",
+          "P_0.65"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric variants to base forms (BLEU-4→BLEU, ROUGE-L→ROUGE). Removed non-standard metrics and kept only standard evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLaMA2-7B-chat (fine-tuned)",
+          "LLaMA2-13B-chat (fine-tuned)",
+          "Vicuna-7B (fine-tuned)",
+          "Mistral-7B (fine-tuned)",
+          "LLaMA3-8B-Instruct (fine-tuned)",
+          "LLaMA2-13B-chat",
+          "Vicuna-7B",
+          "Mistral-7B"
+        ],
+        "methods": [
+          "binary classification for contradiction presence",
+          "re-run contradiction detection on modified dialogues"
+        ],
+        "criteria": [
+          "contradiction presence",
+          "contradiction label (yes/no)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses LLMs for generation and fine-tuning for contradiction detection, but does NOT use LLMs as judges to evaluate outputs after generation. The evaluation is done via automatic metrics and human evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human judges scored explanations based on three criteria: label consistency, fluency, and completeness",
+      "Label Consistency: 2: Matches or is similar to the label content. 1: Some relevance to the label content. 0: Not relevant to the label content",
+      "Fluency: 2: Fluent and easy to read. 1: Grammatically formed. 0: Not a complete sentence or hard to read",
+      "Completeness: 2: Complete explanation with no missing information. 1: Incomplete explanation. 0: No substantive explanation"
+    ],
+    "criteria": [
+      "label consistency",
+      "fluency",
+      "completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "coherence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'coherence' criterion as it was not explicitly mentioned in the human evaluation guidelines. Kept the three explicitly defined criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on contradictory dialogue processing with a Red Teaming framework. It evaluates NLG outputs through automatic metrics (accuracy, recall, F1, BLEU, ROUGE, BARTScore) and human evaluation (label consistency, fluency, completeness). While it uses LLMs extensively for generation and fine-tuning, it does NOT use LLMs as judges to evaluate outputs after generation, which is a key distinction for Question 3."
+}

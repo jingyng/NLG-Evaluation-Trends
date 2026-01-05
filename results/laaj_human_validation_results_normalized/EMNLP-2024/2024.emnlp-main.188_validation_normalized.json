@@ -1,0 +1,87 @@
+{
+  "paper_id": "2024.emnlp-main.188",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates GPT-4 against human evaluation on hallucination/omission assessment by comparing GPT-4 coverage scores with human annotations from the HalOmi benchmark, and conducts additional human evaluation on a subset to verify GPT-4 findings."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "no",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt details mentioned in 'Figure' but not shown in provided text. LLM is prompted to check hallucination/omission and output a coverage score 0-100."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Volunteers assess translation quality and degree of hallucination/omission. HalOmi benchmark uses human annotations categorized as 'No hallucination and omission', 'Small', 'Partial', or 'Full'."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Direct score comparison"
+    ],
+    "shared_criteria": [
+      "Hallucination",
+      "Omission",
+      "Coverage"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": "100 zhen instances",
+      "notes": "Validation uses HalOmi benchmark examples and a subset of 100 zh-en hard instances for human evaluation."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Coverage score trend",
+        "value": "Higher GPT-4 coverage scores for human-annotated 'No hallucination/omission' examples, lower for 'Full'",
+        "criterion": "Hallucination/Omission",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Table 5 shows correlation trend but no exact correlation metrics reported."
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "qualitative",
+      "interpretation": "effective",
+      "threshold_used": "No quantitative threshold specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 coverage scores correlate with human annotations (higher scores for better translations), and human evaluation confirms WAP reduces hallucination/omission, validating GPT-4 as an effective evaluator."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Coverage score"
+    ],
+    "human_only_criteria": [
+      "Quality"
+    ],
+    "shared_criteria": [
+      "Hallucination",
+      "Omission"
+    ],
+    "notes": "Both methods assess hallucination/omission, but LLM uses coverage score while humans use categorical judgment. Humans also assess overall translation quality."
+  }
+}

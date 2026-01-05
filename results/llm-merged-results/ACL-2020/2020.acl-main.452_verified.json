@@ -1,0 +1,161 @@
+{
+  "paper_id": "2020.acl-main.452",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "Gigaword",
+      "DUC2004"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Hill Climbing with Word Extraction",
+      "First-Choice Hill Climbing (FCHC)",
+      "Lead-N-8",
+      "Lead-C-75",
+      "Lead-N-10",
+      "Lead-P-50",
+      "Wang and Lee (2018)",
+      "Zhou and Rush (2019)",
+      "Fevry and Phang (2018)",
+      "Baziotis et al. (2019)",
+      "TOPIARY",
+      "BOTTLESUM EX"
+    ],
+    "outputs": [
+      "Generated summaries (short sentences)",
+      "Headlines generated from source sentences",
+      "Short summaries of input sentences preserving key information"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Lead-N-10",
+          "Lead-P-50"
+        ],
+        "datasets": [],
+        "languages": [],
+        "outputs": [],
+        "tasks": []
+      },
+      "removed": {
+        "models": [
+          "forward and backward LSTM language models",
+          "sent2vec embeddings",
+          "HC title 10",
+          "HC article"
+        ],
+        "datasets": [
+          "Gigaword (headline generation)"
+        ],
+        "languages": [],
+        "outputs": [],
+        "tasks": []
+      },
+      "normalized": {
+        "Gigaword (headline generation)": "Gigaword",
+        "short summaries (headlines) generated from source sentences": "Headlines generated from source sentences"
+      },
+      "explanation": "Removed implementation details (language models, embeddings) that aren't NLG models being evaluated. Added missing Lead baseline variants. Consolidated Gigaword dataset name. Kept only models actually evaluated in comparisons."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "ROUGE-1 F1",
+          "ROUGE-2 F1",
+          "ROUGE-L F1",
+          "ROUGE Recall"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "ROUGE-1 F1": "ROUGE",
+        "ROUGE-2 F1": "ROUGE",
+        "ROUGE-L F1": "ROUGE",
+        "ROUGE Recall": "ROUGE"
+      },
+      "explanation": "Simplified all ROUGE variants to base ROUGE metric according to normalization guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Pairwise comparison of system outputs",
+      "Annotators compare fidelity and fluency of two summaries",
+      "Three options: first better, second better, equally good/bad",
+      "100 instances with 5 annotators each",
+      "Majority voting for final label"
+    ],
+    "criteria": [
+      "fidelity",
+      "fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "100 instances with 5 annotators each",
+          "Majority voting for final label"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Pairwise comparison with options: (i) first headline better, (ii) second headline better, (iii) both equally good/bad.",
+          "Annotators compare two system outputs and choose which is better in terms of fidelity and fluency, or indicate a tie."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated and cleaned up guideline descriptions, added missing details about sample size and voting procedure"
+    }
+  },
+  "overall_notes": "Paper focuses on unsupervised sentence summarization with word-level extraction. The extraction quality was generally good, but needed normalization of metric variants and removal of implementation details that aren't actual NLG models being evaluated. Paper includes strong emphasis on ROUGE metric sensitivity to length, which is an important NLG evaluation insight."
+}

@@ -1,0 +1,174 @@
+{
+  "paper_id": "2025.emnlp-main.1637",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "De Identification"
+    ],
+    "datasets": [
+      "AHS",
+      "MIMIC III",
+      "n2c2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3.3",
+      "clinicalbert",
+      "deidentify",
+      "presidio"
+    ],
+    "outputs": [
+      "De-identified clinical notes",
+      "De-identified clinical texts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "n2c2 (originally i2b2)"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "De-identified clinical notes with personally identifiable information removed while preserving clinical content"
+        ]
+      },
+      "normalized": {
+        "n2c2 (originally i2b2)": "n2c2"
+      },
+      "explanation": "Normalized dataset name to standard form 'n2c2'. Simplified output descriptions by removing redundant phrasing."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "PRECISION",
+      "RECALL",
+      "F1",
+      "JSC",
+      "NSDCG",
+      "CIRE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "NSDCG"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Jaccard Similarity Coefficient",
+          "F1",
+          "F1 score"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "precision": "Precision",
+        "recall": "Recall",
+        "F1-score": "F1-score",
+        "F1": "F1-score",
+        "F1 score": "F1-score",
+        "Jaccard Similarity Coefficient": "JSC"
+      },
+      "explanation": "Normalized metric names to standard capitalization. Added NSDCG which was mentioned in paper. Consolidated F1 variants. Used acronym JSC instead of full name."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "llama_3.3",
+      "qwen_72b",
+      "qwen_32b",
+      "llama_3.1_8b"
+    ],
+    "methods": [
+      "Sentence-level classification via prompting"
+    ],
+    "criteria": [
+      "Relevance",
+      "Clinical"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Qwen-72B",
+          "Qwen-32B",
+          "Llama-3.1-8B"
+        ],
+        "methods": [],
+        "criteria": [
+          "Clinical relevance"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "sentence pair classification",
+          "pairwise chunk classification via prompt"
+        ],
+        "criteria": [
+          "clinical meaningful alteration",
+          "Adding, removing, or modifying a medication, diagnosis, procedure, test result, clinical instruction, or patient history",
+          "Altering the patient's age",
+          "Any change that would affect medical interpretation or decision-making"
+        ]
+      },
+      "normalized": {
+        "clinical meaningfulness": "Clinical meaningfulness",
+        "sentence-level classification via prompting": "Sentence-level classification via prompting"
+      },
+      "explanation": "Consolidated evaluation methods to main approach. Normalized criteria to high-level concepts. Added missing LLM evaluators mentioned in appendix."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Changes considered high severity if loss of clinically meaningful information could affect diagnosis or management",
+      "Changes not affecting diagnosis or management annotated as low severity",
+      "Detailed written guidelines for annotators to label clinically relevant changes and assign severity"
+    ],
+    "criteria": [
+      "Relevance",
+      "Severity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Detailed written guidelines for annotators to label clinically relevant changes and assign severity"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "severity",
+          "clinical relevance of removal",
+          "severity (high vs low)",
+          "clinically relevant changes",
+          "severity of change (high or low)"
+        ]
+      },
+      "normalized": {
+        "severity": "Severity",
+        "clinical relevance": "Clinical relevance"
+      },
+      "explanation": "Consolidated criteria to main categories. Enhanced guideline description with more complete information from paper."
+    }
+  },
+  "overall_notes": "Paper focuses on de-identification as an NLG task where models generate modified clinical text. Strong emphasis on evaluation methodology with both automatic metrics and human/LLM evaluation. Extracted metadata was generally accurate but needed normalization and minor additions from full text."
+}

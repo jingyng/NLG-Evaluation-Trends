@@ -1,0 +1,176 @@
+{
+  "paper_id": "2025.acl-long.1370",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Text Simplification",
+      "Image Captioning",
+      "Text Summarization"
+    ],
+    "datasets": [
+      "WMT22",
+      "WMT23",
+      "WMT24",
+      "JADOS",
+      "PixelProse",
+      "CNNDM"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Japanese",
+      "Russian",
+      "Hebrew"
+    ],
+    "models": [
+      "meta-llama/Llama-3.1-8B-Instruct",
+      "google/paligemma2-10b-ft-docci-448",
+      "CALM2-DPO",
+      "EuroLLM",
+      "google/metricx-23-xl-v2p0",
+      "sentence-transformers/all-mpnet-base-v2",
+      "Unbabel/wmt22-comet-da",
+      "Salesforce/SFR-Embedding-2_R"
+    ],
+    "outputs": [
+      "document-level translations",
+      "simplified texts",
+      "dense image captions",
+      "text summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "google/metricx-23-xl-v2p0",
+          "sentence-transformers/all-mpnet-base-v2",
+          "Unbabel/wmt22-comet-da",
+          "Salesforce/SFR-Embedding-2_R"
+        ],
+        "outputs": [
+          "text summaries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-3.1",
+          "MetricX-23",
+          "SentBERT",
+          "COMET-22",
+          "SFR-2",
+          "PaliGemma-2",
+          "Llama-3.1-8B-Instruct",
+          "PaliGemma2-10b-ft-docci-448"
+        ],
+        "outputs": [
+          "generated documents, simplified texts, and image captions",
+          "document-level text outputs such as translations, simplified summaries, and dense image captions"
+        ]
+      },
+      "normalized": {
+        "Other:Text Simplification": "Text Simplification",
+        "MetricX-23": "google/metricx-23-xl-v2p0",
+        "SentBERT": "sentence-transformers/all-mpnet-base-v2",
+        "COMET-22": "Unbabel/wmt22-comet-da",
+        "SFR-2": "Salesforce/SFR-Embedding-2_R"
+      },
+      "explanation": "Normalized model names to canonical forms with proper identifiers, added Text Summarization as a task evaluated on CNNDM dataset, simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "COMET-22",
+      "MetricX-23",
+      "BERTScore",
+      "D-SARI",
+      "JReadability",
+      "ROUGE",
+      "CLAIR",
+      "METEOR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BERTScore"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ME-TEOR"
+        ]
+      },
+      "normalized": {
+        "SentBERT": "Not included (this is a model, not a metric)",
+        "SFR-2": "Not included (this is a model, not a metric)",
+        "ME-TEOR": "METEOR"
+      },
+      "explanation": "Removed models incorrectly listed as metrics, normalized METEOR spelling, clarified that SentBERT and SFR-2 are models referenced but not evaluation metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "GPT-4 based judgment via CLAIR"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "MetricX-23",
+          "GPT-4 (via CLAIR)"
+        ],
+        "methods": [
+          "CLAIR evaluation",
+          "pairwise utility scoring with MetricX-23"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4 (via CLAIR)": "GPT-4",
+        "MetricX-23": "Not included (this is an automatic metric, not LLM-as-judge)",
+        "pairwise utility scoring with MetricX-23": "Not included (MetricX-23 is automated scoring)"
+      },
+      "explanation": "Corrected extraction: Only GPT-4 via CLAIR is used as an LLM judge; MetricX-23 is an automatic scoring model, not an LLM interaction for judging"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation conducted; the paper explicitly states this limitation and reliance on automated metrics"
+    }
+  },
+  "overall_notes": "The paper proposes MBR-OT, a document-level text generation method using optimal transport for Minimum Bayes Risk decoding. It evaluates on multiple NLG tasks but relies entirely on automated metrics, with GPT-4 used only indirectly through CLAIR for dense image captioning evaluation. The extraction was generally good but needed normalization of model names and clarification of what constitutes LLM-as-judge vs automated metrics."
+}

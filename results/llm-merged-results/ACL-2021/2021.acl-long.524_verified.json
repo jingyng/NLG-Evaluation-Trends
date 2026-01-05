@@ -1,0 +1,126 @@
+{
+  "paper_id": "2021.acl-long.524",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation",
+      "Other:Metaphor Generation"
+    ],
+    "datasets": [
+      "Gutenberg Poetry Corpus",
+      "Brown Corpus",
+      "Mohammad 2016 corpus",
+      "VUA Metaphor Corpus",
+      "FrameNet",
+      "Open-SESAME parser data"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "CM-Lex",
+      "CM-BART",
+      "MERMAID",
+      "MetMask",
+      "BART",
+      "word2vec",
+      "FastText",
+      "GloVe",
+      "BERT",
+      "COMET"
+    ],
+    "outputs": [
+      "metaphoric sentences",
+      "metaphoric paraphrase sentences",
+      "metaphoric sentences from literal input sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "Open-SESAME parser data"
+        ],
+        "models": [
+          "GloVe"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Wikipedia",
+          "VUA metaphor corpus"
+        ],
+        "models": [
+          "Fast-Text"
+        ]
+      },
+      "normalized": {
+        "Glove": "GloVe",
+        "VUA metaphor corpus": "VUA Metaphor Corpus"
+      },
+      "explanation": "Normalized dataset/model names, removed duplicates, added Open-SESAME parser data mentioned in methodology"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "COSINE_DISTANCE",
+      "EXACT_MATCH"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "BLEU",
+          "ROUGE",
+          "SBERT cosine similarity"
+        ]
+      },
+      "normalized": {
+        "Cosine distance (SBERT embeddings) between generated and gold metaphor": "COSINE_DISTANCE",
+        "Cosine distance (SBERT embeddings) between literal input and generated metaphor": "COSINE_DISTANCE",
+        "cosine distance between M and G": "COSINE_DISTANCE",
+        "cosine distance between L and M vs L and G": "COSINE_DISTANCE",
+        "exact match percentage": "EXACT_MATCH",
+        "Exact match percentage": "EXACT_MATCH"
+      },
+      "explanation": "The paper specifically states word overlap metrics (BLEU, ROUGE) are 'inherently weak for this task' and instead uses SBERT embeddings with cosine distance. Not using BLEU/ROUGE as main metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Raters provided with definitions of metaphoricity and FrameNet frame links",
+      "Rate on 1-4 scale (4=very, 1=not at all) for metaphoricity and source domain evocation",
+      "Mark as 0 if sentence unintelligible"
+    ],
+    "criteria": [
+      "METAPHORICITY",
+      "SOURCE_DOMAIN_EVOCATION"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "metaphoricity": "METAPHORICITY",
+        "source domain evocation": "SOURCE_DOMAIN_EVOCATION"
+      },
+      "explanation": "Normalized criteria names to uppercase format for consistency"
+    }
+  },
+  "overall_notes": "Paper focuses on metaphor generation as a controlled paraphrase generation task. Uses SBERT cosine distance instead of traditional word-overlap metrics. Human evaluation is well-documented with domain experts. Extraction was generally accurate but contained some minor duplicates and normalization issues."
+}

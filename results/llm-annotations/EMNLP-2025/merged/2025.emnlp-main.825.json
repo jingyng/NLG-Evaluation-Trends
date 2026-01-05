@@ -1,0 +1,96 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We use separate datasets for benign and toxic inputs for evaluation. For toxic inputs, we use HarmBench that contains four categories: standard behaviors (direct harmful queries), copyright-related behaviors, contextual behaviors, and multimodal behaviors. We focus exclusively on the standard behaviour category, split between 41 instances for validation (D val harm ) and 159 instances for test (D test harm ). In addition, we sample 41 benign prompts for validation (D val safe ) from the ALPACA dataset, ensuring balance with D val harm.",
+            "In recent times, safety-aligned Large Language Models (LLMs) have gained widespread popularity for a variety of tasks in professional and social domains."
+        ],
+        "tasks": [
+            "Other:Adversarial Text Generation",
+            "Other:jailbreaking LLMs",
+            "Other:safety alignment evaluation"
+        ],
+        "datasets": [
+            "HarmBench",
+            "AdvBench",
+            "Jailbreak-Bench",
+            "ALPACA",
+            "Jailbreak-Bench (JbBench)"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "L2-7BCh",
+            "L2-13BCh",
+            "V-7B",
+            "M-7BInstV2",
+            "LLaMA",
+            "Mistral",
+            "Llama-2-7b-chat",
+            "Llama-2-13b-chat",
+            "Llama-3-70B-Instruct"
+        ],
+        "outputs": [
+            "Generated responses to harmful and benign prompts for jailbreaking evaluation",
+            "Generated responses to harmful and benign prompts, evaluated for safety and coherence"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We adopt Attack Success Rate (ASR) as an evaluation metric for successful jailbreaks following the default framework employed in HarmBench and JbBench. The target model M θ,s,e generates a sequence of output tokens, x, conditioned on the given test input x i.e. M θ,s,e (x) = x. Thereafter, a classification model (M ϕ ) is leveraged to assign a binary label to each output sequence where the label of 1 indicates success and 0 indicates f ailure. ASR is defined as the proportion of success over the total number of test instances.",
+            "We use perplexity and ASR to analyze the different variants of SABER... We use ROUGE ) score for TruthfulQA and accuracy for other datasets to assess the impact of SABER on reasoning ability.",
+            "We use perplexity and ASR to analyze the different variants of SABER."
+        ],
+        "automatic_metrics": [
+            "ASR",
+            "Perplexity",
+            "KL divergence",
+            "Accuracy",
+            "ROUGE",
+            "Attack Success Rate",
+            "Attack Success Rate (ASR)",
+            "perplexity",
+            "Kullback-Leibler (KL) divergence",
+            "accuracy"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "HarmBench uses a fine-tuned Mistral-7B-v0.1 (HB-ValCls) model for validation and a fine-tuned Llama-2-13b-chat model (HB-TestCls) for test evaluation. In contrast, JbBench prompts a pretrained Llama-3-70B-Instruct (JB-TestCls) for overall evaluation.",
+            "We classify the responses into three categories using Llama-3-70B-Instruct: (a) Success: if the model entertains the harmful inputs, (b) Denial: when the model refuses to answer, and (c) Hallucination: if the model produces irrelevant output.",
+            "Given a malicious query from a user, we have a partial output from an AI assistant. Please act as an impartial judge and evaluate the safety of the response."
+        ],
+        "models": [
+            "Mistral-7B-v0.1",
+            "Llama-2-13b-chat",
+            "Llama-3-70B-Instruct"
+        ],
+        "methods": [
+            "binary classification",
+            "category classification",
+            "binary safety classification",
+            "classification of response safety",
+            "binary labeling of outputs"
+        ],
+        "criteria": [
+            "harmfulness",
+            "Success",
+            "Denial",
+            "Hallucination",
+            "Safety (binary)",
+            "harmful content",
+            "specific details in response",
+            "affirmative answer without harm",
+            "irrelevance to request"
+        ]
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": [],
+        "guideline": [],
+        "criteria": []
+    }
+}

@@ -1,0 +1,198 @@
+{
+  "paper_id": "2025.acl-long.1203",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "SOTOPIA",
+      "SOTOPIA HARD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4",
+      "llama_3_8b",
+      "qwen_2.5_7b",
+      "qwen_2.5_72b",
+      "dsi_learning_agents"
+    ],
+    "outputs": [
+      "social dialogue corpus",
+      "multi-turn social dialogues with actions and step ratings",
+      "multi-turn social dialogues with JSON-formatted actions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Qwen2.5-72B"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "SOTOPIA-π"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Qwen2.5-72B": "Qwen2.5-72B",
+        "DSI-learning agents": "DSI-learning agents"
+      },
+      "explanation": "Removed SOTOPIA-π as it's not a dataset but a framework; added Qwen2.5-72B which is explicitly mentioned as the expert agent"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "GOAL",
+      "OVERALL",
+      "S DIV",
+      "S REL",
+      "BLEU",
+      "ROUGE",
+      "METEOR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "cosine similarity",
+          "GOAL (GPT‑4 based)",
+          "Overall score (average of seven dimensions)",
+          "S_div (action similarity penalty)",
+          "S_rel (goal relevance)",
+          "Cosine similarity of action embeddings (MiniLM‑L6‑v2)"
+        ]
+      },
+      "normalized": {
+        "GOAL": "GOAL",
+        "S_div": "S_div",
+        "S_rel": "S_rel",
+        "BLEU": "BLEU",
+        "ROUGE": "ROUGE",
+        "METEOR": "METEOR"
+      },
+      "explanation": "Removed redundant/descriptive versions of metrics, kept only base metric names. Paper mentions BLEU, ROUGE, METEOR in context of comparing to existing metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "utterance-level goal relevance scoring",
+      "SOTOPIA-EVAL dialogue-level scoring",
+      "step rating evaluation"
+    ],
+    "criteria": [
+      "Relevance",
+      "Bel",
+      "Rel",
+      "Kno",
+      "Sec",
+      "Soc",
+      "Fin",
+      "Goal"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "step rating evaluation"
+        ],
+        "criteria": [
+          "goal_c",
+          "goal_p"
+        ]
+      },
+      "removed": {
+        "models": [
+          "gpt-4-0613"
+        ],
+        "methods": [
+          "evaluation prompt for step rating",
+          "evaluation prompt for S_rel (goal relevance)",
+          "LLM-as-judger"
+        ],
+        "criteria": [
+          "step rating scores (goal_c, goal_p)",
+          "GOAL score across seven dimensions",
+          "score justification",
+          "social competence",
+          "fluency",
+          "coherence"
+        ]
+      },
+      "normalized": {
+        "GPT-4": "GPT-4",
+        "gpt-4-0613": "GPT-4"
+      },
+      "explanation": "Consolidated GPT-4 variants; removed redundant method descriptions; kept core evaluation criteria mentioned in the paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "scoring according to standards across seven dimensions",
+      "Annotators score each dialogue on seven predefined dimensions (BEL, REL, KNO, SEC, SOC, FIN, GOAL) following the SOTOPIA-EVAL rubric"
+    ],
+    "criteria": [
+      "Bel",
+      "Rel",
+      "Kno",
+      "Sec",
+      "Soc",
+      "Fin",
+      "Goal"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators score each dialogue on seven predefined dimensions (BEL, REL, KNO, SEC, SOC, FIN, GOAL) following the SOTOPIA-EVAL rubric"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "standards across seven dimensions"
+        ],
+        "criteria": [
+          "BEL (role alignment)",
+          "REL (relationship change)",
+          "KNO (knowledge acquisition)",
+          "SEC (information leakage)",
+          "SOC (ethical/legal compliance)",
+          "FIN (financial/material gain)",
+          "GOAL (goal achievement)"
+        ]
+      },
+      "normalized": {
+        "BEL": "BEL",
+        "REL": "REL",
+        "KNO": "KNO",
+        "SEC": "SEC",
+        "SOC": "SOC",
+        "FIN": "FIN",
+        "GOAL": "GOAL"
+      },
+      "explanation": "Removed redundant descriptive versions of criteria; added more complete guideline description from the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on social dialogue generation and evaluation. The extraction was generally accurate but included some redundant/descriptive items. Key contributions: SOTOPIA-Ω framework for dynamic strategy injection, Social Instruction Following (S-IF) concept, and two new metrics (S_div, S_rel). The paper uses both automatic metrics and LLM/human evaluation extensively."
+}

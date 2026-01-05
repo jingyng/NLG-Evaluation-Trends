@@ -1,0 +1,172 @@
+{
+  "paper_id": "2025.emnlp-main.1360",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Paraphrase Generation",
+      "Fact Verification"
+    ],
+    "datasets": [
+      "MNBM",
+      "BEGIN",
+      "PAWS",
+      "SUMMEVAL",
+      "TRUE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4",
+      "palm_2",
+      "mistral_7b",
+      "llama_3_8b",
+      "gpt_4o",
+      "gemini_1.5_flash",
+      "deberta_v_3"
+    ],
+    "outputs": [
+      "Generated summaries evaluated for quality dimensions",
+      "Generated dialogue responses evaluated for factual consistency",
+      "Generated paraphrases evaluated for correctness",
+      "Generated claims evaluated for fact verification"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "DeBERTa-v3"
+        ],
+        "outputs": [
+          "Generated dialogue responses evaluated for factual consistency",
+          "Generated paraphrases evaluated for correctness",
+          "Generated claims evaluated for fact verification"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Fact Verification"
+        ],
+        "datasets": [
+          "TRUE benchmark"
+        ],
+        "models": [
+          "Various",
+          "Mistral",
+          "Llama 3"
+        ],
+        "outputs": [
+          "binary factual consistency labels (0/1) for TRUE datasets and ordinal scores (1-5) for SummEval dimensions",
+          "factual consistency labels, summary quality scores"
+        ]
+      },
+      "normalized": {
+        "Mistral (7B)": "Mistral-7B",
+        "Llama 3 (8B)": "Llama-3-8B"
+      },
+      "explanation": "Removed vague 'Various' model reference, normalized model naming conventions, added DeBERTa-v3 as it's used for fine-tuning experiments, and clarified output descriptions to focus on what's being generated rather than evaluation labels"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROC AUC",
+      "F1",
+      "ACCURACY",
+      "PEARSON CORRELATION"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "F1-score"
+        ]
+      },
+      "normalized": {
+        "F1-score": "F1 Score"
+      },
+      "explanation": "Normalized 'F1-score' to 'F1 Score' for consistency in capitalization"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "palm_2",
+      "mistral_7b",
+      "llama_3_8b",
+      "gpt_4o",
+      "gemini_1.5_flash"
+    ],
+    "methods": [
+      "ensemble prediction with confidence scoring",
+      "zero-shot classification",
+      "confidence-based flagging of disagreements"
+    ],
+    "criteria": [
+      "Factuality",
+      "Relevance",
+      "Fluency",
+      "Coherence"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "Mistral",
+          "Llama 3"
+        ],
+        "methods": [
+          "zero‑shot classification via ensemble",
+          "zero-shot classification with ensemble",
+          "confidence-based disagreement detection",
+          "label correctness"
+        ],
+        "criteria": [
+          "consistency",
+          "label correctness"
+        ]
+      },
+      "normalized": {
+        "Mistral (7B)": "Mistral-7B",
+        "Llama 3 (8B)": "Llama-3-8B"
+      },
+      "explanation": "Consolidated redundant method descriptions, removed 'label correctness' as a criterion (it's the evaluation goal, not a rubric criterion), normalized model names, and removed 'consistency' as it duplicates 'factual consistency'"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Assess factual consistency of hypothesis with respect to premise using binary labels (0 for inconsistency, 1 for consistency)",
+      "Rate summaries on scale of 1-5 for relevance, fluency, coherence, and consistency dimensions"
+    ],
+    "criteria": [
+      "Factuality",
+      "Relevance",
+      "Fluency",
+      "Coherence",
+      "Consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Rate summaries on scale of 1-5 for relevance, fluency, coherence, and consistency dimensions"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "consistency": "consistency"
+      },
+      "explanation": "Added missing SummEval evaluation guidelines and maintained all specified criteria"
+    }
+  },
+  "overall_notes": "The paper primarily focuses on evaluating existing NLP datasets for label quality rather than generating new text. However, it does evaluate generated outputs (summaries, dialogue responses, paraphrases, etc.) from the studied datasets, so qualifies as addressing NLG tasks. The extraction quality was generally good, though some normalization and consolidation was needed for consistency."
+}

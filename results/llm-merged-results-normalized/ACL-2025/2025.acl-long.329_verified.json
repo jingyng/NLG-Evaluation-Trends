@@ -1,0 +1,158 @@
+{
+  "paper_id": "2025.acl-long.329",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Legal Paragraph Generation"
+    ],
+    "datasets": [
+      "ECHR CASELAW",
+      "EU CASELAW"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2",
+      "lextempus",
+      "adapters",
+      "lora",
+      "prefix_tuning",
+      "ewc",
+      "recadam",
+      "er",
+      "brr",
+      "maxloss"
+    ],
+    "outputs": [
+      "Generated legal paragraphs (next-paragraph prediction)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Legal Paragraph Generation"
+        ],
+        "datasets": [
+          "EU CaseLaw"
+        ],
+        "models": [
+          "GPT-2",
+          "EWC",
+          "RecAdam",
+          "ER",
+          "BRR",
+          "MaxLoss"
+        ],
+        "outputs": [
+          "Generated legal paragraphs (next-paragraph prediction)"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Open-ended Text Generation",
+          "Other:Open-ended text generation"
+        ],
+        "datasets": [
+          "ECHR"
+        ],
+        "models": [
+          "GPT-2 medium",
+          "LexTempus (DMoE)",
+          "PrefixTuning"
+        ],
+        "outputs": [
+          "Generated paragraphs",
+          "generated legal paragraphs (next‑paragraph prediction)",
+          "generated paragraphs"
+        ]
+      },
+      "normalized": {
+        "GPT-2 medium": "GPT-2",
+        "LoRA": "LoRA",
+        "PrefixTuning": "Prefix Tuning",
+        "LexTempus (DMoE)": "LexTempus",
+        "ECHR": "ECHR CaseLaw"
+      },
+      "explanation": "Consolidated tasks to single 'Legal Paragraph Generation' since all open-ended generation is legal paragraph generation. Normalized model names and removed duplicates. Added missing models that were evaluated. Consolidated outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PERPLEXITY",
+      "ROUGE",
+      "ALIGNSCORE",
+      "UNIEVAL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE variants to base ROUGE metric as per guidelines. All other metrics were correctly extracted."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM-as-judge evaluation was conducted. Paper only uses automatic metrics and no post-generation LLM evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values. The paper explicitly states it evaluates using automatic metrics only and does not mention human evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on temporal adaptation of legal language models using continual learning. NLG evaluation is clearly present through perplexity and open-ended paragraph generation metrics. All extracted answers were correct. The main improvements were normalization of metric names and consolidation of task descriptions. The paper uses GPT-2 as the base model and evaluates multiple continual learning approaches on legal text generation tasks."
+}

@@ -1,0 +1,55 @@
+{
+  "paper_id": "2024.emnlp-main.1114",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM question generation and human salience annotation, but never explicitly compares LLM judgments against human judgments. They evaluate different aspects - LLMs generate questions while humans rate salience, without direct quantitative validation between the two"
+  },
+  "llm_judge_details": {
+    "num_models": 5,
+    "models": [
+      "GPT-4-turbo",
+      "GPT-3.5-turbo",
+      "Llama-2-7B-chat",
+      "Mistral-7B-instruct",
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts provided in Appendix D for salience prediction and Appendix C for question generation"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": "Multiple values: 0.719 for DCQA, 0.632 for TED-Q, 0.751 for Div.Article, 0.649 for Div.TL;DR",
+      "interpretation": "substantial agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed scoring rubric provided in Appendix A with 1-5 scale definitions and invalid criteria"
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "question_generation",
+      "question_validity_classification",
+      "answerability_detection"
+    ],
+    "human_only_criteria": [
+      "question_salience_rating",
+      "summary_quality_ranking"
+    ],
+    "shared_criteria": [],
+    "notes": "LLMs are primarily used for generating questions and classifying validity, while humans rate question salience and rank summary quality - no overlapping criteria that both evaluate with the same metric"
+  }
+}

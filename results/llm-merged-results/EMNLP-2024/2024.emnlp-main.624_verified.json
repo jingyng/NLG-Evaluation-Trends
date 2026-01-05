@@ -1,0 +1,133 @@
+{
+  "paper_id": "2024.emnlp-main.624",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Keyphrase Generation"
+    ],
+    "datasets": [
+      "KP20k",
+      "Inspec",
+      "Krapivin",
+      "NUS",
+      "SemEval"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "SETTRANS",
+      "LLaMA-2-7B",
+      "SciBART-large",
+      "Flan-T5-large",
+      "BART-large",
+      "SLM-Scorer",
+      "LLM-Scorer",
+      "Zephyr-7B",
+      "GPT-4"
+    ],
+    "outputs": [
+      "keyphrases (present and absent)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Zephyr-7B",
+          "GPT-4"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "FLAN-T5-large"
+        ],
+        "outputs": [
+          "Generated keyphrases (present and absent)",
+          "keyphrases"
+        ]
+      },
+      "normalized": {
+        "FLAN-T5-large": "Flan-T5-large"
+      },
+      "explanation": "Removed duplicate 'keyphrases' output description and redundant 'Generated keyphrases' variant. Normalized 'FLAN-T5-large' to 'Flan-T5-large'. Added Zephyr-7B and GPT-4 which are mentioned in experiments."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1@M",
+      "F1@5",
+      "precision",
+      "recall",
+      "accuracy",
+      "emb_sim",
+      "dup_token_ratio"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Acc",
+          "Pre",
+          "Abs"
+        ]
+      },
+      "normalized": {
+        "Acc": "accuracy",
+        "Pre": "precision",
+        "Abs": "precision/recall (for absent keyphrases)"
+      },
+      "explanation": "Removed abbreviated metrics 'Acc', 'Pre', 'Abs' as they are redundant with full metric names already included. These are not separate metrics but column headers in tables."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "LLMs are used for generation and selection, but not as judges/evaluators of the outputs. The paper does not use LLMs to assess quality after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper - only automatic metrics are used for evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on Keyphrase Generation using a generate-then-select framework combining One2Set models with LLMs. It uses standard automatic evaluation metrics but no human evaluation or LLM-as-judge evaluation. The extraction was generally accurate but needed minor normalization and removal of redundant items."
+}

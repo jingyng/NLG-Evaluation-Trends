@@ -1,0 +1,180 @@
+{
+  "paper_id": "2024.naacl-long.135",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Long Form Question Answering"
+    ],
+    "datasets": [
+      "ORIGINAL GOLD",
+      "ORIGINAL DIST",
+      "CONFLICT GOLD",
+      "CONFLICT DIST"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3.5",
+      "gpt_3.5_instruct",
+      "llama_2",
+      "llama_2_chat",
+      "vicuna",
+      "tülu_1",
+      "tülu_2",
+      "mistral_instruct",
+      "zephyr",
+      "falcon",
+      "falcon_instruct",
+      "gpt_4"
+    ],
+    "outputs": [
+      "Generated responses to questions based on provided external contexts",
+      "Long-form answers to questions based on provided contexts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering"
+        ],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "models": [
+          "Llama-2-70b-chat",
+          "TRUE (T5-11B)",
+          "MiniLM bi-encoder",
+          "MiniLM cross-encoder"
+        ],
+        "outputs": [
+          "generated answers grounded in external contexts"
+        ]
+      },
+      "normalized": {
+        "Other:Long-form Question Answering": "Long-form Question Answering",
+        "Other:Question Answering": "Question Answering",
+        "GPT-3.5-instruct": "GPT-3.5-instruct",
+        "Llama2-C": "Llama2-chat",
+        "Falcon-I": "Falcon-Instruct"
+      },
+      "explanation": "Removed evaluation models (Llama-2-70b-chat, TRUE, MiniLM models) that were not used for generation but only for evaluation. Simplified task names by removing 'Other:' prefix. Added 'Question Answering' as a primary task alongside 'Long-form Question Answering'. Kept only generation models used for producing outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "GROUNDING F1",
+      "PRECISION",
+      "RECALL",
+      "ANSWER ACCURACY",
+      "G EVAL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1",
+          "Grounding performance (F1 of atomic fact presence)",
+          "Answer accuracy",
+          "Grounding Metric",
+          "F1 score",
+          "precision",
+          "recall",
+          "answer accuracy"
+        ]
+      },
+      "normalized": {
+        "Grounding performance (F1 of atomic fact presence)": "Grounding F1"
+      },
+      "explanation": "Consolidated all metric variants under simplified base names. Kept 'Grounding F1' as the primary grounding metric, along with its precision/recall components, Answer Accuracy, and G-EVAL for fluency evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "llama_2_70b_chat",
+      "TRUE",
+      "MiniLM bi-encoder",
+      "MiniLM cross-encoder"
+    ],
+    "methods": [
+      "Atomic fact presence prediction",
+      "Knowledge matching evaluation"
+    ],
+    "criteria": [
+      "Presence",
+      "Grounding"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Knowledge matching evaluation"
+        ],
+        "criteria": [
+          "Atomic fact presence"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "atomic fact presence prediction": "Atomic fact presence prediction",
+        "automatic fact matching": "Atomic fact presence prediction",
+        "knowledge presence evaluation": "Atomic fact presence prediction",
+        "atomic fact verification": "Atomic fact presence prediction",
+        "presence of atomic facts": "Atomic fact presence",
+        "grounding": "Knowledge grounding",
+        "cross‑encoder model (MiniLM)": "MiniLM cross-encoder",
+        "bi-encoder model (MiniLM)": "MiniLM bi-encoder",
+        "cross-encoder model": "MiniLM cross-encoder"
+      },
+      "explanation": "Normalized model names and evaluation criteria. Added 'Knowledge matching evaluation' as a broader method description. Kept all evaluation models used for assessing grounding performance."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluate whether each atomic fact is present in the provided context",
+      "Determine if all information in given atomic fact is present in the context"
+    ],
+    "criteria": [
+      "Presence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Determine if all information in given atomic fact is present in the context"
+        ],
+        "criteria": [
+          "Atomic fact presence"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- evaluate whether each atomic fact is present in the provided context"
+        ],
+        "criteria": [
+          "presence of atomic facts"
+        ]
+      },
+      "normalized": {
+        "presence of atomic facts": "Atomic fact presence"
+      },
+      "explanation": "Normalized the criteria name and improved guideline formatting. The human evaluation focused specifically on verifying atomic fact presence for correlation analysis with automatic metrics."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on evaluating how well LLMs ground their responses in provided external contexts using a fine-grained atomic fact-based approach. The extraction was generally accurate but included some evaluation models in the generation section. The paper uses multiple evaluation paradigms: automatic metrics (grounding F1, answer accuracy), LLM-as-judge (for atomic fact verification), and human evaluation (for benchmarking the automatic metrics)."
+}

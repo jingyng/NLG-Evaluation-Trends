@@ -1,0 +1,149 @@
+{
+  "paper_id": "2023.acl-long.733",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Event Conceptualization",
+      "Other:Commonsense Inference Generation"
+    ],
+    "datasets": [
+      "AbstractATOMIC",
+      "ATOMIC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT2-base",
+      "GPT2-medium",
+      "GPT2-large",
+      "GPT2-XL",
+      "COMET"
+    ],
+    "outputs": [
+      "conceptualized head events",
+      "abstract commonsense triples",
+      "generated tail events for commonsense inference"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Commonsense Knowledge Generation",
+          "Other:commonsense knowledge generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BERT",
+          "RoBERTa",
+          "DeBERTa-v3"
+        ],
+        "outputs": [
+          "conceptualized head events and commonsense tails",
+          "The paper addresses NLG through commonsense knowledge generation, particularly using COMET and GPT2 to generate if-then commonsense knowledge and event conceptualizations."
+        ]
+      },
+      "normalized": {
+        "GPT2": "GPT2-base",
+        "COMET (GPT2‑XL)": "COMET"
+      },
+      "explanation": "Removed duplicate/overlapping task names and non-NLG models (BERT, RoBERTa, DeBERTa-v3 are discriminative models, not generation models). Removed verbose output descriptions. Kept only the core NLG tasks and models actually used for generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE",
+      "CIDEr"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "BLEU-1": "BLEU",
+        "BLEU-2": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric variants to base forms (BLEU-1/BLEU-2 → BLEU, ROUGE-L → ROUGE) as per guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM-as-judge evaluation was conducted"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Experts determine if the top-1 generation is a plausible conceptualization",
+      "Each question presents the original head event with the instance highlighted and the corresponding conceptualization candidate",
+      "Positive and negative examples are provided as references"
+    ],
+    "criteria": [
+      "plausibility"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Experts determine if the top-1 generation is a plausible conceptualization",
+          "Each question presents the original head event with the instance highlighted and the corresponding conceptualization candidate",
+          "Positive and negative examples are provided as references"
+        ],
+        "criteria": [
+          "plausibility"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Determine if the top-1 generation is a plausible conceptualization.",
+          "Annotators are asked to judge whether the generated conceptualization is plausible (correct) for the given head event.",
+          "Each question presents the original head event with the instance highlighted and the corresponding conceptualization candidate to be annotated. There are also several positive and negative conceptualizations attached as examples."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "plausibility": "plausibility"
+      },
+      "explanation": "Consolidated and simplified guideline descriptions while preserving the key evaluation criteria"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main corrections: (1) Removed non-NLG models from Q1 (BERT/RoBERTa/DeBERTa are discriminative classifiers, not generation models), (2) Normalized metric names to base forms, (3) Removed placeholder values from Q3. The paper focuses on commonsense reasoning through conceptualization and generation, with solid evaluation using both automatic metrics and human judgments."
+}

@@ -1,0 +1,129 @@
+{
+  "paper_id": "2023.emnlp-main.623",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Document Generation",
+      "Other:Synthetic Document Generation"
+    ],
+    "datasets": [
+      "MS MARCO",
+      "TREC-DL'20",
+      "Natural Questions (NQ)",
+      "HotpotQA",
+      "Fever"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BLOOM-560M",
+      "BLOOM-3B",
+      "LLaMA-7B",
+      "Alpaca-Lora",
+      "Flan-T5"
+    ],
+    "outputs": [
+      "synthetic documents",
+      "synthetic documents (passages) paired with queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "MS MARCO-passage",
+          "BEIR versions of Natural Questions (NQ)",
+          "Hot-PotQA"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "synthetic documents given queries"
+        ]
+      },
+      "normalized": {
+        "MS MARCO-passage": "MS MARCO",
+        "Hot-PotQA": "HotpotQA",
+        "BEIR versions of Natural Questions (NQ)": "Natural Questions (NQ)",
+        "synthetic documents given queries": "synthetic documents"
+      },
+      "explanation": "Consolidated duplicate dataset names and normalized to standard forms. Removed redundant output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "NDCG@10",
+      "MRR@10",
+      "MAP@1000"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "lexical overlap",
+          "Lexical Overlap"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'lexical overlap' as it is not used as a formal evaluation metric but rather as an analysis metric for dataset characteristics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "MonoT5"
+        ],
+        "methods": [
+          "relevance prediction"
+        ],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items as MonoT5 is used for ranking/relevance scoring as part of the pipeline, not as an LLM judge to evaluate generated outputs after generation. The paper does not use LLMs as evaluators/judges."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted according to the paper text."
+    }
+  },
+  "overall_notes": "The paper focuses on document generation for information retrieval data augmentation. It evaluates generated documents indirectly through retrieval performance metrics rather than directly assessing generation quality. The extracted metadata was generally accurate but needed normalization for consistency and removal of analysis metrics that weren't used for formal evaluation."
+}

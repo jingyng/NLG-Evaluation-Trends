@@ -1,0 +1,161 @@
+{
+  "paper_id": "2024.acl-long.472",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Image Captioning"
+    ],
+    "datasets": [
+      "CHART TO TEXT",
+      "SCICAP",
+      "TABFACT",
+      "TATA"
+    ],
+    "languages": [
+      "English",
+      "Portuguese",
+      "Arabic",
+      "French",
+      "Russian",
+      "Swahili"
+    ],
+    "models": [
+      "deplot",
+      "flan_t_5",
+      "palm_2",
+      "chats_pi",
+      "matcha"
+    ],
+    "outputs": [
+      "Natural language summaries of charts"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "TATA"
+        ],
+        "models": [
+          "MatCha"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Chart-to-Text (Statista)"
+        ],
+        "models": [
+          "FLAN‑T5",
+          "PaLM‑2",
+          "PALM-2 (L)"
+        ]
+      },
+      "normalized": {
+        "chart summaries": "Natural language summaries of charts",
+        "natural language summaries of charts": "Natural language summaries of charts"
+      },
+      "explanation": "Removed redundant dataset variant, normalized model names to standard forms, consolidated output descriptions, and added missing MatCha model"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "BLEURT",
+      "PARENT",
+      "CHATS CRITIC",
+      "AUC",
+      "F1",
+      "PRECISION",
+      "RECALL",
+      "PEARSON COEFFICIENT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEURT-20"
+        ]
+      },
+      "normalized": {
+        "BLEURT-20": "BLEURT"
+      },
+      "explanation": "Normalized BLEURT-20 to base BLEURT form as per simplification rules"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "palm_2"
+    ],
+    "methods": [
+      "Chain-of-thought prompting",
+      "Few-shot examples",
+      "Ensemble across model runs"
+    ],
+    "criteria": [
+      "Entailment",
+      "Faithfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Faithfulness"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "relevance",
+          "grammaticality"
+        ],
+        "methods": [
+          "chain‑of‑thought prompting for sentence‑level entailment classification"
+        ]
+      },
+      "normalized": {
+        "chain-of-thought prompting for entailment": "Chain-of-thought prompting",
+        "entailment": "Entailment"
+      },
+      "explanation": "Normalized method names, consolidated criteria to only those used for LLM-as-judge evaluation (entailment/faithfulness), removed relevance/grammaticality which were human eval criteria"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "For each sentence, raters evaluate: (1) entailment - whether the sentence can be deduced from the chart alone, (2) relevance - whether the sentence highlights important insights like min/max/avg values, (3) grammaticality - grammar, fluency, and repetition errors",
+      "Approximate numbers allowed up to 2 digits after decimal point"
+    ],
+    "criteria": [
+      "Entailment",
+      "Relevance",
+      "Grammaticality",
+      "Fluency",
+      "Coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Coherence"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "1. is_interesting highlights an important insight from the chart such as min / max / avg value or comparison. 2. cleaned_summary_is_grammatically_correct = grammar and fluency. 3. Entailed = you do not need additional info: using the chart only, be able to extract the text. 4. Approximate numbers is allowed up to 2 digits after the decimal. 5. grammatically_correct = look at grammar errors / fluency / repetition."
+        ]
+      },
+      "normalized": {
+        "entailment": "Entailment",
+        "relevance": "Relevance",
+        "grammaticality": "Grammaticality",
+        "fluency": "Fluency"
+      },
+      "explanation": "Consolidated guidelines into clear description, normalized criteria capitalization, added coherence which was implicitly evaluated at summary level"
+    }
+  },
+  "overall_notes": "The paper focuses on chart-to-summary generation and evaluation. CHATS-CRITIC is the main contribution - a reference-free metric for evaluating chart summary faithfulness. The extraction was generally accurate but needed normalization and some consolidation. The paper clearly uses LLMs as judges (PaLM-2 for entailment verification) and conducts comprehensive human evaluations."
+}

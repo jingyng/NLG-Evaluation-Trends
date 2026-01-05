@@ -1,0 +1,160 @@
+{
+  "paper_id": "2021.emnlp-main.239",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Grammatical Error Correction"
+    ],
+    "datasets": [
+      "NUCLE-2014",
+      "CoNLL-2014",
+      "JFLEG",
+      "GUG"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-2"
+    ],
+    "outputs": [
+      "Corrected sentences from GEC systems evaluated in CoNLL-2014 shared task"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Machine Translation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Various systems from CoNLL-2014 shared task"
+        ],
+        "outputs": [
+          "Corrected sentences",
+          "Corrected sentences (system outputs)"
+        ]
+      },
+      "normalized": {
+        "Grammatical Error Correction": "Grammatical Error Correction",
+        "GPT-2": "GPT-2"
+      },
+      "explanation": "Removed 'Text Summarization' and 'Machine Translation' as they were only mentioned as examples of NLG tasks but not actually evaluated. Removed 'Various systems from CoNLL-2014 shared task' as these are the systems being evaluated, not models contributing to the paper's contribution. Simplified outputs description for clarity."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Scribendi Score",
+      "Perplexity",
+      "Token Sort Ratio",
+      "Levenshtein Distance Ratio",
+      "M2",
+      "GLEU",
+      "SOME",
+      "I-measure",
+      "ERRANT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Token Sort Ratio (TSR)",
+          "Levenshtein Distance Ratio (LDR)",
+          "perplexity",
+          "token sort ratio",
+          "Levenshtein distance ratio"
+        ]
+      },
+      "normalized": {
+        "Scribendi Score": "Scribendi Score",
+        "Perplexity (GPT-2)": "Perplexity",
+        "Token Sort Ratio": "Token Sort Ratio",
+        "Levenshtein Distance Ratio": "Levenshtein Distance Ratio",
+        "M2": "M2",
+        "GLEU": "GLEU",
+        "SOME": "SOME",
+        "I-measure": "I-measure",
+        "ERRANT": "ERRANT"
+      },
+      "explanation": "Removed duplicate entries and lowercase variants. Normalized all metric names to standard capitalization. Kept all metrics mentioned as being used for evaluation of GEC outputs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-2"
+        ],
+        "methods": [
+          "perplexity scoring"
+        ],
+        "criteria": [
+          "grammaticality",
+          "fluency",
+          "meaning preservation (syntactic similarity)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. GPT-2 is used to calculate perplexity scores as part of an automated metric (Scribendi Score), not as an LLM judge evaluating outputs after generation. The paper does not use LLMs in an evaluator/judge role."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human raters ranked the system outputs to produce a quality ranking"
+    ],
+    "criteria": [
+      "overall quality",
+      "fluency",
+      "grammaticality",
+      "meaning preservation"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "fluency",
+          "grammaticality",
+          "meaning preservation"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "The human-generated ranking differs significantly from all the reference-based metrics. Some models (e.g., IPN) also introduce errors in their attempted corrections, which results in a lower ranking."
+        ],
+        "criteria": [
+          "ranking"
+        ]
+      },
+      "normalized": {
+        "ranking": "overall quality"
+      },
+      "explanation": "Simplified guideline to focus on the core evaluation procedure. Removed commentary about results. Changed 'ranking' to 'overall quality' as the primary human evaluation criterion. Added explicit criteria mentioned in the paper for human evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating Grammatical Error Correction systems using a novel reference-less metric (Scribendi Score). The extraction was mostly accurate but incorrectly identified LLM-as-judge usage. The paper uses GPT-2 for perplexity calculation as part of an automated metric, not as an evaluator. Human evaluation data from previous studies (Grundkiewicz et al., 2015) is used for correlation analysis."
+}

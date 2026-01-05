@@ -1,0 +1,167 @@
+{
+  "paper_id": "2024.acl-long.264",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Commonsense Knowledge Generation"
+    ],
+    "datasets": [
+      "COMFACT",
+      "WEBNLG"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "diffucomet_fact",
+      "diffucomet_entity",
+      "bart_base",
+      "bart_large",
+      "comet_bart",
+      "grapher"
+    ],
+    "outputs": [
+      "commonsense knowledge triples (head, relation, tail)",
+      "RDF triples"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:commonsense knowledge generation"
+        ],
+        "datasets": [
+          "WebNLG+ 2020"
+        ],
+        "models": [
+          "Greedy",
+          "Sampling",
+          "Diverse Beam search",
+          "Sampling baseline",
+          "Beam search baseline",
+          "DIFFUCOMET (BART-base, BART-large)"
+        ],
+        "outputs": [
+          "Textual commonsense facts expressed as triples (head, relation, tail) in natural language",
+          "commonsense inferences represented as triples (head, relation, tail)"
+        ]
+      },
+      "normalized": {
+        "Other:Commonsense Knowledge Generation": "Other:Commonsense Knowledge Generation",
+        "WebNLG+ 2020": "WebNLG+"
+      },
+      "explanation": "Consolidated duplicate task description, normalized dataset names, removed baseline method names (kept model architectures), and simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE",
+      "WEBNLG PRECISION",
+      "WEBNLG RECALL",
+      "WEBNLG F1",
+      "DIVERSITY",
+      "RELEVANCE",
+      "ALIGNMENT",
+      "RA F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "WebNLG-Precision",
+          "WebNLG-Recall",
+          "WebNLG-F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L",
+          "Web-Prec.",
+          "Web-Rec.",
+          "Web-F1",
+          "# Clusters",
+          "# Facts"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "METEOR": "METEOR",
+        "ROUGE-L": "ROUGE",
+        "Web-Prec.": "WebNLG-Precision",
+        "Web-Rec.": "WebNLG-Recall",
+        "Web-F1": "WebNLG-F1",
+        "Diversity (clusters)": "Diversity"
+      },
+      "explanation": "Normalized metric variants to base forms, removed non-metric items (# Clusters/Facts), and standardized WebNLG metric names"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM judges used in this paper - correct as extracted"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers judge whether each generated fact is valid (plausible and natural-sounding) and relevant to the context, with majority vote from three independent assessments"
+    ],
+    "criteria": [
+      "Validity",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Workers judge whether each generated fact is valid (plausible and natural-sounding) and relevant to the context, with majority vote from three independent assessments"
+        ],
+        "criteria": [
+          "validity",
+          "relevance"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- we ask three workers to independently judge whether each fact is valid (i.e., plausible and natural-sounding) and relevant to the context",
+          "Workers are asked to judge each generated fact for validity (plausibility and naturalness) and relevance to the narrative context.",
+          "Given a narrative context and a list of commonsense facts that a model generates about the context, we ask three workers to independently judge whether each fact is valid (i.e., plausible and natural-sounding) and relevant to the context, and take their majority vote as the assessment."
+        ],
+        "criteria": [
+          "contextual relevance"
+        ]
+      },
+      "normalized": {
+        "validity": "validity",
+        "contextual relevance": "relevance"
+      },
+      "explanation": "Consolidated guideline into single clear description and normalized criteria names"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main improvements were normalizing metric names, consolidating duplicate entries, and clarifying the human evaluation protocol. The paper focuses on commonsense knowledge generation using diffusion models with both traditional and novel evaluation metrics."
+}

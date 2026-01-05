@@ -1,0 +1,131 @@
+{
+  "paper_id": "2021.emnlp-main.555",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "STS-DINO-x2",
+      "STS-DINO-x1x2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT2-XL",
+      "Sentence-RoBERTa"
+    ],
+    "outputs": [
+      "labeled sentence pairs",
+      "text pairs with similarity labels"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "labeled sentence pairs"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Paraphrase Generation"
+        ],
+        "datasets": [
+          "STS--x2",
+          "STS--x1x2",
+          "STS-DINO"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "sentence pairs with similarity labels"
+        ]
+      },
+      "normalized": {
+        "STS--x2": "STS-DINO-x2",
+        "STS--x1x2": "STS-DINO-x1x2",
+        "Other:Paraphrase Generation": "Paraphrase Generation",
+        "sentence pairs": "text pairs with similarity labels"
+      },
+      "explanation": "Normalized dataset names to standard format, removed redundant task specification, and added more accurate output description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Spearman correlation"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "Spearman's rank correlation": "Spearman correlation"
+      },
+      "explanation": "Consolidated metric naming for consistency"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM-as-judge evaluation was conducted"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Assign a score of 0.9 when sentences mean (almost) the same thing",
+      "Assign a score of 0.1 when sentences are on different topics but show weak similarity",
+      "Use 4-point similarity scale: {0, 0.1, 0.5, 0.9}"
+    ],
+    "criteria": [
+      "semantic similarity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Use 4-point similarity scale: {0, 0.1, 0.5, 0.9}"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "assign a score of 0.9 when x 1 and x 2 mean (almost) the same thing and a score of 0.1 when they are on different topics, but still show a weak similarity in some aspect.",
+          "Annotators assign a similarity score based on how closely the two sentences share the same meaning or topic.",
+          "assign a score of 0.9 when x 1 and x 2 mean (almost) the same thing and a score of 0.1 when they are on different topics, but still show a weak similarity in some aspect"
+        ],
+        "criteria": [
+          "similarity"
+        ]
+      },
+      "normalized": {
+        "similarity": "semantic similarity"
+      },
+      "explanation": "Consolidated redundant guideline descriptions, normalized criterion name, and specified the full rating scale"
+    }
+  },
+  "overall_notes": "The paper focuses on automated dataset generation for semantic textual similarity, which involves generating sentence pairs (paraphrase generation task). The extraction was generally accurate but needed normalization for consistency. The paper explicitly mentions human evaluation on 100 randomly selected examples from the generated dataset."
+}

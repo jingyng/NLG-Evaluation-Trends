@@ -1,0 +1,180 @@
+{
+  "paper_id": "2024.emnlp-main.957",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "GPTGEOCHAT",
+      "GPTGEOCHAT SYNTHETIC",
+      "im2gps"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4v",
+      "llava_1.5_13b",
+      "llava_next_7b",
+      "idefics_80b_instruct",
+      "idefics_2_8b"
+    ],
+    "outputs": [
+      "Multimodal dialogue responses for image geolocation",
+      "Location information at various granularities (country, city, neighborhood, exact location, GPS coordinates)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Multimodal dialogue responses for image geolocation"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Responses in dialogues revealing location granularities (country, city, neighborhood, exact location, GPS coordinates).",
+          "textual dialogue responses that may reveal location information at various granularities"
+        ]
+      },
+      "normalized": {
+        "models (GPT-4v)": "GPT-4v",
+        "models (LLaVA-1.5-13b)": "LLaVA-1.5-13b",
+        "models (LLaVA-NeXT-7b)": "LLaVA-NeXT-7b",
+        "models (IDEFICS-80b-instruct)": "IDEFICS-80b-instruct",
+        "models (IDEFICS2-8b)": "IDEFICS2-8b"
+      },
+      "explanation": "Consolidated output descriptions and normalized model names to standard capitalization. The paper clearly involves NLG through dialogue generation for image geolocation tasks."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "LEAKED LOCATION PROPORTION",
+      "WRONGLY WITHHELD LOCATION PROPORTION",
+      "GEOCODING PREDICTION ERROR",
+      "JACCARD INDEX"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Leakage proportion",
+          "Wrongly withheld proportion",
+          "Geocoding prediction error (distance)",
+          "f1-score",
+          "geocoding-prediction-error"
+        ]
+      },
+      "normalized": {
+        "F1-score": "F1-score",
+        "Leaked Location Proportion": "Leaked Location Proportion",
+        "Wrongly Withheld Location Proportion": "Wrongly Withheld Location Proportion",
+        "Geocoding-prediction-error": "Geocoding-prediction-error",
+        "Jaccard index": "Jaccard index"
+      },
+      "explanation": "Removed duplicate entries and normalized to consistent naming. The paper uses multiple automatic metrics for evaluating moderation performance."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4v",
+      "llava_1.5_13b",
+      "llava_next_7b",
+      "idefics_80b_instruct",
+      "idefics_2_8b",
+      "gpt_3.5_turbo"
+    ],
+    "methods": [
+      "Self-Moderation prompting",
+      "Location extraction from dialogue responses"
+    ],
+    "criteria": [
+      "Location",
+      "Privacy"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Location extraction from dialogue responses"
+        ],
+        "criteria": [
+          "Privacy violation detection"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "LLM extraction of location via GPT-3.5-Turbo",
+          "text-based LLM to extract revealed location from each response"
+        ],
+        "criteria": [
+          "whether response reveals location at the specified granularity"
+        ]
+      },
+      "normalized": {
+        "Self-Moderation prompting": "Self-Moderation prompting",
+        "location disclosure": "Location disclosure at specified granularity",
+        "privacy violation": "Privacy violation detection"
+      },
+      "explanation": "Consolidated methods and criteria descriptions. The paper uses LLMs as judges for moderation decisions and location extraction from generated responses."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators select the most specific location granularity (country, city, neighborhood, exact location name, GPS coordinates) revealed in each model response",
+      "Annotators provide corresponding strings/coordinates for each granularity level"
+    ],
+    "criteria": [
+      "Country",
+      "City",
+      "Neighborhood",
+      "Location",
+      "Coordinates"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators provide corresponding strings/coordinates for each granularity level"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "country",
+          "city",
+          "neighborhood",
+          "exact location name",
+          "exact GPS coordinates"
+        ]
+      },
+      "normalized": {
+        "Country": "Country",
+        "City": "City",
+        "Neighborhood": "Neighborhood",
+        "Exact location name": "Exact location name",
+        "Exact GPS coordinates": "GPS coordinates"
+      },
+      "explanation": "Consolidated duplicate criteria and normalized to title case. The paper uses human annotators to label location granularity revealed in dialogue responses."
+    }
+  },
+  "overall_notes": "The paper focuses on NLG evaluation through dialogue generation for image geolocation. It involves both automatic metrics and human evaluation. The extracted metadata was generally accurate but needed consolidation of duplicate entries and normalization to standard naming conventions. The paper's main contribution is evaluating VLM moderation capabilities for privacy-preserving geolocation dialogues."
+}

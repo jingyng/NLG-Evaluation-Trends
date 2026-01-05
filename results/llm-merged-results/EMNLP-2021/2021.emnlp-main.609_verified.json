@@ -1,0 +1,137 @@
+{
+  "paper_id": "2021.emnlp-main.609",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Explanation Graph Generation"
+    ],
+    "datasets": [
+      "EXPLAGRAPHS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART",
+      "T5",
+      "RoBERTa",
+      "commonsense-augmented structured prediction model"
+    ],
+    "outputs": [
+      "explanation graphs (connected directed acyclic graphs with nodes and labeled edges)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "EXPLAGRAPHS": "EXPLAGRAPHS"
+      },
+      "explanation": "Consolidated output descriptions to single consistent description. Kept all models mentioned including the structured prediction model."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Stance Accuracy",
+      "Structural Correctness Accuracy",
+      "Semantic Correctness Accuracy",
+      "G-BERTScore",
+      "Graph Edit Distance",
+      "Edge Importance Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "G‑BLEU",
+          "G‑ROUGE"
+        ]
+      },
+      "normalized": {
+        "Stance Accuracy (SA)": "Stance Accuracy",
+        "Structural Correctness Accuracy (StCA)": "Structural Correctness Accuracy",
+        "Semantic Correctness Accuracy (SeCA)": "Semantic Correctness Accuracy",
+        "G-BERTScore (G-BS)": "G-BERTScore",
+        "Graph Edit Distance (GED)": "Graph Edit Distance",
+        "Edge Importance Accuracy (EA)": "Edge Importance Accuracy"
+      },
+      "explanation": "Removed G-BLEU and G-ROUGE as they are only mentioned in Figure 4 caption but not actually implemented or mentioned in the metrics section. The paper states these were considered but the actual metrics implemented are G-BERTScore, GED, and the correctness accuracy metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [
+      "RoBERTa"
+    ],
+    "methods": [
+      "fine-tuned classification into incorrect/support/counter labels"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "classification into incorrect/support/counter labels": "fine-tuned classification into incorrect/support/counter labels"
+      },
+      "explanation": "Fine-tuned RoBERTa is used as an automatic metric for semantic correctness, not as an LLM-as-judge. The paper does not use LLMs in the 'LLM-as-judge' paradigm."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators are provided with the belief and explanation graph and asked to verify semantic correctness by reasoning through the graph to infer stance (support/counter/incorrect)"
+    ],
+    "criteria": [
+      "semantic coherence",
+      "non-triviality",
+      "completeness",
+      "unambiguity",
+      "stance inference correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "structural correctness",
+          "connected DAG",
+          "node/edge constraints"
+        ]
+      },
+      "normalized": {
+        "correct stance inference": "stance inference correctness"
+      },
+      "explanation": "Structural correctness is handled automatically during evaluation pipeline (Level 2), not by human evaluators. Human evaluation focuses on semantic correctness criteria."
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive evaluation framework with both automatic metrics and human evaluation. The extraction was generally accurate but included some metrics that were only mentioned in figures but not actually implemented. The paper clearly addresses NLG (graph generation) with thorough evaluation methodology."
+}

@@ -1,0 +1,191 @@
+{
+  "paper_id": "2024.emnlp-main.499",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Question Answering"
+    ],
+    "datasets": [
+      "LLM AGGREFACT",
+      "AGGREFACT",
+      "TOFUEVAL",
+      "WICE",
+      "REVEAL",
+      "CLAIMVERIFY",
+      "FACTCHECK GPT",
+      "EXPERTQA",
+      "LFQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4",
+      "flan_t_5",
+      "minicheck_ft_5",
+      "claude_3_opus",
+      "mistral_8x_7b",
+      "gemini_pro",
+      "palm_2_bison",
+      "mistral_large",
+      "claude_2.1",
+      "gpt_3.5"
+    ],
+    "outputs": [
+      "LLM-generated summaries",
+      "dialogue summaries",
+      "question answering responses",
+      "sentences or atomic facts for fact-checking"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "dialogue summaries",
+          "question answering responses",
+          "sentences or atomic facts for fact-checking"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "datasets": [
+          "FACTCHECK"
+        ],
+        "languages": [],
+        "models": [
+          "Flan‑T5",
+          "Claude‑3 Opus",
+          "Mistral‑8x7B",
+          "Gemini‑Pro"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Question Answering": "Question Answering",
+        "FACTCHECK": "FACTCHECK-GPT",
+        "Flan‑T5": "Flan-T5",
+        "Claude‑3 Opus": "Claude-3 Opus",
+        "Mistral‑8x7B": "Mistral-8x7B",
+        "Gemini‑Pro": "Gemini-Pro"
+      },
+      "explanation": "Standardized task names, removed duplicate models with different formatting, corrected dataset name from 'FACTCHECK' to 'FACTCHECK-GPT', and improved output descriptions to be more specific"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BALANCED ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BAcc",
+          "QAFactEval score",
+          "SummaC‑ZS score",
+          "AlignScore score",
+          "Balanced Accuracy (BAcc)",
+          "Entailment score",
+          "Overlap score",
+          "Sentence-level factuality score"
+        ]
+      },
+      "normalized": {
+        "BAcc": "Balanced Accuracy",
+        "Balanced Accuracy (BAcc)": "Balanced Accuracy"
+      },
+      "explanation": "Removed all non-metric system names (QAFactEval, SummaC-ZS, AlignScore are systems not metrics) and normalized Balanced Accuracy variants. The paper primarily uses balanced accuracy as the main evaluation metric."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "gpt_3.5",
+      "claude_3_opus",
+      "claude_2.1",
+      "gemini_pro",
+      "palm_2_bison",
+      "mistral_8x_7b",
+      "mistral_large"
+    ],
+    "methods": [
+      "zero-shot prediction with entailment prompt",
+      "claim decomposition",
+      "decontextualization",
+      "full-response joint fact-checking"
+    ],
+    "criteria": [
+      "Factuality",
+      "Unsupported"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Claude‑3 Opus",
+          "Mistral‑8x7B",
+          "Gemini‑Pro",
+          "PaLM2‑Bison"
+        ],
+        "methods": [
+          "zero‑shot prompt evaluation"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "Claude‑3 Opus": "Claude-3 Opus",
+        "Mistral‑8x7B": "Mistral-8x7B",
+        "Gemini‑Pro": "Gemini-Pro",
+        "PaLM2‑Bison": "PaLM2-Bison",
+        "zero‑shot prompt evaluation": "zero-shot prediction with entailment prompt"
+      },
+      "explanation": "Standardized model names and methods. Kept all LLMs used as judges. The paper clearly uses LLMs for fact-checking evaluation with entailment-based prompts."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators label each (document, claim) pair as supported or not supported based on entailment"
+    ],
+    "criteria": [
+      "Factuality",
+      "Support"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "unsupported",
+          "not supported"
+        ]
+      },
+      "normalized": {
+        "supported": "support"
+      },
+      "explanation": "Simplified criteria to core evaluation dimensions. The human evaluation focuses on factual consistency through binary support judgments."
+    }
+  },
+  "overall_notes": "The paper is primarily about fact-checking LLM outputs rather than NLG generation itself, but it does evaluate generated outputs across multiple NLG tasks. The extraction had many system names incorrectly listed as metrics, which has been corrected. The paper uses both automatic metrics (balanced accuracy) and LLM-as-judge evaluations extensively."
+}

@@ -1,0 +1,109 @@
+{
+  "paper_id": "2024.naacl-long.20",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM judges against human evaluation using prediction-powered inference (PPI), comparing rankings via Kendall's tau and reporting accuracy metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "deberta_v_3_large",
+      "gpt_3.5_turbo"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed prompts provided in appendices A.2, A.3, A.4 for different datasets and criteria."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": "Not reported",
+      "interpretation": "Not applicable",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines cover context relevance, answer faithfulness, and answer relevance with positive/negative examples, but full detailed rubric not explicitly shown."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Kendall's tau",
+      "Accuracy"
+    ],
+    "shared_criteria": [
+      "answer relevance",
+      "context relevance"
+    ],
+    "sample_size": {
+      "total_generated": "variable_by_dataset",
+      "validated_by_both": 150,
+      "notes": "Human preference validation set is approximately 150-300 datapoints used for PPI validation across 8 datasets from KILT, SuperGLUE and AIS."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Kendall's tau",
+        "value": 0.065,
+        "criterion": "Relevance",
+        "llm_model": "deberta_v_3_large",
+        "significance": "higher than RAGAS",
+        "notes": "ARES outperforms RAGAS by 0.065 \u03c4 on average"
+      },
+      {
+        "metric": "Kendall's tau",
+        "value": 0.132,
+        "criterion": "Relevance",
+        "llm_model": "deberta_v_3_large",
+        "significance": "higher than RAGAS",
+        "notes": "ARES outperforms RAGAS by 0.132 \u03c4 on average"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 59.9,
+        "criterion": "Relevance",
+        "llm_model": "deberta_v_3_large",
+        "significance": "percentage points higher than RAGAS",
+        "notes": "59.9 percentage points higher accuracy than RAGAS"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 14.4,
+        "criterion": "Relevance",
+        "llm_model": "deberta_v_3_large",
+        "significance": "percentage points higher than RAGAS",
+        "notes": "14.4 percentage points higher accuracy than RAGAS"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Kendall's tau > 0.9 considered successful",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "ARES achieves strong correlation with human evaluation (Kendall's tau improvements of 0.065-0.132 over baselines) while using 78% fewer annotations, demonstrating LLM judges can effectively replicate human judgments for RAG system evaluation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Relevance",
+      "answer faithfulness",
+      "Relevance"
+    ],
+    "notes": "Both LLM and human evaluation assess the same three criteria: context relevance, answer faithfulness, and answer relevance."
+  }
+}

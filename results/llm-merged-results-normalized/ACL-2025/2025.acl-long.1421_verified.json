@@ -1,0 +1,158 @@
+{
+  "paper_id": "2025.acl-long.1421",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Language Modeling"
+    ],
+    "datasets": [
+      "c4",
+      "WIKITEXT 2",
+      "PIQA",
+      "WinoGrande",
+      "HellaSwag",
+      "ARC E",
+      "ARC C",
+      "MMLU",
+      "LAMBADA",
+      "RACE",
+      "BoolQ"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_7b",
+      "llama_13b",
+      "llama_2_7b",
+      "llama_2_13b",
+      "llama_3_8b",
+      "vicuna_7b",
+      "vicuna_13b",
+      "mistral_7b_instruct_v_0.3"
+    ],
+    "outputs": [
+      "Generated tokens for perplexity evaluation",
+      "Generated sentences for zero-shot task responses",
+      "Generated text samples from pruned models"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "MMLU",
+          "LAMBADA",
+          "RACE",
+          "BoolQ"
+        ],
+        "languages": [],
+        "models": [
+          "LLaMA-7B",
+          "LLaMA-13B",
+          "LLaMA-2-7B",
+          "LLaMA-2-13B",
+          "LLaMA-3-8B",
+          "Vicuna-7B",
+          "Vicuna-13B",
+          "Mistral-7B-Instruct-v0.3"
+        ],
+        "outputs": [
+          "Generated tokens for perplexity evaluation",
+          "Generated text samples from pruned models"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "LLaMA": "LLaMA-7B, LLaMA-13B",
+        "LLaMA-2": "LLaMA-2-7B, LLaMA-2-13B",
+        "Other:Language Modeling, Other:Text Generation": "Other:Language Modeling",
+        "generated sentences of the pruned models": "Generated text samples from pruned models"
+      },
+      "explanation": "Refined tasks to focus only on language modeling (text generation is implied). Normalized model names to include parameter sizes. Added missing datasets and outputs mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PERPLEXITY",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "perplexity",
+          "PIQA",
+          "WinoGrande",
+          "HellaSwag",
+          "ARC-e",
+          "ARC-c",
+          "MMLU",
+          "LAMBADA",
+          "RACE",
+          "BoolQ"
+        ]
+      },
+      "normalized": {
+        "perplexity": "Perplexity",
+        "accuracy": "Accuracy",
+        "PIQA, WinoGrande, HellaSwag, ARC-e, ARC-c, MMLU, LAMBADA, RACE, BoolQ": "Accuracy (aggregated from these tasks)"
+      },
+      "explanation": "PIQA, WinoGrande, etc. are tasks/datasets, not metrics. The metric used is accuracy on these tasks. Simplified to base metric forms."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges. No changes needed."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Paper does not conduct human evaluations. No changes needed."
+    }
+  },
+  "overall_notes": "This paper focuses on structural pruning of LLMs and evaluates the pruned models using perplexity and zero-shot task accuracy. While it generates text for evaluation, the primary contribution is model compression rather than NLG evaluation methodology. The extraction accurately captured the automatic metrics used, though needed normalization to distinguish between tasks/datasets and actual metrics."
+}

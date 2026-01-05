@@ -1,0 +1,151 @@
+{
+  "paper_id": "2025.acl-long.644",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Reasoning",
+      "Code Generation"
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH",
+      "GPQA",
+      "RECLOR",
+      "LOGIQA",
+      "STRATEGYQA",
+      "ARC CHALLENGE",
+      "MBPP",
+      "LIVECODEBENCH",
+      "AIME 2024",
+      "ALPACAEVAL",
+      "ARENA HARD",
+      "WIKIBENCH",
+      "MMLU",
+      "MMLU PRO"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3.1_8b_instruct",
+      "qwen_2.5_3b_instruct",
+      "qwen_2.5_7b_instruct"
+    ],
+    "outputs": [
+      "Generated reasoning chains or responses to queries",
+      "chain-of-thought reasoning responses",
+      "coding solutions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Reasoning Tasks",
+          "Other:reasoning"
+        ],
+        "datasets": [
+          "AIME 2024"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated reasoning responses (chain‑of‑thought), answer strings, and code snippets",
+          "general reasoning outputs"
+        ]
+      },
+      "normalized": {
+        "Other:Reasoning Tasks": "Other:Reasoning",
+        "Other:reasoning": "Other:Reasoning",
+        "Re-Clor": "ReClor",
+        "AIME 2024": "AIME2024"
+      },
+      "explanation": "Normalized task names to consistent capitalization, merged duplicate reasoning tasks, standardized dataset names (ReClor instead of Re-Clor, AIME2024 instead of AIME 2024), simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PASS",
+      "ACCURACY",
+      "PERFORMANCE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "average performance (%)",
+          "Pass@1"
+        ]
+      },
+      "normalized": {
+        "Pass@1": "pass@1",
+        "average performance (%)": "average performance"
+      },
+      "explanation": "Normalized metric names to lowercase and removed percentage symbols, kept consistent naming"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "policy LLM πθ",
+          "reference model πref",
+          "LLaMA3.1-8B-Instruct",
+          "Qwen2.5-Instruct"
+        ],
+        "methods": [
+          "pairwise preference ranking using implicit reward model",
+          "self-rewarding",
+          "preference pair construction"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as the paper does NOT use LLMs as judges for evaluation. The self-rewarding mechanism is part of the training process, not external evaluation of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human raters compare model outputs and assess alignment with human preferences",
+      "subjective evaluation"
+    ],
+    "criteria": [
+      "Humanness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed - the existing metadata accurately reflects the human evaluation mentioned in the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on self-training for reasoning enhancement, not traditional NLG evaluation. Key correction: The self-rewarding mechanism is part of the training process (LLM judging its own intermediate steps during generation), not external LLM-as-judge evaluation of final outputs. The paper uses standard automatic metrics and mentions human evaluation through ArenaHard benchmark."
+}

@@ -1,0 +1,158 @@
+{
+  "paper_id": "2021.emnlp-main.569",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation",
+      "Style Transfer"
+    ],
+    "datasets": [
+      "GYAFC",
+      "WIKIPEDIA",
+      "REDDIT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bert_base",
+      "roberta_base",
+      "sbert",
+      "universal_sentence_encoder"
+    ],
+    "outputs": [
+      "Style-controlled paraphrases for evaluation of style similarity"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Style Transfer"
+        ],
+        "datasets": [
+          "GYAFC",
+          "Wikipedia",
+          "Reddit"
+        ],
+        "models": [
+          "BERT-base",
+          "RoBERTa-base",
+          "SBERT",
+          "Universal Sentence Encoder"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Machine Translation"
+        ],
+        "datasets": [
+          "GYAFC subcorpus",
+          "English Wikipedia",
+          "Reddit comment corpus",
+          "Entertainment_Music GYAFC subcorpus",
+          "Pushshift dataset",
+          "Yahoo! Answers Comprehensive Questions and Answers version 1.0"
+        ],
+        "models": [
+          "BERT",
+          "SBERT mpnet",
+          "SBERT para-mpnet",
+          "USE",
+          "deepstyle"
+        ]
+      },
+      "normalized": {
+        "BERT base": "BERT-base",
+        "RoBERTa": "RoBERTa-base"
+      },
+      "explanation": "Removed tasks not actually evaluated (Dialogue Generation, Machine Translation were only mentioned in introduction). Simplified dataset names to core sources. Normalized model names to standard forms. Added Style Transfer as the paper evaluates style-controlled paraphrase generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "COSINE SIMILARITY",
+      "CHARACTER N GRAM",
+      "WORD LENGTH SIMILARITY",
+      "PUNCTUATION SIMILARITY",
+      "LIWC",
+      "EDIT DISTANCE",
+      "POS TAG SIMILARITY",
+      "CASING RATIO"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Character N-gram",
+          "POS Tag Similarity",
+          "Casing Ratio"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "character 3-gram similarity",
+          "word length similarity",
+          "punctuation similarity",
+          "LIWC similarity",
+          "edit distance"
+        ]
+      },
+      "normalized": {
+        "cosine similarity": "Cosine Similarity",
+        "LIWC similarity": "LIWC",
+        "edit distance": "Edit Distance"
+      },
+      "explanation": "Changed answer from No to Yes since paper evaluates style similarity using multiple automatic metrics. Normalized metric names to standard forms and expanded to include all evaluated methods mentioned in Section 5."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The models mentioned are evaluated, not used for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators were asked to order sentences S1 and S2 to match the style order of anchor sentences A1 and A2",
+      "Used quadruple setup with 5 annotators per task instance",
+      "Filtered based on majority agreement (≥3/5 correct annotations)",
+      "Screening questions used to filter annotators"
+    ],
+    "criteria": [
+      "Similarity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators were asked to order sentences S1 and S2 to match the style order of anchor sentences A1 and A2",
+          "Used quadruple setup with 5 annotators per task instance",
+          "Filtered based on majority agreement (≥3/5 correct annotations)",
+          "Screening questions used to filter annotators"
+        ],
+        "criteria": [
+          "Style similarity ordering"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Participants were asked to annotate 14 potential task instances as well as 2 additional screening questions.",
+          "Participants were asked to annotate 14 potential task instances as well as 2 additional screening questions. The screening questions were randomly sampled from a list of 10 screening questions. We filtered out all crowdworkers that wrongly answered any of the screening questions."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Restructured guidelines to be more informative and removed redundant information. Added explicit criteria for style similarity ordering."
+    }
+  },
+  "overall_notes": "The paper introduces STEL framework for evaluating style similarity methods. It focuses on evaluating style measuring capabilities rather than generating text. The human evaluation was used to validate the task instances, not to evaluate NLG outputs directly. The automatic metrics are used to evaluate style similarity methods, not traditional NLG outputs. Paper is more about evaluation methodology than NLG generation."
+}

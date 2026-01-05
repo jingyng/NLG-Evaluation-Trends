@@ -1,0 +1,154 @@
+{
+  "paper_id": "2023.acl-long.262",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Text Summarization",
+      "Dialogue Generation",
+      "Sudoku Generation"
+    ],
+    "datasets": [
+      "WMT",
+      "WMT17",
+      "iwslt14 DE EN",
+      "AGREESUM",
+      "SYNTHETIC SUDOKU"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "German"
+    ],
+    "models": [
+      "transformer",
+      "roberta_tiny",
+      "roberta_large",
+      "bart_large",
+      "bleurt_20_d_3"
+    ],
+    "outputs": [
+      "Sudoku grid completions",
+      "Machine translations",
+      "Multi-document summaries",
+      "Dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WMT newstest2020",
+          "WMT newstest2021",
+          "WMT TED talks",
+          "IWSLT14 De‑En",
+          "BLEURT‑20‑D3"
+        ],
+        "languages": [],
+        "models": [
+          "RoBERTa‑tiny reward model",
+          "RoBERTa‑large reward model",
+          "Transformer encoder‑decoder",
+          "BART‑large summarizer",
+          "BLEURT‑20‑D3 evaluator",
+          "transformer_iwslt_de_en"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Sudoku Generation": "Other:Sudoku Generation",
+        "WMT MQM": "WMT MQM",
+        "WMT17 Zh-En": "WMT17 Zh-En",
+        "IWSLT14 De-En": "IWSLT14 De-En",
+        "RoBERTa-tiny": "RoBERTa-tiny",
+        "RoBERTa-large": "RoBERTa-large",
+        "BART-large": "BART-large",
+        "BLEURT-20-D3": "BLEURT-20-D3"
+      },
+      "explanation": "Removed duplicate/alternative spellings of datasets and models. Kept canonical names. Removed dataset components that are part of larger datasets (e.g., WMT newstest2020 is part of WMT MQM)."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "BLEURT",
+      "SUCCESS RATE",
+      "REPETITION RATE",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "repetition (rep)",
+          "rep"
+        ]
+      },
+      "normalized": {
+        "success rate": "Success Rate",
+        "BLEU": "BLEU",
+        "BLEURT": "BLEURT",
+        "repetition rate": "Repetition Rate",
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Normalized metric names to standard capitalization. Combined 'repetition (rep)' and 'rep' into 'Repetition Rate'."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges in this paper."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "The paper uses human annotations based on direct ratings, error span labeling, and pairwise comparisons to construct the reward dataset."
+        ],
+        "criteria": [
+          "direct ratings",
+          "error spans",
+          "pairwise comparison"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to correct 'No'. The paper discusses human annotations used for training reward functions, but does NOT conduct human evaluations of the generated outputs themselves. Removed the guideline and criteria as they refer to training data collection, not output evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on reward gaming in conditional text generation using RL with learned rewards. It demonstrates issues through synthetic (Sudoku) and real-world (MT, summarization) tasks. The extraction was generally good but needed normalization and removal of duplicates. Important to note that while human annotations are discussed, they are used for training reward functions, not for evaluating the generated outputs."
+}

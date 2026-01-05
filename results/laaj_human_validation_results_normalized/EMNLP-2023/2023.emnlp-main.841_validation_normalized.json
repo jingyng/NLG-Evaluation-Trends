@@ -1,0 +1,134 @@
+{
+  "paper_id": "2023.emnlp-main.841",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates CLAIR against human judgments by comparing LLM-generated scores with human ratings across multiple datasets and reports correlation metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "GPT-3.5",
+      "Claude",
+      "PaLM"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "figure",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The prompt is shown in Figure 1 and includes the query: 'You are trying to tell if a candidate set of captions is describing the same image as a reference set of captions. Candidate set: {candidate captions} Reference set: {reference captions} On a precise scale from 0 to 100, how likely is it that the candidate set is describing the same image as the reference set? (JSON format, with a key 'score', value between 0 and 100, and a key 'reason' with a string value.)'"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unspecified",
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines mention scales (1-5 for relevance/quality, 1-4 for correctness) and pairwise preference tasks, with examples provided in qualitative analysis sections"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Kendall's tau",
+      "Sample-level correlation",
+      "System-level correlation"
+    ],
+    "shared_criteria": [
+      "overall caption quality"
+    ],
+    "sample_size": {
+      "total_generated": "unspecified",
+      "validated_by_both": "Multiple subsets including 500-image MS-COCO subset, 5822 captions from Flickr8K-Expert, 4000 pairs from PASCAL-50S, and 794 sets from COCO-Sets",
+      "notes": "Validation conducted across multiple datasets with different sample sizes"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Correlation improvement",
+        "value": 39.6,
+        "criterion": "overall caption quality",
+        "llm_model": "CLAIR",
+        "significance": "relative improvement over SPICE",
+        "notes": "On Flickr8K-Expert, CLAIR achieved 39.6% relative correlation improvement over SPICE"
+      },
+      {
+        "metric": "Correlation improvement",
+        "value": 18.3,
+        "criterion": "overall caption quality",
+        "llm_model": "CLAIR",
+        "significance": "relative improvement over RefCLIP-S",
+        "notes": "On Flickr8K-Expert, CLAIR achieved 18.3% relative correlation improvement over image-augmented methods like RefCLIP-S"
+      },
+      {
+        "metric": "Sample-level correlation",
+        "value": 0.604,
+        "criterion": "overall caption quality",
+        "llm_model": "CLAIR",
+        "significance": "compared to SPICE (0.403)",
+        "notes": "CLAIR outperforms language-only measures (e.g., 0.604 to 0.403 for SPICE)"
+      },
+      {
+        "metric": "Performance gap to human agreement",
+        "value": 0.097,
+        "criterion": "overall caption quality",
+        "llm_model": "CLAIR E",
+        "significance": "improvement over vision-based measures",
+        "notes": "CLAIR E closes the gap to inter-human agreement by 0.097 over vision-based measures"
+      },
+      {
+        "metric": "Performance gap to human agreement",
+        "value": 0.132,
+        "criterion": "overall caption quality",
+        "llm_model": "CLAIR E",
+        "significance": "improvement over language-based measures",
+        "notes": "CLAIR E closes the gap to inter-human agreement by 0.132 over language-based measures"
+      },
+      {
+        "metric": "Discriminative performance",
+        "value": 5.18,
+        "criterion": "overall caption quality",
+        "llm_model": "CLAIR E",
+        "significance": "percentage improvement over CIDEr",
+        "notes": "CLAIR E outperforms text-only measures by 5.18% overall score over CIDEr on PASCAL-50S"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Not explicitly stated, but described as 'surprisingly well' and 'strong correlation'",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "CLAIR demonstrates strong correlation with human judgments, consistently outperforming prior caption evaluation measures and approaching inter-human agreement levels, particularly when using ensemble methods."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Visual",
+      "Interaction",
+      "Diversity",
+      "Specificity"
+    ],
+    "human_only_criteria": [
+      "Quality",
+      "Coverage"
+    ],
+    "shared_criteria": [
+      "Relevance",
+      "Correctness"
+    ],
+    "notes": "CLAIR evaluates multiple dimensions including semantic relevance, visual structure, object interactions, caption diversity, and specificity through LLM reasoning, while human evaluation focuses on relevance, correctness, coverage, and overall quality"
+  }
+}

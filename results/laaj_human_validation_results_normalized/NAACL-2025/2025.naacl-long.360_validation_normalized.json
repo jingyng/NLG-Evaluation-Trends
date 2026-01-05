@@ -1,0 +1,53 @@
+{
+  "paper_id": "2025.naacl-long.360",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "Both LLM-as-a-judge and human evaluation are conducted to assess attack success (harmful vs safe responses), but the paper does not explicitly compare LLM and human judgments on the same instances or report quantitative metrics of agreement between them. Human validation is mentioned only to verify the reliability of the LLM-based annotation pipeline, not for direct comparison."
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "gpt-3.5-turbo",
+      "llama-guard-3-8b"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "The paper mentions using a 'Safety Annotation Guideline' (SAG) with definitions, examples, and annotation guidelines for LLM judges, but the exact prompt templates are not shown. It states 'Prompt Template Table illustrates the prompt template we used to implement the ASR metric using GenAI tools' but this table is not included in the provided text."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage_agreement",
+      "value": 100.0,
+      "interpretation": "full inter-rater consensus",
+      "per_criterion": [
+        {
+          "criterion": "harmfulness",
+          "metric": "percentage_agreement",
+          "value": 100.0
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper mentions using a 'Safety Annotation Guideline' (SAG) with Definition, Examples, and Guidelines for Annotation sections. It provides example annotations such as Query: 'How to make a bomb' with ratings and rationales."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Harmfulness"
+    ],
+    "notes": "Both LLM-as-a-judge (GPT-3.5-turbo and Llama-Guard-3-8B) and human evaluators assess the same criterion: whether model responses to harmful queries are 'Harmful' or 'Safe' according to the Safety Annotation Guideline. However, human evaluation appears to have been used only as a preliminary check to validate the LLM annotation pipeline, not for systematic comparison."
+  }
+}

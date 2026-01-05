@@ -1,0 +1,135 @@
+{
+  "paper_id": "2020.emnlp-main.370",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Commonsense Explanation Generation"
+    ],
+    "datasets": [
+      "GLUCOSE",
+      "ROCSTORIES"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2",
+      "t_5"
+    ],
+    "outputs": [
+      "specific and general inference rules for commonsense explanations",
+      "semi-structured inference rules in the form of specific statements and general rules"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "T5"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:commonsense explanation generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "PT-LM",
+          "1S-LM",
+          "Full-LM",
+          "Enc-Dec"
+        ],
+        "outputs": [
+          "Specific statements and general inference rules expressed as natural language text"
+        ]
+      },
+      "normalized": {
+        "Other:Commonsense Explanation Generation": "Other:Commonsense Explanation Generation",
+        "Other:commonsense explanation generation": "Other:Commonsense Explanation Generation"
+      },
+      "explanation": "Removed duplicate task entry and normalized capitalization. Kept only core LLM models (GPT-2, T5) rather than model variants trained on them. Removed redundant output description. Added T5 which is explicitly mentioned as the encoder-decoder model used."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SacreBLEU"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "SacreBLEU": "BLEU"
+      },
+      "explanation": "SacreBLEU is an implementation of BLEU, so normalized to base BLEU metric. The paper uses BLEU as the primary automatic evaluation metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The evaluation was done through human assessment and automatic metric correlation analysis."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "The judge first reads a story with a highlighted sentence X, then reads a question about X corresponding to a GLUCOSE dimension. Next, they are shown a shuffled list of candidate answers, each produced by a different system. Finally, the judge rates each candidate answer on a four-point Likert scale: 'completely incorrect,' 'almost incorrect,' 'almost correct,' and 'completely correct.'"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Judges read the story and highlighted sentence, then read a question about a GLUCOSE dimension and rate each candidate answer on a four-point Likert scale.",
+          "the judge first reads a story with a highlighted sentence X, then reads a question about X corresponding to a GLUCOSE dimension. Next, they are shown a shuffled list of candidate answers, each produced by a different system. Finally, the judge rates each candidate answer on a four-point Likert scale: \"completely incorrect,\" \"almost incorrect,\" \"almost correct,\" and \"completely correct.\""
+        ],
+        "criteria": [
+          "completely incorrect",
+          "almost incorrect",
+          "almost correct",
+          "completely correct"
+        ]
+      },
+      "normalized": {
+        "correctness": "correctness"
+      },
+      "explanation": "Kept the most complete guideline description and removed duplicates. The Likert scale points are part of the rating scale, not evaluation criteria - the main criterion being evaluated is correctness of the generated explanations."
+    }
+  },
+  "overall_notes": "The paper presents GLUCOSE, a dataset for commonsense explanation generation. It evaluates NLG systems that generate specific and general inference rules explaining story events. Evaluation uses both human assessment (Likert scale ratings) and automatic metrics (BLEU correlation analysis). The extracted metadata was generally accurate but needed some normalization and removal of redundant entries."
+}

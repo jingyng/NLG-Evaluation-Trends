@@ -1,0 +1,90 @@
+{
+  "paper_id": "2024.acl-long.523",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper validates LLM evaluation against human evaluation through correlation analysis on accuracy of preference data assessment, comparing results with human-annotated standards and reporting consistency percentages."
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "GPT-4",
+      "Llama2-7B",
+      "Llama2-13B",
+      "Llama2-70B"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "partial",
+      "notes": "Full LLM evaluation prompt provided in Appendix A, which includes criteria descriptions but no detailed rubric examples."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": null,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human annotation guidelines mentioned as detailed in Appendix J, but specific content not shown in text."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "Harmlessness",
+      "Helpfulness"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": 1000,
+      "notes": "Human annotation conducted on 1000 samples from self-generated dataset; original dataset's inherent preference relations used as human annotations."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": 86.3,
+        "criterion": "overall",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Average consistency between GPT-4 and human annotations reported as 86.3%"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4's evaluations show 86.3% consistency with human annotations on average, significantly higher than Llama2-70B, indicating high accuracy as an evaluation tool."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Detail",
+      "Discrimination",
+      "Abidance",
+      "Avoidance",
+      "Privacy"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Harmlessness",
+      "Helpfulness"
+    ],
+    "notes": "LLM evaluates additional detailed criteria not covered in human evaluation; both methods focus on harmlessness and helpfulness."
+  }
+}

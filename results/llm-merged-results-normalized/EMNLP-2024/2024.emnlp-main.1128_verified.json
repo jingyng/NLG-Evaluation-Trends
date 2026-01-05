@@ -1,0 +1,179 @@
+{
+  "paper_id": "2024.emnlp-main.1128",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Video Captioning"
+    ],
+    "datasets": [
+      "VIEWS",
+      "MSR VTT",
+      "ACTIVITYNET CAPTIONS",
+      "youcook2",
+      "MM AVS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "git",
+      "blip_2",
+      "vit_t_5",
+      "ep",
+      "ke",
+      "cm",
+      "palm_2",
+      "llama_2",
+      "video_llama"
+    ],
+    "outputs": [
+      "entity-aware video captions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "MM-AVS"
+        ],
+        "languages": [],
+        "models": [
+          "Video-LLaMA"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Image Captioning",
+          "Text Summarization"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "PaLM-2-L-IT"
+        ],
+        "outputs": [
+          "entity‑aware video captions"
+        ]
+      },
+      "normalized": {
+        "Other:Video Captioning": "Other:Video Captioning",
+        "VIEWS": "VIEWS",
+        "MSR-VTT": "MSR-VTT",
+        "ActivityNet Captions": "ActivityNet Captions",
+        "YouCook2": "YouCook2",
+        "MM-AVS": "MM-AVS",
+        "GIT": "GIT",
+        "BLIP-2": "BLIP-2",
+        "ViT-T5": "ViT-T5",
+        "Entity Perceiver (EP)": "Entity Perceiver (EP)",
+        "Knowledge Extractor (KE)": "Knowledge Extractor (KE)",
+        "Captioning Model (CM)": "Captioning Model (CM)",
+        "PaLM-2": "PaLM-2",
+        "LLaMA-2": "LLaMA-2",
+        "Video-LLaMA": "Video-LLaMA",
+        "entity-aware video captions": "entity-aware video captions"
+      },
+      "explanation": "Removed 'Image Captioning' and 'Text Summarization' as these are not the main tasks evaluated. Added MM-AVS dataset as it's explicitly evaluated. Normalized PaLM-2-L-IT to PaLM-2 and added Video-LLaMA which is used for evaluation. Removed duplicate output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "CIDER",
+      "ENTITY F1",
+      "BERTSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "Rouge-L": "ROUGE",
+        "CIDEr": "CIDEr",
+        "Entity F1": "Entity F1",
+        "BERTScore": "BERTScore"
+      },
+      "explanation": "Normalized all metrics to base forms: BLEU-4 → BLEU, ROUGE-L/Rouge-L → ROUGE. Removed duplicate ROUGE-L entry."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "llama_2"
+    ],
+    "methods": [
+      "LLM rating via prompt",
+      "LLM rater scoring"
+    ],
+    "criteria": [
+      "Entity",
+      "Hallucination",
+      "Completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "contains important entities",
+          "does not hallucinate",
+          "does not leave out critical information"
+        ]
+      },
+      "normalized": {
+        "LLaMA-2": "LLaMA-2",
+        "LLM rating via prompt": "LLM rating via prompt",
+        "LLM rater scoring": "LLM rater scoring",
+        "entity presence": "entity presence",
+        "no hallucination": "no hallucination",
+        "completeness": "completeness"
+      },
+      "explanation": "Normalized criteria to concise forms and removed redundant criteria that describe the same concepts as the normalized ones."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human raters check whether captions contain important entity names, avoid hallucinations, and include all critical information from the video"
+    ],
+    "criteria": [
+      "Entity",
+      "Hallucination",
+      "Completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "entity presence": "entity presence",
+        "no hallucination": "no hallucination",
+        "completeness": "completeness"
+      },
+      "explanation": "No major changes needed. The extracted metadata accurately reflects the human evaluation described in the paper."
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive evaluation framework for entity-aware video captioning. It uses both automatic metrics (BLEU, ROUGE, CIDEr, Entity F1, BERTScore) and human evaluation with clearly defined criteria. LLMs (LLaMA-2) are used for quality assessment during dataset creation and for entity extraction. The extraction quality was generally good, with minor normalization needed for metric names and criteria consolidation."
+}

@@ -1,0 +1,135 @@
+{
+  "paper_id": "2025.acl-long.1507",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-as-a-judge against human evaluation using Cohen's kappa for agreement analysis, reporting quantitative metrics and discussing the relationship between methods"
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "gemma_2_9b",
+      "llama_3.1_8b",
+      "llama_2_7b"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "no",
+      "notes": "Method adapted from original TruthfulQA paper but no exact prompts shown; judge models trained with learning rate 0.01 for 5 epochs"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen Kappa",
+      "value": "similar between human evaluators and between humans and Judge-LLM",
+      "interpretation": "high agreement",
+      "per_criterion": [
+        {
+          "criterion": "truthfulness",
+          "metric": "Cohen Kappa",
+          "value": 0.6
+        },
+        {
+          "criterion": "informativeness",
+          "metric": "Cohen Kappa",
+          "value": 0.78
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human evaluation used binary labels (truthful/not-truthful, informative/not-informative); for long answers with additional claims, new information had to be fact-checked"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Cohen's kappa"
+    ],
+    "shared_criteria": [
+      "truthfulness",
+      "informativeness"
+    ],
+    "sample_size": {
+      "total_generated": 400,
+      "validated_by_both": 400,
+      "notes": "400 responses evaluated by both methods (100 questions each for 4 models across 5 languages); reliability measured on 50 overlapping manually-annotated responses per language"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.74,
+        "criterion": "truthfulness",
+        "llm_model": "gemma_2_9b",
+        "significance": "not_reported",
+        "notes": "English language, best performing Judge-LLM (Gemma 2 9B instruct trained with all MT data)"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.7,
+        "criterion": "truthfulness",
+        "llm_model": "gemma_2_9b",
+        "significance": "not_reported",
+        "notes": "Spanish language"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.75,
+        "criterion": "truthfulness",
+        "llm_model": "gemma_2_9b",
+        "significance": "not_reported",
+        "notes": "Catalan language"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.72,
+        "criterion": "truthfulness",
+        "llm_model": "gemma_2_9b",
+        "significance": "not_reported",
+        "notes": "Galician language"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.6,
+        "criterion": "truthfulness",
+        "llm_model": "gemma_2_9b",
+        "significance": "not_reported",
+        "notes": "Basque language"
+      },
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.78,
+        "criterion": "informativeness",
+        "llm_model": "gemma_2_9b",
+        "significance": "not_reported",
+        "notes": "Base models only (Judge-LLM-info)"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "not specified",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM-as-a-Judge correlates more closely with human judgments than multiple-choice metrics across all languages, with Cohen's kappa agreements ranging from 0.60-0.75 for truthfulness and 0.78 for informativeness, showing higher correlation even when judge training data differs in format and language."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "truthfulness",
+      "informativeness"
+    ],
+    "notes": "Both LLM and human evaluation assessed the same criteria on the same instances"
+  }
+}

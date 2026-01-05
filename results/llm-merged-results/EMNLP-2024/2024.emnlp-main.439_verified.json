@@ -1,0 +1,143 @@
+{
+  "paper_id": "2024.emnlp-main.439",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Visual Question Answering"
+    ],
+    "datasets": [
+      "MSCOCO",
+      "LLaVA-QA90",
+      "MME"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaVA-1.5-7B",
+      "LLaVA-NeXT-7B",
+      "InstructBLIP-7B"
+    ],
+    "outputs": [
+      "image descriptions and answers to visual questions",
+      "image captions describing visual content with reduced object hallucination"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "MME"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LLaVA-1.5",
+          "LLaVA-NeXT",
+          "InstructBLIP",
+          "Vicuna"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Visual Question Answering": "Visual Question Answering",
+        "LLaVA-1.5-7b": "LLaVA-1.5-7B",
+        "LLaVA-NeXT-7b": "LLaVA-NeXT-7B",
+        "InstructBLIP-7b": "InstructBLIP-7B"
+      },
+      "explanation": "Normalized model names to consistent capitalization (7B instead of 7b). Removed generic model names without sizes as they're covered by the specific versions. Added MME dataset which was used for evaluation. Simplified task naming by removing 'Other:' prefix."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "POPE",
+      "CHAIR",
+      "MME",
+      "Precision",
+      "Recall",
+      "F1",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-4V evaluation",
+          "CHAIR S",
+          "CHAIR I",
+          "existence",
+          "count",
+          "color",
+          "position"
+        ]
+      },
+      "normalized": {
+        "F1 score": "F1"
+      },
+      "explanation": "Removed GPT-4V evaluation (addressed in Q3), CHAIR variants (CHAIR is the base metric), and MME sub-metrics (MME is the overall benchmark). Kept core automatic metrics used for evaluation. Normalized F1 score to F1."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4V"
+    ],
+    "methods": [
+      "pairwise evaluation with accuracy and detailedness scoring"
+    ],
+    "criteria": [
+      "accuracy",
+      "detailedness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "pairwise evaluation"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "pairwise evaluation with specific prompt": "pairwise evaluation with accuracy and detailedness scoring",
+        "score‑based evaluation of generated responses": "pairwise evaluation with accuracy and detailedness scoring"
+      },
+      "explanation": "Consolidated method descriptions into a single clear description. Kept the two evaluation criteria (accuracy and detailedness) that GPT-4V was explicitly instructed to score."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The paper explicitly states they used automatic metrics and GPT-4V evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on reducing object hallucination in Large Vision-Language Models (LVLMs) through attention mechanism analysis. All evaluations are automated using benchmark datasets (POPE, CHAIR, MME) and GPT-4V as an evaluator. The extraction was generally accurate but needed some normalization and consolidation of redundant items."
+}

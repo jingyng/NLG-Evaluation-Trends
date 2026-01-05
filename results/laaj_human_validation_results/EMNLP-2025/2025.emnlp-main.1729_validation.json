@@ -1,0 +1,128 @@
+{
+  "paper_id": "2025.emnlp-main.1729",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-as-a-judge against human evaluation by comparing their system-level rankings using Kendall's τ correlation, reporting quantitative metrics for agreement on both NarrativeQA and LiteraryQA datasets."
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "GPT 4.1",
+      "Claude 3.7 Sonnet",
+      "Prometheus 2 7B"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact system prompts provided in appendix tables, following the same rubric as human evaluators (Table in Appendix C)."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Kendall's τ",
+      "value": "0.7876 for LiteraryQA, 0.8098 for NarrativeQA",
+      "interpretation": "High agreement between annotators.",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed rubric with scoring scale 1-5 and evaluation criteria provided in Table in Appendix C."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Kendall's τ"
+    ],
+    "shared_criteria": [
+      "Correctness",
+      "Completeness",
+      "Relevance"
+    ],
+    "sample_size": {
+      "total_generated": 7000,
+      "validated_by_both": 7000,
+      "notes": "500 QA pairs sampled from each dataset (LiteraryQA and NarrativeQA), evaluated by 7 systems = 7000 (QA, prediction) pairs"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Kendall's τ",
+        "value": 0.4499,
+        "criterion": "overall",
+        "llm_model": "Prometheus 2 7B",
+        "significance": "95% CI [-0.05, 0.88]",
+        "notes": "Reference-based evaluation on LiteraryQA"
+      },
+      {
+        "metric": "Kendall's τ",
+        "value": 0.6881,
+        "criterion": "overall",
+        "llm_model": "Prometheus 2 7B",
+        "significance": "95% CI [0.33, 0.98]",
+        "notes": "Summary-based evaluation on LiteraryQA"
+      },
+      {
+        "metric": "Kendall's τ",
+        "value": 0.3651,
+        "criterion": "overall",
+        "llm_model": "Claude 3.7 Sonnet",
+        "significance": "95% CI [-0.14, 0.81]",
+        "notes": "Reference-based evaluation on LiteraryQA"
+      },
+      {
+        "metric": "Kendall's τ",
+        "value": 0.5243,
+        "criterion": "overall",
+        "llm_model": "Claude 3.7 Sonnet",
+        "significance": "95% CI [0.09, 0.90]",
+        "notes": "Summary-based evaluation on LiteraryQA"
+      },
+      {
+        "metric": "Kendall's τ",
+        "value": 0.3282,
+        "criterion": "overall",
+        "llm_model": "GPT 4.1",
+        "significance": "95% CI [-0.14, 0.71]",
+        "notes": "Reference-based evaluation on LiteraryQA"
+      },
+      {
+        "metric": "Kendall's τ",
+        "value": 0.5593,
+        "criterion": "overall",
+        "llm_model": "GPT 4.1",
+        "significance": "95% CI [0.20, 0.90]",
+        "notes": "Summary-based evaluation on LiteraryQA"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong agreement",
+      "threshold_used": "Not explicitly stated, but LLM-as-a-judge correlations (up to 0.6881) described as significantly higher than n-gram metrics",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-as-a-judge evaluations show moderate to strong correlation with human judgments (Kendall's τ = 0.33-0.69 on LiteraryQA), significantly outperforming n-gram-based metrics. Summary-based evaluation (providing book summaries) substantially improves correlation compared to reference-only evaluation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Correctness",
+      "Completeness",
+      "Precision",
+      "Scope",
+      "Relevance"
+    ],
+    "notes": "LLM-as-a-judge used the same evaluation rubric (Table in Appendix C) as human evaluators, assessing predictions on a 1-5 scale based on the same criteria."
+  }
+}

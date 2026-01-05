@@ -1,0 +1,150 @@
+{
+  "paper_id": "2022.acl-long.394",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "Mock consultation dataset (57 pairs)",
+      "Proprietary clinical consultation dataset (130,000 pairs)"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART",
+      "Google Speech-to-Text"
+    ],
+    "outputs": [
+      "Subjective part of SOAP notes",
+      "Consultation notes"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "Proprietary clinical consultation dataset (130,000 pairs)"
+        ],
+        "outputs": [
+          "Consultation notes"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "proprietary dataset of 130,000 real consultation notes and transcripts",
+          "Mock consultation transcripts (57)",
+          "Real consultation notes (130,000)",
+          "57 pairs of mock consultation transcripts and summary notes"
+        ]
+      },
+      "normalized": {
+        "mock consultation dataset (57 pairs)": "Mock consultation dataset (57 pairs)"
+      },
+      "explanation": "Consolidated dataset descriptions to avoid redundancy, normalized capitalization, and added broader output description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "CHRF",
+      "METEOR",
+      "BLEU",
+      "Levenshtein distance",
+      "WER",
+      "MER",
+      "WIL",
+      "ROUGE-WE",
+      "SkipThoughts",
+      "Embedding Average",
+      "VectorExtrema",
+      "GreedyMatching",
+      "USE",
+      "WMD",
+      "BERTScore",
+      "MoverScore",
+      "Stanza+Snomed"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-3",
+          "ROUGE-4",
+          "ROUGE-L",
+          "Levenshtein dist.",
+          "Embedding Avg"
+        ]
+      },
+      "normalized": {
+        "BertScore": "BERTScore",
+        "Levenshtein dist.": "Levenshtein distance",
+        "Embedding Avg": "Embedding Average",
+        "Stanza+Snomed": "Stanza+Snomed"
+      },
+      "explanation": "Consolidated ROUGE variants into single ROUGE metric, normalized metric names to standard forms"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation methods used in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Listen to consultation audio and take notes",
+      "Read 5 different notes and post-edit each one",
+      "Classify errors into 'incorrect statements' and 'omissions'",
+      "Tag errors as 'critical' if essential clinical importance",
+      "Report qualitative feedback in 'Other issues' box",
+      "Use track-changes interface for post-editing"
+    ],
+    "criteria": [
+      "post-edit times",
+      "incorrect statements",
+      "omissions",
+      "critical errors",
+      "order of statements",
+      "repetition",
+      "completeness",
+      "accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "completeness",
+          "accuracy"
+        ],
+        "guideline": [
+          "Tag errors as 'critical' if essential clinical importance",
+          "Use track-changes interface for post-editing"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "post‑edit time",
+          "other issues"
+        ]
+      },
+      "normalized": {
+        "post‑edit time": "post-edit times"
+      },
+      "explanation": "Added missing criteria mentioned in paper (completeness, accuracy) and expanded guideline details from full text"
+    }
+  },
+  "overall_notes": "Paper focuses on evaluation of clinical note generation as a text summarization task. Contains comprehensive human evaluation with detailed error annotation and extensive correlation study with 18 automatic metrics. No LLM-based evaluation is used. Extraction quality was good but needed consolidation of redundant dataset descriptions and normalization of metric variants."
+}

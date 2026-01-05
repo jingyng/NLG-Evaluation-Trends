@@ -1,0 +1,171 @@
+{
+  "paper_id": "2025.naacl-long.44",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Tool Utilization",
+      "Other:Tool Instruction Generation"
+    ],
+    "datasets": [
+      "ToolBench",
+      "RestBench",
+      "FuncQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ChatGPT",
+      "GPT-4",
+      "GPT-4o",
+      "Llama-3.1-8B-Instruct",
+      "Llama-3.1-70B-Instruct",
+      "Vicuna-30B",
+      "ToolLLaMA-7B",
+      "Vicuna-13B"
+    ],
+    "outputs": [
+      "tool calls and final answers to user requests",
+      "tool instructions including tool descriptions and functionality guidelines"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "ChatGPT-ReACT": "ChatGPT",
+        "gpt-3.5-turbo-0613": "ChatGPT",
+        "gpt-4-0613": "GPT-4",
+        "gpt-4o-2024-08-06": "GPT-4o"
+      },
+      "explanation": "Normalized model names to standard forms (e.g., 'GPT-4' instead of 'gpt-4'), but kept all existing items as they are correctly extracted and relevant."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Pass Rate",
+      "Win Rate",
+      "Success Rate",
+      "Correct Path Rate",
+      "Accuracy",
+      "Error Rate",
+      "NDCG"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "CP%",
+          "NDCG@1",
+          "NDCG@5",
+          "Error"
+        ]
+      },
+      "normalized": {
+        "CP%": "Correct Path Rate",
+        "Error": "Error Rate"
+      },
+      "explanation": "Consolidated metric variations (e.g., 'Correct Path Rate' instead of 'CP%', 'Error Rate' instead of 'Error'). Removed specific NDCG variants as they are covered by the base 'NDCG' metric. Added 'Correct Path Rate' which is the main metric mentioned for RestBench evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "ChatGPT",
+      "GPT-4",
+      "GPT-4o"
+    ],
+    "methods": [
+      "pairwise preference evaluation",
+      "binary correctness check",
+      "hallucination detection"
+    ],
+    "criteria": [
+      "preference",
+      "reasonableness",
+      "accuracy",
+      "hallucination presence"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "pairwise evaluation",
+          "binary evaluation",
+          "Success Rate evaluation",
+          "hallucination evaluation using GPT-4o"
+        ],
+        "criteria": [
+          "input-conflicting hallucination",
+          "context-conflicting hallucination",
+          "fact-conflicting hallucination"
+        ]
+      },
+      "normalized": {
+        "binary evaluation": "binary correctness check",
+        "hallucination evaluation using GPT-4o": "hallucination detection"
+      },
+      "explanation": "Consolidated redundant method descriptions and removed overly specific hallucination criteria which are implementation details rather than evaluation criteria. Kept the core evaluation criteria mentioned in the paper."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Check for tool name errors and parameter errors in LLM outputs",
+      "Evaluate correctness of tool descriptions and plausibility of functionality guidelines"
+    ],
+    "criteria": [
+      "tool name error",
+      "parameter error",
+      "correctness",
+      "plausibility"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "accuracy",
+          "tool name error",
+          "parameter error",
+          "correctness of tool description",
+          "plausibility of scenarios",
+          "hallucination types"
+        ]
+      },
+      "normalized": {
+        "accuracy": "correctness",
+        "plausibility of scenarios": "plausibility",
+        "correctness of tool description": "correctness"
+      },
+      "explanation": "Consolidated criteria by removing redundant entries and normalizing to core criteria. The key human evaluation focuses on error identification (tool name/parameter errors) and quality assessment (correctness/plausibility) of the generated tool instructions."
+    }
+  },
+  "overall_notes": "The extraction quality is generally good. The paper focuses on tool utilization and instruction generation for LLM-based agents, which involves natural language generation aspects. All evaluations (automatic metrics, LLM-as-judge, human evaluation) are well-documented in the paper. The human evaluations are extensive with multiple annotators and inter-annotator agreement scores reported."
+}

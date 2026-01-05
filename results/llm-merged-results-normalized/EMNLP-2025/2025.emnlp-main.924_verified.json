@@ -1,0 +1,192 @@
+{
+  "paper_id": "2025.emnlp-main.924",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "DIVEMT",
+      "WMT24",
+      "qe4pe"
+    ],
+    "languages": [
+      "Arabic",
+      "Chinese",
+      "Czech",
+      "Dutch",
+      "English",
+      "Hindi",
+      "Italian",
+      "Japanese",
+      "Russian",
+      "Turkish",
+      "Ukrainian",
+      "Vietnamese"
+    ],
+    "models": [
+      "mbart_50",
+      "nllb_3.3b",
+      "aya_23_35b",
+      "xcomet_xl",
+      "xcomet_xxl"
+    ],
+    "outputs": [
+      "machine-translated texts",
+      "word-level quality estimation scores for each token",
+      "machine translation outputs with word-level error span annotations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "German",
+          "French",
+          "Spanish",
+          "Polish",
+          "Others"
+        ],
+        "models": [],
+        "outputs": [
+          "word-level error span predictions"
+        ]
+      },
+      "normalized": {
+        "Aya23-35B": "Aya23-35B",
+        "NLLB 3.3B": "NLLB-3.3B"
+      },
+      "explanation": "Removed languages not explicitly mentioned in the paper. Removed 'word-level error span predictions' from outputs since error spans are annotations, not generated outputs. Normalized model names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SURPRISAL",
+      "ENTROPY",
+      "SURPRISAL MCD",
+      "SURPRISAL MCD VAR",
+      "LL SURPRISAL",
+      "LL KL DIV",
+      "LL PRED DEPTH",
+      "ATTN ENTROPY",
+      "ATTN ENTROPY MAX",
+      "BLOOD",
+      "XCOMET XL",
+      "XCOMET XL CONF",
+      "PRECISION",
+      "OPTIMAL F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "LL KL‑Div",
+          "BLOOD OOD detection",
+          "XCOMET",
+          "XCOMET CONF",
+          "LL Surprisal BEST",
+          "LL KL-Div BEST",
+          "BLOOD BEST",
+          "Attention Entropy AVG",
+          "Attention Entropy MAX"
+        ]
+      },
+      "normalized": {
+        "Surprisal MCD AVG": "Surprisal-MCD-AVG",
+        "Surprisal MCD VAR": "Surprisal-MCD-VAR",
+        "LL Surprisal": "LL-Surprisal",
+        "LL KL-Div": "LL-KL-Div",
+        "LL Pred. Depth": "LL-Pred-Depth",
+        "Attn. Entropy AVG": "Attn-Entropy-AVG",
+        "Attn. Entropy MAX": "Attn-Entropy-MAX",
+        "XCOMET-XL CONF": "XCOMET-XL-CONF",
+        "XCOMET-XXL CONF": "XCOMET-XXL-CONF",
+        "Average Precision (AP)": "Average Precision",
+        "Optimal F1 (F1*)": "Optimal F1"
+      },
+      "explanation": "Consolidated redundant metric names and normalized to consistent formatting with hyphens. Removed BEST variants and generalized terms to base forms."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "XCOMET-XL",
+          "XCOMET-XXL"
+        ],
+        "methods": [
+          "word-level error span prediction",
+          "confidence-weighted scoring"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "XCOMET models are supervised metrics trained for quality estimation, not LLMs used as judges after generation. Removed all metadata since no LLM-as-judge approach is used."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Error spans obtained from explicit error annotations or post-edited spans",
+      "Error Span Annotation protocol (ESA) with annotators highlighting erroneous spans and marking severity levels (MINOR, MAJOR, CRITICAL)",
+      "Agreement between multiple annotators measured as baseline"
+    ],
+    "criteria": [
+      "Detection",
+      "Severity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Agreement between multiple annotators measured as baseline"
+        ],
+        "criteria": [
+          "error span detection",
+          "error severity"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Error spans are obtained from explicit error annotations or post-edited spans.",
+          "Annotators highlight erroneous spans in the translation and assign a severity level (MINOR, MAJOR, CRITICAL). Agreement between multiple annotators is then measured.",
+          "The human evaluation was conducted using the Error Span Annotation protocol (ESA, ), which has human annotators highlighting erroneous spans in the translation and marking them as either MINOR or MAJOR errors."
+        ],
+        "criteria": [
+          "MINOR",
+          "MAJOR",
+          "CRITICAL"
+        ]
+      },
+      "normalized": {
+        "MINOR": "error severity",
+        "MAJOR": "error severity",
+        "CRITICAL": "error severity"
+      },
+      "explanation": "Consolidated guidelines into clear statements. Normalized severity levels to general 'error severity' criterion. Added missing rubric elements based on paper content."
+    }
+  },
+  "overall_notes": "The paper focuses on word-level quality estimation for machine translation evaluation, using both automatic metrics and human annotations. Extraction was generally accurate but contained some irrelevant items and needed normalization for consistency."
+}

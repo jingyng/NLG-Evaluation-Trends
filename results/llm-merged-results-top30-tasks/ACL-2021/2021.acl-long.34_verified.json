@@ -1,0 +1,138 @@
+{
+  "paper_id": "2021.acl-long.34",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "TAC 2008",
+      "TAC 2009",
+      "TAC 2010",
+      "TAC 2011",
+      "CNN/DailyMail"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "sbert",
+      "bert_base",
+      "bert_large",
+      "roberta_base",
+      "roberta_large"
+    ],
+    "outputs": [
+      "evaluation scores (relevance, redundancy) for generated summaries",
+      "generated summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "CNNDM": "CNN/DailyMail",
+        "summaries": "generated summaries"
+      },
+      "explanation": "Normalized dataset name from 'CNNDM' to standard form 'CNN/DailyMail' and clarified outputs"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "TF IDF",
+      "JS",
+      "REPEAR",
+      "ROUGE",
+      "MOVERSCORE",
+      "S+WMS",
+      "C ELMO",
+      "C SBERT",
+      "SUPERT",
+      "SUPERT IDF",
+      "LS",
+      "BERTSCORE",
+      "PEARSON S",
+      "SPEARMAN S RHO",
+      "KENDALL S TAU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Ours(F1)",
+          "Ours(Fβ)"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "Spearman's rho": "Spearman's rho",
+        "Kendall's tau": "Kendall's tau"
+      },
+      "explanation": "Normalized ROUGE variants to base form 'ROUGE'. Removed 'Ours(F1)' and 'Ours(Fβ)' as these are the authors' proposed methods, not evaluation metrics used to assess their outputs. The authors' methods are evaluated against standard correlation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper. The paper uses contextual embedding models (BERT, RoBERTa, SBERT) as components within the proposed metric, but not as post-hoc judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Compute correlation between metric scores and human ratings across dimensions. The annotated Pyramid scores of summaries are used as human ratings to compute correlation with predicted scores."
+    ],
+    "criteria": [
+      "Overall",
+      "Grammaticality",
+      "Redundancy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed. The guideline accurately describes the human evaluation setup using Pyramid scores and correlations. Criteria are correctly extracted from CNN/DailyMail human evaluation dimensions."
+    }
+  },
+  "overall_notes": "The extraction quality is good overall. The paper proposes a new NLG evaluation metric for text summarization and evaluates it against human judgments and existing automatic metrics. Key points: The paper focuses on evaluating summarization systems (NLG task), uses automatic metrics to compare its proposed metric against baselines, does not use LLMs as judges, and relies on existing human evaluations (Pyramid scores, CNN/DM ratings) for correlation analysis."
+}

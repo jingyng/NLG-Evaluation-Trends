@@ -1,0 +1,103 @@
+{
+  "paper_id": "2025.naacl-long.553",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-as-a-judge results with human evaluation through correlation analysis on multiple validation rounds with sample instances"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts for HRS extraction and alignment evaluation are provided in appendices (Tables 13, 14, 15 mentioned in text)"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 4,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": 0.33,
+      "interpretation": "fair level of agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed definitions and scoring rubrics provided for harm reduction strategy alignment and actionability dimensions"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Correlation score"
+    ],
+    "shared_criteria": [
+      "harm_reduction_strategy_alignment"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": 40,
+      "notes": "Used random sample of 40 responses for validation on strategy extraction and combination tasks"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Correlation score",
+        "value": 0.92,
+        "criterion": "harm_reduction_strategy_extraction",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Correlation between human and LLM evaluation on strategy extraction"
+      },
+      {
+        "metric": "Correlation score",
+        "value": 0.9,
+        "criterion": "harm_reduction_strategy_combination",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Correlation between human and LLM evaluation on strategy combination"
+      },
+      {
+        "metric": "Correlation score",
+        "value": 0.95,
+        "criterion": "harm_reduction_strategy_alignment",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Correlation between human annotation and GPT-4o's alignment score"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Correlation percentages reported (90-95%) implying high agreement",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4o shows strong correlation with human evaluation (90-95%) across multiple validation rounds, demonstrating reliable LLM-as-a-judge capability for harm reduction strategy assessment."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "emotion_and_tone_alignment",
+      "text_readability_alignment",
+      "actionability_detection"
+    ],
+    "human_only_criteria": [
+      "correctness_validation",
+      "rationale_agreement"
+    ],
+    "shared_criteria": [
+      "harm_reduction_strategy_alignment"
+    ],
+    "notes": "LLM handles full-scale evaluation while human validation focuses primarily on verifying LLM judgments on strategy alignment and correctness"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "paper_id": "2025.emnlp-main.558",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Other:Fact Verification",
+      "Other:Paraphrasing"
+    ],
+    "datasets": [
+      "SummScreen",
+      "BookSum",
+      "FEVER",
+      "FEVEROUS",
+      "SummaC",
+      "TRUE",
+      "LLM-AggreFact",
+      "AGGREFACT",
+      "TOFUEVAL",
+      "ClaimVerify"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o-mini-2024-07-18"
+    ],
+    "outputs": [
+      "Generated summaries",
+      "Montage-style lies (reordered truthful statements)",
+      "Paraphrases of target texts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Other:Dialogue Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Qwen-3-8B",
+          "Llama3-70B",
+          "Qwen-3",
+          "Llama3-instruct"
+        ],
+        "outputs": [
+          "generated summaries, dialogue responses, fact verification outputs, paraphrases"
+        ]
+      },
+      "normalized": {
+        "montage-style lies (reordered truthful statements) and paraphrases of the target texts": "Montage-style lies (reordered truthful statements)",
+        "Generated summaries": "Generated summaries",
+        "Paraphrases of target texts": "Paraphrases of target texts"
+      },
+      "explanation": "Removed Dialogue Generation as it's only mentioned in passing about TRUE dataset coverage, not a focus of the paper. Removed LLM models that are only used for evaluation, not generation. Simplified outputs to focus on what's actually generated."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "AUC-ROC",
+      "ROUGE",
+      "SummaC-ZS",
+      "SummaC-Conv",
+      "AlignScore",
+      "FactScore",
+      "DOVESCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "BERTScore",
+          "BartScore",
+          "BLEURT",
+          "FactCC"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "DOVESCORE": "DOVESCORE"
+      },
+      "explanation": "Normalized ROUGE variants to base ROUGE metric. Removed metrics (BERTScore, BartScore, BLEURT, FactCC) that are only mentioned in Section 2 as related work, not actually used in experiments."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o-mini-2024-07-18",
+      "Qwen-3-1.7B",
+      "Qwen-3-4B",
+      "Qwen-3-8B",
+      "Qwen-3-14B",
+      "Qwen-3-32B",
+      "Llama-3.2-instruct-1B",
+      "Llama-3.2-instruct-3B",
+      "Llama-3.1-instruct-8B",
+      "Llama-3.3-instruct-70B"
+    ],
+    "methods": [
+      "LLM-as-Evaluator prompting",
+      "DOVESCORE Decomposer",
+      "DOVESCORE Fact Checker",
+      "DOVESCORE Sorter"
+    ],
+    "criteria": [
+      "Consistency",
+      "Factual consistency",
+      "Event order consistency",
+      "Factual alignment"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Qwen-3-14B"
+        ],
+        "methods": [
+          "LLM-as-Evaluator prompting"
+        ],
+        "criteria": [
+          "Factual alignment"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Llama3-70B",
+          "Llama3-instruct-1B",
+          "Llama3-instruct-3B",
+          "Llama3-instruct-8B",
+          "Llama3-instruct-70B"
+        ],
+        "methods": [
+          "prompting for consistency score using G-Eval template",
+          "G-Eval's consistency evaluation template",
+          "zero-shot prompting"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "gpt-4o-mini-2024-07-18": "GPT-4o-mini-2024-07-18",
+        "Llama3-instruct": "Llama-3.3-instruct-70B",
+        "consistency": "Consistency",
+        "factual consistency": "Factual consistency",
+        "event order consistency": "Event order consistency"
+      },
+      "explanation": "Normalized model names to standard capitalization. Kept all LLMs actually used as evaluators. Simplified methods to focus on main approaches. Added missing Qwen-3-14B model."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators label each instance as yes/no based on specific criteria for montage-style lies and paraphrases"
+    ],
+    "criteria": [
+      "Semantic Shift",
+      "Event Integrity",
+      "Coherence",
+      "Semantic Fidelity",
+      "Structural Variation"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators label each instance as yes/no based on specific criteria for montage-style lies and paraphrases"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Guideline: - Annotators labeled each instance as yes or no based on criteria: for montage-style lies - Semantic Shift, Event Integrity, Coherence; for paraphrases - Semantic Fidelity, Structural Variation.",
+          "Annotators were asked to answer yes/no for each of the defined criteria for each example.",
+          "Annotators labeled each instance as yes or no based on specific criteria. To standardize evaluation, two annotators jointly labeled five instances."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "SemanticS": "Semantic Shift",
+        "EventI": "Event Integrity",
+        "SemanticF": "Semantic Fidelity",
+        "StructuralV": "Structural Variation"
+      },
+      "explanation": "Simplified guideline description and normalized criteria names based on full spelling in paper text."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate but included some items mentioned only in related work sections. Focused on keeping only what's directly relevant to the paper's experiments and contributions."
+}

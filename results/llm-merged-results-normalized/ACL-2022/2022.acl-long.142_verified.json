@@ -1,0 +1,105 @@
+{
+  "paper_id": "2022.acl-long.142",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text To Sql Generation"
+    ],
+    "datasets": [
+      "SPIDER",
+      "WIKISQL",
+      "WTQ",
+      "COSQL",
+      "SPARC",
+      "ADVETA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "duorat",
+      "eta",
+      "sqlova",
+      "cesql",
+      "squall",
+      "editsql",
+      "igsql"
+    ],
+    "outputs": [
+      "SQL queries",
+      "executable SQL queries"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "ADVETA"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Code Generation"
+        ]
+      },
+      "normalized": {
+        "SParC": "SParC",
+        "Text-to-SQL": "Other:Text-to-SQL"
+      },
+      "explanation": "Added ADVETA dataset which is the main contribution of the paper. Removed 'Code Generation' as that's a different task - Text-to-SQL is a specialized form of code generation but the paper treats it as a distinct task. Kept 'Other:Text-to-SQL' as the primary task focus."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT MATCH"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "Exact Match (EM)": "Exact Match"
+      },
+      "explanation": "Normalized 'Exact Match (EM)' to 'Exact Match'. The paper consistently uses Exact Match as the evaluation metric across all datasets."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLMs are used as judges in this paper. The paper does not use any LLM for evaluation purposes."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "guideline": [
+          "vendors are first trained to understand table context as described in § 2, then are further instructed of the following details. RPL: RPL principles are the mandatory requirements... ADD: ADD principles will be the primary guideline."
+        ],
+        "criteria": [
+          "Semantic Equivalency",
+          "Phraseology Correctness",
+          "Grammar Correctness",
+          "Proper Collocation with TPE",
+          "Idiomaticity",
+          "Semantic-association & Domain-relevancy",
+          "Irreplaceability"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'No' (answer_changed=true because metadata was incorrect). The human annotations were for DATA CREATION (benchmark construction), not for evaluating generated outputs. The paper does not conduct human evaluations of the Text-to-SQL model outputs."
+    }
+  },
+  "overall_notes": "The paper focuses on Text-to-SQL robustness evaluation against table perturbations. It creates the ADVETA benchmark via human annotation but uses only automatic metrics (Exact Match) for model evaluation. No human evaluation or LLM-as-judge evaluation is conducted on the generated SQL outputs. The extracted metadata was mostly accurate except for the confusion between human annotation for benchmark creation vs. human evaluation of model outputs."
+}

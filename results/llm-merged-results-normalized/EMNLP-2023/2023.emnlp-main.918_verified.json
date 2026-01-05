@@ -1,0 +1,129 @@
+{
+  "paper_id": "2023.emnlp-main.918",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Prompt Generation",
+      "Text Selection"
+    ],
+    "datasets": [
+      "DRUGBANK",
+      "TWOSIDES"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "roberta_base",
+      "gpt_2_xl"
+    ],
+    "outputs": [
+      "Generated prompts for drug pairs consisting of selected sentences from drug descriptions",
+      "Short, relevant text descriptions for drug-drug interaction prediction"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Short, relevant text descriptions for drug-drug interaction prediction"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [
+          "TWO-SIDES"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-3.5-Turbo",
+          "GPT-4"
+        ],
+        "outputs": [
+          "Generated drug descriptions (prompts) for drug pairs",
+          "short, selected-sentence prompts for each drug pair and the predicted interaction type"
+        ]
+      },
+      "normalized": {
+        "TWOSIDES": "TWOSIDES",
+        "Other:Prompt Generation": "Other:Prompt Generation",
+        "Other:Text Selection": "Other:Text Selection"
+      },
+      "explanation": "Removed 'Text Summarization' as the paper doesn't actually perform summarization tasks. Removed 'TWO-SIDES' duplicate and kept 'TWOSIDES'. Removed GPT-3.5-Turbo and GPT-4 as they are only mentioned in evaluation context, not as generation models. Simplified outputs to focus on the core NLG task."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "ACCURACY",
+      "COHEN S KAPPA",
+      "ROC AUC",
+      "PR AUC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Macro F1-Score",
+          "macro F1-Score"
+        ]
+      },
+      "normalized": {
+        "Macro F1-Score": "F1-Score",
+        "macro F1-Score": "F1-Score",
+        "ROC-AUC": "ROC-AUC",
+        "PR-AUC": "PR-AUC"
+      },
+      "explanation": "Normalized F1-Score variants to base form. The paper uses F1-Score (macro) for DrugBank and PR-AUC for TWOSIDES as primary metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper. GPT-3.5-Turbo and GPT-4 are only evaluated as baseline models, not as evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. The evaluation is entirely automatic using the mentioned metrics."
+    }
+  },
+  "overall_notes": "This paper focuses on generating prompts/text selections for drug-drug interaction prediction, not traditional NLG tasks. The NLG component is part of a larger drug prediction system. The extraction was mostly accurate but included some irrelevant items (GPT models as generators when they were actually baselines) and redundant dataset names."
+}

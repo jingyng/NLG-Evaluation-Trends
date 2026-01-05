@@ -1,0 +1,92 @@
+{
+  "paper_id": "2024.acl-long.698",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares GPT-4 and human evaluation on the same 28 hard social task instances, reports quantitative gap analysis and correlation, and discusses the increasing divergence between LLM and human scores"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Uses same prompts as SOTOPIA-EVAL; prompt format shown with dimension definitions including believability, relationship, knowledge, secret, social rules, financial benefits, and goal completion on Likert scales"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 34,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Randolph's kappa",
+      "value": 0.65,
+      "interpretation": "moderate agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed definitions and examples provided for all seven social dimensions; annotators trained through qualification testing and must justify scores with reasoning"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "Believability",
+      "Relationship",
+      "Knowledge",
+      "Secret",
+      "Social Rules",
+      "Financial Benefits",
+      "Goal Completion"
+    ],
+    "sample_size": {
+      "total_generated": 90,
+      "validated_by_both": 28,
+      "notes": "Validation conducted on subset of 14 hard social tasks with 2 agent pairs each (28 instances total); human evaluation too expensive for all 90 tasks"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.73,
+        "criterion": "Goal Completion",
+        "llm_model": "GPT-4",
+        "significance": "highest correlation among dimensions",
+        "notes": "Goal completion had highest correlation between GPT-4 and human ratings"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "partial",
+      "interpretation": "high correlation for goal completion",
+      "threshold_used": "Not explicitly stated",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 evaluation significantly overestimates model performance compared to human evaluation, with the gap increasing from 0.36 to 1.42 as models optimize for GPT-4 scores; GPT-4 ratings show the highest correlation with human ratings on goal completion dimension."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Believability",
+      "Relationship",
+      "Knowledge",
+      "Secret",
+      "Social Rules",
+      "Financial Benefits",
+      "Goal Completion"
+    ],
+    "notes": "Both LLM and human evaluate the same seven social dimensions using identical criteria"
+  }
+}

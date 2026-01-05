@@ -1,0 +1,159 @@
+{
+  "paper_id": "2025.naacl-long.211",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation",
+      "Math Reasoning",
+      "Instruction Following",
+      "Knowledge Understanding",
+      "Complex Reasoning"
+    ],
+    "datasets": [
+      "ALPACAEVAL 2",
+      "ARENA HARD",
+      "MIXEVAL",
+      "WILDBENCH",
+      "MMLU REDUX",
+      "GSM8K",
+      "HumanEval"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4_turbo",
+      "llama_3_8b_instruct",
+      "yi_1.5_6b_chat",
+      "yi_1.5_9b_chat",
+      "yi_1.5_34b_chat",
+      "qwen_2_7b_instruct",
+      "mistral_7b_instruct_v_0.2",
+      "llama_3_instruct",
+      "yi_1.5_chat",
+      "qwen_2_instruct",
+      "mistral",
+      "qwen_2_0.5b_instruct",
+      "qwen_2_1.5b_instruct"
+    ],
+    "outputs": [
+      "Generated responses to instruction-following tasks",
+      "Code solutions for programming problems",
+      "Mathematical reasoning solutions",
+      "Multiple-choice question answers",
+      "Natural language responses with chain-of-thought"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Knowledge Understanding",
+          "Other:Complex Reasoning"
+        ],
+        "models": [
+          "Qwen2-0.5B-Instruct",
+          "Qwen2-1.5B-Instruct"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:math reasoning",
+          "Other:instruction-following"
+        ],
+        "datasets": [
+          "WildBench v2"
+        ]
+      },
+      "normalized": {
+        "Other:Math Reasoning": "Other:Math Reasoning",
+        "Other:Instruction Following": "Other:Instruction Following"
+      },
+      "explanation": "Normalized task names to consistent capitalization, added missing tasks based on benchmark descriptions, removed duplicate entry for WildBench, and added smaller Qwen2 models mentioned in the scaling analysis"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "LENGTH CONTROLLED WIN RATE",
+      "WIN RATE",
+      "WB",
+      "Score",
+      "ACCURACY",
+      "EXACT MATCH",
+      "PASS",
+      "KENDALL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Kendall's τ"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "LC (length-controlled win rate)",
+          "WR (win rate)",
+          "Acc",
+          "EM"
+        ]
+      },
+      "normalized": {
+        "length-controlled win rate": "Length-Controlled Win Rate",
+        "win rate": "Win Rate"
+      },
+      "explanation": "Normalized metric names to title case, removed redundant entries that were already covered by the base metric names, kept Kendall's τ as it's explicitly used for ranking analysis"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "armorm",
+      "FsfairX",
+      "gpt_4_turbo"
+    ],
+    "methods": [
+      "Best-of-N Sampling with Reward Model Ranking",
+      "Oracle Selection from Multiple Generations"
+    ],
+    "criteria": [
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "Oracle Selection from Multiple Generations"
+        ],
+        "criteria": [
+          "Quality of generated responses"
+        ]
+      },
+      "removed": {
+        "models": [
+          "frontier models",
+          "GPT"
+        ],
+        "methods": [
+          "pairwise evaluation",
+          "LLM judge win-rate evaluation"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed vague model references like 'frontier models' and 'GPT', removed methods not explicitly used in this paper, added oracle selection method and inferred criteria based on the best-of-N experimental setup"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluations were conducted in this paper - all evaluations use automatic metrics or LLM-based judges"
+    }
+  },
+  "overall_notes": "The paper focuses on analyzing non-determinism in LLM generation by comparing greedy decoding vs. sampling across multiple benchmarks. It uses extensive automatic evaluation but no human evaluation. The extraction was generally accurate but needed normalization and removal of some vague references. The paper demonstrates clear NLG evaluation focus with comprehensive automatic metric usage."
+}

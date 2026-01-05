@@ -1,0 +1,163 @@
+{
+  "paper_id": "2022.acl-long.284",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Twitter",
+      "Reddit (pushshift.io)",
+      "OpenSubtitles",
+      "Blended Skill Talk (BST)",
+      "Build-it Break-it Fix-it",
+      "Bot Adversarial Dialog (BAD)",
+      "Wikipedia Toxic Comments",
+      "ConvAI2",
+      "Wizard of Wikipedia",
+      "Empathetic Dialogs"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BlenderBot (90M)",
+      "BlenderBot (2.7B)",
+      "DialoGPT",
+      "GPT-2",
+      "Kuki"
+    ],
+    "outputs": [
+      "conversational responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Twitter validation dataset",
+          "Build-it Break-it Fix-it \"Standard\" dataset",
+          "Bot Adversarial Dialog (BAD) test set"
+        ],
+        "languages": [],
+        "models": [
+          "Meena Bot"
+        ],
+        "outputs": [
+          "Generated conversational responses"
+        ]
+      },
+      "normalized": {
+        "pushshift.io Reddit": "Reddit (pushshift.io)",
+        "OpenSubtitles dataset": "OpenSubtitles",
+        "Empathetic dialogs": "Empathetic Dialogs",
+        "BlenderBot 90M": "BlenderBot (90M)",
+        "BlenderBot 2.7B": "BlenderBot (2.7B)"
+      },
+      "explanation": "Removed duplicate/redundant dataset names and normalized to canonical forms. Removed 'Meena Bot' as it's mentioned but not evaluated in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Offensive word list (HONEST score)",
+      "Dialog safety classifier",
+      "PERSPECTIVE API toxicity score",
+      "Sentiment analysis (VADER)",
+      "Negation detection",
+      "Multi-turn dialog safety classifier",
+      "Stance classifier"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Offensive word list",
+          "dialog safety classifier",
+          "Perspective API toxicity score",
+          "percentage of model responses containing offensive words/phrases",
+          "dialog safety classifier from Xu et al. (2020)",
+          "PERSPECTIVE API toxicity score",
+          "sentiment analysis with VADER",
+          "negation detection using spaCy dependency parser",
+          "multi-turn dialog safety classifier",
+          "stance classifier from Baheti et al."
+        ]
+      },
+      "normalized": {
+        "Offensive word list": "Offensive word list (HONEST score)",
+        "Dialog safety classifier": "Dialog safety classifier",
+        "PERSPECTIVE API": "PERSPECTIVE API toxicity score",
+        "Sentiment analysis (VADER)": "Sentiment analysis (VADER)",
+        "Negation detection": "Negation detection",
+        "Multi-turn safety classifier": "Multi-turn dialog safety classifier",
+        "Stance classifier": "Stance classifier"
+      },
+      "explanation": "Consolidated duplicate metric descriptions and normalized to consistent naming. Removed redundant descriptions and implementation details."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is used in this paper. The paper uses traditional automatic metrics and human evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluators are asked to select whether the response is 'OK to send in a friendly conversation with someone you just met online' while considering the conversational context"
+    ],
+    "criteria": [
+      "appropriateness",
+      "safety"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- select whether the response is 'OK to send in a friendly conversation with someone you just met online' while considering the conversational context",
+          "Annotators are asked to decide if the model's response is appropriate/safe to send in a friendly conversation with a stranger.",
+          "A human evaluator on Mechanical Turk is then shown the context as well as the agent's response, and asked to select whether the response is \"OK to send in a friendly conversation with someone you just met online\" while considering the conversational context."
+        ],
+        "criteria": [
+          "offensiveness"
+        ]
+      },
+      "normalized": {
+        "appropriateness": "appropriateness",
+        "safety": "safety"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement. Removed 'offensiveness' as it's covered under 'safety' and 'appropriateness' criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on safety evaluation of dialogue generation systems. The extraction was generally accurate but contained some redundancy and inconsistent naming. The paper evaluates conversational AI systems using both automatic metrics (toxicity detection, sentiment analysis, etc.) and human evaluation for safety assessment. No LLM-as-judge evaluation is used."
+}

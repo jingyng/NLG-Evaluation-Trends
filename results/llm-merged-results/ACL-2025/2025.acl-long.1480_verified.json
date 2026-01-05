@@ -1,0 +1,173 @@
+{
+  "paper_id": "2025.acl-long.1480",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Code Summarization",
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CodeSumEval",
+      "CodeXGLUE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "IBM-Granite-20B",
+      "IBM-Granite-34B",
+      "Llama3-8B",
+      "Llama3-70B",
+      "CodeLlama-7B",
+      "CodeLlama-34B",
+      "Mistral-7B",
+      "GPT4-Omni",
+      "Gemini-2.0",
+      "Mixtral-8x22B"
+    ],
+    "outputs": [
+      "code summaries",
+      "natural language code summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Code Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Granite-20B",
+          "Granite-34B",
+          "Llama-3.1-70B",
+          "Llama-3.1-8B",
+          "CodeLlama",
+          "Gemini"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Llama3-8B": "Llama3-8B",
+        "Llama3-70B": "Llama3-70B",
+        "GPT4-Omni": "GPT4-Omni",
+        "Gemini2-Flash": "Gemini-2.0",
+        "Mixtral-8x22B": "Mixtral-8x22B"
+      },
+      "explanation": "Removed 'Code Generation' as the paper focuses on code summarization (NLG), not code generation. Consolidated model variants and removed duplicates (e.g., Granite-20B vs IBM-Granite-20B). Kept only models explicitly used for summary generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Precision",
+      "Recall",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "The extracted metrics are correct and properly normalized. Precision, Recall, and F1 are the main automatic metrics used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT4-Omni",
+      "Gemini-2.0",
+      "Llama3-70B",
+      "Llama3-8B",
+      "Mixtral-8x22B",
+      "Mistral-7B"
+    ],
+    "methods": [
+      "zero-shot prompting",
+      "string-matching heuristics with LLM verification"
+    ],
+    "criteria": [
+      "entity correctness",
+      "intent verification",
+      "hallucination detection"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Mistral-7B"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Gemini2-Flash",
+          "Llama3.1-70B",
+          "Llama-3.1-70B",
+          "Llama-3.8B",
+          "Mistral-7Bv3"
+        ],
+        "methods": [
+          "zero-shot prompting verification",
+          "few-shot prompts"
+        ],
+        "criteria": [
+          "correctness"
+        ]
+      },
+      "normalized": {
+        "GPT4-Omni": "GPT4-Omni",
+        "Gemini2-Flash": "Gemini-2.0",
+        "Llama3.1-70B": "Llama3-70B",
+        "Mixtral-8x22B": "Mixtral-8x22B",
+        "Mistral-7Bv3": "Mistral-7B"
+      },
+      "explanation": "Consolidated model names and removed duplicates. Removed 'few-shot prompts' as the paper states they degraded performance. Simplified method descriptions to core approaches. Kept only criteria explicitly used for LLM evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Named Entity Recognition (NER) annotation",
+      "Entity Description Verification",
+      "Overall Summary Quality assessment (GOOD/FAIR/POOR)",
+      "Hallucination categorization using taxonomy"
+    ],
+    "criteria": [
+      "entity correctness",
+      "overall summary quality",
+      "hallucination cause categorization"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Named Entity Recognition (NER) annotation",
+          "Hallucination categorization using taxonomy"
+        ],
+        "criteria": [
+          "hallucination cause categorization"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Enhanced guideline description to better capture the full human evaluation process described in the paper, including NER annotation and taxonomy-based categorization."
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive framework for hallucination detection in code summarization. The extraction was generally accurate but needed consolidation of model names and removal of some redundant/incorrect items. The paper clearly addresses NLG (code summarization), uses automatic metrics (Precision/Recall/F1), employs LLMs as judges for entity verification, and conducts detailed human evaluation with multiple annotation stages."
+}

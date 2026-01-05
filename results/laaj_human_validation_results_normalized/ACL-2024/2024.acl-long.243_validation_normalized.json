@@ -1,0 +1,107 @@
+{
+  "paper_id": "2024.acl-long.243",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates ChatGPT as an automated preference metric against human evaluations by computing agreement metrics (sample-level sign accuracy, system-level sign accuracy) and the Favi-Score across multiple domains including machine translation, summarization, and dialogue systems."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT3.5-Turbo (0613)"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "System prompt describes rating task with focus on spelling, grammar, accuracy, and fluency. User prompt requests structured preference rating (Candidate A, Candidate B, or No Preference) with detailed feedback and explanation."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human ratings are described as expert ratings (translators for MT, experts for summarization) using pairwise preferences or Likert scales for specific criteria, but detailed rubrics are not provided."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "ranking_comparison",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "sample-level sign accuracy",
+      "system-level sign accuracy",
+      "Favi-Score"
+    ],
+    "shared_criteria": [
+      "preference ratings"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": 1315,
+      "notes": "For WMT-22 machine translation data, 1315 samples were used; other domains had different sample sizes (e.g., 500 for WMT-21 MT, 100 for summarization, 50 for chatbot)."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "sample-level sign accuracy",
+        "value": 0.348,
+        "criterion": "machine translation (WMT-22)",
+        "llm_model": "GPT3.5-Turbo",
+        "significance": null,
+        "notes": "Reported for ChatGPT on WMT-22 data"
+      },
+      {
+        "metric": "system-level sign accuracy",
+        "value": 0.852,
+        "criterion": "machine translation (WMT-22)",
+        "llm_model": "GPT3.5-Turbo",
+        "significance": null,
+        "notes": "Reported for ChatGPT on WMT-22 data"
+      },
+      {
+        "metric": "Favi-Score",
+        "value": 0.229,
+        "criterion": "machine translation (WMT-22)",
+        "llm_model": "GPT3.5-Turbo",
+        "significance": null,
+        "notes": "Absolute average Favi-Score reported for ChatGPT on WMT-22 data"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "ChatGPT showed lower sample-level accuracy (0.348) but higher system-level accuracy (0.852) with moderate favoritism (Favi-Score 0.229), demonstrating that metrics can maintain correct rankings despite sample-level disagreements due to balanced favoritism."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Spelling",
+      "Grammaticality"
+    ],
+    "human_only_criteria": [
+      "Relevance",
+      "Coherence",
+      "Consistency"
+    ],
+    "shared_criteria": [
+      "Accuracy",
+      "Fluency"
+    ],
+    "notes": "LLM prompts explicitly mention spelling and grammar, while human evaluations for summarization include relevance, coherence, consistency; both share accuracy and fluency as overlapping criteria."
+  }
+}

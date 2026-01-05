@@ -1,0 +1,52 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "The legal domain poses unique challenges to document-grounded language generation.",
+        "tasks": [
+            "Other:Legal Question Answering",
+            "Other:Legal Analysis Generation"
+        ],
+        "datasets": [
+            "CUAD",
+            "OALQA",
+            "ObliQA",
+            "AQuAECHR",
+            "CLERC"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Mistral-7B-Instruct-v0.3",
+            "Equall/Saul-7B-Instruct-v1"
+        ],
+        "outputs": "Generated responses to legal queries, such as answers to questions or text continuations containing legal reasoning."
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We evaluate the generated answers against the reference answers for correctness using both lexical and semantic similarity metrics. For lexical similarity, we compute the ROUGE-L F1 score. For semantic similarity, we use AlignScore, which computes the alignment score for each sentence in the generated answer against the reference answer and is aggregated to derive the overall score. For faithfulness, we assess the alignment between the generated answer and the provided source context using AlignScore. We also evaluate stylistic properties such as fluency and coherence using UniEval, which assesses the quality of individual sentences and whether all the sentences collectively form a connected narrative.",
+        "automatic_metrics": [
+            "ROUGE-L",
+            "AlignScore",
+            "UniEval"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": "",
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "Human Evaluation. We randomly sample 25 questions from the AQuAECHR dataset and generate responses using three methods-Regular, AdaCAD, and CoCoLex-applied to the Mistral-7B model, yielding a total of 75 responses. Each response is assessed by a legal ECHR expert, across four criteria: correctness (relevance to the question and alignment with the reference answer), faithfulness (adherence to the provided passages in context), fluency, and coherence. Evaluations are conducted on a 5-point Likert scale, where 1 represents the lowest quality and 5 the highest.",
+        "guideline": "Evaluations are conducted on a 5-point Likert scale for criteria: correctness, faithfulness, fluency, and coherence.",
+        "criteria": [
+            "correctness",
+            "faithfulness",
+            "fluency",
+            "coherence"
+        ]
+    }
+}

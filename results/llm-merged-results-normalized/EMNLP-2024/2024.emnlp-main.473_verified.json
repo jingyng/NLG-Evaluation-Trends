@@ -1,0 +1,136 @@
+{
+  "paper_id": "2024.emnlp-main.473",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "MULTIWOZ 2 2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "starcoder_3b",
+      "starcoder_15b",
+      "gpt_3.5_turbo"
+    ],
+    "outputs": [
+      "natural language responses in task-oriented dialogues",
+      "system responses",
+      "delexicalized responses"
+    ],
+    "changes_made": {
+      "added": {
+        "outputs": [
+          "delexicalized responses"
+        ]
+      },
+      "removed": {
+        "models": [
+          "StarCoder"
+        ]
+      },
+      "normalized": {
+        "StarCoder 3B": "StarCoder 3B",
+        "StarCoder 15B": "StarCoder 15B",
+        "GPT-3.5 Turbo": "GPT-3.5 Turbo"
+      },
+      "explanation": "Removed generic 'StarCoder' as it's redundant with specific versions. Added 'delexicalized responses' as an important output type mentioned in the paper."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "INFORM RATE",
+      "SUCCESS RATE",
+      "JOINT GOAL ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Joint Goal Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Inform",
+          "Success",
+          "Combined",
+          "Combined score"
+        ]
+      },
+      "normalized": {
+        "Inform rate": "Inform rate",
+        "Success rate": "Success rate",
+        "BLEU": "BLEU",
+        "joint-goal accuracy (JGA)": "Joint Goal Accuracy"
+      },
+      "explanation": "Simplified metrics to base forms. Removed redundant variants ('Inform' vs 'Inform rate'). Kept 'Joint Goal Accuracy' as a distinct metric from the end-to-end dialogue metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values. The paper does not use LLMs as judges after generation - LLMs are used for generation and latent variable inference, but not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluation of 10 validation dialogues comparing noisy channel model to greedy ablation",
+      "Analysis of system behavior including dialogue act correctness, faithfulness, and hallucination"
+    ],
+    "criteria": [
+      "Success",
+      "Appropriateness",
+      "Faithfulness",
+      "Hallucination"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human evaluation of 10 validation dialogues comparing noisy channel model to greedy ablation",
+          "Analysis of system behavior including dialogue act correctness, faithfulness, and hallucination"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "Inform",
+          "Success",
+          "Overall quality",
+          "suboptimal dialogue acts"
+        ]
+      },
+      "normalized": {
+        "dialogue acts correctness": "dialogue act appropriateness",
+        "faithfulness to predicted acts": "faithfulness to predicted acts",
+        "hallucination": "hallucination"
+      },
+      "explanation": "Refined criteria to be more precise based on the actual human evaluation described. Removed metrics that were part of automatic evaluation, not human evaluation criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on unsupervised task-oriented dialogue generation using LLMs. The extraction was generally accurate but needed some refinement. Key findings: (1) The paper does use human evaluation but it's a limited analysis (10 dialogues) rather than a full-scale human eval; (2) No LLM-as-judge evaluation is used; (3) The main NLG task is dialogue generation with system responses as outputs."
+}

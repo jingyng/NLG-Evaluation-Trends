@@ -1,0 +1,141 @@
+{
+  "paper_id": "2025.emnlp-main.1311",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares GPT-4o evaluations with human judgements on the same 150 samples, reporting agreement metrics across all three evaluation criteria (IF, RR, OQ)"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "gpt_4o",
+      "llama_3.1_8b"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts provided in Appendix A.5 includes JSON evaluation templates with example responses and rating guidelines"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "percentage agreement",
+      "value": null,
+      "interpretation": "high overall consistency",
+      "per_criterion": [
+        {
+          "criterion": "Instruction Following",
+          "metric": "percentage agreement",
+          "value": 0.8
+        },
+        {
+          "criterion": "Response Rate",
+          "metric": "percentage agreement",
+          "value": 0.956
+        },
+        {
+          "criterion": "Output Quality",
+          "metric": "percentage agreement",
+          "value": 0.655
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Annotators judged responses on IF, RR, and OQ as defined in the paper, with 10% overlap for IAA assessment"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "percentage agreement"
+    ],
+    "shared_criteria": [
+      "Instruction Following",
+      "Response Rate",
+      "Output Quality"
+    ],
+    "sample_size": {
+      "total_generated": 1212,
+      "validated_by_both": 150,
+      "notes": "Validation conducted on subset of 150 FREEINSTRUCT samples across all baselines"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "percentage agreement",
+        "value": 0.811,
+        "criterion": "Instruction Following",
+        "llm_model": "gpt_4o",
+        "significance": "not reported",
+        "notes": "GPT-4o vs human agreement"
+      },
+      {
+        "metric": "percentage agreement",
+        "value": 0.945,
+        "criterion": "Response Rate",
+        "llm_model": "gpt_4o",
+        "significance": "not reported",
+        "notes": "GPT-4o vs human agreement"
+      },
+      {
+        "metric": "percentage agreement",
+        "value": 0.625,
+        "criterion": "Output Quality",
+        "llm_model": "gpt_4o",
+        "significance": "not reported",
+        "notes": "GPT-4o vs human agreement"
+      },
+      {
+        "metric": "percentage agreement",
+        "value": 0.712,
+        "criterion": "Instruction Following",
+        "llm_model": "llama_3.1_8b",
+        "significance": "not reported",
+        "notes": "LLaMA-3.1-8B self-evaluation vs human agreement"
+      },
+      {
+        "metric": "percentage agreement",
+        "value": 0.833,
+        "criterion": "Response Rate",
+        "llm_model": "llama_3.1_8b",
+        "significance": "not reported",
+        "notes": "LLaMA-3.1-8B self-evaluation vs human agreement"
+      },
+      {
+        "metric": "percentage agreement",
+        "value": 0.544,
+        "criterion": "Output Quality",
+        "llm_model": "llama_3.1_8b",
+        "significance": "not reported",
+        "notes": "LLaMA-3.1-8B self-evaluation vs human agreement"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "partial",
+      "interpretation": "strong alignment on IF and RR, moderate on OQ",
+      "threshold_used": "not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4o evaluations demonstrate strong alignment with human judgments (81-95% agreement), validating LLM-as-a-judge reliability for instruction following evaluation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Instruction Following",
+      "Response Rate",
+      "Output Quality"
+    ],
+    "notes": "Both LLM and human evaluations use exactly the same three criteria (IF, RR, OQ) for direct comparison"
+  }
+}

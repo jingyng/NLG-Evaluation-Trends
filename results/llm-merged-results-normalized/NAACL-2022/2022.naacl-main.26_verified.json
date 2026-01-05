@@ -1,0 +1,155 @@
+{
+  "paper_id": "2022.naacl-main.26",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text To Speech Generation",
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "BLIZZARD 2013",
+      "MSP PODCAST",
+      "THEATRE DIALOGUE SEGMENTS FROM SPEED THE PLOW NIGHT MOTHER BOBBY GOULD IN HELL DEATH OF A SALESMAN"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "fastspeech_2",
+      "fcl_taco_2",
+      "fastspeech_2π",
+      "fastspeech_2_+_eva",
+      "fastspeech_2π_+_ds",
+      "eva",
+      "ds"
+    ],
+    "outputs": [
+      "synthesized speech with controlled emotional prosody",
+      "expressive speech with controlled emotional prosody in dialogues"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Speech Synthesis"
+        ],
+        "datasets": [
+          "MSP-Podcast corpus",
+          "Speed-the-Plow",
+          "Night, Mother",
+          "Bobby Gould in Hell",
+          "Death of a Salesman"
+        ],
+        "models": [
+          "FCL‑taco2",
+          "EVA"
+        ]
+      },
+      "normalized": {
+        "FCL‑taco2": "FCL-Taco2",
+        "Other:Speech Synthesis": "Other:Text-to-Speech",
+        "MSP-Podcast corpus": "MSP-Podcast"
+      },
+      "explanation": "Consolidated duplicate datasets (MSP-Podcast), removed individual play names as they're covered in the combined dataset description, normalized model names, and removed 'Speech Synthesis' as redundant with 'Text-to-Speech'"
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": true,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Mel loss",
+          "pitch loss",
+          "energy loss",
+          "duration loss"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed training losses as they are not evaluation metrics for generated outputs. The paper uses only human evaluation for assessing generated speech quality."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as evaluators in this paper. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Raters evaluated naturalness on 1-5 Likert scale",
+      "Identified perceived emotions from four categories (Happy, Sad, Angry, Fear)",
+      "Compared samples to identify higher emotion intensity",
+      "Ranked conversation settings by emotional consistency",
+      "Evaluated actor's behavioral response using Pearson correlation and arousal statistics"
+    ],
+    "criteria": [
+      "Naturalness",
+      "Emotion",
+      "Intensity",
+      "Valence",
+      "Arousal"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "valence correlation",
+          "arousal statistics"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Raters evaluated samples for naturalness on a 1-5 scale, identified perceived emotions from four categories (Happy, Sad, Angry, Fear), picked samples with higher emotion intensity, ranked settings for emotional consistency, and rated arousal/valence in live conversations.",
+          "Rate naturalness on a 1‑5 Likert scale; select perceived emotion (Happy, Sad, Angry, Fear); identify which of two samples shows higher arousal intensity; rank conversation settings by emotional consistency; evaluate actor's behavioral response using Pearson correlation and arousal statistics.",
+          "Annotator rates each sample on a Likert scale of one for 'completely unnatural' to five for 'completely natural'. In the first survey, given a sample, we ask the user to choose the best perceived emotion from a set of four, namely, 'Happy', 'Sad', 'Angry' and 'Fear'. In the second survey we evaluate the efficacy of the models to bring about finer control over emotion. We generate two samples with same broader emotion category but with two levels of intensity. The subject now has to identify the sample with higher intensity."
+        ],
+        "criteria": [
+          "perceived emotion classification",
+          "actor response correlation (valence, arousal)",
+          "emotion perception"
+        ]
+      },
+      "normalized": {
+        "arousal": "arousal statistics",
+        "valence": "valence correlation"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into clear, concise points. Normalized and consolidated criteria to remove redundancy and use consistent terminology."
+    }
+  },
+  "overall_notes": "The paper focuses on emotional prosody control in Text-to-Speech systems. It conducts extensive human evaluations but does not use automatic metrics for evaluating generated outputs. The extraction was generally accurate but needed consolidation of duplicate entries and removal of training losses that were incorrectly categorized as evaluation metrics."
+}

@@ -1,0 +1,154 @@
+{
+  "paper_id": "2023.acl-long.473",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "SPACE",
+      "AmaSum"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "HERCULES",
+      "LexRank",
+      "QT",
+      "SemAE",
+      "CopyCat",
+      "InstructGPT",
+      "BiMeanVAE",
+      "COOP",
+      "AceSum"
+    ],
+    "outputs": [
+      "abstractive summaries",
+      "extractive summaries",
+      "aspect-specific summaries",
+      "sentiment-controlled summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "CopyCat",
+          "BiMeanVAE",
+          "COOP",
+          "AceSum"
+        ],
+        "outputs": [
+          "aspect-specific summaries",
+          "sentiment-controlled summaries"
+        ]
+      },
+      "removed": {
+        "models": [
+          "CopyCat (typo)"
+        ],
+        "outputs": [
+          "summaries (redundant)"
+        ]
+      },
+      "normalized": {
+        "Lexrank": "LexRank",
+        "InstructGPT": "InstructGPT"
+      },
+      "explanation": "Normalized model names (LexRank, InstructGPT), added explicitly mentioned models from experimental section, and added specific output types mentioned in the paper"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "SummaC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "QA F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "R-2",
+          "R-L",
+          "ROUGE F1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "QA",
+          "SummaC (SC_refs, SC_in)"
+        ]
+      },
+      "normalized": {
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "QA": "QA F1"
+      },
+      "explanation": "Consolidated all ROUGE variants under 'ROUGE', simplified SummaC, and added QA F1 as a distinct metric. Removed redundant/variant names."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "ELECTRA",
+          "BART",
+          "FlairNLP"
+        ],
+        "methods": [
+          "question generation and answering",
+          "NLI-based entailment scoring (SummaC)"
+        ],
+        "criteria": [
+          "factuality",
+          "faithfulness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since no LLMs were used as judges. The listed models were used for automatic metric computation, not as evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Pairwise preference evaluation comparing system outputs on three dimensions"
+    ],
+    "criteria": [
+      "Informativeness",
+      "Conciseness & Non-Redundancy",
+      "Coherence & Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Pairwise preference evaluation comparing system outputs on three dimensions"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "Conciseness",
+          "Non-Redundancy",
+          "Coherence",
+          "Fluency"
+        ]
+      },
+      "normalized": {
+        "Informativeness": "Informativeness",
+        "Conciseness & Non-Redundancy": "Conciseness & Non-Redundancy",
+        "Coherence & Fluency": "Coherence & Fluency"
+      },
+      "explanation": "Added clear guideline description and kept the exact criteria names as mentioned in the paper (maintaining the compound dimensions)"
+    }
+  },
+  "overall_notes": "The paper is well-aligned with NLG evaluation, focusing on opinion summarization with comprehensive automatic and human evaluation. The extraction was generally accurate but needed normalization and consolidation of metric variants. No LLMs were used as judges despite the use of LLMs for generation (InstructGPT)."
+}

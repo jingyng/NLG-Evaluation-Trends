@@ -1,0 +1,155 @@
+{
+  "paper_id": "2025.naacl-long.173",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Privacy Conscious Delegation"
+    ],
+    "datasets": [
+      "PUPA",
+      "WILDCHAT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3.1_8b_instruct",
+      "gpt_4o_mini",
+      "gpt_3.5_turbo",
+      "gpt_4_turbo",
+      "gpt_4o",
+      "llama_3_8b_instruct",
+      "llama_3.2_3b_instruct",
+      "llama_3.2_1b_instruct",
+      "mistral_small_instruct_2409",
+      "mistral_7b_instruct_v_0.3"
+    ],
+    "outputs": [
+      "Generated text responses to user queries",
+      "Generated responses after delegation to remote LLM"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-4o"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Response Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Mistral-Small-Instruct"
+        ],
+        "outputs": [
+          "The paper generates responses to user queries through a pipeline (PAPILLON) that involves prompt creation, remote model querying, and response aggregation, which are natural language outputs."
+        ]
+      },
+      "normalized": {
+        "Mistral-Small-Instruct": "Mistral-Small-Instruct-2409",
+        "GPT-4-turbo": "GPT-4-turbo"
+      },
+      "explanation": "Removed redundant 'Response Generation' task since Dialogue Generation covers it; normalized model names; simplified output descriptions; added missing GPT-4o model"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "QUALITY PRESERVATION",
+      "PRIVACY PRESERVATION",
+      "COSINE SIMILARITY"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Prompt Well-Formedness"
+        ]
+      },
+      "normalized": {
+        "Quality Preservation (binary yes/no judgment)": "Quality Preservation",
+        "Privacy Leakage (percentage of PII units present in prompt)": "Privacy Preservation",
+        "Cosine Similarity between final output and proprietary model response": "Cosine Similarity"
+      },
+      "explanation": "Consolidated metric variants to base forms; removed 'Prompt Well-Formedness' as it was used during optimization but not for final output evaluation"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o_mini",
+      "gpt_4_turbo",
+      "gpt_3.5_turbo"
+    ],
+    "methods": [
+      "Pairwise evaluation",
+      "Privacy leakage judgment"
+    ],
+    "criteria": [
+      "Quality",
+      "Privacy"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "LLM"
+        ],
+        "methods": [
+          "pairwise evaluation with permutation",
+          "pairwise quality judgment (response A vs. response B)",
+          "LLM-as-a-judge with binary judgment",
+          "permutation-based judgment to reduce position bias"
+        ],
+        "criteria": [
+          "prompt well-formedness"
+        ]
+      },
+      "normalized": {
+        "pairwise evaluation": "Pairwise evaluation",
+        "quality": "Quality",
+        "privacy leakage": "Privacy leakage"
+      },
+      "explanation": "Consolidated methods and criteria; removed redundant/generic terms; kept only core evaluation approaches"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants select the better response or mark as tied for quality evaluation",
+      "Participants indicate agreement with leakage judgment given PII units and synthesized prompt"
+    ],
+    "criteria": [
+      "Quality",
+      "Privacy"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "guideline": [
+          "For quality: participants choose which of two responses is better or mark them as tied. For privacy leakage: participants are given the PII units and the synthesized prompt and indicate whether the prompt leaks any private information.",
+          "Participants are asked to select the better response from the two candidates or mark the two as tied in quality."
+        ],
+        "criteria": [
+          "response quality"
+        ]
+      },
+      "normalized": {
+        "response quality": "Quality"
+      },
+      "explanation": "Consolidated guideline descriptions; normalized criteria to consistent forms"
+    }
+  },
+  "overall_notes": "The paper focuses on privacy-preserving dialogue generation through a novel 'Privacy-Conscious Delegation' task. It uses both automatic metrics (quality/privacy preservation) and human evaluation with LLM-as-judge. The extraction was generally accurate but needed normalization and simplification."
+}

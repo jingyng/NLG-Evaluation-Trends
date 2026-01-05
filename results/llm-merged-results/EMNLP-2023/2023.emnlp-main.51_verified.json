@@ -1,0 +1,136 @@
+{
+  "paper_id": "2023.emnlp-main.51",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation",
+      "Other:Natural Language Inference"
+    ],
+    "datasets": [
+      "AMBIENT"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMa",
+      "GPT-3",
+      "InstructGPT",
+      "ChatGPT",
+      "GPT-4",
+      "FLAN-T5",
+      "RoBERTa-large"
+    ],
+    "outputs": [
+      "disambiguations of ambiguous sentences",
+      "disambiguating rewrites for ambiguous NLI sentences",
+      "disambiguating rewrites",
+      "NLI labels",
+      "textual continuations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "NLI labels",
+          "textual continuations"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Natural Language Inference": "Other:Natural Language Inference",
+        "AMBIENT": "AMBIENT",
+        "disambiguating rewrites (textual paraphrases) for ambiguous NLI sentences": "disambiguating rewrites for ambiguous NLI sentences"
+      },
+      "explanation": "Added missing output types (NLI labels and textual continuations) that are also generated and evaluated in the paper. Maintained 'Other:Natural Language Inference' since NLI is not strictly NLG but is part of the evaluation framework."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EDIT-F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "T/F Acc.",
+          "KL Rank. Acc."
+        ]
+      },
+      "normalized": {
+        "EDIT-F1": "EDIT-F1"
+      },
+      "explanation": "Removed 'T/F Acc.' and 'KL Rank. Acc.' as they are not automatic metrics for evaluating generated text outputs. EDIT-F1 is the only true automatic metric used to evaluate the generated disambiguations (paraphrases). T/F Acc. measures model judgment accuracy, and KL Rank. Acc. measures continuation modeling, not output quality."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Confirmed answer is 'No' - no LLMs are used as judges/evaluators of generated outputs. LLMs are only used as generators in the experiments."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers judge whether each generated disambiguation is a possible interpretation of the ambiguous sentence",
+      "Workers verify the correctness of associated NLI labels for disambiguated examples"
+    ],
+    "criteria": [
+      "plausibility of interpretation",
+      "correct NLI label selection"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "possible interpretation",
+          "entailment label",
+          "plausibility",
+          "label correctness"
+        ]
+      },
+      "normalized": {
+        "possible interpretation": "plausibility of interpretation",
+        "entailment label": "correct NLI label selection",
+        "plausibility": "plausibility of interpretation",
+        "label correctness": "correct NLI label selection"
+      },
+      "explanation": "Consolidated redundant criteria into two main evaluation criteria: plausibility of interpretation and correct NLI label selection. Kept the guideline descriptions that accurately summarize the human evaluation process."
+    }
+  },
+  "overall_notes": "The paper primarily evaluates language models' ability to handle ambiguity through generation tasks (paraphrase generation for disambiguation) and NLI tasks. Only one automatic metric (EDIT-F1) is used for generated text evaluation, with comprehensive human evaluation. The extraction was generally accurate but needed refinement in distinguishing what constitutes automatic metrics versus other experimental measurements."
+}

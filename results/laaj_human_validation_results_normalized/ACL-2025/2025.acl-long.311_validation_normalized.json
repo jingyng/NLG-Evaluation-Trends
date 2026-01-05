@@ -1,0 +1,87 @@
+{
+  "paper_id": "2025.acl-long.311",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM evaluations against human judgments by randomly sampling 100 long-form answers requiring subjective assessment and comparing LLM evaluations with AI researchers' independent measurements of semantic equivalence."
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "GPT-4o-mini-2024-07-18",
+      "GPT-4-1106-vision-preview",
+      "Llama-3.3-70B-Instruct",
+      "Qwen2.5-VL-72B-Instruct"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "supplementary",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper mentions using LLMs for 'semantic equivalence evaluation' with reference answers but does not provide the exact prompt wording. Evaluation functions with detailed descriptions are provided in Appendix (Table 11)."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 16,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluators measured 'semantic equivalence compared to the reference answer' but detailed annotation guidelines are not fully specified. Example evaluation functions and data formats are shown in the appendix."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "alignment_percentage"
+    ],
+    "shared_criteria": [
+      "semantic_equivalence"
+    ],
+    "sample_size": {
+      "total_generated": 553,
+      "validated_by_both": 100,
+      "notes": "100 long-form answers requiring subjective assessment were randomly sampled from the full dataset of 553 examples for LLM-human validation."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "alignment_percentage",
+        "value": "closely_aligns",
+        "criterion": "semantic_equivalence",
+        "llm_model": "GPT-4o",
+        "significance": "exactly_matches",
+        "notes": "Reported qualitatively: 'LLM evaluations align closely with human judgments' with GPT-4o aligning 'exactly' with human judgments"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Not explicitly specified as numerical thresholds",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM evaluations closely align with human judgments, with GPT-4o showing exact alignment, while open-source LLMs are occasionally either too strict or too lenient compared to human evaluations."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "structured_object_exact_match",
+      "paper_relevance",
+      "complex_math_formula"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "semantic_equivalence"
+    ],
+    "notes": "Both LLM and human evaluators assessed semantic equivalence for subjective evaluation tasks. LLMs also handled additional objective evaluation criteria that were not validated against humans."
+  }
+}

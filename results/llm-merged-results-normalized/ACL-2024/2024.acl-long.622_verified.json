@@ -1,0 +1,162 @@
+{
+  "paper_id": "2024.acl-long.622",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Split And Rephrase"
+    ],
+    "datasets": [
+      "DESSE",
+      "BISECT",
+      "WIKI BM",
+      "WEBSPLIT",
+      "WIKISPLIT",
+      "MINWIKI"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "French",
+      "Spanish"
+    ],
+    "models": [
+      "pythia_410m",
+      "pythia_1b",
+      "pythia_1.4b",
+      "pythia_2.8b",
+      "pythia_6.9b",
+      "pythia_12b",
+      "dolly_2.0",
+      "alpaca_lora",
+      "gpt_4_turbo",
+      "bloom_7.1b"
+    ],
+    "outputs": [
+      "Sequences of shorter sentences preserving the original meaning of complex input sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Pythia-1B",
+          "Pythia-1.4B",
+          "Pythia-2.8B"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Pythia",
+          "BLOOM"
+        ],
+        "outputs": [
+          "Sequences of shorter sentences that preserve the meaning of the original complex sentence (split and rephrase).",
+          "split and rephrased sentences"
+        ]
+      },
+      "normalized": {
+        "Other:Split and Rephrase": "Other:Split and Rephrase"
+      },
+      "explanation": "Removed 'Paraphrase Generation' as it's too broad; normalized task to 'Other:Split and Rephrase'; added missing Pythia model sizes; removed redundant model entries; consolidated outputs"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SARI",
+      "BERTSCORE",
+      "BLEU",
+      "CPL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BertScore",
+          "BERTScore (BESC)",
+          "BESC"
+        ]
+      },
+      "normalized": {
+        "BertScore": "BERTScore",
+        "BESC": "BERTScore",
+        "BERTScore (BESC)": "BERTScore"
+      },
+      "explanation": "Normalized all BERTScore variants to 'BERTScore'; kept all four distinct metrics used in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges; cleared all fields"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluators compared hypotheses according to compliance, sensicality, grammaticality, missed facts and omitted facts (3-way ranking)",
+      "For qualitative evaluation, evaluators answered six questions: Is it sensical? (0-2 scale), Grammatical? (0-2 scale), No missed facts? (Y/N), No new facts? (Y/N), Correct split? (Y/N), Enough split? (Y/N)"
+    ],
+    "criteria": [
+      "Compliance",
+      "Sensicality",
+      "Grammaticality",
+      "Facts",
+      "Correctness",
+      "Split"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "new facts",
+          "correct splits",
+          "insufficient splits"
+        ]
+      },
+      "normalized": {
+        "omitted facts": "omitted facts",
+        "insufficient splits": "enough split"
+      },
+      "explanation": "Consolidated criteria from both human evaluation studies; removed redundant entries"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main issues were: (1) 'Paraphrase Generation' was too broad for the specific SPRP task, (2) BERTScore variants needed normalization, (3) Some Pythia model sizes were missing. The paper provides comprehensive evaluation of LLMs for Split and Rephrase task with both automatic metrics and human evaluations."
+}

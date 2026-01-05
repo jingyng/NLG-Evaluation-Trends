@@ -1,0 +1,157 @@
+{
+  "paper_id": "2024.acl-long.375",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Nl To Fol Translation Generation"
+    ],
+    "datasets": [
+      "MALLS",
+      "LOGICNLI",
+      "FOLIO"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "logicllama",
+      "gpt_4",
+      "gpt_3.5",
+      "llama_2_7b",
+      "llama_2_13b",
+      "mistral_7b",
+      "mixtral",
+      "gemini_pro"
+    ],
+    "outputs": [
+      "First-order logic rules",
+      "First-order logic formulas"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:NL-FOL translation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LOGICLLAMA",
+          "GPT4",
+          "GPT3.5",
+          "LLaMA2"
+        ],
+        "outputs": [
+          "first-order logic (FOL) rules from natural language statements"
+        ]
+      },
+      "normalized": {
+        "LOGICLLAMA": "LogicLLaMA",
+        "GPT4": "GPT-4",
+        "GPT3.5": "GPT-3.5",
+        "LLaMA2": "LLaMA2-7B/LLaMA2-13B",
+        "first-order logic (FOL) rules from natural language statements": "First-order logic rules"
+      },
+      "explanation": "Removed duplicate task entry, normalized model names to standard forms, split LLaMA2 into specific variants, simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "LOGIC EQUIVALENCE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "FOL BLEU"
+        ]
+      },
+      "normalized": {
+        "FOL BLEU": "BLEU",
+        "Logical Equivalence (LE)": "Logical Equivalence"
+      },
+      "explanation": "Normalized metric names to base forms, removed redundant 'FOL BLEU' since it's still BLEU"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-3.5"
+        ],
+        "methods": [
+          "5-shot prompt classification for error detection"
+        ],
+        "criteria": [
+          "alignment correctness",
+          "error detection"
+        ]
+      },
+      "normalized": {},
+      "explanation": "GPT-3.5 was used for generation and error detection during dataset creation, not as a judge for evaluating outputs. This was part of the pipeline, not evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rated NL-FOL pairs on a 3-point scale (correct, partial, incorrect) based on alignment with NL meaning, with detailed instructions and examples provided"
+    ],
+    "criteria": [
+      "Alignment",
+      "Completeness",
+      "Accuracy",
+      "Correctness",
+      "Logic"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "Logical operator usage"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "correctness",
+          "partial correctness",
+          "incorrectness",
+          "Correct: The FOL rule aligns with the meaning of the NL sentence",
+          "Partial: one and only one of the following errors occur - The FOL rule does not align with the NL in some parts but does not explicitly contradict the NL - Missing important predicates, or having obviously irrelevant predicates - Wrong quantifier when the NL has explicit hints such as \"For all...\" or \"Some...\" - Wrong use of variables, such as free/redundant variables, wrong variable association, or redefining variables",
+          "Incorrect: More than one Partial error was found in an example - The FOL rule explicitly contradicts the NL meaning."
+        ]
+      },
+      "normalized": {
+        "alignment with NL meaning": "Alignment with NL meaning",
+        "predicate completeness": "Predicate completeness",
+        "quantifier accuracy": "Quantifier accuracy",
+        "variable correctness": "Variable correctness"
+      },
+      "explanation": "Consolidated the detailed criteria into clear categories, removed the verbose rating scale descriptions (which belong in guidelines), added 'Logical operator usage' based on paper content about operators like ↔ and ⊕"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper clearly addresses NLG (NL to FOL translation), uses automatic metrics (BLEU and Logical Equivalence), conducts human evaluation, but does NOT use LLMs as judges - GPT-3.5 was used for dataset creation/error detection, not output evaluation. The paper is well-structured with clear evaluation methodology."
+}

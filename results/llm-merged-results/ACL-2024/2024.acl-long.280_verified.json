@@ -1,0 +1,169 @@
+{
+  "paper_id": "2024.acl-long.280",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Summarization",
+      "Code Generation",
+      "Code Translation",
+      "Code Repair"
+    ],
+    "datasets": [
+      "CodeOcean",
+      "HumanEval",
+      "MBPP",
+      "HumanEvalPack",
+      "CodeSearchNet"
+    ],
+    "languages": [
+      "Python",
+      "Multiple Programming Languages"
+    ],
+    "models": [
+      "WaveCoder",
+      "StarCoder",
+      "CodeLLaMa",
+      "DeepseekCoder",
+      "GPT-3.5",
+      "GPT-4"
+    ],
+    "outputs": [
+      "code summaries",
+      "generated code",
+      "translated code",
+      "repaired code",
+      "instruction-solution pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Code Translation",
+          "Code Repair"
+        ],
+        "datasets": [
+          "CodeOcean"
+        ],
+        "languages": [
+          "Python",
+          "Multiple Programming Languages"
+        ],
+        "models": [],
+        "outputs": [
+          "translated code",
+          "repaired code",
+          "instruction-solution pairs"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [
+          "CodeSeaXDataset"
+        ],
+        "languages": [
+          "English"
+        ],
+        "models": [],
+        "outputs": [
+          "natural language summaries and code",
+          "instruction instances containing a task description, input code (or prompt), and the generated code or textual solution",
+          "instruction instances for code summarization, code generation, code translation, and code repair"
+        ]
+      },
+      "normalized": {
+        "CodeSeaXDataset": "CodeOcean"
+      },
+      "explanation": "Corrected dataset name to CodeOcean (mentioned in abstract), expanded tasks to include all 4 code-related tasks studied, updated languages to reflect programming languages used, and made outputs more specific to what is actually generated"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "pass@1"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Pass@1 is correctly identified as the main automatic evaluation metric used throughout the paper for code generation evaluation"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "LLM-based Generator-Discriminator framework",
+      "step-by-step analysis with predefined rules",
+      "Zero-shot-CoT"
+    ],
+    "criteria": [
+      "programming language specification",
+      "solution relevance to instruction",
+      "code-only output",
+      "code clarity and documentation",
+      "library import requirements",
+      "instruction quality",
+      "solution correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "LLM-based Generator-Discriminator framework",
+          "Zero-shot-CoT"
+        ],
+        "criteria": [
+          "programming language specification",
+          "solution relevance to instruction",
+          "code-only output",
+          "code clarity and documentation",
+          "library import requirements",
+          "instruction quality",
+          "solution correctness"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "LLM-based discriminator analysis using step-by-step zero-shot CoT rules"
+        ],
+        "criteria": [
+          "specified programming language",
+          "solution related to instruction",
+          "code contains only code and comments",
+          "code not complex or poorly documented",
+          "imports necessary libraries",
+          "good vs bad classification",
+          "adherence to instruction format",
+          "code correctness",
+          "code clarity",
+          "relevance to task"
+        ]
+      },
+      "normalized": {
+        "step-by-step analysis with predefined rules": "step-by-step analysis with predefined rules",
+        "Zero-shot-CoT": "Zero-shot-CoT"
+      },
+      "explanation": "Restructured criteria to be more concise while capturing the essential evaluation dimensions used by the GPT-4 discriminator for quality assessment of instruction data"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "The paper does not conduct human evaluations - all evaluations are automatic using pass@1 metric and LLM-based discriminator for data quality assessment"
+    }
+  },
+  "overall_notes": "This paper focuses on code generation evaluation rather than traditional NLG evaluation. The main contribution is instruction tuning for code-specific tasks using an LLM-based quality assessment framework. The extraction was generally accurate but needed refinement on task classification and dataset naming. The paper primarily uses automatic evaluation (pass@1) with GPT-4 serving as both a generator for instruction data and a discriminator for quality control."
+}

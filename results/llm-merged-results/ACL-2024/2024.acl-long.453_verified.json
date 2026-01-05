@@ -1,0 +1,118 @@
+{
+  "paper_id": "2024.acl-long.453",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "MS-COCO",
+      "Flickr8K"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GIT-base",
+      "GIT-large",
+      "BLIP2-2.7B",
+      "LLaVA-v1.5-7B",
+      "BLIP2-6.7B"
+    ],
+    "outputs": [
+      "image captions"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "BLIP2-6.7B"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "models": [
+          "Llama2-7b-chat",
+          "GIT-base/large"
+        ],
+        "outputs": [
+          "generated image captions",
+          "captions",
+          "natural language descriptions from visual information"
+        ]
+      },
+      "normalized": {
+        "BLIP2-2.7b": "BLIP2-2.7B",
+        "LLaVA-v1.5-7b": "LLaVA-v1.5-7B",
+        "BLIP2-6.7b": "BLIP2-6.7B"
+      },
+      "explanation": "Removed Llama2-7b-chat (used only for augmentation, not evaluation) and duplicate 'GIT-base/large'. Removed verbose output descriptions, keeping only 'image captions'. Added BLIP2-6.7B which is used for caption generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "CIDEr",
+      "METEOR",
+      "ROUGE",
+      "SPICE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-4"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric variants to base forms (BLEU-4 → BLEU, ROUGE-L → ROUGE) as per guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is conducted in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper"
+    }
+  },
+  "overall_notes": "The paper focuses on Direct Metric Optimization (DMO) for image captioning evaluation. It uses multiple automatic metrics but no human or LLM-based evaluation. The extraction was generally good but included some models used for augmentation rather than evaluation."
+}

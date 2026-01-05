@@ -1,0 +1,177 @@
+{
+  "paper_id": "2025.emnlp-main.1628",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Instruction Generation"
+    ],
+    "datasets": [
+      "AIR-10K",
+      "Dolma v1.7",
+      "ultrachat-200k",
+      "tulu-330k",
+      "ShareGPT",
+      "CFBench",
+      "FollowBench",
+      "AlpacaEval2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-3-8B",
+      "Qwen2.5-7B",
+      "Llama-3-70B-Instruct",
+      "Qwen-2.5-72B-Instruct"
+    ],
+    "outputs": [
+      "complex instructions",
+      "instruction-response pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "CFBench",
+          "FollowBench",
+          "AlpacaEval2"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Alpaca GPT4"
+        ],
+        "languages": [],
+        "models": [
+          "Qwen-2.5-7B"
+        ],
+        "outputs": [
+          "generated complex instructions and responses",
+          "complex instructions with multiple constraints for instruction-following tasks"
+        ]
+      },
+      "normalized": {
+        "Qwen2.5-7B": "Qwen2.5-7B",
+        "Qwen-2.5-7B": "Qwen2.5-7B"
+      },
+      "explanation": "Removed duplicate model name, added evaluation benchmarks used as datasets, simplified outputs description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Constraint Satisfaction Rate (CSR)",
+      "Instruction Success Rate (ISR)",
+      "Preference Success Rate (PSR)",
+      "Helpfulness Success Rate (HSR)",
+      "Safety Success Rate (SSR)",
+      "Length",
+      "Deita complexity score",
+      "Deita quality score",
+      "unique trigrams",
+      "token length"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "CFBench",
+          "FollowBench",
+          "AlpacaEval2",
+          "Deita scorer"
+        ]
+      },
+      "normalized": {
+        "Len": "Length",
+        "Deita scorer": "Deita complexity score"
+      },
+      "explanation": "Removed benchmark names (these are datasets, not metrics) and normalized metric names"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Llama-3-70B-Instruct",
+      "Qwen-2.5-72B-Instruct",
+      "GPT-4"
+    ],
+    "methods": [
+      "LLM-as-judge comparison with refined document",
+      "constraint generation via LLM-as-judge",
+      "quality assessment using LLM judge"
+    ],
+    "criteria": [
+      "alignment with document",
+      "constraint violation",
+      "response quality improvement"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "quality assessment using LLM judge"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "comparison with reference document",
+          "pairwise comparison of model output with refined document",
+          "constraint generation via comparison with refined document",
+          "judgment with refined document as reference"
+        ],
+        "criteria": [
+          "alignment with constraint",
+          "presence of missing constraints"
+        ]
+      },
+      "normalized": {
+        "comparison with reference document": "LLM-as-judge comparison with refined document",
+        "pairwise comparison of model output with refined document": "LLM-as-judge comparison with refined document",
+        "judgment with refined document as reference": "LLM-as-judge comparison with refined document"
+      },
+      "explanation": "Consolidated similar methods under standardized names, added GPT-4 as evaluator mentioned in benchmarks"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators select the better instruction according to Instruction Complexity, Instruction Clarity, and Overall Preference"
+    ],
+    "criteria": [
+      "Instruction Complexity",
+      "Instruction Clarity",
+      "Overall Preference"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators were asked to select a winner for each pair based on three criteria: Instruction Complexity, Instruction Clarity, and Overall Preference.",
+          "Annotators select the better instruction according to Instruction Complexity, Instruction Clarity, and Overall Preference.",
+          "Annotators were asked to select a winner for each pair based on three criteria: Instruction Complexity, Instruction Clarity, and Overall Preference."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant guideline descriptions into a single clear statement"
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive framework for complex instruction generation using iterative refinement. The extraction was generally accurate but contained some duplicates and minor inconsistencies. Key additions include evaluation benchmarks as datasets and GPT-4 as an LLM judge. The paper clearly addresses NLG tasks (instruction generation), uses automatic metrics, employs LLMs as judges, and conducts human evaluations."
+}

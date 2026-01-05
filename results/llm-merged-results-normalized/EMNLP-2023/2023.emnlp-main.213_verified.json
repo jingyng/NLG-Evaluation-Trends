@@ -1,0 +1,167 @@
+{
+  "paper_id": "2023.emnlp-main.213",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Text To Image Generation"
+    ],
+    "datasets": [
+      "COCO",
+      "flickr30k",
+      "cc12m",
+      "TOVILAG",
+      "NSFW",
+      "UCLA PROTEST IMAGE DATASET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "blip",
+      "blip_2",
+      "git",
+      "grit",
+      "stable_diffusion",
+      "ofa",
+      "clip_vil",
+      "vinvl",
+      "llava",
+      "dall_e",
+      "lafite",
+      "clip_gen",
+      "cogview_2"
+    ],
+    "outputs": [
+      "generated captions for images",
+      "generated images from text prompts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text-to-Image Generation"
+        ],
+        "datasets": [
+          "NSFW",
+          "UCLA Protest Image Dataset"
+        ],
+        "models": [
+          "BLIP2",
+          "GRIT",
+          "DALL-E",
+          "LAFITE",
+          "CLIP-GEN",
+          "CogView2"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "ToViLaG": "ToViLaG",
+        "Stable Diffusion": "Stable Diffusion",
+        "CLIP-ViL": "CLIP-ViL",
+        "BLIP2": "BLIP2"
+      },
+      "explanation": "Added Text-to-Image Generation as it's a major focus; expanded datasets and models to include all explicitly mentioned ones used in evaluations; normalized capitalization consistently"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "WINTORE",
+      "TP",
+      "EMT",
+      "ATR",
+      "BERTSCORE",
+      "ROUGE",
+      "SPICE",
+      "CLIPSCORE",
+      "IS",
+      "FID"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "EMT",
+          "ATR"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Inception Score",
+          "Frechet Inception Distance",
+          "Toxicity Probability"
+        ]
+      },
+      "normalized": {
+        "IS": "IS",
+        "FID": "FID",
+        "TP": "TP",
+        "EMT": "EMT",
+        "ATR": "ATR"
+      },
+      "explanation": "Added EMT and ATR which are discussed as toxicity metrics; removed redundant names (Inception Score = IS, Frechet Inception Distance = FID, Toxicity Probability = TP); normalized to base forms as per guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges for evaluation - the paper only uses LLMs for generation (like GPT-4 for LLaVA instruction tuning) but not for evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Two annotators evaluated 50 randomly sampled generations in pairwise comparison",
+      "Annotators compared original vs detoxified generations and labeled as win/lose/tie",
+      "Score=1 indicates lower toxicity/higher quality or comparable"
+    ],
+    "criteria": [
+      "Toxicity",
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Two annotators evaluated 50 randomly sampled generations in pairwise comparison",
+          "Annotators compared original vs detoxified generations and labeled as win/lose/tie",
+          "Score=1 indicates lower toxicity/higher quality or comparable"
+        ],
+        "criteria": [
+          "quality"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "generation quality": "quality"
+      },
+      "explanation": "Expracted the full human evaluation guidelines from the paper text; normalized 'generation quality' to simply 'quality' for consistency"
+    }
+  },
+  "overall_notes": "The paper focuses on toxicity evaluation and detoxification for visual-language generation models across both image captioning (I2T) and text-to-image generation (T2I) tasks. The extraction was generally good but missed several important models and datasets used in the evaluations. The paper uses extensive automatic evaluation and includes human evaluation with clear protocols."
+}

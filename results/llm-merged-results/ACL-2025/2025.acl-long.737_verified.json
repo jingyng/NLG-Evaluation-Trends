@@ -1,0 +1,230 @@
+{
+  "paper_id": "2025.acl-long.737",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Machine Translation",
+      "Code Generation",
+      "Text Summarization",
+      "Other:Reasoning",
+      "Other:LLM alignment"
+    ],
+    "datasets": [
+      "CheemsBench",
+      "CheemsPreference",
+      "HH-RLHF-cn",
+      "Huozi",
+      "Kyara",
+      "Zhihu",
+      "ChatbotArena",
+      "MathPreference",
+      "Nectar",
+      "UltraFeedback",
+      "HelpSteer2",
+      "RewardBench",
+      "MT-bench",
+      "MT-bench-zh"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "Qwen2-7B-Instruct",
+      "Qwen2-72B-Instruct",
+      "Qwen2.5-7B-Instruct",
+      "Qwen2.5-14B-Instruct",
+      "Qwen2.5-32B-Instruct",
+      "Qwen2.5-72B-Instruct",
+      "Meta-Llama-3.1-8B-Instruct",
+      "Meta-Llama-3.1-70B-Instruct",
+      "Llama3.1-8B-Chinese-Chat",
+      "Llama3.1-72B-Chinese-Chat",
+      "GPT-4o",
+      "GPT-4-turbo",
+      "GPT-3.5-turbo",
+      "Claude-3-5-sonnet"
+    ],
+    "outputs": [
+      "LLM responses to Chinese instructions across various domains",
+      "Reward model preference rankings for multiple LLM responses",
+      "Human preference annotations for LLM outputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [
+          "RewardBench",
+          "MT-bench",
+          "MT-bench-zh"
+        ],
+        "languages": [],
+        "models": [
+          "Qwen2.5-7B-Instruct",
+          "Qwen2.5-14B-Instruct",
+          "Qwen2.5-32B-Instruct",
+          "Qwen2.5-72B-Instruct",
+          "Llama3.1-72B-Chinese-Chat"
+        ],
+        "outputs": [
+          "Human preference annotations for LLM outputs"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:preference modeling"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Qwen2-7B/72B-Instruct",
+          "Meta-Llama-3.1-8B/70B-Instruct",
+          "Llama3.1-8B/72B-Chinese-Chat"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Meta-Llama-3.1": "Meta-Llama-3.1-8B-Instruct",
+        "Claude-3": "Claude-3-5-sonnet",
+        "Qwen2": "Qwen2-7B-Instruct",
+        "Dialogue generation": "Dialogue Generation",
+        "Machine translation": "Machine Translation",
+        "Code generation": "Code Generation"
+      },
+      "explanation": "Added missing models with specific versions, added explicit NLG tasks like Text Summarization mentioned in the taxonomy, removed non-standard model abbreviations, normalized task names to title case"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "Exact Match"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy",
+          "exact match rate"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "exact match rate": "Exact Match"
+      },
+      "explanation": "Normalized metric names to standard capitalization and removed duplicates"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o"
+    ],
+    "methods": [
+      "Best-of-32 sampling with GPT-4o as judge",
+      "MT-bench evaluation"
+    ],
+    "criteria": [
+      "helpfulness",
+      "relevance",
+      "fluency",
+      "coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "MT-bench evaluation"
+        ],
+        "criteria": [
+          "helpfulness",
+          "relevance",
+          "fluency",
+          "coherence"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT-3.5-turbo",
+          "Claude-3-5-sonnet"
+        ],
+        "methods": [
+          "pairwise evaluation",
+          "pairwise evaluation with GPT-4o",
+          "Best-of-32 sampling"
+        ],
+        "criteria": [
+          "linguistic",
+          "logical",
+          "safety",
+          "complexity"
+        ]
+      },
+      "normalized": {
+        "Best-of-32 sampling using GPT-4o as judge": "Best-of-32 sampling with GPT-4o as judge"
+      },
+      "explanation": "Removed LLMs only used for generation (not judging), removed non-judging methods, added MT-bench evaluation method, streamlined criteria to those actually used for LLM judging in the experiments"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Triple-wise comparisons of three adjacent responses",
+      "Bucket-wise pairwise comparisons for identical scores",
+      "Score responses based on fluency, coherence, relevance, helpfulness, and safety",
+      "Establish complete ranking and cross-validate against initial scoring"
+    ],
+    "criteria": [
+      "fluency",
+      "coherence",
+      "relevance",
+      "helpfulness",
+      "safety",
+      "logical consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Triple-wise comparisons of three adjacent responses",
+          "Bucket-wise pairwise comparisons for identical scores",
+          "Score responses based on fluency, coherence, relevance, helpfulness, and safety",
+          "Establish complete ranking and cross-validate against initial scoring"
+        ],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "relevance",
+          "helpfulness",
+          "safety",
+          "logical consistency"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Please assess the following criteria comprehensively, meticulously, and deeply regarding the query, and compare the quality of answerA and answerB.",
+          "Annotators perform triple-wise comparisons, assign preference labels, and score responses based on the three core dimensions defined in the annotation guidelines.",
+          "We ask annotators to score each response according to the criteria in Table while conducting preference annotations. For responses with identical scores, we require annotators to perform bucket-wise pairwise comparisons for further ranking."
+        ],
+        "criteria": [
+          "complexity",
+          "semantic understanding",
+          "text manipulation",
+          "translation",
+          "reasoning"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Replaced verbose extracted text with concise guideline descriptions, focused on core human evaluation criteria explicitly mentioned for scoring, removed task-specific criteria that aren't part of the core human evaluation rubric"
+    }
+  },
+  "overall_notes": "The paper focuses on Reward Model evaluation for Chinese LLMs, with extensive human evaluations as the main contribution. NLG tasks are primarily evaluated indirectly through preference modeling. The extraction was generally good but needed normalization of model versions and clarification of what constitutes LLM-as-judge vs generation models."
+}

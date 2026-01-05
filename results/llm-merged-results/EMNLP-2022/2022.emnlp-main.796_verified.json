@@ -1,0 +1,132 @@
+{
+  "paper_id": "2022.emnlp-main.796",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Other:Offensive Language Detection"
+    ],
+    "datasets": [
+      "COLDATASET"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "CPM",
+      "CDialGPT",
+      "EVA",
+      "CPM-Generate",
+      "CPM-Generate-distill",
+      "CDialGPT-Base",
+      "CDialGPT-Large"
+    ],
+    "outputs": [
+      "Generated responses to prompts from COLDATASET",
+      "Generated text from each model, assessed for offensiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "The paper evaluates the offensiveness of generated content from Chinese generative language models using prompts from COLDATASET and detects offensive outputs via COLDETECTOR."
+        ]
+      },
+      "normalized": {
+        "Other:Offensive Language Detection": "Other:Offensive Language Detection",
+        "COLDATASET": "COLDATASET"
+      },
+      "explanation": "Removed redundant output description that was already covered by other items. Kept all models as they are explicitly evaluated for generation capabilities."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Offensive Rate",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "offensive rate",
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "offensive rate": "Offensive Rate",
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Normalized case and removed duplicates. Added 'Accuracy' as it's used to evaluate the offensive language detection performance."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "COLDETECTOR"
+        ],
+        "methods": [
+          "offensive label classification"
+        ],
+        "criteria": [
+          "offensiveness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items since COLDETECTOR is a fine-tuned BERT model for classification, not an LLM used as a judge to evaluate NLG outputs. The paper does not use LLMs as evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Human raters assess the generated outputs for offensiveness.",
+          "Annotators are first requested to judge whether a given sample is offensive (Q1). Then, the offensive samples are further divided into Attack individuals or Attack Groups according to the target offended (Q2), while the Non-offensive samples are divided into Anti-Bias or Other Non-Offensive."
+        ],
+        "criteria": [
+          "offensiveness",
+          "target type (individual/group)",
+          "anti-bias"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The human evaluation described is for annotating the dataset itself (COLDATASET), not for evaluating NLG outputs. The paper mentions automatic evaluation of generated content using COLDETECTOR, but no human evaluation of generated outputs is conducted."
+    }
+  },
+  "overall_notes": "The paper focuses on offensive language detection and evaluates NLG models' safety, but uses automatic metrics (Offensive Rate via COLDETECTOR) rather than human evaluation for the generated content. The human evaluation described is for dataset annotation purposes only."
+}

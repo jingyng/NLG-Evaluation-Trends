@@ -1,0 +1,206 @@
+{
+  "paper_id": "2024.acl-long.401",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "MT BENCH 101"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4",
+      "gpt_3.5",
+      "llama_2_7b_chat",
+      "llama_2_13b_chat",
+      "qwen_7b_chat",
+      "qwen_14b_chat",
+      "chatglm_2_6b",
+      "chatglm_3_6b",
+      "internlm_2_chat_7b_sft",
+      "internlm_2_chat_20b_sft",
+      "yi_6b_chat",
+      "yi_34b_chat",
+      "mistral_7b_instruct_v_0.2",
+      "mixtral_8x_7b_instruct_v_0.1",
+      "vicuna_13b_v_1.5",
+      "baize_13b_v_2",
+      "ultralm_13b_v_2.0",
+      "baichuan_2_13b_chat"
+    ],
+    "outputs": [
+      "multi-turn dialogue responses",
+      "dialogue turns"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama2-Chat",
+          "Mistral-Instruct",
+          "Qwen-Chat",
+          "ChatGLM2-6B/ChatGLM3-6B",
+          "InternLM2-Chat",
+          "Baichuan2-Chat-13B",
+          "Baize-v2-13B"
+        ],
+        "outputs": [
+          "Responses in multi-turn dialogues",
+          "generated dialogue responses (turns)"
+        ]
+      },
+      "normalized": {
+        "ChatGLM2-6B/ChatGLM3-6B": "ChatGLM2-6B and ChatGLM3-6B",
+        "Baichuan2-Chat-13B": "Baichuan2-13B-Chat",
+        "Baize-v2-13B": "Baize-13B-v2"
+      },
+      "explanation": "Removed duplicate/aggregated model names and normalized inconsistent naming. Consolidated outputs descriptions since they all refer to the same generated dialogue responses."
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": false,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-4 evaluation",
+          "minimum-score-taking metric"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'GPT-4 evaluation' and 'minimum-score-taking metric' as these are not traditional automatic metrics like BLEU/ROUGE but rather evaluation methods using LLM judges. The paper does not use standard automatic metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "qwen_72b_chat"
+    ],
+    "methods": [
+      "turn-by-turn scoring",
+      "minimum-score-taking",
+      "task-specific evaluation prompts"
+    ],
+    "criteria": [
+      "Memory",
+      "Understanding",
+      "Detection",
+      "Resistance",
+      "Ability",
+      "Correction",
+      "Confidence",
+      "Question",
+      "Mathematical",
+      "General",
+      "Interaction"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Qwen-72B-Chat"
+        ],
+        "methods": [
+          "task-specific evaluation prompts"
+        ],
+        "criteria": [
+          "context memory",
+          "context understanding",
+          "topic shift detection",
+          "command-following ability",
+          "self-correction",
+          "maintaining confidence",
+          "use of counter-questions",
+          "mathematical reasoning",
+          "general reasoning",
+          "proactive interaction"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "scoring with task-specific guidelines on a scale of 1 to 10",
+          "LLM scoring with task‑specific prompts",
+          "scoring each turn from 1 to 10",
+          "minimum-score-taking metric",
+          "pairwise evaluation"
+        ],
+        "criteria": [
+          "fluency",
+          "relevance",
+          "accuracy",
+          "coherence",
+          "consistency",
+          "understanding of referential information",
+          "resistance to interference",
+          "task completion"
+        ]
+      },
+      "normalized": {
+        "understanding of referential information": "context understanding",
+        "minimum-score-taking metric": "minimum-score-taking"
+      },
+      "explanation": "Added missing LLM evaluator mentioned in the paper. Consolidated methods to more descriptive terms. Expanded criteria list to match the 13 specific tasks/abilities evaluated in the paper from the taxonomy."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate overall quality of multi-turn dialogues on 1-10 scale based on task requirements",
+      "Use majority voting for final annotation"
+    ],
+    "criteria": [
+      "Compliance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Rate overall quality of multi-turn dialogues on 1-10 scale based on task requirements",
+          "Use majority voting for final annotation"
+        ],
+        "criteria": [
+          "task compliance"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Annotators rated each dialogue on a scale of 1 to 10 based on whether the responses met the task requirements.",
+          "Each dialogue was rated on a scale of 1 to 10 based on whether the responses met the requirements of the corresponding tasks.",
+          "whether the responses of LLMs met the requirements of the corresponding tasks"
+        ],
+        "criteria": [
+          "overall quality",
+          "fluency",
+          "relevance",
+          "accuracy",
+          "coherence",
+          "consistency",
+          "command-following",
+          "task completion"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline to essential components. Removed generic criteria that weren't explicitly mentioned for human evaluation - the paper specifically states human evaluation focused on whether responses met task requirements."
+    }
+  },
+  "overall_notes": "The paper introduces MT-Bench-101, a fine-grained benchmark for multi-turn dialogue evaluation. It evaluates 21 LLMs across 13 specific dialogue abilities organized in a three-tier taxonomy. The extraction was generally accurate but needed normalization of model names and clarification of evaluation methodologies. The LLM-as-judge approach is central to the paper's methodology with GPT-4 primary and Qwen-72B as alternative evaluator."
+}

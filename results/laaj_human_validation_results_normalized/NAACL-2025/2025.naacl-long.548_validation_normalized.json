@@ -1,0 +1,150 @@
+{
+  "paper_id": "2025.naacl-long.548",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM metrics (GEMBA-MQM, XCOMET, Prometheus) with human evaluation results through correlation analysis and adequacy comparisons on the same dataset"
+  },
+  "llm_judge_details": {
+    "num_models": 4,
+    "models": [
+      "GEMBA-MQM",
+      "XCOMET-XL",
+      "XCOMET-XXL",
+      "Prometheus 2"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt templates and few-shot examples provided in appendices, including detailed error categories and severity classifications"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 8,
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Kendall's Tau and Cohen's kappa",
+      "value": "MQM: 0.493, SQM: 0.487, BWS: 0.574",
+      "interpretation": "moderate to high agreement",
+      "per_criterion": [
+        {
+          "criterion": "MQM score",
+          "metric": "Kendall's Tau",
+          "value": 0.493
+        },
+        {
+          "criterion": "SQM score",
+          "metric": "Kendall's Tau",
+          "value": 0.487
+        },
+        {
+          "criterion": "BWS selection",
+          "metric": "Cohen's kappa",
+          "value": 0.574
+        },
+        {
+          "criterion": "error span match",
+          "metric": "Cohen's kappa",
+          "value": 0.369
+        },
+        {
+          "criterion": "label match",
+          "metric": "Cohen's kappa",
+          "value": 0.249
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text and appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed MQM error categories and annotation procedures described, with examples shown in appendix tables and figures"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "adequacy_comparison",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Segment-level correlation",
+      "Percentage agreement",
+      "System ranking comparison"
+    ],
+    "shared_criteria": [
+      "Translation quality",
+      "Error detection"
+    ],
+    "sample_size": {
+      "total_generated": 2188,
+      "validated_by_both": "Full dataset used for validation",
+      "notes": "2,188 paragraph-level translation segments across 4 language pairs"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Correlation with human MQM",
+        "value": "Moderate",
+        "criterion": "Quality",
+        "llm_model": "GEMBA-MQM (Original)",
+        "significance": "not reported",
+        "notes": "Consistently outperforms other metrics"
+      },
+      {
+        "metric": "Correlation with human SQM",
+        "value": "Moderate",
+        "criterion": "Quality",
+        "llm_model": "GEMBA-MQM",
+        "significance": "not reported",
+        "notes": "Prometheus performs worst with lowest correlation"
+      },
+      {
+        "metric": "Adequacy gap (human vs top systems)",
+        "value": "9.6%",
+        "criterion": "Discrimination capability",
+        "llm_model": "GEMBA-MQM (Literary)",
+        "significance": "32.9 points lower than worst human performance",
+        "notes": "LLMs struggle to distinguish human translations from top LLM outputs"
+      },
+      {
+        "metric": "Text length correlation",
+        "value": "-0.420",
+        "criterion": "Bias detection",
+        "llm_model": "XCOMET-XL",
+        "significance": "not reported",
+        "notes": "Negative correlation with target translation length indicates bias"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "moderate",
+      "threshold_used": "Not explicitly stated, but described as moderate correlation",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM metrics show moderate correlation with human evaluation but severe adequacy issues - GEMBA-MQM prefers human translations only 9.6% of the time vs. 82.1-94.4% for human evaluators, revealing LLM bias toward literal translations and self-preference."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Prompt-based error categorization",
+      "Reference-free scoring"
+    ],
+    "human_only_criteria": [
+      "Cultural insight",
+      "Authorial voice",
+      "Creative interpretation",
+      "Aesthetics"
+    ],
+    "shared_criteria": [
+      "Accuracy",
+      "Fluency",
+      "Style",
+      "Terminology",
+      "Convention",
+      "Quality"
+    ],
+    "notes": "LLMs focus primarily on technical aspects (especially Accuracy), while human experts evaluate broader literary qualities and nuanced adaptations"
+  }
+}

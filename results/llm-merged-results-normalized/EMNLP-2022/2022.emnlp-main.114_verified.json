@@ -1,0 +1,168 @@
+{
+  "paper_id": "2022.emnlp-main.114",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Story Evaluation",
+      "Comment Generation"
+    ],
+    "datasets": [
+      "WRITINGPROMPTS",
+      "SCARY REDDIT SHORT SCARY STORIES",
+      "WP 200",
+      "SCARY 200",
+      "PREF 200",
+      "COH 200"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "led"
+    ],
+    "outputs": [
+      "preference scores",
+      "aspect ratings",
+      "confidence scores",
+      "explanatory comments"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "SCARY 200",
+          "WP 200",
+          "PREF 200",
+          "COH 200"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Story Generation"
+        ],
+        "datasets": [
+          "Amazon Mechanical Turk Collected"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "stories"
+        ]
+      },
+      "normalized": {
+        "Other:Comment Generation": "Other:Comment Generation",
+        "WritingPrompt": "WritingPrompt",
+        "SCARY (Reddit short scary stories)": "SCARY (Reddit short scary stories)",
+        "Longformer-Encoder-Decoder (LED)": "Longformer-Encoder-Decoder (LED)",
+        "preference score, aspect ratings, confidence scores, explanatory comments": "preference scores, aspect ratings, confidence scores, explanatory comments"
+      },
+      "explanation": "Removed 'Story Generation' task as the paper focuses on evaluating stories rather than generating them. Removed 'Amazon Mechanical Turk Collected' as it's a collection method rather than a dataset name. Added specific benchmark datasets used for evaluation (WP 200, SCARY 200, PREF 200, COH 200). Simplified outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "BERTSCORE",
+      "BLEURT",
+      "RUBER",
+      "UNION",
+      "PERPLEXITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU1-4"
+        ]
+      },
+      "normalized": {
+        "BLEU1-4": "BLEU",
+        "ROUGE": "ROUGE",
+        "METEOR": "METEOR",
+        "BERTScore": "BERTScore",
+        "BLEURT": "BLEURT",
+        "RUBER": "RUBER",
+        "UNION": "UNION",
+        "Perplexity": "Perplexity"
+      },
+      "explanation": "Normalized 'BLEU1-4' to 'BLEU' following simplification rules. All other metrics were already in canonical form."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Longformer-Encoder-Decoder (LED)"
+        ],
+        "methods": [
+          "pairwise ranking",
+          "preference score prediction",
+          "aspect rating",
+          "comment generation"
+        ],
+        "criteria": [
+          "preference (upvote) score",
+          "aspect rating",
+          "coherence (via negative story training)",
+          "explanatory comment relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as the paper does NOT use LLMs as judges. LED is used for generation/evaluation, not as a separate LLM judge. The methods and criteria listed are for the paper's proposed approach, not for LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate each story on a scale of 1 to 5 (from poor to good)",
+      "Write a brief reason for clarification",
+      "Compare stories before rating",
+      "Distinguish whether stories are human-written or machine-generated"
+    ],
+    "criteria": [
+      "Quality",
+      "Preference",
+      "Coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Distinguish whether stories are human-written or machine-generated"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "normalized": {
+        "overall quality (1‑5 rating)": "overall quality"
+      },
+      "explanation": "Added missing guideline about distinguishing human vs machine stories. Removed 'fluency' as it's not explicitly mentioned as a human evaluation criterion (only mentioned in machine evaluation metrics context). Normalized criteria naming."
+    }
+  },
+  "overall_notes": "The paper presents StoryER, a comprehensive story evaluation framework with ranking, rating, and reasoning components. The extraction was generally good but needed some refinement: (1) Clarified that the paper evaluates story quality rather than generating stories, (2) Fixed metric normalization, (3) The paper does NOT use LLMs as judges (LED is used for the evaluation system itself), (4) Added missing human evaluation details. The paper conducts extensive evaluation comparing with baseline metrics and human judgments."
+}

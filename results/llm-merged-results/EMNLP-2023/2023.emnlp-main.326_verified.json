@@ -1,0 +1,142 @@
+{
+  "paper_id": "2023.emnlp-main.326",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering"
+    ],
+    "datasets": [
+      "SQuAD",
+      "HotpotQA",
+      "TopiOCQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5-large",
+      "Phoenix-7B",
+      "Vicuna-7B",
+      "ChatGLM",
+      "GPT-3.5",
+      "BART-Large"
+    ],
+    "outputs": [
+      "answers to questions using retrieved documents"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [
+          "Hot-potQA"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-4"
+        ],
+        "outputs": [
+          "generated answers (A) to questions (Q)",
+          "generated answers to questions"
+        ]
+      },
+      "normalized": {
+        "Hot-potQA": "HotpotQA",
+        "generated answers (A) to questions (Q)": "answers to questions using retrieved documents",
+        "generated answers to questions": "answers to questions using retrieved documents"
+      },
+      "explanation": "Removed 'Text Summarization' as PRCA is only pre-trained on summarization but evaluated on QA. Normalized 'Hot-potQA' to 'HotpotQA'. Removed GPT-4 as it's only used for evaluation, not generation. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "ROUGE"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Accuracy (via GPT-4)"
+        ]
+      },
+      "normalized": {
+        "Accuracy (via GPT-4)": "ROUGE"
+      },
+      "explanation": "Changed answer from No to Yes because the paper uses ROUGE-L as a reward signal during PRCA training. The GPT-4 evaluation is LLM-as-judge, not a traditional automatic metric. Added ROUGE as the only automatic metric used."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "binary correctness judgment via prompt"
+    ],
+    "criteria": [
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-3.5"
+        ],
+        "methods": [
+          "prompt-based binary Yes/No assessment",
+          "Yes / No judgment based on whether predicted answer correctly answers the question"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-3.5": "GPT-4",
+        "prompt-based binary Yes/No assessment": "binary correctness judgment via prompt",
+        "Yes / No judgment based on whether predicted answer correctly answers the question": "binary correctness judgment via prompt"
+      },
+      "explanation": "Removed GPT-3.5 as the paper specifically states GPT-4 was used for evaluation. Consolidated method descriptions. The paper explicitly mentions GPT-4's evaluations showed correctness rates of 96%, 93%, and 92% across datasets."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Based on the question and the golden answer, judge whether the predicted answer correctly answers the question and give only a Yes or No"
+    ],
+    "criteria": [
+      "correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed. The paper states: 'We then evaluated predictions using both manual methods and GPT-4 against golden answers.' The guideline matches the GPT-4 prompt template provided."
+    }
+  },
+  "overall_notes": "The paper focuses on Retrieval Question Answering (ReQA) using a pluggable adapter (PRCA) to improve black-box LLM performance. Key findings: 1) The paper does use automatic metrics (ROUGE-L) during training, contrary to the original extraction. 2) Human evaluation was conducted alongside GPT-4 evaluation. 3) The methodology is robust with 75 different configurations tested across 3 datasets. 4) PRCA shows significant improvements (up to 20%) on complex QA tasks."
+}

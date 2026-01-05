@@ -1,0 +1,150 @@
+{
+  "paper_id": "2024.acl-long.541",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Document Retrieval",
+      "Helpfulness And Harmlessness Detection"
+    ],
+    "datasets": [
+      "TL DR CNN DM",
+      "TL DR REDDIT",
+      "RLAIF HELPFUL",
+      "RLAIF HARMLESS",
+      "TREC NEWS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "palm_2_l",
+      "gpt_3.5",
+      "gpt_4"
+    ],
+    "outputs": [
+      "preference predictions for text pairs in NLG tasks",
+      "structured intermediate representations (aspects and comparisons)",
+      "text preference predictions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation"
+        ],
+        "datasets": [
+          "TL;DR",
+          "Antropic-Helpful",
+          "Antropic-Harmless"
+        ],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "RLAIF-HH": "RLAIF-Harmless",
+        "document retrieval": "Other:document retrieval",
+        "helpfulness and harmlessness detection": "Other:helpfulness and harmlessness detection"
+      },
+      "explanation": "Removed 'Dialogue Generation' as it's not explicitly evaluated as an NLG task (the paper evaluates helpful/harmless chatbot responses but not generation). Removed redundant dataset names and normalized to standard forms."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Normalized 'accuracy' to standard capitalization 'Accuracy'. The paper explicitly states they report accuracy as the main evaluation metric."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "palm_2_l",
+      "gpt_3.5",
+      "gpt_4"
+    ],
+    "methods": [
+      "Direct Prompting",
+      "Chain-of-Thought Prompting",
+      "Pairwise Comparator"
+    ],
+    "criteria": [
+      "Consistency",
+      "Preference"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "preference prediction"
+        ]
+      },
+      "removed": {
+        "models": [
+          "PaLM-2-L (used as comparator)"
+        ],
+        "methods": [
+          "pairwise comparator"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "direct prompting": "Direct Prompting",
+        "chain-of-thought prompting": "Chain-of-Thought Prompting",
+        "pairwise comparator": "Pairwise Comparator"
+      },
+      "explanation": "Added 'preference prediction' as an explicit evaluation criterion. Normalized method names to standard capitalization. Consolidated PaLM-2-L references."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators determine which text is preferable (←, →, or tie) and then decide if intermediate representations lead them to reconsider their choice"
+    ],
+    "criteria": [
+      "Preference",
+      "Decision"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "decision revision"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "tie handling"
+        ]
+      },
+      "normalized": {
+        "tie handling": "preference correctness"
+      },
+      "explanation": "Refined criteria to better reflect the human evaluation focus on preference correctness and whether structured representations lead to decision revision."
+    }
+  },
+  "overall_notes": "The paper focuses on text preference prediction rather than NLG generation itself, but evaluates on NLG tasks (summarization, retrieval, helpful chatbot responses). The SC2 method produces structured comparative reasoning to improve LLM-based preference prediction. Extraction was generally accurate with minor normalization needed."
+}

@@ -1,0 +1,131 @@
+{
+  "paper_id": "2025.inlg-main.36",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Reasoning Trace Generation"
+    ],
+    "datasets": [
+      "MMLU"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "deepseek_r_1_671b",
+      "deepseek_r_1_distill_llama_70b",
+      "deepseek_r_1_distill_qwen_32b",
+      "deepseek_r_1_distill_qwen_14b",
+      "qwenqwq_32b"
+    ],
+    "outputs": [
+      "Chain-of-Thought reasoning traces"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Reasoning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Reasoning traces or Chain-of-Thought steps"
+        ]
+      },
+      "normalized": {
+        "Reasoning traces or Chain-of-Thought steps": "Chain-of-Thought reasoning traces"
+      },
+      "explanation": "Removed generic 'Other:Reasoning' task as it's redundant with 'Other:Reasoning Trace Generation' which better captures the NLG aspect. Unified output descriptions for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "COSINE SIMILARITY",
+      "KULLBACK LEIBLER DIVERGENCE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed - metrics are already in standard form and correctly extracted."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Gemma3-27B-IT-QAT"
+    ],
+    "methods": [
+      "Step Classification"
+    ],
+    "criteria": [
+      "Labeling"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": [
+          "cognitive state labeling"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "few-shot classification"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "few-shot classification": "Step Classification"
+      },
+      "explanation": "Simplified 'few-shot classification' to 'Step Classification' as the core method. Added 'cognitive state labeling' as the evaluation criteria since the LLM judges reasoning steps by assigning cognitive labels."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluator assigned cognitive labels to reasoning steps using the label set defined by the Label Extractor LLM"
+    ],
+    "criteria": [
+      "Assignment"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human evaluator assigned cognitive labels to reasoning steps using the label set defined by the Label Extractor LLM"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- assigning cognitive labels using the defined label set",
+          "One of the paper's authors manually assigned a label to each step, while having access to the corresponding label set, provided by the Label Extractor LLM."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "- assigning cognitive labels using the defined label set": "Human evaluator assigned cognitive labels to reasoning steps using the label set defined by the Label Extractor LLM"
+      },
+      "explanation": "Consolidated guideline description into a single clear statement. Criteria remains 'label assignment agreement' as this was measured via Cohen's Kappa."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating reasoning trace generation (Chain-of-Thought) quality rather than traditional NLG tasks. The framework uses LLM-based classification and human evaluation to assess reasoning patterns, with cosine similarity and KL divergence as quantitative metrics. Extracted metadata was largely accurate with minor normalization needed."
+}

@@ -1,0 +1,152 @@
+{
+  "paper_id": "2025.acl-long.518",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Privacy Compliance Evaluation",
+      "Context Understanding Probing"
+    ],
+    "datasets": [
+      "PRIVACI BENCH",
+      "EU AI ACT COMPLIANCE CHECKER",
+      "GOLDCOIN",
+      "OPP 115",
+      "APP 350"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4o",
+      "deepseek_r_1",
+      "llama_3.1_8b_instruct",
+      "qwen_2.5_7b_instruct",
+      "qwen_qwq_32b",
+      "mistral_7b_instruct_v_0.3",
+      "gpt_4o_mini"
+    ],
+    "outputs": [
+      "Legal compliance judgments (permitted/prohibited/not applicable)",
+      "Multiple-choice question answers about contextual integrity parameters"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other: Context Understanding Probing"
+        ],
+        "datasets": [
+          "GoldCoin",
+          "OPP-115",
+          "APP-350"
+        ],
+        "outputs": [
+          "Multiple-choice question answers about contextual integrity parameters"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other: Synthetic Vignette Generation"
+        ],
+        "outputs": [
+          "Synthetic vignettes for legal compliance scenarios"
+        ]
+      },
+      "normalized": {
+        "Mistral-7B-Instruct-v0.3": "Mistral-7B-Instruct-v0.3",
+        "Other:Privacy Compliance Evaluation": "Other: Privacy Compliance Evaluation"
+      },
+      "explanation": "Removed 'Synthetic Vignette Generation' as it's not an NLG task being evaluated (it's used for dataset creation). Added 'Context Understanding Probing' as an evaluated task. Added missing datasets mentioned in the paper. Clarified outputs to reflect actual evaluation tasks."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "ACCURACY",
+      "PRECISION",
+      "RECALL",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy",
+          "Precision",
+          "Recall",
+          "F1",
+          "Micro-F1"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "accuracy": "Accuracy",
+        "precision": "Precision",
+        "recall": "Recall",
+        "F1 score": "F1",
+        "micro-F1": "Micro-F1"
+      },
+      "explanation": "Changed answer from 'No' to 'Yes' since the paper explicitly uses automatic metrics (accuracy, precision, recall, F1, micro-F1) to evaluate LLM outputs for both legal compliance and multiple-choice questions."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges/evaluators in this paper. LLMs are only used as the systems being evaluated, not as evaluators of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Manual inspection of parsed CI parameters (sender, receiver, subject roles) scored 0-3",
+      "Manual inspection of transmission principle and judgment labels scored binary (0/1)"
+    ],
+    "criteria": [
+      "Agreement",
+      "Transmission"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual inspection of parsed CI parameters (sender, receiver, subject roles) scored 0-3",
+          "Manual inspection of transmission principle and judgment labels scored binary (0/1)"
+        ],
+        "criteria": [
+          "Role agreement",
+          "Transmission principle agreement",
+          "Label agreement"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- We assign an integer from 0 to 3 by considering the sender, receiver and subject. For TP and Label, we assign a binary agreement score (0 or 1)."
+        ]
+      },
+      "normalized": {
+        "Role": "Role agreement",
+        "transmission principle": "Transmission principle agreement",
+        "Label": "Label agreement"
+      },
+      "explanation": "Changed answer from 'No' to 'Yes' since the paper conducts human evaluation for data quality assessment. Three authors manually inspected parsed CI parameters and judgments. Added proper guidelines and criteria descriptions."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating LLMs' privacy compliance using contextual integrity theory. While it involves NLG evaluation (LLMs generating compliance judgments and MCQ answers), the primary contribution is the PrivaCI-Bench benchmark. The extraction was mostly accurate but missed some key details about human evaluation and automatic metrics usage."
+}

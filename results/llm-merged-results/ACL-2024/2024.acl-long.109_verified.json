@@ -1,0 +1,190 @@
+{
+  "paper_id": "2024.acl-long.109",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Other:Question Answering",
+      "Other:Audio Captioning"
+    ],
+    "datasets": [
+      "AIR-Bench",
+      "LibriSpeech",
+      "Common Voice",
+      "Covost2",
+      "MELD",
+      "IEMOCAP",
+      "SLURP",
+      "VoxCeleb1",
+      "FoR",
+      "AudioGrounding",
+      "VocalSound",
+      "CochlScene",
+      "TUT2017",
+      "Nsynth",
+      "MTG-Jamendo",
+      "FMA",
+      "MUSIC-AVQA",
+      "AVQA",
+      "Clotho-AQA",
+      "Fisher",
+      "SpokenWOZ",
+      "Clotho",
+      "MusicCaps",
+      "AudioCaps"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "SpeechGPT",
+      "BLSP",
+      "SALMONN",
+      "Qwen-Audio-Chat",
+      "Qwen-Audio Turbo",
+      "PandaGPT",
+      "Macaw-LLM",
+      "NExT-GPT",
+      "Speech-LLaMA",
+      "Qwen-Audio",
+      "LLaSM",
+      "LTU",
+      "LLark"
+    ],
+    "outputs": [
+      "textual responses to audio-prompted questions",
+      "single-choice answers for foundation benchmark",
+      "open-ended responses for chat benchmark"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Question Answering",
+          "Other:Audio Captioning"
+        ],
+        "datasets": [
+          "MTG-Jamendo"
+        ],
+        "models": [],
+        "outputs": [
+          "single-choice answers for foundation benchmark",
+          "open-ended responses for chat benchmark"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Automatic Speech Recognition"
+        ],
+        "datasets": [
+          "SU-PERB",
+          "HEAR",
+          "Dynamic-SUPERB"
+        ],
+        "models": [
+          "Whisper+GPT-4",
+          "Whisper-large-v2"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "MTJ-Jamendo": "MTG-Jamendo",
+        "Audiocaps": "AudioCaps"
+      },
+      "explanation": "Removed ASR as a main NLG task since it's not the primary focus. Removed evaluation benchmarks (SU-PERB, HEAR, Dynamic-SUPERB) that are not used for generation. Removed Whisper models as they're not LALMs. Normalized dataset names. Added more specific output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "GPT-4 evaluation",
+      "exact matching"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "binary accuracy",
+          "1-10 scoring scale"
+        ]
+      },
+      "normalized": {
+        "GPT-4 based evaluation": "GPT-4 evaluation",
+        "GPT-4-based evaluation": "GPT-4 evaluation"
+      },
+      "explanation": "Removed 'binary accuracy' and '1-10 scoring scale' as they are outcomes/scale types rather than metrics themselves. The paper primarily uses GPT-4 evaluation with exact matching as a baseline."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4",
+      "GPT-4 Turbo",
+      "GPT-3.5 Turbo"
+    ],
+    "methods": [
+      "reference-based evaluation",
+      "position-swapped scoring",
+      "pairwise comparison"
+    ],
+    "criteria": [
+      "usefulness",
+      "relevance",
+      "accuracy",
+      "comprehensiveness",
+      "helpfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4 evaluator with position swapping": "position-swapped scoring",
+        "reference-based GPT-4 evaluator": "reference-based evaluation",
+        "pairwise scoring with position swapping": "pairwise comparison"
+      },
+      "explanation": "Normalized method names for consistency. The paper clearly uses GPT-4 as an evaluator with specific procedures for both foundation and chat benchmarks."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluators determine which option aligns closest with the hypothesis for foundation benchmark",
+      "Human evaluators compare model responses based on usefulness, relevance, accuracy, and comprehensiveness for chat benchmark",
+      "Pairwise comparison of models with preference ratings"
+    ],
+    "criteria": [
+      "usefulness",
+      "relevance",
+      "accuracy",
+      "comprehensiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Pairwise comparison of models with preference ratings"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added the pairwise comparison aspect that was missing from the original extraction. The paper conducts both single-model evaluation (foundation benchmark) and pairwise comparison (chat benchmark)."
+    }
+  },
+  "overall_notes": "The paper presents AIR-Bench, a comprehensive benchmark for evaluating audio-language models that generate text responses to audio inputs. The extraction was generally good but needed some refinement: (1) Removed evaluation benchmarks that are not generation datasets, (2) Clarified that ASR is not the primary NLG focus, (3) Normalized dataset and metric names, (4) Added missing details about human evaluation procedures. The paper is strong in both automatic (GPT-4 based) and human evaluation methodologies."
+}

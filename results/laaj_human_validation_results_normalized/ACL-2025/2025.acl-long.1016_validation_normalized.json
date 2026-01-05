@@ -1,0 +1,83 @@
+{
+  "paper_id": "2025.acl-long.1016",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper validates LLM annotation accuracy against human annotations on a withheld test set (108 messages) using macro F1 score"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "gpt_4o_mini"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt encodes grounding typology but exact text not shown in main paper; examples of grounding acts provided in Table"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.71,
+      "interpretation": "substantial agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper defines grounding acts taxonomy with examples but full annotation guidelines not provided"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Macro F1"
+    ],
+    "shared_criteria": [
+      "Advancing",
+      "Disambiguating",
+      "Addressing"
+    ],
+    "sample_size": {
+      "total_generated": 108,
+      "validated_by_both": 108,
+      "notes": "Three authors annotated 10 dialogues (108 messages) from each dataset, used as withheld test set for validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Macro F1",
+        "value": 0.75,
+        "criterion": "overall",
+        "llm_model": "gpt_4o_mini",
+        "significance": "not reported",
+        "notes": "Average across datasets; full table of results per label in Appendix E.1"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "",
+      "threshold_used": "",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM annotator achieves reasonably high agreement (Macro F1=0.75) with human annotations on grounding act classification."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Advancing",
+      "Disambiguating",
+      "Addressing"
+    ],
+    "notes": "Both LLM and human evaluators use the same grounding act classification criteria"
+  }
+}

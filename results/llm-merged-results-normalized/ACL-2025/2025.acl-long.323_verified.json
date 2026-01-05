@@ -1,0 +1,154 @@
+{
+  "paper_id": "2025.acl-long.323",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Video Captioning"
+    ],
+    "datasets": [
+      "MCTS VCB",
+      "DREAM 1k"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gemini_1.5_pro",
+      "gpt_4o",
+      "internvl_2.5_8b",
+      "qwen_2_vl_7b",
+      "qwen_2_vl_72b"
+    ],
+    "outputs": [
+      "video captions",
+      "fine-grained key points describing video content"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Image Captioning"
+        ],
+        "datasets": [],
+        "languages": [
+          "Chinese"
+        ],
+        "models": [
+          "InternVL2_5-8B"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "InternVL2_5-8B": "InternVL2.5-8B"
+      },
+      "explanation": "Removed 'Image Captioning' as the paper focuses on video captioning specifically. Removed 'Chinese' as only English outputs are evaluated. Normalized model name consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PRECISION",
+      "RECALL",
+      "F1",
+      "BERTSCORE",
+      "ROUGE",
+      "CLAIR",
+      "AUTODQ"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1 Score"
+        ]
+      },
+      "normalized": {
+        "Bert-Score": "BERTScore",
+        "F1 Score": "F1"
+      },
+      "explanation": "Normalized metric names (BERTScore capitalization), removed duplicate 'F1 Score' since 'F1' already covers it."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o",
+      "qwen_2_vl_72b",
+      "qwen_2.5_72b_instruct"
+    ],
+    "methods": [
+      "yes/no question verification",
+      "entailment judgment"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "yes/no verification of key points",
+          "entailment checking with a judge LLM",
+          "judge model"
+        ],
+        "criteria": [
+          "similarity",
+          "entailment"
+        ]
+      },
+      "normalized": {
+        "yes/no question answering": "yes/no question verification"
+      },
+      "explanation": "Consolidated redundant method descriptions into core evaluation approaches. Removed 'similarity' and 'entailment' from criteria as they are methods rather than evaluation criteria - correctness is the main criterion used."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators assess relationship between AutoCaption key points and MLLM outputs as entailment, neutral, or contradiction"
+    ],
+    "criteria": [
+      "Entailment"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators assess relationship between AutoCaption key points and MLLM outputs as entailment, neutral, or contradiction"
+        ],
+        "criteria": [
+          "entailment"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- assess relationship between key points sets as entailment, neutral, or contradiction",
+          "assess relationship between these two sets of key points (entailment, neutral, contradiction)"
+        ],
+        "criteria": [
+          "neutral",
+          "contradiction"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline descriptions into one clear statement. Simplified criteria to focus only on 'entailment' as the evaluation metric, since neutral/contradiction are relationship categories rather than evaluation criteria."
+    }
+  },
+  "overall_notes": "The paper focuses on video captioning evaluation using MCTS-generated key points. The extraction was generally accurate but needed some normalization and consolidation of redundant descriptions. Human evaluation was limited to 100 videos with 3 MLLMs for consistency checking with automatic evaluation methods."
+}

@@ -1,0 +1,152 @@
+{
+  "paper_id": "2025.acl-long.1226",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Follow-up Question Generation",
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Followup-Bench",
+      "FB-Real",
+      "FB-Synth"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-3-8B",
+      "Llama-3-8B-Aloe",
+      "Qwen2.5-32B-Instruct",
+      "Qwen2.5-32B-Distillation",
+      "Phi-4"
+    ],
+    "outputs": [
+      "sets of follow-up questions",
+      "follow-up questions in asynchronous patient-provider conversations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Followup-Bench (FB-Synth)"
+        ],
+        "languages": [],
+        "models": [
+          "Qwen2.5-32b"
+        ],
+        "outputs": [
+          "A set of follow‑up questions generated for a patient message"
+        ]
+      },
+      "normalized": {
+        "Llama3-8b": "Llama-3-8B",
+        "Llama3-8b-Aloe": "Llama-3-8B-Aloe",
+        "Qwen2.5-32b-instruct": "Qwen2.5-32B-Instruct",
+        "Qwen2.5-32b-distillation": "Qwen2.5-32B-Distillation",
+        "Phi-4": "Phi-4",
+        "Qwen2.5-32b": "Qwen2.5-32B-Instruct"
+      },
+      "explanation": "Normalized model names to standard capitalization, removed duplicate dataset entry, and simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Requested Information Match (RIM)",
+      "Message Reduction % (MR%)",
+      "Mean number of questions"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Mean number of questions": "Mean number of questions"
+      },
+      "explanation": "All extracted metrics are correct and properly normalized"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Phi-4",
+      "Llama-3-8B"
+    ],
+    "methods": [
+      "pairwise evaluation",
+      "semantic equivalence detection"
+    ],
+    "criteria": [
+      "information match",
+      "specificity equivalence"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Llama3-8b-Aloe",
+          "Qwen2.5-32b-instruct",
+          "Phi-4"
+        ],
+        "methods": [
+          "pairwise question matching",
+          "Question-Matching prompt"
+        ],
+        "criteria": [
+          "semantic equivalence",
+          "vagueness",
+          "information equivalence"
+        ]
+      },
+      "normalized": {
+        "Llama3-8b": "Llama-3-8B",
+        "PHI-4": "Phi-4",
+        "information match": "information match",
+        "specificity": "specificity equivalence"
+      },
+      "explanation": "Removed models not used as judges (only Phi-4 and Llama-3-8B were used as evaluators), simplified methods, and focused on actual criteria used (information match and specificity/vagueness equivalence)"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Determine if the answer to question B will elicit the information required to answer question A. Keep in mind that question B should be equally as specific or vague as question A."
+        ],
+        "criteria": [
+          "information equivalence",
+          "specificity"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does NOT conduct human evaluations of the generated outputs. The extracted metadata describes the LLM-as-judge criteria, not human evaluation. All human annotation was for dataset creation, not output evaluation."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Key findings: (1) The paper focuses on follow-up question generation as an NLG task, (2) Uses custom metrics RIM and MR% for evaluation, (3) Uses LLM-as-judge with Phi-4 and Llama-3-8B for pairwise question matching, (4) No human evaluation of generated outputs (only dataset annotation). The main correction was clarifying that human annotation was for dataset creation, not output evaluation."
+}

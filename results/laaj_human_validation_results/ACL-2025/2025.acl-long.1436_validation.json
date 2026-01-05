@@ -1,0 +1,184 @@
+{
+  "paper_id": "2025.acl-long.1436",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares LLM-as-a-judge results with human evaluation results through quantitative validation. Specifically, they benchmark several LLM-based quality oracles against human judgments on the Sandcastles dataset, reporting precision, F1 scores, and conducting a Bayesian analysis of agreement rates."
+  },
+  "llm_judge_details": {
+    "num_models": 10,
+    "models": [
+      "llama_3.1_70b_instruct",
+      "gpt_4_turbo",
+      "gpt_4o",
+      "internlm2-20b-reward",
+      "o_3_mini_high",
+      "Prometheus2Absolute",
+      "GPT-4o+FT",
+      "MutationOracle+FT",
+      "DiffOracle",
+      "DiffOracle+FT"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Appendix E.1 provides detailed descriptions of 8 oracle prompting strategies including RankOracle, SoloOracle, JointOracle, RelativeOracle, BinaryOracle, MutationOracle, ExampleOracle, and DiffOracle with specific prompts for quality assessment. Appendix C shows the lineage distinguisher prompt with example response texts."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 0,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text_and_appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Section 4.2 and Appendix E.3 provide detailed human evaluation guidelines: 'Determine which is a better response to the prompt: text A, text B, or tie. Judge quality based on content, style, cohesion, and prompt relevance.' Annotators used ternary preference judgments: selecting A, B, or tie, later binarized for oracle evaluation."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "accuracy_analysis"
+    ],
+    "validation_metrics": [
+      "QP Precision",
+      "Overall F1",
+      "Bayesian probability"
+    ],
+    "shared_criteria": [
+      "quality_preservation"
+    ],
+    "sample_size": {
+      "total_generated": 795,
+      "validated_by_both": 795,
+      "notes": "The Sandcastles dataset includes 795 human-annotated perturbations evaluated by both LLM oracles and human judges at perturbation steps 1, 10, and 20"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "QP Precision",
+        "value": 84.62,
+        "criterion": "quality_preservation",
+        "llm_model": "MutationOracle (Llama-3.1-70B-Instruct)",
+        "significance": null,
+        "notes": "Accuracy in preserving high-quality outputs"
+      },
+      {
+        "metric": "Overall F1",
+        "value": 66.93,
+        "criterion": "quality_preservation",
+        "llm_model": "MutationOracle (Llama-3.1-70B-Instruct)",
+        "significance": null,
+        "notes": "General classification performance"
+      },
+      {
+        "metric": "QP Precision",
+        "value": 76.15,
+        "criterion": "quality_preservation",
+        "llm_model": "Prometheus2Absolute (GPT-4-Turbo)",
+        "significance": null,
+        "notes": ""
+      },
+      {
+        "metric": "Overall F1",
+        "value": 67.55,
+        "criterion": "quality_preservation",
+        "llm_model": "Prometheus2Absolute (GPT-4-Turbo)",
+        "significance": null,
+        "notes": ""
+      },
+      {
+        "metric": "QP Precision",
+        "value": 65.69,
+        "criterion": "quality_preservation",
+        "llm_model": "InternLMOracle (internlm2-20b-reward)",
+        "significance": null,
+        "notes": ""
+      },
+      {
+        "metric": "Overall F1",
+        "value": 69.84,
+        "criterion": "quality_preservation",
+        "llm_model": "InternLMOracle (internlm2-20b-reward)",
+        "significance": null,
+        "notes": ""
+      },
+      {
+        "metric": "QP Precision",
+        "value": 71.74,
+        "criterion": "quality_preservation",
+        "llm_model": "DiffOracle (Llama-3.1-70B-Instruct)",
+        "significance": null,
+        "notes": ""
+      },
+      {
+        "metric": "Overall F1",
+        "value": 70.85,
+        "criterion": "quality_preservation",
+        "llm_model": "DiffOracle (Llama-3.1-70B-Instruct)",
+        "significance": null,
+        "notes": ""
+      },
+      {
+        "metric": "Overall F1",
+        "value": 76.94,
+        "criterion": "quality_preservation",
+        "llm_model": "DiffOracle+FT (Llama-3.1-70B-Instruct + Fine-tuning)",
+        "significance": null,
+        "notes": "Fine-tuned version"
+      },
+      {
+        "metric": "QP Precision",
+        "value": 74.51,
+        "criterion": "quality_preservation",
+        "llm_model": "MutationOracle+FT (GPT-4o + Fine-tuning)",
+        "significance": null,
+        "notes": "Best performing oracle"
+      },
+      {
+        "metric": "Overall F1",
+        "value": 77.38,
+        "criterion": "quality_preservation",
+        "llm_model": "MutationOracle+FT (GPT-4o + Fine-tuning)",
+        "significance": null,
+        "notes": "Best performing oracle"
+      },
+      {
+        "metric": "Bayesian probability",
+        "value": 85.08,
+        "criterion": "quality_preservation",
+        "llm_model": "InternLMOracle",
+        "significance": null,
+        "notes": "Probability that InternLMOracle is genuinely superior to DiffOracle+FT based on human agreement rates"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "limited/unreliable",
+      "threshold_used": "77.4% F1 considered best performance but still implies ~1 in 5 errors",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM-based quality oracles reach maximum F1 of 77.4% with human judgments, indicating nearly 20% misclassification rate. Bayesian analysis shows 85% probability that InternLMOracle is better than fine-tuned alternatives, but all oracles show inconsistent alignment with human preferences."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "lineage_attribution",
+      "perplexity",
+      "grammar_errors",
+      "lexical_diversity"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "quality_preservation"
+    ],
+    "notes": "Both humans and LLM oracles evaluated quality preservation on the same task. Human evaluation focused on content, style, cohesion, and prompt relevance, while LLM oracles used various prompting strategies to assess the same quality aspects."
+  }
+}

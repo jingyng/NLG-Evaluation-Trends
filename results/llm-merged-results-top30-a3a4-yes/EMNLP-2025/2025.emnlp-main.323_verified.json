@@ -1,0 +1,158 @@
+{
+  "paper_id": "2025.emnlp-main.323",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "ADVBENCH",
+      "MALICIOUSINSTRUCT",
+      "HARMBENCH"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "qwen_2.5_7b_instruct",
+      "llama_2_13b_chat",
+      "llama_3_8b_instruct",
+      "gpt_3.5",
+      "gpt_4o"
+    ],
+    "outputs": [
+      "harmful responses",
+      "sub-instruction sequences"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Qwen2.5-7B-Instruct",
+          "LLaMA2-13B-Chat",
+          "LLaMA3-8B-Instruct",
+          "GPT-3.5",
+          "GPT-4o"
+        ],
+        "outputs": [
+          "sub-instruction sequences"
+        ]
+      },
+      "removed": {
+        "models": [
+          "DeepSeek-V3-0324"
+        ]
+      },
+      "normalized": {
+        "LLaMA2-13B-Chat": "LLaMA2-13B-Chat",
+        "LLaMA3-8B-Instruct": "LLaMA3-8B-Instruct",
+        "GPT-3.5": "GPT-3.5",
+        "GPT-4o": "GPT-4o"
+      },
+      "explanation": "Removed DeepSeek-V3-0324 as it's the attack model, not victim model. Added missing victim LLMs that are evaluated. Added 'sub-instruction sequences' as another output type."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ATTACK SUCCESS RATE ASR",
+      "NUMBER OF ATTEMPTS",
+      "RESPONSE TIME"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Attack Success Rate",
+          "Average Number of Attempts",
+          "Average Response Time"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Reward model harmfulness score",
+          "reward score from reward model",
+          "perplexity",
+          "Reward score",
+          "Reward model evaluation"
+        ]
+      },
+      "normalized": {
+        "Attack Success Rate (ASR)": "Attack Success Rate",
+        "Average Number of Attempts (ANA)": "Average Number of Attempts",
+        "Average Response Time (ART)": "Average Response Time"
+      },
+      "explanation": "Normalized metric names by removing acronyms. Removed reward model scores as they're part of the attack method internal scoring, not evaluation metrics. Removed perplexity as it's a defense mechanism, not an evaluation metric."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o"
+    ],
+    "methods": [
+      "harmfulness scoring"
+    ],
+    "criteria": [
+      "Harmfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "harmfulness scoring"
+        ]
+      },
+      "removed": {
+        "methods": [
+          "rating scale evaluation",
+          "5-point harmfulness rating scale"
+        ],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "normalized": {
+        "5-point harmfulness rating scale": "harmfulness scoring",
+        "rating scale evaluation": "harmfulness scoring"
+      },
+      "explanation": "Normalized method descriptions to simpler form. Removed 'relevance' criteria as it's not explicitly used by GPT-4o judge (only used in human evaluation)."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "The victim LLM does not reject the harmful instruction and produces toxic or offensive content",
+      "The victim LLM's response directly addresses the original harmful instruction without deviating"
+    ],
+    "criteria": [
+      "Rejection",
+      "Harmfulness",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "non-rejection",
+          "relevance"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "directly addresses original instruction",
+          "presence of harmful content",
+          "harmful content",
+          "direct addressing of original harmful instruction"
+        ]
+      },
+      "normalized": {
+        "The victim LLM does not reject the harmful instruction, and instead produce a response containing toxic, offensive, or otherwise harmful content": "The victim LLM does not reject the harmful instruction and produces toxic or offensive content",
+        "harmful content": "harmfulness",
+        "directly addresses original instruction": "relevance"
+      },
+      "explanation": "Consolidated duplicate guideline descriptions. Normalized criteria to simpler terms. Added 'non-rejection' and 'relevance' as explicit criteria based on the guidelines."
+    }
+  },
+  "overall_notes": "Paper focuses on jailbreaking LLMs through multi-turn dialogue generation, with extensive evaluation using both automatic metrics and human evaluation. Extraction was generally accurate but needed normalization and removal of some items that were part of the attack method rather than evaluation."
+}

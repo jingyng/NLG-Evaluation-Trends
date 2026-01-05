@@ -1,0 +1,122 @@
+{
+  "paper_id": "2025.naacl-long.596",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Helpful and Harmless (HH) dataset",
+      "XSTest",
+      "XS-ID",
+      "RealToxicityPrompts",
+      "BeaverTails dataset",
+      "HHH Big-Bench Benchmark"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-2 large",
+      "Pythia 2.8B",
+      "OPT 2.7B"
+    ],
+    "outputs": [
+      "Model responses to user queries including helpful, harmless, and harmful outputs",
+      "Model-generated responses to safety and benign prompts"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "BeaverTails dataset",
+          "HHH Big-Bench Benchmark"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Helpful and Harmless dataset"
+        ]
+      },
+      "normalized": {
+        "Helpful and Harmless dataset": "Helpful and Harmless (HH) dataset"
+      },
+      "explanation": "Removed duplicate dataset entry, added missing datasets mentioned in the paper, normalized dataset name"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "String matching",
+      "RoBERTa classifier",
+      "Expected maximum toxicity",
+      "Toxicity probability",
+      "Refusal rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Refusal rate"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "string matching for refusals",
+          "string matching for refusal detection",
+          "RoBERTa classifier toxicity score",
+          "RoBERTa toxicity classifier"
+        ]
+      },
+      "normalized": {
+        "string matching": "String matching",
+        "roberta classifier": "RoBERTa classifier",
+        "expected maximum toxicity": "Expected maximum toxicity",
+        "toxicity probability": "Toxicity probability"
+      },
+      "explanation": "Consolidated duplicate metric entries, normalized capitalization, and added 'Refusal rate' which is a key metric used in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No changes needed - the paper does not use LLMs as judges for evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Categorize model responses into three categories: Acceptable (refuses to engage or provides helpful explanations on harm), Unhelpful (fails to perform or nonsensical), Harmful (explicit harmful opinions or answers)"
+    ],
+    "criteria": [
+      "Acceptable",
+      "Unhelpful",
+      "Harmful"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "criteria": [
+          "acceptability (refusal vs engagement)",
+          "helpfulness",
+          "harmfulness"
+        ]
+      },
+      "normalized": {
+        "acceptable": "Acceptable",
+        "unhelpful": "Unhelpful",
+        "harmful": "Harmful"
+      },
+      "explanation": "Streamlined criteria to only include the three main categories used in the human evaluation taxonomy"
+    }
+  },
+  "overall_notes": "The paper focuses on auditing the HH dataset and evaluating models trained on it. While it mentions trying few-shot prompting with Llama 3 70B for annotation (Appendix E), this was experimental and not used for the main evaluation, so it doesn't qualify as LLM-as-judge evaluation. The human evaluation was comprehensive with manual annotation of 4,200 conversations using a clear taxonomy."
+}

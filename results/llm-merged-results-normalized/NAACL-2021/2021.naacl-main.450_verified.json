@@ -1,0 +1,136 @@
+{
+  "paper_id": "2021.naacl-main.450",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "DAILYDIALOG"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "transformer",
+      "dd_base",
+      "dd_best",
+      "ef_base",
+      "ef_best"
+    ],
+    "outputs": [
+      "dialogue responses",
+      "generated dialogue utterances",
+      "generic responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Transformer"
+        ],
+        "outputs": [
+          "generic responses"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Entropy‑filtered DailyDialog"
+        ],
+        "languages": [],
+        "models": [
+          "Transformer (FAIRSEQ)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Transformer (FAIRSEQ)": "Transformer",
+        "dialog responses": "dialogue responses",
+        "\"I don't know.\"": "generic responses"
+      },
+      "explanation": "Simplified 'Entropy‑filtered DailyDialog' to just 'DailyDialog' since it's the same dataset with filtering applied. Removed redundant 'Transformer (FAIRSEQ)' in favor of 'Transformer'. Changed 'dialog' to 'dialogue' for consistency. Added 'generic responses' to outputs to better capture the paper's focus."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "EMBEDDING COSINE SIMILARITY",
+      "VECTOR EXTREMA COSINE SIMILARITY",
+      "RUQ",
+      "SPEARMAN"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Spearman's ρ"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "perplexity"
+        ]
+      },
+      "normalized": {
+        "bleu": "BLEU",
+        "meteor": "METEOR",
+        "ruq": "RUQ"
+      },
+      "explanation": "Added Spearman's ρ correlation metric used between RUQ and METEOR. Removed perplexity as it's used for model selection, not evaluation of generated outputs. Consistent capitalization for all metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this 2021 paper. The extracted metadata correctly shows empty lists."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluation using Amazon Mechanical Turk crowdworkers to judge fluency, coherence, and interestingness of utterances on a 1-5 Likert scale"
+    ],
+    "criteria": [
+      "Fluency",
+      "Coherence",
+      "Interestingness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "judge the fluency, coherence, and interestingness of utterances on a 1-5 Likert scale": "Human evaluation using Amazon Mechanical Turk crowdworkers to judge fluency, coherence, and interestingness of utterances on a 1-5 Likert scale"
+      },
+      "explanation": "Consolidated the guideline description while maintaining the key information about AMT crowdworkers, 1-5 Likert scale, and the three criteria."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Paper focuses on dialogue generation evaluation using Gricean maxims, specifically proposing RUQ metric to diagnose generic responses. Human evaluation was conducted but no LLM-as-judge methods used. The paper is well-aligned with NLG evaluation research."
+}

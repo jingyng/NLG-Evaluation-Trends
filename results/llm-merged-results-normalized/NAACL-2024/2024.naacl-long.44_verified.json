@@ -1,0 +1,124 @@
+{
+  "paper_id": "2024.naacl-long.44",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Image Search"
+    ],
+    "datasets": [
+      "MSCOCO",
+      "flickr30k",
+      "LOCALIZED NARRATIVES",
+      "VISOGENDER",
+      "VL BIAS",
+      "OPENIMAGES"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gama",
+      "t_5",
+      "vit",
+      "flan_t_5_base",
+      "vit_base_patch_16_384"
+    ],
+    "outputs": [
+      "Generated narratives",
+      "Generated captions",
+      "Retrieval scores for image search",
+      "Task-specific answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Image Search"
+        ],
+        "outputs": [
+          "Task-specific answers"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GAMA (flan‑t5‑base with frozen ViT)"
+        ],
+        "outputs": [
+          "image captions"
+        ]
+      },
+      "normalized": {
+        "flan‑t5‑base": "flan-t5-base",
+        "vit-base-patch16-384": "vit-base-patch16-384"
+      },
+      "explanation": "Added 'Image Search' as an NLG task since the paper evaluates retrieval with generated scores. Removed redundant model description and simplified outputs. Normalized model names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "SPICE",
+      "CLIPSCORE",
+      "RECALL",
+      "LIC",
+      "ERROR",
+      "BIASAMP",
+      "BIAS",
+      "MAXSKEW",
+      "NDKL",
+      "CHAIR",
+      "RA",
+      "HRGC",
+      "HROC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "HRgC@10",
+          "HRoC@10"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Skew@K"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "CHAIRs": "CHAIRs",
+        "CHAIRi": "CHAIRi"
+      },
+      "explanation": "Simplified BLEU-4 to BLEU following normalization rules. Added missing hallucination metrics HRgC@10 and HRoC@10 mentioned in the paper. Removed Skew@K which was incorrectly listed separately from MaxSkew@K."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper. The paper uses automatic metrics and mentions large VLMs only as future work."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "The paper explicitly states they use quantitative metrics rather than human analysis due to the challenges of human evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on vision-language tasks with strong emphasis on automatic evaluation metrics for gender bias mitigation. The extraction was generally accurate but missed some hallucination metrics and incorrectly listed some model variants. The paper does not use LLM judges or human evaluation, relying entirely on automatic metrics."
+}

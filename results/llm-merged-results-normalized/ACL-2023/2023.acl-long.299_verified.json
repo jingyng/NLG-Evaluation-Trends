@@ -1,0 +1,127 @@
+{
+  "paper_id": "2023.acl-long.299",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "convai2",
+      "BAIDU PERSONACHAT"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "clv",
+      "gpt_2",
+      "percvae",
+      "bob",
+      "dhap",
+      "msp"
+    ],
+    "outputs": [
+      "personalized dialogue responses",
+      "personalized responses"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "ConvAi2": "ConvAI2"
+      },
+      "explanation": "Minor normalization of dataset name capitalization"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "DISTINCT",
+      "CON",
+      "COH CON"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "C-Dist-1",
+          "C-Dist-2",
+          "S-Dist-1",
+          "S-Dist-2",
+          "Distinct-1",
+          "Distinct-2",
+          "BLEU-1",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "Distinct-1/2": "DISTINCT",
+        "C-Dist-1/2": "DISTINCT",
+        "S-Dist-1/2": "DISTINCT",
+        "Distinct-1": "DISTINCT",
+        "Distinct-2": "DISTINCT",
+        "C-Dist-1": "DISTINCT",
+        "C-Dist-2": "DISTINCT",
+        "S-Dist-1": "DISTINCT",
+        "S-Dist-2": "DISTINCT",
+        "BLEU-1": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Simplified metric variants to base forms as per guidelines (BLEU-1 → BLEU, ROUGE-L → ROUGE, all DISTINCT variants → DISTINCT). Added Con.Score and Coh-Con.Score which were missing from the original list."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "RoBERTa"
+        ],
+        "methods": [
+          "fine-tuned NLI classification"
+        ],
+        "criteria": [
+          "consistency",
+          "coherence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper uses RoBERTa fine-tuned for NLI classification as an automated scoring component, but this is not an LLM-as-judge approach - it's used to compute consistency scores automatically, not as a general-purpose LLM evaluator."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluators rank model-generated responses and factual responses on four criteria using a ranking method",
+      "Three annotators scored responses from seven models plus ground truth on a scale of [0,1] after ranking"
+    ],
+    "criteria": [
+      "Readability",
+      "Diversity",
+      "Consistency",
+      "Coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three annotators scored responses from seven models plus ground truth on a scale of [0,1] after ranking"
+        ]
+      },
+      "removed": {},
+      "normalized": {},
+      "explanation": "Enhanced the guideline description to include more details about the human evaluation methodology found in the paper"
+    }
+  },
+  "overall_notes": "The extraction quality was generally good. The main improvements were normalizing metric variants to their base forms as specified in the guidelines. The paper clearly addresses personalized dialogue generation with comprehensive evaluation using both automatic metrics and human assessments. The proposed CLV model shows strong performance on both Chinese and English datasets."
+}

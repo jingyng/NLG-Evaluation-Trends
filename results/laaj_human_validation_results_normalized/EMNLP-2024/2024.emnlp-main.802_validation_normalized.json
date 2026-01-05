@@ -1,0 +1,120 @@
+{
+  "paper_id": "2024.emnlp-main.802",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-based GEMBA-MQM metric against human MQM judgments through correlation analysis and error detection performance, reporting quantitative metrics (Spearman correlation, F1 score) and analyzing preference bias."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "no",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "no",
+      "notes": "The paper only mentions that GEMBA-MQM is a GPT-4-based quality estimation metric, but does not provide details about the prompts or evaluation setup used for the LLM."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": "Not reported",
+      "interpretation": "Not reported",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed MQM framework guidelines provided: score 0 for no errors, -1 for minor errors, -5 for major errors that impact comprehension/usage, with error type and severity annotations within specific spans."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation",
+      "F1 score",
+      "Precision",
+      "Recall"
+    ],
+    "shared_criteria": [
+      "translation quality",
+      "error detection",
+      "high-quality correct translations"
+    ],
+    "sample_size": {
+      "total_generated": "multiple datasets across 6 language pairs (EN-DE, ZH-EN, HE-EN, EN-RU, EN-FR, EN-PT-BR)",
+      "validated_by_both": "WMT23 EN-DE dataset with subgroup analysis (HQ-ZERO translations)",
+      "notes": "Analysis includes subsampling to match sample sizes across configurations, with specific focus on HQ-ZERO (zero MQM score) translations"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "F1 score",
+        "value": 0.6,
+        "criterion": "detecting HQ-ZERO translations",
+        "llm_model": "GPT-4 (GEMBA-MQM)",
+        "significance": "Not reported",
+        "notes": "Highest F1 score across all language pairs for EN-DE"
+      },
+      {
+        "metric": "F1 score",
+        "value": 0.68,
+        "criterion": "detecting HQ-ZERO translations",
+        "llm_model": "GPT-4 (GEMBA-MQM)",
+        "significance": "Not reported",
+        "notes": "For HE-EN dataset"
+      },
+      {
+        "metric": "F1 score",
+        "value": 0.5,
+        "criterion": "detecting HQ-ZERO translations",
+        "llm_model": "GPT-4 (GEMBA-MQM)",
+        "significance": "Not reported",
+        "notes": "For ZH-EN dataset"
+      },
+      {
+        "metric": "Precision",
+        "value": 0.52,
+        "criterion": "detecting HQ-ZERO translations",
+        "llm_model": "GPT-4 (GEMBA-MQM)",
+        "significance": "Not reported",
+        "notes": "For EN-DE: trades off with recall"
+      },
+      {
+        "metric": "Recall",
+        "value": 0.7,
+        "criterion": "detecting HQ-ZERO translations",
+        "llm_model": "GPT-4 (GEMBA-MQM)",
+        "significance": "Not reported",
+        "notes": "For EN-DE: high recall relative to other metrics"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "low-to-fair correlation, poor correlation for HQ translations",
+      "threshold_used": "Not explicitly specified",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GEMBA-MQM (GPT-4 based) achieves the highest F1 score for detecting error-free translations but shows preference bias towards GPT-4 outputs, while automatic metrics overall correlate poorly with human judgments especially for high-quality translations from the same source."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Quality",
+      "Detection",
+      "high-quality correct translations"
+    ],
+    "notes": "Both LLM (GEMBA-MQM) and human evaluators use the same MQM-based criteria for evaluating translation quality and error detection, focusing primarily on identifying high-quality translations with zero or minor errors only."
+  }
+}

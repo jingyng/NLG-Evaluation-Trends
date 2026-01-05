@@ -1,0 +1,176 @@
+{
+  "paper_id": "2024.emnlp-main.820",
+  "answer_1": {
+    "answer": "YES",
+    "answer_changed": true,
+    "tasks": [
+      "Text Completion",
+      "Question Answering",
+      "Bias Detection"
+    ],
+    "datasets": [
+      "BOLD",
+      "BEAVERTAILS",
+      "REDDITBIAS",
+      "CROWS PAIRS",
+      "JIGSAW"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "alpaca_7b",
+      "gpt_3.5",
+      "gpt_neo_1.3b",
+      "gpt_neo_2.7b",
+      "llama_2_7b_chat",
+      "llama_2_13b_chat",
+      "opt_125m",
+      "opt_2.7b",
+      "opt_6.7b",
+      "gemma_7b_it",
+      "gpt_4",
+      "llama_3_8b_instruct"
+    ],
+    "outputs": [
+      "Generated text completions",
+      "Generated question-answering responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Bias Detection"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "OPT"
+        ],
+        "outputs": [
+          "bias judgment (Yes/No) with type and attribution explanation"
+        ]
+      },
+      "normalized": {
+        "Other:open-text generation": "Other:Bias Detection",
+        "Alpaca-7b": "Alpaca-7B",
+        "GPT-3.5": "GPT-3.5",
+        "GPT-Neo-1.3b": "GPT-Neo-1.3B",
+        "GPT-Neo-2.7b": "GPT-Neo-2.7B",
+        "Llama-2-7b-chat": "Llama-2-7B-Chat",
+        "Llama-2-13b-chat": "Llama-2-13B-Chat",
+        "OPT-125m": "OPT-125M",
+        "OPT-2.7b": "OPT-2.7B",
+        "OPT-6.7b": "OPT-6.7B",
+        "Gemma-7b-it": "Gemma-7B-IT",
+        "GPT-4": "GPT-4",
+        "Llama-3-Instruct 8B": "Llama-3-8B-Instruct",
+        "Crows-pairs": "Crows-Pairs"
+      },
+      "explanation": "Added 'Bias Detection' as a specific task, normalized model names to standard capitalization (B for billion, M for million), combined 'Text Completion' and 'Question Answering' outputs into general generated outputs, removed intermediate bias judgment outputs (target is evaluating NLG models, not BiasAlert outputs)"
+    }
+  },
+  "answer_2": {
+    "answer": "YES",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Classification Score",
+          "Attribution Score",
+          "Overall Score",
+          "Acc",
+          "CS",
+          "AS",
+          "OS"
+        ]
+      },
+      "normalized": {
+        "Acc": "Accuracy"
+      },
+      "explanation": "Removed domain-specific scoring metrics (CS, AS, OS) as they're not standard NLG evaluation metrics - retained only standard classification metrics Accuracy and F1"
+    }
+  },
+  "answer_3": {
+    "answer": "NO",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLama-2-7b-chat (as BiasAlert)",
+          "Llama-2-7b-chat",
+          "Llama-2-13b-chat",
+          "Gemma-7b-it",
+          "GPT-4",
+          "GPT-3.5"
+        ],
+        "methods": [
+          "step-by-step instruction with retrieval",
+          "prompt‑based bias detection with step‑by‑step instructions",
+          "LLMs-as-Judges",
+          "instruction-following paradigm",
+          "step-by-step instructions"
+        ],
+        "criteria": [
+          "bias presence",
+          "bias type",
+          "attribution to social group",
+          "bias detection",
+          "classification of bias type",
+          "attribution of bias to groups"
+        ]
+      },
+      "normalized": {},
+      "explanation": "This paper develops BiasAlert as a bias detection TOOL, not using external LLMs to evaluate NLG outputs. BiasAlert IS the system being evaluated, not used as an evaluator of other systems' outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "YES",
+    "answer_changed": false,
+    "guideline": [
+      "Given a SENTENCE, your task is to determine whether the SENTENCE exhibits bias with respect to specific target terms related to demographic groups (e.g., 'African') and attribute terms that may carry bias (e.g., 'thug')"
+    ],
+    "criteria": [
+      "Bias",
+      "Attribution"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "attribution"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "bias detection"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Minor refinement - removed redundant 'bias detection' criterion (covered by 'bias presence'), clarified that attribution is part of evaluation criteria as mentioned in paper"
+    }
+  },
+  "overall_notes": "Key clarification: This paper presents BiasAlert as a bias detection tool, not using LLMs as external evaluators. The NLG focus is on evaluating text generation models (completions, QA responses) for bias using BiasAlert. Human evaluation validates BiasAlert's performance, not directly evaluating NLG outputs."
+}

@@ -1,0 +1,79 @@
+{
+  "paper_id": "2025.acl-long.758",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM (GPT-4) judgments against human ratings by sampling 625 dialogue-item pairs and reporting Pearson correlation between human and GPT-4 relevance scores"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt template is shown in Table 18 (Appendix), includes detailed scoring rubric with examples from 0-4 scale"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": null,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators rated relevance using 0-4 scale where 4 means perfect alignment with user preferences and 0 means no alignment"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "Relevance"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": 625,
+      "notes": "625 dialogue-item pairs were sampled for validation where both human and GPT-4 assessed relevance"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.7,
+        "criterion": "Relevance",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Correlation between human and GPT-4 relevance scores on 625 validation samples"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "high agreement",
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4 shows high agreement (Pearson r=0.7) with human judgments on relevance scoring, validating LLM-as-a-judge for conversational recommendation evaluation"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Relevance"
+    ],
+    "notes": "Both LLM and human evaluate the same relevance criterion using identical 0-4 scoring scale"
+  }
+}

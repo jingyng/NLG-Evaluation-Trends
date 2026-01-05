@@ -1,0 +1,100 @@
+{
+  "paper_id": "2025.acl-long.1103",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates GPT-4o as an LLM judge against human evaluation on a subset of instances used in the human study, reporting Pearson correlation coefficients between human scores and LLM evaluation metrics."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts for bonus point extraction and evaluation are provided in Appendices I and L respectively. Appendix M shows illustrative cases with examples."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 8,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human experts assigned scores from 0 (nonsense) to 1.0 (perfect) based on overall quality, but detailed scoring rubric is not explicitly provided."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "overall quality"
+    ],
+    "sample_size": {
+      "total_generated": 1035,
+      "validated_by_both": "subset used in human study (size not explicitly specified)",
+      "notes": "Validation conducted on the same subset of instances used for human study, though exact sample size is not explicitly stated."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.92,
+        "criterion": "Bonus Point Coverage",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Correlation between human judgments and BPC metric"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.72,
+        "criterion": "RougeL",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Correlation between human judgments and RougeL metric"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.81,
+        "criterion": "BertScore",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Correlation between human judgments and BertScore metric"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4o's bonus point coverage metric shows the highest correlation (0.92) with human judgments, outperforming traditional metrics like RougeL (0.72) and BertScore (0.81), justifying the reliability of the designed evaluation protocol."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Bonus Point Coverage",
+      "Penalty Rate"
+    ],
+    "human_only_criteria": [
+      "multiple-choice accuracy with varying context lengths"
+    ],
+    "shared_criteria": [
+      "overall quality"
+    ],
+    "notes": "LLM evaluation uses a protocol with bonus points and penalties, while human evaluation focuses on multiple-choice accuracy and overall quality scoring. Both methods assess response quality but through different mechanisms."
+  }
+}

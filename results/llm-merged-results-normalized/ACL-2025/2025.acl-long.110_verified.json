@@ -1,0 +1,143 @@
+{
+  "paper_id": "2025.acl-long.110",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Entity Description Generation",
+      "Tactile Description Generation",
+      "Subgraph Description Generation"
+    ],
+    "datasets": [
+      "SUBARU"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3_8b_instruct",
+      "llama_2_7b_chat",
+      "mistral_7b",
+      "llama_3.1_8b_instruct"
+    ],
+    "outputs": [
+      "Generated entity names",
+      "Generated triple details",
+      "Generated descriptive paragraphs for subgraphs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Description Generation",
+          "Other:Text Generation"
+        ],
+        "datasets": [
+          "CoDeX"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated entity names, relation strings, or descriptive paragraphs",
+          "The model generates descriptions of entities, triples, and subgraphs, such as generating a paragraph to describe a subgraph extracted from a knowledge graph."
+        ]
+      },
+      "normalized": {
+        "Llama2-7B-chat": "Llama2-7B-chat",
+        "Llama3-8B-Instruct": "Llama3-8B-Instruct",
+        "Llama3.1-8B-Instruct": "Llama3.1-8B-Instruct",
+        "Mistral-7B": "Mistral-7B"
+      },
+      "explanation": "Removed redundant/general task descriptions and consolidated output descriptions. Kept only SUBARU as the main dataset used (CoDeX is the source KG, not the evaluation benchmark). Maintained specific entity/triple/subgraph generation tasks."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "EXACT MATCH",
+      "BLEU",
+      "GPTSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Exact Match (EM)"
+        ]
+      },
+      "normalized": {
+        "Accuracy": "Accuracy",
+        "Exact Match": "Exact Match",
+        "Exact Match (EM)": "Exact Match",
+        "BLEU-4": "BLEU",
+        "GPTScore": "GPTScore"
+      },
+      "explanation": "Normalized BLEU-4 to BLEU (consistent with simplification guidelines). Removed duplicate Exact Match entry. Maintained all four evaluation metrics used in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_3.5_turbo"
+    ],
+    "methods": [
+      "LLM-as-a-judge scoring (GPTScore)"
+    ],
+    "criteria": [
+      "Alignment"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "scoring against golden answer on a scale from 0 to 100",
+          "LLM-as-a-judge"
+        ],
+        "criteria": [
+          "semantic similarity"
+        ]
+      },
+      "normalized": {
+        "GPT-3.5-turbo": "GPT-3.5-turbo",
+        "LLM-as-a-judge scoring (GPTScore)": "LLM-as-a-judge scoring (GPTScore)",
+        "alignment of meanings": "alignment of meanings"
+      },
+      "explanation": "Consolidated methods to single descriptive entry. Removed redundant method descriptions and 'semantic similarity' criterion (not explicitly mentioned in GPTScore prompt)."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The answer remains 'No'."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on systematically evaluating Structural Knowledge Prompting (SKP) using the SUBARU benchmark with 9 NLG tasks across different granularities (entity, triple, subgraph) and difficulty levels (classification, multiple choice, description). Automated evaluation includes traditional metrics (Accuracy, EM, BLEU) and LLM-as-judge (GPTScore). No human evaluation was conducted."
+}

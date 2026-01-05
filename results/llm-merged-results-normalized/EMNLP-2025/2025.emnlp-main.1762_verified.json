@@ -1,0 +1,173 @@
+{
+  "paper_id": "2025.emnlp-main.1762",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Question Answering",
+      "Summarization"
+    ],
+    "datasets": [
+      "ADVBENCH",
+      "XSTEST",
+      "MALICIOUSINSTRUCTIONS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b_chat",
+      "llama_3.1_8b_instruct",
+      "gemma_2_9b_it",
+      "phi_3_mini",
+      "gpt_4o"
+    ],
+    "outputs": [
+      "Harmful responses generated via adversarial jailbreak prompts",
+      "Model refusals to harmful requests"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Model refusals to harmful requests"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "LLaMA-2-7B-chat": "LLaMA-2-7B-chat",
+        "Llama-3.1-8B-instruct": "Llama-3.1-8B-instruct",
+        "Gemma-2-9B-it": "Gemma-2-9B-it",
+        "Phi-3-mini": "Phi-3-mini",
+        "GPT-4o": "GPT-4o"
+      },
+      "explanation": "Added 'Model refusals to harmful requests' to outputs to better reflect the paper's evaluation scope. Normalized model names to consistent capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ATTACK SUCCESS RATE ASR",
+      "HARMFULNESS GPT",
+      "HARMFULNESS RATING",
+      "PERPLEXITY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Harmfulness rating (1-5)",
+          "Perplexity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ASR",
+          "GPT-Judge harmfulness rating",
+          "harmfulness scores (1-5)"
+        ]
+      },
+      "normalized": {
+        "Attack Success Rate (ASR)": "Attack Success Rate (ASR)",
+        "ASR": "Attack Success Rate (ASR)",
+        "Binary harmfulness score (GPT-4)": "Binary harmfulness score (GPT-4)",
+        "GPT-Judge harmfulness rating": "Harmfulness rating (1-5)",
+        "harmfulness scores (1-5)": "Harmfulness rating (1-5)",
+        "perplexity": "Perplexity"
+      },
+      "explanation": "Consolidated duplicate metrics: kept 'Attack Success Rate (ASR)', normalized harmfulness metrics to 'Binary harmfulness score (GPT-4)' and 'Harmfulness rating (1-5)', added 'Perplexity' which is used as a defense metric."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "gpt_4_0613"
+    ],
+    "methods": [
+      "Binary harmfulness classification",
+      "Harmfulness rating (1-5)"
+    ],
+    "criteria": [
+      "Harmfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "Binary harmfulness classification",
+          "Harmfulness rating (1-5)"
+        ],
+        "criteria": [
+          "Harmfulness"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT-Judge"
+        ],
+        "methods": [
+          "binary harmfulness scoring",
+          "binary classification prompt",
+          "rating scale (1-5)",
+          "binary classification of harmfulness",
+          "GPT-Judge for harmfulness scoring"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4-0613": "GPT-4-0613",
+        "GPT-4": "GPT-4",
+        "binary harmfulness scoring": "Binary harmfulness classification",
+        "binary classification prompt": "Binary harmfulness classification",
+        "rating scale (1-5)": "Harmfulness rating (1-5)",
+        "binary classification of harmfulness": "Binary harmfulness classification",
+        "GPT-Judge for harmfulness scoring": "Harmfulness rating (1-5)"
+      },
+      "explanation": "Consolidated GPT-4 variants, normalized methods to clearer descriptions, removed redundant method descriptions. GPT-Judge is not a separate model but refers to GPT-4's evaluation capability."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Binary labeling of responses as harmful/not harmful via manual evaluation",
+      "Human annotators label each model response as harmful or not harmful; agreement with GPT-4 is measured",
+      "A response is considered harmful only if both GPT-4 and the human evaluator label it as harmful"
+    ],
+    "criteria": [
+      "Harmfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators label each model response as harmful or not harmful; agreement with GPT-4 is measured",
+          "A response is considered harmful only if both GPT-4 and the human evaluator label it as harmful"
+        ],
+        "criteria": [
+          "Harmfulness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added more detailed guideline descriptions from the paper to better capture the human evaluation methodology. The only criterion explicitly mentioned is 'harmfulness'."
+    }
+  },
+  "overall_notes": "The paper focuses on jailbreak attacks and defenses for LLMs, evaluating NLG through harmful content generation. The extraction was generally accurate but needed consolidation of duplicate metrics and clearer descriptions of evaluation methods. The paper primarily evaluates dialogue generation capabilities through adversarial prompting scenarios."
+}

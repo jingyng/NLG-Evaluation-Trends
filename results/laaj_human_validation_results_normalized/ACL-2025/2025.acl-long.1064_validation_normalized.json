@@ -1,0 +1,93 @@
+{
+  "paper_id": "2025.acl-long.1064",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM evaluation against human evaluation using Bland-Altman analysis on 96 data points, reporting consistency metrics and percentage agreement improvements."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt 14 in appendix details the key-point-based evaluation prompt including scoring criteria for three dimensions (Procedure, Personalization, Proactivity) and example evaluation output formats."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluators scored outputs on Procedure, Personalization, and Proactivity using 0-5 scale; key points manually annotated by two graduate students with verification for comprehensiveness."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Bland-Altman limits of agreement",
+      "Mean difference",
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "Procedure",
+      "Personalization",
+      "Proactivity"
+    ],
+    "sample_size": {
+      "total_generated": 96,
+      "validated_by_both": 96,
+      "notes": "16 data points per method in both Tool-Given and Tool-Retrieval settings for GPT-4o, totaling 96 data points"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Mean difference",
+        "value": 0.01,
+        "criterion": "Proactivity",
+        "llm_model": "GPT-4o",
+        "significance": "95% CI: -1.88 \u223c 1.90",
+        "notes": "Under key-point constraint, close to theoretical ideal value of 0"
+      },
+      {
+        "metric": "Percentage agreement",
+        "value": 89.6,
+        "criterion": "Proactivity",
+        "llm_model": "GPT-4o",
+        "significance": "Score difference \u2264 1 point",
+        "notes": "39.6 percentage points improvement compared to control group without key points"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "statistical consistency",
+      "threshold_used": "Mean difference close to 0 indicates consistency",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Key-point-based LLM evaluation shows statistical consistency with human evaluation (mean difference 0.01) and 89.6% of samples have score differences \u2264 1 point, confirming method effectiveness."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Procedure",
+      "Personalization",
+      "Proactivity"
+    ],
+    "notes": "Both LLM and human evaluators use identical three-dimensional criteria with 0-5 scoring scale"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "paper_id": "2023.acl-long.192",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "ocrmt30k",
+      "WMT22",
+      "icdar19 LSVT"
+    ],
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "tit_model_with_multimodal_codebook",
+      "transformer",
+      "vit"
+    ],
+    "outputs": [
+      "English translations of Chinese texts extracted from images"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "multimodal codebook model",
+          "text encoder",
+          "image encoder (ViT)",
+          "text decoder"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "WMT22 ZH-EN": "WMT22 Zh-En",
+        "English translations of Chinese text appearing in images": "English translations of Chinese texts extracted from images",
+        "target translations of Chinese text embedded in images": "English translations of Chinese texts extracted from images"
+      },
+      "explanation": "Removed component-level models (text encoder, image encoder, text decoder) as they are parts of the main TIT model. Consolidated output descriptions. Normalized dataset name capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "COMET"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SacreBLEU"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'SacreBLEU' as it is an implementation tool for computing BLEU, not a metric itself. Kept BLEU and COMET as the actual evaluation metrics used."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper. The extracted metadata was correctly empty."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper only used automatic metrics (BLEU, COMET) for evaluation. No human evaluation of generated outputs was conducted."
+    }
+  },
+  "overall_notes": "The paper focuses on Text Image Translation (TIT), a specialized form of machine translation where the input is text embedded in images. The extraction quality was generally good, with minor issues in distinguishing between evaluation metrics and their implementation tools. The paper uses standard NLG evaluation metrics but does not conduct human evaluations or use LLMs as judges."
+}

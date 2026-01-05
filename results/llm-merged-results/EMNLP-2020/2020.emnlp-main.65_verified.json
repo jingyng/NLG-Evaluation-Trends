@@ -1,0 +1,146 @@
+{
+  "paper_id": "2020.emnlp-main.65",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "PersonaChat",
+      "Dialogue NLI",
+      "EmpatheticDialogue"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ControlSeq2Seq",
+      "TransferTransfo",
+      "Blender",
+      "Self-Conscious Agent (S1)"
+    ],
+    "outputs": [
+      "generated dialogue utterances"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "EmpatheticDialogue"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "generated utterances": "generated dialogue utterances",
+        "generated utterances in dialogue": "generated dialogue utterances"
+      },
+      "explanation": "Added missing dataset (EmpatheticDialogue), normalized output descriptions to consistent terminology"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Hits@1",
+      "Entail@1",
+      "Contradict@1",
+      "F1",
+      "Perplexity",
+      "C score",
+      "ROUGE",
+      "SPICE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "C score"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "perplexity",
+          "ROUGE-1",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "perplexity": "Perplexity",
+        "ROUGE-1": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric variants to base forms (ROUGE-1/ROUGE-L → ROUGE), removed duplicates, added missing C score metric"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "pretrained NLI model"
+        ],
+        "methods": [
+          "pairwise comparison"
+        ],
+        "criteria": [
+          "entailment",
+          "neutrality",
+          "contradiction"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items as this paper does NOT use LLMs as judges. The NLI model is used for automatic evaluation, not as an LLM judge evaluating generated outputs post-generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "For consistency: assign 1 for consistent, 0 for neutral, -1 for contradictory",
+      "For engagingness: use 4-point scale where higher scores are better"
+    ],
+    "criteria": [
+      "consistency",
+      "engagingness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "For engagingness: use 4-point scale where higher scores are better"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Consistency",
+          "Engagingness"
+        ]
+      },
+      "normalized": {
+        "Consistency": "consistency",
+        "Engagingness": "engagingness"
+      },
+      "explanation": "Cleaned up guideline formatting and normalized criteria capitalization. Consolidated duplicate criterion mentions"
+    }
+  },
+  "overall_notes": "The extraction was generally good. Main issues: Question 3 incorrectly included NLI model evaluation as LLM-as-judge (it's an automatic metric, not post-generation LLM evaluation), and some metric variants needed normalization. The paper evaluates dialogue generation using both automatic metrics and human evaluation."
+}

@@ -1,0 +1,138 @@
+{
+  "paper_id": "2025.acl-long.1301",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Radiology Report Generation"
+    ],
+    "datasets": [
+      "MIMIC CXR",
+      "CHEXPERT PLUS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "maira_2",
+      "chexagent",
+      "chexpert_plus",
+      "radialog",
+      "gpt_4",
+      "srr_bert",
+      "cxr_bert"
+    ],
+    "outputs": [
+      "structured radiology reports",
+      "structured radiology reports (Findings and Impression sections) generated from chest X-ray images"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "CXR-BERT"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Radiology Report Generation": "Other: Radiology Report Generation"
+      },
+      "explanation": "Added CXR-BERT model which is used for disease classification, normalized task formatting"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "BERTSCORE",
+      "F1 RADGRAPH",
+      "F1 SRR BERT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "F1-SRR-BERT": "F1-SRR-BERT"
+      },
+      "explanation": "Normalized ROUGE-L to ROUGE base form, kept F1-SRR-BERT as a distinct metric"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as the paper does not use LLMs as judges/evaluators - LLMs are only used for dataset restructuring"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Radiologists evaluated the quality of structured reports and annotated disease labels through a reader study",
+      "Five board-certified radiologists reviewed structured reports and fine-grained disease labels"
+    ],
+    "criteria": [
+      "Quality",
+      "Correctness",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Five board-certified radiologists reviewed structured reports and fine-grained disease labels"
+        ],
+        "criteria": [
+          "label correctness",
+          "clinical relevance"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Radiologists evaluated the quality of the structured reports and annotated disease labels.",
+          "The reader study focused on validating both structured reports and fine-grained disease labels derived from the SRR-BERT model."
+        ],
+        "criteria": [
+          "quality"
+        ]
+      },
+      "normalized": {
+        "quality": "report quality"
+      },
+      "explanation": "Refined guidelines to be more specific, expanded criteria based on the paper's description of radiologists evaluating structured reports and disease label correctness"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Key findings: (1) Paper focuses on structured radiology report generation as an NLG task, (2) Uses standard NLG metrics plus domain-specific medical metrics, (3) LLMs are used for dataset preparation but not as evaluators, (4) Human evaluation conducted by medical experts with specific clinical criteria."
+}

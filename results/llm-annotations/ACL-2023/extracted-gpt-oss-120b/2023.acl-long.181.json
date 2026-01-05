@@ -1,0 +1,68 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "Long-form question answering, an emerging research area within QA, requires systems to generate long and complex answers to questions by leveraging large language models and evidence document retrievers.",
+        "tasks": [
+            "Other:Long-form Question Answering"
+        ],
+        "datasets": [
+            "ELI5",
+            "AskHistorians"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-3 text-davinci-002",
+            "Longformer-Base",
+            "GPT-3 curie-001",
+            "T5"
+        ],
+        "outputs": "long-form answers"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We curate a suite of 12 automatic metrics and measure how they correlate to human judgments of both \"overall quality\" and two fine-grained aspects (coherence and faithfulness).",
+        "automatic_metrics": [
+            "ROUGE",
+            "BERTScore",
+            "BLEURT",
+            "Self-BLEU",
+            "GPT2-PPL",
+            "QG likelihood",
+            "RankGen",
+            "BARTScore",
+            "QAFactEval"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We fine-tune a smaller-scale pretrained language model (176M Longformer-Base model) and rely on OpenAI's API to fine-tune bigger pretrained language model (6B GPT3 text-curie-001 model). Given a prompt consisting of question q, answer a1 and answer a2, the model is fine-tuned to output the label Answer1 or Answer2.",
+        "models": [
+            "GPT-3 curie-001",
+            "Longformer-Base"
+        ],
+        "methods": [
+            "pairwise preference prediction",
+            "fine-tuned ranking"
+        ],
+        "criteria": [
+            "overall preference"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We hire domain experts in seven different fields ... to perform the same answer preference task and additionally provide detailed justifications as to why they chose a particular answer. The experts were asked to choose which of the answers is better (overall preference), indicate whether the decision was difficult to make, and justify their choice in a free-form paragraph.",
+        "guideline": "Experts were instructed to select the better answer overall, note difficulty, and provide a free-form justification covering various answer properties.",
+        "criteria": [
+            "overall preference",
+            "factuality",
+            "coherence",
+            "completeness",
+            "ease of understanding",
+            "conciseness",
+            "specificity",
+            "relevance"
+        ]
+    }
+}

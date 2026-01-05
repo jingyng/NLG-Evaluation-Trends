@@ -1,0 +1,65 @@
+{
+  "paper_id": "2025.emnlp-main.1808",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "Both LLM and human evaluations are conducted but they are used for different purposes (LLM for toxicity/sentiment classification metrics, human for intent preservation preference), and no direct quantitative comparison between LLM and human judgments is reported"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "Qwen3-32B",
+      "Qwen-Max"
+    ],
+    "prompts": {
+      "provided": "no",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "no",
+      "notes": "The paper mentions LLMs are used for scoring but does not provide the actual prompts used for evaluation"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Likert scale agreement",
+      "value": 4.0,
+      "interpretation": "Average score threshold of 4.0 or above considered acceptable",
+      "per_criterion": [
+        {
+          "criterion": "detoxification",
+          "metric": "average Likert score",
+          "value": 4.0
+        },
+        {
+          "criterion": "sentiment preservation",
+          "metric": "average Likert score",
+          "value": 4.0
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines mentioned for sentiment-preserving detoxification and toxic span identification; examples shown in figures"
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Detoxification Accuracy",
+      "Sentiment Polarity",
+      "Word Clean Rate",
+      "Sentence Clean Rate",
+      "Fluency (reference-based metrics)",
+      "Content Preservation"
+    ],
+    "human_only_criteria": [
+      "Intent Preservation Preference"
+    ],
+    "shared_criteria": [],
+    "notes": "LLMs are used for automated metrics scoring, while humans are used for annotation quality validation and preference testing between different model outputs"
+  }
+}

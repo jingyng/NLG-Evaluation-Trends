@@ -1,0 +1,177 @@
+{
+  "paper_id": "2024.acl-long.368",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Long Form Text Generation",
+      "Long Form Question Answering"
+    ],
+    "datasets": [
+      "PROXYQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_7b",
+      "llama_13b",
+      "llama_2_7b",
+      "llama_2_13b",
+      "llama_2_13b_chat",
+      "vicuna_13b",
+      "alpaca",
+      "gpt_3.5_turbo",
+      "gpt_4",
+      "gpt_4_turbo",
+      "new_bing",
+      "bard",
+      "gemini_pro"
+    ],
+    "outputs": [
+      "Long-form reports or articles generated in response to meta-questions",
+      "Comprehensive responses to complex information-seeking questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Long-form Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LLaMA2-7B",
+          "Alpaca",
+          "GPT-3.5-turbo",
+          "Gemini Pro"
+        ],
+        "outputs": [
+          "Comprehensive responses to complex information-seeking questions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:long-form text generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LLaMA",
+          "Vicuna",
+          "LLaMA2-Chat",
+          "GPT-4-turbo"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "PROXYQA": "ProxyQA",
+        "Other:Long-form report generation": "Other:Long-form Text Generation",
+        "long-form texts such as reports and articles": "Long-form reports or articles generated in response to meta-questions"
+      },
+      "explanation": "Normalized dataset name to 'ProxyQA', consolidated task descriptions, added missing models mentioned in the paper (LLaMA2-7B, Alpaca, GPT-3.5-turbo, Gemini Pro), removed redundant/variant names, and added long-form QA as an additional task since the paper explicitly discusses this as a related field."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Proxy-question accuracy",
+          "evaluator accuracy on proxy-questions"
+        ]
+      },
+      "normalized": {
+        "Proxy-question accuracy": "Accuracy",
+        "evaluator accuracy on proxy-questions": "Accuracy"
+      },
+      "explanation": "Consolidated all proxy-question accuracy variants under the base metric 'Accuracy' as they all refer to the same evaluation approach of measuring accuracy on answering proxy questions."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "gpt_4_turbo"
+    ],
+    "methods": [
+      "Proxy-question answering",
+      "Pairwise evaluation (GPT-S)",
+      "Pairwise evaluation (GPT-B)"
+    ],
+    "criteria": [
+      "Accuracy",
+      "Informativeness",
+      "Coverage"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Pairwise evaluation (GPT-S)",
+          "Pairwise evaluation (GPT-B)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4-turbo"
+        ],
+        "methods": [
+          "answering proxy-questions",
+          "pairwise evaluation"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4-turbo": "GPT-4-Turbo",
+        "answering proxy-questions": "Proxy-question answering",
+        "pairwise evaluation": "Pairwise evaluation (GPT-S)",
+        "accuracy": "Accuracy",
+        "informativeness": "Informativeness",
+        "knowledge coverage": "Knowledge coverage"
+      },
+      "explanation": "Normalized model names, clarified the two distinct pairwise evaluation methods (GPT-S and GPT-B) mentioned in the paper, and standardized criteria naming."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate knowledge coverage of reports on 0-5 scale: 0-Nonsense, 1-Poor, 2-Fair, 3-Good, 4-Very Good, 5-Excellent"
+    ],
+    "criteria": [
+      "Coverage"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Rate knowledge coverage of reports on 0-5 scale: 0-Nonsense, 1-Poor, 2-Fair, 3-Good, 4-Very Good, 5-Excellent"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Please rate the knowledge coverage of the reports provided, using a scale of 0-5. Assess how well the report covers the necessary information related to the question.",
+          "Scoring guideline shown in Appendix A.4, rating knowledge coverage on a 0‑5 scale."
+        ],
+        "criteria": [
+          "informativeness",
+          "overall quality"
+        ]
+      },
+      "normalized": {
+        "knowledge coverage": "Knowledge coverage"
+      },
+      "explanation": "Consolidated the guideline into a single clear description with the full scale definition from Appendix A.4, removed criteria not explicitly used in human evaluation (only knowledge coverage was specifically mentioned for human eval), and normalized naming."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on evaluating long-form text generation through a novel proxy-question framework. The extraction was generally accurate but needed normalization and removal of redundant entries. The paper explicitly mentions human evaluation with 5 postgraduate students and uses GPT-4/GPT-4-Turbo as evaluators. The main contribution is the ProxyQA benchmark and evaluation methodology."
+}

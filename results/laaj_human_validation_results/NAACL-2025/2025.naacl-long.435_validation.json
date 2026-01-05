@@ -1,0 +1,52 @@
+{
+  "paper_id": "2025.naacl-long.435",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "Both LLM (G-Eval) and human evaluations are conducted but they are presented as independent streams of evaluation without any direct comparison, correlation analysis, or agreement metrics between the two methods."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt for G-Eval is provided in Appendix Figure with detailed criteria including explanation chain-of-thoughts and form-filling paradigm. The prompt includes specific criteria: 'Helpfulness - A more helpful MEMORY should contain speaker information that is related to CURRENT DIALOGUE CONTEXT, enabling the {speaker} to respond in an appropriate context to the last utterance of the CURRENT DIALOGUE CONTEXT.'"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed instructions and interfaces for human evaluation are provided in Appendix Figures. Each data sample is judged by 3 different workers using majority rule. Specific guidelines are provided for relation-aware memory linking, timeline refinement, response quality (entailment/contradiction/neutral), and memory helpfulness comparisons."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "helpfulness_score"
+    ],
+    "human_only_criteria": [
+      "relation_linking_appropriateness",
+      "timeline_refinement_helpfulness",
+      "response_entailment_analysis",
+      "memory_helpfulness_comparison",
+      "retrieval_accuracy"
+    ],
+    "shared_criteria": [],
+    "notes": "LLM (G-Eval) is used only for assessing 'helpfulness of retrieved memories' while human evaluation covers multiple aspects including relation-aware linking appropriateness, timeline refinement helpfulness, response entailment analysis, and direct memory helpfulness comparisons. There is no overlap in the specific criteria evaluated by both methods."
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "paper_id": "2024.acl-long.658",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "VISDIAHALBENCH",
+      "GQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "blip_2",
+      "lrv_instruction",
+      "hallu_doctor",
+      "cheetah",
+      "llava",
+      "gpt_4v",
+      "minigpt_4"
+    ],
+    "outputs": [
+      "Responses to visual dialogue questions",
+      "Textual answers in multi-turn visual dialogue"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "MiniGPT-4"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LRV-instruct"
+        ],
+        "outputs": [
+          "visual dialogue responses"
+        ]
+      },
+      "normalized": {
+        "BLIP2": "BLIP-2",
+        "LRV-instruction": "LRV-Instruction"
+      },
+      "explanation": "Normalized model names to standard capitalization. Added MiniGPT-4 which is explicitly mentioned as a baseline. Removed 'LRV-instruct' as it's a duplicate of LRV-Instruction. Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT MATCH",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Exact Match (EM)",
+          "Macro-average F1",
+          "macroaverage F1"
+        ]
+      },
+      "normalized": {
+        "Exact Match (EM)": "Exact Match"
+      },
+      "explanation": "Consolidated duplicate metric names. The paper uses Exact Match and F1 scores as the main automatic evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges for evaluation. It uses LLMs (GPT-4) for question generation during dataset construction, but not for evaluating model outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators scored each model-generated answer as 0 (incorrect) or 1 (correct)",
+      "Annotators were asked to answer each question and their responses were compared to ground-truth",
+      "Annotators rated edited images on a 0-2 scale for correctness and naturalness",
+      "Color candidates were provided to avoid synonyms"
+    ],
+    "criteria": [
+      "Accuracy",
+      "Correctness",
+      "Naturalness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators rated edited images on a 0-2 scale for correctness and naturalness"
+        ],
+        "criteria": [
+          "correctness",
+          "naturalness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "fluency",
+          "coherence"
+        ],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "Exact Match",
+          "F1"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Added missing human evaluation components for image rating. Removed criteria not explicitly mentioned in human evaluation context (fluency, coherence were not human eval criteria). Kept accuracy/correctness which are explicitly evaluated."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating visual dialogue generation in LVLMs, specifically addressing hallucination problems. The extraction was generally accurate but needed normalization of model names and removal of duplicates. Human evaluation included both answer scoring and image quality assessment."
+}

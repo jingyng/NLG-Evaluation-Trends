@@ -1,0 +1,164 @@
+{
+  "paper_id": "2021.emnlp-main.619",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "WIZARD OF WIKIPEDIA",
+      "TOPICAL CHAT",
+      "DIALOGUE NLI DNLI"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "dodecadialogue",
+      "memnet",
+      "t_5_base",
+      "albert_xlarge",
+      "roberta"
+    ],
+    "outputs": [
+      "dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Wizard of Wikipedia",
+          "Dialogue NLI"
+        ],
+        "languages": [],
+        "models": [
+          "T5-base (question generation)",
+          "Albert-Xlarge (question answering)",
+          "RoBERTa (NLI)",
+          "MemNet (dialogue system)",
+          "dodecaDialogue (dialogue system)",
+          "T5-base",
+          "Albert-Xlarge",
+          "RoBERTa"
+        ],
+        "outputs": [
+          "Generated dialogue responses",
+          "generated dialogue responses"
+        ]
+      },
+      "normalized": {
+        "Wizard of Wikipedia": "Wizard of Wikipedia (WOW)",
+        "Dialogue NLI": "Dialogue NLI (DNLI)",
+        "T5-base (question generation)": "T5-base",
+        "Albert-Xlarge (question answering)": "Albert-Xlarge",
+        "RoBERTa (NLI)": "RoBERTa",
+        "MemNet (dialogue system)": "MemNet",
+        "dodecaDialogue (dialogue system)": "dodecaDialogue",
+        "Generated dialogue responses": "dialogue responses",
+        "generated dialogue responses": "dialogue responses"
+      },
+      "explanation": "Removed duplicate dataset entries and normalized to standard forms. Consolidated model entries that were duplicated with different descriptions. Standardized outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Q",
+      "F1 TOKEN LEVEL OVERLAP",
+      "BLEU",
+      "BERTSCORE",
+      "END TO END NLI",
+      "USR",
+      "METEOR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Q2",
+          "Q2 w/o NLI",
+          "Overlap (token‑level F1)",
+          "End‑to‑end NLI",
+          "Q^2",
+          "Q^2 w/o NLI",
+          "Overlap(r, k)",
+          "E2E NLI"
+        ]
+      },
+      "normalized": {
+        "Q2": "Q²",
+        "Q2 w/o NLI": "Q²",
+        "Overlap (token‑level F1)": "F1 token-level overlap",
+        "End‑to‑end NLI": "End-to-end NLI",
+        "Q^2": "Q²",
+        "Q^2 w/o NLI": "Q²",
+        "Overlap(r, k)": "F1 token-level overlap",
+        "E2E NLI": "End-to-end NLI"
+      },
+      "explanation": "Consolidated all Q² variants under single 'Q²' metric. Removed duplicates and normalized names. The paper's main metric is Q², with variants noted as ablations but not separate metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges/evaluators. LLMs are used only as components within the Q² evaluation pipeline (for QG, QA, NLI), not as post-hoc evaluators of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators detect bot responses inconsistent with given knowledge (information not mentioned/changed from knowledge)",
+      "Annotators detect bot responses consistent with given knowledge (must use the knowledge, ignore chit-chat)",
+      "Focus on provided knowledge, ignore background knowledge",
+      "Check responses are clear and coherent before annotation"
+    ],
+    "criteria": [
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Focus on provided knowledge, ignore background knowledge",
+          "Check responses are clear and coherent before annotation"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "factual consistency": "factual consistency"
+      },
+      "explanation": "Enhanced guideline description based on detailed annotation instructions in the paper. The primary evaluation criterion is factual consistency between generated responses and grounding knowledge."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating factual consistency in knowledge-grounded dialogue generation. The main contribution is the Q² metric that combines question generation, question answering, and NLI. Human evaluation was conducted to create a ground truth dataset annotated for factual consistency. The extraction was generally accurate but contained some duplicates and non-standard naming conventions."
+}

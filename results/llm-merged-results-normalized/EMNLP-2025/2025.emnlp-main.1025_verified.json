@@ -1,0 +1,137 @@
+{
+  "paper_id": "2025.emnlp-main.1025",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Mathematical Problem Solving",
+      "Phd Level Science Question Answering"
+    ],
+    "datasets": [
+      "aime24",
+      "math500",
+      "GPQA DIAMOND",
+      "s1k"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "s_1_32b",
+      "qwen_2.5_32b_instruct",
+      "deepseek_r_1"
+    ],
+    "outputs": [
+      "reasoning traces",
+      "final answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "DeepSeek R1"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "NuminaMATH",
+          "AGIEval",
+          "OlympicArena"
+        ],
+        "languages": [],
+        "models": [
+          "Gemini 2.0 Flash",
+          "o1-preview"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "DeepSeek r1": "DeepSeek R1"
+      },
+      "explanation": "Removed datasets that were only used for training data curation, not NLG evaluation. Removed models that were only used as baselines or for data distillation. Added DeepSeek R1 as it's a key comparison model. Normalized model names to standard capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "pass@1"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'pass@1' since accuracy is used as the primary metric and pass@1 is equivalent to accuracy in their evaluation setup. Kept 'accuracy' as the main automatic metric used throughout the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "claude_3.5_sonnet",
+      "claude_3.7"
+    ],
+    "methods": [
+      "correctness grading"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Claude 3.7"
+        ],
+        "methods": [
+          "correctness grading"
+        ],
+        "criteria": [
+          "correctness"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "comparison against reference solution",
+          "LLM grading via prompt",
+          "grading protocol",
+          "correctness comparison"
+        ],
+        "criteria": [
+          "reasoning process"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Simplified methods to 'correctness grading' as this captures the essence of the LLM evaluation. Kept only 'correctness' as the explicit criterion mentioned for LLM evaluation. Added Claude 3.7 which was used for final grading of s1K samples."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluations were conducted in this paper; all evaluations were automated using metrics and LLM grading."
+    }
+  },
+  "overall_notes": "The paper focuses on reasoning-based NLG tasks (mathematical problem solving and science question answering) with automatic evaluation using accuracy metrics and LLM-based grading for correctness. The extraction was generally accurate but included some training datasets and baseline models not directly used in NLG evaluation."
+}

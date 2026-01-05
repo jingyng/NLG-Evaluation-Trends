@@ -1,0 +1,136 @@
+{
+  "paper_id": "2025.acl-long.500",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "BookSum",
+      "MovieSum",
+      "MENSA",
+      "SummScreenFD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Mistral-Large-Instruct-2407",
+      "Claude-3-Haiku",
+      "Claude-3-Opus",
+      "GPT-4o",
+      "GPT-4o-mini",
+      "BART-Large",
+      "LED-Large"
+    ],
+    "outputs": [
+      "summaries of long-form narratives",
+      "abstractive summaries of books, movies, and TV scripts"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "BART-Large",
+          "LED-Large"
+        ],
+        "outputs": [
+          "abstractive summaries of books, movies, and TV scripts"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Mistral-Large",
+          "GPT4o"
+        ],
+        "outputs": [
+          "narrative summaries of long-form texts such as novels, movies, and TV scripts"
+        ]
+      },
+      "normalized": {
+        "Claude 3 Haiku": "Claude-3-Haiku",
+        "Claude 3 Opus": "Claude-3-Opus",
+        "GPT4o-mini": "GPT-4o-mini",
+        "GPT4o": "GPT-4o"
+      },
+      "explanation": "Normalized model names to standard format with hyphens. Added BART-Large and LED-Large as they are used in baseline comparisons. Simplified output descriptions for clarity."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BERTScore",
+      "ROUGE",
+      "Length Adherence Rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Length Adherence Rate"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BERTScore (F1)",
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "NarrativeFactScore",
+          "ROUGE (1/2/L)"
+        ]
+      },
+      "normalized": {
+        "BERTScore (F1)": "BERTScore",
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Simplified metric variants to base forms. Added Length Adherence Rate as it's a key metric used. Removed NarrativeFactScore as it's only mentioned in appendix analysis."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT4o-mini"
+        ],
+        "methods": [
+          "fact verification via atomic decomposition",
+          "Fact verification via NarrativeFactScore (decompose‑verify)"
+        ],
+        "criteria": [
+          "factuality"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to No. The paper mentions NarrativeFactScore in Appendix H but this is an automated metric analysis, not LLM-as-judge evaluation. GPT4o-mini is used as reference model for fact verification computation, not as an evaluator of generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluators scored summaries on a 5-point Likert scale (1=Not at all, 5=Very much so) across four criteria"
+    ],
+    "criteria": [
+      "Key Events",
+      "Flow",
+      "Factuality",
+      "Readability"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No changes needed - the extracted metadata accurately reflects the human evaluation described in Section 5.5"
+    }
+  },
+  "overall_notes": "The paper focuses on long-form narrative summarization using a multi-agent LLM framework. The extraction was mostly accurate, but needed normalization of model names and clarification that NarrativeFactScore is an automated metric analysis rather than LLM-as-judge evaluation."
+}

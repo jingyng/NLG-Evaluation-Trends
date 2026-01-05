@@ -1,0 +1,146 @@
+{
+  "paper_id": "2021.acl-long.158",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Visual Question Answering"
+    ],
+    "datasets": [
+      "EMU",
+      "COCO CAPTIONS",
+      "CONCEPTUAL CAPTIONS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "pelican",
+      "retrieval_baseline",
+      "gpt_2",
+      "cross_modality_gpt_2",
+      "dynamic_relational_attention",
+      "vlp"
+    ],
+    "outputs": [
+      "natural language answers and rationales for open-ended questions about image edits",
+      "classification labels for image edits"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Visual Question Answering"
+        ],
+        "outputs": [
+          "classification labels for image edits"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Image Captioning",
+          "Other:Visual Question Answering"
+        ]
+      },
+      "normalized": {
+        "Other:Image Captioning": "Image Captioning",
+        "Other:Visual Question Answering": "Visual Question Answering",
+        "Retrieval": "Retrieval Baseline"
+      },
+      "explanation": "Normalized task names to standard forms, removed 'Other:' prefix. Removed duplicate 'Retrieval' entry. Added VQA as a secondary task since the paper involves answering questions about images. Added classification outputs as models generate both natural language and classification labels."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PERPLEXITY",
+      "ROUGE",
+      "METEOR",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE-L to base ROUGE form according to simplification rules. Other metrics are already in correct form."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values as the paper does not use LLMs as judges. The evaluation is done through human raters and automatic metrics."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Head-to-head comparison between generated and human responses",
+      "Accuracy labeling of generated responses in relation to image edits"
+    ],
+    "criteria": [
+      "Accuracy",
+      "Preference"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Head-to-head comparison between generated and human responses",
+          "Accuracy labeling of generated responses in relation to image edits"
+        ],
+        "criteria": [
+          "accuracy",
+          "preference"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Humans are asked to label if generated responses are accurate in regards to the given edit.",
+          "head-to-head comparison and accuracy labeling of generated responses",
+          "generated responses are compared to human responses, and accuracy, in which humans are asked to label if generated responses are accurate in regards to the given edit"
+        ],
+        "criteria": [
+          "accuracy",
+          "head-to-head preference",
+          "Accuracy",
+          "Head-to-Head"
+        ]
+      },
+      "normalized": {
+        "head-to-head preference": "preference",
+        "Accuracy": "accuracy",
+        "Head-to-Head": "preference"
+      },
+      "explanation": "Consolidated and normalized the guideline descriptions. Normalized criteria by removing duplicates and case variations. The paper clearly uses both head-to-head preference comparisons and accuracy judgments as human evaluation criteria."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on generating natural language answers and rationales for questions about image edits, which qualifies as NLG. The evaluation uses both automatic metrics (Perplexity, ROUGE, METEOR, Accuracy) and human evaluation (head-to-head preference and accuracy judgments). No LLM-as-judge evaluation is used. The main tasks are Image Captioning and Visual Question Answering applied to understanding image edits."
+}

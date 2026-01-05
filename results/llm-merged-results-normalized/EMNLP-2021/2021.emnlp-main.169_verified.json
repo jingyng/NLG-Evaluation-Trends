@@ -1,0 +1,143 @@
+{
+  "paper_id": "2021.emnlp-main.169",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "PERSONACHAT",
+      "WEIBO"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "cg_nar",
+      "seq_2seq+att",
+      "transformer",
+      "hred",
+      "recosa",
+      "seq_2bf",
+      "ccm",
+      "conceptflow",
+      "insertion_transformer"
+    ],
+    "outputs": [
+      "dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Seq2seq"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Seq2seq+Att": "Seq2seq+Att",
+        "CG-nAR": "CG-nAR"
+      },
+      "explanation": "Removed 'Seq2seq' as it's redundant with other models; kept all other items as they are correctly extracted and relevant to dialogue generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "DIST"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "ROUGE-1": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "ROUGE": "ROUGE",
+        "Dist-1": "Dist-1",
+        "Dist-2": "Dist-2"
+      },
+      "explanation": "Normalized ROUGE variants to base 'ROUGE' form as per guidelines. Kept distinct n-gram variants for distinctness metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM evaluation used in this paper. The extracted metadata was correctly empty."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators conducted pairwise comparisons between CG-nAR and baseline responses",
+      "For each comparison, annotators decided which response is better in terms of appropriateness and informativeness",
+      "At least 2/3 agreement required for statistical significance"
+    ],
+    "criteria": [
+      "Appropriateness",
+      "Informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "At least 2/3 agreement required for statistical significance"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Pairwise comparison of generated responses, with annotators judging based on specified criteria"
+        ],
+        "criteria": [
+          "fluency",
+          "coherence",
+          "context-relevance",
+          "diverse information"
+        ]
+      },
+      "normalized": {
+        "appropriateness": "appropriateness",
+        "informativeness": "informativeness"
+      },
+      "explanation": "Simplified guideline to core procedural descriptions. Removed sub-criteria that were components of the main criteria (fluency, coherence, context-relevance are aspects of appropriateness; diverse information is part of informativeness)."
+    }
+  },
+  "overall_notes": "The paper focuses on dialogue generation with concept planning and non-autoregressive generation. The metadata extraction was generally accurate. Main changes involved normalization of metric names and streamlining of human evaluation criteria. The paper uses both automatic metrics (BLEU, ROUGE, distinctness) and human evaluations (pairwise comparisons) but does not use LLMs as judges."
+}

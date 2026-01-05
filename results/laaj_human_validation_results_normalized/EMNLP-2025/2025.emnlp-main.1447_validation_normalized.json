@@ -1,0 +1,85 @@
+{
+  "paper_id": "2025.emnlp-main.1447",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates the LLM-as-a-judge (GPT-4) against human experts on the same set of 300 question-answer pairs, reporting Cohen's kappa agreement metrics and scoring consistency"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper provides detailed scoring criteria (1-5 scale) but not the exact wording of the prompts used with GPT-4"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.82,
+      "interpretation": "substantial agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Used predefined grading criteria with detailed 5-point scale rubrics for evaluating responses"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Cohen's kappa"
+    ],
+    "shared_criteria": [
+      "Contextual Appropriateness"
+    ],
+    "sample_size": {
+      "total_generated": 1000,
+      "validated_by_both": 300,
+      "notes": "Validation conducted on a subset of 300 question-answer pairs drawn evenly from the benchmark"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.78,
+        "criterion": "Contextual",
+        "llm_model": "GPT-4",
+        "significance": "not_reported",
+        "notes": "Human-human agreement was \u03ba=0.82, LLM agreement reached \u03ba=0.78"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "substantial agreement",
+      "threshold_used": "not_explicitly_stated",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-as-a-judge showed substantial agreement with human experts (\u03ba=0.78 vs human-human \u03ba=0.82), with LLM ratings within one point of experts' in 92% of cases, indicating reliable substitution for large-scale scoring."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Visual",
+      "Speech Grounding"
+    ],
+    "human_only_criteria": [
+      "Attribute match",
+      "Naturalness"
+    ],
+    "shared_criteria": [
+      "Contextual"
+    ],
+    "notes": "LLM evaluated both grounding metrics and appropriateness, while human evaluation primarily focused on appropriateness validation and TTS quality assessment"
+  }
+}

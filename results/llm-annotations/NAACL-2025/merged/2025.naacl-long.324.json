@@ -1,0 +1,98 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We design a generative Image Description task and a discriminative Multiple-Choice Question Answering task in CogBench.",
+            "Both a generative Image Description task and a discriminative Visual Question Answering (VQA) task are designed. We evaluate the LVLMs on the Description task in terms of both recognition and cognition abilities.",
+            "We design a generative Image Description task and a discriminative Multiple-Choice Question Answering task in CogBench. This is the primary task of the benchmark. The difference between our description task and existing image description tasks is that we expect LVLMs to understand and describe the story in the image through high-level cognitive reasoning."
+        ],
+        "tasks": [
+            "Image Captioning"
+        ],
+        "datasets": [
+            "CogBench"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "InstructBLIP-7B",
+            "Qwen-VL series models",
+            "mPLUG-Owl-2",
+            "LLaVA series models",
+            "ShareGPT4V",
+            "CogVLM series models",
+            "InternVL2-26B",
+            "GPT-4V",
+            "GPT-4o",
+            "LLaVA-OV-7B-Chat",
+            "Qwen2-VL",
+            "CogVLM",
+            "LLaVA series",
+            "InternVL2",
+            "Qwen-VL series"
+        ],
+        "outputs": [
+            "image descriptions",
+            "image descriptions (detailed story paragraphs)",
+            "image descriptions and multiple-choice answers"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Evaluation metrics for both levels are calculated based on recall scores, referred to as Recognition Score and Cognition Score, respectively.",
+            "We use METEOR, CIDEr, BLEU-1, BLEU-2 to evaluate the model performance on the Description task. Recognition Score and Cognition Score are also computed automatically.",
+            "For the Recognition Score, we calculate the ratio of recognized [Entities] to annotated [Entities] across all images. First, we use spaCy to extract nouns from the model-generated description, and use sentence-transformers to encode the annotated [Entities] and extracted nouns into embeddings. Then, we calculate the cosine similarity between the embeddings..."
+        ],
+        "automatic_metrics": [
+            "Recognition Score",
+            "Cognition Score",
+            "METEOR",
+            "CIDEr",
+            "BLEU-1",
+            "BLEU-2",
+            "accuracy",
+            "ROUGE",
+            "BERTScore",
+            "BLEURT"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "GPT-4 is utilized for a binary classification task to assess if a generated description includes the semantics of each annotated CoR.",
+            "For the Cognition Score, we calculate the scores for each of the eight cognitive reasoning dimensions, as well as an overall score using GPT-4.",
+            "To enhance objectivity and granularity, GPT-4 is utilized for a binary classification task to assess if a generated description includes the semantics of each annotated CoR."
+        ],
+        "models": [
+            "GPT-4"
+        ],
+        "methods": [
+            "binary classification task",
+            "binary classification of CoR presence via GPT-4 prompts",
+            "CoR semantics inclusion check"
+        ],
+        "criteria": [
+            "presence of reasoning",
+            "cognitive correctness"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "Note that the accuracy of Human in Table is calculated based on the responses of five healthy people. The annotators are mostly undergraduate or graduate students aged 18-28.",
+            "Human annotators, mostly undergraduate or graduate students aged 18-28, are hired to annotate the collected images."
+        ],
+        "guideline": [
+            "Human participants answered the VQA questions; accuracy was measured against the correct answers.",
+            "Annotators are asked to list entities, annotate reasoning processes in the form of CoRs, and write a story-based description incorporating all annotated elements."
+        ],
+        "criteria": [
+            "accuracy",
+            "entities listed",
+            "CoRs annotated",
+            "description includes story and reasoning"
+        ]
+    }
+}

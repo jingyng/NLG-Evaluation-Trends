@@ -1,0 +1,86 @@
+{
+  "paper_id": "2024.naacl-long.415",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares GPT-4 and GPT-3.5 annotations with human annotations for both first-person and third-person evaluations, reporting correlation analysis"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4",
+      "GPT-3.5"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt shown in Table for GPT-survey: 'Given the following conversation: <conversation> Please answer the question \"<question>\" with one of the following options: <Likert scale choices>'"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 28,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed survey questions using 5-point Likert scale described in Section 2.4.3, with exact question wording shown in figures and formats explained"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "cooperative",
+      "respectful",
+      "specific",
+      "fair"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": 60,
+      "notes": "Each moderator had 60 completed conversations that were evaluated by both human and LLM judges"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.27,
+        "criterion": "Cooperative",
+        "llm_model": "GPT-4",
+        "significance": null,
+        "notes": "Between human word count and cooperative metric"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong correlation for GPT-4, moderately positive correlation for word count",
+      "threshold_used": "Not explicitly stated, but describes 0.27 as 'moderately positive' and GPT-4 as 'strongly correlated'",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4's scores are strongly correlated with human annotations, particularly for third-person POV, but LLM judges are generous to Cosmo-XL-based models and not reliable for discerning relative performance when gaps are small."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Cooperative",
+      "Respectful",
+      "Specificity",
+      "Fairness"
+    ],
+    "notes": "Both LLM and human evaluators assessed the same four criteria using the same survey questions"
+  }
+}

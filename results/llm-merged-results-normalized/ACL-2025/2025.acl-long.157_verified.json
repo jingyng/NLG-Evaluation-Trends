@@ -1,0 +1,145 @@
+{
+  "paper_id": "2025.acl-long.157",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Automatic Subtitling"
+    ],
+    "datasets": [
+      "A TASC",
+      "MUST CINEMA",
+      "MUST C",
+      "OPENSUBTITLES"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "Japanese",
+      "Korean",
+      "Vietnamese",
+      "German",
+      "Spanish",
+      "French",
+      "Italian",
+      "Dutch",
+      "Portuguese",
+      "Romanian"
+    ],
+    "models": [
+      "sbaam",
+      "whisper",
+      "whisperx",
+      "deepseek_v_3"
+    ],
+    "outputs": [
+      "Generated subtitles with translated text, timing information, and segmentation markers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "MuST-C",
+          "OpenSubtitles"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Subtitle Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Subtitle Generation": "Other:Automatic Subtitling",
+        "Generated subtitles (translated text with timing and segmentation)": "Generated subtitles with translated text, timing information, and segmentation markers"
+      },
+      "explanation": "Changed 'Subtitle Generation' to 'Automatic Subtitling' to match paper terminology. Added MuST-C and OpenSubtitles datasets mentioned in related work. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SACRESUBER",
+      "SUBER",
+      "BLEU",
+      "CHRF",
+      "CPL",
+      "CPS",
+      "LPB"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEU",
+          "ChrF"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "AS-BLEU",
+          "AS-ChrF"
+        ]
+      },
+      "normalized": {
+        "AS-BLEU": "BLEU",
+        "AS-ChrF": "ChrF"
+      },
+      "explanation": "Normalized AS-BLEU and AS-ChrF to their base forms (BLEU, ChrF) as per simplification rules. The paper uses these metrics with subtitle-specific alignment but they are fundamentally BLEU and ChrF."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators. DeepSeek-V3 was used for generation (MT component in pipeline), not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "adjust the subtitles for translation errors, including minor typos, unnatural segmentations, and unnatural word orders; refine the start and end times of each subtitle to ensure precise alignment with the corresponding speech segments"
+        ],
+        "criteria": [
+          "translation accuracy",
+          "timing alignment",
+          "naturalness of segmentation",
+          "word order"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'No' (no change in answer, but metadata was incorrect). The described human validation was for test set creation/correction, not for evaluating system outputs. No human evaluation of generated outputs was conducted."
+    }
+  },
+  "overall_notes": "The paper focuses on automatic subtitling evaluation with Asian languages. The extraction was generally good but included some metadata that didn't belong (human eval criteria for test set creation rather than system evaluation). The paper introduces SacreSubER metric and evaluates both end-to-end and pipeline AS systems on multiple Asian languages."
+}

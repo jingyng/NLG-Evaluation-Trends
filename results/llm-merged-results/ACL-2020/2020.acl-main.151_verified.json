@@ -1,0 +1,161 @@
+{
+  "paper_id": "2020.acl-main.151",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT17",
+      "WMT18",
+      "WMT19"
+    ],
+    "languages": [
+      "German",
+      "Chinese",
+      "Czech",
+      "Latvian",
+      "Finnish",
+      "Russian",
+      "Turkish",
+      "Gujarati",
+      "Kazakh",
+      "Lithuanian",
+      "Estonian",
+      "English"
+    ],
+    "models": [
+      "M-BERT",
+      "LASER",
+      "USE",
+      "XLM-RoBERTa"
+    ],
+    "outputs": [
+      "system-generated translations",
+      "system translations compared to source sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [
+          "WMT17-19 news translation shared task"
+        ],
+        "languages": [],
+        "models": [
+          "Multilingual USE",
+          "multilingual M-BERT",
+          "XLM-on-RoBERTa",
+          "Google Translate"
+        ],
+        "outputs": [
+          "system translations (generated text) compared to source sentences or reference translations"
+        ]
+      },
+      "normalized": {
+        "M-BERT": "M-BERT",
+        "XLM-on-RoBERTa": "XLM-RoBERTa"
+      },
+      "explanation": "Removed 'Text Summarization' as it's only mentioned in passing in the introduction, not actually studied. Simplified dataset names. Removed redundant model names and Google Translate (used for analysis, not evaluation). Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "SentBLEU",
+      "ChrF++",
+      "YiSi-2",
+      "YiSi-2-srl",
+      "ibm1-morpheme",
+      "ibm1-pos4gram",
+      "LASIM",
+      "LP",
+      "MOVERSCORE",
+      "COSINE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "MOVER-2 + CLP(M-BERT)",
+          "MOVER-2 + UMD(M-BERT)",
+          "COSINE + CLP(LASER)",
+          "COSINE + UMD(LASER)",
+          "with LM combination",
+          "MOVER-2",
+          "MOVERSCORE-NGRAM + ALIGN(EMBEDDING)",
+          "COSINE + ALIGN(EMBEDDING)"
+        ]
+      },
+      "normalized": {
+        "MOVER-2": "MOVERSCORE",
+        "MOVERSCORE-NGRAM + ALIGN(EMBEDDING)": "MOVERSCORE",
+        "COSINE + ALIGN(EMBEDDING)": "COSINE"
+      },
+      "explanation": "Simplified metric variants to base forms. Removed specific configurations (like +CLP(M-BERT)) as these are implementation details, not distinct metrics. Kept only the core metric names used in evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper. The paper focuses on cross-lingual encoders for semantic similarity, not LLM-based evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Direct Assessment (DA) scores where annotators rate translation quality",
+      "Cross-lingual Direct Assessment (CLDA) where annotators directly compare source sentences with system translations"
+    ],
+    "criteria": [
+      "translation quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Cross-lingual Direct Assessment (CLDA) where annotators directly compare source sentences with system translations"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "fluency",
+          "adequacy"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Added CLDA method mentioned in the paper. Removed 'fluency' and 'adequacy' as they're not explicitly mentioned as evaluation criteria - the paper focuses on overall translation quality assessment."
+    }
+  },
+  "overall_notes": "The paper focuses exclusively on machine translation evaluation. The extraction was generally accurate but included some items mentioned only in passing. I normalized metric names to their base forms and removed redundant/repetitive entries. The paper conducts substantial human evaluation using Direct Assessment methodology."
+}

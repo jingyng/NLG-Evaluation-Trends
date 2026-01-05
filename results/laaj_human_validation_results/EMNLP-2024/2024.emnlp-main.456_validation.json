@@ -1,0 +1,83 @@
+{
+  "paper_id": "2024.emnlp-main.456",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM evaluation against human evaluation by randomly selecting 50 samples for human evaluation and calculating Pearson Correlation Coefficient between consistency scores from human annotators and Llama-3-70B"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "Llama-3-70B"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "Prompt template mentioned in appendix but exact text not fully provided; evaluation method adopted from recent research using LLM as evaluator"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": 0.91,
+      "interpretation": "high agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed criteria provided for motivation recognition question filtering, including character decision requirements, motivation focus, meaningful context, and prohibition of motivation leakage"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "factual consistency"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": 50,
+      "notes": "Randomly selected 50 samples used for validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.752,
+        "criterion": "factual consistency",
+        "llm_model": "Llama-3-70B",
+        "significance": "p=4.3e-12",
+        "notes": "Statistically significant correlation (p<0.05)"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Llama-3-70B evaluation shows significant correlation (Pearson r=0.752, p<0.001) with human judgments on factual consistency assessment, validating LLM evaluation capabilities for this task."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "motivation recognition accuracy"
+    ],
+    "human_only_criteria": [
+      "motivation recognition question filtering criteria"
+    ],
+    "shared_criteria": [
+      "factual consistency"
+    ],
+    "notes": "Both LLM and human evaluate factual consistency; LLM also evaluates motivation recognition task performance; human evaluators also filter motivation recognition questions"
+  }
+}

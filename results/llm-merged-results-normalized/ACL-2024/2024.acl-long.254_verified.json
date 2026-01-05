@@ -1,0 +1,138 @@
+{
+  "paper_id": "2024.acl-long.254",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Complex Question Answering",
+      "Reasoning Chain Verification"
+    ],
+    "datasets": [
+      "STRATEGYQA",
+      "MUSIQUE",
+      "SPORTS UNDERSTANDING",
+      "FERMI"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "flan_palm_540b",
+      "flan_ul_2_20b",
+      "gpt_3"
+    ],
+    "outputs": [
+      "Chain-of-Thought reasoning chains generated to answer complex questions",
+      "Step-by-step reasoning chains for complex question answering"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Reasoning Chain Verification"
+        ],
+        "outputs": [
+          "Step-by-step reasoning chains for complex question answering"
+        ]
+      },
+      "removed": {
+        "tasks": []
+      },
+      "normalized": {
+        "MUSIQUE": "MuSiQue",
+        "SPORTS UNDERSTANDING": "Sports Understanding",
+        "Other:Complex reasoning question answering": "Other:Complex Question Answering"
+      },
+      "explanation": "Normalized dataset names to match paper conventions. Added 'Reasoning Chain Verification' as a secondary task since the paper focuses on evaluating verifiers of reasoning chains. Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "macro-F1"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from No to Yes. The paper clearly uses macro-F1 to evaluate automatic verifiers' performance on reasoning chain verification tasks (Table 3 shows macro-F1 results for various verification tasks)."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "flan_ul_2_20b",
+      "flan_palm_540b",
+      "palm_2_l",
+      "gpt_3"
+    ],
+    "methods": [
+      "few-shot prompting for step-level verification",
+      "pipeline verification using step-level decisions",
+      "single-decision prompting for chain-level verification"
+    ],
+    "criteria": [
+      "Correctness",
+      "Logic",
+      "Relevance",
+      "Classification"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "PaLM-2-L"
+        ],
+        "methods": [
+          "pipeline verification using step-level decisions",
+          "single-decision prompting for chain-level verification"
+        ],
+        "criteria": [
+          "step type classification"
+        ]
+      },
+      "removed": {
+        "models": [
+          "PaLM-2"
+        ],
+        "methods": [
+          "few-shot prompting classification"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Added missing model (PaLM-2-L) and clarified methods. Added 'step type classification' as an additional criterion. Removed redundant/deprecated entries."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators label each step for: relevance to final answer, step type (attribution/logic/both), logical correctness relative to previous steps, attribution correctness with evidence paragraphs"
+    ],
+    "criteria": [
+      "Relevance",
+      "Type",
+      "Logic",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators label each step for: relevance to final answer, step type (attribution/logic/both), logical correctness relative to previous steps, attribution correctness with evidence paragraphs"
+        ]
+      },
+      "removed": {
+        "guideline": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated guidelines into a single comprehensive description based on the detailed annotation schema described in Sections 2-4 of the paper."
+    }
+  },
+  "overall_notes": "This paper focuses on evaluating automatic verifiers of reasoning chains rather than evaluating the NLG outputs themselves. The human evaluation creates a benchmark dataset (REVEAL) with fine-grained annotations of reasoning chain quality. The automatic metrics (macro-F1) are used to evaluate the verifiers' performance, not the generated text quality directly. LLMs are used as verifiers/judges of reasoning chains rather than as generation models."
+}

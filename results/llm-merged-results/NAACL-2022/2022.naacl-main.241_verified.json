@@ -1,0 +1,132 @@
+{
+  "paper_id": "2022.naacl-main.241",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Wizard of Wikipedia",
+      "Topical Chat",
+      "Amazon",
+      "Politeness"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "DTR",
+      "StyleFusion",
+      "StylisticDLV",
+      "StylizedDU",
+      "StyleDGPT",
+      "MASS",
+      "GPT-2"
+    ],
+    "outputs": [
+      "dialogue responses with specific styles/sentiments (positive, negative, polite) that are knowledge-grounded"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "Amazon"
+        ],
+        "models": [
+          "MASS"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Amazon dataset"
+        ],
+        "models": [
+          "DTR (Disentangled Template Rewriting)"
+        ]
+      },
+      "normalized": {
+        "Amazon dataset": "Amazon",
+        "DTR (Disentangled Template Rewriting)": "DTR"
+      },
+      "explanation": "Merged duplicate DTR entries, normalized dataset names, and added MASS which is used for model initialization"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Style Intensity",
+      "F1",
+      "BLEU",
+      "ROUGE",
+      "Distinct",
+      "Inner Distinct"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-2 classifier"
+        ]
+      },
+      "normalized": {
+        "Rouge": "ROUGE",
+        "GPT-2 classifier": "Style Intensity"
+      },
+      "explanation": "Normalized ROUGE capitalization and clarified that GPT-2 classifier is used for Style Intensity measurement"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges - GPT-2 was used as a classifier for style intensity, not to evaluate response quality"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators compare two shuffled responses from different models and select the better one based on four criteria"
+    ],
+    "criteria": [
+      "Style Consistency",
+      "Knowledge Preservation",
+      "Context Coherence",
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators compare two shuffled responses from different models and select the better one based on four criteria"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators compare two shuffled responses and select the better one based on four specified criteria.",
+          "Annotators compare two responses and select the better one according to the four criteria listed above.",
+          "The annotators then judge which response is better from four aspects: (1) Style Consistency: which response exhibits the desired style more (2) Knowledge Preservation: which response is more relevant to the knowledgeable document (3) Context Coherence: which response is more coherent with the dialogue context (4) Fluency: which response is more fluent and free from any grammar errors."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated the lengthy guideline description into a single clear statement"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main issues were duplicate entries for DTR model and unclear description of GPT-2's role (it's used as a classifier for style intensity, not as an LLM judge). The paper focuses on stylized knowledge-grounded dialogue generation with strong experimental evaluation."
+}

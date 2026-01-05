@@ -1,0 +1,171 @@
+{
+  "paper_id": "2025.naacl-long.120",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Social Acceptability Judgment",
+      "Other:Social Acceptability QA"
+    ],
+    "datasets": [
+      "NormAd-Eti"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3.5-turbo",
+      "GPT-4",
+      "Mistral-7B-Instruct",
+      "Llama-2-70B-chat",
+      "Llama-1-30B-SFT",
+      "Llama-1-30B-SFT-KTO",
+      "Llama-2-7B-chat",
+      "Llama-2-13B-chat",
+      "Llama-2-70B-chat",
+      "OLMo-7B-SFT",
+      "OLMo-7B-Chat",
+      "Llama-1-7B-SFT",
+      "Llama-1-13B-SFT",
+      "Llama-1-30B-SFT-PPO",
+      "Llama-1-30B-SFT-DPO"
+    ],
+    "outputs": [
+      "Social acceptability judgments (Yes/No/Neutral) for situational descriptions under varying cultural contexts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-2-7B-chat",
+          "Llama-2-13B-chat",
+          "OLMo-7B-SFT",
+          "OLMo-7B-Chat",
+          "Llama-1-7B-SFT",
+          "Llama-1-13B-SFT",
+          "Llama-1-30B-SFT-PPO",
+          "Llama-1-30B-SFT-DPO"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Social Norm Judgment"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama-2"
+        ],
+        "outputs": [
+          "Yes/No/Neutral social acceptability judgments",
+          "judgments about social acceptability (Yes/No/Neither)"
+        ]
+      },
+      "normalized": {
+        "NORMAD-ETI": "NormAd-Eti",
+        "Mistral-7b-Instruct": "Mistral-7B-Instruct",
+        "Llama-2-70b-chat": "Llama-2-70B-chat",
+        "Llama-1-30b-SFT": "Llama-1-30B-SFT",
+        "Llama-1-30b-SFT-KTO": "Llama-1-30B-SFT-KTO",
+        "Other:Social Acceptability Judgment": "Other:Social Acceptability Judgment"
+      },
+      "explanation": "Consolidated tasks to avoid redundancy, normalized dataset and model names to standard capitalization, removed 'Llama-2' (too generic), added all LLM models mentioned in the experiments including different sizes and optimization variants"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Normalized 'accuracy' to 'Accuracy' and removed duplicate entry"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges/evaluators - only as generators being evaluated. LLMs are used to generate judgments about social acceptability, not to evaluate other models' outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "ROT relevance to Cultural Atlas",
+      "VALUE relevance to ROT",
+      "VALUE relevance to Cultural Atlas",
+      "Situation relevance to ROT",
+      "Label correctness"
+    ],
+    "criteria": [
+      "ROT relevance to Cultural Atlas",
+      "VALUE relevance to ROT",
+      "VALUE relevance to Cultural Atlas",
+      "Situation relevance to ROT",
+      "Label correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "ROT relevance to Cultural Atlas",
+          "VALUE relevance to ROT",
+          "VALUE relevance to Cultural Atlas",
+          "Situation relevance to ROT",
+          "Label correctness"
+        ],
+        "criteria": [
+          "ROT relevance to Cultural Atlas",
+          "VALUE relevance to ROT",
+          "VALUE relevance to Cultural Atlas",
+          "Situation relevance to ROT",
+          "Label correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- For each data point, we ask workers to perform five subtasks: 1. ROT ← → Cultural Atlas Verify that the ROT is derived from the provided country-specific social norms. 2. VALUE ← → ROT Confirm that the VALUE is a relevant high-level abstraction of the ROT. 3. VALUE ← → Cultural Atlas Ensure that the VALUE is relevant to the provided country-specific social norms. 4. Situation ← → ROT Verify that the situation is relevant to and revolves around the ROT. 5. Label ← → Situation + ROT Finally, given the situation description and the ROT, check if the gold label (Yes/No/Neutral) is correct."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'Yes' because the paper clearly conducts human validation through Amazon Mechanical Turk (Section 4.3) and human performance studies (Section 4.4). Restructured guidelines into clear criteria list."
+    }
+  },
+  "overall_notes": "The paper evaluates NLG models on social acceptability judgment tasks using the NormAd-Eti benchmark. It uses accuracy as the automatic evaluation metric. While it doesn't use LLMs as judges, it does conduct human evaluations for dataset validation and performance benchmarking. The extraction was mostly accurate but missed some model variants and incorrectly categorized the human evaluation."
+}

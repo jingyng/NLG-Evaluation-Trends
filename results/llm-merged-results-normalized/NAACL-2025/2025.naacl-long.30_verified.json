@@ -1,0 +1,173 @@
+{
+  "paper_id": "2025.naacl-long.30",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Video Captioning",
+      "Video Question Answering"
+    ],
+    "datasets": [
+      "SHAREGPT VIDEO",
+      "MSVD QA",
+      "MSRVTT QA",
+      "TGIF QA",
+      "NEXT QA",
+      "WEBVID",
+      "VIDAL",
+      "ACTIVITYNET",
+      "SOMETHING SOMETHING v2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "video_llava",
+      "llava_hound_pt",
+      "llava_hound_sft",
+      "llava_hound_dpo"
+    ],
+    "outputs": [
+      "detailed video captions",
+      "answers to open-ended video questions",
+      "model responses to video-based questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Image Captioning"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "ChatGPT",
+          "GPT-4V"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "SHAREG-PTVIDEO": "SHAREGPT-VIDEO",
+        "Open-ended QA pairs": "answers to open-ended video questions",
+        "video captions and answers to video-related questions": "detailed video captions"
+      },
+      "explanation": "Removed Dialogue Generation and Image Captioning as the paper focuses specifically on Video Captioning and Video Question Answering. Removed ChatGPT and GPT-4V from models since they are used for evaluation/generation, not as the main evaluated NLG models. Normalized dataset name to match paper's naming convention."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "REWARD",
+      "PEARSON CORRELATION COEFFICIENT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-4V Score"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "reward score (1-5 scale)": "Reward Score"
+      },
+      "explanation": "Removed 'GPT-4V Score' as it's not a distinct metric but rather a score assigned by GPT-4V. Kept the three main automatic metrics used in the paper: Accuracy for QA tasks, Reward Score for quality assessment, and PCC for correlation analysis."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "chatgpt",
+      "gpt_4v"
+    ],
+    "methods": [
+      "Chain-of-thought feedback and numerical scoring",
+      "Reward mechanism",
+      "DPO training preference selection"
+    ],
+    "criteria": [
+      "Quality",
+      "Coverage",
+      "Hallucination"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "DPO training preference selection"
+        ],
+        "criteria": [
+          "coverage",
+          "hallucination"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "Likert-scale score assignment (1-5)",
+          "pairwise evaluation with chain-of-thought scoring"
+        ],
+        "criteria": [
+          "helpfulness",
+          "faithfulness"
+        ]
+      },
+      "normalized": {
+        "chain-of-thought feedback and numerical scoring": "Chain-of-thought feedback and numerical scoring",
+        "reward mechanism": "Reward mechanism"
+      },
+      "explanation": "Added 'coverage' and 'hallucination' as explicit evaluation criteria mentioned for LLM evaluation. Removed 'helpfulness' and 'faithfulness' as they appear in QA generation guidelines but not as LLM evaluation criteria. Added 'DPO training preference selection' as a key method where LLMs are used to judge preferences."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators assess each caption by identifying the number of missing items and the number of incorrect facts"
+    ],
+    "criteria": [
+      "Coverage",
+      "Hallucination"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators assess each caption by identifying the number of missing items and the number of incorrect facts"
+        ],
+        "criteria": [
+          "coverage",
+          "hallucination"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators were asked to assess each caption by identifying the number of missing items and the number of incorrect facts.",
+          "Annotators assess each caption for missing items and incorrect facts, i.e., coverage and hallucination.",
+          "Annotators were asked to assess each caption by identifying the number of missing items and the number of incorrect facts."
+        ],
+        "criteria": [
+          "accuracy (hallucination)",
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "accuracy (hallucination)": "hallucination",
+        "accuracy": "hallucination"
+      },
+      "explanation": "Consolidated repetitive guideline statements into one clear description. Normalized criteria to 'coverage' and 'hallucination' as explicitly mentioned in the paper, removing redundant 'accuracy' mentions."
+    }
+  },
+  "overall_notes": "The paper focuses on video-based NLG tasks (captioning and QA) with extensive use of LLMs for evaluation. The extraction was generally accurate but needed normalization and removal of some redundant or incorrectly categorized items. The paper uses both automatic metrics and human evaluation, with LLMs serving as judges for quality assessment."
+}

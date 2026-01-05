@@ -1,0 +1,152 @@
+{
+  "paper_id": "2022.emnlp-main.37",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Generation"
+    ],
+    "datasets": [
+      "squadv1",
+      "HotpotQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "nqg++",
+      "bart_qg",
+      "dp_graph",
+      "dcqg",
+      "bert_base",
+      "gpt_2",
+      "roberta",
+      "xlnet"
+    ],
+    "outputs": [
+      "generated questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "GPT2": "GPT-2"
+      },
+      "explanation": "Minor normalization of GPT2 to GPT-2 for consistency"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "Q BLEU",
+      "BERTSCORE",
+      "MOVERSCORE",
+      "BLEURT",
+      "COMET",
+      "CTC",
+      "BARTSCORE",
+      "QRELSCORE",
+      "REF QRELSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Q-BLEU_free",
+          "BERTScore_free",
+          "Q-BLEUfree",
+          "BERTScorefree"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "MoverScore": "MoverScore",
+        "Q-BLEU_free": "Q-BLEU",
+        "BERTScore_free": "BERTScore",
+        "Q-BLEUfree": "Q-BLEU",
+        "BERTScorefree": "BERTScore"
+      },
+      "explanation": "Normalized metric variants to base forms (BLEU-4→BLEU, ROUGE-L→ROUGE). Removed redundant free variants since they're just context-based versions of Q-BLEU and BERTScore."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT2"
+        ],
+        "methods": [
+          "prompt‑based confidence gain (likelihood difference)"
+        ],
+        "criteria": [
+          "factual consistency",
+          "relevance to context"
+        ]
+      },
+      "normalized": {},
+      "explanation": "GPT-2 is used for automatic scoring via likelihood differences, not as an LLM judge in the modern sense. This doesn't qualify as 'LLM-as-judge' evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rated each sample on a three-point Likert scale (1 for 'poor', 2 for 'average', and 3 for 'good') for grammaticality, answerability, and relevance"
+    ],
+    "criteria": [
+      "Grammaticality",
+      "Answerability",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "Grammaticality",
+          "Answerability",
+          "Relevance"
+        ]
+      },
+      "normalized": {
+        "Grammaticality": "grammaticality",
+        "Answerability": "answerability",
+        "Relevance": "relevance"
+      },
+      "explanation": "Normalized criteria to lowercase and removed duplicates. The guideline description was already comprehensive."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main changes were normalizing metric variants and clarifying that GPT-2 usage doesn't qualify as LLM-as-judge evaluation. The paper is primarily about developing QRelScore for evaluating question generation systems."
+}

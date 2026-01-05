@@ -1,0 +1,49 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We study the task of generating a natural language proof tree T that entails a goal g given a set of textual evidence X... The task is then to prove the goal g while also recovering x_m, which requires searching backwards from the goal to generate missing information.",
+        "tasks": [
+            "Other:Abductive Reasoning Generation"
+        ],
+        "datasets": [
+            "EntailmentBank",
+            "Everyday Norms: Why Not? (ENWN)"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "T5-3B",
+            "DeBERTa Large",
+            "EBEntail-Active"
+        ],
+        "outputs": "generated missing premises, intermediate deduction steps, full entailment proof trees"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We score each abductive generation x' ... using a harmonic mean s = 2 * ROUGE-1(x_m, x') * entailment(x', x_m) / (ROUGE-1 + entailment). ... Premise recovery (coverage) is defined using our recovery scoring E(x_m, x') ≥ 0.7.",
+        "automatic_metrics": [
+            "ROUGE-1",
+            "Entailment model probability",
+            "Coverage recall (E ≥ 0.7)",
+            "Deductive agreement score"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": "",
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "We collected steps ... we then labeled these steps for validity. Three of the authors then annotated each step as truly recovering the missing premise based on either exhibiting mutual entailment ...",
+        "guideline": "Annotators labeled each step as Y (valid), N (invalid), or VND (valid but not deductive) and judged whether a generated premise recovered the missing premise based on entailment relations.",
+        "criteria": [
+            "validity of abductive step",
+            "deductive consistency",
+            "premise recovery (mutual entailment / specificity)"
+        ]
+    }
+}

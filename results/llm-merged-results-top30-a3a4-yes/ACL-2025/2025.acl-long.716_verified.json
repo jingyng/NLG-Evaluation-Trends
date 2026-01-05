@@ -1,0 +1,164 @@
+{
+  "paper_id": "2025.acl-long.716",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering"
+    ],
+    "datasets": [
+      "QAEXTRACT",
+      "QASCORE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4o",
+      "claude_3",
+      "gemini_1.5",
+      "qwen_2.5",
+      "qwen_2.5_0.5b",
+      "albert"
+    ],
+    "outputs": [
+      "Generated answers to QA prompts",
+      "Model responses evaluated for correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "ALBERT"
+        ],
+        "outputs": [
+          "Model responses evaluated for correctness"
+        ]
+      },
+      "removed": {
+        "models": [
+          "MOE scoring model"
+        ],
+        "outputs": [
+          "answers to questions"
+        ]
+      },
+      "normalized": {
+        "Qwen2.5": "Qwen2.5",
+        "GPT-4o": "GPT-4o",
+        "Claude-3": "Claude-3",
+        "Gemini-1.5": "Gemini-1.5"
+      },
+      "explanation": "Removed 'MOE scoring model' as it's not a generation model but an evaluation component. Added ALBERT which is used in the MOE architecture. Simplified output descriptions to be more accurate."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "RELAXED ACCURACY",
+      "BEM",
+      "PEDANTS",
+      "CHARTX",
+      "CHARXIV",
+      "QAEVAL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Score"
+        ]
+      },
+      "normalized": {
+        "ChartX": "ChartX",
+        "Charxiv": "Charxiv",
+        "QAEval": "QAEval"
+      },
+      "explanation": "Removed 'Score' as it's not a metric name but a general term. Kept all other metrics as they are explicitly mentioned evaluation methods."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4o",
+      "claude_3",
+      "gemini_1.5",
+      "ChartX",
+      "Charxiv"
+    ],
+    "methods": [
+      "binary classification",
+      "extract-then-score",
+      "instruction variations"
+    ],
+    "criteria": [
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "ChartX",
+          "Charxiv"
+        ],
+        "methods": [
+          "instruction variations"
+        ],
+        "criteria": [
+          "correctness"
+        ]
+      },
+      "removed": {
+        "models": [
+          "ALBERT",
+          "Qwen2.5"
+        ],
+        "methods": [
+          "key information extraction followed by scoring"
+        ]
+      },
+      "normalized": {
+        "GPT-4o": "GPT-4o",
+        "Claude-3": "Claude-3",
+        "Gemini-1.5": "Gemini-1.5"
+      },
+      "explanation": "Removed ALBERT and Qwen2.5 as they are part of the QAEval framework, not LLM-as-judge evaluators. Added ChartX and Charxiv which are LLM-based evaluation methods. Simplified methods and added correctness as the main criterion."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three-level scoring: Complete Match (1.0), Partial Match (0.5), Mismatch or Excess Content (0.0)",
+      "Extract concise answers from model responses without external information"
+    ],
+    "criteria": [
+      "Correctness",
+      "Completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Extract concise answers from model responses without external information"
+        ],
+        "criteria": [
+          "completeness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Complete Match": "correctness",
+        "Partial Match": "correctness",
+        "Mismatch or Excess Content": "correctness"
+      },
+      "explanation": "Consolidated the three-level scale under 'correctness' criterion. Added 'completeness' as an implicit criterion based on the guidelines. Simplified guideline descriptions."
+    }
+  },
+  "overall_notes": "The paper focuses on QA evaluation rather than generation itself, but it does evaluate generated outputs from various LLMs. The extraction was generally accurate but needed some refinement to focus on the main contributions. QAEval is the proposed evaluation framework, not a generation model."
+}

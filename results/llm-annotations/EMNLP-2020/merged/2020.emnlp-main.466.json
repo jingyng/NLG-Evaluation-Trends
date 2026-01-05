@@ -1,0 +1,68 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "provide minimal yet unambiguous rewrites of the question that clarify the interpretation which leads to each answer",
+            "We design a question disambiguation (QD) model based on BART. The model generates each question x_i ... conditioning on the concatenation of q, the target answer y_i, other answers ..., and the top passages ...",
+            "We introduce AM-BIGQA (Answering Ambiguous Open-domain Questions), a new task which involves disambiguating and answering potentially ambiguous questions. Specifically, the model must (1) find a set of distinct, equally plausible answers to the question, and (2) provide minimal yet unambiguous rewrites of the question that clarify the interpretation which leads to each answer."
+        ],
+        "tasks": [
+            "Paraphrase Generation",
+            "Other:Question Generation",
+            "Other:Answer Generation",
+            "Other:Question Rewriting",
+            "Other:Multiple Answer Generation"
+        ],
+        "datasets": [
+            "AMBIGNQ",
+            "NQ-OPEN"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "BART",
+            "BERT",
+            "SPANSEQGEN"
+        ],
+        "outputs": [
+            "disambiguated questions",
+            "disambiguated questions and answer strings",
+            "question-answer pairs with disambiguated questions and multiple answers"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We consider three choices of F f . F1 ans ... F1 BLEU ... F1 EDIT-F1 ...",
+            "We calculate F1 treating the c_i as measures of correctness: We consider three choices of F_f. F1_ans is the F1 score on answers only... F1 BLEU accounts for string similarity between questions, calculating f with BLEU... F1 EDIT-F1 uses EDIT-F1 as f, where EDIT-F1 is a new measure ...",
+            "We calculate F1 treating the c i as measures of correctness: We consider three choices of F f . F1 ans is the F1 score on answers only, where f always yields 1. This may be used without the question disambiguation step. F1 BLEU accounts for string similarity between questions, calculating f with BLEU . F1 EDIT-F1 uses EDIT-F1 as f , where EDIT-F1 is a new measure that represents each disambiguated question by its added and deleted unigrams compared to the prompt question, and computes the F1 score between them."
+        ],
+        "automatic_metrics": [
+            "F1_ans",
+            "F1_BLEU",
+            "F1_EDIT-F1",
+            "Exact Match",
+            "F1ans",
+            "F1BLEU",
+            "F1EDIT-F1"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "No",
+        "quote": [
+            "We use Amazon Mechanical Turk for crowdsourcing. The crucial annotation challenge is maximizing recall: finding all possible distinct answers to a question."
+        ],
+        "guideline": [
+            "Workers find all plausible answers to the question; when there are multiple, each answer is paired with a minimal edit of the prompt question which differentiates it from the other answers, in line with our task requirements."
+        ],
+        "criteria": []
+    }
+}

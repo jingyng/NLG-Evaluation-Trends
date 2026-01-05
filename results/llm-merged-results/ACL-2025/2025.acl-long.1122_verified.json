@@ -1,0 +1,129 @@
+{
+  "paper_id": "2025.acl-long.1122",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "AG News",
+      "MIND",
+      "SST-2",
+      "Enron"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3.5-turbo",
+      "DIPPER",
+      "NLLB",
+      "BERT"
+    ],
+    "outputs": [
+      "Paraphrased texts",
+      "Watermarked embeddings"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "English"
+        ],
+        "models": [
+          "BERT"
+        ],
+        "outputs": [
+          "Watermarked embeddings"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "Chinese",
+          "German",
+          "French",
+          "Hindi"
+        ],
+        "models": [
+          "GPT-3.5 (text‑embedding‑002)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "SST2": "SST-2"
+      },
+      "explanation": "Removed languages that were only used as intermediate pivot languages in round-trip translation, not for generated outputs. Removed GPT-3.5 embedding model as it's not an NLG model. Added BERT as it's used for classification tasks. Normalized SST2 to SST-2."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "Accuracy",
+      "F1-score",
+      "Cosine Similarity",
+      "AUC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy",
+          "F1-score",
+          "Cosine Similarity",
+          "AUC"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "Δcos": "Cosine Similarity"
+      },
+      "explanation": "Changed answer from No to Yes since the paper explicitly uses automatic metrics (Accuracy, F1-score, Δcos, AUC) to evaluate both embedding quality and watermark detection. Normalized Δcos to Cosine Similarity."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Correctly extracted as No. The paper does not use LLMs as judges/evaluators after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Correctly extracted as No. The paper does not conduct human evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on watermarking techniques for embeddings and evaluates paraphrase generation as an attack vector. While it addresses NLG tasks (paraphrase generation), the primary focus is on embedding security rather than NLG quality evaluation. The automatic metrics are used to evaluate embedding utility and watermark detection, not traditional NLG quality."
+}

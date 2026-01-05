@@ -1,0 +1,135 @@
+{
+  "paper_id": "2024.acl-long.506",
+  "answer_1": {
+    "answer": "No",
+    "answer_changed": true,
+    "tasks": [],
+    "datasets": [],
+    "languages": [],
+    "models": [],
+    "outputs": [],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Machine Translation",
+          "Text Summarization",
+          "Dialogue Generation",
+          "Other:Question Answering",
+          "Other:question-answering"
+        ],
+        "datasets": [
+          "Movies Dataset",
+          "Books Dataset",
+          "GCI Dataset",
+          "Movies",
+          "Books",
+          "Global Country Information (GCI)",
+          "books dataset"
+        ],
+        "languages": [
+          "English"
+        ],
+        "models": [
+          "GPT-3",
+          "Llama-2 (7B)",
+          "Llama-2 (13B)",
+          "PaLM",
+          "LLama",
+          "Llama2"
+        ],
+        "outputs": [
+          "Generated answers to queries for movie casts, book authors/publication years, and country capitals",
+          "generated answers (text)",
+          "textual answers to queries in few-shot prompt settings"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper studies hallucination detection, not NLG evaluation. The paper does not evaluate the quality of NLG outputs, but rather detects whether generated answers contain hallucinations. All metadata removed as they are not relevant to NLG task evaluation."
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": true,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "AUC",
+          "B-ACC",
+          "IOU",
+          "Balanced Accuracy",
+          "cosine similarity",
+          "Intersection Over Union (IOU)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The metrics mentioned (AUC, B-ACC, IOU, cosine similarity) are used to evaluate the hallucination detection method's performance, not to evaluate the quality of NLG outputs themselves. The paper does not use automatic metrics to assess the quality of generated text."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-3"
+    ],
+    "methods": [
+      "SelfCheckGPT with Prompt"
+    ],
+    "criteria": [
+      "support",
+      "consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Llama-2 (7B)",
+          "Llama-2 (13B)"
+        ],
+        "methods": [
+          "sentence-level support prediction",
+          "backward query reconstruction",
+          "querying the LLM to determine sentence support"
+        ],
+        "criteria": [
+          "cosine similarity to original query"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed Llama-2 models as they are not used as judges (they are the models being evaluated). Removed 'backward query reconstruction' as this is the paper's method, not an LLM-as-judge baseline. Only kept SelfCheckGPT which uses GPT-3 to evaluate sentence support. Removed 'cosine similarity' as it's not an LLM judgment criterion."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluations are conducted in this paper. The evaluation is entirely automated using ground truth from datasets."
+    }
+  },
+  "overall_notes": "The key insight is that this paper is about hallucination detection, not NLG evaluation. The paper proposes InterrogateLLM method to detect hallucinations in LLM-generated answers, but does not evaluate the quality of the NLG outputs themselves. The metrics and datasets are used to evaluate the hallucination detection method's performance, not the quality of the generated text. This is a detection/classification task, not an NLG evaluation task."
+}

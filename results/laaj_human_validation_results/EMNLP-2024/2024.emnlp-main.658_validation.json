@@ -1,0 +1,96 @@
+{
+  "paper_id": "2024.emnlp-main.658",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM judgments with human evaluation on the same 450 questions for answerability dimension, reporting Pearson correlation coefficients"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "gpt_3.5_turbo",
+      "gpt_4"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Paper mentions using 'direct prompts' and 'G-EVAL (Chain-of-Thought)' but does not provide the exact prompt text"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": "0.427 to 0.800",
+      "interpretation": "Improved from 0.181-0.559 in first round to 0.427-0.800 in second round",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Scoring guidelines with 1-3 scale for each dimension provided in appendix, including specific scoring criteria and multiple annotation examples"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "answerability"
+    ],
+    "sample_size": {
+      "total_generated": 3000,
+      "validated_by_both": 450,
+      "notes": "Validation conducted on 450 questions (30 passages) focusing only on answerability dimension due to budget constraints"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": "below 0.4",
+        "criterion": "answerability",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "GPT-4 achieved the highest correlations but still below 0.4; methods using direct prompts and G-EVAL (Chain-of-Thought) compared"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": "below 0.4",
+        "criterion": "answerability",
+        "llm_model": "GPT-3.5-turbo",
+        "significance": "not reported",
+        "notes": "Performance compared with RQUGE, UniEval, and GPTScore-src (top three metrics on answerability)"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "weak",
+      "threshold_used": "not specified",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM-based metrics (especially GPT-4) outperform other automatic evaluation methods but still show relatively low correlation (below 0.4) with human evaluation on answerability dimension, indicating room for improvement in LLM-judge alignment."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "fluency",
+      "clarity",
+      "conciseness",
+      "relevance",
+      "consistency",
+      "answerability",
+      "answer_consistency"
+    ],
+    "shared_criteria": [
+      "answerability"
+    ],
+    "notes": "LLM evaluation was conducted only on answerability dimension while human evaluation covered all 7 dimensions; validation focused on the shared criterion of answerability"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "paper_id": "2024.emnlp-main.353",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering"
+    ],
+    "datasets": [
+      "TruthfulQA",
+      "WIKIQA",
+      "CommonsenseQA",
+      "MEDQA US",
+      "MMLU MED",
+      "MEDMCQA",
+      "PUBMEDQA",
+      "BIOASQ Y N"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_3.5_turbo"
+    ],
+    "outputs": [
+      "Generated answers to user queries"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-3.5-turbo"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "CommonsenseQA"
+        ],
+        "models": [
+          "gpt-4-turbo-preview"
+        ]
+      },
+      "normalized": {
+        "gpt-3.5-turbo": "GPT-3.5-turbo",
+        "Common-senseQA": "CommonsenseQA"
+      },
+      "explanation": "Removed duplicate 'CommonsenseQA' dataset. Kept only GPT-3.5-turbo as the main generation model (GPT-4-turbo-preview was only used for relevance scoring evaluation, not generation). Normalized model names to standard capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": false,
+    "automatic_metrics": [],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "AUROC",
+          "AUPRC",
+          "TPR",
+          "DER"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper uses AUROC, AUPRC, TPR, and DER to evaluate the OoK query detection system, NOT to evaluate the quality of generated text. These are detection metrics, not NLG evaluation metrics. Therefore, they should not be listed as automatic metrics for NLG evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_3.5_turbo",
+      "gpt_4_turbo_preview"
+    ],
+    "methods": [
+      "prompt-based relevance scoring",
+      "step-by-step reasoning with numerical scoring"
+    ],
+    "criteria": [
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "gpt-3.5-turbo": "GPT-3.5-turbo",
+        "gpt-4-turbo-preview": "GPT-4-turbo-preview"
+      },
+      "explanation": "Normalized model names to standard capitalization. The paper explicitly uses LLMs to score query-document relevance as a baseline comparison for their statistical method."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation of generated outputs is conducted in this paper. The evaluation focuses on statistical detection of out-of-knowledge queries."
+    }
+  },
+  "overall_notes": "This paper focuses on reliability evaluation of RAG systems through statistical testing for query-knowledge relevance. While it involves NLG (question answering), the main evaluation is on detecting out-of-knowledge queries rather than directly assessing generation quality. The LLM-as-judge component is used as a baseline comparison method, not as the primary evaluation approach."
+}

@@ -1,0 +1,137 @@
+{
+  "paper_id": "2024.emnlp-main.174",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Long-form Question Answering"
+    ],
+    "datasets": [
+      "QA-FEEDBACK",
+      "ASQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T5-small",
+      "T5-base",
+      "T5-large"
+    ],
+    "outputs": [
+      "long-form answers to ambiguous factual questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Longformer-base-4096"
+        ],
+        "outputs": [
+          "Long-form answers to factual questions"
+        ]
+      },
+      "normalized": {
+        "Other:Long-form Question Answering": "Other:Long-form Question Answering",
+        "long-form answers to ambiguous factual questions": "long-form answers to ambiguous factual questions"
+      },
+      "explanation": "Removed 'Other:Question Answering' as it's redundant with the more specific 'Long-form Question Answering'. Removed Longformer-base-4096 from models as it's used for reward modeling, not generation. Simplified outputs to the most descriptive form."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Relevance",
+      "Factuality",
+      "Completeness",
+      "F1 Score",
+      "Accuracy",
+      "KL Divergence"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "relevance",
+          "factuality",
+          "completeness",
+          "Relevance reward",
+          "Factuality reward",
+          "Completeness reward",
+          "binary classification accuracy"
+        ]
+      },
+      "normalized": {
+        "relevance": "Relevance",
+        "factuality": "Factuality",
+        "completeness": "Completeness",
+        "binary classification accuracy": "Accuracy"
+      },
+      "explanation": "Normalized metrics to standard capitalization. Simplified 'binary classification accuracy' to 'Accuracy'. Removed redundant 'reward' variants as they refer to the same evaluation criteria. Added 'Accuracy' as it's explicitly used to measure reward model performance."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Longformer-base-4096"
+        ],
+        "methods": [
+          "independent high-accuracy reward models"
+        ],
+        "criteria": [
+          "relevance",
+          "factuality",
+          "completeness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as the paper does not use LLMs as judges. The reward models mentioned are traditional classifiers (Longformer-based) trained for specific tasks, not LLM-based evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is conducted in this paper. All evaluation is done using automated reward models."
+    }
+  },
+  "overall_notes": "The paper focuses on RLHF training dynamics rather than traditional NLG evaluation. The main contribution is showing that moderately accurate reward models lead to better language model performance than highly accurate ones. All evaluation is automated using specialized reward models for relevance, factuality, and completeness. The metadata extraction was generally accurate but needed some normalization and removal of irrelevant items."
+}

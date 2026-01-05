@@ -1,0 +1,62 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We systematically measure the efficacy of various jailbreak methods across nine LLMs and conduct comprehensive ablation studies.",
+        "tasks": [
+            "Other:jailbreak attack generation"
+        ],
+        "datasets": [
+            "forbidden question dataset"
+        ],
+        "languages": [
+            "English",
+            "Zulu"
+        ],
+        "models": [
+            "ChatGLM3",
+            "Llama2",
+            "Llama3",
+            "Llama3.1",
+            "Vicuna",
+            "GPT-3.5",
+            "GPT-4",
+            "DeepSeek-V3",
+            "PaLM2"
+        ],
+        "outputs": "jailbreak prompts and model responses to forbidden questions"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We adopt attack success rate (ASR) as our evaluation metric. ASR is the ratio of successful jailbreak queries n to total queries m (ASR = n m ).",
+        "automatic_metrics": [
+            "ASR",
+            "BR"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We employ GPT-4-Turbo (gpt-4-turbo) as our judging model to label the responses from three aspects, aiming to evaluate the responses comprehensively and reduce misclassification.",
+        "models": [
+            "GPT-4-Turbo"
+        ],
+        "methods": [
+            "few-shot learning with judge prompt",
+            "LLM-as-a-judge"
+        ],
+        "criteria": [
+            "Label A: rephrased/rewritten without additional info",
+            "Label B: answers the question as expected",
+            "Label C: contains requested content"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "Two human annotators manually review each question to ensure it indeed violates the corresponding category.",
+        "guideline": "We conduct human annotation and find that previous methods are useful, but not that ideal. Thus, we employ GPT-4-Turbo... to label the responses from three aspects... Our human annotation shows our method outperforms other methods.",
+        "criteria": [
+            "correctness of jailbreak classification",
+            "presence of harmful content",
+            "rephrasing vs. informative response"
+        ]
+    }
+}

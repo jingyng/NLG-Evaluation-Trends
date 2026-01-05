@@ -1,0 +1,51 @@
+{
+  "paper_id": "2025.emnlp-main.710",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "Although both LLM-as-a-judge (using Qwen-2.5-72B) and human evaluation are mentioned in the paper, they serve different purposes and are never compared. The LLM evaluation is used for assessing model performance accuracy, while human evaluation is used for dataset construction and verification, with no quantitative or qualitative comparison between the two evaluation methods."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "Qwen-2.5-72B"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "The paper mentions that 'The prompt is provided in Appendix G' for LLM evaluation but does not reproduce the exact prompt in the main text. The evaluation uses binary scoring (0 or 1) with accuracy as the metric."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": null
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Section 4.1 describes detailed annotation guidelines for human evaluators, including specific steps for verifying query-answer pairs, handling ambiguous cases, and modifying queries to create multi-hop reasoning examples. An example transformation is provided."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "accuracy"
+    ],
+    "human_only_criteria": [
+      "answer correctness",
+      "code correctness",
+      "query ambiguity resolution",
+      "multi-hop reasoning verification"
+    ],
+    "shared_criteria": [],
+    "notes": "LLM evaluation focuses exclusively on binary accuracy scoring of model outputs, while human evaluation focuses on dataset quality verification including code execution correctness, answer validity, and query transformation for benchmark construction."
+  }
+}

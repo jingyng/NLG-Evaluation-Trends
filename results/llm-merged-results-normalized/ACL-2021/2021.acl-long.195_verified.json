@@ -1,0 +1,112 @@
+{
+  "paper_id": "2021.acl-long.195",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation",
+      "Text To Sql Generation"
+    ],
+    "datasets": [
+      "SPIDER",
+      "SPIDER SYN",
+      "WIKISQL",
+      "ATIS",
+      "GEOQUERY"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gnn",
+      "irnet",
+      "rat_sql",
+      "rat_sql+bert"
+    ],
+    "outputs": [
+      "SQL queries"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "RAT-SQL+BERT"
+        ]
+      },
+      "removed": {
+        "models": [
+          "RAT-SQL B",
+          "BERT-Attack"
+        ]
+      },
+      "normalized": {
+        "RAT-SQL B": "RAT-SQL+BERT",
+        "Text-to-SQL Generation": "Other:Text-to-SQL Generation"
+      },
+      "explanation": "Normalized model names to standard forms. Removed BERT-Attack as it's used for adversarial training, not as an NLG model. Added RAT-SQL+BERT as the main evaluated model."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT MATCH ACCURACY",
+      "COMPONENT F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "exact matching accuracy"
+        ]
+      },
+      "normalized": {
+        "exact matching accuracy": "exact match accuracy"
+      },
+      "explanation": "Consolidated 'exact matching accuracy' to standard 'exact match accuracy'. Kept 'component F1' as it's specifically mentioned for evaluating SQL components."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. BERT is used for embedding similarity but not for post-generation evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- detailed annotation guideline, principles, and some samples"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from 'No' to 'No' (no change in value, but corrected the metadata). The paper mentions annotation guidelines for creating Spider-Syn dataset, but these are for dataset construction, not for human evaluation of generated SQL queries. No human evaluation of model outputs was conducted."
+    }
+  },
+  "overall_notes": "This paper focuses on text-to-SQL generation robustness against synonym substitution. It uses automatic metrics (exact match accuracy, component F1) but no human evaluation or LLM-as-judge evaluation. The main contribution is the Spider-Syn dataset and robustness evaluation methods. The extraction was generally accurate but needed some normalization of model names and clarification that annotation guidelines were for dataset creation, not output evaluation."
+}

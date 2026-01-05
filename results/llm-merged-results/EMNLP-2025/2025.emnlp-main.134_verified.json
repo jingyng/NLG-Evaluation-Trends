@@ -1,0 +1,152 @@
+{
+  "paper_id": "2025.emnlp-main.134",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Pronunciation Assessment",
+      "Other:Pronunciation Feedback Generation"
+    ],
+    "datasets": [
+      "Speechocean762",
+      "MultiPA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-4o-mini",
+      "Gemini-2.0-flash",
+      "Whisper large-v3-en",
+      "Whisper tiny",
+      "Charsiu",
+      "Phonemize"
+    ],
+    "outputs": [
+      "Assessment scores and reasoning for pronunciation",
+      "Accuracy score, Fluency score, and textual Reasoning feedback",
+      "Textual feedback on pronunciation accuracy and fluency, including scores and reasoning"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:pronunciation assessment",
+          "Other:feedback generation"
+        ],
+        "models": [
+          "gpt-4o-mini",
+          "gemini-2.0-flash"
+        ]
+      },
+      "normalized": {
+        "Other:Pronunciation Feedback Generation": "Other:Pronunciation Feedback Generation",
+        "Other:Pronunciation feedback generation": "Other:Pronunciation Feedback Generation",
+        "Other:pronunciation assessment": "Other:Pronunciation Assessment",
+        "GPT-4o-mini": "GPT-4o-mini",
+        "gemini-2.0-flash": "Gemini-2.0-flash"
+      },
+      "explanation": "Normalized task names to consistent capitalization, removed duplicate/redundant task entries, normalized model names to standard capitalization"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Pearson Correlation Coefficient (PCC)",
+      "Smith-Waterman similarity"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Pearson correlation coefficient",
+          "Pearson correlation coefficient (PCC)"
+        ]
+      },
+      "normalized": {
+        "Pearson correlation coefficient": "Pearson Correlation Coefficient (PCC)",
+        "Pearson correlation coefficient (PCC)": "Pearson Correlation Coefficient (PCC)"
+      },
+      "explanation": "Removed duplicate PCC entries and normalized to consistent capitalization"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "gpt-4o-mini",
+          "gemini-2.0-flash"
+        ],
+        "methods": [
+          "zero-shot assessment with structured input and prompt",
+          "pairwise evaluation of phoneme sequences",
+          "scoring based on detailed guidelines"
+        ],
+        "criteria": [
+          "accuracy",
+          "fluency",
+          "reasoning"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since LLMs are used AS the generation system, not AS judges/evaluators. The LLMs generate the assessment outputs themselves."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Hallucination refers to cases where the reasoning clearly misrepresents the audio, such as stating 'closely matches standard native speaker articulation' when the pronunciation is clearly nonstandard.",
+      "Correct indicates reasoning that aligns with the audio but does not provide actionable details; for example, 'The accuracy score of 3 reflects a moderate level of pronunciation correctness. While there are identifiable phonetic errors, the core message is still comprehensible.'",
+      "Constructive reasoning identifies specific areas for improvement, such as '**calls us** is recognized as **cars**'",
+      "Irrelevant refers to reasoning that is unrelated to pronunciation, such as comments on grammar or the transcript."
+    ],
+    "criteria": [
+      "hallucination",
+      "correct",
+      "constructive",
+      "irrelevant"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators classified each reasoning output into the categories based on correctness and usefulness.",
+          "Hallucination refers to cases where the reasoning clearly misrepresents the audio... Correct indicates reasoning that aligns with the audio but does not provide actionable details... Constructive reasoning identifies specific areas for improvement... Irrelevant refers to reasoning that is unrelated to pronunciation..."
+        ],
+        "criteria": [
+          "accuracy",
+          "fluency",
+          "correctness",
+          "constructiveness",
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed redundant guideline text and criteria that were not part of the human evaluation rubric. Kept only the four main categories used for annotation."
+    }
+  },
+  "overall_notes": "The paper introduces TextPA, a zero-shot pronunciation assessment system that uses LLMs to generate pronunciation feedback (scores + reasoning) from textual representations of speech signals. The LLMs (GPT-4o-mini, Gemini-2.0-flash) are used AS the generation system, not as external judges, so Question 3 should remain 'No'. The human evaluation was a manual annotation of the reasoning quality into four categories. The extraction was generally good but needed normalization and removal of duplicates."
+}

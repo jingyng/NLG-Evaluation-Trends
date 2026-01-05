@@ -1,0 +1,81 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We demonstrate the application of our approach to the concrete task of generating after-visit care instructions from medical professional-patient dialogue.",
+            "We tackle the problem of taking the relevant section in the conversations corresponding to the care plan as input and automatically derive care plan instructions that the medical professionals can approve.",
+            "We tackle the problem of after-visit care instruction generation from a medical dialog between patient and medical professional."
+        ],
+        "tasks": [
+            "Text Summarization",
+            "Other:Medical Instruction Generation",
+            "Dialogue Generation"
+        ],
+        "datasets": [
+            "custom dataset of 14K medical professional-patient encounters with paired dialogue and care plans",
+            "internal primary care dialogue-careplan dataset (14K encounters, 48K source‑reference pairs)",
+            "14K medical professional-patient encounters"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "transformer sequence-to-sequence model",
+            "Transformer seq2seq (FairSeq)",
+            "Dynamic Beam Allocation (DBA)",
+            "Utilization‑regularized models (Unweighted, Concept weighted, Semantic weighted)",
+            "transformer_iwslt_de_en architecture in FairSeq"
+        ],
+        "outputs": [
+            "generated after-visit care instructions",
+            "care plan instructions (text)",
+            "after-visit care instructions"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We use BERTScore to estimate the similarity between reference and candidate, GPT-2 perplexity for to assess the coherence (fluency) of the candidate, and concept overlap to measure the percentage of medical concepts used in both candidate in reference.",
+            "We use BERTScore to estimate the similarity between reference and candidate, GPT-2 perplexity for ... to assess the coherence (fluency) of the candidate, and concept overlap to measure the percentage of medical concepts used in both candidate and reference.",
+            "We use BERTScore to estimate the similarity between reference and candidate, GPT-2 perplexity for to assess the coherence (fluency) of the candidate, and concept overlap to measure the percentage of medical concepts used in both candidate in reference."
+        ],
+        "automatic_metrics": [
+            "BERTScore",
+            "Concept-F1",
+            "GPT-2 Perplexity",
+            "Concept Overlap (Concept-F1)",
+            "Semantic Relative Error",
+            "concept overlap"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [],
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "To get a more precise medical assessment, we conduct human evaluation with medical experts.",
+            "We conduct human evaluation with medical experts. We randomly sample 100 dialogues from the test set and generate candidates with each model... We ask five doctors to evaluate the relevance to the dialogue, medical usability (if the generated instruction can be used in any care plan), and grammatical correctness (fluency) on a scale from 1 to 5. Additionally, we ask assessors to indicate degenerate generations.",
+            "We conduct human evaluation with medical experts. We randomly sample 100 dialogues from the test set and generate candidates with each model setup setting α = 1.0. We ask five doctors to evaluate the relevance to the dialogue, medical usability (if the generated instruction can be used in any care plan), and grammatical correctness (fluency) on a scale from 1 to 5."
+        ],
+        "guideline": [
+            "We ask five doctors to evaluate the relevance to the dialogue, medical usability (if the generated instruction can be used in any care plan), and grammatical correctness (fluency) on a scale from 1 to 5. Additionally, we ask assessors to indicate degenerate generations, i.e., premature or repetitive sequences.",
+            "Medical experts rate each generated instruction on relevance, medical usability, fluency, and indicate whether the output is degenerate.",
+            "We ask five doctors to evaluate the relevance to the dialogue, medical usability (if the generated instruction can be used in any care plan), and grammatical correctness (fluency) on a scale from 1 to 5. Additionally, we ask assessors to indicate degenerate generations, i.e., premature or repetitive sequences."
+        ],
+        "criteria": [
+            "relevance",
+            "usability",
+            "fluency",
+            "degeneracies",
+            "Relevance",
+            "Medical Usability",
+            "Fluency",
+            "Degeneracies"
+        ]
+    }
+}

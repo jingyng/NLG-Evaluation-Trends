@@ -1,0 +1,178 @@
+{
+  "paper_id": "2025.naacl-long.465",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Other:Extractive QA",
+      "Other:Multiple-choice QA",
+      "Other:Textual Entailment",
+      "Other:Topic Classification",
+      "Other:Sentence Completion",
+      "Other:Chain-of-Thought Reasoning"
+    ],
+    "datasets": [
+      "CultureInstruct"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BONITO",
+      "LLaMA-3.1-Instruct",
+      "Qwen2-Instruct",
+      "Gemma2-Instruct",
+      "Mistral-0.3-Instruct",
+      "OLMO"
+    ],
+    "outputs": [
+      "instruction data for cultural knowledge tasks",
+      "instruction samples (prompts and answers)",
+      "generated instruction data"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Instruction Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "CULTUREINSTRUCT": "CultureInstruct",
+        "LLAMA-3.1-INSTRUCT": "LLaMA-3.1-Instruct",
+        "QWEN2-INSTRUCT": "Qwen2-Instruct",
+        "GEMMA2-INSTRUCT": "Gemma2-Instruct",
+        "MISTRAL-0.3-INSTRUCT": "Mistral-0.3-Instruct",
+        "Other:Chain-of-Thought Reasoning": "Other:Chain-of-Thought Reasoning",
+        "Other:Extractive QA": "Other:Extractive QA",
+        "Other:Multiple-choice QA": "Other:Multiple-choice QA",
+        "Other:Textual Entailment": "Other:Textual Entailment",
+        "Other:Topic Classification": "Other:Topic Classification",
+        "Other:Sentence Completion": "Other:Sentence Completion"
+      },
+      "explanation": "Removed 'Instruction Generation' as it's part of the data creation pipeline, not an NLG task being evaluated. Normalized dataset and model names to standard capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy",
+      "Cultural Bias Score",
+      "Jensen-Shannon Divergence",
+      "F1",
+      "ROUGE-L"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1 score"
+        ]
+      },
+      "normalized": {
+        "Accuracy": "Accuracy",
+        "Cultural Bias Score": "Cultural Bias Score",
+        "Cultural Bias Score (CBS)": "Cultural Bias Score",
+        "Jensen-Shannon divergence": "Jensen-Shannon Divergence",
+        "F1": "F1",
+        "F1 score": "F1",
+        "ROUGE-L": "ROUGE-L"
+      },
+      "explanation": "Consolidated 'F1 score' and 'F1' into just 'F1'. Kept ROUGE-L as it's a distinct variant from ROUGE-1/ROUGE-2."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "LLaMA-3.1-Instruct"
+    ],
+    "methods": [
+      "Majority voting",
+      "Quality labeling via prompt"
+    ],
+    "criteria": [
+      "Instruction Quality",
+      "Cultural Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLAMA-3.1-INSTRUCT 70B"
+        ],
+        "methods": [
+          "Prompting with majority voting",
+          "Prompting LLAMA-3.1-INSTRUCT to assign quality and cultural‑relevance ratings"
+        ],
+        "criteria": [
+          "instruction quality",
+          "cultural relevance"
+        ]
+      },
+      "normalized": {
+        "LLAMA-3.1-INSTRUCT 70B": "LLaMA-3.1-Instruct",
+        "Prompting with majority voting": "Majority voting",
+        "Prompting LLAMA-3.1-INSTRUCT to assign quality and cultural‑relevance ratings": "Quality labeling via prompt",
+        "instruction quality": "Instruction Quality",
+        "cultural relevance": "Cultural Relevance",
+        "Cultural-Relevance": "Cultural Relevance"
+      },
+      "explanation": "Simplified model name by removing specific version (70B), normalized method names, and criteria to title case."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators labeled each generated instruction according to the same quality rubric used for the model (e.g., Poor, Good, Excellent)"
+    ],
+    "criteria": [
+      "Instruction Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators labeled each generated instruction according to the same quality rubric used for the model (e.g., Poor, Good, Excellent)"
+        ],
+        "criteria": [
+          "Instruction Quality"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Following the identical instruction for quality judgment",
+          "We prompt LLAMA-3.1-INSTRUCT 70B for its quality labels (instruction prompt template shown in Figure ) and have each human annotator label the samples, following the identical instruction given to the model."
+        ],
+        "criteria": [
+          "Instruction Quality",
+          "Cultural-Relevance"
+        ]
+      },
+      "normalized": {
+        "instruction quality": "Instruction Quality",
+        "Instruction Quality": "Instruction Quality"
+      },
+      "explanation": "Condensed guidelines into a clear description. Kept only 'Instruction Quality' as criterion since cultural relevance was rated by the LLM judge, not by human evaluators."
+    }
+  },
+  "overall_notes": "The paper focuses on creating and evaluating a cultural instruction dataset (CultureInstruct). NLG tasks are used for data creation but evaluation focuses on cultural knowledge benchmarks rather than traditional NLG quality metrics. Human evaluation was conducted on instruction quality (234 samples with 5 annotators) to validate the LLM-as-judge approach. The paper uses LLM-as-judge to evaluate instruction quality and cultural relevance, with human evaluation serving as validation."
+}

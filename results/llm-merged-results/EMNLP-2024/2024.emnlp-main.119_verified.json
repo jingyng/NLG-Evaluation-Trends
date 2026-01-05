@@ -1,0 +1,144 @@
+{
+  "paper_id": "2024.emnlp-main.119",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering"
+    ],
+    "datasets": [
+      "AmbigQA",
+      "SituatedQA",
+      "AmbigTriviaQA",
+      "AmbigWebQuestions",
+      "AmbigFreebaseQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-2-7B",
+      "LLaMA-2-13B",
+      "Mistral-7B"
+    ],
+    "outputs": [
+      "Answers to unambiguous questions",
+      "Clarification requests for ambiguous questions",
+      "Disambiguated queries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "SituatedQA-Geo",
+          "SituatedQA-Temp",
+          "TriviaQA",
+          "WebQuestions",
+          "FreebaseQA"
+        ],
+        "languages": [],
+        "models": [
+          "LLaMA2 7B",
+          "LLaMA2 13B",
+          "LLAMA2 7B",
+          "LLAMA2 13B",
+          "MISTRAL 7B"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "LLAMA2 7B": "LLaMA-2-7B",
+        "LLAMA2 13B": "LLaMA-2-13B",
+        "LLaMA2 7B": "LLaMA-2-7B",
+        "LLaMA2 13B": "LLaMA-2-13B",
+        "MISTRAL 7B": "Mistral-7B"
+      },
+      "explanation": "Removed dataset splits (SituatedQA-Geo/Temp) and source datasets (TriviaQA, WebQuestions, FreebaseQA) that weren't directly used. Normalized model names to standard format. Kept only the freshly created ambiguous datasets used for evaluation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "ROUGE-L"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1 Score",
+          "F1 u",
+          "F1 a"
+        ]
+      },
+      "normalized": {
+        "RougeL": "ROUGE-L",
+        "F1 Score": "F1",
+        "F1 u": "F1",
+        "F1 a": "F1"
+      },
+      "explanation": "Simplified F1 variants to base F1 metric. Normalized ROUGE-L capitalization. The paper uses F1 scores for both unambiguous and ambiguous queries."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "gpt-4o"
+        ],
+        "methods": [
+          "secondary verification",
+          "ambiguity verification"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "GPT-4o was only used for dataset construction (ambiguating questions), not for evaluating model outputs. No LLM was used as a judge to assess generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "An ambiguous question has multiple valid answers. Is the following question ambiguous with multiple possible answers? Answer only in Yes or No."
+    ],
+    "criteria": [
+      "ambiguity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "ambiguity"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added 'ambiguity' as the evaluation criterion since humans validated whether questions were ambiguous. The paper mentions human annotators for dataset construction and validation."
+    }
+  },
+  "overall_notes": "The extraction was mostly accurate. Main changes involved normalizing model names, removing dataset splits/sources not directly evaluated, and correcting the human evaluation answer from No to Yes since humans validated ambiguous questions during dataset construction. The paper focuses on question answering with ambiguity handling as a core NLG task."
+}

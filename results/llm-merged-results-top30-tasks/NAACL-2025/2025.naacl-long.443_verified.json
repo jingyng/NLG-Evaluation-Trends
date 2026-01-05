@@ -1,0 +1,117 @@
+{
+  "paper_id": "2025.naacl-long.443",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "HH RLHF",
+      "SAFERLHF",
+      "MT-Bench",
+      "ALPACAEVAL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_13b",
+      "llama_3_8b"
+    ],
+    "outputs": [
+      "Generated responses for alignment tuning and evaluation",
+      "Human-preferred responses in dialogue settings"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "datasets": [
+          "safeRLHF"
+        ],
+        "models": [
+          "Llama3-8b"
+        ]
+      },
+      "normalized": {
+        "Llama3-8b": "Llama-3-8B",
+        "safeRLHF": "SafeRLHF"
+      },
+      "explanation": "Removed duplicate 'safeRLHF' (normalized to SafeRLHF) and normalized model capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MT BENCH",
+      "ALPACAEVAL"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "MT-Bench score",
+          "AlpacaEval win rate",
+          "MT-Bench average score"
+        ]
+      },
+      "normalized": {
+        "MT-Bench score": "MT-Bench",
+        "AlpacaEval win rate": "AlpacaEval",
+        "MT-Bench average score": "MT-Bench"
+      },
+      "explanation": "Simplified metric variants to base form as per guidelines."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "LLM-as-a-judge scoring",
+      "pairwise evaluation",
+      "win-rate comparison"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Harmlessness"
+    ],
+    "changes_made": {
+      "added": {
+        "methods": [
+          "win-rate comparison"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Llama3-8b"
+        ],
+        "methods": [
+          "LLM-as-a-judge",
+          "reject sampling"
+        ],
+        "criteria": [
+          "overall quality"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed Llama3-8b (used for clustering, not judging), removed 'LLM-as-a-judge' (synonym of LLM-as-a-judge scoring), removed undocumented 'overall quality' criterion, added 'win-rate comparison' method mentioned for AlpacaEval."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluations conducted; paper uses automatic metrics and LLM judges only."
+    }
+  },
+  "overall_notes": "The paper focuses on alignment tuning methods for LLMs using preference optimization. It evaluates generated dialogue responses using automatic benchmarks (MT-Bench, AlpacaEval) and employs GPT-4 as an LLM judge for scoring responses. No human evaluation is conducted."
+}

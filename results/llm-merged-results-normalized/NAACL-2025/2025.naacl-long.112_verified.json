@@ -1,0 +1,153 @@
+{
+  "paper_id": "2025.naacl-long.112",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Event Graph Generation",
+      "Event Relation Graph Generation"
+    ],
+    "datasets": [
+      "NEW YORK TIMES CORPUS",
+      "NYT SEG"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3",
+      "gpt_4",
+      "gpt_3.5",
+      "mixtral",
+      "llama_3_70b_instruct",
+      "flan_t_5"
+    ],
+    "outputs": [
+      "Salient event relation graphs",
+      "Event relation graphs with hierarchical, temporal, and causal relations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "New York Times corpus": "New York Times Corpus",
+        "event relation graphs (hierarchical, temporal, causal) with salient events": "Event relation graphs with hierarchical, temporal, and causal relations"
+      },
+      "explanation": "Minor normalization of dataset name and output description consolidation"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "HUNGARIAN GRAPH SIMILARITY HGS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Precision-oriented HGS",
+          "Recall-oriented HGS",
+          "PHGS",
+          "RHGS"
+        ]
+      },
+      "normalized": {
+        "Hungarian Graph Similarity": "Hungarian Graph Similarity (HGS)"
+      },
+      "explanation": "Simplified metric variants to base form HGS, as PHGS and RHGS are variants/precision-recall components of the core HGS metric"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "llama_3"
+    ],
+    "methods": [
+      "Hallucination Grader"
+    ],
+    "criteria": [
+      "Groundedness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Llama3-70B-instruct",
+          "GPT-4",
+          "GPT-3.5",
+          "Mixtral"
+        ],
+        "methods": [
+          "pairwise evaluation"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "hallucination grader": "Hallucination Grader",
+        "groundedness": "Groundedness"
+      },
+      "explanation": "Kept only actual LLM-as-judge model (Llama3), removed generation models, specified exact method and criteria used for evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Participants were asked to identify salient events using summarization test",
+      "Participants were asked to identify event relation triplets (source event, relation type, target event)",
+      "Provided definitions and guidelines for event saliency features: Frequency, First appearance, Stretch size"
+    ],
+    "criteria": [
+      "Correctness",
+      "Saliency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Participants were asked to identify event relation triplets (source event, relation type, target event)"
+        ],
+        "criteria": [
+          "Event saliency"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Participants were asked whether the relation edges are correct.",
+          "We asked them whether the relation edges are correct.",
+          "The salient events should be the events they would include in the summary of the given article. We provide some prominent features for helping annotators to identify salient events: Frequency, First appearance, Stretch size."
+        ],
+        "criteria": [
+          "Frequency",
+          "First appearance",
+          "Stretch size"
+        ]
+      },
+      "normalized": {
+        "correctness": "Edge correctness"
+      },
+      "explanation": "Consolidated and cleaned up guideline descriptions, moved saliency features from criteria to guideline as they are features used to identify events, not evaluation criteria themselves"
+    }
+  },
+  "overall_notes": "The paper focuses on event graph generation evaluation, which involves NLG tasks. The extraction was generally accurate but needed some normalization and cleanup to avoid redundancy and focus on core evaluation elements. The paper evaluates both generated event graphs (NLG outputs) and uses LLMs for quality assessment through hallucination grading."
+}

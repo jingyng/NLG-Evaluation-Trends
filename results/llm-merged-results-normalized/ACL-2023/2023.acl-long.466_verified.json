@@ -1,0 +1,154 @@
+{
+  "paper_id": "2023.acl-long.466",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Argument Generation"
+    ],
+    "datasets": [
+      "BASH DATASET",
+      "ASPECT CONTROLLED REDDIT AND COMMONCRAWL CORPUS",
+      "SENTENTIAL ARGUMENT MINING",
+      "ARGUMENTS TO KEY POINTS",
+      "WEBIS DATASETS",
+      "p2 DATASET 69 428 EXAMPLES",
+      "CURATED ARGU DATASET 69 428 EXAMPLES"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "argu",
+      "argu_mono",
+      "argu_dual",
+      "argspan",
+      "argspanscheme",
+      "bart",
+      "roberta"
+    ],
+    "outputs": [
+      "Argument texts",
+      "Generated argument texts conditioned on stance and argument scheme",
+      "Factual arguments with specified stance and argument scheme"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "RoBERTa"
+        ],
+        "outputs": [
+          "Argument texts"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Parallel Corpus (PC) from Reddit, CommonCrawl, Webis",
+          "BASN",
+          "Webis"
+        ]
+      },
+      "normalized": {
+        "Roberta": "RoBERTa",
+        "argument texts": "Argument texts",
+        "Generated argument texts conditioned on stance and argument scheme, incorporating factual variables": "Generated argument texts conditioned on stance and argument scheme"
+      },
+      "explanation": "Normalized model capitalization (Roberta → RoBERTa), simplified output descriptions, removed redundant dataset mentions that duplicated existing dataset names"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "FACT FAITHFULNESS",
+      "ENTAILMENT",
+      "CONTRADICTION",
+      "F1",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "F1",
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Fact Faithfulness (semantic similarity)",
+          "F1 (span detection)",
+          "Accuracy (span grounding)"
+        ]
+      },
+      "normalized": {
+        "Rouge-L": "ROUGE",
+        "Fact Faithfulness (semantic similarity)": "Fact Faithfulness"
+      },
+      "explanation": "Normalized ROUGE to base form, simplified metric variants to base names, added F1 and Accuracy which were used for span detection/grounding evaluation"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM-as-judge evaluation was conducted"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluators rated generated arguments on five metrics using a worksheet with 50 random examples from test set",
+      "Inter-annotator agreement measured with Cohen's kappa"
+    ],
+    "criteria": [
+      "Fluency",
+      "Stance",
+      "Appropriateness",
+      "Faithfulness",
+      "Logic"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Inter-annotator agreement measured with Cohen's kappa"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "fluency",
+          "stance appropriateness",
+          "scheme appropriateness",
+          "fact faithfulness",
+          "logical coherence"
+        ]
+      },
+      "normalized": {
+        "Stance Appropriateness (Stance)": "Stance Appropriateness",
+        "Scheme Appropriateness (Scheme)": "Scheme Appropriateness",
+        "Fact Faithfulness (Fact)": "Fact Faithfulness",
+        "Logical Coherence (Logic)": "Logical Coherence"
+      },
+      "explanation": "Normalized criteria names to consistent title case without parentheticals, consolidated guideline information"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on argument generation with explicit control over stance and argument schemes. The ArgU system uses a two-step generation process (template then argument). Evaluation includes both automatic metrics (BLEU, ROUGE, etc.) and comprehensive human evaluation across five specific criteria. No LLM-as-judge evaluation was conducted."
+}

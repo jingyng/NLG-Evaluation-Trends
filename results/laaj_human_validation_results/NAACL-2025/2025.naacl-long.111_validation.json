@@ -1,0 +1,75 @@
+{
+  "paper_id": "2025.naacl-long.111",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-based evaluators with human evaluation using correlation analysis on the same datasets and outputs, reporting consistency metrics between LLM and human scores across different evaluation scenarios"
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "gpt-3.5-turbo",
+      "gpt-4-turbo",
+      "gpt-4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt template shown in Appendix Table 3 with exact instructions and rating format requirements"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "variable (typically 3 per sample)",
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "not_provided",
+      "rubric_or_examples_shown": "no",
+      "notes": "Mentioned that LLM prompts used definitions from original datasets when available, but specific human evaluation guidelines are not detailed"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Spearman correlation",
+      "Pearson correlation",
+      "Kendall's tau"
+    ],
+    "shared_criteria": [
+      "all evaluation aspects from original datasets"
+    ],
+    "sample_size": {
+      "total_generated": "variable across 30 meta-evaluation datasets (D1-D30)",
+      "validated_by_both": "all instances used for both LLM and human evaluation",
+      "notes": "Uses 6 evaluation datasets with 30 subsets, covering summarization, translation, story generation, dialogue, and data-to-text tasks"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": "Not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "The paper focuses primarily on comparing different correlation measures for meta-evaluation rather than providing specific numerical correlations between LLM and human judgments. Results show that measures using system-level grouping or Kendall's tau are least sensitive to score granularity differences."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "all aspects from original datasets (fluency, coherence, relevance, etc.)"
+    ],
+    "notes": "LLMs were prompted to evaluate outputs based on the same aspect definitions used in the original human evaluation datasets. The validation focuses on overall correlation patterns rather than specific criteria-level comparisons."
+  }
+}

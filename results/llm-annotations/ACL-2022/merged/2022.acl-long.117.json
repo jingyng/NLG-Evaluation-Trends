@@ -1,0 +1,77 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We then use a sequence-to-sequence question generation model to generate corresponding questions to these passages and answers.",
+            "We use a sequence-to-sequence question generation model ... to generate corresponding questions to these passages and answers.",
+            "We use a T5  model fine-tuned on (q, c, a) triples from Natural Questions, using context passages as input with the answer marked with special tokens. We use the trained model to generate questions (q 1 , q 2 , . . . q k ) for each of the the retrieved set of alternate contexts and answers, ((c 1 , a 1 ), (c 2 , a 2 ), . . . (c k , a k ))."
+        ],
+        "tasks": [
+            "Other:Question Generation"
+        ],
+        "datasets": [
+            "Natural Questions"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "T5",
+            "REALM",
+            "Ensemble of T5 reading‑comprehension models"
+        ],
+        "outputs": [
+            "generated questions",
+            "Generated counterfactual questions (q'), contexts (c') and answer spans (a')",
+            "questions"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "Round-trip consistency uses an existing QA model to answer the generated questions... We measure the fluency and correctness of generated questions... We use QED to categorize our data...",
+            "We quantify correctness in the generated dataset by manually annotating a samples of 100 (q , c , a ) triples (see Appendix B). The proportion of noise varies from 30% before noise filtering and 25% after noise filtering using an ensemble of models ( §3.4)."
+        ],
+        "automatic_metrics": [
+            "Round-trip consistency",
+            "Edit distance",
+            "QED decomposition",
+            "round-trip consistency",
+            "edit distance",
+            "exact-match scores",
+            "F1 scores"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": [
+            "Round-trip consistency uses an existing QA model to answer the generated questions, ensuring that the predicted answer is consistent with the target answer provided to the question generator."
+        ],
+        "models": [
+            "T5"
+        ],
+        "methods": [
+            "round-trip consistency"
+        ],
+        "criteria": [
+            "correctness"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We manually annotate a subset of 100 generated questions, and find that 96% of these are fluent. ... We quantify correctness in the generated dataset by manually annotating a samples of 100 (q', c', a') triples",
+            "We manually annotate a subset of 100 generated questions, and find that 96% of these are fluent. ... We also manually annotate 100 (q, c, a) triples for correctness, observing 30% noise before filtering and 25% after.",
+            "We manually annotate a subset of 100 generated questions, and find that 96% of these are fluent."
+        ],
+        "guideline": [
+            "Fluency measures whether the generated text is grammatically correct and semantically meaningful. Correctness measures if the generated question q' and context, alternate answer pairs (c', a') are aligned, i.e. the question is answerable given context c' and a' is that answer.",
+            "Annotators judged each generated question for fluency (grammaticality and meaningfulness) and for correctness (whether the question is answerable given the passage and whether the provided answer matches).",
+            "We manually annotate a subset of 100 generated questions, and find that 96% of these are fluent."
+        ],
+        "criteria": [
+            "fluency",
+            "correctness"
+        ]
+    }
+}

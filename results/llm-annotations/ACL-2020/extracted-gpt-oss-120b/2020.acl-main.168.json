@@ -1,0 +1,49 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "Given a method, its corresponding comment, and an updated version of the method, the task is to update the comment so that it is consistent with the code in the new method. ... We propose an approach that can automatically suggest comment updates when the associated methods are changed.",
+        "tasks": [
+            "Other:Comment Update"
+        ],
+        "datasets": [
+            "GitHub Java @return comment dataset (7,239 examples)",
+            "Large method/@return comment pair dataset (103,473 examples)"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Edit model (two-layer bidirectional GRU encoder for code edits and comment, GRU decoder with pointer network)",
+            "Generation model (two-layer bidirectional GRU encoder, attention‑based GRU decoder with copy mechanism)"
+        ],
+        "outputs": "Updated @return comments that reflect code changes"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "We compute exact match, i.e., the percentage of examples for which the model prediction is identical to the reference comment C new. ... We also report two prevailing language generation metrics: METEOR, and average sentence‑level BLEU‑4. ... we also include two text‑editing metrics to measure how well our system learns to edit: SARI, ... GLEU.",
+        "automatic_metrics": [
+            "Exact Match",
+            "METEOR",
+            "BLEU-4",
+            "SARI",
+            "GLEU"
+        ]
+    },
+    "answer_3": {
+        "answer": "No",
+        "quote": "",
+        "models": [],
+        "methods": [],
+        "criteria": []
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "Our study aims to reflect how a comment update system would be used in practice... we asked a user to select the most appropriate updated comment from a list of suggestions, given C old as well as the diff between M old and M new... Nine students (8 graduate/1 undergraduate) and one full‑time developer ... participated in our study.",
+        "guideline": "Participants were shown the old comment and the code diff, then asked to select the most appropriate updated comment (or None) from up to three model suggestions.",
+        "criteria": [
+            "relevance",
+            "preservation of existing information",
+            "correctness of the update"
+        ]
+    }
+}

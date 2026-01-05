@@ -1,0 +1,90 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "This paper focuses on assisting humans in supervising LMs on complex problems by automated task decomposition.",
+            "We use GPT-4 (OpenAI, 2023) as our default backbone model M for code generation and decomposition... We conduct experiments with the problems from two widely adopted competition-level code generation benchmarks, namely APPS and Code-Contests.",
+            "We adopt a propose-and-repair pipeline to obtain labels for code generation."
+        ],
+        "tasks": [
+            "Code Generation"
+        ],
+        "datasets": [
+            "APPS",
+            "Code-Contests"
+        ],
+        "languages": [
+            "English",
+            "Python"
+        ],
+        "models": [
+            "GPT-4",
+            "GPT-3.5-turbo",
+            "Code-LLaMA",
+            "Code-LLaMA-13B"
+        ],
+        "outputs": [
+            "decomposed code solutions",
+            "decomposed code solutions (functions/subtasks) and repaired program implementations",
+            "decomposed code solutions for competitive programming problems"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We measure the supervision quality in competitive programming by programs' passing rates on unit test cases. Specifically, we aggregate the program's performance on test cases with two metrics. Test Case Average Accuracy computes the average fraction of test cases passed among all the test cases. Strict Accuracy computes the average fraction of programs that pass all test cases.",
+            "Metric We measure the supervision quality in competitive programming by programs' passing rates on unit test cases. Specifically, we aggregate the program's performance on test cases with two metrics. Test Case Average Accuracy computes the average fraction of test cases passed among all the test cases. Strict Accuracy computes the average fraction of programs that pass all test cases.",
+            "We measure the supervision quality in competitive programming by programs' passing rates on unit test cases. Specifically, we aggregate the program's performance on test cases with two metrics. Test Case Average Accuracy computes the average fraction of test cases passed among all the test cases. Strict Accuracy computes the average fraction of programs that pass all test cases."
+        ],
+        "automatic_metrics": [
+            "Test Case Average Accuracy",
+            "Strict Accuracy",
+            "Cyclomatic Complexity"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "We evaluate the effectiveness of our ranking model π_rank in predicting the assistive value of decompositions.",
+            "We evaluate the effectiveness of our ranking model π_rank in predicting the assistive value of decompositions. We construct paired decompositions annotated with real assistive value labels as the test data. The results shown in Table indicate that LLMs can learn to select higher-AssistV decomposition for assisting humans via in-context learning.",
+            "Given a question Q, and a pair of decomposed solutions A 1 d and A 2 d , we adopt the following four methods to predict which decomposed solution leads to higher assistive value: ... Few-shot (π rank ): prompt a code language model M to select a more effective decomposition in a few-shot setting, where the few-shot demonstrations are collected from the feedback of real human labelers as illustrated in Section 2."
+        ],
+        "models": [
+            "GPT-3.5-turbo",
+            "GPT-4"
+        ],
+        "methods": [
+            "pairwise evaluation",
+            "pairwise ranking",
+            "few-shot prompting",
+            "Few-shot (π rank )",
+            "Zero-shot"
+        ],
+        "criteria": [
+            "higher assistive value",
+            "assistive value",
+            "human repair performance"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We also ask labelers to consider whether the decomposition is helpful for them to repair the program in the post-survey.",
+            "We recruit 30 Python programmers, including 11 experts and 19 non-experts, to repair model-generated program solutions for competitive coding problems, resulting in a total of 177 worker hours... We measure the time required to collect repaired programs with 68% test case accuracy and compare it across conditions.",
+            "We recruit 30 Python programmers, including 11 experts and 19 nonexperts, to repair model-generated program solutions for competitive coding problems, resulting in a total of 177 worker hours."
+        ],
+        "guideline": [
+            "Labelers rate the helpfulness of the decomposition.",
+            "Annotators repaired generated programs and were evaluated on repair time and test case accuracy (average and strict).",
+            "Labeling instruction: You are given an algorithmic coding problem and a model-generated solution. job is to debug the solution and improve its accuracy. ... Review your debugging process and answer the following questions. • Fixed Bugs: What bugs have you fixed during debugging? • Critique on Decomposition: how does the current decomposition impede or improve your debugging efficiency? • Other Assistance Forms: what other assistance forms do you need based on your debugging experience?"
+        ],
+        "criteria": [
+            "helpfulness",
+            "repair time",
+            "test case accuracy",
+            "strict accuracy",
+            "debugging efficiency",
+            "helpfulness of decomposition"
+        ]
+    }
+}

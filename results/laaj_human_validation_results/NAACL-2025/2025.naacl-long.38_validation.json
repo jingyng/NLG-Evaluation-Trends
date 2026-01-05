@@ -1,0 +1,87 @@
+{
+  "paper_id": "2025.naacl-long.38",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM-generated feedback against human judgments by comparing correlation scores with human composite scores from the UniSumEval dataset, reporting both summary-level and system-level Spearman correlation metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "llama_3_8b_instruct",
+      "llama_3_70b_instruct"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts provided in appendix tables for different configurations (C1-C4), including detailed instruction formats and JSON output requirements"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed annotation protocols provided including fact verification and key-fact alignment tasks, following established literature guidelines"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "ranking_comparison"
+    ],
+    "validation_metrics": [
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "faithfulness",
+      "completeness",
+      "conciseness"
+    ],
+    "sample_size": {
+      "total_generated": 14000,
+      "validated_by_both": null,
+      "notes": "Validation uses human composite scores from UniSumEval dataset as ground truth, but exact size of validation subset not explicitly stated"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": null,
+        "criterion": "composite_score",
+        "llm_model": "llama_3_70b_instruct",
+        "significance": null,
+        "notes": "Results shown in Table 3 with progressive improvement from C1 to C4 configurations, but exact correlation values not provided in main text"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "partial",
+      "interpretation": "progressive improvement from low to high quality configurations",
+      "threshold_used": "Not explicitly stated",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-generated feedback quality shows progressive improvement with higher-quality configurations (C2-C4), with multi-dimensional fine-grained feedback (C4) demonstrating the best alignment with human judgments in composite scoring."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "overall_score"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "faithfulness",
+      "completeness",
+      "conciseness"
+    ],
+    "notes": "Both LLM and human evaluations assess the same three core dimensions (faithfulness, completeness, conciseness) using percentage scores, though LLM evaluation also includes overall scoring"
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "paper_id": "2021.acl-long.175",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "MICROSOFT COCO",
+      "flickr8k",
+      "flickr30k",
+      "PASCAL 50s",
+      "COMPOSITE DATASET",
+      "CONLL 2014"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "m_2_transformer",
+      "x_transformer",
+      "google",
+      "bert",
+      "roberta",
+      "distilled_bert",
+      "distilled_roberta"
+    ],
+    "outputs": [
+      "image captions"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "CoNLL-2014"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "Microsoft COCO 2014"
+        ]
+      },
+      "normalized": {
+        "Microsoft COCO 2014": "Microsoft COCO",
+        "Flickr 8K": "Flickr8K",
+        "Flickr 30K": "Flickr30K",
+        "Pascal-50S": "PASCAL-50S",
+        "Composite": "Composite Dataset"
+      },
+      "explanation": "Normalized dataset names to standard forms, added CoNLL-2014 which was mentioned in the grammatical evaluation experiments"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "CIDER",
+      "SPICE",
+      "BERTSCORE",
+      "SPURTS",
+      "SPARCS",
+      "SMURF",
+      "GLEU",
+      "I MEASURE",
+      "M2"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "GLEU",
+          "I-measure",
+          "M2"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BS-w/oidf",
+          "MIMA",
+          "BLEU-1",
+          "BLEU-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "BLEU-1": "BLEU",
+        "BLEU-2": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Simplified metric variants to base forms (e.g., BLEU-1/2 to BLEU), removed MIMA as it's the foundational method rather than a metric, and added missing grammatical evaluation metrics"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted - transformers were used for feature extraction in MIMA method but not as evaluators"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Percentage of captions better/equal to human description (M1)",
+      "Percentage passing Turing Test (M2)",
+      "Expert ratings on correctness and detail scales",
+      "Naturalness ratings for grammatical corrections"
+    ],
+    "criteria": [
+      "Humanness",
+      "Passing",
+      "Correctness",
+      "Detail",
+      "Naturalness",
+      "Similarity"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Turing Test passing"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "fluency",
+          "detailedness"
+        ]
+      },
+      "normalized": {
+        "passing Turing Test": "Turing Test passing",
+        "M1: percentage better than or equal to human description": "better or equal to human",
+        "M2: percentage passing the Turing Test": "Turing Test passing"
+      },
+      "explanation": "Consolidated duplicate criteria and normalized naming, removed criteria not explicitly used in evaluation"
+    }
+  },
+  "overall_notes": "This paper introduces novel evaluation metrics (SMURF, SPARCS, SPURTS) for image captioning using a typicality analysis framework. The extraction was generally accurate but needed normalization of metric variants and dataset names. The paper extensively evaluates both system-level and caption-level performance across multiple datasets."
+}

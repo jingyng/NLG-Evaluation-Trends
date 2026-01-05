@@ -1,0 +1,154 @@
+{
+  "paper_id": "2021.acl-long.345",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Slot Filling",
+      "Question Answering"
+    ],
+    "datasets": [
+      "AMBER SETS",
+      "FEVER",
+      "T REX",
+      "NATURAL QUESTIONS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "bert",
+      "roberta"
+    ],
+    "outputs": [
+      "Generated slot values",
+      "Generated answer spans"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Generated answer spans"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "T‑Rex"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated answer spans or slot values",
+          "generated answers for slot filling"
+        ]
+      },
+      "normalized": {
+        "Other:Slot Filling": "Other:Slot Filling",
+        "T‑Rex": "T-REx",
+        "T-REx": "T-REx",
+        "Natural Questions": "Natural Questions",
+        "AmbER sets": "AmbER sets",
+        "FEVER": "FEVER",
+        "BART": "BART",
+        "BERT": "BERT",
+        "RoBERTa": "RoBERTa"
+      },
+      "explanation": "Added Question Answering as a task since it's explicitly evaluated with NLG models. Normalized T-REx spelling and removed duplicate/verbose output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "F1": "F1",
+        "accuracy": "Accuracy",
+        "Accuracy": "Accuracy"
+      },
+      "explanation": "Normalized 'accuracy' to 'Accuracy' and removed duplicate. The paper uses F1 for slot filling and QA, Accuracy for fact checking."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed incorrect 'None' placeholders. The paper does not use LLMs as judges for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Humans are presented with a query and three documents from the same AmbER set, then asked to: 1) select the relevant document, 2) select an answer span from the selected document"
+    ],
+    "criteria": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Humans are presented with a query and three documents from the same AmbER set, then asked to: 1) select the relevant document, 2) select an answer span from the selected document"
+        ],
+        "criteria": [
+          "Document selection accuracy",
+          "Answer span selection accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Humans are asked to choose the correct document for a query and then select the correct answer span from that document.",
+          "select the relevant document and then select an answer span from the selected document"
+        ],
+        "criteria": [
+          "document selection",
+          "answer span selection"
+        ]
+      },
+      "normalized": {
+        "document selection": "Document selection accuracy",
+        "answer span selection": "Answer span selection accuracy"
+      },
+      "explanation": "Consolidated guideline descriptions into one clear statement. Normalized criteria to be more descriptive and consistent."
+    }
+  },
+  "overall_notes": "The paper focuses on retrieval systems and their entity disambiguation capabilities, with NLG evaluation being secondary. The main contributions are the AmbER benchmark and analysis of retrieval bias. NLG tasks (slot filling and QA) are evaluated using standard models fine-tuned on existing datasets, but the core focus is retrieval evaluation rather than NLG methodology development."
+}

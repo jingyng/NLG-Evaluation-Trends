@@ -1,0 +1,147 @@
+{
+  "paper_id": "2025.naacl-long.49",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Event Abstraction Generation",
+      "Causal Question Answering Reasoning"
+    ],
+    "datasets": [
+      "GLUCOSE",
+      "ACCESS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4o_mini",
+      "llama_3.2_3b_instruct",
+      "llama_3.1_8b_instruct",
+      "llama_2_chat_7b"
+    ],
+    "outputs": [
+      "generalized event expressions",
+      "answers to causal questions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "answers to causal questions and generalized event expressions"
+        ]
+      },
+      "normalized": {
+        "mutual information": "Mutual Information",
+        "Llama3.2-3B-Instruct": "Llama3.2-3B-Instruct",
+        "Llama3.1-8B-Instruct": "Llama3.1-8B-Instruct",
+        "Llama2-chat-7B": "Llama2-chat-7B"
+      },
+      "explanation": "Removed 'Other:Question Answering' as it's redundant with 'Other:Causal QA Reasoning'. Removed duplicate output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "RAND INDEX",
+      "MUTUAL INFORMATION",
+      "PRECISION",
+      "RECALL",
+      "F1",
+      "ACCURACY",
+      "ADJUSTED RAND INDEX",
+      "NORMALIZED MUTUAL INFORMATION",
+      "STRUCTURAL HAMMING DISTANCE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "mutual information",
+          "Rand index"
+        ]
+      },
+      "normalized": {
+        "Rand index": "Rand Index",
+        "mutual information": "Mutual Information",
+        "structured Hamming distance": "Structured Hamming Distance"
+      },
+      "explanation": "Normalized metric names to standard forms and removed duplicates"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed placeholder 'None' values since no LLM-as-judge evaluation was conducted"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Causal relations must be temporal but temporal relations are not always causal",
+      "Action/state of A must directly lead to action/state of B without intermediate events",
+      "Event B would not occur if A did not occur",
+      "Relations must occur frequently/common in real-world scenarios"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Relations must occur frequently/common in real-world scenarios"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- a causal relation must be temporal, but a temporal relation is not always causal; the action/state of A directly leads to the action/state of B; an event B would not occur if A did not occur"
+        ],
+        "criteria": [
+          "temporal precedence",
+          "direct causation",
+          "counterfactual dependence"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Rewrote guideline as a proper list of sentences describing the actual human annotation criteria. Removed criteria list since the guideline adequately covers the evaluation criteria used by human annotators."
+    }
+  },
+  "overall_notes": "The paper introduces ACCESS benchmark for abstract causal event discovery. It involves NLG tasks like event abstraction generation and causal question answering. Human annotation was conducted for dataset creation and validation, though the main evaluation focuses on automatic metrics. No LLM-as-judge evaluation was performed."
+}

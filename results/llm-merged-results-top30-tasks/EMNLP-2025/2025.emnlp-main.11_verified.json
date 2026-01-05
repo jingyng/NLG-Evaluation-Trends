@@ -1,0 +1,187 @@
+{
+  "paper_id": "2025.emnlp-main.11",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "MATHTUTOR BENCH",
+      "BRIDGE",
+      "MATHDIAL",
+      "STEPVERIFY",
+      "GSM8K",
+      "MATHDIALBRIDGE",
+      "MRBENCH"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3.1_70b",
+      "llama_3.1_8b",
+      "llama_3.2_3b",
+      "gpt_4o_mini",
+      "learnlm_1.5_pro",
+      "qwen_2.5_7b_socraticlm",
+      "llemma_7b_32k_mathmix",
+      "qwen_2.5_math_7b_instruct",
+      "qwen_2.5_0.5b_instruct",
+      "qwen_2.5_1.5b_instruct"
+    ],
+    "outputs": [
+      "next teacher utterance (u_T) in math tutoring dialogues",
+      "teacher responses in tutoring dialogues"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Qwen2.5-0.5B-Instruct",
+          "Qwen2.5-1.5B-Instruct"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama3.1-70B",
+          "Llama3.2-3B",
+          "Llemma-7B-32K-MathMix (ScienceTutor)",
+          "GPT-4o-mini"
+        ],
+        "outputs": [
+          "teacher utterances / model-generated tutoring responses",
+          "teacher utterances in a tutoring dialogue"
+        ]
+      },
+      "normalized": {
+        "MATH-TUTORBENCH": "MathTutorBench",
+        "GSM8k": "GSM8K",
+        "Llemma-7B-32K-MathMix (ScienceTutor)": "Llemma-7B-32K-MathMix",
+        "gpt-4o-mini": "GPT-4o-mini",
+        "Llama3.1 70B": "Llama3.1-70B",
+        "Llama3.1 8B": "Llama3.1-8B",
+        "Llama3.2 3B": "Llama3.2-3B"
+      },
+      "explanation": "Normalized dataset and model names to standard forms. Removed duplicate/redundant model entries and consolidated output descriptions. Added reward model training models that were missing."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PROBLEM SOLVING ACCURACY",
+      "SOCRATIC QUESTIONING",
+      "STUDENT SOLUTION CORRECTNESS",
+      "STUDENT MISTAKE LOCATION",
+      "STUDENT MISTAKE CORRECTION",
+      "SCAFFOLDING GENERATION",
+      "BLEU",
+      "BERTSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "numeric answer accuracy",
+          "binary classification accuracy for student solution correctness",
+          "mistake location accuracy",
+          "scaffolding reward model score",
+          "Scaffolding score (reward model)"
+        ]
+      },
+      "normalized": {
+        "Student Solution Correctness (binary classification)": "Student Solution Correctness",
+        "Scaffolding Generation (reward model score)": "Scaffolding Generation"
+      },
+      "explanation": "Removed redundant/overly specific metric descriptions and kept the main metric categories. Consolidated similar metrics under their base names."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "llama_3.1_70b_instruct",
+      "gpt_4o_mini",
+      "Prompetheus-7b-v2.0",
+      "internlm_2_7b_reward",
+      "skywork_reward_llama_3.1_8b_v_0.2"
+    ],
+    "methods": [
+      "LLM-as-a-judge prompting",
+      "pairwise evaluation",
+      "randomized order to reduce positional bias"
+    ],
+    "criteria": [
+      "Quality",
+      "Answer",
+      "Actionability",
+      "Guidance",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "judge pedagogical quality (Figure 5)",
+          "prompt-based scoring",
+          "LLM-as-a-judge prompting with simple and extended pedagogical prompts",
+          "pairwise ranking of expert vs novice teacher responses"
+        ],
+        "criteria": [
+          "scaffolding quality",
+          "answer revelation avoidance",
+          "guidance"
+        ]
+      },
+      "normalized": {
+        "scaffolding guidance": "scaffolding guidance",
+        "not revealing the answer": "not revealing the answer"
+      },
+      "explanation": "Consolidated redundant method descriptions and criteria. Removed overly specific method details while keeping the core evaluation approaches."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [
+      "Pedagogical criteria: correctness, scaffolding instead of giving away the answer, encourage self-correction, not overload student"
+    ],
+    "criteria": [
+      "Correctness",
+      "scaffolding instead of giving away the answer",
+      "encourage self-correction",
+      "not overload student"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Pedagogical criteria: correctness, scaffolding instead of giving away the answer, encourage self-correction, not overload student"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- based on pedagogical criteria defined in Section 3.2: (a) correctness, (b) scaffolding instead of giving away the answer, (c) encourage self-correction, (d) not overload student. Preference labels derived from human annotations (MRBench: 8 criteria), dialog intent annotations (MathDial), and subquestion annotations (GSM8k)."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Simplified the guideline description to focus on the core pedagogical criteria. The paper does not conduct human evaluations but uses these criteria for automatic evaluation and reward model training."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating LLM tutors for math education using automatic metrics and LLM-as-judge approaches. It introduces MathTutorBench benchmark with multiple evaluation tasks. The extraction was generally accurate but needed normalization and consolidation of redundant entries. The paper uses human-annotated data for training reward models but does not conduct new human evaluations of model outputs."
+}

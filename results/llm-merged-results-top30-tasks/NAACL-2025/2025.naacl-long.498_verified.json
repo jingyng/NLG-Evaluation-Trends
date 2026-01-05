@@ -1,0 +1,147 @@
+{
+  "paper_id": "2025.naacl-long.498",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Long Form Question Answering"
+    ],
+    "datasets": [
+      "MEDIASUM",
+      "MEETINGBANK",
+      "ULTRACHAT",
+      "eli5",
+      "TOFUEVAL"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4o",
+      "claude_3.5_sonnet",
+      "gemini_1.5_flash"
+    ],
+    "outputs": [
+      "refined summaries",
+      "refined long-form answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:long-form question answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Refined summaries and refined long-form answers",
+          "refined summaries and long-form question answers"
+        ]
+      },
+      "normalized": {
+        "Other:Long-form Question Answering": "Other:Long-form Question Answering",
+        "Other:long-form question answering": "Other:Long-form Question Answering"
+      },
+      "explanation": "Deduplicated task entries and simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MINICHECK",
+      "ALIGNSCORE",
+      "BALANCED ACCURACY",
+      "ACCURACY",
+      "GPT 4 LIKERT",
+      "VERISCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Balanced Accuracy (BACC)",
+          "Accuracy@1",
+          "balanced accuracy (BACC)",
+          "Acc@1"
+        ]
+      },
+      "normalized": {
+        "GPT-4-based Likert score": "GPT-4 Likert score",
+        "Balanced Accuracy (BACC)": "Balanced Accuracy",
+        "balanced accuracy (BACC)": "Balanced Accuracy",
+        "Accuracy@1": "Accuracy",
+        "Acc@1": "Accuracy"
+      },
+      "explanation": "Normalized metric variants to base forms and removed duplicates"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4o"
+        ],
+        "methods": [
+          "alignment assessment",
+          "Prompt-based pairwise evaluation of critique alignment",
+          "GPT-4 Likert scoring of faithfulness",
+          "critique alignment assessment"
+        ],
+        "criteria": [
+          "faithfulness",
+          "error match"
+        ]
+      },
+      "normalized": {},
+      "explanation": "GPT-4o is used within the refinement pipeline for critique alignment, not as an external judge evaluating final outputs. This does not constitute LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Human raters compare generated critiques to human-written critiques and label the correspondence as Error Match, Error No Match, or No Error Detected.",
+          "For each sentence, annotators were asked to provide a binary faithfulness judgment and, if deemed unfaithful, write a critique explaining the error."
+        ],
+        "criteria": [
+          "Error Match",
+          "Error No Match",
+          "No Error Detected",
+          "faithfulness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The human annotations mentioned are from the TofuEval dataset (pre-existing annotations), not evaluations conducted by the authors on their own generated outputs. The paper explicitly states they use automatic evaluations for assessment."
+    }
+  },
+  "overall_notes": "The paper focuses on multi-agent refinement for improving faithfulness in NLG tasks. While it mentions human annotations from existing datasets, it does not conduct new human evaluations or use LLMs as external judges. The extraction incorrectly interpreted internal pipeline components as evaluation methods."
+}

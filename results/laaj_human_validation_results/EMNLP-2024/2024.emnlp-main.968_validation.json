@@ -1,0 +1,86 @@
+{
+  "paper_id": "2024.emnlp-main.968",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares LLM evaluation (GPT-4) and human evaluation results, mentioning high consistency between QA-moderation and human evaluation with over 85% agreement ratio."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts for helpfulness and harmlessness evaluation shown in figures (Figure 6 and similar for harmlessness); uses multi-response grading with scoring from 1-10"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": [
+        0.6858,
+        0.6585,
+        0.6865
+      ],
+      "interpretation": "substantial agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human annotators labeled responses as harmful or harmless based on safety assessment; specific detailed rubric not shown"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "harmfulness"
+    ],
+    "sample_size": {
+      "total_generated": 1400,
+      "validated_by_both": 100,
+      "notes": "Validation performed on 100 randomly sampled data points from each model"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": 0.85,
+        "criterion": "harmfulness",
+        "llm_model": "GPT-4",
+        "significance": "not reported",
+        "notes": "Agreement ratio between QA-moderation (LLM evaluation) and human evaluation over 85%"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "",
+      "threshold_used": "",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM evaluation (QA-moderation) and human evaluation show substantial agreement with consistency over 85%, indicating reliability of LLM judgments for safety assessment."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "attack_successful_rate",
+      "helpfulness"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "harmfulness"
+    ],
+    "notes": "LLM evaluation assessed both harmlessness and helpfulness using scoring, while human evaluation focused solely on harmfulness (harmful/harmless binary labeling); validation compared harmfulness criterion."
+  }
+}

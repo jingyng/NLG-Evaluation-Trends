@@ -1,0 +1,165 @@
+{
+  "paper_id": "2021.naacl-main.392",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Persona Reddit",
+      "Topic-related Dialogue"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Transformer",
+      "Speaker Model",
+      "MT-Speaker",
+      "TA-Seq2Seq",
+      "THRED",
+      "C-Trans-ED",
+      "C-Trans-Dec",
+      "BERT",
+      "BERT-base",
+      "RoBERTa",
+      "UniLM",
+      "PLATO",
+      "Blender"
+    ],
+    "outputs": [
+      "Conditioned dialogue responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BERT-base"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Topic Dialogue",
+          "Reddit"
+        ],
+        "languages": [],
+        "models": [
+          "Sp-Model",
+          "BERT (base, uncased)"
+        ],
+        "outputs": [
+          "responses"
+        ]
+      },
+      "normalized": {
+        "BERT (base, uncased)": "BERT-base",
+        "Sp-Model": "Speaker Model"
+      },
+      "explanation": "Removed duplicate/incorrect datasets (Topic Dialogue is same as Topic-related Dialogue, Reddit is part of Persona Reddit). Normalized model names and removed redundant outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "CIDEr",
+      "Distinct"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-1",
+          "BLEU-2",
+          "BLEU-3",
+          "ROUGE-L",
+          "Distinct-1",
+          "Distinct-2"
+        ]
+      },
+      "normalized": {
+        "BLEU-1": "BLEU",
+        "BLEU-2": "BLEU",
+        "BLEU-3": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "Distinct-1": "Distinct",
+        "Distinct-2": "Distinct"
+      },
+      "explanation": "Normalized metric variants to base forms as per guidelines (BLEU-1/2/3 → BLEU, etc.)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {
+        "None": ""
+      },
+      "explanation": "Cleared all metadata since no LLM-as-judge evaluation was conducted"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "0: flaw in fluency and logic or incoherent; 1: coherent but generic; 2: coherent and informative",
+      "Condition consistency: 0: inconsistent; 1: somewhat related; 2: consistent (fluency/logic flaws result in 0)"
+    ],
+    "criteria": [
+      "fluency",
+      "coherence",
+      "logic",
+      "informativeness",
+      "appropriateness",
+      "condition consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "appropriateness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Rating scale 0: flaw in fluency, logic or incoherent; 1: coherent but generic; 2: coherent and informative. For condition consistency: 0 inconsistent, 1 somewhat related, 2 consistent (unless fluency/logic flaw gives 0)."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "genericness": "informativeness",
+        "relatedness": "condition consistency"
+      },
+      "explanation": "Consolidated duplicate guidelines and normalized criteria. Added 'appropriateness' which was mentioned in human evaluation results."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main issues were duplicate/redundant items and inconsistent naming. The paper focuses on conditioned dialogue generation using multi-task learning with Transformer models. Human evaluation was well-documented with clear rating scales."
+}

@@ -1,0 +1,154 @@
+{
+  "paper_id": "2024.emnlp-main.443",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering"
+    ],
+    "datasets": [
+      "PopQA",
+      "Natural Questions"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-3.5-turbo",
+      "GPT-4-turbo",
+      "Gemini Nano",
+      "Gemini Pro",
+      "Gemini Ultra"
+    ],
+    "outputs": [
+      "short-form factual answers with hedged uncertainty expressions",
+      "short factual answers with hedging expressions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Natural Questions (NQ)"
+        ],
+        "languages": [],
+        "models": [
+          "gpt-3.5-turbo",
+          "gpt-4-turbo",
+          "gpt-4turbo"
+        ],
+        "outputs": [
+          "Generated responses to factual questions, sometimes with hedging expressions to convey uncertainty."
+        ]
+      },
+      "normalized": {
+        "Natural Questions (NQ)": "Natural Questions",
+        "gpt-3.5-turbo": "GPT-3.5-turbo",
+        "gpt-4-turbo": "GPT-4-turbo"
+      },
+      "explanation": "Normalized dataset and model names to standard forms, removed duplicates, simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "faithful response uncertainty",
+      "MFG",
+      "cMFG",
+      "decisiveness",
+      "confidence"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Decisiveness score (Eq. 1)",
+          "Confidence score (Eq. 2)",
+          "Faithfulness (cMFG)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed redundant metric names that refer to the same underlying metrics (equation numbers are implementation details, not distinct metrics)"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Gemini Ultra"
+    ],
+    "methods": [
+      "Few-shot prompting for decisiveness scoring (P_d)",
+      "Few-shot prompting for contradiction detection (P_c)"
+    ],
+    "criteria": [
+      "decisiveness",
+      "contradiction"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "few-shot prompt P_d for decisiveness",
+          "few-shot prompt P_c for contradiction"
+        ],
+        "criteria": [
+          "Decisiveness (perceived probability)",
+          "Contradiction vs target assertion",
+          "perceived decisiveness",
+          "contradiction with assertion"
+        ]
+      },
+      "normalized": {
+        "few-shot prompt P_d for decisiveness": "Few-shot prompting for decisiveness scoring (P_d)",
+        "few-shot prompt P_c for contradiction": "Few-shot prompting for contradiction detection (P_c)"
+      },
+      "explanation": "Normalized and simplified LLM-as-judge criteria and methods, removing redundant descriptions"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Humans assigned perceived probabilities to hedging expressions from survey data",
+      "Authors labeled confidence scores for sampled answers as ground truth"
+    ],
+    "criteria": [
+      "perceived probability",
+      "confidence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Humans assigned perceived probabilities to hedging expressions; authors provided labels for confidence by checking sampled answers.",
+          "humans assigned perceived probabilities to hedging expressions; authors compared LLM confidence scores to labels written by the authors"
+        ],
+        "criteria": [
+          "perceived probability of correctness",
+          "contradiction with assertion"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline descriptions and removed criteria that weren't actually evaluated by humans (contradiction checking was done by LLM)"
+    }
+  },
+  "overall_notes": "The paper evaluates NLG in the context of question answering with uncertainty expression. The extraction quality was good overall, but needed normalization of names and removal of redundant/duplicate items. The paper uses both automatic metrics (faithfulness scores) and LLM-as-judge evaluation, with limited human evaluation primarily for validation of the automated approaches."
+}

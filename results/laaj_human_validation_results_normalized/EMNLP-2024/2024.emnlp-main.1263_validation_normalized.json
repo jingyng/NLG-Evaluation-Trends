@@ -1,0 +1,105 @@
+{
+  "paper_id": "2024.emnlp-main.1263",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates OpenCHAIR's LLM-based evaluation against human judgments on the same set of instances, reporting balanced accuracy metrics comparing object-level decisions"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "LLM"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Exact prompt template shown in main text: \"<s>[INST] An image has the following caption: \"\u27e8input caption\u27e9\". Does the image contain the following object? \"\u27e8input object\u27e9\". Answer yes/no/unsure. The answer is: [/INST]\""
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": null,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators classify each predicted object as hallucinated or not based on the image and caption described in appendix section C.2"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Balanced Accuracy"
+    ],
+    "shared_criteria": [
+      "object hallucination",
+      "object presence"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": 400,
+      "notes": "Manual checking of object-level decisions for over 400 random objects across various captioning models"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Balanced Accuracy",
+        "value": 0.945,
+        "criterion": "object presence/hallucination",
+        "llm_model": "LLM",
+        "significance": null,
+        "notes": "BLIP2 model results"
+      },
+      {
+        "metric": "Balanced Accuracy",
+        "value": 0.944,
+        "criterion": "object presence/hallucination",
+        "llm_model": "LLM",
+        "significance": null,
+        "notes": "BLIP-L model results"
+      },
+      {
+        "metric": "Balanced Accuracy",
+        "value": 0.943,
+        "criterion": "object presence/hallucination",
+        "llm_model": "LLM",
+        "significance": null,
+        "notes": "GIT-B model results"
+      },
+      {
+        "metric": "Balanced Accuracy",
+        "value": 0.93,
+        "criterion": "object presence/hallucination",
+        "llm_model": "LLM",
+        "significance": null,
+        "notes": "OFA-L model results"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "superior accuracy",
+      "threshold_used": "Accuracy comparison only (no specific thresholds mentioned)",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "OpenCHAIR LLM evaluation achieves higher balanced accuracy (0.930-0.945) than CHAIR (0.774-0.899) in predicting human judgments of object hallucinations, despite operating in a more challenging open-vocabulary setting."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Hallucination",
+      "Presence"
+    ],
+    "notes": "Both LLM and human evaluation use identical criteria - determining whether predicted objects are present in ground truth or hallucinated"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "paper_id": "2025.acl-long.1024",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM evaluation against human expert ratings by computing Spearman's rank correlation between GPT-4o's annotations and expert annotations on 128 counseling sessions."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "gpt_4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Multiple detailed prompts are provided in appendices for different LLM judge tasks (MITI Behavioral Code Annotation, MITI Global Score Prediction, etc.), including examples and scoring rubrics."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed evaluation guidelines, scoring rubrics (1-5 scales), and descriptions are provided in appendices for all criteria (MITI Ratings, Change Talk Exploration, etc.)."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "all MITI global rating criteria"
+    ],
+    "sample_size": {
+      "total_generated": 190,
+      "validated_by_both": 128,
+      "notes": "Validation was performed on approximately 128 counseling sessions (subset of total evaluations)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.55,
+        "criterion": "all MITI global rating criteria",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "All correlations exceeded 0.55 across the four MITI global scores (Cultivating Change Talk, Softening Sustain Talk, Partnership, Empathy)"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "good correlation",
+      "threshold_used": "Not explicitly stated, but 0.55+ interpreted as good correlation",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4o annotations show good correlation (all >0.55) with expert human annotations across all MITI global rating criteria, validating the reliability of LLM-based evaluation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "MITI Behavior Scores",
+      "Topic Probability Assignment",
+      "Response Ranking",
+      "Topic Exploration Assessment",
+      "Client Assessment"
+    ],
+    "human_only_criteria": [
+      "Success in Eliciting Change Talk",
+      "Counselor",
+      "Client"
+    ],
+    "shared_criteria": [
+      "MITI Global Ratings (Cultivating Change Talk, Softening Sustain Talk, Partnership, Empathy)",
+      "Exploration"
+    ],
+    "notes": "LLM and human both evaluated MITI Global Ratings and Change Talk Exploration, but human experts additionally assessed session-level success and realism criteria that were not validated against LLM."
+  }
+}

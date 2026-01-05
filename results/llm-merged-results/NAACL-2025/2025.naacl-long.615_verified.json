@@ -1,0 +1,127 @@
+{
+  "paper_id": "2025.naacl-long.615",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Tool Calling",
+      "Other:Tool Call Generation"
+    ],
+    "datasets": [
+      "STE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama3-8B-Instruct",
+      "Llama3.1-8B-Instruct",
+      "Llama3.2-3B-Instruct"
+    ],
+    "outputs": [
+      "Generated tool calls (API calls)",
+      "Executable API calls"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:tool calling"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "generated tool calls"
+        ]
+      },
+      "normalized": {
+        "Other:Tool Calling": "Other:Tool Calling",
+        "Other:Tool Call Generation": "Other:Tool Call Generation",
+        "STE": "STE",
+        "English": "English"
+      },
+      "explanation": "Removed duplicate 'tool calling' variant and normalized capitalization. Consolidated output descriptions for clarity."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "smECE",
+      "ETCU",
+      "AUC-ETCU",
+      "Exact Match",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Exact Match"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "smooth Expected Calibration Error (smECE)",
+          "Expected Tool-Calling Utility (ETCU)",
+          "Area Under Curve (AUC)",
+          "smooth ECE",
+          "expected tool-calling utility"
+        ]
+      },
+      "normalized": {
+        "smECE": "smECE",
+        "ETCU": "ETCU",
+        "AUC-ETCU": "AUC-ETCU",
+        "BERTScore": "BERTScore"
+      },
+      "explanation": "Consolidated duplicate metric names and added 'Exact Match' which is explicitly mentioned as the evaluation criterion for tool call correctness. Removed redundant full names and kept standard abbreviations."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed. The paper does not use LLMs as judges - it uses LLMs for generation but evaluates using automatic metrics and learned classifiers."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed. The paper does not conduct human evaluations - all evaluations are automated using the metrics described."
+    }
+  },
+  "overall_notes": "The paper focuses on confidence estimation for tool-calling NLG tasks. The extraction was generally accurate but had some redundancy in metric naming. The main NLG task is tool call generation, evaluated primarily through calibration metrics (smECE) and utility metrics (ETCU/AUC-ETCU) with exact match as the correctness criterion. No human or LLM-as-judge evaluations were conducted."
+}

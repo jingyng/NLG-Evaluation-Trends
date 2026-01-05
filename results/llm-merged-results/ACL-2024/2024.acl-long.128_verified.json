@@ -1,0 +1,149 @@
+{
+  "paper_id": "2024.acl-long.128",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Generative Commonsense Inference",
+      "Other:CSKB Conceptualization"
+    ],
+    "datasets": [
+      "ATOMIC 20 20",
+      "ATOMIC",
+      "ATOMIC-10X",
+      "AbstractATOMIC"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "GPT-2",
+      "GPT-2-XL",
+      "LLaMA-2",
+      "ChatGPT",
+      "Mistral",
+      "DeBERTa-v3-large",
+      "RoBERTa-large",
+      "VERA-T5"
+    ],
+    "outputs": [
+      "Commonsense tails (t) for given head (h_o) and relation (r) inputs",
+      "Conceptualizations and instantiations of commonsense knowledge triples",
+      "Generated commonsense tail sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:CSKB Conceptualization"
+        ],
+        "datasets": [
+          "ATOMIC-10X"
+        ],
+        "models": [
+          "GPT-2-XL",
+          "Mistral"
+        ],
+        "outputs": [
+          "Conceptualizations and instantiations of commonsense knowledge triples"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:generative commonsense inference"
+        ],
+        "models": [
+          "CANDLE Distilled Models"
+        ],
+        "outputs": [
+          "Generated commonsense tail sentences for COMET and instantiated triples"
+        ]
+      },
+      "normalized": {
+        "GPT2": "GPT-2",
+        "GPT2-XL": "GPT-2-XL",
+        "LLAMA2": "LLaMA-2",
+        "BLEU-1/BLEU-2/BLEU-3/BLEU-4": "BLEU"
+      },
+      "explanation": "Added missing NLG task (CSKB conceptualization) and dataset (ATOMIC-10X). Normalized model names consistently (GPT-2, LLaMA-2). Merged BLEU variants into single BLEU metric. Removed 'CANDLE Distilled Models' as they are configurations rather than distinct models."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "METEOR",
+      "ROUGE",
+      "CIDEr",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-1",
+          "BLEU-2",
+          "BLEU-3",
+          "BLEU-4",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "BLEU-1/BLEU-2/BLEU-3/BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric variants to base forms - BLEU-1/2/3/4 → BLEU, ROUGE-L → ROUGE"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Confirmed no LLM-as-judge evaluation. The paper uses LLMs for generation but not for post-generation assessment."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluate plausibility of generated commonsense triples",
+      "Plausibility assessed for abstract commonsense triples (h_a, r, t) and instantiated triples (h_i', r, t)",
+      "Triples deemed plausible by all annotators are accepted"
+    ],
+    "criteria": [
+      "plausibility"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators evaluate plausibility of generated commonsense triples",
+          "Plausibility assessed for abstract commonsense triples (h_a, r, t) and instantiated triples (h_i', r, t)"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Enhanced guideline description for clarity and completeness based on detailed human evaluation procedures described in the paper"
+    }
+  },
+  "overall_notes": "The paper primarily focuses on commonsense reasoning through conceptualization and instantiation tasks. While it evaluates NLG outputs (COMET task for commonsense inference), the main contribution is the CANDLE framework for knowledge distillation. Human evaluations were conducted systematically with expert annotators. Automatic metrics were used comprehensively for NLG evaluation."
+}

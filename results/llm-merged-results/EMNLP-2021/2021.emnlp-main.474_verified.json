@@ -1,0 +1,140 @@
+{
+  "paper_id": "2021.emnlp-main.474",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "MLQE-PE"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Chinese",
+      "Russian",
+      "Romanian",
+      "Estonian",
+      "Sinhala",
+      "Nepali"
+    ],
+    "models": [
+      "XLM-R",
+      "XLM-R-base",
+      "XLM-R-large",
+      "BERT",
+      "BERT-multilingual"
+    ],
+    "outputs": [
+      "quality scores for machine-translated sentences",
+      "binary acceptability labels for machine-translated sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "XLM-R-base",
+          "XLM-R-large",
+          "BERT-multilingual"
+        ],
+        "outputs": [
+          "binary acceptability labels for machine-translated sentences"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BERGAMOT",
+          "LATTE",
+          "TransQuest"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "XLM-R": "XLM-R",
+        "multilingual BERT": "BERT-multilingual",
+        "automatically translated sentences": "quality scores for machine-translated sentences"
+      },
+      "explanation": "Removed system names that are not models but rather systems built on top of XLM-R. Added specific XLM-R variants mentioned. Normalized BERT naming. Added the classification output type since the paper reframes QE as classification."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Pearson Correlation",
+      "F1 Score",
+      "Mean Squared Error",
+      "Binary Cross-Entropy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1",
+          "Pearson correlation"
+        ]
+      },
+      "normalized": {
+        "Pearson correlation": "Pearson Correlation",
+        "F1": "F1 Score",
+        "mean squared error": "Mean Squared Error",
+        "binary cross-entropy": "Binary Cross-Entropy"
+      },
+      "explanation": "Normalized metric names to standard capitalization and removed duplicates. Merged 'F1' and 'Pearson correlation' variants."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs are used as judges in this paper. The paper focuses on model compression techniques for quality estimation models."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "a translation is understandable but not necessarily perfect"
+        ],
+        "criteria": [
+          "understandable",
+          "acceptable",
+          "direct assessment (DA)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses existing human annotations from the MLQE-PE dataset but does not conduct new human evaluations. The criteria mentioned are from the original dataset annotations, not new evaluations conducted by the authors."
+    }
+  },
+  "overall_notes": "This paper focuses on quality estimation for machine translation, specifically comparing regression vs. classification approaches and evaluating model compression techniques. The paper uses existing human-annotated data but does not conduct new human evaluations. The extraction was generally good but needed normalization and clarification about what constitutes human evaluation vs. using existing annotations."
+}

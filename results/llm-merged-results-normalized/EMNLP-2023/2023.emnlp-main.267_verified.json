@@ -1,0 +1,134 @@
+{
+  "paper_id": "2023.emnlp-main.267",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text To Speech Generation"
+    ],
+    "datasets": [
+      "LJSPEECH"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "dpp_tts",
+      "vits",
+      "flowtron",
+      "diffspeech",
+      "syntaspeech",
+      "fastspeech_2",
+      "hifi_gan"
+    ],
+    "outputs": [
+      "speech samples with diverse prosody patterns"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "HiFi-GAN"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text-To-Speech",
+          "Other:Text-to-Speech"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Syn-taSpeech"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Text-To-Speech": "Text-to-Speech",
+        "Other:Text-to-Speech": "Text-to-Speech"
+      },
+      "explanation": "Normalized task name to standard 'Text-to-Speech', removed duplicate 'Syn-taSpeech' (correct spelling is SyntaSpeech), added HiFi-GAN which is explicitly used as the vocoder for waveform synthesis"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "P PHONEME LEVEL STANDARD DEVIATION",
+      "DETERMINANT OF SIMILARITY MATRIX",
+      "INFERENCE TIME"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "phoneme-level standard deviation (σ_p)",
+          "determinant of similarity matrix",
+          "σ_p",
+          "Determinant",
+          "Inference time"
+        ]
+      },
+      "normalized": {
+        "σ_p (phoneme-level standard deviation of duration or pitch)": "σ_p (phoneme-level standard deviation)",
+        "determinant of similarity matrix (using cosine similarity)": "determinant of similarity matrix",
+        "Determinant": "determinant of similarity matrix",
+        "Inference time": "inference time"
+      },
+      "explanation": "Consolidated duplicate metric names and normalized to consistent naming. The metrics measure prosodic diversity within samples (σ_p) and among samples (determinant), plus computational efficiency"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM evaluation was used in this paper. The evaluation methods were human evaluation and automatic metrics"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Side-by-side comparison: testers choose which sample has more varied prosody (A/B/Same options)",
+      "MOS: testers rate naturalness on 1-5 scale with focus on prosody"
+    ],
+    "criteria": [
+      "Diversity",
+      "Naturalness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "prosody variation": "prosody diversity"
+      },
+      "explanation": "Consolidated criteria and normalized guideline descriptions. The human evaluation focused specifically on prosodic diversity (rhythm/pitch variation) and naturalness"
+    }
+  },
+  "overall_notes": "This paper presents DPP-TTS, a Text-to-Speech model focusing on prosodic diversity. The evaluation uses both automatic metrics (σ_p for within-sample diversity, determinant for between-sample diversity) and human evaluation (side-by-side comparison and MOS). The extraction was generally accurate with minor duplication and normalization issues."
+}

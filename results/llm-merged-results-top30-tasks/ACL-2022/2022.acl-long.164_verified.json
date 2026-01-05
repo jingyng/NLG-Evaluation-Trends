@@ -1,0 +1,167 @@
+{
+  "paper_id": "2022.acl-long.164",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Controlled Text Generation"
+    ],
+    "datasets": [
+      "CONSTRUCTED EVALUATION SET SENTIMENT AND TOPIC",
+      "BOOKCORPUS",
+      "IMDB",
+      "HUFFPOST NEWS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ctrl",
+      "pplm",
+      "gedi",
+      "cocon"
+    ],
+    "outputs": [
+      "Generated texts conditioned on content prefixes and attribute labels (sentiment or topic)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "IMDB",
+          "HuffPost News"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Sentiment-controlled generation set",
+          "Topic-controlled generation set"
+        ],
+        "languages": [],
+        "models": [
+          "PEGASUS",
+          "BART",
+          "T5"
+        ],
+        "outputs": [
+          "generated texts"
+        ]
+      },
+      "normalized": {
+        "Constructed evaluation set (sentiment and topic)": "Constructed evaluation set (sentiment and topic)",
+        "generated texts conditioned on prefixes and attribute labels": "Generated texts conditioned on content prefixes and attribute labels (sentiment or topic)"
+      },
+      "explanation": "Added datasets used for discriminator training (IMDB, HuffPost News). Removed language models that were used as evaluators (PEGASUS, BART, T5) since they are not generation models being evaluated. Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "CTRLEVAL",
+      "PERPLEXITY",
+      "DISCRIMINATOR",
+      "UNION",
+      "BLEURT",
+      "BARTSCORE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "DisScore",
+          "PPL-GPT",
+          "PPL-PEGASUS",
+          "BARTScore-PEGASUS"
+        ]
+      },
+      "normalized": {
+        "Perplexity (PPL)": "Perplexity",
+        "Discriminator Score (DisScore)": "Discriminator Score",
+        "DisScore": "Discriminator Score"
+      },
+      "explanation": "Normalized metric names to base forms. Removed duplicates and variant names (DisScore, PPL-GPT, PPL-PEGASUS, BARTScore-PEGASUS) since they are implementations of the same base metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "pegasus",
+      "bart",
+      "t_5"
+    ],
+    "methods": [
+      "Text infilling pattern evaluators with weighted ensemble"
+    ],
+    "criteria": [
+      "Coherence",
+      "Consistency",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT"
+        ],
+        "methods": [
+          "text infilling and ensemble of pattern evaluators",
+          "Generation probability of fill-in-the-blank tasks",
+          "Weighted ensemble of pattern evaluators"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "PEGASUS": "PEGASUS",
+        "coherence": "coherence",
+        "consistency": "consistency",
+        "attribute relevance": "attribute relevance"
+      },
+      "explanation": "Consolidated method descriptions into one clear description. Removed GPT since it was only used for perplexity calculation, not as an LLM judge. The paper uses PLMs (PEGASUS, BART, T5) for text infilling evaluation, which qualifies as LLM-as-judge."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rated texts on a 1-5 Likert scale for each aspect (coherence, consistency, attribute relevance)",
+      "Submissions discarded if negative sample rated higher than other texts",
+      "Each generated text contains 5 valid ratings"
+    ],
+    "criteria": [
+      "Coherence",
+      "Consistency",
+      "Relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Each generated text contains 5 valid ratings"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "coherence": "coherence",
+        "consistency": "consistency",
+        "attribute relevance": "attribute relevance"
+      },
+      "explanation": "Consolidated guideline descriptions and added missing detail about 5 ratings per text. Criteria remain the same."
+    }
+  },
+  "overall_notes": "The paper presents CTRLEval, an unsupervised reference-free metric for evaluating controlled text generation. It evaluates generated texts from models like CTRL, PPLM, GeDi, and CoCon on sentiment-controlled and topic-controlled generation tasks. The method uses pre-trained language models (PEGASUS, BART, T5) as evaluators through text infilling tasks. Human evaluation was conducted via Amazon Mechanical Turk with clear quality control measures. The extraction was generally good but needed some normalization and removal of evaluator models from the generation models list."
+}

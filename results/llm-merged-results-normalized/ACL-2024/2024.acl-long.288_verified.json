@@ -1,0 +1,181 @@
+{
+  "paper_id": "2024.acl-long.288",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "News Generation",
+      "Text Continuation"
+    ],
+    "datasets": [
+      "UHGEVAL"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "chatglm_2_6b",
+      "baichuan_2_13b",
+      "qwen_14b",
+      "xinyu_7b",
+      "internlm_20b",
+      "xinyu_2_70b",
+      "gpt_3.5_turbo",
+      "gpt_4_0613",
+      "gpt_4_1106",
+      "aquila_2_34b"
+    ],
+    "outputs": [
+      "News continuations",
+      "Hallucinated text continuations",
+      "Unconstrained text generation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:News Continuation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT3.5-Turbo",
+          "GPT4-0613",
+          "GPT4-1106"
+        ],
+        "outputs": [
+          "hallucinated news continuations",
+          "continuations of news articles"
+        ]
+      },
+      "normalized": {
+        "Other:News Generation": "Other: News Generation",
+        "Other:Text Continuation": "Other: Text Continuation",
+        "GPT-3.5-Turbo": "GPT-3.5-Turbo",
+        "GPT-4-0613": "GPT-4-0613",
+        "GPT-4-1106": "GPT-4-1106"
+      },
+      "explanation": "Normalized task names and model versions. Removed duplicate model entries (GPT3.5-Turbo, GPT4-0613, GPT4-1106 are same as their normalized forms). Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "BERTSCORE",
+      "ACCURACY",
+      "PRECISION",
+      "RECALL",
+      "KWPREC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "accuracy": "Accuracy",
+        "Precision": "Precision",
+        "Recall": "Recall"
+      },
+      "explanation": "Normalized metric variants to base forms (BLEU-4→BLEU, ROUGE-L→ROUGE). Removed duplicate 'accuracy' entry. Kept kwPrec as it's a novel metric introduced in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_3.5_turbo",
+      "gpt_4_0613"
+    ],
+    "methods": [
+      "Keyword extraction",
+      "Hallucination annotation",
+      "Fluency scoring",
+      "Keyword validity checking"
+    ],
+    "criteria": [
+      "Fluency",
+      "Factuality",
+      "Realism"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Fluency scoring"
+        ],
+        "criteria": [
+          "Factual correctness"
+        ]
+      },
+      "removed": {
+        "models": [
+          "GPT4-0613"
+        ],
+        "methods": [
+          "automatic keyword annotation",
+          "automatic labeling with GPT-4",
+          "keyword extraction with GPT-3.5",
+          "hallucination ranking using fluency score and kwPrec",
+          "cross-reference with original news"
+        ],
+        "criteria": [
+          "keyword-level factual correctness (kwPrec)",
+          "realism of extracted keywords"
+        ]
+      },
+      "normalized": {
+        "GPT-3.5-Turbo": "GPT-3.5-Turbo",
+        "GPT-4-0613": "GPT-4-0613",
+        "fluency": "Fluency"
+      },
+      "explanation": "Consolidated model entries, normalized methods and criteria descriptions. Removed overly specific method descriptions and simplified to core evaluation procedures."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Least Hallucination Principle: If a set of words can be replaced with contextually appropriate words to yield a reasonable sentence, that set is designated as a hallucinated word group"
+    ],
+    "criteria": [
+      "Factuality",
+      "Hallucination",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "realism of key terms"
+        ]
+      },
+      "normalized": {
+        "factuality": "Factuality",
+        "hallucination identification": "Hallucination identification",
+        "keyword correctness": "Keyword correctness"
+      },
+      "explanation": "Normalized criteria names. Removed redundant 'realism of key terms' which overlaps with factuality criteria. Maintained the detailed guideline description."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating Chinese LLM hallucinations through unconstrained news generation. It introduces a novel benchmark (UHGEval) with comprehensive evaluation framework including discriminative, selective, and generative evaluation forms. The extraction was generally accurate but needed normalization of model names and metric variants."
+}

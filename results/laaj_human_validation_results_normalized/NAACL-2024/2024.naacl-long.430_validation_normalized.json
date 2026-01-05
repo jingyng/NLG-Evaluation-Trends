@@ -1,0 +1,142 @@
+{
+  "paper_id": "2024.naacl-long.430",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper conducts meta-evaluation comparing LLM (mLLM-EVAL) against human judgments on the same multimodal summarization instances, reporting quantitative correlation metrics for multiple criteria"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4 with vision"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Provides exact prompts including evaluation criteria, steps, and example format for different attributes. For example, the overall quality prompt includes: 'You will be given one text summary and some summary images (ID) written for a news article with source images...' with detailed criteria and steps."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": null,
+      "interpretation": "moderate agreement",
+      "per_criterion": [
+        {
+          "criterion": "image score",
+          "metric": "Cohen's kappa",
+          "value": "relatively low (specific value not provided)"
+        },
+        {
+          "criterion": "text score",
+          "metric": "Cohen's kappa",
+          "value": "higher than image score"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed evaluation attributes and criteria provided, including instructions to avoid cognitive biases. Annotators discussed 5 examples to establish consistent criteria before annotation."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation",
+      "Kendall rank correlation"
+    ],
+    "shared_criteria": [
+      "text score",
+      "image score",
+      "text-image score",
+      "overall quality"
+    ],
+    "sample_size": {
+      "total_generated": 1562,
+      "validated_by_both": 1562,
+      "notes": "Complete meta-evaluation benchmark with 1,562 human-annotated examples used for validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.81,
+        "criterion": "text score (relevance)",
+        "llm_model": "GPT-4 with vision",
+        "significance": "not reported"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.62,
+        "criterion": "text score (relevance)",
+        "llm_model": "GPT-4 with vision",
+        "significance": "not reported"
+      },
+      {
+        "metric": "Kendall rank correlation",
+        "value": 0.43,
+        "criterion": "text score (relevance)",
+        "llm_model": "GPT-4 with vision",
+        "significance": "not reported"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.32,
+        "criterion": "image score",
+        "llm_model": "GPT-4 with vision",
+        "significance": "not reported"
+      },
+      {
+        "metric": "Kendall rank correlation",
+        "value": 0.25,
+        "criterion": "image score",
+        "llm_model": "GPT-4 with vision",
+        "significance": "not reported"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.52,
+        "criterion": "Quality",
+        "llm_model": "GPT-4 with vision",
+        "significance": "not reported"
+      },
+      {
+        "metric": "Kendall rank correlation",
+        "value": 0.42,
+        "criterion": "Quality",
+        "llm_model": "GPT-4 with vision",
+        "significance": "not reported"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong performance",
+      "threshold_used": "not explicitly stated, but results compared against baseline metrics",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "mLLM-EVAL shows strong correlation with human judgments, outperforming baseline metrics on most criteria with best correlation scores in text, image, and overall quality evaluations."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Relevance",
+      "Coherence",
+      "Consistency",
+      "Fluency",
+      "Quality",
+      "Relevance",
+      "Quality"
+    ],
+    "notes": "LLM and human evaluation assess identical criteria for multimodal summarization quality"
+  }
+}

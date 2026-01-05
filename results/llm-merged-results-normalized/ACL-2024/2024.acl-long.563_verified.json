@@ -1,0 +1,128 @@
+{
+  "paper_id": "2024.acl-long.563",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Temporal Reasoning Question Answering",
+      "Text To Graph Translation Generation"
+    ],
+    "datasets": [
+      "TGQA",
+      "TIMEQA",
+      "TEMPREASON"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b",
+      "llama_2_13b",
+      "llama_2_70b",
+      "gpt_3.5",
+      "gpt_4"
+    ],
+    "outputs": [
+      "Chain-of-Thought explanations",
+      "Final answers to temporal reasoning questions",
+      "Temporal graphs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Text-to-Graph Translation"
+        ],
+        "outputs": [
+          "Temporal graphs"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Llama2"
+        ]
+      },
+      "normalized": {
+        "Llama2-7B": "Llama2-7B",
+        "Llama2-13B": "Llama2-13B",
+        "Llama2-70B": "Llama2-70B",
+        "GPT-3.5": "GPT-3.5",
+        "GPT-4": "GPT-4"
+      },
+      "explanation": "Added 'Text-to-Graph Translation' as a core NLG task, removed generic 'Llama2' model reference, normalized model names to standard forms, and clarified outputs to include temporal graphs"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "EXACT MATCH",
+      "PERPLEXITY BASED ACCURACY"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "token-level F1": "F1",
+        "exact match (EM)": "Exact Match",
+        "perplexity-based accuracy (Acc)": "Perplexity-based Accuracy"
+      },
+      "explanation": "Normalized metric names to their canonical forms (simplified variants to base form)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT-3.5"
+        ],
+        "methods": [
+          "QA-based verification",
+          "semi-automatic verification",
+          "automatic alignment checking"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No because GPT-3.5 is used for generation (TG translation, CoT generation) and verification of intermediate outputs (story-TG alignment), but NOT as a judge to evaluate the final generated outputs. The paper uses automatic metrics (F1, EM, Acc) and human evaluation for final output assessment."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human evaluators classified errors in generated Chain-of-Thoughts into four predefined categories"
+    ],
+    "criteria": [
+      "Information",
+      "Logic",
+      "External",
+      "Temporal"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human evaluators classified errors in generated Chain-of-Thoughts into four predefined categories"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Classify errors in the generated CoTs into four types: using wrong info, logical inconsistency, external knowledge error, and temporal graph error"
+        ]
+      },
+      "normalized": {
+        "using wrong info": "Using wrong information",
+        "logical inconsistency": "Logical inconsistency",
+        "external knowledge error": "External knowledge error",
+        "temporal graph error": "Temporal graph error"
+      },
+      "explanation": "Normalized criteria names to consistent title case and cleaned up guideline description"
+    }
+  },
+  "overall_notes": "The paper focuses on temporal reasoning capability enhancement through text-to-graph translation and reasoning. NLG tasks include question answering with CoT generation and temporal graph generation. The extraction incorrectly categorized GPT-3.5's role as an evaluator - it's used for intermediate verification/generation, not final output judgment."
+}

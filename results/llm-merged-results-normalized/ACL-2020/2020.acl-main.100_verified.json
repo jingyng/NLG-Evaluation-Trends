@@ -1,0 +1,148 @@
+{
+  "paper_id": "2020.acl-main.100",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Expertise Style Transfer",
+      "Text Simplification"
+    ],
+    "datasets": [
+      "MSD",
+      "SIMPWIKI",
+      "GYAFC",
+      "YELP",
+      "AMAZON",
+      "AUTHORSHIP"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "opennmt+pt",
+      "unts",
+      "controlledgen",
+      "deleteandretrieve",
+      "styletransformer"
+    ],
+    "outputs": [
+      "transferred sentences from expert to layman language",
+      "transferred sentences from layman to expert language"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Simplification"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "datasets": [],
+        "languages": [
+          "Chinese"
+        ],
+        "models": [],
+        "outputs": [
+          "Generated sentences in either layman or expert style"
+        ]
+      },
+      "normalized": {
+        "transferred sentences (from expert to layman or layman to expert)": "transferred sentences from expert to layman language",
+        "transferred sentences in either expert or layman language": "transferred sentences from layman to expert language"
+      },
+      "explanation": "Added 'Text Simplification' as a main task (mentioned throughout paper), removed 'Paraphrase Generation' which is not the focus. Removed 'Chinese' as outputs are in English (Chinese was only used for annotation assistance). Consolidated output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "STYLE ACCURACY",
+      "PERPLEXITY",
+      "BLEU",
+      "SARI",
+      "EDIT DISTANCE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "self-BLEU",
+          "ref-BLEU",
+          "PPL"
+        ]
+      },
+      "normalized": {
+        "PPL": "Perplexity",
+        "edit distance": "Edit Distance"
+      },
+      "explanation": "Consolidated metric variants: 'PPL' normalized to 'Perplexity', 'edit distance' normalized to 'Edit Distance'. Removed redundant 'self-BLEU' and 'ref-BLEU' as they are variants of BLEU."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleaned up empty/null values. The paper does not use LLMs as judges (published in 2020 before widespread LLM-as-judge usage)."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rate model outputs on a 1-5 scale for semantic content preservation, using both input sentences and gold references as context"
+    ],
+    "criteria": [
+      "Preservation"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators rate model outputs on a scale of 1 to 5 based on semantic content preservation, with input and gold references provided.",
+          "Annotators rate each model output on a 1‑5 scale for semantic content preservation, using the input and gold references as context.",
+          "Each annotator is asked to rate the model output given both input and gold references. The rating ranges from 1 to 5, where higher values indicate that more semantic content is preserved."
+        ],
+        "criteria": [
+          "semantic content preservation"
+        ]
+      },
+      "normalized": {
+        "semantic content preservation": "content preservation"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement. Normalized 'semantic content preservation' to 'content preservation' as the core criterion."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main corrections: Added Text Simplification as a core task, clarified that outputs are in English only (Chinese was for annotation assistance), consolidated metric variants. The paper focuses on expertise style transfer (E2L and L2E) as a novel NLG task with comprehensive automatic and human evaluation."
+}

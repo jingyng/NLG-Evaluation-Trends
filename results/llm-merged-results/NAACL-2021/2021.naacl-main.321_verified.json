@@ -1,0 +1,139 @@
+{
+  "paper_id": "2021.naacl-main.321",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Adversarial Text Generation",
+      "Paraphrase Generation"
+    ],
+    "datasets": [
+      "Yelp reviews (yelp50)"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Auto-encoder (AE)",
+      "AE+BAL",
+      "AE+LS",
+      "AE+CF",
+      "AE+CPY",
+      "AE+LS+CF+CPY"
+    ],
+    "outputs": [
+      "adversarial examples for sentiment classification",
+      "perturbed sentiment classification sentences"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Paraphrase Generation"
+        ],
+        "models": [
+          "Auto-encoder (AE)"
+        ],
+        "outputs": [
+          "perturbed sentiment classification sentences"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Adversarial Example Generation"
+        ],
+        "models": [
+          "G (auto‑encoder)",
+          "C‑LSTM",
+          "C‑CNN",
+          "C‑BERT",
+          "C-LSTM",
+          "C-CNN",
+          "C-BERT"
+        ],
+        "datasets": [
+          "yelp50"
+        ]
+      },
+      "normalized": {
+        "Yelp reviews (yelp50)": "Yelp reviews (yelp50)",
+        "adversarial examples": "adversarial examples for sentiment classification"
+      },
+      "explanation": "Removed non-NLG models (C-LSTM, C-CNN, C-BERT are classifiers, not generators). Added paraphrase generation as a task since the generator creates paraphrased adversarial examples. Normalized dataset name and clarified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACC",
+      "BLEU",
+      "USE",
+      "ACPT",
+      "TRF",
+      "Attacking speed"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "All extracted metrics are correct and relevant. ACC (classification accuracy), BLEU, USE (Universal Sentence Encoder similarity), ACPT (acceptability score for fluency), TRF (transferability), and attacking speed are all used to evaluate generated adversarial examples."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges/evaluators. Removed the placeholder 'None' items from the extracted metadata to maintain an empty list format."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Is snippet B a good paraphrase of snippet A? (Yes/Somewhat yes/No)",
+      "How natural does the text read? (Very unnatural/Somewhat natural/Natural)",
+      "What is the sentiment of the text? (Positive/Negative/Cannot tell)"
+    ],
+    "criteria": [
+      "paraphrase quality",
+      "fluency/naturalness",
+      "sentiment preservation"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "fluency/naturalness"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "paraphrase similarity",
+          "semantic similarity"
+        ]
+      },
+      "normalized": {
+        "paraphrase quality": "paraphrase quality",
+        "naturalness": "fluency/naturalness",
+        "sentiment": "sentiment preservation"
+      },
+      "explanation": "Consolidated criteria to avoid redundancy (e.g., 'paraphrase quality' covers paraphrase similarity/semantic similarity). Added 'fluency/naturalness' as a unified criterion. Kept the guideline questions verbatim from the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on generating adversarial examples for sentiment classification, which qualifies as an NLG task (specifically adversarial text generation and paraphrase generation). The extraction was generally accurate, but needed refinement for Question 1 to distinguish between generation models (AE variants) and classification models (C-* models). The human evaluation guidelines and automatic metrics were well-extracted."
+}

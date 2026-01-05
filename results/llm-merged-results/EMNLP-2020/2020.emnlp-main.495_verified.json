@@ -1,0 +1,137 @@
+{
+  "paper_id": "2020.emnlp-main.495",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Adversarial Text Generation"
+    ],
+    "datasets": [
+      "Yelp",
+      "SQuAD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "T3",
+      "Tree-based Autoencoder"
+    ],
+    "outputs": [
+      "Adversarial sentences appended to original inputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BERT",
+          "BiDAF",
+          "SAM",
+          "Self-Attentive Model (SAM)"
+        ],
+        "outputs": [
+          "adversarial sentences concatenated to original paragraphs for QA and sentiment classification",
+          "adversarial sentences appended to input paragraphs"
+        ]
+      },
+      "normalized": {
+        "Other:Adversarial Text Generation": "Other:Adversarial Text Generation"
+      },
+      "explanation": "Removed target models (BERT, BiDAF, SAM) as they are not NLG models being evaluated, but rather the models being attacked. Kept only the adversarial generation model T3 and its components. Simplified outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Targeted Attack Success Rate",
+      "Untargeted Attack Success Rate",
+      "Exact Match",
+      "F1",
+      "Reconstruction Loss"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "targeted exact match",
+          "targeted F1 Score"
+        ]
+      },
+      "normalized": {
+        "targeted attack success rate": "Targeted Attack Success Rate",
+        "untargeted attack success rate": "Untargeted Attack Success Rate",
+        "exact match": "Exact Match",
+        "F1": "F1",
+        "targeted exact match": "Exact Match",
+        "targeted F1 Score": "F1",
+        "reconstruction loss": "Reconstruction Loss"
+      },
+      "explanation": "Normalized metric names to standard capitalization. Removed redundant 'targeted exact match' and 'targeted F1 Score' as they are variants of the same metrics. Kept all unique metrics used for evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper. The paper was published in 2020 before LLM-as-judge became common practice."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human participants were asked to choose which text has better quality between adversarial and original texts",
+      "Human participants performed sentiment classification and question answering tasks on both original and adversarial datasets"
+    ],
+    "criteria": [
+      "Text Quality",
+      "Sentiment Classification Accuracy",
+      "Question Answering Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "human performance on the original and adversarial dataset"
+        ]
+      },
+      "normalized": {
+        "adversarial text quality": "Text Quality",
+        "sentiment classification accuracy": "Sentiment Classification Accuracy",
+        "question answering accuracy": "Question Answering Accuracy"
+      },
+      "explanation": "Normalized criteria names to be more concise. Removed redundant 'human performance on the original and adversarial dataset' as it's covered by the specific accuracy criteria."
+    }
+  },
+  "overall_notes": "This paper focuses on adversarial text generation for robustness evaluation, which qualifies as an NLG task. The T3 framework generates adversarial sentences that are appended to original inputs. The paper uses standard automatic metrics for adversarial attack evaluation and conducts thorough human evaluations. The extraction was generally accurate but needed some normalization and removal of non-NLG models."
+}

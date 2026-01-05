@@ -1,0 +1,149 @@
+{
+  "paper_id": "2025.acl-long.189",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation"
+    ],
+    "datasets": [
+      "SWE BENCH",
+      "SWE BENCH LITE",
+      "SWE BENCH VERIFIED"
+    ],
+    "languages": [
+      "Python"
+    ],
+    "models": [
+      "gpt_4o",
+      "amazon_q_developer_agent",
+      "devlo"
+    ],
+    "outputs": [
+      "Generated code patches",
+      "Generated unit test cases"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "English"
+        ],
+        "models": [
+          "LLM-based coding agents"
+        ],
+        "outputs": [
+          "code patches and generated unit test cases",
+          "generated patches for Python code"
+        ]
+      },
+      "normalized": {
+        "code patches and generated unit test cases": "Generated code patches",
+        "generated patches for Python code": "Generated code patches",
+        "LLM-based coding agents": "GPT-4o"
+      },
+      "explanation": "Removed 'English' as it's not the language of generated outputs (Python code is generated). Removed 'LLM-based coding agents' as it's too vague and normalized to specific models mentioned. Consolidated output descriptions to be more precise."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PASS RATE",
+      "PASS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Test case pass rate",
+          "Pass@k",
+          "PASS_TO_PASS",
+          "FAIL_TO_PASS",
+          "pass@1"
+        ]
+      },
+      "normalized": {
+        "Test case pass rate": "Pass Rate",
+        "pass@1": "Pass@1",
+        "PASS_TO_PASS": "Pass Rate",
+        "FAIL_TO_PASS": "Pass Rate"
+      },
+      "explanation": "Normalized to base metric forms. PASS_TO_PASS and FAIL_TO_PASS are test types, not metrics themselves. Pass@k is a general term that collapses to Pass@1 which is the specific metric used. Test case pass rate is equivalent to Pass Rate."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges/evaluators. LLMs are used for generation (UTGenerator) but not for evaluation. Removed placeholder 'None' values."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual review of test cases and patches to determine if inadequate test coverage is the cause of discrepancy between gold patch and generated patch behavior"
+    ],
+    "criteria": [
+      "Coverage",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual review of test cases and patches to determine if inadequate test coverage is the cause of discrepancy between gold patch and generated patch behavior"
+        ],
+        "criteria": [
+          "Patch correctness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Review test cases and patches to determine if inadequate test coverage is the cause of discrepancy",
+          "Human reviewers assess whether the discrepancy is due to insufficient test coverage or incorrect patch behavior.",
+          "review whether the issue stems from inadequate test coverage"
+        ],
+        "criteria": [
+          "test coverage adequacy"
+        ]
+      },
+      "normalized": {
+        "- Review test cases and patches to determine if inadequate test coverage is the cause of discrepancy": "Manual review of test cases and patches to determine if inadequate test coverage is the cause of discrepancy between gold patch and generated patch behavior",
+        "test coverage adequacy": "Test coverage adequacy"
+      },
+      "explanation": "Consolidated multiple guideline descriptions into one comprehensive statement. Normalized criteria to title case. Added 'Patch correctness' as it's explicitly part of the human evaluation process."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating code generation capabilities of coding agents using SWE-Bench. The main NLG task is code generation. Automatic evaluation is based on test case pass rates. Human evaluation is conducted to validate whether test coverage issues are the root cause of discrepancies. No LLM-as-judge evaluation is used. The extraction was generally accurate but needed some normalization and consolidation."
+}

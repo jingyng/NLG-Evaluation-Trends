@@ -1,0 +1,158 @@
+{
+  "paper_id": "2025.naacl-long.352",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Other:Question Generation",
+      "Other:Answer Generation"
+    ],
+    "datasets": [
+      "DrawEduMath"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Claude-3.5 Sonnet",
+      "GPT-4o",
+      "Gemini 1.5 Pro",
+      "Llama 3.2-11B Vision"
+    ],
+    "outputs": [
+      "Teacher-written image descriptions",
+      "Teacher-written QA pairs",
+      "Synthetic QA pairs generated from descriptions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Answer Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Teacher-written image descriptions"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:QA Pair Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Question Generation": "Other:Question Generation",
+        "Other:QA Pair Generation": "Other:Question Generation",
+        "Image Captioning": "Image Captioning",
+        "Generated QA pairs and answers to questions about student responses": "Teacher-written QA pairs",
+        "synthetic QA pairs (questions and answers)": "Synthetic QA pairs generated from descriptions",
+        "synthetic question-answer pairs": "Synthetic QA pairs generated from descriptions"
+      },
+      "explanation": "Split 'Other:QA Pair Generation' into separate question and answer generation tasks. Added 'Teacher-written image descriptions' as outputs. Removed redundant entries and normalized terminology."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTScore",
+      "LM-based similarity"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L",
+          "BERTSCORE",
+          "LM-based similarity (using Mixtral 8x22B)",
+          "LM-based similarity judgements using Mixtral 8x22B"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "BERTSCORE": "BERTScore",
+        "BERTScore": "BERTScore",
+        "LM-based similarity (using Mixtral 8x22B)": "LM-based similarity",
+        "LM-based similarity (Mixtral)": "LM-based similarity",
+        "LM-based similarity judgements using Mixtral 8x22B": "LM-based similarity"
+      },
+      "explanation": "Normalized metric names to base forms (ROUGE-L → ROUGE) and removed redundant/duplicate entries."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "Mixtral 8x22B"
+    ],
+    "methods": [
+      "Likert scale similarity rating"
+    ],
+    "criteria": [
+      "similarity"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Mixtral 8x22B": "Mixtral 8x22B",
+        "similarity rating on a scale of 1-4": "Likert scale similarity rating",
+        "pairwise similarity scoring": "Likert scale similarity rating",
+        "similarity rating on a Likert scale": "Likert scale similarity rating",
+        "similarity": "similarity",
+        "similarity between answers": "similarity"
+      },
+      "explanation": "Consolidated method descriptions under 'Likert scale similarity rating' and kept 'similarity' as the single criterion."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluate correctness of model answers",
+      "Evaluate match between model answers and gold answers"
+    ],
+    "criteria": [
+      "correctness",
+      "match"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Annotators evaluated correctness of answers and match between model and gold answers.": "Evaluate correctness of model answers",
+        "Annotators were asked to judge correctness of model answers and whether model answers match the gold answers.": "Evaluate match between model answers and gold answers",
+        "First, given a question and a VLM's answer, we ask: Is the provided answer correct? Second, given the gold answer and the VLM's answer, we ask: Do these two answers match?": "Evaluate correctness of model answers",
+        "correctness": "correctness",
+        "match": "match",
+        "correctness of answer": "correctness",
+        "match between answers": "match"
+      },
+      "explanation": "Consolidated guideline descriptions into two clear tasks and normalized criteria names."
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating vision-language models' ability to interpret students' handwritten math work. It involves natural language generation through image descriptions and QA pair generation. The extraction was generally accurate but needed normalization and consolidation of redundant entries. The paper uses both automatic metrics and human evaluation, with Mixtral 8x22B serving as an LLM judge for similarity assessment."
+}

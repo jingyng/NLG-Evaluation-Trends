@@ -1,0 +1,157 @@
+{
+  "paper_id": "2024.naacl-long.32",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "DIVERSESUMM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_4",
+      "gpt_3.5_turbo_16k",
+      "vicuna_7b",
+      "longchat_7b_16k",
+      "xgen_7b_8k_inst",
+      "palm_2_bison",
+      "llama_2",
+      "vicuna_v_1.5_16k"
+    ],
+    "outputs": [
+      "multi-document summaries",
+      "summaries capturing diverse information from multiple news articles"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "multi-document summaries",
+          "summaries capturing diverse information from multiple news articles"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "natural-language summaries",
+          "natural-language summaries that capture diverse information from multiple news articles"
+        ]
+      },
+      "normalized": {
+        "DIVERSESUMM": "DiverseSumm",
+        "Palm2-Bison": "PaLM-2-Bison"
+      },
+      "explanation": "Normalized dataset name to proper case, normalized model naming conventions, and improved output descriptions for clarity"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "GPT 4 EVALUATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "GPT-4 Evaluation"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "GPT-4 pairwise comparison",
+          "GPT-4 single-answer grading (binary)",
+          "GPT-4 single-answer grading (Likert scale)",
+          "GPT-4 evaluation",
+          "pairwise comparison",
+          "single-answer Likert-scale grading",
+          "GPT-4 pairwise evaluation",
+          "GPT-4 Likert scale grading",
+          "GPT-4 binary coverage evaluation"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated all GPT-4 evaluation methods under 'GPT-4 Evaluation' since the paper uses GPT-4 as the primary automatic evaluator through various protocols, but these are not traditional automatic metrics like BLEU/ROUGE"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "pairwise comparison",
+      "single-answer grading (binary)",
+      "single-answer grading (Likert scale)"
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Coverage"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "single-answer grading",
+          "Likert scale grading",
+          "binary coverage evaluation"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "pairwise evaluation": "pairwise comparison",
+        "GPT-4 pairwise evaluation": "pairwise comparison",
+        "GPT-4 Likert scale grading": "single-answer grading (Likert scale)",
+        "GPT-4 binary coverage evaluation": "single-answer grading (binary)"
+      },
+      "explanation": "Normalized method names for consistency and removed redundant/overlapping method descriptions"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "For faithfulness: Compare each sentence against source articles and decide if supported by any article",
+      "For coverage: Check each statement against summary to determine if information is mentioned/supported"
+    ],
+    "criteria": [
+      "Faithfulness",
+      "Coverage"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "For faithfulness: Compare each sentence against source articles and decide if supported by any article",
+          "For coverage: Check each statement against summary to determine if information is mentioned/supported"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- For each sentence, compare it against the list of source articles and decide if any of the source articles support this sentence. For each statement, check it against the corresponding summary.",
+          "The faithfulness aspect evaluates the extent to which the summary aligns with the factual content present in the source articles. The coverage aspect gauges the inclusivity of information by considering how many reference answers are addressed in the summary.",
+          "For coverage evaluation: 'A statement is Covered if and only if it is mentioned or supported by the corresponding summary.' For faithfulness evaluation: 'For each sentence, compare it against the list of source articles and decide if any of the source articles support this sentence.'"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated and clarified the human evaluation guidelines into concise statements for better readability while preserving the original meaning"
+    }
+  },
+  "overall_notes": "The paper focuses on multi-document summarization evaluation using both human and GPT-4-based evaluation. The extraction was generally accurate but needed normalization of naming conventions and consolidation of evaluation method descriptions. The paper uses GPT-4 extensively as an evaluator but doesn't employ traditional automatic metrics like BLEU/ROUGE."
+}

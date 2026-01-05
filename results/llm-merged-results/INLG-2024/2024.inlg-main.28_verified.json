@@ -1,0 +1,162 @@
+{
+  "paper_id": "2024.inlg-main.28",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Text Style Transfer"
+    ],
+    "datasets": [
+      "Yelp",
+      "Amazon"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA2-13B",
+      "Mixtral",
+      "Gemma",
+      "LLaMA-7B",
+      "GPT-2-large"
+    ],
+    "outputs": [
+      "Generated text with changed sentiment style",
+      "Sentiment style-transferred sentences preserving content"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "GPT-2-large"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "models": [
+          "Self-Refine baseline"
+        ],
+        "outputs": [
+          "generated text with transferred style"
+        ]
+      },
+      "normalized": {
+        "gpt2-large": "GPT-2-large",
+        "LLaMA-7B": "LLaMA-7B"
+      },
+      "explanation": "Removed 'Self-Refine baseline' as it's a method not a model. Added GPT-2-large which is used for perplexity calculation. Consolidated output descriptions to avoid redundancy."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SacreBLEU",
+      "Accuracy",
+      "Perplexity",
+      "r/s-sB"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "SacreBLEU",
+          "Accuracy",
+          "Perplexity",
+          "r/s-sB"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "r-sB",
+          "s-sB",
+          "Acc",
+          "t-PPL",
+          "s-PPL",
+          "Accuracy (Acc)",
+          "self-SacreBLEU"
+        ]
+      },
+      "normalized": {
+        "r-sB": "SacreBLEU",
+        "s-sB": "SacreBLEU",
+        "Acc": "Accuracy",
+        "Accuracy (Acc)": "Accuracy",
+        "t-PPL": "Perplexity",
+        "s-PPL": "Perplexity",
+        "self-SacreBLEU": "SacreBLEU"
+      },
+      "explanation": "Normalized all metric variants to their base forms: r-sB/s-sB/self-SacreBLEU → SacreBLEU, Acc → Accuracy, t-PPL/s-PPL → Perplexity. Added r/s-sB as a distinct metric."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges/evaluators. LLMs are used for generation only."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Reviewers scored each generated sentence on content preservation, sentiment transfer strength, and fluency using a 1-5 scale"
+    ],
+    "criteria": [
+      "content preservation",
+      "sentiment transfer strength",
+      "fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Reviewers scored each generated sentence on content preservation, sentiment transfer strength, and fluency using a 1-5 scale"
+        ],
+        "criteria": [
+          "content preservation",
+          "sentiment transfer strength",
+          "fluency"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "The evaluation criterion consists of the content preservation capacity, sentiment transfer length, and fluency, and a score range from 1 to 5 is annotated for each aspect.",
+          "Reviewers scored each generated sentence on content preservation, sentiment transfer (length), and fluency using a 1‑5 scale.",
+          "The evaluation criterion consists of the content preservation capacity, sentiment transfer length, and fluency, and a score range from 1 to 5 is annotated for each aspect."
+        ],
+        "criteria": [
+          "content preservation capacity",
+          "sentiment transfer length",
+          "fluency",
+          "content preservation",
+          "sentiment transfer"
+        ]
+      },
+      "normalized": {
+        "content preservation capacity": "content preservation",
+        "sentiment transfer length": "sentiment transfer strength",
+        "sentiment transfer": "sentiment transfer strength"
+      },
+      "explanation": "Consolidated duplicate guideline descriptions. Normalized criteria names for consistency (paper mentions 'sentiment transfer strength' in context, not 'length')."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main improvements were normalization of metric names and consolidation of redundant items. The paper focuses on sentiment style transfer using a reduction-synthesis approach with LLMs. Human evaluation was conducted but LLMs were not used as judges."
+}

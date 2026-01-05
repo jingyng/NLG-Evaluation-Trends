@@ -1,0 +1,129 @@
+{
+  "paper_id": "2025.acl-long.920",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Discourse Parsing"
+    ],
+    "datasets": [
+      "STAC",
+      "MOLWENI"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3",
+      "vicuna_13b_v_1.3",
+      "deepseek_v_3",
+      "gpt_4",
+      "qwen_2"
+    ],
+    "outputs": [
+      "discourse relations (links and types)",
+      "clarified utterances"
+    ],
+    "changes_made": {
+      "added": {
+        "tags": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Other:meeting summarization"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "discourse links and relation types"
+        ]
+      },
+      "normalized": {
+        "GPT-4 (version: 2024-08-06)": "GPT-4"
+      },
+      "explanation": "Removed Dialogue Generation and meeting summarization as those are only mentioned as downstream applications, not the primary NLG task studied. The paper focuses on Dialogue Discourse Parsing and utterance clarification. Merged similar output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "L F1",
+          "LR F1",
+          "micro-averaged F1",
+          "LF1",
+          "LRF1"
+        ]
+      },
+      "normalized": {
+        "L F1": "F1",
+        "LR F1": "F1",
+        "LF1": "F1",
+        "LRF1": "F1"
+      },
+      "explanation": "Normalized all metric variants to the base F1 metric. The paper uses micro-averaged F1 for link prediction (L F1) and link+relation prediction (LR F1), which are both variants of F1 score."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "LLaMA3"
+        ],
+        "methods": [
+          "log probability of intended output"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed incorrect metadata. The paper uses LLM probabilities for model training and preference optimization, not for evaluation/judgment of generated outputs after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators were asked to compare clarified vs original utterances and judge which more clearly conveyed the intended discourse relation types"
+    ],
+    "criteria": [
+      "Clarity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Minor refinement of guideline description for conciseness. The human evaluation was a pairwise comparison of utterance clarity for conveying discourse relations."
+    }
+  },
+  "overall_notes": "The extraction quality was good overall. The paper primarily focuses on dialogue discourse parsing with clarification generation as an auxiliary task. Automatic evaluation uses F1 variants, and human evaluation assesses utterance clarity. LLMs are used for generation and training data creation, not as evaluators/judges."
+}

@@ -1,0 +1,149 @@
+{
+  "paper_id": "2023.emnlp-main.66",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Document Continuation",
+      "Story Generation",
+      "Open Ended Text Generation"
+    ],
+    "datasets": [
+      "WIKITEXT 103",
+      "WRITINGPROMPTS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2_xl",
+      "opt_6.7b",
+      "look_back",
+      "simctg"
+    ],
+    "outputs": [
+      "256-token text continuations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Open‑ended text generation"
+        ],
+        "datasets": [
+          "WikiText‑103"
+        ],
+        "languages": [],
+        "models": [
+          "GPT2‑XL",
+          "OPT‑6.7B",
+          "Look‑back decoding"
+        ],
+        "outputs": [
+          "generated text continuations",
+          "Generated continuations (256‑token sequences) for each prefix",
+          "text continuations"
+        ]
+      },
+      "normalized": {
+        "Other:Open‑ended text generation": "Other:Open-ended Text Generation",
+        "WikiText‑103": "WikiText-103",
+        "GPT2‑XL": "GPT2-XL",
+        "OPT‑6.7B": "OPT-6.7B",
+        "Look‑back decoding": "Look-back"
+      },
+      "explanation": "Removed duplicate task entry, normalized dataset and model names, consolidated outputs to single clear description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "REP",
+      "DIVERSITY",
+      "MAUVE",
+      "COHERENCE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "diversity",
+          "coherence (SimCSE)",
+          "Embedding cosine similarity (SimCSE)"
+        ]
+      },
+      "normalized": {
+        "diversity": "Diversity",
+        "coherence (SimCSE)": "Coherence",
+        "Embedding cosine similarity (SimCSE)": "Coherence"
+      },
+      "explanation": "Consolidated duplicate metric entries and normalized to standard forms. The paper uses rep-n for repetition, Diversity for overall repetition assessment, MAUVE for human-likeness, and Coherence (via SimCSE) for semantic similarity to prefix."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges. It uses LLMs (GPT2-XL, OPT-6.7B) for generation, but not for evaluation. All evaluation is done through automatic metrics and human evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators compare continuations from Look-back and SimCTG, choosing which is better or indicating tie for fluency and coherence"
+    ],
+    "criteria": [
+      "Fluency",
+      "Coherence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators choose one out of three options: the 1st continuation is better, the 2nd is better, or the two are of the same quality.",
+          "Annotators rated each pair of generations on two criteria: fluency and coherence, selecting the better continuation or indicating a tie.",
+          "We ask annotators to choose one out of three options: the 1st continuation is better, the 2nd is better, or the two are of the same quality."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "- Annotators choose one out of three options: the 1st continuation is better, the 2nd is better, or the two are of the same quality.": "Annotators compare continuations from Look-back and SimCTG, choosing which is better or indicating tie for fluency and coherence"
+      },
+      "explanation": "Consolidated redundant guideline descriptions into a single clear statement. Criteria remain unchanged as they are correctly extracted."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper presents a novel decoding algorithm (Look-back) for open-ended text generation, evaluated on document continuation and story generation tasks using GPT2-XL and OPT-6.7B models. Evaluation combines automatic metrics (rep-n, Diversity, MAUVE, Coherence) and human evaluation (fluency, coherence). No LLM-as-judge evaluation is used."
+}

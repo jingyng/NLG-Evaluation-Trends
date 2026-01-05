@@ -1,0 +1,155 @@
+{
+  "paper_id": "2021.emnlp-main.528",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "SPACE",
+      "OPOSUM+"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "ACESUM",
+      "distilroberta-base",
+      "t5-small",
+      "ACESUMEXT",
+      "T5-RANDOM",
+      "T5-SIMILAR",
+      "QT",
+      "MEANSUM",
+      "COPYCAT",
+      "LEXRANK",
+      "CENTROID",
+      "T5",
+      "ORACLE"
+    ],
+    "outputs": [
+      "abstractive opinion summaries",
+      "general opinion summaries",
+      "aspect-specific opinion summaries",
+      "multi-aspect opinion summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "ORACLE"
+        ],
+        "outputs": [
+          "general opinion summaries",
+          "multi-aspect opinion summaries"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "abstractive opinion summaries": "abstractive opinion summaries",
+        "general and aspect‑specific opinion summaries (abstractive, controllable by aspect codes, keywords, or sentences)": "aspect-specific opinion summaries"
+      },
+      "explanation": "Added ORACLE model mentioned in evaluation, simplified output descriptions to be more concise and accurate, removed redundant entries"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized all ROUGE variants to base ROUGE metric as per simplification guideline"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges; removed placeholder 'None' entries"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Best-Worst Scaling with reference comparison on informativeness, coherence, conciseness, fluency",
+      "Aspect relevance assessment (exclusive/partial/none)",
+      "Multi-aspect coverage assessment (both/one/other/none)",
+      "Veridicality assessment (fully/partially/not supported)"
+    ],
+    "criteria": [
+      "Informativeness",
+      "Coherence",
+      "Conciseness",
+      "Fluency",
+      "Aspect Relevance",
+      "Multi-Aspect Coverage",
+      "Veridicality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Aspect relevance assessment (exclusive/partial/none)",
+          "Multi-aspect coverage assessment (both/one/other/none)",
+          "Veridicality assessment (fully/partially/not supported)"
+        ],
+        "criteria": [
+          "Multi-Aspect Coverage",
+          "Veridicality"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "informativeness": "Informativeness",
+        "coherence": "Coherence",
+        "conciseness": "Conciseness",
+        "fluency": "Fluency",
+        "Aspect Relevance": "Aspect Relevance"
+      },
+      "explanation": "Added missing human evaluation methods and criteria mentioned in the paper, normalized criteria capitalization"
+    }
+  },
+  "overall_notes": "The paper is clearly about abstractive opinion summarization with aspect control. The extraction was mostly accurate but missed some details about the additional human evaluation studies. Paper uses ROUGE metrics extensively and conducts multiple human evaluation studies including Best-Worst Scaling, aspect relevance assessment, multi-aspect coverage, and veridicality assessment. No LLMs are used as judges."
+}

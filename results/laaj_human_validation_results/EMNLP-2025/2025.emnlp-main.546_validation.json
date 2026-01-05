@@ -1,0 +1,114 @@
+{
+  "paper_id": "2025.emnlp-main.546",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly conducts a human-LLM agreement study comparing LLM-as-Judge ratings with expert preferences on 49 simulated discharge cases across multiple criteria."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "DeepSeek-V3"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "figure",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper provides detailed scoring rubrics with criteria definitions and strict scoring instructions for Language Quality, Content Quality, and Conversation Strategy evaluation, though not the exact system prompt given to the LLM."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": 0.715,
+      "interpretation": "high agreement/inter-rater reliability",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines describe five evaluation criteria and the process of selecting preferred outputs and highlighting evidence spans, but full annotation instructions are not fully detailed."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Cohen's kappa",
+      "Percentage agreement",
+      "Spearman correlation"
+    ],
+    "shared_criteria": [
+      "Language Delivery",
+      "Human-Centered Communication",
+      "Content Coverage",
+      "Education Strategy",
+      "Overall Preference"
+    ],
+    "sample_size": {
+      "total_generated": 49,
+      "validated_by_both": 49,
+      "notes": "Human-LLM agreement study conducted on all 49 simulated discharge cases"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Cohen's kappa",
+        "value": 0.591,
+        "criterion": "overall",
+        "llm_model": "DeepSeek-V3",
+        "significance": "p<0.001",
+        "notes": "Aggregated across all criteria"
+      },
+      {
+        "metric": "Percentage agreement",
+        "value": 79.6,
+        "criterion": "overall",
+        "llm_model": "DeepSeek-V3",
+        "significance": null,
+        "notes": "Aggregated across all criteria"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.593,
+        "criterion": "overall",
+        "llm_model": "DeepSeek-V3",
+        "significance": "p<0.001",
+        "notes": "Aggregated across all criteria"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": "Not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM-as-Judge shows substantial alignment with expert evaluation (κ=0.591, 79.6% agreement, ρ=0.593, all p<0.001), supporting its use as a scalable proxy for expert assessment in discharge communication tasks."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "semantic coverage",
+      "factuality",
+      "consistency",
+      "informativeness",
+      "fluency",
+      "relevance",
+      "personalization"
+    ],
+    "human_only_criteria": [
+      "Content Coverage",
+      "Education Strategy",
+      "Overall Preference"
+    ],
+    "shared_criteria": [
+      "Language Delivery",
+      "Human-Centered Communication"
+    ],
+    "notes": "LLM evaluation uses more fine-grained dimensions while human evaluation focuses on broader categories. Both methods evaluate communication quality aspects."
+  }
+}

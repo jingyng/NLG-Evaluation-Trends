@@ -1,0 +1,51 @@
+{
+  "paper_id": "2023.emnlp-main.84",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "Both LLM and human evaluations are conducted but they serve different purposes and are never quantitatively compared. LLM is used for reward model training and classification, while human evaluation provides ground truth toxicity labels, but no correlation or agreement metrics between LLM and human judgments are reported."
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-3.5-turbo",
+      "GPT-3"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts shown in main text for three-class toxicity classification and data generation"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' Kappa",
+      "value": "moderate to substantial",
+      "interpretation": "moderate to substantial agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed annotation instructions with toxic type categorization and examples provided in main text"
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "reward modeling for implicit toxic preference"
+    ],
+    "human_only_criteria": [
+      "toxic type classification (Offending User, Unfairness and Discrimination, Toxic Agreement, Sensitive Topic)"
+    ],
+    "shared_criteria": [
+      "toxicity (binary: toxic/non-toxic)"
+    ],
+    "notes": "LLM evaluates toxicity for classification and reward modeling, while human evaluates toxicity as ground truth and also classifies toxic types. Both methods assess toxicity but with different granularity and no direct comparison is made."
+  }
+}

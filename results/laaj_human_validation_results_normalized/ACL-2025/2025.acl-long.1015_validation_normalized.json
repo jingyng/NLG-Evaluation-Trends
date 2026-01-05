@@ -1,0 +1,102 @@
+{
+  "paper_id": "2025.acl-long.1015",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates GPT-4-o-mini's evaluation capabilities against human evaluation for comment-KP matching annotation, reporting Pearson correlation and accuracy metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "gpt_4_o_mini"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompts provided in appendices for various evaluation tasks including KP extraction and comment-KP matching"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's kappa",
+      "value": "Not explicitly reported but used for quality control (annotators with Cohen's kappa < 0 excluded)",
+      "interpretation": "Used for filtering annotators rather than reporting overall agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed annotation guidelines provided for comment-KP matching with categorical scale (Not At All, Somewhat Not Well, Somewhat Well, Very Well)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation",
+      "Accuracy"
+    ],
+    "shared_criteria": [
+      "comment-KP matching accuracy"
+    ],
+    "sample_size": {
+      "total_generated": "Not specified exactly",
+      "validated_by_both": "Not specified exactly",
+      "notes": "Validation conducted on comment-KP pairs from the annotation process"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.647,
+        "criterion": "comment-KP matching",
+        "llm_model": "gpt_4_o_mini",
+        "significance": "p = 5.342e-16",
+        "notes": "Statistically significant correlation between LLM and human annotations"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.807,
+        "criterion": "comment-KP matching",
+        "llm_model": "gpt_4_o_mini",
+        "significance": "Not reported",
+        "notes": "Overall accuracy of LLM annotations compared to human consensus"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "positive correlation",
+      "threshold_used": "Not explicitly defined",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4-o-mini annotations show statistically significant positive correlation (r=0.647, p=5.342e-16) and high accuracy (80.7%) with human judgments for comment-KP matching tasks."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Relevance",
+      "Similarity",
+      "Correctness"
+    ],
+    "human_only_criteria": [
+      "Redundancy",
+      "Coverage",
+      "Faithfulness",
+      "Validity",
+      "Sentiment",
+      "Informativeness",
+      "Aspect"
+    ],
+    "shared_criteria": [
+      "comment-KP matching accuracy"
+    ],
+    "notes": "LLM used primarily for matching evaluation while humans evaluated broader summary quality dimensions; overlapping validation conducted specifically on comment-KP matching accuracy"
+  }
+}

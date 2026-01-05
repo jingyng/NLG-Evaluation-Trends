@@ -1,0 +1,145 @@
+{
+  "paper_id": "2025.naacl-long.361",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Multi-hop Question Answering"
+    ],
+    "datasets": [
+      "HotpotQA",
+      "2WikiMultihopQA",
+      "MusiQue",
+      "StrategyQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-3.1-8B-Instruct",
+      "GPT-4o",
+      "GPT-4o-mini"
+    ],
+    "outputs": [
+      "answers to multi-hop questions and intermediate sub-queries",
+      "step-by-step reasoning process with queries and answers"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "step-by-step reasoning process with queries and answers"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:multi-hop question answering"
+        ],
+        "datasets": [
+          "2Wiki-MultihopQA"
+        ],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "2Wiki-MultihopQA": "2WikiMultihopQA",
+        "Other:multi-hop question answering": "Other:Multi-hop Question Answering"
+      },
+      "explanation": "Removed duplicate task entry, normalized dataset name (2WikiMultihopQA instead of 2Wiki-MultihopQA), and added additional clarification about the step-by-step reasoning outputs"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Exact Match",
+      "F1",
+      "Cover Exact Match"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1 score"
+        ]
+      },
+      "normalized": {
+        "F1 score": "F1"
+      },
+      "explanation": "Removed duplicate 'F1 score' since it's the same as 'F1', kept the three distinct metrics mentioned in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o-mini",
+      "Llama-3.1-8B-Instruct"
+    ],
+    "methods": [
+      "retrieval-augmented verification",
+      "query-aware reward modeling",
+      "answer-aware reward modeling"
+    ],
+    "criteria": [
+      "knowledge consistency",
+      "logical plausibility",
+      "logical consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "retrieval-augmented verification",
+          "query-aware reward modeling",
+          "answer-aware reward modeling"
+        ],
+        "criteria": [
+          "knowledge consistency",
+          "logical plausibility",
+          "logical consistency"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "reward modeling for sub-query and answer",
+          "reward modeling",
+          "verification",
+          "reward modeling with query-aware and answer-aware scoring"
+        ],
+        "criteria": [
+          "consistency",
+          "plausibility",
+          "logical correctness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Replaced vague method descriptions with more specific terms from the paper's technical sections, and refined criteria to match the paper's explicit mentions of what the LLM judges evaluate"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation mentioned in the paper - only automatic metrics and LLM-based evaluation methods are discussed"
+    }
+  },
+  "overall_notes": "The paper is primarily focused on multi-hop question answering using a novel RAG-enhanced reasoning framework. It uses LLMs both for generation (Llama-3.1-8B-Instruct, GPT-4o) and as evaluators/judges (GPT-4o-mini, fine-tuned Llama-3.1-8B-Instruct). The LLM-as-judge component is well-described with specific reward modeling for query and answer verification. No human evaluation is conducted."
+}

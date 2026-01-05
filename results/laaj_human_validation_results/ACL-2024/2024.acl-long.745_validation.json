@@ -1,0 +1,119 @@
+{
+  "paper_id": "2024.acl-long.745",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM-RUBRIC against human evaluation using quantitative metrics on both synthetic and real dialogue datasets"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "gpt-3.5-turbo-16k"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt provided in Appendix D: 'You are given a conversation between a user and an intelligent assistant for an enterprise chat scenario. In some cases, some references and citations are provided to back up the claims made by the intelligent assistant. Your primary job is to evaluate the quality of the conversation based on a criterion. To do so, read the conversation and references, and answer the followed question, by selecting only one of the choices. Conversation: {conversation} Question: {question} Only print '1', '2', '3', '4', or 'NA' as your answer. Do not print anything else.'"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 24,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "variance in marginal distributions",
+      "value": "high disagreement shown in Figure",
+      "interpretation": "humans do not fully agree with one another, disagreement is signal not noise",
+      "per_criterion": [
+        {
+          "criterion": "Overall satisfaction",
+          "metric": "judge heterogeneity",
+          "value": "shown in Figure 2"
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Complete rubric with 9 questions (Q0-Q8) provided in Appendix C, detailed instructions in Appendix E including preliminary screening questions"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Root Mean Squared Error (RMSE)",
+      "Pearson correlation",
+      "Rank correlation"
+    ],
+    "shared_criteria": [
+      "Naturalness",
+      "Relevance",
+      "Attribution",
+      "Citation quality",
+      "Conciseness",
+      "Redundancy",
+      "Efficiency",
+      "Overall satisfaction"
+    ],
+    "sample_size": {
+      "total_generated": 973,
+      "validated_by_both": 964,
+      "notes": "741 synthetic dialogues + 223 real dialogues, each evaluated by both LLM and humans"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "RMSE",
+        "value": 0.5,
+        "criterion": "Overall satisfaction (Q0)",
+        "llm_model": "GPT-3.5-turbo-16k",
+        "significance": "2× improvement over baseline",
+        "notes": "Best performance with full LLM-RUBRIC"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.72,
+        "criterion": "Overall satisfaction (Q0)",
+        "llm_model": "GPT-3.5-turbo-16k",
+        "significance": "Oracle study upper bound",
+        "notes": "With access to judge's true responses to Q1-Q8"
+      },
+      {
+        "metric": "RMSE",
+        "value": 0.82,
+        "criterion": "Overall satisfaction (Q0)",
+        "llm_model": "Baseline (uncalibrated LLM)",
+        "significance": "Constant baseline",
+        "notes": "LLM-RUBRIC explains ≈65% of variance"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "substantially improved",
+      "threshold_used": "Not explicitly stated",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLM-RUBRIC with personalized calibration achieves RMSE < 0.5 on overall satisfaction prediction, a 2× improvement over uncalibrated baseline, though raw LLM judgments show poor correlation with human judgments."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "Initial dialogue quality screening (DQQ0-DQQ2)"
+    ],
+    "shared_criteria": [
+      "Naturalness (Q1)",
+      "Reference utility (Q2)",
+      "Citation quality (Q3-Q5)",
+      "Redundancy (Q6)",
+      "Conciseness (Q7)",
+      "Efficiency (Q8)",
+      "Overall satisfaction (Q0)"
+    ],
+    "notes": "Both LLM and human evaluate identical 9-question rubric, with humans having additional preliminary screening questions"
+  }
+}

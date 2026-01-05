@@ -1,0 +1,81 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "We evaluate a method's efficacy by measuring its performance on 50 open-style questions, in order to assess the model's ability to recall and generate correct information about the target concept.",
+            "Our goal is to erase knowledge about c from M , such that M cannot generate correct information about c, while other knowledge and capabilities of M are retained."
+        ],
+        "tasks": [
+            "Other:Open-ended QA Generation",
+            "Other:Concept Erasure"
+        ],
+        "datasets": [
+            "MMLU",
+            "Alpaca-Eval",
+            "ConceptVectors"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "Gemma-2-2B-it",
+            "Llama-3.1-8B-it"
+        ],
+        "outputs": [
+            "Model responses to open-style questions and instruction-following tasks",
+            "The model generates answers to open-style questions about the target concept after erasure, and these generations are evaluated for correctness, coherence, and specificity."
+        ]
+    },
+    "answer_2": {
+        "answer": "No",
+        "quote": [
+            "We then calculate the normalized accuracy as the model's accuracy on these questions divided by its baseline accuracy, and take its complement as efficacy."
+        ],
+        "automatic_metrics": [
+            "normalized accuracy",
+            "harmonic mean of specificity and coherence metrics",
+            "relearning accuracy"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "An LLM-as-a-Judge then scores the output on how well it followed the instructions and how coherent it was.",
+            "we use gemini-2.0-flash as an LLM-as-a-Judge (justified in §C)... An LLM-as-a-Judge then scores the output on how well it followed the instructions and how coherent it was.",
+            "We use gemini-2.0-flash as an LLM-as-a-Judge (justified in §C), which evaluates how well the given answer matches the correct answer."
+        ],
+        "models": [
+            "gemini-2.0-flash"
+        ],
+        "methods": [
+            "LLM-as-a-Judge for pairwise evaluation",
+            "LLM scoring of generated answers",
+            "LLM-as-a-Judge"
+        ],
+        "criteria": [
+            "accuracy",
+            "instruction-following",
+            "coherence",
+            "how well the given answer matches the correct answer"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We then assigned four annotators (NLP graduate students) to decide whether to include or exclude each of the candidate features...",
+            "We recruited three human annotators (graduate students) and used a set of 120 questions... They were asked to evaluate whether the model's answer matched the correct one.",
+            "We recruited three human annotators (graduate students) and used a set of 120 questions sampled uniformly across concepts, methods, models, and accuracy-based evaluations."
+        ],
+        "guideline": [
+            "Decide whether to include or exclude candidate features based on alignment and coherence scoring",
+            "Evaluate whether the model's answer matches the correct answer.",
+            "For each question, annotators received the same inputs as the LLM judge: the question, the correct answer, and the model's generated answer. They were asked to evaluate whether the model's answer matched the correct one."
+        ],
+        "criteria": [
+            "alignment",
+            "coherence",
+            "accuracy",
+            "whether the model's answer matched the correct one"
+        ]
+    }
+}

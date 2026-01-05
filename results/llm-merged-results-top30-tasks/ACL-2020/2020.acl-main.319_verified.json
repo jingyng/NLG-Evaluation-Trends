@@ -1,0 +1,143 @@
+{
+  "paper_id": "2020.acl-main.319",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "LDC ZH EN",
+      "WMT14",
+      "WMT15",
+      "NIST TEST SETS",
+      "iwslt11 17"
+    ],
+    "languages": [
+      "Chinese",
+      "English",
+      "German",
+      "French"
+    ],
+    "models": [
+      "rnn_search",
+      "transformer"
+    ],
+    "outputs": [
+      "Machine translation outputs",
+      "Adversarially perturbed source sentences",
+      "Degraded translations from adversarial attacks"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Degraded translations from adversarial attacks"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WMT test sets"
+        ],
+        "languages": [],
+        "models": [
+          "Reinforced adversarial agent",
+          "Discriminator"
+        ],
+        "outputs": [
+          "adversarially perturbed source sentences and the resulting degraded target translations",
+          "The generated outputs are translations in the target language (e.g., English from Chinese, French from English) produced by neural machine translation systems, including both original and adversarially perturbed versions."
+        ]
+      },
+      "normalized": {
+        "RNN-search": "RNN-Search",
+        "Machine Translation Outputs": "Machine translation outputs"
+      },
+      "explanation": "Simplified outputs description and removed implementation-specific models (agent/discriminator) since they are used for attack generation, not NLG evaluation. Kept only the core NLG models being attacked (RNN-Search, Transformer). Removed 'WMT test sets' as it's redundant with specific WMT datasets already listed."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "CHRBLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "RD",
+          "relative decrease in target BLEU (RD)"
+        ]
+      },
+      "normalized": {
+        "bleu": "BLEU"
+      },
+      "explanation": "Removed 'RD' as it's not an evaluation metric but a derived measure using BLEU. Kept only the actual metrics used for evaluation (BLEU and chrBLEU)."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleaned up empty/null values since the paper does not use LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Double-blind evaluation of semantic similarity on 0-5 scale",
+      "10% of sequences randomly sampled and mixed with baselines"
+    ],
+    "criteria": [
+      "Similarity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "10% of sequences randomly sampled and mixed with baselines"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Semantic similarity on a scale from 0 to 5",
+          "Annotators rated the semantic similarity of the perturbed source to the original on a 0‑5 scale.",
+          "Human evaluators rated the semantic similarity of the perturbed source compared to the original on a scale from 0 to 5 in a double-blind setup."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated and streamlined the guideline description while keeping all key information. The only evaluation criterion is semantic similarity between original and perturbed sources."
+    }
+  },
+  "overall_notes": "This paper focuses on generating adversarial examples for machine translation systems using reinforcement learning. The NLG evaluation aspect is secondary to the main contribution of attack generation. Evaluation focuses on translation quality degradation (via BLEU) and semantic preservation (via human evaluation). The extraction was generally accurate but included some implementation details rather than core evaluation components."
+}

@@ -1,0 +1,153 @@
+{
+  "paper_id": "2025.acl-long.587",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Code Generation"
+    ],
+    "datasets": [
+      "ACECODE-87K",
+      "HumanEval",
+      "MBPP",
+      "LiveCodeBench",
+      "BigCodeBench",
+      "Magicoder-Evol-Instruct",
+      "Magicoder-OSS-Instruct-75K",
+      "StackPyFunction",
+      "APPS",
+      "TACO"
+    ],
+    "languages": [
+      "Python"
+    ],
+    "models": [
+      "Code-Llama",
+      "Qwen2.5-Coder",
+      "Llama-3.1",
+      "Mistral-7B",
+      "GPT-4o-mini",
+      "Qwen2.5-Coder-32B",
+      "ACECODE-RM-7B",
+      "ACECODE-RM-32B"
+    ],
+    "outputs": [
+      "Python code solutions for coding tasks",
+      "generated code solutions for programming problems"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "HumanEval(+)",
+          "MBPP(+)"
+        ],
+        "languages": [
+          "English"
+        ],
+        "models": [
+          "Llama-3.1-8B-Instruct",
+          "Qwen2.5-Coder-32B-Instruct"
+        ],
+        "outputs": [
+          "code"
+        ]
+      },
+      "normalized": {
+        "HumanEval(+)": "HumanEval",
+        "MBPP(+)": "MBPP",
+        "Llama-3.1-8B-Instruct": "Llama-3.1",
+        "Qwen2.5-Coder-32B-Instruct": "Qwen2.5-Coder-32B"
+      },
+      "explanation": "Removed 'English' from languages since the paper focuses on Python code generation. Normalized dataset names by removing (+) notation. Consolidated model names by removing redundant specifications."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "pass rate",
+      "pass@N",
+      "test case pass rate"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "average score",
+          "best-of-N accuracy",
+          "Best-of-N sampling",
+          "Bradley-Terry loss"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'average score' and 'best-of-N accuracy' as they are not evaluation metrics but experimental results. Removed 'Best-of-N sampling' and 'Bradley-Terry loss' as they are methods/procedures, not evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "ACECODE-RM-7B",
+      "ACECODE-RM-32B",
+      "GPT-4o-mini",
+      "Qwen2.5-Coder-32B"
+    ],
+    "methods": [
+      "best-of-N sampling",
+      "test case synthesis via prompting",
+      "question refinement via prompting"
+    ],
+    "criteria": [
+      "test case pass rate"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "reward model ranking"
+        ],
+        "criteria": [
+          "reward score"
+        ]
+      },
+      "normalized": {
+        "Qwen2.5-Coder-32B": "Qwen2.5-Coder-32B"
+      },
+      "explanation": "Removed 'reward model ranking' as it's redundant with 'best-of-N sampling'. Removed 'reward score' as it's not an evaluation criterion but an intermediate score. Kept 'test case pass rate' as the primary evaluation criterion used by LLM judges."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted in this paper. The paper relies entirely on automated test case execution for evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on code generation evaluation using automated test case execution. The extraction was generally accurate but included some procedural elements (like Bradley-Terry loss and Best-of-N sampling) that are not evaluation metrics. The paper uses LLMs for test case generation and refinement, and trained reward models for ranking code outputs, but the primary evaluation is through test case pass rates."
+}

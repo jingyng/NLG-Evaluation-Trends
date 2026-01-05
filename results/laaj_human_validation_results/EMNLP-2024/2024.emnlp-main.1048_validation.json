@@ -1,0 +1,96 @@
+{
+  "paper_id": "2024.emnlp-main.1048",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares GPT-3.5 win rate evaluation against human preferences on 100 samples, grouping by AlignScore thresholds and reporting preference percentages"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-3.5"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "Paper mentions 'win rate prompts' are in Appendix A.1 but these are not shown in the provided text"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": null,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no"
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human evaluation details mentioned to be in Appendix A.2 but not provided in text"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Percentage agreement"
+    ],
+    "shared_criteria": [
+      "preference"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "100 samples from TL;DR dataset evaluated by both methods"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Percentage agreement",
+        "value": 70,
+        "criterion": "preference",
+        "llm_model": "GPT-3.5",
+        "significance": null,
+        "notes": "Group A: When AlignScore(DPO)≤0.5 and AlignScore(MPO)>0.5"
+      },
+      {
+        "metric": "Percentage agreement",
+        "value": 32,
+        "criterion": "preference",
+        "llm_model": "GPT-3.5",
+        "significance": null,
+        "notes": "Group B: When AlignScore(DPO)>0.5 and AlignScore(MPO)≤0.5"
+      },
+      {
+        "metric": "Win rate",
+        "value": 51,
+        "criterion": "overall",
+        "llm_model": "GPT-3.5",
+        "significance": null,
+        "notes": "Combined win rate across both groups"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "moderate",
+      "threshold_used": "AlignScore > 0.5 as threshold",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "AlignScore aligns with human judgment to some extent, with MPO achieving 51% overall win rate against human preference optimized models"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "AlignScore"
+    ],
+    "human_only_criteria": [
+      "direct preference"
+    ],
+    "shared_criteria": [
+      "faithfulness",
+      "relevance"
+    ],
+    "notes": "LLM uses AlignScore metric while humans provide direct preference judgments, both evaluating similar aspects of summary quality"
+  }
+}

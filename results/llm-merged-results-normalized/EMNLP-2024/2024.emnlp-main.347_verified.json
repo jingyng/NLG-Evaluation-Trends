@@ -1,0 +1,115 @@
+{
+  "paper_id": "2024.emnlp-main.347",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering"
+    ],
+    "datasets": [
+      "XOR ATTRIQA",
+      "eli5"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Spanish",
+      "French",
+      "Italian",
+      "Russian",
+      "Chinese",
+      "Arabic",
+      "Hindi",
+      "Swahili"
+    ],
+    "models": [
+      "mt_5_base",
+      "llama_2_7b_chat",
+      "zephyr_β_7b",
+      "t_5_11b"
+    ],
+    "outputs": [
+      "generated answers",
+      "generated answers with answer attributions"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "T5 11B"
+        ]
+      },
+      "removed": {
+        "models": [
+          "mT5‑base"
+        ],
+        "languages": []
+      },
+      "normalized": {
+        "mT5‑base": "mT5-base"
+      },
+      "explanation": "Removed duplicate 'mT5‑base' variant and standardized to 'mT5-base'. Added 'T5 11B' which is used for entailment-based evaluation. Removed extra languages not mentioned in the XOR-AttriQA multilingual evaluation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "PRECISION",
+      "RECALL",
+      "F1",
+      "MAUVE"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Metrics are correctly extracted and properly normalized"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "t_5_11b"
+    ],
+    "methods": [
+      "Natural Language Inference (NLI) for entailment"
+    ],
+    "criteria": [
+      "Citation",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "TRUE"
+        ]
+      },
+      "normalized": {
+        "TRUE": "T5 11B",
+        "NLI evaluation": "Natural Language Inference (NLI) for entailment",
+        "NLI-based evaluation": "Natural Language Inference (NLI) for entailment"
+      },
+      "explanation": "Normalized 'TRUE' to 'T5 11B' since TRUE is the T5 11B model fine-tuned for NLI. Consolidated multiple NLI method descriptions. TRUE/T5 11B is used as an LLM evaluator to assess citation quality and correctness of generated answers against supporting documents."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotations for answer attribution (AA) on XOR-AttriQA dataset",
+      "Human annotators label which retrieved documents support each generated answer sentence"
+    ],
+    "criteria": [
+      "Attribution"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Guideline and criteria are correctly extracted. The paper uses human annotations on XOR-AttriQA to evaluate answer attribution quality."
+    }
+  },
+  "overall_notes": "The paper focuses on answer attribution for retrieval-augmented generation (RAG) in question answering. It evaluates MIRAGE, a model internals-based approach for attributing generated answers to supporting documents. The extraction is generally accurate with minor normalization needed. The paper uses both human evaluation (on XOR-AttriQA) and automatic evaluation with NLI/T5 11B as an LLM judge (on ELI5)."
+}

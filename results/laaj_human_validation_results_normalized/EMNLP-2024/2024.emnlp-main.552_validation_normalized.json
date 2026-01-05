@@ -1,0 +1,113 @@
+{
+  "paper_id": "2024.emnlp-main.552",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM evaluation against human evaluation by recruiting human annotators to evaluate 200 summaries and comparing LLM judgments against these human annotations on identical coverage criteria, reporting quantitative correlation metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 5,
+    "models": [
+      "GPT-3.5",
+      "Claude 3 Haiku",
+      "Claude 3 Opus",
+      "GPT-4o",
+      "Gemini-1.5-pro"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Prompt includes task instructions and an example summary showing fully, partially, and uncovered insights. Also tested a 9 few-shot version (3 examples for each coverage type)."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Pearson correlation",
+      "value": 0.77,
+      "interpretation": "strong level of agreement",
+      "per_criterion": [
+        {
+          "criterion": "coverage",
+          "metric": "linking accuracy",
+          "value": 0.95
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines include determining coverage (full/partial/none) and linking accuracy (which candidate bullet covers which insight). Annotators assessed 240 insights across 35 summaries."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "accuracy"
+    ],
+    "shared_criteria": [
+      "coverage",
+      "linking_accuracy"
+    ],
+    "sample_size": {
+      "total_generated": 200,
+      "validated_by_both": 200,
+      "notes": "200 candidate summaries (100 from news domain, 100 from conversational domain) annotated by human evaluators and evaluated by all LLM models"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.71,
+        "criterion": "Coverage",
+        "llm_model": "GPT-4o",
+        "significance": "not reported",
+        "notes": "Selected as primary evaluator due to high correlation at low cost"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.71,
+        "criterion": "Coverage",
+        "llm_model": "Gemini-1.5-pro",
+        "significance": "not reported",
+        "notes": "Also achieved strong correlation but more expensive with rate limits"
+      },
+      {
+        "metric": "accuracy",
+        "value": 0.95,
+        "criterion": "linking_accuracy",
+        "llm_model": "GPT-4o",
+        "significance": "not reported",
+        "notes": "Human annotators achieved 95% agreement on which candidate bullet covers which insight"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "0.7+ correlation considered strong positive correlation",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "GPT-4o achieves strong correlation (0.71) with human annotation while reducing evaluation cost by a factor of almost 50, though correlation is slightly lower than human inter-annotator agreement (0.77)."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "annotation_cost",
+      "task_completion_time"
+    ],
+    "shared_criteria": [
+      "Coverage",
+      "citation",
+      "linking_accuracy"
+    ],
+    "notes": "Both LLM and human evaluators assess identical coverage and citation criteria, with citation evaluation using precision, recall, and F1 scores for thoroughness assessment."
+  }
+}

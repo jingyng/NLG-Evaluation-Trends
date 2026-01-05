@@ -1,0 +1,148 @@
+{
+  "paper_id": "2021.acl-long.134",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "DECODE",
+      "HUMAN BOT TEST SET",
+      "BLENDED SKILL TALK BST",
+      "WIZARD OF WIKIPEDIA",
+      "convai2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "blenderbot",
+      "poly_encoder",
+      "bert",
+      "roberta",
+      "electra",
+      "bart"
+    ],
+    "outputs": [
+      "generated dialogue utterances",
+      "contradiction labels for utterances",
+      "re-ranked generated responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "ELECTRA"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "human-bot test set"
+        ],
+        "languages": [],
+        "models": [
+          "BlenderBot (BST 2.7B)"
+        ],
+        "outputs": [
+          "generated utterances from open-domain chatbots"
+        ]
+      },
+      "normalized": {
+        "Electra": "ELECTRA",
+        "BlenderBot (BST 2.7B)": "BlenderBot",
+        "human-bot test set": "Human-Bot Test Set"
+      },
+      "explanation": "Normalized model names to standard forms (ELECTRA), removed duplicate dataset entry, simplified BlenderBot reference without version number, consolidated similar output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "PRECISION",
+      "RECALL",
+      "F1",
+      "AUC",
+      "PEARSON CORRELATION"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Contradiction Detection Score",
+          "contradiction detection classifier (DECODE)",
+          "DECODE Contradict%"
+        ]
+      },
+      "normalized": {
+        "Pearson correlation coefficient": "Pearson correlation"
+      },
+      "explanation": "Replaced task-specific metric names with standard evaluation metrics used in the paper (Accuracy, Precision, Recall, F1, AUC, Pearson correlation)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa"
+        ],
+        "methods": [
+          "classifier prediction"
+        ],
+        "criteria": [
+          "contradiction"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does NOT use LLMs as judges. RoBERTa is used as a contradiction detection classifier, not as an LLM evaluator. This is a traditional classifier-based evaluation, not LLM-as-judge methodology."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers marked utterances that contradict previous statements",
+      "Annotators labeled final utterances as 'contradiction' or 'non-contradiction'",
+      "Workers were instructed to interact with bots and mark contradicting utterances",
+      "Examples verified by 3 additional annotators"
+    ],
+    "criteria": [
+      "Contradiction"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Examples verified by 3 additional annotators"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added missing verification detail to guidelines. The paper clearly conducts human evaluation through crowdsourced annotation with specific contradiction detection criteria."
+    }
+  },
+  "overall_notes": "This paper focuses on dialogue contradiction detection and its application to evaluating/generating consistent dialogue responses. The extraction was generally accurate but needed normalization of model names and clarification that the RoBERTa classifier is not an LLM-as-judge approach. The paper's main contribution is the DECODE dataset and contradiction detection methodology for dialogue consistency evaluation."
+}

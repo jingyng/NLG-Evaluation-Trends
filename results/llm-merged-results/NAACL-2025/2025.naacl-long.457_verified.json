@@ -1,0 +1,167 @@
+{
+  "paper_id": "2025.naacl-long.457",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Code Review Comment Generation"
+    ],
+    "datasets": [
+      "CodeReviewer"
+    ],
+    "languages": [
+      "English",
+      "Python",
+      "Java",
+      "JavaScript"
+    ],
+    "models": [
+      "BM-25 retriever",
+      "LSTM",
+      "CodeReviewer",
+      "Stable-Code-3B",
+      "DeepSeekCoder-6.7B",
+      "Magicoder-6.7B",
+      "CodeLLaMA-7B",
+      "CodeLLaMA-13B",
+      "LLaMA-3-8B",
+      "GPT-3.5"
+    ],
+    "outputs": [
+      "natural language code review comments"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Code Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Magicoder‑S‑DS‑6.7B",
+          "GPT‑3.5",
+          "GPT‑4o",
+          "GPT-4",
+          "Magicoder-S-DS-6.7B"
+        ],
+        "outputs": [
+          "code review comments (natural‑language review sentences)"
+        ]
+      },
+      "normalized": {
+        "Javascript": "JavaScript",
+        "natural language review comments": "natural language code review comments"
+      },
+      "explanation": "Removed 'Code Generation' task since the paper focuses on review comment generation, not code generation. Removed models that are used for evaluation (GPT-4o, GPT-4, Magicoder-S-DS-6.7B) rather than generation. Simplified output description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "Normalized Edit Distance",
+      "ROUGE",
+      "chrF",
+      "chrF++",
+      "BERTScore",
+      "LaaJ-Magic",
+      "LaaJ-GPT",
+      "CRScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L F-measure"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "ROUGE-L F-measure": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE variants to base form 'ROUGE' as per guidelines. Removed duplicate 'ROUGE-L F-measure' which is covered by 'ROUGE'."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o",
+      "Magicoder-S-DS-6.7B"
+    ],
+    "methods": [
+      "LLM-as-a-judge prompting with quality dimension descriptions"
+    ],
+    "criteria": [
+      "conciseness",
+      "comprehensiveness",
+      "relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Magicoder‑S‑DS‑6.7B"
+        ],
+        "methods": [
+          "prompting-based approach with descriptions of Con, Comp, and Rel dimensions",
+          "LLM‑as‑a‑judge prompting"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "Magicoder‑S‑DS‑6.7B": "Magicoder-S-DS-6.7B",
+        "prompting-based approach with descriptions of Con, Comp, and Rel dimensions": "LLM-as-a-judge prompting with quality dimension descriptions",
+        "LLM prompting-based approach with descriptions of conciseness, comprehensiveness, and relevance dimensions": "LLM-as-a-judge prompting with quality dimension descriptions"
+      },
+      "explanation": "Consolidated multiple method descriptions into one standardized form. Normalized model name format. Kept only the actual LLM judge models used."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Raters use a codebook with guidelines and examples for annotating on a 5-point Likert scale using pseudo-references as basis"
+    ],
+    "criteria": [
+      "conciseness",
+      "comprehensiveness",
+      "relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "The raters again follow a codebook that contains guidelines and examples for annotating each dimension using the pseudo-references on a 5-point Likert scale.",
+          "Annotators rate each review on a 5‑point Likert scale for conciseness, comprehensiveness, and relevance using the provided pseudo‑references as a basis.",
+          "Raters follow a codebook that contains guidelines and examples for annotating each dimension using the pseudo-references on a 5-point Likert scale. They rate conciseness, comprehensiveness, and relevance."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "conciseness": "conciseness",
+        "comprehensiveness": "comprehensiveness",
+        "relevance": "relevance"
+      },
+      "explanation": "Consolidated multiple guideline descriptions into one comprehensive statement. Criteria remain the same as they are correctly extracted."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. Main issues were: (1) Including evaluation models (GPT-4o, GPT-4, Magicoder-S-DS-6.7B) as generation models in Q1, (2) Including 'Code Generation' as a task when the paper focuses on code review comment generation, (3) Redundant descriptions of guidelines and methods that needed consolidation. The paper clearly addresses NLG evaluation with comprehensive automatic and human evaluation components."
+}

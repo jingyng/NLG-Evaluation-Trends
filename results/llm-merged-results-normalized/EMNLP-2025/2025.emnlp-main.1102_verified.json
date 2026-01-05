@@ -1,0 +1,177 @@
+{
+  "paper_id": "2025.emnlp-main.1102",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning"
+    ],
+    "datasets": [
+      "MIMIC CXR",
+      "REXVAL",
+      "REFISCO v0",
+      "RADEVALX",
+      "RATE EVAL",
+      "IU XRAY"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "chexagent",
+      "biomedbert",
+      "crepe"
+    ],
+    "outputs": [
+      "radiology reports",
+      "chest X-ray radiology reports"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Chest X-ray radiology reports"
+        ]
+      },
+      "normalized": {
+        "Chest X-ray radiology reports": "chest X-ray radiology reports"
+      },
+      "explanation": "Minor normalization of output description to lowercase format"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "BERTSCORE",
+      "F1 RADGRAPH",
+      "SEMBSCORE",
+      "RATESCORE",
+      "RADCLIQ",
+      "GREEN",
+      "COMET",
+      "BLEURT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "COMET",
+          "BLEURT"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU-4",
+          "ROUGE-L",
+          "Sem-bScore",
+          "FineRadScore",
+          "GREEN EC"
+        ]
+      },
+      "normalized": {
+        "BLEU-4": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "Sem-bScore": "SembScore",
+        "FineRadScore": "GREEN",
+        "GREEN EC": "GREEN"
+      },
+      "explanation": "Normalized metric variants to base forms and removed duplicates"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gemini_2.5_pro",
+      "Gemini-2.5-Pro-03-25",
+      "GREEN",
+      "FineRadScore"
+    ],
+    "methods": [
+      "structure error analysis with predefined categories"
+    ],
+    "criteria": [
+      "Prediction",
+      "Omission",
+      "Correctness",
+      "Mention"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Gemini-2.5-Pro-03-25"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "Prompting LLM to compare reference and candidate reports and output structured error counts",
+          "error analysis using LLM with structured prompt"
+        ],
+        "criteria": [
+          "Incorrect location/position",
+          "Incorrect severity",
+          "Incorrect comparison mention",
+          "Omission of comparison",
+          "Mention of comparison not present in the reference impression"
+        ]
+      },
+      "normalized": {
+        "Gemini 2.5 Pro": "Gemini 2.5 Pro",
+        "FineRadScore": "FineRadScore",
+        "False prediction of finding": "false prediction of finding",
+        "Omission of finding": "omission of finding",
+        "Incorrect location or position of finding": "incorrect location or position of finding",
+        "Incorrect severity of finding": "incorrect severity of finding",
+        "Mention of comparison not present in reference": "mention of comparison not present in reference",
+        "Omission of comparison describing a change from a previous study": "omission of comparison describing change from previous study"
+      },
+      "explanation": "Consolidated criteria to avoid duplicates, normalized to lowercase format, and simplified method descriptions"
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Radiologists annotated error counts per category for generated reports; metrics are evaluated based on agreement with these human annotations.",
+          "For each candidate report, determine: -The count of clinically significant errors. -The count of clinically insignificant errors. Errors can fall into one of these categories: a) False report of a finding in the candidate. b) Missing a finding present in the reference. c) Misidentification of a finding's anatomic location/position. d) Misassessment of the severity of a finding. e) Mentioning a comparison that isn't in the reference. f) Omitting a comparison detailing a change from a prior study."
+        ],
+        "criteria": [
+          "False prediction of finding",
+          "Omission of finding",
+          "Incorrect location or position of finding",
+          "Incorrect severity of finding",
+          "Mention of comparison not present in reference",
+          "Omission of comparison describing a change from a previous study",
+          "Mention of comparison not present in the reference impression"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' because the paper evaluates CREPE against existing radiologist annotations (pre-existing human evaluations), but does not conduct new human evaluations in this study. The human evaluations were conducted previously for the benchmark datasets."
+    }
+  },
+  "overall_notes": "The paper introduces CREPE as an automated evaluation metric for chest X-ray report generation. It uses existing radiologist annotations from benchmark datasets to validate CREPE's performance, but does not conduct new human evaluations. The paper extensively compares CREPE against multiple automatic metrics and uses LLMs for synthetic data generation and error analysis. Extraction quality was reasonable but required normalization and removal of duplicate/redundant items."
+}

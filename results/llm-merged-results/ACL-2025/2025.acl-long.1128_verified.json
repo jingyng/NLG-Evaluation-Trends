@@ -1,0 +1,190 @@
+{
+  "paper_id": "2025.acl-long.1128",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other: Insight Generation"
+    ],
+    "datasets": [
+      "SPIDER",
+      "Open-WikiTable",
+      "MT-RAIG Bench"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "o3-mini",
+      "GPT-4o",
+      "Claude-3.5",
+      "DeepSeek-R1-8B",
+      "Qwen2-7B",
+      "Gemma-7B",
+      "Llama-3.1-8B",
+      "Mistral-7B",
+      "Chain-of-Table",
+      "TaPERA",
+      "Dater"
+    ],
+    "outputs": [
+      "long-form insights",
+      "insights grounded on multiple retrieved tables"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Insight Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Claude 3.5 Sonnet",
+          "Llama 3.1-8B",
+          "GPT-4o mini"
+        ],
+        "outputs": [
+          "insights (long-form textual explanations)"
+        ]
+      },
+      "normalized": {
+        "Other:Insight Generation": "Other: Insight Generation",
+        "MT-RAIG BENCH": "MT-RAIG Bench",
+        "DeepSeek-R1-8b": "DeepSeek-R1-8B"
+      },
+      "explanation": "Removed duplicate task entry, normalized dataset and model names, removed redundant model entries (Claude 3.5 Sonnet is same as Claude-3.5, etc.), simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MT-RAIG EVAL",
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "BERTScore",
+      "A3CU",
+      "TAPAS-Acc",
+      "G-Eval"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "SacreBLEU",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "SacreBLEU": "BLEU",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized metric variants to base forms (SacreBLEU→BLEU, ROUGE-L→ROUGE) as per guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4o-mini",
+      "DeepSeek-R1-8B",
+      "Llama-3.1-8B"
+    ],
+    "methods": [
+      "table-aware insight decomposition",
+      "claim verification",
+      "question-aware insight decomposition",
+      "topic matching",
+      "semantic matching"
+    ],
+    "criteria": [
+      "faithfulness",
+      "completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "table-aware insight decomposition",
+          "question-aware insight decomposition",
+          "semantic matching"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "gpt-4o-mini",
+          "GPT-4o",
+          "Claude 3.5 Sonnet",
+          "GPT-4o-mini-2024-07-18"
+        ],
+        "methods": [
+          "MT-RAIG EVAL decomposition-based evaluation",
+          "G-Eval pairwise preference scoring",
+          "LLM-based evaluation",
+          "pairwise evaluation",
+          "claim decomposition"
+        ],
+        "criteria": [
+          "relevance",
+          "consistency"
+        ]
+      },
+      "normalized": {
+        "gpt-4o-mini": "GPT-4o-mini",
+        "claim decomposition": "table-aware insight decomposition"
+      },
+      "explanation": "Removed models not used as evaluators (generation models), focused on specific evaluation methods used in MT-RAIG EVAL, removed criteria not explicitly used for LLM evaluation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate on 1-5 Likert scale for benchmark quality",
+      "Compare pairs of generated insights with win/tie/loss labels for faithfulness and completeness"
+    ],
+    "criteria": [
+      "Inter-Table Relevance",
+      "Table-Question Relevance",
+      "Question Complexity",
+      "Question Meaningfulness",
+      "Question-Insight Completeness",
+      "Table-Insight Faithfulness",
+      "faithfulness",
+      "completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Rate on 1-5 Likert scale for benchmark quality"
+        ],
+        "criteria": [
+          "Inter-Table Relevance",
+          "Table-Question Relevance",
+          "Question Complexity",
+          "Question Meaningfulness",
+          "Question-Insight Completeness",
+          "Table-Insight Faithfulness"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added missing human evaluation criteria from Table 3, clarified guideline descriptions"
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive NLG evaluation framework for multi-table insight generation. The extraction was generally good but needed normalization and removal of redundant entries. The paper uses LLMs both for generation and evaluation, so careful distinction was needed for Question 3. Human evaluation is extensive with detailed statistical reporting."
+}

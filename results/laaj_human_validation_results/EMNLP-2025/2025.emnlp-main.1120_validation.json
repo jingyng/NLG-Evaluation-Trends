@@ -1,0 +1,144 @@
+{
+  "paper_id": "2025.emnlp-main.1120",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares LLM-as-judge results with human evaluation on the same FEVER-DPLACE-Q dataset, reporting LLM F1 scores relative to human judgments as ground truth"
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "qwen:32b",
+      "llama3.3:70b",
+      "gpt-4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts O.2, O.3, O.5, O.6 provided in appendix for question generation, search query generation, answer generation, and discrepancy classification"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "at least 3 per task",
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss's κ",
+      "value": 0.743,
+      "interpretation": "substantial agreement",
+      "per_criterion": [
+        {
+          "criterion": "question_quality",
+          "metric": "Gwet's AC1",
+          "value": 0.83
+        },
+        {
+          "criterion": "answer_quality",
+          "metric": "Gwet's AC1",
+          "value": 0.85
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed criteria tables and annotation instructions provided in appendix Figures 5-7 for question generation, answer generation, and discrepancy detection"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "F1_score"
+    ],
+    "shared_criteria": [
+      "contradiction_detection",
+      "cultural_discrepancy_detection",
+      "no_discrepancy",
+      "not_enough_info"
+    ],
+    "sample_size": {
+      "total_generated": 185,
+      "validated_by_both": 185,
+      "notes": "Full FEVER-DPLACE-Q dataset with 185 samples (50 REFUTES, 50 SUPPORTS, 50 D-PLACE cultural discrepancies, 35 NEI)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "F1_score",
+        "value": 0.935,
+        "criterion": "contradiction_detection",
+        "llm_model": "qwen:32b",
+        "significance": "not_reported",
+        "notes": "On controlled FEVER-DPLACE-Q dataset"
+      },
+      {
+        "metric": "F1_score",
+        "value": 0.889,
+        "criterion": "cultural_discrepancy_detection",
+        "llm_model": "qwen:32b",
+        "significance": "not_reported",
+        "notes": "On controlled FEVER-DPLACE-Q dataset"
+      },
+      {
+        "metric": "F1_score",
+        "value": 0.883,
+        "criterion": "contradiction_detection",
+        "llm_model": "llama3.3:70b",
+        "significance": "not_reported",
+        "notes": "On controlled FEVER-DPLACE-Q dataset"
+      },
+      {
+        "metric": "F1_score",
+        "value": 0.809,
+        "criterion": "cultural_discrepancy_detection",
+        "llm_model": "llama3.3:70b",
+        "significance": "not_reported",
+        "notes": "On controlled FEVER-DPLACE-Q dataset"
+      },
+      {
+        "metric": "F1_score",
+        "value": 0.962,
+        "criterion": "contradiction_detection",
+        "llm_model": "gpt-4o",
+        "significance": "not_reported",
+        "notes": "On controlled FEVER-DPLACE-Q dataset"
+      },
+      {
+        "metric": "F1_score",
+        "value": 0.869,
+        "criterion": "cultural_discrepancy_detection",
+        "llm_model": "gpt-4o",
+        "significance": "not_reported",
+        "notes": "On controlled FEVER-DPLACE-Q dataset"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "mixed",
+      "threshold_used": "F1 scores used for performance comparison",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLMs show strong performance on contradiction detection (F1=0.883-0.962) but mixed results on cultural discrepancy detection (F1=0.809-0.889), with gpt-4o performing best overall on controlled dataset"
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "topic-based_retrieval_performance"
+    ],
+    "human_only_criteria": [
+      "passage_quality_assessment",
+      "question_quality_criteria",
+      "answer_quality_criteria"
+    ],
+    "shared_criteria": [
+      "contradiction_detection",
+      "cultural_discrepancy_detection",
+      "no_discrepancy",
+      "not_enough_info"
+    ],
+    "notes": "LLMs primarily used for discrepancy detection, while human evaluators assessed pipeline components and provided ground truth for validation"
+  }
+}

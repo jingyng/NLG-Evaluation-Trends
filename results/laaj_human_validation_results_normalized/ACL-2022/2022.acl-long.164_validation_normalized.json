@@ -1,0 +1,130 @@
+{
+  "paper_id": "2022.acl-long.164",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates CTRLEval (LLM-based metric) against human judgments on the same set of generated texts, reporting Pearson, Spearman, and Kendall correlations for each evaluation aspect"
+  },
+  "llm_judge_details": {
+    "num_models": 3,
+    "models": [
+      "PEGASUS",
+      "BART",
+      "T5"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text and figures",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Figure 1 shows example pattern designs for text infilling tasks. Main text describes pattern functions f and g for creating input/output sequences, including examples like 'The book is about NLP. [M] It depicts fancy models.'"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "5 per generated text",
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's alpha",
+      "value": {
+        "sentiment_controlled": 0.626,
+        "topic_controlled": 0.622
+      },
+      "interpretation": "Not explicitly interpreted",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Annotators rated on 1-5 Likert scale for each aspect. Quality control: submissions discarded if annotator assigned higher rating to negative sample than other texts. Negative samples constructed by perturbing (sentence shuffling/dropping) existing samples."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation",
+      "Kendall's tau"
+    ],
+    "shared_criteria": [
+      "Coherence",
+      "Consistency",
+      "Attribute Relevance"
+    ],
+    "sample_size": {
+      "total_generated": "Not explicitly stated",
+      "validated_by_both": "Same evaluation set for both LLM and human",
+      "notes": "Evaluation set includes sentiment-controlled (15 prefixes \u00d7 2 labels \u00d7 3 samples \u00d7 4 models = 360 texts) and topic-controlled (20 prefixes \u00d7 4 labels \u00d7 3 samples \u00d7 4 models = 960 texts) generations, plus negative samples"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Kendall's tau",
+        "value": 0.3044,
+        "criterion": "Coherence",
+        "llm_model": "PEGASUS",
+        "significance": "Not reported",
+        "notes": "Sentiment-controlled task"
+      },
+      {
+        "metric": "Kendall's tau",
+        "value": 0.2235,
+        "criterion": "Consistency",
+        "llm_model": "PEGASUS",
+        "significance": "Not reported",
+        "notes": "Sentiment-controlled task"
+      },
+      {
+        "metric": "Kendall's tau",
+        "value": 0.2111,
+        "criterion": "Relevance",
+        "llm_model": "PEGASUS",
+        "significance": "Not reported",
+        "notes": "Sentiment-controlled task"
+      },
+      {
+        "metric": "Kendall's tau",
+        "value": 0.1582,
+        "criterion": "Coherence",
+        "llm_model": "PEGASUS",
+        "significance": "Not reported",
+        "notes": "Topic-controlled task"
+      },
+      {
+        "metric": "Kendall's tau",
+        "value": 0.1595,
+        "criterion": "Consistency",
+        "llm_model": "PEGASUS",
+        "significance": "Not reported",
+        "notes": "Topic-controlled task"
+      },
+      {
+        "metric": "Kendall's tau",
+        "value": 0.2865,
+        "criterion": "Relevance",
+        "llm_model": "PEGASUS",
+        "significance": "Not reported",
+        "notes": "Topic-controlled task"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "Not explicitly interpreted",
+      "threshold_used": "Not specified",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "CTRLEval consistently outperforms baseline metrics with Pearson correlations ranging from 0.2403-0.5189 across different aspects, showing better alignment with human judgments than alternative reference-free metrics."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Coherence",
+      "Consistency",
+      "Relevance"
+    ],
+    "notes": "Both LLM-based CTRLEval and human evaluation assess the same three criteria: Coherence, Consistency, and Attribute Relevance, using identical evaluation aspects and the same set of generated texts."
+  }
+}

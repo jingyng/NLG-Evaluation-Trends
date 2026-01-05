@@ -1,0 +1,138 @@
+{
+  "paper_id": "2025.naacl-long.378",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Mathematical Reasoning",
+      "Other:Question Answering",
+      "Other:Tool Learning",
+      "Other:Action Generation"
+    ],
+    "datasets": [
+      "GSM8K",
+      "ASDiv",
+      "SVAMP",
+      "MultiArith",
+      "HotpotQA",
+      "StrategyQA",
+      "ToolBench"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "LLaMA-2-7B",
+      "LLaMA-2-13B",
+      "LLaMA-2-Chat-7B",
+      "GPT-3.5",
+      "GPT-4",
+      "Claude",
+      "CodeLlama-13B"
+    ],
+    "outputs": [
+      "trajectories (sequences of thoughts and actions) and final answers",
+      "Generated reasoning texts (thoughts), tool-calling actions, and final answer strings"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:mathematical reasoning",
+          "Other:multi-hop question answering",
+          "Other:tool use"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "The model generates reasoning texts (thoughts) and actions (e.g., tool calls) in a ReAct-style format to solve tasks."
+        ]
+      },
+      "normalized": {
+        "Other:tool use": "Other:Tool Learning",
+        "LLaMA-2-Chat 7B": "LLaMA-2-Chat-7B"
+      },
+      "explanation": "Removed duplicate task entries and consolidated outputs. Normalized model names for consistency."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "accuracy",
+      "Exact Match",
+      "F1",
+      "pass rate",
+      "perplexity"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "exact match (EM)",
+          "f1 score"
+        ]
+      },
+      "normalized": {
+        "F1 score": "F1",
+        "EM": "Exact Match",
+        "f1": "F1"
+      },
+      "explanation": "Consolidated duplicate metric entries and normalized to base forms"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-4"
+        ],
+        "methods": [
+          "binary annotation",
+          "annotation of trajectory success"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "GPT-4 is used for labeling training data, not as a judge for evaluating generated outputs after generation. The paper uses automatic metrics (accuracy, EM, F1) for evaluation, not LLM-as-judge."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation mentioned in the paper"
+    }
+  },
+  "overall_notes": "The paper focuses on agent tuning using both positive and negative trajectories. It evaluates using standard automatic metrics but does not use LLMs as judges for evaluation. The extraction was mostly accurate but incorrectly identified GPT-4's role (used for data annotation, not as evaluator)."
+}

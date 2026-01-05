@@ -1,0 +1,140 @@
+{
+  "paper_id": "2022.acl-long.58",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Question Generation"
+    ],
+    "datasets": [
+      "GOVREPORT QS",
+      "GOVREPORT",
+      "WIKIBIOSUM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "hibrids",
+      "longformer",
+      "hierenc",
+      "sectok",
+      "lvlsectok",
+      "tokbias",
+      "secbias",
+      "multitask",
+      "hibrids_enc",
+      "hibrids_dec"
+    ],
+    "outputs": [
+      "hierarchical question-summary pairs",
+      "full document summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LONGFORMER"
+        ],
+        "outputs": [
+          "full-form summaries"
+        ]
+      },
+      "normalized": {
+        "Other:Question Generation": "Question Generation",
+        "hierarchical question-summary pairs and full summaries": "hierarchical question-summary pairs",
+        "hierarchically organized question-summary pairs, full document summaries": "full document summaries"
+      },
+      "explanation": "Removed 'LONGFORMER' as it's the base model, not a specific variant. Normalized task names and simplified output descriptions. The extracted answer 'Yes' is correct as the paper addresses text summarization and question generation tasks."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Weighted F1"
+        ]
+      },
+      "normalized": {
+        "ROUGE": "ROUGE"
+      },
+      "explanation": "Removed 'Weighted F1' as it's a variant of F1 score. Normalized all metrics to their base forms. The paper uses ROUGE for summaries, BLEU for questions, and F1 for hierarchy quality evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges for evaluation. The paper only uses human evaluation and automatic metrics. Extracted metadata correctly shows empty lists."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Evaluators correct each generated hierarchy by rearranging QS pairs to attach each pair to the parent that forms the best follow-up relation, reporting number of edits",
+      "For each QS pair, evaluators determine if the question can be answered by the summary"
+    ],
+    "criteria": [
+      "Quality",
+      "Answerability"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "global coherence",
+          "local coherence",
+          "number of correction edits",
+          "answerable questions"
+        ]
+      },
+      "normalized": {
+        "global coherence": "hierarchy structure quality",
+        "local coherence": "hierarchy structure quality",
+        "number of correction edits": "hierarchy structure quality",
+        "answerable questions": "answerability"
+      },
+      "explanation": "Normalized criteria to more concise terms that capture the essence of the evaluation. 'hierarchy structure quality' encompasses both global and local coherence measured by number of correction edits. The guidelines accurately reflect the human evaluation procedure."
+    }
+  },
+  "overall_notes": "The extraction quality was generally good. The paper presents HIBRIDS for structure-aware long document summarization and introduces a new hierarchical question-summary generation task. It uses both automatic metrics (ROUGE, BLEU, F1) and human evaluation. No LLMs were used as judges. The metadata was accurate with minor normalization needed."
+}

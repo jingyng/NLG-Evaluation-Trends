@@ -1,0 +1,162 @@
+{
+  "paper_id": "2025.naacl-long.573",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Code Generation",
+      "Critique Generation",
+      "Reasoning",
+      "Safety"
+    ],
+    "datasets": [
+      "CHATARENA",
+      "ALPACAFARM HUMAN PREF",
+      "helpsteer2",
+      "EVOL INSTRUCT",
+      "PKU SAFERLHF",
+      "GSM8K",
+      "MATH"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_3.1_70b_instruct",
+      "llama_3.1_8b_instruct",
+      "gpt_4",
+      "gemini_1.5_pro",
+      "gpt_4o"
+    ],
+    "outputs": [
+      "critiques and rewards",
+      "continuous reward scores and textual critiques",
+      "language model responses evaluated via reward modeling"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "language model responses evaluated via reward modeling"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Llama3.1-70B-Instruct",
+          "Llama-3.1-8b-instruct",
+          "Llama-3.1-70b-instruct"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:reasoning": "Other:Reasoning",
+        "Other:safety": "Other:Safety",
+        "Gemini-1.5pro": "Gemini-1.5-Pro",
+        "Llama-3.1-8b-instruct": "Llama-3.1-8B-Instruct",
+        "Llama-3.1-70b-instruct": "Llama-3.1-70B-Instruct"
+      },
+      "explanation": "Normalized model names and task capitalization. Removed duplicate model variants. Added clarification about outputs being language model responses evaluated via reward modeling."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1 Score"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "F1 Score": "F1"
+      },
+      "explanation": "Normalized metric names to standard forms and removed duplicates"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Llama-3.1-70B-Instruct",
+          "GPT-4",
+          "Gemini-1.5pro",
+          "Llama-3.1-70B",
+          "Llama3.1-70B-Instruct",
+          "Llama3.1-405B-Instruct",
+          "GPT-4o"
+        ],
+        "methods": [
+          "critique generation with discrete score",
+          "summarization-based refinement",
+          "ranking-based refinement",
+          "pairwise evaluation",
+          "critique generation",
+          "critique generation followed by discrete scoring",
+          "meta-judge scoring"
+        ],
+        "criteria": [
+          "helpfulness",
+          "honesty",
+          "harmlessness",
+          "correctness",
+          "fluency",
+          "relevance"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' because the paper does not use LLMs as judges to evaluate generated outputs. The LLM usage is part of the model architecture (Critic-RM framework), not a post-hoc evaluation method. All metadata removed as it describes the model's method, not evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators compare a chosen response against a rejected response and indicate which is preferred.",
+          "Human annotators are asked to provide pairwise preferences indicating which response is better for a given prompt, based on criteria such as helpfulness, honesty, and harmlessness."
+        ],
+        "criteria": [
+          "chosen over rejected",
+          "helpfulness",
+          "honesty",
+          "harmlessness"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' because the paper uses existing human-annotated preference datasets for training, but does not conduct new human evaluations of their generated outputs (critiques or rewards). The human evaluation described is from the original datasets, not conducted by the authors."
+    }
+  },
+  "overall_notes": "The paper focuses on improving reward modeling using self-generated critiques. While it involves NLG (critique generation) and uses automatic metrics for evaluation, it does not conduct LLM-as-judge or human evaluations of its own outputs. The main contribution is the Critic-RM framework for joint critique generation and reward prediction."
+}

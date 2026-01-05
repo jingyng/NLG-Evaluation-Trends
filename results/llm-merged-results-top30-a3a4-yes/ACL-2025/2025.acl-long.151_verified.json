@@ -1,0 +1,154 @@
+{
+  "paper_id": "2025.acl-long.151",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "HH RLHF",
+      "STRONGREJECT",
+      "XSTEST"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "wizard_vicuna_uncensored_7b",
+      "llama_3.1_8b_instruct",
+      "openai_o_1",
+      "openai_o_3_mini"
+    ],
+    "outputs": [
+      "Safe responses to user queries using multi-step reasoning chain (Question Analysis, Answer Guidance, Safe Answer, Safety Checking)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Strongreject"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Responses to user queries, including analysis, guidance, and safe answers",
+          "Safe response generated via multi-step reasoning chain (analysis, guidance, answer) with safety checking",
+          "The paper focuses on generating safe and aligned responses in dialogue systems using reasoning chains and MoE architecture, particularly for harmful query handling."
+        ]
+      },
+      "normalized": {
+        "Strongreject": "StrongReject",
+        "Wizard-Vicuna-Uncensored 7B": "Wizard-Vicuna-Uncensored-7B",
+        "Llama-3.1-8B-Instruct": "Llama-3.1-8B-Instruct"
+      },
+      "explanation": "Removed duplicate dataset entry (Strongreject → StrongReject), normalized model names with hyphens, and consolidated outputs into a single clear description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "HELPFULNESS",
+      "HARMLESSNESS",
+      "HARM HELP",
+      "SAFETY",
+      "COMPLIANCE RATE",
+      "GOODNESS",
+      "NOT OVERREFUSE",
+      "SELF BLEU"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Harm-Help",
+          "goodness@0.1",
+          "not_overrefuse",
+          "Self-BLEU"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Helpfulness (GPT-4 score 1-10)",
+          "Harmlessness (binary GPT assessment)",
+          "overrefusal rate"
+        ]
+      },
+      "normalized": {
+        "Harm": "Harmlessness",
+        "Help": "Helpfulness",
+        "compliance ratio": "Compliance Ratio"
+      },
+      "explanation": "Normalized metric names to base forms, removed parenthetical explanations that were part of descriptions rather than metric names, added missing metrics explicitly mentioned in the paper"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4_1106_preview"
+    ],
+    "methods": [
+      "rating-based assessment",
+      "binary safety assessment"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Harmlessness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "initial evaluation with GPT-4",
+          "binary assessment",
+          "scoring from 1 to 10"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-4-1106-preview": "GPT-4-1106-preview"
+      },
+      "explanation": "Consolidated methods to core evaluation approaches, removed redundant descriptions that were part of the procedure explanation"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators rate each model response on helpfulness (informativeness) and harmlessness (safety)",
+      "Human annotators verify GPT-4 evaluation results based on precise evaluation criteria following prior work"
+    ],
+    "criteria": [
+      "Helpfulness",
+      "Harmlessness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Human annotators verify GPT-4 evaluation results based on precise evaluation criteria following prior work"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Enhanced guideline description to more accurately reflect the human verification role mentioned in the paper"
+    }
+  },
+  "overall_notes": "The paper clearly addresses NLG tasks (dialogue generation for safety alignment) and uses both automatic metrics and human evaluation. The extraction was generally accurate but needed normalization of dataset names (StrongReject) and consolidation of metric descriptions. The paper uses GPT-4 as an evaluator with human verification, making both Q3 and Q4 correct. The MoTE framework specifically generates dialogue responses through structured reasoning chains."
+}

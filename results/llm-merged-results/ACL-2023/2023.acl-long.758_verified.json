@@ -1,0 +1,173 @@
+{
+  "paper_id": "2023.acl-long.758",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "Human feedback collection dataset (v1, v2, test unseen splits)"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BlenderBot 1 (2.7B)",
+      "BlenderBot 2 (2.7B)",
+      "SeeKeR (2.7B)",
+      "OPT-175B",
+      "BlenderBot 3 (175B)",
+      "DIRECTOR"
+    ],
+    "outputs": [
+      "Dialogue responses",
+      "Search queries",
+      "Knowledge responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "Human feedback collection dataset (v1, v2, test unseen splits)"
+        ],
+        "languages": [],
+        "models": [
+          "DIRECTOR",
+          "BlenderBot 1 (2.7B)",
+          "BlenderBot 2 (2.7B)",
+          "SeeKeR (2.7B)"
+        ],
+        "outputs": [
+          "Search queries",
+          "Knowledge responses"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [
+          "Collected dialogue dataset (v1, v2, test unseen)",
+          "Human-model conversation dataset with task annotations"
+        ],
+        "languages": [],
+        "models": [
+          "311M transformer reward model",
+          "BlenderBot (BB1)",
+          "BlenderBot 2.0 (BB2)",
+          "OPT-175B",
+          "BB3-175B",
+          "BlenderBot",
+          "BlenderBot 2.0"
+        ],
+        "outputs": [
+          "Generated dialogue responses",
+          "dialogue responses"
+        ]
+      },
+      "normalized": {
+        "Dialogue responses": "Dialogue responses",
+        "Generated dialogue responses": "Dialogue responses",
+        "dialogue responses": "Dialogue responses"
+      },
+      "explanation": "Removed 'Text Summarization' as it was mentioned as one of many task types but not evaluated or studied. Normalized model names with parameters, removed duplicates, and added the DIRECTOR model which is central to the paper. Created a more accurate dataset name."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "PPL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Perplexity (PPL)"
+        ]
+      },
+      "normalized": {
+        "Perplexity (PPL)": "PPL"
+      },
+      "explanation": "Normalized PPL and removed duplicate. The paper uses F1 and Perplexity as automatic metrics as shown in Table 2."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "311M transformer reward model"
+        ],
+        "methods": [
+          "reranking of generated candidates"
+        ],
+        "criteria": [
+          "satisfaction (binary good/bad)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all items as the paper does not use LLMs as judges. The 311M transformer is used as a reward model training component, not as an evaluator. Reranking is done using the trained reward model, not LLMs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Collect binary feedback (good/bad) after each dialogue turn",
+      "Collect free-form textual feedback for unsatisfactory responses",
+      "Collect multi-choice feedback on error types (search query, search results, other issue)",
+      "Collect suggestions for improved search queries, relevant search results, or improved responses",
+      "Collect final rating (1-5) after task completion",
+      "Verify quality with 3 raters assessing task completion and human performance"
+    ],
+    "criteria": [
+      "Good response percentage",
+      "Final rating (1-5)",
+      "Error type breakdown",
+      "Task completion"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Collect binary feedback, free-form feedback, multi-choice feedback on error types, and a final rating after task completion.",
+          "Human raters provide a final rating (1-5) of the bot, judge task completion, and mark whether each response was good or had issues.",
+          "rate the bot and human's performance and also assess if the bot was able to complete the given task"
+        ],
+        "criteria": [
+          "final rating (1-5)",
+          "good response percentage",
+          "task completion",
+          "error type breakdown",
+          "good responses",
+          "final rating",
+          "error types"
+        ]
+      },
+      "normalized": {
+        "Good response": "Good response percentage",
+        "Final rating": "Final rating (1-5)",
+        "Error type": "Error type breakdown"
+      },
+      "explanation": "Restructured guidelines into clear bullet points summarizing the human evaluation protocol. Normalized criteria by removing duplicates and using consistent terminology."
+    }
+  },
+  "overall_notes": "The paper focuses on dialogue generation with internet-retrieval capabilities. Human feedback collection is central to the methodology. The paper evaluates various learning algorithms (supervised learning, rejection sampling, model guiding, reward-based learning, DIRECTOR) using both automatic metrics (F1, PPL) and extensive human evaluation. The extraction was mostly accurate but contained some duplication and minor inaccuracies that were corrected."
+}

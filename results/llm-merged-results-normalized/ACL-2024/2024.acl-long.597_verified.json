@@ -1,0 +1,157 @@
+{
+  "paper_id": "2024.acl-long.597",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Math Problem Solving",
+      "Instruction Following"
+    ],
+    "datasets": [
+      "LIMA",
+      "DEITA 6k",
+      "SHAREGPT 6k",
+      "METAMATH 6k",
+      "MIXED 6k",
+      "ALPACAEVAL",
+      "GSM8K",
+      "METAMATH",
+      "ARC C",
+      "HellaSwag",
+      "MMLU",
+      "TruthfulQA",
+      "METAMATHQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llama_2_7b",
+      "mistral_7b",
+      "vicuna_7b_v_1.5",
+      "alpaca_2_7b",
+      "deita_7b",
+      "gpt_4"
+    ],
+    "outputs": [
+      "Generated responses to dialogues and conversations",
+      "Solutions to math problems",
+      "Instruction-following responses"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Instruction Following"
+        ],
+        "datasets": [
+          "MetaMathQA"
+        ],
+        "outputs": [
+          "Instruction-following responses"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Deita-6k": "DEITA-6k",
+        "GSM8k": "GSM8K",
+        "Deita-7B": "DEITA-7B",
+        "Other:Math Problem Solving": "Math Problem Solving",
+        "Other:instruction-following": "Instruction Following"
+      },
+      "explanation": "Normalized dataset names to standard capitalization (DEITA, GSM8K), clarified tasks by removing 'Other:' prefix, and added missing relevant datasets and output types"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "SILHOUETTE COEFFICIENT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ARC-c",
+          "HellaSwag",
+          "MMLU",
+          "TruthfulQA",
+          "GSM8k",
+          "MetaMath",
+          "AlpacaEval"
+        ]
+      },
+      "normalized": {
+        "accuracy": "Accuracy",
+        "Silhouette Coefficient": "Silhouette Coefficient"
+      },
+      "explanation": "Removed datasets incorrectly listed as metrics. The paper uses accuracy (reported for evaluation datasets like ARC-c, HellaSwag, etc.) and Silhouette Coefficient for feature clustering analysis, but these benchmarks are datasets, not metrics themselves."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4",
+      "gpt_4_turbo"
+    ],
+    "methods": [
+      "pairwise preference evaluation"
+    ],
+    "criteria": [
+      "Quality"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "pairwise evaluation",
+          "preference data collection",
+          "preference evaluation"
+        ],
+        "criteria": [
+          "overall quality",
+          "helpfulness",
+          "fluency",
+          "coherence",
+          "relevance"
+        ]
+      },
+      "normalized": {
+        "GPT-4-turbo": "GPT-4-turbo"
+      },
+      "explanation": "Consolidated methods to 'pairwise preference evaluation' as the specific procedure described. Removed speculative criteria not explicitly mentioned in the paper; the text only mentions evaluating 'response quality'."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation was conducted. The paper explicitly uses GPT-4 as a judge instead of human annotators."
+    }
+  },
+  "overall_notes": "The extraction was mostly accurate. The main issues were confusing evaluation datasets (like ARC-c, MMLU) with the metrics used on them (Accuracy). The paper's primary contribution is an alignment method (UAL) evaluated on instruction-following and conversational NLG tasks. All evaluation is automatic (accuracy on benchmarks, Silhouette Coefficient, GPT-4 as a judge)."
+}

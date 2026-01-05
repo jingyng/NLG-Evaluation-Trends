@@ -1,0 +1,165 @@
+{
+  "paper_id": "2021.emnlp-main.681",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Lexically Constrained Text Generation"
+    ],
+    "datasets": [
+      "One-Billion-Word",
+      "Yelp"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "CBART",
+      "BART-large",
+      "BART-base",
+      "GPT-2 small",
+      "BERT-large",
+      "XLNet-base-cased",
+      "sep-B/F",
+      "asyn-B/F",
+      "GBS",
+      "CGMH",
+      "POINTER",
+      "X-MCMC-C"
+    ],
+    "outputs": [
+      "Text generated with specified lexical constraints",
+      "Fluent and diverse text with lexical constraints"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BERT-large",
+          "XLNet-base-cased"
+        ],
+        "outputs": [
+          "Fluent and diverse text with lexical constraints"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Pointer"
+        ],
+        "outputs": [
+          "Generated sentences that contain all given lexical constraints"
+        ]
+      },
+      "normalized": {
+        "Pointer": "POINTER",
+        "BART": "BART-large"
+      },
+      "explanation": "Added XLNet-base-cased and BERT-large which are explicitly mentioned as baselines. Removed duplicate 'Generated sentences...' output description and normalized model names to standard capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "NIST",
+      "METEOR",
+      "Self-BLEU",
+      "D-2",
+      "D-4"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "D-2",
+          "D-4"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Self-BLEU (SB-4)",
+          "n-gram repetitions",
+          "SB-4"
+        ]
+      },
+      "normalized": {
+        "BLEU": "BLEU",
+        "NIST": "NIST",
+        "METEOR": "METEOR",
+        "Self-BLEU (SB-4)": "Self-BLEU",
+        "Distinct bigrams (D-2)": "D-2",
+        "Distinct 4-grams (D-4)": "D-4",
+        "SB-4": "Self-BLEU"
+      },
+      "explanation": "Simplified metric variants to base forms. Removed 'n-gram repetitions' as it's not a standard metric name but an analysis method. Kept distinct n-gram metrics as 'D-2' and 'D-4' since they are standard evaluation metrics for diversity."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [
+      "GPT-2 small"
+    ],
+    "methods": [
+      "ranking based on NLL"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "GPT-2 small model": "GPT-2 small"
+      },
+      "explanation": "GPT-2 is used for internal ranking during generation (multiple-sequence decoding), not as a post-generation judge. The 'No' answer is correct - no LLM is used as an evaluator after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Pairwise comparison of sentences",
+      "Annotators compare two sentences and judge which is more fluent or more informative",
+      "Ties are allowed when no preference",
+      "Sentences are shuffled to avoid bias"
+    ],
+    "criteria": [
+      "fluency",
+      "informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Pairwise comparison of sentences",
+          "Sentences are shuffled to avoid bias"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Annotators compare sentences pairwise and decide which is more fluent or informative.",
+          "Annotators compare two sentences and judge which is more fluent or more informative; ties allowed."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "fluency": "fluency",
+        "informativeness": "informativeness"
+      },
+      "explanation": "Consolidated guideline descriptions into clearer bullet points without redundancy. Criteria remain the same - fluency and informativeness."
+    }
+  },
+  "overall_notes": "The extraction quality is good overall. The paper clearly addresses lexically constrained text generation (NLG task) with comprehensive automatic and human evaluations. No LLM-as-judge is used - GPT-2 is used internally for ranking during generation, not post-generation evaluation. All metadata was accurately extracted with minor normalization needed."
+}

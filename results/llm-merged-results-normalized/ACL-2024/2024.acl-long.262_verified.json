@@ -1,0 +1,153 @@
+{
+  "paper_id": "2024.acl-long.262",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "ESCONV",
+      "CIMA",
+      "CRAIGSLISTBARGAIN"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "roberta_large",
+      "gpt_3.5_turbo",
+      "gpt_3.5_turbo_0613",
+      "dialogpt"
+    ],
+    "outputs": [
+      "dialogue responses",
+      "system utterances",
+      "emotional support conversations",
+      "tutoring dialogues",
+      "negotiation dialogues"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "DialoGPT"
+        ],
+        "outputs": [
+          "emotional support conversations",
+          "tutoring dialogues",
+          "negotiation dialogues"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "CraisglistBargain"
+        ]
+      },
+      "normalized": {
+        "CraisglistBargain": "CraigslistBargain",
+        "gpt-3.5-turbo": "GPT-3.5-turbo",
+        "gpt-3.5-turbo-0613": "GPT-3.5-turbo-0613",
+        "RoBERTa-large (policy LM)": "RoBERTa-large"
+      },
+      "explanation": "Removed duplicate dataset name (CraisglistBargain/CraigslistBargain), normalized model capitalization, added DialoGPT baseline model mentioned in evaluations, and clarified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "TURN AT",
+      "SUCCESS RATE SR",
+      "SALE TO LIST RATIO SL"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "AT",
+          "SL"
+        ]
+      },
+      "normalized": {
+        "AT": "Average Turns (AT)",
+        "SR": "Success Rate (SR)",
+        "SL": "Sale-to-List Ratio (SL)"
+      },
+      "explanation": "Normalized metric names to full forms for clarity and removed abbreviated duplicates. Kept both full forms and abbreviations in normalized mapping for reference."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_3.5_turbo_0613"
+    ],
+    "methods": [
+      "LLM critic scoring of dialogue states",
+      "state evaluation",
+      "reward estimation"
+    ],
+    "criteria": [
+      "Emotion",
+      "Correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "emotional state progression",
+          "answer correctness"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "feel worse",
+          "feel the same",
+          "feel better",
+          "solved",
+          "incorrect answer",
+          "no answer",
+          "partially correct answer",
+          "correct answer"
+        ]
+      },
+      "normalized": {
+        "gpt-3.5-turbo-0613": "GPT-3.5-turbo-0613",
+        "critic LLM for state evaluation": "state evaluation",
+        "LLM critic scoring of dialogue states (reward estimation)": "LLM critic scoring of dialogue states",
+        "reward modeling": "reward estimation"
+      },
+      "explanation": "Normalized model capitalization, consolidated method descriptions, and replaced specific mapping values with higher-level criteria categories (emotional state progression for ESConv, answer correctness for CIMA)."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators compare DPDP vs PPDPP on specific criteria using win/lose/tie judgments",
+      "Three annotators evaluate generated responses from multiple perspectives"
+    ],
+    "criteria": [
+      "Suggestion",
+      "Comforting",
+      "Identification",
+      "Hint",
+      "Overall"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three annotators evaluate generated responses from multiple perspectives"
+        ]
+      },
+      "removed": {},
+      "normalized": {
+        "Sug.": "Suggestion",
+        "Com.": "Comforting",
+        "Ide.": "Identification",
+        "Ove.": "Overall"
+      },
+      "explanation": "Normalized abbreviated criteria names to full forms and added clarification about three annotators conducting the evaluation."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on dialogue planning and generation across three distinct dialogue domains (emotional support, tutoring, negotiation). Key contributions include the dual-process framework combining policy LM and MCTS planning, with extensive evaluation using both automatic metrics and human assessments. The LLM-as-judge usage is for reward estimation during training rather than post-hoc evaluation of final outputs."
+}

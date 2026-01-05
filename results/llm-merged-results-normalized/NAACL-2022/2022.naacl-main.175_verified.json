@@ -1,0 +1,155 @@
+{
+  "paper_id": "2022.naacl-main.175",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "BILLSUM",
+      "SCIENTIFIC PAPERS ARXIV",
+      "BIGPATENT",
+      "CNN/DailyMail",
+      "TAC 2010",
+      "NEWSROOM",
+      "REALSUMM"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bert_base_uncased",
+      "suenes"
+    ],
+    "outputs": [
+      "summaries",
+      "continuous summary quality scores"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Real-Summ"
+        ],
+        "languages": [],
+        "models": [
+          "BERT-base uncased"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "BERT-base uncased": "BERT-base-uncased",
+        "Real-Summ": "RealSumm",
+        "a continuous summary quality score (regression value)": "continuous summary quality scores"
+      },
+      "explanation": "Normalized model name format, merged duplicate dataset names (Real-Summ and RealSumm), simplified output description"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "MOVERSCORE",
+      "BERTSCORE",
+      "BLEU",
+      "METEOR",
+      "S3",
+      "BLANC",
+      "SUMMAQA",
+      "SUPERT",
+      "LS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "BertScore": "BERTScore"
+      },
+      "explanation": "Normalized ROUGE variants to base ROUGE metric, normalized capitalization of BERTScore"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BERT-base uncased"
+        ],
+        "methods": [
+          "regression scoring"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper does not use LLMs as judges. BERT is used as part of their evaluation model, not as a judge after generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Three human annotators rate each document-summary pair, using mean ratings across aspects"
+    ],
+    "criteria": [
+      "Coverage",
+      "Quality",
+      "Informativeness",
+      "Relevance",
+      "Coherence",
+      "Fluency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Three human annotators rate each document-summary pair, using mean ratings across aspects"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- three human annotators rate one pair of a document and machine-generated summary. The mean of their ratings on each aspect is used in our experiments.",
+          "For human ratings, three human annotators rate one pair of a document and machine-generated summary. The mean of their ratings on each aspect is used in our experiments."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "factual coverage": "content/fact coverage",
+        "INFormativeness": "informativeness",
+        "RELevance": "relevance",
+        "COHerence": "coherence",
+        "FLUency": "fluency"
+      },
+      "explanation": "Consolidated duplicate guideline descriptions, normalized criteria capitalization, grouped similar criteria"
+    }
+  },
+  "overall_notes": "The paper presents SueNes, a novel weakly supervised approach for evaluating summaries without reference summaries. It uses negative sampling by corrupting reference summaries to create training data. The extraction was generally accurate but needed normalization of metric names and consolidation of duplicate items."
+}

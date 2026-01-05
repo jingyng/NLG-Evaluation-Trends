@@ -1,0 +1,154 @@
+{
+  "paper_id": "2024.emnlp-main.88",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Multiple Choice Vqa Qad Generation",
+      "Question Generation",
+      "Answer Generation",
+      "Distractor Generation"
+    ],
+    "datasets": [
+      "visual7w",
+      "A OKVQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "rebo",
+      "visualbert",
+      "blip",
+      "blip_2",
+      "vqadg",
+      "qwen_vl",
+      "llama_2",
+      "chatgpt",
+      "qwen_1.5",
+      "llama_3",
+      "llava_next",
+      "cogvlm",
+      "llava_1.5",
+      "mistral"
+    ],
+    "outputs": [
+      "Generated Questions, Answers, and Distractors (QADs) for multiple-choice Visual Question Answering",
+      "question-answer-distractor triples (QADs)"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Visual Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "ReBo (with FlanT5‑XL decoder)",
+          "ViT‑g/14 image encoder"
+        ],
+        "outputs": [
+          "questions, answers, and distractors (QADs)"
+        ]
+      },
+      "normalized": {
+        "VisualBert": "VisualBERT",
+        "bleu": "BLEU",
+        "rouge": "ROUGE",
+        "meteor": "METEOR",
+        "cider": "CIDEr"
+      },
+      "explanation": "Removed 'Visual Question Answering' from tasks as it's the application domain rather than the generation task itself. Removed model implementation details that aren't distinct models. Normalized metric names to standard capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "CIDER"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "bleu": "BLEU",
+        "rouge": "ROUGE",
+        "meteor": "METEOR",
+        "cider": "CIDEr"
+      },
+      "explanation": "Normalized metric names to standard capitalization. The paper explicitly uses these four metrics to evaluate generated QADs."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges/evaluators. LLMs are used for generation (GPT-4o, ChatGPT, etc.) but not for evaluation/scoring of outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rated generated QADs on a 1-5 scale for Quality (question relevance, answer accuracy, distractor confusion), Intersection (semantic dissimilarity between QADs), and Union (coverage of overall image content)"
+    ],
+    "criteria": [
+      "Quality",
+      "Intersection",
+      "Union"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Annotators rated the generated QADs on a scale of 1 to 5 for five aspects: Quality (including sub-scores for questions, answers, distractors), Intersection, and Union.",
+          "rate them from 1 to 5 points on five qualitative aspects: (1) Quality, (2) Intersection, (3) Union"
+        ],
+        "criteria": [
+          "Quality of Questions",
+          "Quality of Answers",
+          "Quality of Distractors",
+          "question relevance",
+          "answer accuracy",
+          "confusion level of distractors",
+          "semantic contents",
+          "overall content"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Consolidated redundant guideline descriptions into one clear statement. Simplified criteria to the main three evaluation dimensions (Quality, Intersection, Union) rather than listing all sub-components."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on joint generation of questions, answers, and distractors (QADs) for multiple-choice VQA. It uses both automatic metrics (BLEU, ROUGE, METEOR, CIDEr) and human evaluation. No LLM-as-judge evaluation is conducted. The main contribution is the ReBo framework for generating diverse QADs focusing on different image regions."
+}

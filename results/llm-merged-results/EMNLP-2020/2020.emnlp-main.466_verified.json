@@ -1,0 +1,121 @@
+{
+  "paper_id": "2020.emnlp-main.466",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Generation",
+      "Question Rewriting",
+      "Answer Generation"
+    ],
+    "datasets": [
+      "AMBIGNQ",
+      "NQ-OPEN"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART",
+      "BERT",
+      "SPANSEQGEN"
+    ],
+    "outputs": [
+      "disambiguated questions",
+      "multiple answers",
+      "question-answer pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Question Generation",
+          "Answer Generation"
+        ],
+        "outputs": [
+          "multiple answers"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Paraphrase Generation",
+          "Other:Question Generation",
+          "Other:Answer Generation",
+          "Other:Question Rewriting",
+          "Other:Multiple Answer Generation"
+        ]
+      },
+      "normalized": {
+        "AMBIGNQ": "AMBIGNQ",
+        "NQ-OPEN": "NQ-OPEN",
+        "BART": "BART",
+        "BERT": "BERT",
+        "SPANSEQGEN": "SPANSEQGEN"
+      },
+      "explanation": "Removed 'Other:' prefixes and normalized task names. The paper focuses on question generation/rewriting and answer generation for ambiguous QA, not paraphrase generation."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1_ans",
+      "F1_BLEU",
+      "F1_EDIT-F1",
+      "Exact Match"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "F1ans",
+          "F1BLEU",
+          "F1EDIT-F1"
+        ]
+      },
+      "normalized": {
+        "F1ans": "F1_ans",
+        "F1BLEU": "F1_BLEU",
+        "F1EDIT-F1": "F1_EDIT-F1"
+      },
+      "explanation": "Normalized metric names to use underscores for consistency. Kept all metrics as they are all used in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation is used in this 2020 paper. The paper uses BERT and BART for generation, not as evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Workers find all plausible answers to the question; when there are multiple, each answer is paired with a minimal edit of the prompt question which differentiates it from the other answers"
+    ],
+    "criteria": [
+      "inter-annotator agreement",
+      "answer validity",
+      "question clarity"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "inter-annotator agreement",
+          "answer validity",
+          "question clarity"
+        ]
+      },
+      "removed": {},
+      "normalized": {},
+      "explanation": "Added criteria based on the human evaluation described in the paper for dataset creation and validation. The paper does conduct human evaluation for dataset quality control."
+    }
+  },
+  "overall_notes": "This paper introduces AmbigQA, a task for answering ambiguous open-domain questions by generating multiple answers and corresponding disambiguated questions. While it involves NLG (question rewriting and answer generation), it's primarily a QA paper, not an NLG evaluation paper. The human evaluation was for dataset creation, not for evaluating generated outputs from models."
+}

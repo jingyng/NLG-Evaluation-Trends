@@ -1,0 +1,155 @@
+{
+  "paper_id": "2020.acl-main.457",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "NEW YORK TIMES ANNOTATED CORPUS",
+      "CNN DAILY MAIL DATASET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "asgard_doc",
+      "asgard_seg",
+      "nograph",
+      "bart",
+      "bert_sum",
+      "unilm",
+      "bertsumextabs",
+      "pointgen+cov",
+      "deepreinforce",
+      "bottomup",
+      "roberta"
+    ],
+    "outputs": [
+      "abstractive summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "New York Times (NYT)",
+          "CNN/Daily Mail (CNN/DM)",
+          "New York Times annotated corpus (NYT)",
+          "CNN/Daily Mail dataset (CNN/DM)"
+        ],
+        "languages": [],
+        "models": [
+          "ASGARD",
+          "Graph Neural Networks (GAT)",
+          "BiLSTM",
+          "DocGraph",
+          "SegGraph",
+          "GAT"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "BERT-Sum": "BERT-Sum",
+        "POINTGEN+COV": "POINTGEN+COV",
+        "DEEPREINFORCE": "DEEPREINFORCE",
+        "BOTTOMUP": "BOTTOMUP",
+        "BERTSUMEXTABS": "BERTSUMEXTABS"
+      },
+      "explanation": "Removed duplicate dataset names and non-specific model names (ASGARD as umbrella term, architectural components like GAT/BiLSTM). Kept only concrete model implementations that were evaluated."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "CLOZE PROBABILITY",
+      "CLOZE ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Cloze score"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "Cloze Probability": "Cloze Probability",
+        "Cloze Accuracy": "Cloze Accuracy"
+      },
+      "explanation": "Normalized ROUGE variants to base form, removed duplicate 'Cloze score' (covered by Cloze Probability/Accuracy)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa"
+        ],
+        "methods": [
+          "multiple choice cloze test"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Removed RoBERTa and cloze test - these are used for training rewards/internal evaluation, not as LLM judges of final outputs"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rate summaries on informativeness and fluency using a 1-5 Likert scale, and label presence of three types of unfaithful errors (hallucination, out-of-context, deletion/substitution)."
+    ],
+    "criteria": [
+      "Informativeness",
+      "Fluency",
+      "Hallucination",
+      "Error",
+      "Deletion"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- After reading the articles, each judge scores summaries on a Likert scale from 1 (worst) to 5 (best) on informativeness and fluency, and labels unfaithful errors.",
+          "• Informativeness: Whether the summary provides enough and necessary content coverage from the input article. • Fluency: Whether the summary is free of obvious grammatically incorrect sentences (e.g., fragments, missing components) that make the text difficult to read. • Faithfulness: Whether the summary accords with the facts expressed in the source."
+        ],
+        "criteria": [
+          "faithfulness"
+        ]
+      },
+      "normalized": {
+        "deletion or substitution error": "deletion/substitution error"
+      },
+      "explanation": "Consolidated redundant guideline descriptions, removed 'faithfulness' as it's not a rated criterion (the errors are the operationalization of faithfulness)"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on abstractive summarization with knowledge graph augmentation and uses both automatic metrics (ROUGE, cloze tests) and human evaluation. The cloze test is used as a training reward/internal metric, not as an LLM judge. Human evaluation was conducted with clear criteria and guidelines."
+}

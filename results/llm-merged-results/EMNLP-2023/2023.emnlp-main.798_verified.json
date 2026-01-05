@@ -1,0 +1,203 @@
+{
+  "paper_id": "2023.emnlp-main.798",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation"
+    ],
+    "datasets": [
+      "WMT'22 metrics shared task",
+      "WMT'21 metrics shared task"
+    ],
+    "languages": [
+      "English",
+      "German",
+      "Chinese",
+      "Russian"
+    ],
+    "models": [
+      "Metric-X",
+      "COMET-22",
+      "BLEURT-20",
+      "MaTESe",
+      "GEMBA-GPT-3.5",
+      "GEMBA-GPT-4",
+      "UniTE",
+      "COMET-Kiwi",
+      "MS-COMET-22",
+      "SEScore",
+      "MEE4",
+      "REUSE",
+      "UniTE-src",
+      "COMET-QE",
+      "MS-COMET-QE-22",
+      "HWTSC-Teacher-Sim"
+    ],
+    "outputs": [
+      "machine-translated segments",
+      "segment-level translation quality scores"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "WMT'21 metrics shared task"
+        ],
+        "languages": [],
+        "models": [
+          "UniTE",
+          "COMET-Kiwi",
+          "MS-COMET-22",
+          "SEScore",
+          "MEE4",
+          "REUSE",
+          "UniTE-src",
+          "COMET-QE",
+          "MS-COMET-QE-22",
+          "HWTSC-Teacher-Sim"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "WMT'22 metrics shared task data for en→de, zh→en, en→ru",
+          "WMT'22 MQM en-de",
+          "WMT'22 MQM zh-en",
+          "WMT'22 MQM en-ru"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "segment-level translations"
+        ]
+      },
+      "normalized": {
+        "Machine Translation": "Machine Translation",
+        "Metric‑X": "Metric-X",
+        "COMET‑22": "COMET-22",
+        "GEMBA‑GPT‑3.5": "GEMBA-GPT-3.5",
+        "GEMBA‑GPT‑4": "GEMBA-GPT-4",
+        "BLEURT‑20": "BLEURT-20",
+        "COMET‑Kiwi": "COMET-Kiwi"
+      },
+      "explanation": "Consolidated datasets to general WMT shared task names, normalized model names to standard forms, added missing models from full paper text, removed redundant dataset specifications"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Kendall's τ",
+      "Pearson",
+      "Spearman",
+      "pairwise accuracy",
+      "τ eq",
+      "acc eq"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Pearson",
+          "Spearman"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Metric-X",
+          "COMET-22",
+          "BLEURT-20",
+          "MaTESe",
+          "GEMBA-GPT-3.5",
+          "GEMBA-GPT-4",
+          "Metric‑X",
+          "COMET‑22",
+          "GEMBA‑GPT‑3.5",
+          "GEMBA‑GPT‑4",
+          "BLEURT‑20",
+          "UniTE",
+          "COMET‑Kiwi",
+          "MS-COMET-22",
+          "SEScore",
+          "MEE4",
+          "REUSE",
+          "UniTE-src",
+          "COMETKiwi",
+          "COMET-QE",
+          "MS-COMET-QE-22",
+          "HWTSC-Teacher-Sim"
+        ]
+      },
+      "normalized": {
+        "Kendall's τ variants": "Kendall's τ"
+      },
+      "explanation": "Removed MT evaluation metrics (these are being evaluated, not used for evaluation). Added Pearson and Spearman which are mentioned as complementary metrics. Focused on the meta-evaluation metrics being studied."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-3.5",
+          "GPT-4",
+          "GPT‑3.5",
+          "GPT‑4"
+        ],
+        "methods": [
+          "0-shot prompting",
+          "0‑shot prompting of LLMs to produce quality scores"
+        ],
+        "criteria": [
+          "overall translation quality"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper mentions LLM-based metrics like GEMBA that use GPT models, but these are used as automatic evaluation metrics, not as judges assessing outputs after generation. The LLMs are part of the metric being evaluated, not used as evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Multidimensional Quality Metrics (MQM) framework"
+    ],
+    "criteria": [
+      "translation quality",
+      "error severity"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "translation quality",
+          "error severity"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Multidimensional Quality Metrics (MQM) framework"
+        ],
+        "criteria": [
+          "error severity weighting",
+          "error counts"
+        ]
+      },
+      "normalized": {
+        "Multidimensional Quality Metrics (MQM) framework": "Multidimensional Quality Metrics (MQM) framework"
+      },
+      "explanation": "Normalized guideline format and criteria. Added more general criteria that better capture the human evaluation focus. The paper uses expert human ratings as ground truth for meta-evaluation."
+    }
+  },
+  "overall_notes": "This paper focuses on meta-evaluation of MT evaluation metrics, not on evaluating MT systems directly. The key contribution is proposing improved methods for assessing how well automatic metrics correlate with human judgments. The extracted metadata needed significant refinement to distinguish between metrics being evaluated vs. evaluation methods being studied."
+}

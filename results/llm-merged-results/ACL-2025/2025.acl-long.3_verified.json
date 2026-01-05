@@ -1,0 +1,187 @@
+{
+  "paper_id": "2025.acl-long.3",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Machine Translation",
+      "Other:Chat",
+      "Other:Safety",
+      "Other:Reasoning"
+    ],
+    "datasets": [
+      "M-RewardBench",
+      "MAPLE",
+      "RewardBench"
+    ],
+    "languages": [
+      "Arabic",
+      "Czech",
+      "German",
+      "Greek",
+      "Spanish",
+      "Persian",
+      "French",
+      "Hebrew",
+      "Hindi",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Korean",
+      "Dutch",
+      "Polish",
+      "Portuguese",
+      "Romanian",
+      "Russian",
+      "Turkish",
+      "Ukrainian",
+      "Vietnamese",
+      "Chinese",
+      "English"
+    ],
+    "models": [
+      "GPT-4 Turbo",
+      "GPT-4o",
+      "Gemma 2 9B",
+      "URM Llama 3.1 8B",
+      "Command R+",
+      "Tülu 2 13B DPO",
+      "Llama 3.1 70B",
+      "Aya Expanse 32B",
+      "Eurus RM 7B",
+      "Zephyr 7B"
+    ],
+    "outputs": [
+      "Responses to prompts in chat, safety, reasoning, and translation tasks",
+      "Reward model scores (accuracy of preferring the chosen response over the rejected one) for each language and task"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "URM Llama 3.1 8B"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "Finnish",
+          "Swedish",
+          "Thai",
+          "Filipino"
+        ],
+        "models": [],
+        "outputs": [
+          "The paper evaluates reward models on generated responses in multilingual settings, including chat, safety, reasoning, and translation tasks."
+        ]
+      },
+      "normalized": {
+        "M-REWARDBENCH": "M-RewardBench",
+        "URM": "URM Llama 3.1 8B"
+      },
+      "explanation": "Fixed model name 'URM' to clarify it's 'URM Llama 3.1 8B' based on full paper context. Removed languages not actually studied (Finnish, Swedish, Thai, Filipino were mentioned in other contexts but not in M-RewardBench). Simplified outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Normalized 'accuracy' to 'Accuracy' with proper capitalization"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Generative RMs",
+          "GPT-4 Turbo",
+          "GPT-4o",
+          "Gemma 2 9B",
+          "Llama 3.1 8B",
+          "Llama 3.1 70B",
+          "Llama 3.1",
+          "Aya Expanse"
+        ],
+        "methods": [
+          "pairwise evaluation with LLM-as-judge prompt",
+          "pairwise evaluation",
+          "LLM-as-judge prompt"
+        ],
+        "criteria": [
+          "helpfulness",
+          "relevance",
+          "accuracy",
+          "depth",
+          "creativity",
+          "level of detail",
+          "detail"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The LLM-as-judge prompt shown is for how Generative RMs work internally, not for evaluating the reward models themselves. The paper evaluates reward models using accuracy metrics, not by using separate LLMs as judges to evaluate the reward model outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators are presented with a prompt and two candidate responses and asked to choose their preferred response",
+      "The evaluation measures agreement between human preferences and the original RewardBench labels"
+    ],
+    "criteria": [
+      "preference",
+      "helpfulness vs harmfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "The evaluation measures agreement between human preferences and the original RewardBench labels"
+        ],
+        "criteria": [
+          "helpfulness vs harmfulness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- ask them to indicate their preference",
+          "We ask them to indicate their preference. We then compute the percentage agreement between the original labels and the annotator's preference."
+        ],
+        "criteria": [
+          "harmlessness"
+        ]
+      },
+      "normalized": {
+        "preference": "preference"
+      },
+      "explanation": "Refined guideline descriptions for clarity. Added 'helpfulness vs harmfulness' criteria explicitly mentioned in the human evaluation section. Removed redundant guideline statements."
+    }
+  },
+  "overall_notes": "The extracted metadata had mostly correct information, but there were some issues: (1) Several languages were incorrectly included that are not part of the 23 languages studied in M-RewardBench; (2) The LLM-as-judge extraction was incorrect - the prompt shown is for how reward models work, not for evaluating them; (3) Some model names needed clarification. The paper mainly focuses on evaluating reward models, not generating text outputs directly."
+}

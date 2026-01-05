@@ -1,0 +1,99 @@
+{
+  "paper_id": "2020.inlg-1.19",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-based NLI metric results with crowdsourced human ratings on the WebNLG dataset, reporting correlation and agreement metrics, and conducting manual error analysis on disagreements"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "roberta-large-mnli"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper describes the evaluation procedure but not exact prompts. It includes example inputs and explains the two-directional entailment checking process"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "unclear",
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper mentions three-point Likert scale (1=Incorrect, 2=Medium, 3=Correct) for semantic adequacy, and describes thresholding approach (2.5+ = correct)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation",
+      "Accuracy",
+      "Precision",
+      "Recall",
+      "F1-measure"
+    ],
+    "shared_criteria": [
+      "semantic_adequacy"
+    ],
+    "sample_size": {
+      "total_generated": "unclear",
+      "validated_by_both": "unclear",
+      "notes": "Paper reports results on WebNLG dataset but does not specify exact number of instances used for validation. Manual error analysis conducted on 100 error examples."
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.63,
+        "criterion": "semantic_adequacy",
+        "llm_model": "roberta-large-mnli",
+        "significance": "p<1e-10",
+        "notes": "Correlation between model's confidence scores and average human scores"
+      },
+      {
+        "metric": "F1-measure",
+        "value": null,
+        "criterion": "semantic_adequacy",
+        "llm_model": "roberta-large-mnli",
+        "significance": null,
+        "notes": "F1 scores reported but specific values not extractable from provided text"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "The LLM-based NLI metric achieves Spearman correlation of 0.63 with human ratings, comparable to reference-based metrics but without requiring human references. Manual analysis suggests true performance is higher due to annotation noise."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "omission",
+      "hallucination"
+    ],
+    "human_only_criteria": [
+      "grammaticality",
+      "text_organization"
+    ],
+    "shared_criteria": [
+      "semantic_adequacy"
+    ],
+    "notes": "LLM metric specifically detects omissions and hallucinations via two-directional entailment checking. Human evaluation considers semantic adequacy but is also influenced by grammaticality and text organization."
+  }
+}

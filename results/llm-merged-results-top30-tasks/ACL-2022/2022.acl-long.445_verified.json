@@ -1,0 +1,144 @@
+{
+  "paper_id": "2022.acl-long.445",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "convai2"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "poly_encoder_transformer",
+      "bi_encoder_transformer",
+      "sequence_to_sequence",
+      "key_value_memory_networks",
+      "lstm_based_model"
+    ],
+    "outputs": [
+      "Generated dialogue responses",
+      "dialogue conversations"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "dialogue responses"
+        ]
+      },
+      "normalized": {
+        "dialogue responses": "Generated dialogue responses"
+      },
+      "explanation": "Removed redundant 'dialogue responses' as it's covered by 'Generated dialogue responses'. All other metadata was correctly extracted and properly normalized."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "METEOR",
+      "GLEU",
+      "FED",
+      "USR"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-L"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE-L to ROUGE according to simplification rules. All metrics mentioned in the paper are correctly included."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "RoBERTa",
+          "DialoGPT",
+          "DialoGPT (medium)",
+          "DialoGPT (large)"
+        ],
+        "methods": [
+          "automatic scoring using pre-trained models for metrics FED and USR",
+          "likelihood difference scoring",
+          "regression‑based scoring"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses pre-trained models like RoBERTa and DialoGPT as components of automatic metrics (FED and USR), but these are NOT used as LLM judges evaluating outputs after generation. They are part of the metric computation process, not LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers rate conversations on a 0-100 scale under seven measurement criteria: Robotic, Interesting, Fun, Consistent, Fluent, Repetitive, and Topic",
+      "Workers rate each conversation on a continuous 0‑100 scale for each criterion after the live chat",
+      "Rate the degree to which you agree with statements for each criterion"
+    ],
+    "criteria": [
+      "Roboticness",
+      "Interest",
+      "Fun",
+      "Consistency",
+      "Fluency",
+      "Repetitiveness",
+      "Topic"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "interesting",
+          "fun",
+          "consistent",
+          "fluent",
+          "repetitive",
+          "topic",
+          "robotic"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed duplicate lowercase criteria that were redundant with the properly capitalized versions. The human evaluation methodology is correctly described."
+    }
+  },
+  "overall_notes": "The paper focuses on developing a reliable human evaluation methodology for open-domain dialogue systems. The main contribution is the evaluation framework itself, not new NLG models. The extraction was mostly accurate except for Question 3, where the distinction between automatic metrics using pre-trained models vs. LLM-as-judge evaluation was misunderstood. The paper evaluates existing dialogue models using their proposed human evaluation method and compares against traditional automatic metrics."
+}

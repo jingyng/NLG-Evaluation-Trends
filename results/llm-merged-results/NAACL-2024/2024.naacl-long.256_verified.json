@@ -1,0 +1,176 @@
+{
+  "paper_id": "2024.naacl-long.256",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "tasks": [
+      "Other:Value Alignment Evaluation"
+    ],
+    "datasets": [
+      "FLAMES"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "Claude",
+      "ChatGPT",
+      "MiniMax",
+      "ChatYuan",
+      "ChatGLM",
+      "ChatGLM2",
+      "ChatGLM3",
+      "MOSS",
+      "InternLM",
+      "Baichuan2",
+      "GPT-4",
+      "InternLM-7B",
+      "InternLM-20B"
+    ],
+    "outputs": [
+      "LLM responses to adversarial prompts",
+      "Harmlessness evaluations across five dimensions: fairness, safety, morality, data protection, legality"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-4",
+          "InternLM-7B",
+          "InternLM-20B"
+        ],
+        "outputs": [
+          "Harmlessness evaluations across five dimensions: fairness, safety, morality, data protection, legality"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Response Generation"
+        ],
+        "datasets": [
+          "FLAMES-prompts"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Value Alignment Evaluation": "Other:Value Alignment Evaluation",
+        "FLAMES-prompts": "FLAMES"
+      },
+      "explanation": "Removed vague 'Response Generation' task, consolidated datasets to 'FLAMES', added missing LLM models mentioned in the paper, and improved output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "FLAMES-scorer"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "FLAMES-scorer"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "accuracy",
+          "harmless rate",
+          "harmless score"
+        ]
+      },
+      "normalized": {
+        "FLAMES-scorer harmlessness score": "FLAMES-scorer"
+      },
+      "explanation": "Removed evaluation measures that are not metrics, kept only the actual automatic evaluation metric (FLAMES-scorer)"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "GPT-4",
+      "FLAMES-scorer"
+    ],
+    "methods": [
+      "0-shot prompting",
+      "5-shot prompting",
+      "5-shot prompting with explanation",
+      "Multi-task training on annotated data"
+    ],
+    "criteria": [
+      "harmlessness",
+      "relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "Multi-task training on annotated data"
+        ],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "removed": {
+        "models": [
+          "FLAMES-scorer (InternLM-Chat-7B)"
+        ],
+        "methods": [],
+        "criteria": [
+          "harmlessness (score 1-3)"
+        ]
+      },
+      "normalized": {
+        "FLAMES-scorer (InternLM-Chat-7B)": "FLAMES-scorer",
+        "harmlessness (score 1-3)": "harmlessness"
+      },
+      "explanation": "Normalized model names, added FLAMES-scorer training method, simplified criteria, and added relevance criterion mentioned in the paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Detailed scoring guidance using 1-3 scale (3=harmless, 1=harmful)",
+      "Each response labeled by 2 annotators with expert resolution for disagreements",
+      "Fine-grained annotation across five dimensions with sub-components",
+      "Consideration of relevance between prompt and response"
+    ],
+    "criteria": [
+      "harmlessness",
+      "relevance",
+      "identification of harm in prompt"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Each response labeled by 2 annotators with expert resolution for disagreements",
+          "Fine-grained annotation across five dimensions with sub-components",
+          "Consideration of relevance between prompt and response"
+        ],
+        "criteria": [
+          "identification of harm in prompt"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- detailed scoring guidance for crowd workers to annotate the responses",
+          "We provide detailed scoring guidance for crowd workers to annotate each response according to a 1‑3 harmlessness scale.",
+          "We establish detailed scoring guidance for crowd workers to annotate the responses. Tab. 3 presents the rough descriptions for each label. In general, the scoring scales range from 1 to 3, with 3 denoting the harmless answer and 1 indicating the harmful answer..."
+        ],
+        "criteria": [
+          "relevancy between prompt and response"
+        ]
+      },
+      "normalized": {
+        "relevancy between prompt and response": "relevance"
+      },
+      "explanation": "Consolidated and cleaned up guideline descriptions, normalized criteria names, and added missing evaluation criteria from the paper"
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive value alignment benchmark (FLAMES) for Chinese LLMs. It includes human evaluation with detailed guidelines, automatic evaluation using their FLAMES-scorer, and comparison with GPT-4 as a judge. The extraction was generally accurate but needed normalization and addition of several important details from the full paper text."
+}

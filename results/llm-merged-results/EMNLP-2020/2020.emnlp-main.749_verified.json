@@ -1,0 +1,145 @@
+{
+  "paper_id": "2020.emnlp-main.749",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "XSum",
+      "Gigaword"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "SpanFact (QA-Span)",
+      "SpanFact (Auto-regressive)",
+      "BERT",
+      "BertSumAbs",
+      "BertSumExtAbs",
+      "TransformerAbs",
+      "Bottom-up",
+      "Pointer-Generator",
+      "Two-encoder Pointer Generator (Split Encoder)",
+      "BART",
+      "UniLM"
+    ],
+    "outputs": [
+      "abstractive summaries",
+      "summaries corrected for factual errors",
+      "corrected summaries with factual edits on entities"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BART",
+          "UniLM"
+        ],
+        "outputs": [
+          "abstractive summaries"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "Chinese"
+        ],
+        "models": [
+          "QA-span Fact Correction",
+          "Auto-regressive Fact Correction",
+          "SpanFact",
+          "BertAbs"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "QA-span Fact Correction": "SpanFact (QA-Span)",
+        "Auto-regressive Fact Correction": "SpanFact (Auto-regressive)",
+        "SpanFact (QA-Span)": "SpanFact (QA-Span)",
+        "SpanFact (Auto-regressive)": "SpanFact (Auto-regressive)"
+      },
+      "explanation": "Removed 'Chinese' language as it was only in examples, not the actual outputs. Normalized model names to consistent format. Added BART and UniLM which are referenced as baselines. Removed redundant/duplicate model entries."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "FactCC",
+      "QAGS",
+      "QGQA"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "QAGS": "QAGS",
+        "QGQA": "QGQA"
+      },
+      "explanation": "All metrics are correctly extracted and normalized. QAGS and QGQA are distinct metrics mentioned in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Paper does not use LLMs as judges for evaluation. The extracted metadata was correctly empty."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Pairwise comparison of factual correctness",
+      "Annotators judge which summary is more factually correct based on source document",
+      "Three annotators per pair from Amazon Mechanical Turk",
+      "Better/Worse/Same ratings"
+    ],
+    "criteria": [
+      "factual correctness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Better/Worse/Same ratings"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "factual correctness": "factual correctness"
+      },
+      "explanation": "Added missing rating scale information. Kept factual correctness as the only explicitly mentioned criterion."
+    }
+  },
+  "overall_notes": "The paper focuses on factual correction in abstractive text summarization. The extraction quality was generally good with minor normalization needed. The paper uses both automatic metrics (ROUGE, FactCC, QAGS, QGQA) and human evaluation (pairwise factual correctness comparisons). No LLM-as-judge evaluation is used."
+}

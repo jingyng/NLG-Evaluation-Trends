@@ -1,0 +1,152 @@
+{
+  "paper_id": "2023.acl-long.815",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Fake News Generation",
+      "Disinformation Generation"
+    ],
+    "datasets": [
+      "timeline17",
+      "CNNDM",
+      "PROPANEWS",
+      "SNOPES",
+      "POLITIFACT",
+      "MultiNLI"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bart",
+      "roberta",
+      "gpt_2"
+    ],
+    "outputs": [
+      "Fake news articles",
+      "Generated disinformation articles",
+      "Articles with propaganda techniques"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "MultiNLI"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-2"
+        ],
+        "outputs": [
+          "Articles with propaganda techniques"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "propaganda dataset"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "propaganda dataset": "Removed - too vague",
+        "CNN/DM": "CNNDM",
+        "NLI model (RoBERTA)": "RoBERTA",
+        "Other:Fake News Generation": "Other: Fake News Generation",
+        "Other:Disinformation Generation": "Other: Disinformation Generation"
+      },
+      "explanation": "Added MultiNLI dataset used for NLI training and GPT-2 mentioned in related work. Removed vague 'propaganda dataset'. Normalized CNNDM and task names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MAUVE",
+      "PERPLEXITY",
+      "AUC"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "WAWA"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed WAWA as it's for measuring inter-annotator agreement, not for evaluating generated outputs. Kept MAUVE (text distribution similarity), Perplexity (quality), and AUC (detection performance)."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. The models mentioned are used for generation or classification, not as evaluators."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Q1: Is the generated text Accurate or Inaccurate?",
+      "Q2: Provide supporting URL",
+      "Q3: Does generated text have same sentiment as article?",
+      "Q4: Is discourse consistent with article?",
+      "Q5: Correct grammatical errors if any",
+      "Q1: Rate plausibility of article (Low/Medium/High)",
+      "Q2: How much does propaganda sentence affect plausibility rating?"
+    ],
+    "criteria": [
+      "Accuracy",
+      "Plausibility",
+      "Consistency",
+      "Influence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Q2: Provide supporting URL",
+          "Q5: Correct grammatical errors if any"
+        ],
+        "criteria": [
+          "Accuracy"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "influence of propaganda",
+          "propaganda influence"
+        ]
+      },
+      "normalized": {
+        "Q1: How plausible do you think the article above is? (Low, Medium, High); Q2: How much does this sentence in the article affect your decision for the previous answer? (Low, Medium, High)": "Q1: Rate plausibility of article (Low/Medium/High); Q2: How much does propaganda sentence affect plausibility rating?",
+        "Q1: Is the generated text in boldface Accurate or Inaccurate? (If you cannot find any supporting evidence, please select Inaccurate.) ... Q3: Does the generated text in boldface deliver the same sentiment as the rest of the article? ... Q4: Is the discourse of the generated text in boldface consistent with the rest of the article?": "Q1: Is generated text Accurate or Inaccurate?; Q3: Same sentiment as article?; Q4: Discourse consistent?",
+        "plausibility": "Plausibility",
+        "sentiment consistency": "Sentiment consistency",
+        "discourse consistency": "Discourse consistency"
+      },
+      "explanation": "Consolidated and normalized the evaluation guidelines from both validation and quality assessment phases. Removed redundant criteria and added missing 'Accuracy' criterion from validation phase."
+    }
+  },
+  "overall_notes": "The paper focuses on generating fake news/disinformation with propaganda techniques for training better detectors. The extraction was generally accurate but missed some important details like MultiNLI dataset usage and GPT-2 mentions. The human evaluation section was comprehensive with both validation and quality assessment phases."
+}

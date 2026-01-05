@@ -1,0 +1,170 @@
+{
+  "paper_id": "2020.acl-main.704",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Machine Translation",
+      "Data-to-Text Generation"
+    ],
+    "datasets": [
+      "WMT Metrics Shared Task (2017-2019)",
+      "WebNLG 2017 Challenge Dataset"
+    ],
+    "languages": [
+      "English",
+      "Chinese",
+      "German",
+      "French"
+    ],
+    "models": [
+      "BLEURT",
+      "BLEURT-base",
+      "BLEURT-pre",
+      "BLEURT-base-pre"
+    ],
+    "outputs": [
+      "candidate sentences for similarity assessment against reference sentences",
+      "continuous quality scores (predicted human rating)",
+      "reference and candidate sentence pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BLEURT-pre",
+          "BLEURT-base-pre"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Dialogue Generation",
+          "Image Captioning",
+          "Other:Data-to-text Generation"
+        ],
+        "datasets": [
+          "WMT Metrics Shared Task (2017‑2019)",
+          "WMT Metrics Shared Task"
+        ],
+        "languages": [],
+        "models": [
+          "BERT-Large",
+          "BERT-Base",
+          "BERT",
+          "BERT-large",
+          "BERT-base"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Data-to-text Generation": "Data-to-Text Generation",
+        "Other:Data-to-Text": "Data-to-Text Generation"
+      },
+      "explanation": "Removed tasks/models that were only mentioned in background/review but not actually evaluated. Kept only the BLEURT variants that are the main contributions. Removed duplicate dataset entries and consolidated to standard forms."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEURT",
+      "BLEU",
+      "ROUGE",
+      "BERTScore",
+      "MoverScore",
+      "TER",
+      "METEOR",
+      "chrF++",
+      "BEER",
+      "Meteor++",
+      "RUSE",
+      "Yisi1",
+      "ESIM",
+      "Yisi1-SRL"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "sentenceBLEU",
+          "Moses sentenceBLEU"
+        ]
+      },
+      "normalized": {
+        "BLEURT": "BLEURT",
+        "sentenceBLEU": "BLEU",
+        "ROUGE": "ROUGE",
+        "BERTscore": "BERTScore",
+        "MoverScore": "MoverScore",
+        "BLEU": "BLEU",
+        "BERTScore": "BERTScore",
+        "TER": "TER",
+        "METEOR": "METEOR",
+        "chrF++": "chrF++",
+        "BEER": "BEER",
+        "Meteor++": "Meteor++",
+        "RUSE": "RUSE",
+        "Yisi1": "Yisi1",
+        "ESIM": "ESIM",
+        "Yisi1-SRL": "Yisi1-SRL",
+        "Moses sentenceBLEU": "BLEU"
+      },
+      "explanation": "Normalized all metric names to standard forms. Removed 'sentenceBLEU' and 'Moses sentenceBLEU' as they are just implementations of BLEU. Consolidated all mention of BLEU variants to just 'BLEU'."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": true,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "BERT-base",
+          "BERT-large",
+          "BERT",
+          "BLEURT"
+        ],
+        "methods": [
+          "regression on [CLS] embedding",
+          "reference‑based scoring using contextual embeddings"
+        ],
+        "criteria": [
+          "fluency",
+          "faithfulness",
+          "grammar",
+          "style",
+          "overall quality"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer from Yes to No. The paper uses BERT/BLEURT as automatic evaluation metrics, not as LLM judges assessing generated outputs after generation. The methods and criteria describe how BLEURT is trained, not how an LLM is used to judge outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "raters scored generated sentences on semantics, grammar, and fluency",
+      "The submissions are evaluated on 3 aspects: semantics, grammar, and fluency"
+    ],
+    "criteria": [
+      "semantics",
+      "grammar",
+      "fluency"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "Verified that the extracted human evaluation information is correct and relevant. The paper clearly conducts human evaluations on WebNLG data."
+    }
+  },
+  "overall_notes": "This paper introduces BLEURT as a new automatic evaluation metric for NLG, not as an LLM judge. The main contributions are in developing and evaluating the BLEURT metric itself. The paper evaluates BLEURT on machine translation (WMT) and data-to-text generation (WebNLG) tasks, using both automatic metrics and human evaluations. The extraction was generally good but incorrectly interpreted BLEURT as an LLM judge rather than an automatic metric."
+}

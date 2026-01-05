@@ -1,0 +1,119 @@
+{
+  "paper_id": "2025.naacl-long.609",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly compares LLM evaluation results with human evaluation by using Krippendorff's alpha to measure agreement between system-generated labels and human annotations, and shows validation across multiple datasets with ambiguity filtering analysis"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "meta_llama_3",
+      "gpt_4o_mini"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts provided in Appendix C (Tables 26-32) including zero-shot faithfulness, chain-of-thought, evaluator agents debate, adjudication, and ambiguity detection prompts"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 2,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Cohen's Kappa",
+      "value": 0.73,
+      "interpretation": "high inter-annotator agreement",
+      "per_criterion": [
+        {
+          "criterion": "ambiguity",
+          "metric": "Cohen's Kappa",
+          "value": 0.73
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Detailed annotation instructions provided in Appendix B.2, including 16-category ambiguity taxonomy with definitions and examples"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Krippendorff's alpha",
+      "Balanced Accuracy",
+      "False Negative Rate",
+      "False Positive Rate"
+    ],
+    "shared_criteria": [
+      "faithfulness"
+    ],
+    "sample_size": {
+      "total_generated": 558,
+      "validated_by_both": 772,
+      "notes": "Validation conducted on TofuEval benchmark (MeetingBank: 772 annotated sentences, MediaSum: 726 annotated sentences) and AggreFact benchmark (CNN: 558 summaries, XSum: 558 summaries)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Krippendorff's alpha",
+        "value": 0.52,
+        "criterion": "faithfulness",
+        "llm_model": "meta_llama_3",
+        "significance": "not reported",
+        "notes": "Zero-shot baseline on unfiltered data"
+      },
+      {
+        "metric": "Krippendorff's alpha",
+        "value": 0.67,
+        "criterion": "faithfulness",
+        "llm_model": "meta_llama_3",
+        "significance": "not reported",
+        "notes": "MADISSE on unfiltered data"
+      },
+      {
+        "metric": "Krippendorff's alpha",
+        "value": 0.71,
+        "criterion": "faithfulness",
+        "llm_model": "meta_llama_3",
+        "significance": "not reported",
+        "notes": "MADISSE on filtered data (ambiguous cases removed)"
+      },
+      {
+        "metric": "False Negative Rate",
+        "value": "significantly reduced",
+        "criterion": "faithfulness",
+        "llm_model": "meta_llama_3",
+        "significance": "not reported",
+        "notes": "MADISSE identifies more errors compared to baseline"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "improved alignment",
+      "threshold_used": "Not explicitly stated, but higher Krippendorff's alpha indicates better agreement",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "MADISSE improves agreement with human annotations (K-alpha: 0.67 unfiltered, 0.71 filtered) compared to zero-shot baseline (0.52). Removing ambiguous cases further improves alignment by 6 percentage points."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "explainability",
+      "interpretability"
+    ],
+    "human_only_criteria": [
+      "ambiguity_taxonomy_annotation"
+    ],
+    "shared_criteria": [
+      "faithfulness"
+    ],
+    "notes": "LLM primarily evaluates faithfulness while humans focus on ambiguity annotation, but both contribute to faithfulness evaluation through validation"
+  }
+}

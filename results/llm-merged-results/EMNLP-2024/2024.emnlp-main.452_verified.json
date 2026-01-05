@@ -1,0 +1,185 @@
+{
+  "paper_id": "2024.emnlp-main.452",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Dialogue Generation",
+      "Other:Article Recitation",
+      "Other:Document Proofreading",
+      "Other:Legal Consultation",
+      "Other:Opinion Summarization"
+    ],
+    "datasets": [
+      "FLK",
+      "CAIL2022",
+      "CAIL2019",
+      "JEC-QA",
+      "LEVEN",
+      "LAIC2021",
+      "CrimeKgAssistant",
+      "Hualv.com",
+      "AiStudio"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "LLaMA-2-Chat-7B",
+      "LLaMA-2-Chat-13B",
+      "LLaMA-2-Chat-70B",
+      "StableBeluga2-70B",
+      "ChatGPT",
+      "GPT-4",
+      "ChatGLM2-6B",
+      "Ziya-LLaMA-13B",
+      "Baichuan2-Chat-7B",
+      "Baichuan2-Chat-13B",
+      "InternLM2-Chat-7B",
+      "InternLM2-Chat-20B",
+      "Qwen-1.5-Chat-7B",
+      "Qwen-1.5-Chat-14B",
+      "Qwen-1.5-Chat-72B",
+      "LexiLaw-6B",
+      "Wisdom-Interrogatory-7B",
+      "Fuzi-Mingcha-6B",
+      "Lawyer-LLaMA-13B",
+      "ChatLaw-13B",
+      "ChatLaw-33B"
+    ],
+    "outputs": [
+      "Legal article content",
+      "Corrected legal sentences",
+      "Legal summaries",
+      "Legal consultation responses",
+      "Extracted entity information",
+      "Predicted legal articles",
+      "Predicted charges",
+      "Predicted prison terms",
+      "Calculated criminal damages"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Dialogue Generation"
+        ],
+        "datasets": [
+          "AiStudio"
+        ],
+        "models": [
+          "LLaMA-2-Chat-7B",
+          "LLaMA-2-Chat-13B",
+          "LLaMA-2-Chat-70B",
+          "StableBeluga2-70B",
+          "Baichuan2-Chat-7B",
+          "Baichuan2-Chat-13B",
+          "InternLM2-Chat-7B",
+          "InternLM2-Chat-20B",
+          "Qwen-1.5-Chat-7B",
+          "Qwen-1.5-Chat-14B",
+          "Qwen-1.5-Chat-72B",
+          "ChatLaw-33B"
+        ],
+        "outputs": [
+          "Extracted entity information",
+          "Predicted legal articles",
+          "Predicted charges",
+          "Predicted prison terms",
+          "Calculated criminal damages"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Opinion Summarization",
+          "Document Proofreading",
+          "Legal Consultation",
+          "hualv.com"
+        ],
+        "models": [
+          "Qwen-1.5-72B-Chat"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Consultation": "Other:Legal Consultation",
+        "CAIL2019": "CAIL2019",
+        "JEC_QA": "JEC-QA",
+        "Hualv.com": "Hualv.com"
+      },
+      "explanation": "Added all 21 LLMs mentioned in the paper with their specific parameter sizes. Added Dialogue Generation since consultation tasks involve generation. Normalized dataset names and added AiStudio. Removed redundant outputs and normalized task names."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "F-score",
+      "Accuracy",
+      "nLog-distance"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F0.5",
+          "F1",
+          "rc-F1",
+          "soft-F1"
+        ]
+      },
+      "normalized": {
+        "Rouge-L": "ROUGE",
+        "F0.5": "F-score",
+        "F1": "F-score",
+        "rc-F1": "F-score",
+        "soft-F1": "F-score"
+      },
+      "explanation": "Simplified all F-score variants to 'F-score' as per the normalization rules. Normalized Rouge-L to ROUGE. Kept nLog-distance and Accuracy as distinct metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges to evaluate generated outputs - LLMs are only used as generators. No metadata needed."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The paper explicitly mentions using only automatic evaluation metrics and notes the limitation that human evaluation is not conducted."
+    }
+  },
+  "overall_notes": "This paper presents LawBench, a comprehensive benchmark for evaluating LLMs on Chinese legal tasks. It extensively evaluates 21 LLMs across 20 legal tasks using automatic metrics. The paper focuses on generation tasks including summarization, consultation, and various legal text generation tasks. All evaluation is automatic using metrics like ROUGE, F-score, Accuracy, and nLog-distance. No human evaluation or LLM-as-judge evaluation is conducted."
+}

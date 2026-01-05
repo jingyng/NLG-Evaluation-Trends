@@ -1,0 +1,143 @@
+{
+  "paper_id": "2022.acl-long.545",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "GIGAWORD",
+      "DUC 2004"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "naus",
+      "transformer",
+      "ctc_trained_model",
+      "schumann_et_al."
+    ],
+    "outputs": [
+      "summaries",
+      "headlines"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "CTC-trained model"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Gigaword headline generation"
+        ],
+        "languages": [],
+        "models": [
+          "search-based teacher model"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Gigaword headline generation": "Gigaword",
+        "NAUS (Non-Autoregressive approach to Unsupervised Summarization)": "NAUS",
+        "edit-based search approach (Schumann et al.)": "edit-based search (Schumann et al.)"
+      },
+      "explanation": "Normalized dataset names (Gigaword headline generation → Gigaword), simplified model names, removed redundant 'search-based teacher model', added 'CTC-trained model' as it's a key component"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-n",
+          "ROUGE-L",
+          "ROUGE F1",
+          "Truncate ROUGE Recall",
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE Recall"
+        ]
+      },
+      "normalized": {
+        "ROUGE-n": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "ROUGE F1": "ROUGE",
+        "Truncate ROUGE Recall": "ROUGE",
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE Recall": "ROUGE"
+      },
+      "explanation": "Consolidated all ROUGE variants under the base metric 'ROUGE' as per normalization guidelines"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges in this paper; the extracted metadata was correctly empty"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Pairwise comparison of truncating vs length-control decoding outputs",
+      "Blind evaluation with random ordering",
+      "Three human annotators"
+    ],
+    "criteria": [
+      "Quality",
+      "Fluency",
+      "Completeness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Blind evaluation with random ordering",
+          "Three human annotators"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "fluency/completeness"
+        ]
+      },
+      "normalized": {
+        "fluency/completeness": "completeness"
+      },
+      "explanation": "Split 'fluency/completeness' into separate criteria, added details about the evaluation setup (blind, random ordering, three annotators)"
+    }
+  },
+  "overall_notes": "The paper focuses on unsupervised sentence summarization using non-autoregressive models. The extraction was generally accurate but needed normalization for metrics and some clarification for human evaluation setup. The paper evaluates NLG outputs using both automatic metrics (ROUGE) and human evaluation."
+}

@@ -1,0 +1,162 @@
+{
+  "paper_id": "2025.emnlp-main.106",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Human Variation Modeling",
+      "Other:Survey Response Generation",
+      "Other:Moral Judgment Generation",
+      "Other:Chat Preference Prediction"
+    ],
+    "datasets": [
+      "OpinionQA",
+      "Hatespeech-Kumar",
+      "DICES",
+      "ValuePrism",
+      "Habermas-Likert",
+      "Prism"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Gemma-2-9B",
+      "Gemma-2-27B",
+      "Gemini-1.5-Pro"
+    ],
+    "outputs": [
+      "Value profiles (natural language descriptions of rater values)",
+      "Survey response ratings",
+      "Chat preference selections",
+      "Moral judgments",
+      "Textual justifications"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Survey Response Generation",
+          "Other:Moral Judgment Generation",
+          "Other:Chat Preference Prediction"
+        ],
+        "outputs": [
+          "Survey response ratings",
+          "Chat preference selections",
+          "Moral judgments",
+          "Textual justifications"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation"
+        ],
+        "outputs": [
+          "The generated outputs are categorical/ordinal responses to survey-like questions or free-form justifications, depending on the dataset."
+        ]
+      },
+      "normalized": {
+        "gemma2-9b-pt": "Gemma-2-9B",
+        "gemma2-9b-it": "Gemma-2-9B",
+        "gemma2-27b-it": "Gemma-2-27B",
+        "Other: Opinion Survey Response Generation": "Other:Survey Response Generation",
+        "Other: Human Variation Modeling": "Other:Human Variation Modeling"
+      },
+      "explanation": "Removed 'Dialogue Generation' as this is not a primary task evaluated. Normalized model names consistently. Simplified task descriptions and replaced the generic output description with specific output types from the datasets."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Cross-entropy loss",
+      "Accuracy",
+      "Perplexity",
+      "Jensen-Shannon divergence",
+      "R-squared",
+      "p-value",
+      "Usable information (nats)"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Perplexity",
+          "R-squared"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "test loss",
+          "accuracy",
+          "cross-entropy loss"
+        ]
+      },
+      "normalized": {
+        "test loss": "Cross-entropy loss",
+        "cross-entropy loss": "Cross-entropy loss",
+        "accuracy": "Accuracy",
+        "R²": "R-squared",
+        "usable information (nats)": "Usable information (nats)"
+      },
+      "explanation": "Consolidated duplicates (test loss, cross-entropy loss) and normalized metric names to standard forms. Added metrics mentioned but missing from original extraction."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "Gemini-1.5-Pro"
+    ],
+    "methods": [
+      "Zero-shot prompted evaluation"
+    ],
+    "criteria": [
+      "Semantic interpretability"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Semantic interpretability"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Gemini"
+        ],
+        "methods": [
+          "binary classification task matching value profiles to output distributions"
+        ],
+        "criteria": [
+          "commonsense correlation between value profile and output distribution"
+        ]
+      },
+      "normalized": {
+        "Gemini": "Gemini-1.5-Pro",
+        "zero-shot prompted evaluation": "Zero-shot prompted evaluation"
+      },
+      "explanation": "Corrected answer from No to Yes as the paper explicitly uses Gemini as a judge in a zero-shot evaluation task. Normalized model name and method description. Simplified criteria to explicit term used in paper."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "Human annotators select which of two value profiles matches the model's output distribution for a given instance."
+        ],
+        "criteria": [
+          "interpretability (matching accuracy)"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed incorrect guideline and criteria - the evaluation described is actually the LLM-as-judge evaluation from Question 3, not a human evaluation. The paper does not conduct human evaluations."
+    }
+  },
+  "overall_notes": "Paper focuses on modeling human variation using value profiles for rating prediction tasks. While it involves generating value profiles, the primary evaluation is on predicting human ratings/survey responses rather than open-ended text generation. The LLM-as-judge evaluation is correctly identified in the verification."
+}

@@ -1,0 +1,125 @@
+{
+  "paper_id": "2020.acl-main.460",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/DailyMail",
+      "NEWSROOM",
+      "HEADLINE DATASET"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2",
+      "bert",
+      "summary_loop",
+      "generative_transformer"
+    ],
+    "outputs": [
+      "abstractive summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "CNN/DailyMail"
+        ],
+        "models": [
+          "Generative Transformer"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "headline dataset obtained from common US news websites"
+        ],
+        "models": [
+          "GPT2-base",
+          "BERT-base",
+          "GPT2-base (Summarizer)",
+          "BERT-base (Coverage)",
+          "GPT2-base (Fluency)"
+        ]
+      },
+      "normalized": {
+        "CNN/DM": "CNN/DailyMail",
+        "GPT2": "GPT-2"
+      },
+      "explanation": "Normalized dataset names to canonical forms (CNN/DailyMail instead of CNN/DM). Simplified model list to main models used (GPT-2, BERT, Summary Loop, Generative Transformer) rather than specific configurations. Added Generative Transformer as it's a key architecture mentioned."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "COVERAGE",
+      "FLUENCY"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE"
+      },
+      "explanation": "Consolidated ROUGE variants into single ROUGE metric following normalization rules. Coverage Score and Fluency Score are custom metrics developed in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "GPT2-base (Fluency)"
+        ],
+        "methods": [
+          "Language model log-probability scoring"
+        ],
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata as the paper does NOT use LLMs as judges. The GPT-2 model is used for generation and fluency scoring, but this is part of the generation pipeline, not a post-hoc evaluation using LLMs as judges."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Manual analysis of 200 randomly-selected summaries annotated for error types (Inaccurate, Ungrammatical) and summarization techniques"
+    ],
+    "criteria": [
+      "Accuracy",
+      "Grammaticality",
+      "Summarization"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "Summarization Techniques"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "summarization techniques"
+        ]
+      },
+      "normalized": {
+        "summarization techniques": "Summarization Techniques"
+      },
+      "explanation": "Consolidated criteria list and normalized naming. Added clear guideline description based on the manual analysis described in the paper."
+    }
+  },
+  "overall_notes": "The paper presents an unsupervised abstractive summarization method called Summary Loop. It uses automatic metrics (ROUGE, Coverage Score, Fluency Score) and conducts human evaluation analyzing errors and summarization techniques. The extraction was generally accurate but needed normalization and simplification of model/dataset names."
+}

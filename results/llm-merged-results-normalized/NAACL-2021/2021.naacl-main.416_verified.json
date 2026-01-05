@@ -1,0 +1,148 @@
+{
+  "paper_id": "2021.naacl-main.416",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Radiology Report Generation"
+    ],
+    "datasets": [
+      "MIMIC CXR",
+      "OPEN I CHEST X RAY"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "m²_trans",
+      "tienet",
+      "r_2gen",
+      "cnn_rnn",
+      "densenet_121",
+      "stanza",
+      "bert"
+    ],
+    "outputs": [
+      "Radiology reports describing clinical observations in X-ray images"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "Open-i"
+        ],
+        "languages": [],
+        "models": [
+          "Meshed-Memory Transformer (M2Trans)",
+          "Meshed-Memory Transformer"
+        ],
+        "outputs": [
+          "radiology reports (textual clinical findings)"
+        ]
+      },
+      "normalized": {
+        "Open-i": "Open-i Chest X-ray",
+        "Meshed-Memory Transformer (M2Trans)": "Meshed-Memory Transformer (M² Trans)",
+        "Meshed-Memory Transformer": "Meshed-Memory Transformer (M² Trans)",
+        "radiology reports (textual clinical findings)": "Radiology reports describing clinical observations in X-ray images"
+      },
+      "explanation": "Removed duplicate 'Open-i' and normalized to full name. Consolidated duplicate M² Trans variants. Simplified output description to be more consistent."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "CIDER",
+      "BERTSCORE",
+      "FACT ENT",
+      "FACT ENTNLI",
+      "CHEXBERT"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "BLEU4",
+          "CIDEr-D",
+          "CheXbert (clinical metrics)",
+          "BLEU-4",
+          "CheXbert clinical metrics",
+          "fact ENT",
+          "fact ENTNLI"
+        ]
+      },
+      "normalized": {
+        "BLEU4": "BLEU",
+        "BLEU-4": "BLEU",
+        "CIDEr-D": "CIDEr",
+        "fact ENT": "fact_ENT",
+        "fact ENTNLI": "fact_ENTNLI",
+        "CheXbert (clinical metrics)": "CheXbert",
+        "CheXbert clinical metrics": "CheXbert"
+      },
+      "explanation": "Normalized all metric variants to base forms (BLEU, CIDEr) and simplified names. Removed duplicates and descriptive text from metric names."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was used in this paper. The paper uses traditional NLG metrics and human evaluation by radiologists."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Given a reference report (R) and two candidate model generated reports (C1, C2), two board-certified radiologists decided whether C1 or C2 is more factually similar to R, with 'No difference' as an option when difficult to differentiate"
+    ],
+    "criteria": [
+      "Factuality"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [
+          "- Radiologists compared candidate reports to the reference report to determine which was more factually similar, with an option for 'No difference'.",
+          "Radiologists were shown a reference report and two candidate reports and asked to select which candidate was more factually similar to the reference, or choose 'No difference'."
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "- Radiologists compared candidate reports to the reference report to determine which was more factually similar, with an option for 'No difference'.": "Given a reference report (R) and two candidate model generated reports (C1, C2), two board-certified radiologists decided whether C1 or C2 is more factually similar to R, with 'No difference' as an option when difficult to differentiate",
+        "Radiologists were shown a reference report and two candidate reports and asked to select which candidate was more factually similar to the reference, or choose 'No difference'.": "Given a reference report (R) and two candidate model generated reports (C1, C2), two board-certified radiologists decided whether C1 or C2 is more factually similar to R, with 'No difference' as an option when difficult to differentiate"
+      },
+      "explanation": "Consolidated multiple guideline descriptions into one clear statement. Kept 'factual similarity' as the single evaluation criterion."
+    }
+  },
+  "overall_notes": "The paper is clearly about NLG (radiology report generation) and uses both automatic metrics and human evaluation. The extraction was generally accurate but had some duplicates and non-normalized names. The paper focuses on factual completeness and consistency in radiology report generation, introducing novel rewards (fact_ENT, fact_ENTNLI) combined with BERTScore. Human evaluation was conducted by board-certified radiologists."
+}

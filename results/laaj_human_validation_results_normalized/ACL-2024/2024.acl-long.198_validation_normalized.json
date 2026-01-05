@@ -1,0 +1,85 @@
+{
+  "paper_id": "2024.acl-long.198",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares OpenAssistant reward model scores with human reliance scores for the same epistemic markers, providing quantitative comparison in Table 3"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "openassistant"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Prompt described as testing 'question-response pairs where the question is \"What is the capital of X?\" and the response is an epistemic marker like \"I think it's\"'. Exact prompt template not shown."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 25,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": null,
+      "value": null,
+      "interpretation": null,
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Guidelines described: participants decide whether to rely on AI-generated answer with epistemic markers or look up answer themselves. Scoring system shown (rely on correct Marvin=+1, rely on incorrect=-1, look up=0)."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "comparison"
+    ],
+    "shared_criteria": [
+      "preference"
+    ],
+    "sample_size": {
+      "total_generated": 183,
+      "validated_by_both": 183,
+      "notes": "30 commonly occurring templates tested across 183 question-answer pairs"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "comparison",
+        "value": null,
+        "criterion": "Preference",
+        "llm_model": "openassistant",
+        "significance": null,
+        "notes": "Human scores calculated as percentage of time humans relied on expression (plain: 0.863, strengthener: 0.894, weakener: 0.095); Reward scores (plain: 4.029, strengthener: 0.818, weakener: -1.855)"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": null,
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "Human reliance scores and reward model scores show similar patterns for weakeners (low scores) but divergent patterns for strengtheners vs plain statements, suggesting partial alignment between LLM and human judgment."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "reward_scoring"
+    ],
+    "human_only_criteria": [
+      "reliance",
+      "Accuracy",
+      "marker_interpretation"
+    ],
+    "shared_criteria": [
+      "Preference"
+    ],
+    "notes": "LLM evaluates through reward model scoring of epistemic markers; humans evaluate through reliance decisions and learning behavior; both assess preference for different types of epistemic markers"
+  }
+}

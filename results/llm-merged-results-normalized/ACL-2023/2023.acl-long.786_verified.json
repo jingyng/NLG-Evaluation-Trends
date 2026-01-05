@@ -1,0 +1,177 @@
+{
+  "paper_id": "2023.acl-long.786",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "ARGKP 2021"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "flan_t_5",
+      "bertopic",
+      "gpt_2_xl",
+      "dino",
+      "hdbscan",
+      "umap",
+      "pegasus",
+      "t_5"
+    ],
+    "outputs": [
+      "Key points (abstractive summaries) for argument clusters",
+      "Key Points (KPs) that summarise a corpus of arguments"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-2-XL",
+          "DINO",
+          "HDBSCAN",
+          "UMAP",
+          "PEGASUS"
+        ],
+        "outputs": [
+          "Key points (abstractive summaries) for argument clusters"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "BERTScore",
+          "BLEURT",
+          "BARTScore",
+          "T5-effective-base"
+        ],
+        "outputs": [
+          "concise key points (abstractive summaries) generated for clusters of arguments"
+        ]
+      },
+      "normalized": {
+        "GPT2-XL": "GPT-2-XL",
+        "key points": "Key Points (KPs) that summarise a corpus of arguments",
+        "BLEURT": "BLEURT",
+        "BARTScore": "BARTScore"
+      },
+      "explanation": "Removed evaluation metrics (BERTScore, BLEURT, BARTScore) from models list as they are not generation models. Added models actually used in the generation pipeline. Normalized GPT2-XL to GPT-2-XL for consistency. Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEU",
+      "BLEURT",
+      "BARTSCORE",
+      "EMD",
+      "S+WMS",
+      "SOFT PRECISION",
+      "SOFT RECALL SR",
+      "SOFT F1 SF1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEU"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Soft-Precision",
+          "Soft-Recall",
+          "Soft-F1"
+        ]
+      },
+      "normalized": {
+        "S+WMS": "S+WMS",
+        "Soft-Precision (sP)": "Soft-Precision (sP)",
+        "Soft-Recall (sR)": "Soft-Recall (sR)",
+        "Soft-F1 (sF1)": "Soft-F1 (sF1)"
+      },
+      "explanation": "Removed duplicate entries for Soft-Precision/Recall/F1. Added BLEU which is mentioned in the paper. Kept specific metric names as they appear to be custom metrics proposed by the authors."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Confirmed no LLM-as-judge methodology is used in the paper. The paper uses human evaluation and automatic metrics, but not LLMs to judge outputs post-generation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators assessed key points on dimensions like VALIDITY, SENTIMENT, INFORMATIVENESS, SINGLEASPECT, SIGNIFICANCE, and FAITHFULNESS, and ranked outputs",
+      "Annotators rated each set of key points on multiple dimensions using Likert scale (1-5) and ranked outputs from best to worst",
+      "Seven annotators (graduate students) assessed quality with task-oriented training"
+    ],
+    "criteria": [
+      "Validity",
+      "Sentiment",
+      "Informativeness",
+      "Singleaspect",
+      "Significance",
+      "Faithfulness",
+      "Coverage",
+      "Redundancy"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Seven annotators (graduate students) assessed quality with task-oriented training",
+          "Annotators rated each set of key points on multiple dimensions using Likert scale (1-5) and ranked outputs from best to worst"
+        ],
+        "criteria": [
+          "COVERAGE",
+          "REDUNDANCY"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "Annotators are asked to read three sets of KPs separately (reference, our best approach, previous work), assigning each of the four dimensions above a single score, and then ranking each of the three outputs the outputs from best to worst"
+        ],
+        "criteria": [
+          "INFORMATIVE-NESS",
+          "FAITHFUL-NESS"
+        ]
+      },
+      "normalized": {
+        "INFORMATIVE-NESS": "INFORMATIVENESS",
+        "FAITHFUL-NESS": "FAITHFULNESS"
+      },
+      "explanation": "Normalized spelling inconsistencies in criteria names. Added missing criteria (COVERAGE, REDUNDANCY) mentioned in the human evaluation section. Improved guideline descriptions with more specific details from the paper."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on abstractive summarization for Key Point Analysis (KPA). It proposes a novel two-step framework combining neural topic modeling with iterative clustering and abstractive summarization. The evaluation is comprehensive, including both automatic metrics (including custom set-based metrics) and human evaluation. The extraction was generally accurate but needed some normalization and removal of evaluation metrics incorrectly listed as models."
+}

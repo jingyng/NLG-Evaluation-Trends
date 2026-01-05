@@ -1,0 +1,60 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": "We introduce a framework named Robust Utility-Preserving Text Anonymization (RUPTA), consisting of a privacy evaluator (P-Evaluator), a utility evaluator (U-Evaluator), and an optimization component. These components are built on LLMs, where the P-Evaluator assesses re-identification risks and provides guidance to enhance anonymization robustness, the U-Evaluator gauges downstream tasks' performance to indicate the level of preserved utility, and the optimization component iteratively edits the text based on these evaluations to optimize both objectives until the pre-defined conditions are met.",
+        "tasks": [
+            "Other:Text Anonymization"
+        ],
+        "datasets": [
+            "DB-bio",
+            "PersonalReddit"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-4",
+            "Llama-3-70b",
+            "Mixtral 8×22b",
+            "Phi-3 Mini"
+        ],
+        "outputs": "anonymized text outputs generated through iterative refinement using LLM-based optimization"
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": "Utility preservation metrics are gauged by the performance of a BERT-based classifier finetuned on original train data and tested on the test data that is anonymized by RUPTA and other methods, including Accuracy, Precision, Recall, F1 Score, and the classifier's loss function value indicating classification uncertainty.",
+        "automatic_metrics": [
+            "Accuracy",
+            "Precision",
+            "Recall",
+            "F1 Score",
+            "classifier loss",
+            "Success Rate (SR)",
+            "Confidence Scores (CS)"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": "We instantiate the U-evaluator with an LLM. Given the anonymized text x t and the corresponding ground-truth label c, the LLM-based U-evaluator follows the instruction I u to output a confidence score u t : which quantifies the evaluator's uncertainty about whether x t can be correctly related into the ground truth label c, reflecting the degree to which key utility information is preserved.",
+        "models": [
+            "GPT-4"
+        ],
+        "methods": [
+            "confidence scoring via LLM prompting",
+            "privacy inference with top-K re-identification"
+        ],
+        "criteria": [
+            "confidence in correct classification",
+            "re-identification capability"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": "To further examine the semantic loss and the quality of generated text, we conducted a human evaluation on a subset of 100 randomly selected examples from the test split of DB-bio, where 3 non-author human subjects rated the anonymization output of Azure, SD, AF and RUPTA using a Likert scale of 1 -5, on 'how much the original meaning of the non-anonymized text is preserved after anonymization?' ... In addition, we also asked the human subjects to evaluate the fluency of the anonymized text with the Likert scale of 1 -5",
+        "guideline": "rate on a Likert scale of 1-5 for semantic preservation ('how much the original meaning is preserved') and fluency ('how fluent the text is')",
+        "criteria": [
+            "semantic preservation",
+            "fluency"
+        ]
+    }
+}

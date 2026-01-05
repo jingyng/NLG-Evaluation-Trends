@@ -1,0 +1,97 @@
+{
+  "paper_id": "2024.naacl-long.326",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LLM evaluators against human evaluation by calculating fine-grained correlation between their scores on the same 100 samples across both short-term and long-term feedback dimensions"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full instructions and evaluation criteria provided for both turn-level (fluency, relevance, diversity) and dialogue-level (engagement, coherence, informativeness) evaluations with detailed definitions and scoring rubrics"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "none",
+      "value": null,
+      "interpretation": "not_provided",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluators used same quality dimensions as LLM judges, with assessment questions consistent with quality descriptions in Appendix A, using 1-3 scale (poor, normal, good)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "correlation"
+    ],
+    "shared_criteria": [
+      "fluency",
+      "relevance",
+      "diversity",
+      "engagement",
+      "coherence",
+      "informativeness"
+    ],
+    "sample_size": {
+      "total_generated": 100,
+      "validated_by_both": 100,
+      "notes": "Used 100 randomly sampled responses from DailyDialog dataset that were evaluated by both human and LLM judges"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "correlation",
+        "value": "significant",
+        "criterion": "short-term_feedback",
+        "llm_model": "GPT-4",
+        "significance": "significant",
+        "notes": "Paper states 'the two types of feedback has significant correlation with human evaluation' but does not provide exact correlation coefficients"
+      },
+      {
+        "metric": "correlation",
+        "value": "significant",
+        "criterion": "long-term_feedback",
+        "llm_model": "GPT-4",
+        "significance": "significant",
+        "notes": "Same 100 samples used for both short-term and long-term feedback validation"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "not_specified",
+      "threshold_used": "not_provided",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LLM evaluators (GPT-4) show significant correlation with human evaluation across all six quality dimensions, validating that automatic evaluators can provide effective feedback comparable to human judgments despite individual differences in open-domain conversation evaluation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "fluency",
+      "relevance",
+      "diversity",
+      "engagement",
+      "coherence",
+      "informativeness"
+    ],
+    "notes": "LLM and human evaluation assess identical six quality dimensions: three turn-level (fluency, relevance, diversity) and three dialogue-level (engagement, coherence, informativeness)"
+  }
+}

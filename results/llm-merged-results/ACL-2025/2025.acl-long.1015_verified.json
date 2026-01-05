@@ -1,0 +1,176 @@
+{
+  "paper_id": "2025.acl-long.1015",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "AMAZONKP"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Vicuna-7B",
+      "Mistral-7B",
+      "GPT-4-Turbo",
+      "Contriever"
+    ],
+    "outputs": [
+      "bullet-point summaries with quantified key points and prevalence counts"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "AmazonKP"
+        ],
+        "languages": [],
+        "models": [
+          "GPT-4-o-mini"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "AMAZONKP": "AMAZONKP",
+        "AmazonKP": "AMAZONKP"
+      },
+      "explanation": "Removed GPT-4-o-mini from models (used for annotation/evaluation, not generation), consolidated duplicate dataset names to AMAZONKP, and simplified output descriptions"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BLEURT",
+      "BERTScore",
+      "G-EVAL",
+      "QuantErr",
+      "F1",
+      "P@k",
+      "AlignScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BLEURT",
+          "BERTScore",
+          "G-EVAL",
+          "P@k",
+          "AlignScore"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "sP",
+          "sR",
+          "sF1",
+          "RD",
+          "soft-Precision",
+          "soft-Recall",
+          "soft-F1",
+          "ROUGE-1"
+        ]
+      },
+      "normalized": {
+        "sP": "soft-Precision",
+        "sR": "soft-Recall",
+        "sF1": "soft-F1",
+        "G-EVAL-4": "G-EVAL",
+        "ROUGE-1": "ROUGE"
+      },
+      "explanation": "Consolidated metrics to base forms, removed redundant variant names, and included all main automatic metrics used in experiments"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4-o-mini"
+    ],
+    "methods": [
+      "pairwise annotation",
+      "direct scoring"
+    ],
+    "criteria": [
+      "relevance",
+      "redundancy",
+      "semantic similarity",
+      "correctness",
+      "coverage",
+      "factual alignment"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [
+          "direct scoring"
+        ],
+        "criteria": [
+          "semantic similarity",
+          "correctness",
+          "coverage",
+          "factual alignment"
+        ]
+      },
+      "removed": {
+        "models": [
+          "gpt-4-o-mini",
+          "GPT-4-Turbo"
+        ],
+        "methods": [
+          "G-EVAL-4 scoring",
+          "comment-KP matching evaluation"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "gpt-4-o-mini": "GPT-4-o-mini",
+        "pairwise match annotation": "pairwise annotation",
+        "annotate pairwise match/nonmatch": "pairwise annotation"
+      },
+      "explanation": "Normalized GPT-4-o-mini naming, removed GPT-4-Turbo (not used as judge), simplified method descriptions, and consolidated evaluation criteria"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Pairwise comparisons of key point summaries based on seven evaluation dimensions"
+    ],
+    "criteria": [
+      "REDUNDANCY",
+      "COVERAGE",
+      "FAITHFULNESS",
+      "VALIDITY",
+      "SENTIMENT",
+      "INFORMATIVENESS",
+      "SINGLE ASPECT"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {
+        "INFORMATIVENESS": "INFORMATIVENESS"
+      },
+      "explanation": "No major changes needed - human evaluation criteria were clearly documented in the paper"
+    }
+  },
+  "overall_notes": "The paper introduces QQSUM, a novel quantitative query-focused summarization task for product Q&A. It evaluates NLG outputs using both automatic metrics and human evaluations. The extraction was generally accurate but needed some normalization of metric names and clarification about which models were used for generation vs. evaluation."
+}

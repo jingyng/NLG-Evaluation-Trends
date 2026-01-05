@@ -1,0 +1,114 @@
+{
+  "paper_id": "2022.emnlp-main.816",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "XSum",
+      "GigaWord",
+      "WikiHow"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART-large",
+      "elaboration model (p_back)",
+      "controlled generation model (CoFE)"
+    ],
+    "outputs": [
+      "summaries",
+      "faithful summaries",
+      "unfaithful summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "outputs": [
+          "faithful summaries",
+          "unfaithful summaries"
+        ]
+      },
+      "removed": {
+        "outputs": [
+          "generated summaries (faithful and unfaithful)"
+        ]
+      },
+      "normalized": {
+        "GigaWord": "GigaWord",
+        "BART-large": "BART-large"
+      },
+      "explanation": "Normalized outputs to be more descriptive and consistent"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTScore",
+      "QuestEval",
+      "coverage",
+      "density"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Coverage",
+          "Density"
+        ]
+      },
+      "normalized": {
+        "BertScore": "BERTScore",
+        "bleu": "BLEU"
+      },
+      "explanation": "Removed duplicate metrics (Coverage/Density) and normalized BERTScore capitalization"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation used in this paper"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators evaluate whether each summary is supported by the document",
+      "Each output evaluated by 3 annotators from Amazon Mechanical Turk",
+      "If ≥2 annotators vote 'supported', summary is considered faithful"
+    ],
+    "criteria": [
+      "faithfulness",
+      "supported by document"
+    ],
+    "changes_made": {
+      "added": {
+        "criteria": [
+          "faithfulness"
+        ]
+      },
+      "removed": {
+        "criteria": [
+          "supported"
+        ]
+      },
+      "normalized": {
+        "supported by the document": "supported by document"
+      },
+      "explanation": "Added 'faithfulness' as explicit criterion and consolidated similar terms"
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on abstractive summarization faithfulness evaluation using both automatic metrics (ROUGE, BERTScore, QuestEval) and human evaluation. No LLM-as-judge evaluation was used. The methodology involves controlled generation with faithfulness control codes and negative data augmentation through back-translation style elaboration."
+}

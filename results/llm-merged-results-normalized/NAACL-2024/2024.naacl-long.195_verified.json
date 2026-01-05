@@ -1,0 +1,161 @@
+{
+  "paper_id": "2024.naacl-long.195",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Math Reasoning",
+      "Knowledge Base Question Answering",
+      "Multilingual Question Answering"
+    ],
+    "datasets": [
+      "ASDIV",
+      "SVAMP",
+      "GSM8K",
+      "WEBQUESTIONS",
+      "NATURAL QUESTIONS",
+      "TriviaQA",
+      "T REX",
+      "MLQA",
+      "SQuAD",
+      "MULTIARITH",
+      "ADDSUB",
+      "HotpotQA"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "chatgpt",
+      "gpt_3.5",
+      "chatglm_6b",
+      "alpaca_7b",
+      "vicuna_7b",
+      "llama_7b",
+      "atlas_600m",
+      "nllb_600m"
+    ],
+    "outputs": [
+      "Generated answers or tool API invocations",
+      "The model generates either a direct answer or a tool API call (e.g., calculator(...), WikiSearch(...), QA(...), translator(...))"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [
+          "SQuAD",
+          "MultiArith",
+          "AddSub",
+          "HotpotQA"
+        ],
+        "languages": [],
+        "models": [
+          "ChatGPT",
+          "LLaMA-7B",
+          "Atlas-600M",
+          "NLLB-600M"
+        ],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:LAMA",
+          "Machine Translation",
+          "Other:Knowledge Retrieval"
+        ],
+        "datasets": [
+          "WikiSearch"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:LAMA (Knowledge Base QA)": "Other:Knowledge Base QA",
+        "WikiSearch": "WebQuestions, NaturalQuestions, TriviaQA",
+        "LAMA": "Other:Knowledge Base QA"
+      },
+      "explanation": "Consolidated tasks to remove duplicates and normalize categories. Added missing datasets and models mentioned in experiments. Removed 'WikiSearch' as it's a tool, not a dataset."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "TOOL USAGE RATE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Accuracy",
+          "Tool Usage Rate"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Presence of correct answer (last number for math, within first 20 words for others)",
+          "Exact Match",
+          "Last-number accuracy",
+          "Top-20 word overlap",
+          "exact match",
+          "last number match",
+          "in first twenty words"
+        ]
+      },
+      "normalized": {
+        "Presence of correct answer (last number for math, within first 20 words for others)": "Accuracy"
+      },
+      "explanation": "Simplified metrics to their base forms. The paper uses task-specific accuracy measures rather than standard NLG metrics like BLEU/ROUGE. Added 'Tool Usage Rate' as it's explicitly measured."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "ChatGPT",
+          "InstructGPT",
+          "Vicuna-7B",
+          "Alpaca-7B"
+        ],
+        "methods": [
+          "candidate response scoring with LLM"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "LLMs are used for candidate response generation, not as evaluators/judges. The scoring is done algorithmically based on accuracy and tool usage alignment, not by LLM evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper. All evaluations are automatic."
+    }
+  },
+  "overall_notes": "This paper focuses on tool learning for LLMs rather than traditional NLG evaluation. The NLG outputs are primarily question answering responses and tool API calls. Evaluation metrics are task-specific accuracy measures rather than standard NLG metrics. The paper does not use LLMs as evaluators or conduct human evaluations."
+}

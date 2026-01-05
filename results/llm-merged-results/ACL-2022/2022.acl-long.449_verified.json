@@ -1,0 +1,152 @@
+{
+  "paper_id": "2022.acl-long.449",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "CNN/Daily Mail",
+      "ASPECTNEWS",
+      "SPACE",
+      "XSum"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BERTSUM",
+      "AOSUMM",
+      "CTRLSUM",
+      "BERT-FK",
+      "Quantized Transformer (QT)",
+      "ELMo-BiDAF"
+    ],
+    "outputs": [
+      "extractive summaries",
+      "extractive summaries conditioned on aspect-level keywords"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [
+          "TAC 2010/2011"
+        ],
+        "languages": [],
+        "models": [
+          "quantized transformer (QT)",
+          "QT"
+        ],
+        "outputs": [
+          "Extractive summaries"
+        ]
+      },
+      "normalized": {
+        "Quantized Transformer (QT)": "Quantized Transformer (QT)",
+        "extractive summaries": "extractive summaries"
+      },
+      "explanation": "Removed TAC 2010/2011 as it was mentioned in passing but not used in experiments. Consolidated duplicate model references for QT. Kept only distinct outputs."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "F1",
+      "BERTScore",
+      "Jaccard Similarity",
+      "Exact Match"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ROUGE-1",
+          "ROUGE-2",
+          "ROUGE-L",
+          "EM",
+          "Jaccard similarity"
+        ]
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "EM": "Exact Match",
+        "Jaccard similarity": "Jaccard Similarity"
+      },
+      "explanation": "Normalized ROUGE variants to base form 'ROUGE'. Normalized 'EM' to 'Exact Match' and 'Jaccard similarity' to 'Jaccard Similarity'."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Cleared placeholder 'None' values as no LLM-as-judge evaluation was conducted."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "guideline": [
+      "Annotators shown description of intent and article, asked to identify relevant sentences for summary",
+      "Sentences rated on relevance scale from 0 to 3",
+      "Final summary includes sentences with score ≥ 1"
+    ],
+    "criteria": [
+      "relevance"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Annotators shown description of intent and article, asked to identify relevant sentences for summary",
+          "Sentences rated on relevance scale from 0 to 3",
+          "Final summary includes sentences with score ≥ 1"
+        ],
+        "criteria": [
+          "relevance"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- Annotator is shown a description of intent and asked to identify sentences that constitute a summary, rating each sentence from 0 to 3 based on relevance."
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Corrected answer from No to Yes - the paper clearly describes human annotation for dataset creation. Expanded guideline description and added 'relevance' as the implied evaluation criterion."
+    }
+  },
+  "overall_notes": "The paper focuses on aspect-oriented text summarization. Human evaluation was conducted for dataset annotation but not for system output evaluation. Automatic metrics were used for system evaluation. No LLM-as-judge evaluation was performed."
+}

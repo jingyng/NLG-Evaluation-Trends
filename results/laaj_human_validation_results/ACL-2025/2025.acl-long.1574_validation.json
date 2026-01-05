@@ -1,0 +1,130 @@
+{
+  "paper_id": "2025.acl-long.1574",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates CITEEVAL-AUTO (LLM-as-judge) against human judgments by reporting correlation metrics on the same CiteBench test instances"
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4o",
+      "GPT-4-turbo"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompt templates provided in Appendix F, including context attribution (Table 10) and citation editing/rating (Table 11) with detailed guidelines"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Krippendorff's α",
+      "value": 0.774,
+      "interpretation": "substantial agreement",
+      "per_criterion": [
+        {
+          "criterion": "context attribution",
+          "metric": "Krippendorff's α",
+          "value": 0.98
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Complete annotation guidelines provided in Appendices A.2 (context attribution), A.3 (citation editing), and A.4 (citation rating)"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Spearman correlation",
+      "Kendall-Tau"
+    ],
+    "shared_criteria": [
+      "citation quality"
+    ],
+    "sample_size": {
+      "total_generated": 1200,
+      "validated_by_both": 1000,
+      "notes": "200 instances used for metric development, 1000 instances for meta-evaluation/testing (metric test set)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.731,
+        "criterion": "citation quality",
+        "llm_model": "GPT-4o+MLR",
+        "significance": null,
+        "notes": "Statement-level evaluation in Full scenario"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.559,
+        "criterion": "citation quality",
+        "llm_model": "GPT-4o+MLR",
+        "significance": null,
+        "notes": "Statement-level evaluation in Full scenario"
+      },
+      {
+        "metric": "Kendall-Tau",
+        "value": 0.486,
+        "criterion": "citation quality",
+        "llm_model": "GPT-4o+MLR",
+        "significance": null,
+        "notes": "Statement-level evaluation in Full scenario"
+      },
+      {
+        "metric": "Pearson correlation",
+        "value": 0.668,
+        "criterion": "citation quality",
+        "llm_model": "GPT-4o+MLR",
+        "significance": null,
+        "notes": "Response-level evaluation in Full scenario"
+      },
+      {
+        "metric": "Spearman correlation",
+        "value": 0.589,
+        "criterion": "citation quality",
+        "llm_model": "GPT-4o+MLR",
+        "significance": null,
+        "notes": "Response-level evaluation in Full scenario"
+      },
+      {
+        "metric": "Kendall-Tau",
+        "value": 0.492,
+        "criterion": "citation quality",
+        "llm_model": "GPT-4o+MLR",
+        "significance": null,
+        "notes": "Response-level evaluation in Full scenario"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "strong",
+      "threshold_used": "Superior correlation performance compared to existing metrics",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "CITEEVAL-AUTO achieves substantially higher correlation with human judgments than existing citation evaluation metrics, demonstrating strong alignment with human evaluators."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "context attribution",
+      "citation editing",
+      "citation rating"
+    ],
+    "notes": "Both LLM and human evaluators follow identical evaluation procedures: context attribution (query/retrieval/response/parametric), citation editing (six edit types), and citation rating (1-5 Likert scale)"
+  }
+}

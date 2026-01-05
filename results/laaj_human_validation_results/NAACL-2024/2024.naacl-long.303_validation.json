@@ -1,0 +1,88 @@
+{
+  "paper_id": "2024.naacl-long.303",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly validates LGE (LLM as Gender Evaluators) against human evaluations on translations, reporting agreement and correlation metrics."
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "table",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Exact prompt template shown in a table (likely Table 12 in appendix). Prompt instructs to check gender inflection accuracy with binary judgment (ACCURATE/INACCURATE). Example outputs provided in Table 13."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": 0.709,
+      "interpretation": "substantial agreement",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators assessed gender accuracy using majority decision. Guidelines included detailed annotation page (Figure mentioned) evaluating additional aspects beyond just gender accuracy."
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Correlation",
+      "Agreement"
+    ],
+    "shared_criteria": [
+      "gender inflection accuracy"
+    ],
+    "sample_size": {
+      "total_generated": 200,
+      "validated_by_both": 200,
+      "notes": "100 outputs covered by reference gender terms + 100 not covered (total 200 samples used for validation)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Correlation",
+        "value": "high",
+        "criterion": "gender inflection accuracy",
+        "llm_model": "GPT-4",
+        "significance": "not_reported"
+      },
+      {
+        "metric": "Agreement",
+        "value": "substantial",
+        "criterion": "gender inflection accuracy",
+        "llm_model": "GPT-4",
+        "significance": "not_reported"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "substantial",
+      "threshold_used": "Fleiss' kappa > 0.6 considered substantial",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "LGE evaluations show substantial agreement and high correlation with human judgments, validating LLMs as reliable gender evaluators."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [
+      "translation quality beyond gender accuracy"
+    ],
+    "shared_criteria": [
+      "gender inflection accuracy"
+    ],
+    "notes": "Human evaluators assessed additional aspects beyond the shared gender inflection accuracy criterion."
+  }
+}

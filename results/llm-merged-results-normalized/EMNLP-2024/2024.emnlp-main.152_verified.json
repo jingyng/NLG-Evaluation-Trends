@@ -1,0 +1,137 @@
+{
+  "paper_id": "2024.emnlp-main.152",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Instruction Following",
+      "Question Answering",
+      "Text Summarization",
+      "Report Generation"
+    ],
+    "datasets": [
+      "LIMAEVAL",
+      "VICUNA EVAL",
+      "WIZARDLMEVAL",
+      "TruthfulQA",
+      "MS MARCO",
+      "ACI BENCH"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "pythia_7b",
+      "llama_2_7b",
+      "llama_2_13b",
+      "mistral_7b"
+    ],
+    "outputs": [
+      "instruction-following responses",
+      "question-answering responses",
+      "summarization outputs",
+      "clinical reports"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Text Summarization",
+          "Other:Report Generation"
+        ],
+        "outputs": [
+          "question-answering responses",
+          "summarization outputs",
+          "clinical reports"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Retrieval-augmented Generation",
+          "Other:Clinical Report Generation",
+          "Other:Truthful QA",
+          "Dialogue generation"
+        ],
+        "outputs": [
+          "generated responses to instructions",
+          "Generated textual responses"
+        ]
+      },
+      "normalized": {
+        "Pythia 7B": "Pythia-7B",
+        "Llama-2 7B": "Llama-2-7B",
+        "Llama-2 13B": "Llama-2-13B",
+        "Mistral 7B": "Mistral-7B",
+        "Other:Question Answering": "Other:Question Answering",
+        "Other:Instruction Following": "Other:Instruction Following"
+      },
+      "explanation": "Removed incorrectly extracted tasks (Retrieval-augmented Generation, Clinical Report Generation are not tasks but benchmark types; Dialogue generation not mentioned). Added actual tasks from benchmarks (summarization, report generation). Normalized model names with hyphens. Simplified outputs to reflect actual content."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Hallucination rate (LLM-based)"
+        ]
+      },
+      "normalized": {
+        "ROUGE": "ROUGE",
+        "ROUGE-L": "ROUGE-L"
+      },
+      "explanation": "Removed 'Hallucination rate (LLM-based)' as it's not an automatic metric but an LLM-as-judge evaluation. Kept ROUGE variants as they are distinct metrics used for different benchmarks."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "binary hallucination judgment",
+      "helpfulness scoring"
+    ],
+    "criteria": [
+      "Hallucination",
+      "Helpfulness",
+      "Relevance",
+      "Accuracy",
+      "Detail"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "methods": [
+          "LLM-based judgment",
+          "direct assessment"
+        ],
+        "criteria": [
+          "conflicting spans"
+        ]
+      },
+      "normalized": {
+        "GPT-4": "GPT-4"
+      },
+      "explanation": "Removed redundant/general terms ('LLM-based judgment' is the category, not a specific method; 'direct assessment' not mentioned). Removed 'conflicting spans' as it's part of the hallucination definition, not a separate criterion."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {},
+      "explanation": "No human evaluation conducted, only LLM-based evaluation as confirmed by the paper."
+    }
+  },
+  "overall_notes": "The paper focuses on mitigating hallucinations through knowledge verification, not on developing new NLG tasks. The evaluation uses both automatic metrics (ROUGE) and LLM-as-judge (GPT-4) for hallucination detection and helpfulness scoring. The extracted metadata had several inaccuracies, including incorrectly categorized tasks and metrics that don't belong to the right categories."
+}

@@ -1,0 +1,141 @@
+{
+  "paper_id": "2024.acl-long.581",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Question Answering"
+    ],
+    "datasets": [
+      "Chinese e-commerce platform user manuals (43,348 self-constructed Q&A pairs)",
+      "Chinese e-commerce platform testing set (4,393 QA pairs)"
+    ],
+    "languages": [
+      "Chinese"
+    ],
+    "models": [
+      "CARE",
+      "PERT",
+      "TARA",
+      "DRGN",
+      "ChatGPT"
+    ],
+    "outputs": [
+      "Responses to user questions inferred from user manuals",
+      "Textual response clues with explanatory clue chains"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Other:Response Generation"
+        ],
+        "datasets": [
+          "Collected from a Chinese online e-commerce platform",
+          "a Chinese online e-commerce platform"
+        ],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "responses to user questions and clue chains explaining how to arrive at the responses"
+        ]
+      },
+      "normalized": {
+        "Chinese e-commerce platform manuals (43,348 self-constructed Q&A pairs, 4,393 test QA pairs)": "Chinese e-commerce platform user manuals (43,348 self-constructed Q&A pairs)",
+        "Textual response clues (answers) to user questions, together with explanatory clue chains.": "Textual response clues with explanatory clue chains"
+      },
+      "explanation": "Removed 'Dialogue Generation' and 'Response Generation' as the paper focuses specifically on question answering. Consolidated dataset descriptions and normalized outputs. The paper addresses NLG through question answering tasks where responses are generated from user manuals."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ICC"
+        ]
+      },
+      "normalized": {
+        "ROUGE-L": "ROUGE",
+        "Rouge-L": "ROUGE"
+      },
+      "explanation": "Normalized ROUGE-L to ROUGE base form. Removed ICC as it's not an automatic metric for evaluating generated text quality but rather a reliability measure for human evaluations."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as judges/evaluators in this paper. ChatGPT was used as a baseline generation model, not for evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "CSRs answered user questions using different assistants (CARE, response highlighting only, raw manuals)",
+      "Responses were evaluated against gold standards",
+      "Measured time spent and reliability using ICC scores"
+    ],
+    "criteria": [
+      "accuracy",
+      "time efficiency",
+      "reliability"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "CSRs answered user questions using different assistants (CARE, response highlighting only, raw manuals)",
+          "Responses were evaluated against gold standards"
+        ],
+        "criteria": [
+          "time efficiency"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "time saved",
+          "time spent"
+        ]
+      },
+      "normalized": {
+        "ICC": "reliability",
+        "time saved": "time efficiency",
+        "time spent": "time efficiency"
+      },
+      "explanation": "Consolidated and normalized the guideline description. Normalized criteria by combining time-related metrics into 'time efficiency' and ICC into 'reliability'. Added missing details about the experimental setup."
+    }
+  },
+  "overall_notes": "The paper focuses on a question answering system (CARE) that generates responses from user manuals for customer service representatives. The extraction was generally accurate but needed some normalization and removal of irrelevant task classifications. The paper uses both automatic metrics (BLEU, ROUGE, BERTScore) and human evaluations with CSRs, but does not use LLMs as judges."
+}

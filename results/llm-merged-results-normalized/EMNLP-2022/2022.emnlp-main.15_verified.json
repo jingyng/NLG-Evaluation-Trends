@@ -1,0 +1,135 @@
+{
+  "paper_id": "2022.emnlp-main.15",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Open Ended Text Generation",
+      "Story Generation",
+      "Poetry Generation"
+    ],
+    "datasets": [
+      "WIKIPEDIA",
+      "pg19",
+      "c4 NEWSLIKE",
+      "c4 WEBTEXTLIKE"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2_medium",
+      "gpt_2_xl",
+      "t_5_xxl_pg_19",
+      "t_5_xxl_c_4",
+      "rankgen"
+    ],
+    "outputs": [
+      "Continuations of input prefixes",
+      "Text continuations",
+      "Generated continuations of prefixes in open-ended text generation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Story generation",
+          "Other:Poetry generation"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:open-ended text generation"
+        ],
+        "models": [
+          "T5-XXL"
+        ]
+      },
+      "normalized": {
+        "Other:Open-ended generation": "Other:Open-ended text generation",
+        "Other:Open-ended text generation": "Other:Open-ended text generation"
+      },
+      "explanation": "Consolidated task descriptions by removing duplicate 'Other:open-ended text generation' and capitalized 'Other:Open-ended text generation'. Added 'Other:Story generation' and 'Other:Poetry generation' as these are explicitly mentioned as applications. Removed 'T5-XXL' as it appears to be a generic reference; kept the specific fine-tuned versions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "MAUVE",
+      "TOKEN OVERLAP",
+      "REPETITION REP",
+      "RECALL",
+      "UNIGRAM OVERLAP"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "rep"
+        ]
+      },
+      "normalized": {
+        "rep": "repetition (rep)",
+        "unigram overlap": "Unigram Overlap"
+      },
+      "explanation": "Consolidated variant forms of metrics: 'rep' and 'repetition (rep)' were merged as 'repetition (rep)'. 'token overlap' and 'Unigram Overlap' were kept distinct as they appear to refer to different analyses. Kept 'Recall@1' as it's explicitly used for retrieval evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "None"
+        ],
+        "methods": [
+          "None"
+        ],
+        "criteria": [
+          "None"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use LLMs as judges for evaluating outputs. It uses human evaluations and automatic metrics like MAUVE, but no instances of using an LLM to judge/assess the outputs after generation were found."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators were shown a prefix and two continuations (blind A/B testing) and asked to choose the better continuation and provide a 1-3 sentence explanation for their choice"
+    ],
+    "criteria": [
+      "Relevance",
+      "Continuity",
+      "Similarity",
+      "Correctness",
+      "Repetition",
+      "Grammaticality",
+      "Coherence",
+      "Contradiction"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "criteria": [
+          "commonsense errors",
+          "grammar",
+          "contradictions"
+        ]
+      },
+      "normalized": {
+        "commonsense errors": "commonsense correctness",
+        "grammar": "grammaticality",
+        "contradictions": "lack of contradictions"
+      },
+      "explanation": "Normalized criteria names to more consistent positive phrasing: 'commonsense errors' -> 'commonsense correctness', 'grammar' -> 'grammaticality', 'contradictions' -> 'lack of contradictions'. Consolidated the guideline description into a single coherent statement."
+    }
+  },
+  "overall_notes": "The paper focuses on open-ended text generation using the RANKGEN model for ranking/reranking generations. It thoroughly evaluates using both automatic metrics (primarily MAUVE) and human evaluations with detailed criteria. The extraction was generally accurate, requiring mainly normalization and consolidation of duplicate/redundant items."
+}

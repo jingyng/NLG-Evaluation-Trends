@@ -1,0 +1,127 @@
+{
+  "paper_id": "2021.naacl-main.380",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "Multi-News",
+      "DUC-2004"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "BART",
+      "BART-Long",
+      "BART-Long-Graph",
+      "Longformer"
+    ],
+    "outputs": [
+      "abstractive summaries",
+      "summaries"
+    ],
+    "changes_made": {
+      "added": {
+        "datasets": [
+          "DUC-2004"
+        ],
+        "models": [
+          "Longformer"
+        ]
+      },
+      "removed": {
+        "datasets": [
+          "WikiSum"
+        ],
+        "models": [
+          "Graph Encoder"
+        ]
+      },
+      "normalized": {
+        "summarie": "summaries",
+        "BART-Long-Graph": "BART-Long-Graph"
+      },
+      "explanation": "Removed WikiSum as it was only mentioned in related work, not used for evaluation. Added DUC-2004 which was evaluated. Normalized 'summarie' to 'summaries'. Added Longformer as a key model component."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ROUGE",
+      "BERTScore"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "BERTScore"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {
+        "ROUGE-1": "ROUGE",
+        "ROUGE-2": "ROUGE",
+        "ROUGE-L": "ROUGE",
+        "ROUGE-SU": "ROUGE"
+      },
+      "explanation": "Normalized all ROUGE variants to base ROUGE metric. Added BERTScore which was explicitly mentioned as being calculated."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLM-as-judge evaluation was conducted in this paper. The paper uses human evaluation and automatic metrics only."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "The more informative summary is better at expressing the main points of the news story. It contains information that is more relevant and important. It has fewer unimportant details. Its content is more similar to the human-written summary.",
+      "The more coherent summary has better structure and flow, is easier to follow. The facts are presented in a more logical order.",
+      "Factual consistency is evaluated by highlighting single summary sentences and asking annotators if they are consistent with the input articles."
+    ],
+    "criteria": [
+      "informativeness",
+      "coherence",
+      "factual consistency"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Factual consistency is evaluated by highlighting single summary sentences and asking annotators if they are consistent with the input articles."
+        ],
+        "criteria": [
+          "factual consistency"
+        ]
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added factual consistency as an explicit criterion and guideline description, as it was clearly part of the human evaluation methodology."
+    }
+  },
+  "overall_notes": "The paper focuses on multi-document summarization using transformer-based models with graph enhancements. The extraction was generally accurate but missed some key details like the explicit use of BERTScore and the factual consistency evaluation criterion. The paper does not use LLM-as-judge evaluation, relying instead on traditional human evaluation and automatic metrics."
+}

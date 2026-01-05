@@ -1,0 +1,139 @@
+{
+  "paper_id": "2025.emnlp-main.842",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Adversarial Jailbreak Generation"
+    ],
+    "datasets": [
+      "AdvBench",
+      "HarmBench"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama2-7B-Chat",
+      "Llama2-13B-Chat",
+      "Llama2-70B-Chat",
+      "Llama3-8B-Instruct",
+      "Vicuna-13B"
+    ],
+    "outputs": [
+      "jailbreak prompts that bypass model alignment to generate harmful outputs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Code Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "GPT-4",
+          "GPT-3.5-Turbo",
+          "GPT-4o-mini",
+          "DeepSeek-Chat"
+        ],
+        "outputs": [
+          "jailbreak prompts and harmful responses"
+        ]
+      },
+      "normalized": {
+        "Llama2-7B/13B/70B-Chat": "Llama2-7B-Chat, Llama2-13B-Chat, Llama2-70B-Chat",
+        "Vicuna-13B": "Vicuna-13B"
+      },
+      "explanation": "Removed 'Dialogue Generation' and 'Code Generation' as these are not evaluated NLG tasks in this paper. Removed GPT models and DeepSeek-Chat as they are used for evaluation/judging, not as NLG models being evaluated. Simplified outputs description."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Attack Success Rate (ASR)",
+      "Time Cost Per Prompt (TCPP)"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "ASR",
+          "TCPP"
+        ]
+      },
+      "normalized": {
+        "Attack Success Rate (ASR)": "Attack Success Rate (ASR)",
+        "Time Cost Per Prompt (TCPP)": "Time Cost Per Prompt (TCPP)",
+        "ASR": "Attack Success Rate (ASR)",
+        "TCPP": "Time Cost Per Prompt (TCPP)"
+      },
+      "explanation": "Removed duplicate entries for ASR and TCPP that were already covered by the full metric names. Kept the full metric names as they are standard in the paper."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "GPT-ASR evaluation"
+    ],
+    "criteria": [
+      "harmfulness detection",
+      "jailbreak success"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "Judge model evaluation via GPT-4 prompt"
+        ],
+        "criteria": [
+          "whether the model output bypasses alignment (jailbreak success)"
+        ]
+      },
+      "normalized": {
+        "GPT-ASR": "GPT-ASR evaluation",
+        "harmfulness detection": "harmfulness detection",
+        "whether the model output bypasses alignment (jailbreak success)": "jailbreak success"
+      },
+      "explanation": "Simplified method description to 'GPT-ASR evaluation' and normalized criteria to more concise forms."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper. The paper explicitly uses GPT-4 as a judge model rather than human evaluators."
+    }
+  },
+  "overall_notes": "This paper focuses on adversarial jailbreak generation rather than traditional NLG evaluation. The main NLG task is generating jailbreak prompts that can bypass LLM safety alignment. The paper uses automatic metrics (ASR, TCPP) and LLM-as-judge evaluation (GPT-4) but does not conduct human evaluation. The extraction was generally accurate but included some models that were used for evaluation rather than generation."
+}

@@ -1,0 +1,182 @@
+{
+  "paper_id": "2025.acl-long.276",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization",
+      "Question Answering",
+      "Machine Translation",
+      "Code Generation"
+    ],
+    "datasets": [
+      "HELM",
+      "XSum",
+      "MedHALT",
+      "LegalBench",
+      "CodeSearchNet",
+      "HaluEval"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Pythia",
+      "Llama",
+      "Pythia-70M",
+      "Pythia-1B",
+      "Pythia-12B",
+      "Llama-1B",
+      "Llama-8B",
+      "Llama-3.2-1B",
+      "Llama-3.1-8B"
+    ],
+    "outputs": [
+      "Generated text outputs evaluated for factuality and consistency",
+      "Text generations in domains including Wikipedia articles, medical questions, legal reasoning, and code generation"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Machine Translation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Pythia-70M",
+          "Pythia-12B"
+        ],
+        "outputs": [
+          "Text generations in domains including Wikipedia articles, medical questions, legal reasoning, and code generation"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Question Answering",
+          "Other:Confabulation Generation"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Pythia (70M‑12B)"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Text Summarization": "Text Summarization",
+        "Other:Question Answering": "Question Answering",
+        "HELM": "HELM",
+        "XSum": "XSum",
+        "MedHALT": "MedHALT",
+        "LegalBench": "LegalBench",
+        "CodeSearchNet": "CodeSearchNet",
+        "HaluEval": "HaluEval",
+        "English": "English",
+        "Pythia": "Pythia",
+        "Llama": "Llama",
+        "Llama 8B": "Llama-8B",
+        "Llama 1B": "Llama-1B",
+        "Llama 3.2 1B": "Llama-3.2-1B",
+        "Llama 3.1 8B": "Llama-3.1-8B",
+        "Pythia 1B": "Pythia-1B"
+      },
+      "explanation": "Added Machine Translation as a task since HELM dataset evaluates translation capabilities. Split Pythia models into specific sizes. Removed 'Other:' prefix from tasks. Added more specific output descriptions from the paper context."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SelfCheckGPT",
+      "HaluEval",
+      "FactScore",
+      "ROUGE",
+      "Perplexity",
+      "EigenScore",
+      "Semantic Entropy",
+      "Efficient EigenScore",
+      "Token Distribution Entropy",
+      "QA Exact Match"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Perplexity",
+          "QA Exact Match"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "XSum ROUGE‑1",
+          "XSum",
+          "Rouge1",
+          "HaluEval Exact Match"
+        ]
+      },
+      "normalized": {
+        "SelfCheckGPT": "SelfCheckGPT",
+        "HaluEval": "HaluEval",
+        "FactScore": "FactScore",
+        "ROUGE": "ROUGE",
+        "perplexity": "Perplexity",
+        "EigenScore": "EigenScore",
+        "Semantic Entropy": "Semantic Entropy",
+        "Efficient EigenScore (EES)": "Efficient EigenScore",
+        "token distribution entropy": "Token Distribution Entropy",
+        "XSum ROUGE‑1": "ROUGE",
+        "HaluEval Exact Match": "QA Exact Match",
+        "Efficient EigenScore": "Efficient EigenScore",
+        "XSum": "ROUGE",
+        "Rouge1": "ROUGE",
+        "QA Exact Match": "QA Exact Match"
+      },
+      "explanation": "Normalized all ROUGE variants to base ROUGE metric. Removed redundant mentions and dataset-specific metric references. Added missing metrics mentioned in the paper. Simplified to base metric forms."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "SelfCheckGPT"
+        ],
+        "methods": [
+          "self‑consistency scoring"
+        ],
+        "criteria": [
+          "self-consistency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed SelfCheckGPT from models since it's an automatic metric, not an LLM judge. The paper does not use LLMs as judges - all evaluation is through automated metrics like EigenScore, FactScore, etc."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation is mentioned in the paper. The paper relies entirely on automatic metrics for evaluation."
+    }
+  },
+  "overall_notes": "The paper focuses on reducing hallucinations during LLM training rather than post-hoc solutions. It evaluates multiple NLG tasks across various domains using comprehensive automatic metrics but does not use human evaluation or LLM-as-judge approaches. The extraction was generally accurate but required normalization of metric names and clarification of model versions."
+}

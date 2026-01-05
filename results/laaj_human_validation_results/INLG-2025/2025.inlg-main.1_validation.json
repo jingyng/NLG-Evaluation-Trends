@@ -1,0 +1,113 @@
+{
+  "paper_id": "2025.inlg-main.1",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "The paper explicitly validates LLM evaluation against human evaluation in two aspects: trivia score prediction (comparing GPT-4o's trivia scores with human-assigned scores) and dialogue breakdown detection (testing GPT-4o on human-annotated DBDC5 dataset)"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Full prompts provided in Appendix A.3 for trivia score prediction and Appendix A.4 for dialogue breakdown detection, including example outputs and reasoning"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "crowdsourced",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Fleiss' kappa",
+      "value": 0.115,
+      "interpretation": "low agreement, indicating perceptions of interestingness vary based on individual knowledge and interests",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Appendix A.5 provides detailed crowdsourcing process including worker qualifications ($2.50 per HIT, 500 approved HITs, 95% approval rate) and examples of evaluation interfaces"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis"
+    ],
+    "validation_metrics": [
+      "Spearman correlation",
+      "Kendall-Tau correlation",
+      "Accuracy",
+      "F1"
+    ],
+    "shared_criteria": [
+      "interestingness",
+      "dialogue_breakdown_detection"
+    ],
+    "sample_size": {
+      "total_generated": null,
+      "validated_by_both": 200,
+      "notes": "100 dialogues from Seen data + 100 dialogues from Unseen data for trivia score validation; DBDC5 dataset for breakdown detection validation"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Spearman correlation",
+        "value": 0.459,
+        "criterion": "interestingness",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Trivia score prediction correlation with human scores"
+      },
+      {
+        "metric": "Kendall-Tau correlation",
+        "value": 0.368,
+        "criterion": "interestingness",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Trivia score prediction correlation with human scores"
+      },
+      {
+        "metric": "Accuracy",
+        "value": 0.816,
+        "criterion": "dialogue_breakdown_detection",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Zero-shot performance on DBDC5 dataset"
+      },
+      {
+        "metric": "F1",
+        "value": 0.864,
+        "criterion": "dialogue_breakdown_detection",
+        "llm_model": "GPT-4o",
+        "significance": null,
+        "notes": "Zero-shot performance on DBDC5 dataset"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "moderate",
+      "threshold_used": null,
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "GPT-4o shows moderate correlation (Spearman=0.459) with human judgments for trivia scoring and achieves high accuracy (81.6%) for dialogue breakdown detection, validating its effectiveness despite challenges in human agreement on interestingness."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "engagement"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "fluency",
+      "coherence",
+      "informativeness",
+      "interestingness"
+    ],
+    "notes": "LLM evaluation used G-Eval for fluency, coherence, informativeness, interestingness and MEEP for engagement; human evaluation used the same four criteria as G-Eval"
+  }
+}

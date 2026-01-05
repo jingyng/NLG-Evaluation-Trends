@@ -1,0 +1,141 @@
+{
+  "paper_id": "2024.naacl-long.55",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text Summarization"
+    ],
+    "datasets": [
+      "SUMMEVAL",
+      "INSTED-CNN",
+      "INSTED-WIKI",
+      "CNN",
+      "Wikipedia"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "COUDA",
+      "ALBERT-xxlarge",
+      "PEGASUS",
+      "UNIEVAL",
+      "G-EVAL-3.5",
+      "G-EVAL-4",
+      "BARTSCORE",
+      "UNC",
+      "MULTI-NEG"
+    ],
+    "outputs": [
+      "Summaries",
+      "Coherence scores for discourses/summaries (logit in [0,1])"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "BARTSCORE",
+          "UNC",
+          "MULTI-NEG"
+        ]
+      },
+      "removed": {
+        "models": [
+          "16 different summarization systems"
+        ]
+      },
+      "normalized": {
+        "COUDA": "CoUDA",
+        "INSTED-CNN": "INSTED-CNN",
+        "INSTED-WIKI": "INSTED-WIKI"
+      },
+      "explanation": "Added missing baseline models mentioned in experiments. Removed '16 different summarization systems' as it refers to systems being evaluated, not evaluation models. Normalized CoUDA capitalization."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "Spearman correlation",
+      "Pearson correlation",
+      "Kendall's tau",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "automatic_metrics": [
+          "Spearman",
+          "Pearson",
+          "Kendall's tau"
+        ]
+      },
+      "normalized": {
+        "Spearman": "Spearman correlation",
+        "Pearson": "Pearson correlation",
+        "Kendall's tau": "Kendall's tau"
+      },
+      "explanation": "Removed duplicate metric entries and normalized to full names for consistency. Kept 'Accuracy' as it's used for pairwise ranking evaluation."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-3.5-Turbo",
+      "GPT-4"
+    ],
+    "methods": [
+      "G-EVAL with chain-of-thought",
+      "pointwise scoring",
+      "pairwise ranking"
+    ],
+    "criteria": [
+      "coherence",
+      "fluency",
+      "consistency",
+      "relevance"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "methods": [
+          "pairwise evaluation",
+          "chain-of-thought prompting"
+        ]
+      },
+      "normalized": {
+        "GPT-3.5-Turbo": "GPT-3.5-Turbo",
+        "GPT-4": "GPT-4",
+        "G-EVAL with chain-of-thought": "G-EVAL with chain-of-thought"
+      },
+      "explanation": "Removed redundant method entries. The paper explicitly uses G-EVAL with chain-of-thought prompting for LLM evaluation, and evaluates on both pointwise scoring and pairwise ranking tasks."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Human annotators provided scores based on fluency, coherence, consistency, and relevance dimensions",
+      "Coherence (1-5) - the collective quality of all sentences. The summary should be well-structured and well-organized, building from sentence to sentence to a coherent body of information about a topic"
+    ],
+    "criteria": [
+      "fluency",
+      "coherence",
+      "consistency",
+      "relevance"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "fluency": "fluency",
+        "coherence": "coherence",
+        "consistency": "consistency",
+        "relevance": "relevance"
+      },
+      "explanation": "No major changes needed. The extracted metadata accurately reflects the human evaluation criteria used in SUMMEVAL benchmark."
+    }
+  },
+  "overall_notes": "The paper focuses on coherence evaluation for text summarization. It proposes CoUDA, a coherence evaluation framework that uses both automatic metrics and compares against LLM-based evaluators (G-EVAL). The extraction was generally accurate, with minor normalization needed for consistency. The paper uses human-annotated data from SUMMEVAL benchmark for evaluation."
+}

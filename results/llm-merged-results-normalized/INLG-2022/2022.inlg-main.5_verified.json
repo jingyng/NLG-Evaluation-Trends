@@ -1,0 +1,137 @@
+{
+  "paper_id": "2022.inlg-main.5",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Story Generation"
+    ],
+    "datasets": [
+      "WRITINGPROMPTS",
+      "ROCSTORIES",
+      "STORY CLOZE TEST"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "gpt_2_xl",
+      "fusion",
+      "plan_and_write",
+      "progen",
+      "bert_base_uncased",
+      "bart_base"
+    ],
+    "outputs": [
+      "generated stories",
+      "story bodies",
+      "story endings",
+      "long-form stories"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "BART-base"
+        ],
+        "outputs": [
+          "story bodies",
+          "story endings"
+        ]
+      },
+      "removed": {
+        "models": [
+          "bert-base-uncased"
+        ]
+      },
+      "normalized": {
+        "BERT-base-uncased": "BERT-base-uncased"
+      },
+      "explanation": "Removed duplicate 'bert-base-uncased' (already had 'BERT-base-uncased'), added 'BART-base' which is explicitly mentioned as a model used by ProGen, and clarified output types"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "SELF BLEU",
+      "DISTINCT",
+      "NSP",
+      "PERPLEXITY",
+      "STORY CLOZE TEST ACCURACY"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "perplexity"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "distinct-1",
+          "distinct-2",
+          "NSP probability",
+          "Perplexity (PPL)",
+          "PPL"
+        ]
+      },
+      "normalized": {
+        "distinct-1": "distinct-n",
+        "distinct-2": "distinct-n",
+        "PPL": "perplexity",
+        "Perplexity (PPL)": "perplexity",
+        "NSP probability": "NSP"
+      },
+      "explanation": "Normalized metric variants to base forms (distinct-n covers distinct-1/2, perplexity covers PPL variants), removed redundant entries"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "models": [
+          "BERT-base-uncased",
+          "GPT2 (base)"
+        ],
+        "methods": [
+          "ranking via NSP probability",
+          "ranking via conditioned perplexity"
+        ],
+        "criteria": [
+          "coherence",
+          "quality"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed all metadata since the paper uses BERT/GPT2 for ranking story endings as part of the generation pipeline, not as LLM judges evaluating outputs after generation. This is system component usage, not LLM-as-judge evaluation."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Rate stories on fine-grained aspects: naturalness, interestingness, and cohesiveness using 5-point scale",
+      "Pairwise comparison of story endings to choose which ends better"
+    ],
+    "criteria": [
+      "Naturalness",
+      "Interestingness",
+      "Cohesiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Pairwise comparison of story endings to choose which ends better"
+        ]
+      },
+      "removed": {},
+      "normalized": {},
+      "explanation": "Added the pairwise comparison aspect of human evaluation that was mentioned but missing from the extracted metadata"
+    }
+  },
+  "overall_notes": "The paper focuses on story generation with unsupervised content planning. Metadata extraction was generally accurate. Key clarification: The paper uses BERT/GPT2 for internal story ending ranking within the generation pipeline, not as LLM judges evaluating final outputs, so answer_3 remains 'No'."
+}

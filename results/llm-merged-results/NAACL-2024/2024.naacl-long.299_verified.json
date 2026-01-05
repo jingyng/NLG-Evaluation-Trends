@@ -1,0 +1,154 @@
+{
+  "paper_id": "2024.naacl-long.299",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Instruction Following",
+      "Fact-Checking",
+      "Question Answering",
+      "Creative Writing"
+    ],
+    "datasets": [
+      "INDUST",
+      "LINDUST",
+      "CHEF"
+    ],
+    "languages": [
+      "English",
+      "Chinese"
+    ],
+    "models": [
+      "ChatGLM2",
+      "BELLE-7B",
+      "ChatGPT",
+      "text-davinci-003"
+    ],
+    "outputs": [
+      "Generated responses to inductive instructions",
+      "Fact-checking responses",
+      "Question-answering responses based on false premises",
+      "Creative content generation based on false premises"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Fact-Checking",
+          "Question Answering",
+          "Creative Writing"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "Fact-checking responses",
+          "Question-answering responses based on false premises",
+          "Creative content generation based on false premises"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Dialogue Generation",
+          "Other:Instruction Following",
+          "Other:response generation to inductive instructions"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Instruction Following": "Instruction Following",
+        "Other:response generation to inductive instructions": "Generated responses to inductive instructions",
+        "text-davinci-003": "text-davinci-003"
+      },
+      "explanation": "Simplified task descriptions to standard NLG categories. The paper specifically addresses instruction following with three instruction types: fact-checking (FCI), question answering (QFP), and creative writing (CIFP). Removed 'Dialogue Generation' since this is not the primary focus."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "GPT-4 Evaluation"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Truthfulness",
+          "Helpfulness",
+          "GPT-4 evaluation score"
+        ]
+      },
+      "normalized": {},
+      "explanation": "The paper does not use traditional automatic metrics like BLEU/ROUGE. Instead, it uses GPT-4 to automatically score Truthfulness and Helpfulness. These are evaluation criteria, not metrics themselves. Simplified to 'GPT-4 Evaluation' as the automatic evaluation method."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4"
+    ],
+    "methods": [
+      "Vanilla",
+      "w/ reference",
+      "w/ evidence"
+    ],
+    "criteria": [
+      "Truthfulness",
+      "Helpfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "ChatGPT"
+        ],
+        "methods": [
+          "vanilla GPT-4",
+          "GPT-4 with reference response",
+          "GPT-4 with evidence",
+          "Vanilla GPT-4"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "w/ reference": "w/ reference",
+        "w/ evidence": "w/ evidence"
+      },
+      "explanation": "Removed ChatGPT from models list as only GPT-4 was used as evaluator. Normalized method names to consistent forms. The criteria (Truthfulness, Helpfulness) are correctly identified."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Truthfulness: Score 0 if response contains errors/harmful content, score 1 if error-free",
+      "Helpfulness: Score 0 (Support) if response supports false premises, Score 1 (Neutral) if neither supports nor opposes, Score 2 (Attack) if corrects false premises"
+    ],
+    "criteria": [
+      "Truthfulness",
+      "Helpfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "The guideline and criteria are accurately extracted. The human evaluation followed the same Truthfulness and Helpfulness criteria as the automatic evaluation."
+    }
+  },
+  "overall_notes": "The paper presents a comprehensive evaluation of LLMs' ability to handle inductive instructions (instructions based on false premises). It introduces the INDUST benchmark with three instruction types (FCI, QFP, CIFP) and evaluates models on Truthfulness and Helpfulness criteria using both human and GPT-4-based automatic evaluation. The extraction was generally accurate with minor normalization needed for consistency."
+}

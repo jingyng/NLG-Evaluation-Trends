@@ -1,0 +1,128 @@
+{
+  "paper_id": "2024.acl-long.775",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Image Captioning",
+      "Text Summarization",
+      "Title Generation"
+    ],
+    "datasets": [
+      "ARXIVCAP",
+      "ARXIVQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "blip_2_opt_6.7b",
+      "instructblip_vicuna_7b",
+      "llava_1.5_7b",
+      "llava_1.5_13b",
+      "openflamingo_9b",
+      "idefics_instruct_9b",
+      "qwen_vl_chat_7b",
+      "gpt_4v",
+      "gemini_1.0_pro_vision"
+    ],
+    "outputs": [
+      "captions for figures",
+      "summaries for multiple sub-figures",
+      "contextualized captions",
+      "paper titles",
+      "multiple-choice QA answers"
+    ],
+    "changes_made": {
+      "added": {
+        "languages": [
+          "English"
+        ],
+        "outputs": [
+          "contextualized captions"
+        ]
+      },
+      "removed": {
+        "languages": [
+          "Chinese"
+        ],
+        "models": [
+          "Qwen-VL-Chat"
+        ]
+      },
+      "normalized": {
+        "LLaVA-1.5-7B/13B": "LLaVA-1.5-7B, LLaVA-1.5-13B"
+      },
+      "explanation": "Removed duplicate 'Qwen-VL-Chat' model, removed Chinese language since paper focuses on English NLG tasks, added contextualized captioning as an output type, and normalized LLaVA model listing"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "BLEU",
+      "ROUGE",
+      "BERT"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {},
+      "normalized": {
+        "BLEU-2": "BLEU",
+        "ROUGE-L": "ROUGE",
+        "BERT-S": "BERT-Score"
+      },
+      "explanation": "Normalized metric variations to base forms (BLEU-2 → BLEU, ROUGE-L → ROUGE, BERT-S → BERT-Score) without removing variants"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "prompting GPT-4 to score generated captions",
+      "FairEval"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "criteria": [
+          "fluency",
+          "coherence",
+          "relevance"
+        ]
+      },
+      "normalized": {
+        "Prompting with a template to assign quality scores": "prompting GPT-4 to score generated captions"
+      },
+      "explanation": "Removed criteria as they were not explicitly mentioned in the LLM evaluation context. The paper mentions GPT-4 scoring but doesn't specify the exact criteria used."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Categorize generated captions into quality types: (1) Acceptable, (2) Over Simplification, (3) Recognition Error, (4) Contextual Misinterpretation"
+    ],
+    "criteria": [
+      "Acceptable",
+      "Simplification",
+      "Recognition",
+      "Contextual"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "guideline": [
+          "The annotators were asked to predict answers for multiple-choice questions based on scientific figures and provide rationales."
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed the QA evaluation guideline since it was for evaluating model understanding, not NLG outputs. The caption quality categorization is the primary human evaluation of NLG outputs."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on evaluating vision-language models on scientific figure understanding and generation tasks. The NLG evaluation is robust with both automatic metrics (BLEU, ROUGE, BERT-Score) and human evaluation. The LLM-as-judge usage is limited to GPT-4 scoring of captions. The extraction was generally accurate but needed some normalization and removal of irrelevant details."
+}

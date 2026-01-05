@@ -1,0 +1,72 @@
+{
+  "paper_id": "2025.emnlp-main.306",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM and human evaluations but does not explicitly compare LLM judgments with human judgments on the same instances or report any quantitative metrics of agreement/correlation between them. The evaluations serve different purposes and are treated as independent assessment methods."
+  },
+  "llm_judge_details": {
+    "num_models": 2,
+    "models": [
+      "GPT-4o",
+      "DeepSeek-v3"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper mentions prompt templates are shown in Appendix A.2 and provides some prompt examples like 'This sentence contains emotions and the reasons that trigger them, expand this sentence into no more than three sentences' but does not show full LLM evaluation prompts."
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 3,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Pearson correlation coefficient (PCC)",
+      "value": 0.87,
+      "interpretation": "high level of agreement",
+      "per_criterion": [
+        {
+          "criterion": "Affective",
+          "value": 0.84
+        },
+        {
+          "criterion": "Relevance",
+          "value": 0.44
+        },
+        {
+          "criterion": "Consistency",
+          "value": 0.42
+        },
+        {
+          "criterion": "Naturalness",
+          "value": 0.74
+        }
+      ]
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "yes",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Provides clear definitions for each evaluation criterion: Affective (authenticity and intensity of emotional expression), Relevance (association between dialogue content and seeds), Consistency (internal coherence of emotion and cause annotations), Naturalness (naturalness and fluency of dialogue)"
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Rationality",
+      "Effectiveness"
+    ],
+    "human_only_criteria": [
+      "Consistency",
+      "Naturalness",
+      "Overall"
+    ],
+    "shared_criteria": [
+      "Empathy",
+      "Relevance"
+    ],
+    "notes": "LLM evaluation focuses on rationality and effectiveness for label quality, while human evaluation covers dialogue quality aspects. There is partial overlap in empathy and relevance assessment, but the specific evaluation focus differs between methods."
+  }
+}

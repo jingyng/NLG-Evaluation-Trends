@@ -1,0 +1,55 @@
+{
+  "paper_id": "2024.emnlp-main.499",
+  "explicit_validation": {
+    "answer": "No",
+    "explanation": "The paper conducts both LLM-based evaluation and uses human-annotated datasets, but does not explicitly compare LLM judge results against human evaluation results. Human annotations serve as ground truth in the benchmark datasets, while LLMs are evaluated independently for their fact-checking performance."
+  },
+  "llm_judge_details": {
+    "num_models": 8,
+    "models": [
+      "GPT-4",
+      "GPT-3.5",
+      "Claude 3 Opus",
+      "Claude 2.1",
+      "Gemini-Pro",
+      "PaLM2-Bison",
+      "Mistral-8x7B",
+      "Mistral-Large"
+    ],
+    "prompts": {
+      "provided": "yes",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "The paper provides the exact zero-shot fact-checking prompt used for LLM evaluation in Appendix H. The prompt asks: 'Is the claim fully entailed, or implied, by the source? Please answer with 'yes' or 'no'.'"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "multiple (varies by dataset)",
+    "evaluator_type": "mixed",
+    "inter_annotator_agreement": {
+      "reported": "partial",
+      "metric": "Fleiss' kappa",
+      "value": "0.51-0.70",
+      "interpretation": "moderate to substantial agreement",
+      "per_criterion": [],
+      "notes": "Inter-annotator agreement is reported only for a small-scale human evaluation of synthetic data quality (40 samples each from C2D and D2C methods), not for the main benchmark datasets. Agreement was 0.51 for C2D and 0.70 for D2C."
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human evaluation guidelines are described in the main text: annotators label each (document, claim) pair as supported or not supported based on entailment. The benchmark datasets use binary factual consistency labels mapped from original annotations."
+    }
+  },
+  "validation_setup": null,
+  "validation_results": null,
+  "criteria_mapping": {
+    "llm_only_criteria": [],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "Factuality",
+      "Support"
+    ],
+    "notes": "Both LLM-based fact-checkers and human evaluations assess the same binary criteria: whether claims are supported by grounding documents. Human annotations serve as ground truth in the LLM-AggreFact benchmark, against which all fact-checking models (including LLMs) are evaluated."
+  }
+}

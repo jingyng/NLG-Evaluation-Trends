@@ -1,0 +1,133 @@
+{
+  "paper_id": "2025.acl-long.65",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Text-to-Speech"
+    ],
+    "datasets": [
+      "Libriheavy",
+      "LibriSpeech"
+    ],
+    "languages": [
+      "English",
+      "Mandarin"
+    ],
+    "models": [
+      "MELLE"
+    ],
+    "outputs": [
+      "synthesized speech",
+      "mel-spectrograms"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [
+          "Mandarin"
+        ],
+        "models": [],
+        "outputs": [
+          "mel-spectrograms"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text-to-Speech Synthesis"
+        ],
+        "datasets": [],
+        "languages": [
+          "Chinese"
+        ],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Text-to-Speech": "Text-to-Speech",
+        "Other:Text-to-Speech Synthesis": "Text-to-Speech",
+        "Chinese": "Mandarin"
+      },
+      "explanation": "Normalized tasks to standard 'Text-to-Speech', merged duplicate task entries, normalized Chinese to Mandarin as specified in the paper, and added mel-spectrograms as an output type since it's the primary generation target"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "WER",
+      "SIM"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "MOS",
+          "SMOS",
+          "CMOS",
+          "WERC",
+          "WERH"
+        ]
+      },
+      "normalized": {
+        "WERC": "WER",
+        "WERH": "WER"
+      },
+      "explanation": "Removed subjective metrics (MOS, SMOS, CMOS) as they are human evaluations, not automatic metrics. Simplified WERC and WERH to base WER form since they represent variants using different ASR systems"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No LLMs were used as evaluators in this paper. The paper focuses on speech synthesis evaluation using traditional metrics and human assessment."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "MOS: 1-5 scale (0.5 increments) for speech quality",
+      "SMOS: 1-5 scale (0.5 increments) for speaker similarity",
+      "CMOS: -3 to +3 scale (1 increments) for comparative naturalness vs ground truth",
+      "40 samples evaluated, minimum 10 raters per sample, native English speakers with speech annotation experience"
+    ],
+    "criteria": [
+      "speech quality",
+      "speaker similarity",
+      "naturalness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "40 samples evaluated, minimum 10 raters per sample, native English speakers with speech annotation experience"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added additional guideline details about the experimental setup from the paper text. The criteria remain accurate as extracted."
+    }
+  },
+  "overall_notes": "This paper presents MELLE, a text-to-speech synthesis system that generates continuous mel-spectrograms directly rather than using discrete tokens. The extraction was accurate overall, with minor normalization needed. The paper thoroughly evaluates both with automatic metrics (WER, SIM) and human evaluations (MOS, SMOS, CMOS)."
+}

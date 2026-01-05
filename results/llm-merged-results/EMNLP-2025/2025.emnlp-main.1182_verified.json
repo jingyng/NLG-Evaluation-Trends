@@ -1,0 +1,165 @@
+{
+  "paper_id": "2025.emnlp-main.1182",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Text-to-Image Generation Evaluation"
+    ],
+    "datasets": [
+      "FRAME"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "DALL-E 3"
+    ],
+    "outputs": [
+      "generated images"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [
+          "Other:Text-to-Image Generation Evaluation"
+        ],
+        "models": [
+          "DALL-E 3"
+        ],
+        "outputs": [
+          "generated images"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Other:Instruction Generation",
+          "Other:Text-to-Image Generation"
+        ],
+        "models": [
+          "GPT-4o",
+          "GPT-4.1",
+          "GPT-4.1-mini",
+          "o3",
+          "GPT-4o-mini",
+          "LLaVA-1.5-13B",
+          "LlaVA-NEXT-8B",
+          "LLaVA-Onevision-7B",
+          "Qwen2.5-VL-32B-Instruct"
+        ],
+        "outputs": [
+          "natural language instructions",
+          "text-image pairs"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed 'Instruction Generation' as it's not an evaluated NLG task, removed LVLM models since they are evaluators not generators, added DALL-E 3 as the actual text-to-image generation model, simplified outputs to 'generated images'"
+    }
+  },
+  "answer_2": {
+    "answer": "No",
+    "answer_changed": true,
+    "automatic_metrics": [
+      "LVLM-based semantic alignment score"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "LVLM-based semantic alignment score"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "FID",
+          "Inception Score",
+          "CLIPScore",
+          "BLIPScore",
+          "PickScore",
+          "ImageReward",
+          "HPSv2",
+          "Prometheus-Vision"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Changed answer to 'No' since the paper mentions traditional metrics only in related work but does not actually use them for evaluation. The primary evaluation method is LVLM-based scoring, which qualifies as LLM-as-judge rather than traditional automatic metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "GPT-4.1",
+      "GPT-4.1-mini",
+      "GPT-4o",
+      "o3",
+      "GPT-4o-mini",
+      "LLaVA-1.5-13B",
+      "LLaVA-NEXT-8B",
+      "LLaVA-Onevision-7B",
+      "Qwen2.5-VL-32B-Instruct"
+    ],
+    "methods": [
+      "single image evaluation",
+      "pairwise comparison",
+      "Chain-of-Thought prompting",
+      "bias-aware prompting",
+      "bias-definition prompting"
+    ],
+    "criteria": [
+      "quality",
+      "coherence",
+      "relevance",
+      "semantic alignment"
+    ],
+    "changes_made": {
+      "added": {},
+      "removed": {
+        "methods": [
+          "single-score evaluation",
+          "single-image evaluation",
+          "pairwise evaluation"
+        ]
+      },
+      "normalized": {
+        "LlaVA-NEXT-8B": "LLaVA-NEXT-8B",
+        "single-score evaluation": "single image evaluation",
+        "single-image evaluation": "single image evaluation",
+        "pairwise evaluation": "pairwise comparison",
+        "Chain-of-Thought (CoT) prompting": "Chain-of-Thought prompting"
+      },
+      "explanation": "Normalized method names for consistency, removed redundant method entries, kept all LVLM judge models and evaluation criteria as they are correctly extracted"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Assess semantic alignment between instruction and generated image",
+      "Score based on how accurately image reflects instruction details and intent",
+      "Identify key visual concepts and determine if correctly depicted"
+    ],
+    "criteria": [
+      "accuracy",
+      "semantic alignment"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Assess semantic alignment between instruction and generated image",
+          "Score based on how accurately image reflects instruction details and intent",
+          "Identify key visual concepts and determine if correctly depicted"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- scored based on how accurately the image reflects the instruction"
+        ],
+        "criteria": [
+          "accuracy of visual elements"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Restructured guideline into clear bullet points from the detailed annotation process description, removed redundant criteria, kept core evaluation criteria"
+    }
+  },
+  "overall_notes": "The paper focuses on evaluating LVLM judges for text-to-image generation assessment, not on generating text itself. The extracted metadata required significant refinement to accurately reflect the paper's contributions. Key clarification: The paper evaluates LVLM judges (LLM-as-judge paradigm) rather than traditional automatic metrics for NLG evaluation."
+}

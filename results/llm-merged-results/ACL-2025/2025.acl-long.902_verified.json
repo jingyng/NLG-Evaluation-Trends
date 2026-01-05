@@ -1,0 +1,160 @@
+{
+  "paper_id": "2025.acl-long.902",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Topic Modeling"
+    ],
+    "datasets": [
+      "Bills",
+      "Wiki",
+      "Twitter"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Llama-3-8B-Instruct",
+      "Mistral-7B-Instruct-v0.2",
+      "GPT-4"
+    ],
+    "outputs": [
+      "topic words and descriptions for documents",
+      "summarizing topic words for clusters",
+      "topic distributions for documents"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "topic distributions for documents"
+        ]
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Mistral-7B-Instruct",
+          "Llama-3"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Topic Word Generation": "Other:Topic Modeling",
+        "topic word and short description for each document; summarizing topic words for clusters": "topic words and descriptions for documents; summarizing topic words for clusters"
+      },
+      "explanation": "Removed 'Text Summarization' as this is not an NLG task in this paper, consolidated topic modeling tasks under 'Other:Topic Modeling', normalized model names to standard forms, clarified outputs to focus on topic modeling generation"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "P1",
+      "ARI",
+      "NMI",
+      "C_V",
+      "Topic Diversity"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Purity (P1)",
+          "Adjusted Rand Index (ARI)",
+          "Normalized Mutual Information (NMI)",
+          "Coherence Value (CV)",
+          "P 1",
+          "C V"
+        ]
+      },
+      "normalized": {
+        "C V": "C_V",
+        "P 1": "P1"
+      },
+      "explanation": "Consolidated duplicate metric names and variants into base forms, maintaining the core set of 5 distinct automatic metrics used for evaluation"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "Llama-3-8B-Instruct",
+      "Mistral-7B-Instruct-v0.2"
+    ],
+    "methods": [
+      "LLM-guided assignment for low-confidence document categorization"
+    ],
+    "criteria": [
+      "topic relevance",
+      "document-topic alignment"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Llama-3-8B-Instruct",
+          "Mistral-7B-Instruct-v0.2"
+        ],
+        "methods": [
+          "LLM-guided assignment for low-confidence document categorization"
+        ],
+        "criteria": [
+          "topic relevance",
+          "document-topic alignment"
+        ]
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added explicit LLM-as-judge usage: the paper uses LLMs after generation to evaluate and assign documents to topics in the LLM-guided assignment stage for low-confidence cases"
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Experts evaluated generated topic words against ground truth labels across four dimensions: undetected topics, repeated topics, broad topics, narrow topics"
+    ],
+    "criteria": [
+      "undetected",
+      "repeated",
+      "broad",
+      "narrow"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "missing topics",
+          "semantic redundancy",
+          "broadness",
+          "narrowness"
+        ]
+      },
+      "normalized": {
+        "missing topics": "undetected",
+        "semantic redundancy": "repeated",
+        "broadness": "broad",
+        "narrowness": "narrow"
+      },
+      "explanation": "Normalized criteria names to match the paper's precise terminology and consolidated redundant descriptions"
+    }
+  },
+  "overall_notes": "The paper focuses on topic modeling using LLMs, which involves generation of topic words and descriptions. It uses both automatic metrics and human evaluation. Notably, it does use LLMs as judges in the assignment phase (after generation) to resolve low-confidence document classifications, which qualifies as LLM-as-judge usage. The extraction quality was generally good but required some normalization and consolidation of duplicates."
+}

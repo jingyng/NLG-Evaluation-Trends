@@ -1,0 +1,87 @@
+{
+  "paper_id": "2025.emnlp-main.387",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM-based evaluation results against human evaluation results by reporting Pearson correlation and validating y_drop predictions with human ratings on the same samples"
+  },
+  "llm_judge_details": {
+    "num_models": 1,
+    "models": [
+      "GPT-4o-mini"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Prompts described as 'inspired by G-Eval' but exact prompt text not provided"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": 8,
+    "evaluator_type": "expert",
+    "inter_annotator_agreement": {
+      "reported": "yes",
+      "metric": "Pearson correlation",
+      "value": 0.4,
+      "interpretation": "Not provided",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "no",
+      "notes": "Human evaluators assigned scores between -1 and +1 reflecting summary quality relative to a reference, and selected preference labels based on comparative assessment"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation"
+    ],
+    "shared_criteria": [
+      "y_drop"
+    ],
+    "sample_size": {
+      "total_generated": 4000,
+      "validated_by_both": 25,
+      "notes": "Validation conducted on 25 samples from four holdout datasets (total 4000 samples)"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.4,
+        "criterion": "inter-annotator agreement",
+        "llm_model": "N/A",
+        "significance": "Not reported",
+        "notes": "This is human-human agreement metric"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "no",
+      "interpretation": "Not provided",
+      "threshold_used": "Not specified",
+      "compared_to_prior_work": "no"
+    },
+    "summary_finding": "The paper reports human inter-annotator agreement of 0.4 (Pearson correlation) and validates LLM-based performance predictions against human evaluations, but does not provide direct LLM-human correlation scores."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "Coherence",
+      "Relevance",
+      "Readability",
+      "Fluency"
+    ],
+    "human_only_criteria": [
+      "Quality",
+      "Preference"
+    ],
+    "shared_criteria": [
+      "y_drop"
+    ],
+    "notes": "LLM judges evaluate specific qualitative aspects while human evaluators assess overall quality and preferences; y_drop serves as the shared validation metric"
+  }
+}

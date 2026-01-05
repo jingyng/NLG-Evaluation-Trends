@@ -1,0 +1,154 @@
+{
+  "paper_id": "2025.emnlp-main.706",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation",
+      "Question Generation",
+      "Answer Generation",
+      "Procedural Mistake Detection"
+    ],
+    "datasets": [
+      "ego4d PMD"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "llava",
+      "instructblip",
+      "llama_3",
+      "gpt_4o"
+    ],
+    "outputs": [
+      "Rationales consisting of sequences of generated yes-no questions and answers for procedural mistake detection"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Visual Question Generation",
+          "Other:Visual Question Answering"
+        ],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "LLaVA 1.5-7B"
+        ],
+        "outputs": [
+          "generated yes-no questions and answers forming a rationale"
+        ]
+      },
+      "normalized": {
+        "Other:Question Generation": "Question Generation",
+        "Other:Answer Generation": "Answer Generation",
+        "Other:Procedural Mistake Detection": "Procedural Mistake Detection"
+      },
+      "explanation": "Removed VQG/VQA as separate tasks since they are components of the dialogue generation process. Simplified output descriptions."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "RELEVANCE",
+      "INFORMATIVENESS",
+      "REFERENCE ADJUSTED INFORMATIVENESS",
+      "INFORMATION GAIN",
+      "NUMBER OF ITERATIONS"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": [
+          "Number of Iterations"
+        ]
+      },
+      "removed": {
+        "automatic_metrics": [
+          "NLI-based entailment probability",
+          "example-level relevance",
+          "example-level informativeness",
+          "mistake detection accuracy"
+        ]
+      },
+      "normalized": {
+        "Question Relevance": "Relevance",
+        "Answer Informativeness": "Informativeness"
+      },
+      "explanation": "Consolidated related metrics (relevance/informativeness variants) and added missing efficiency metric. Removed implementation details that aren't evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "bart"
+    ],
+    "methods": [
+      "NLI-based evaluation of rationale coherence"
+    ],
+    "criteria": [
+      "Relevance",
+      "Informativeness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "BART (fine‑tuned on MultiNLI)"
+        ],
+        "methods": [
+          "NLI‑based scoring of relevance and informativeness"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "BART (fine‑tuned on MultiNLI)": "BART"
+      },
+      "explanation": "Simplified model description and normalized method description. The NLI model is used post-generation to evaluate the quality of generated rationales."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Annotators rated relevance (1-5 scale: very irrelevant to very relevant) and informativeness (1-5 scale: very uninformative to very informative) following specific instructions about task context",
+      "Annotators judged procedural mistake detection accuracy by answering whether the procedure was successfully completed and providing confidence ratings (1-5 scale)"
+    ],
+    "criteria": [
+      "Relevance",
+      "Informativeness",
+      "Accuracy",
+      "Confidence"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": [
+          "Confidence"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "mistake detection accuracy"
+        ],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Consolidated guideline descriptions and added confidence as an explicit evaluation criterion used in human evaluation."
+    }
+  },
+  "overall_notes": "The paper primarily focuses on procedural mistake detection with generated rationales (self-dialogue of questions and answers). While VQG/VQA are components, the main NLG task is dialogue generation for rationalization. The extraction was generally accurate but needed consolidation of similar items and removal of implementation details."
+}

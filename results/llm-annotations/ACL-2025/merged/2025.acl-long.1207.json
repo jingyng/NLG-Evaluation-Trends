@@ -1,0 +1,97 @@
+{
+    "answer_1": {
+        "answer": "Yes",
+        "quote": [
+            "our attacker LLM generates multiple rounds of queries [q 1 , . . . , q n ] one by one... we propose a self-talk strategy to use the responses predicted by the attacker LLM as the proxy of responses from the unknown victim model",
+            "Our attacker LLM generates multiple rounds of queries [q1 , . . . , qn] one by one... We construct a multi-turn safety alignment dataset using ActorBreaker and show that fine-tuning models on our safety dataset significantly improve their robustness against our attacks.",
+            "We propose a two-stage approach to automatically find attack clues and generate multi-turn attacks."
+        ],
+        "tasks": [
+            "Dialogue Generation"
+        ],
+        "datasets": [
+            "HarmBench",
+            "Circuit Breaker",
+            "EasyJailbreak",
+            "Multi-turn safety dataset (generated)",
+            "UltraChat"
+        ],
+        "languages": [
+            "English"
+        ],
+        "models": [
+            "GPT-4o",
+            "GPT-3.5",
+            "GPT-o1",
+            "Claude-3.5",
+            "Llama-3-8B",
+            "Llama-3-70B",
+            "WizardLM-2-8x22B"
+        ],
+        "outputs": [
+            "Multi-turn attack prompts and model responses",
+            "multi-turn attack prompts and safety-alignment dialogues",
+            "multi-turn attack prompts in dialogue form"
+        ]
+    },
+    "answer_2": {
+        "answer": "Yes",
+        "quote": [
+            "We utilize Attack Success Rate (ASR) as our evaluation metric... we employ the BERT-sentence embedding distances as our metric.",
+            "We utilize Attack Success Rate (ASR) as our evaluation metric... To measure the diversity of the generated prompts across different trials, we follow the established practices ... and employ the BERT-sentence embedding distances as our metric.",
+            "To measure the diversity of the generated prompts across different trials, we follow the established practices in (Tevet and Be-Method Attack Success Rate (↑%) GPT-3.5 GPT-4o GPT-o1 Claude-3.5 Llama-3-8B Llama-3-70B Table 2: Attack success rate of different actor types of our ActorBreaker on Harmbench."
+        ],
+        "automatic_metrics": [
+            "Attack Success Rate (ASR)",
+            "BERT-sentence embedding distances (cosine similarity)",
+            "Cosine similarity of BERT embeddings (diversity)",
+            "Toxicity score from Llama Guard 2",
+            "cosine similarity",
+            "BERT-sentence embedding distances"
+        ]
+    },
+    "answer_3": {
+        "answer": "Yes",
+        "quote": [
+            "we utilize the robust evaluation capability of GPT-4o to provide the assessment... The judge score ranges from 1 to 5, and the higher the score is, the more harmful and more detailed the model's responses are.",
+            "Following the work of , we utilize the robust evaluation capability of GPT-4o to provide the assessment... Our human studies further confirm that the GPT-4o judge has a higher agreement with human majority voting than alternatives.",
+            "Following the work of , we utilize the robust evaluation capability of GPT-4o to provide the assessment."
+        ],
+        "models": [
+            "GPT-4o"
+        ],
+        "methods": [
+            "assigning a harmfulness score from 1 to 5",
+            "judge scoring (score 1-5)",
+            "pairwise evaluation",
+            "GPT-4 judge",
+            "judge score ranging from 1 to 5"
+        ],
+        "criteria": [
+            "harmfulness",
+            "detail",
+            "unsafe probability",
+            "detail level of response"
+        ]
+    },
+    "answer_4": {
+        "answer": "Yes",
+        "quote": [
+            "We select the majority vote across 10 different human annotations per query as ground truth.",
+            "Our human studies further confirm that the GPT-4o judge has a higher agreement with human majority voting... We conducted additional human study experiments. We select the majority vote across 10 different human annotations per query as ground truth.",
+            "We select the majority vote across 10 different human annotations per query as ground truth."
+        ],
+        "guideline": [
+            "Determine if the model output is harmful (unsafe)",
+            "Human annotators rate each model output for safety/harmfulness; the majority vote across annotators is used as ground truth.",
+            "We conducted additional human study experiments... per query as ground truth."
+        ],
+        "criteria": [
+            "harmfulness",
+            "safety (safe vs unsafe)",
+            "alignment with human judgments",
+            "false negative rate",
+            "false positive rate"
+        ]
+    }
+}

@@ -1,0 +1,122 @@
+{
+  "paper_id": "2020.acl-main.328",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Dialogue Generation"
+    ],
+    "datasets": [
+      "CHARTDIALOGS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "bi_lstm_seq_2seq",
+      "cnn+lstm_image_encoder",
+      "bert",
+      "s_2s_plot+txt",
+      "s_2s_txt",
+      "s_2s_nostate",
+      "s_2s_noutterance",
+      "maxent",
+      "rnn+mlp"
+    ],
+    "outputs": [
+      "Structured text representation of plot updates (ΔTPSpec)",
+      "Sequence decoder predicting ΔTPSpec as sequence",
+      "Set of classifiers predicting slot values"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [
+          "Transformer+MLP"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "CHARTDIALOGS": "ChartDialogs"
+      },
+      "explanation": "Normalized dataset name to 'ChartDialogs' (title case). Removed 'Transformer+MLP' as it's redundant with 'Transformer (BERT) + MLP'."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT MATCH",
+      "SLOT CHANGE F1"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": []
+      },
+      "normalized": {},
+      "explanation": "No changes needed - metrics are correctly extracted and normalized."
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Correctly identified that no LLMs are used as judges. The paper mentions GPT-2 but only for evaluating utterance naturalness via perplexity, not for judging generated outputs."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Workers predict Operator's plot update given partial dialog",
+      "Agreement measured by exact match with original Operator response",
+      "Fleiss' Kappa and Cohen's Kappa calculated for inter-annotator agreement",
+      "Gold human performance established by author performing the same task"
+    ],
+    "criteria": [
+      "Match"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Fleiss' Kappa and Cohen's Kappa calculated for inter-annotator agreement",
+          "Gold human performance established by author performing the same task"
+        ],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "Added missing human evaluation details: statistical agreement measures and gold human performance methodology."
+    }
+  },
+  "overall_notes": "The extraction was generally accurate. The paper focuses on dialogue generation for plot manipulation using natural language instructions. It uses both automatic metrics (Exact Match, Slot change F1) and human evaluation with agreement measures. No LLMs are used as judges. The dataset ChartDialogs is well-described and contains 3,284 dialogs with 15,754 turns."
+}

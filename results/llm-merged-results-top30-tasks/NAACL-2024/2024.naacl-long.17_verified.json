@@ -1,0 +1,168 @@
+{
+  "paper_id": "2024.naacl-long.17",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Open Domain Question Answering"
+    ],
+    "datasets": [
+      "WEBQ",
+      "NQ",
+      "TriviaQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "instructgpt",
+      "codex",
+      "gpt_neox",
+      "alpaca"
+    ],
+    "outputs": [
+      "answers to questions",
+      "generated passages",
+      "generated questions",
+      "generated explanations",
+      "pseudo QA pairs"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "answers to questions",
+          "generated passages",
+          "generated questions",
+          "generated explanations",
+          "pseudo QA pairs"
+        ]
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": [
+          "answers to questions, generated passages, questions, and explanations",
+          "answers (and explanations) generated for open-domain questions",
+          "generated pseudo QA pairs, passages, questions, answers, explanations"
+        ]
+      },
+      "normalized": {
+        "Other:Open-Domain Question Answering": "Other:Open-Domain Question Answering"
+      },
+      "explanation": "Simplified and normalized the outputs list by breaking down the complex descriptions into individual output types. The original tasks, datasets, languages, and models were correct."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "EXACT MATCH",
+      "F1",
+      "INSTRUCT EVAL"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Exact Match (EM)"
+        ]
+      },
+      "normalized": {
+        "Exact Match (EM)": "Exact Match"
+      },
+      "explanation": "Removed duplicate 'Exact Match (EM)' since it's the same as 'Exact Match'. The paper uses EM, F1, and Instruct-Eval as automatic evaluation metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "gpt_4"
+    ],
+    "methods": [
+      "Instruct-Eval"
+    ],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [],
+        "methods": [
+          "Instruct-Eval scoring using GPT-4",
+          "Instruct-Eval (IE)"
+        ],
+        "criteria": []
+      },
+      "normalized": {
+        "Instruct-Eval scoring using GPT-4": "Instruct-Eval",
+        "Instruct-Eval (IE)": "Instruct-Eval"
+      },
+      "explanation": "Normalized the method names to just 'Instruct-Eval' since they all refer to the same evaluation method. The paper uses GPT-4 as an evaluator through Instruct-Eval, but no specific evaluation criteria are mentioned for the LLM-as-judge aspect."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": true,
+    "guideline": [
+      "Manual quality analysis of 100 samples per model to check factual errors, outdated information, controversial opinions, question ambiguity, answer correctness, and explanation quality"
+    ],
+    "criteria": [
+      "Factuality",
+      "outdated information",
+      "controversial opinions",
+      "question ambiguity",
+      "Correctness",
+      "Accuracy",
+      "explanation helpfulness"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Manual quality analysis of 100 samples per model to check factual errors, outdated information, controversial opinions, question ambiguity, answer correctness, and explanation quality"
+        ],
+        "criteria": [
+          "factual errors",
+          "outdated information",
+          "controversial opinions",
+          "question ambiguity",
+          "answer correctness",
+          "explanation accuracy",
+          "explanation helpfulness"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- For each sample, we use New Bing to check: (i) the number of factual errors, outdated information and controversial opinions in the generated passage; (ii) if the question is unambiguous without context; (iii) if the answer is correct for the question; (iv) if the explanation is both accurate and helpful for question answering."
+        ],
+        "criteria": [
+          "factual errors",
+          "outdated information",
+          "controversial opinions",
+          "unambiguous without context",
+          "correct for the question",
+          "accurate and helpful for question answering"
+        ]
+      },
+      "normalized": {
+        "unambiguous without context": "question ambiguity",
+        "correct for the question": "answer correctness",
+        "accurate and helpful for question answering": "explanation accuracy, explanation helpfulness"
+      },
+      "explanation": "Changed answer from 'No' to 'No' (no change in value but corrected the metadata). The paper does NOT conduct human evaluations - it uses New Bing (an AI system) for quality analysis, not human raters. I've clarified the guideline and normalized the criteria to be more descriptive."
+    }
+  },
+  "overall_notes": "The paper focuses on Open-Domain Question Answering as an NLG task. It uses automatic metrics (EM, F1, Instruct-Eval) and employs GPT-4 as an LLM judge via Instruct-Eval. However, it does NOT conduct human evaluations - the quality analysis is done using New Bing (AI system). The extraction was generally accurate but needed some normalization and clarification."
+}

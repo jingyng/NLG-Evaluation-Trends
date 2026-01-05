@@ -1,0 +1,151 @@
+{
+  "paper_id": "2021.emnlp-main.374",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Paraphrase Generation",
+      "Text Style Transfer"
+    ],
+    "datasets": [
+      "SST 2",
+      "HATESPEECH HS",
+      "AG S NEWS"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "strap",
+      "gpt_2"
+    ],
+    "outputs": [
+      "Adversarial examples via text style transfer",
+      "Poisoned training samples via text style transfer",
+      "Paraphrases with different text styles"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Other:Text Style Transfer"
+        ],
+        "datasets": [
+          "HS"
+        ],
+        "languages": [],
+        "models": [
+          "BERT",
+          "ALBERT",
+          "DistilBERT"
+        ],
+        "outputs": []
+      },
+      "normalized": {
+        "Other:Text Style Transfer": "Text Style Transfer"
+      },
+      "explanation": "Removed duplicate 'HS' dataset and removed classification models (BERT, ALBERT, DistilBERT) since they are victim models, not NLG models. Normalized task name."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ASR",
+      "PPL",
+      "GE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "Perplexity (PPL)",
+          "Grammatical Error count (GE)"
+        ]
+      },
+      "normalized": {
+        "Perplexity (PPL)": "PPL",
+        "Grammatical Error count (GE)": "GE"
+      },
+      "explanation": "Removed duplicate metrics with full names, keeping standardized abbreviations (ASR, PPL, GE)"
+    }
+  },
+  "answer_3": {
+    "answer": "No",
+    "answer_changed": false,
+    "models": [],
+    "methods": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "GPT-2"
+        ],
+        "methods": [
+          "perplexity calculation"
+        ],
+        "criteria": [
+          "fluency"
+        ]
+      },
+      "normalized": {},
+      "explanation": "GPT-2 is used to calculate perplexity as an automatic metric, not as an LLM judge. Removed all metadata since the answer is 'No'."
+    }
+  },
+  "answer_4": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "guideline": [
+      "Binary judgment on whether generated text preserves original sentiment",
+      "Binary classification on whether sample is original human-written or machine-distorted"
+    ],
+    "criteria": [
+      "Sentiment",
+      "Humanness",
+      "Validity",
+      "Invisibility"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [
+          "Binary classification on whether sample is original human-written or machine-distorted"
+        ],
+        "criteria": [
+          "Invisibility"
+        ]
+      },
+      "removed": {
+        "guideline": [
+          "- make a binary decision on whether each adversarial example has the same sentiment as the original example",
+          "Annotators are asked to make a binary decision...",
+          "Annotators are asked to decide if..."
+        ],
+        "criteria": [
+          "sentiment",
+          "sentiment consistency",
+          "original vs distorted detection"
+        ]
+      },
+      "normalized": {
+        "sentiment": "Sentiment preservation",
+        "sentiment consistency": "Sentiment preservation",
+        "original vs distorted detection": "Human-written vs machine-distorted detection"
+      },
+      "explanation": "Consolidated redundant guideline descriptions and normalized criteria names. Added 'Invisibility' criteria mentioned for backdoor attack evaluation."
+    }
+  },
+  "overall_notes": "This paper is primarily about security attacks (adversarial/backdoor attacks) using text style transfer as a method. The NLG aspect is limited to the style transfer component (STRAP model) used to generate adversarial examples and poisoned samples. The paper uses both automatic metrics (ASR, PPL, GE) and human evaluation for validation."
+}

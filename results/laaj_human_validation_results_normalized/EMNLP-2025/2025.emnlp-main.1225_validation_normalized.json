@@ -1,0 +1,90 @@
+{
+  "paper_id": "2025.emnlp-main.1225",
+  "explicit_validation": {
+    "answer": "Yes",
+    "explanation": "Paper explicitly compares LLM and human judgments on the same dataset using correlation analysis and agreement metrics"
+  },
+  "llm_judge_details": {
+    "num_models": 5,
+    "models": [
+      "mistral_7b",
+      "mixtral_7b",
+      "gemma_7b",
+      "llama_3.1_8b",
+      "llama_3.3_70b"
+    ],
+    "prompts": {
+      "provided": "partial",
+      "location": "appendix",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Paper mentions using 3 prompts but only reports best-performing prompt in main text; full prompts are in Appendix B"
+    }
+  },
+  "human_eval_details": {
+    "num_evaluators": "not_specified",
+    "evaluator_type": "unclear",
+    "inter_annotator_agreement": {
+      "reported": "no",
+      "metric": "Not reported",
+      "value": null,
+      "interpretation": "Not reported",
+      "per_criterion": []
+    },
+    "guidelines": {
+      "detailed_guidelines_provided": "partial",
+      "location": "main_text",
+      "rubric_or_examples_shown": "yes",
+      "notes": "Human annotators rated reading ease on 1-5 scale (1=very poor, 5=very high); uses existing dataset from prior work"
+    }
+  },
+  "validation_setup": {
+    "validation_types": [
+      "correlation_analysis",
+      "agreement_analysis",
+      "error_analysis"
+    ],
+    "validation_metrics": [
+      "Pearson correlation",
+      "Kendall-Tau correlation"
+    ],
+    "shared_criteria": [
+      "reading_ease"
+    ],
+    "sample_size": {
+      "total_generated": 60,
+      "validated_by_both": 60,
+      "notes": "Uses dataset of 60 summaries from prior work, all evaluated by both LLM and human judges"
+    }
+  },
+  "validation_results": {
+    "quantitative_scores": [
+      {
+        "metric": "Pearson correlation",
+        "value": 0.56,
+        "criterion": "reading_ease",
+        "llm_model": "llama_3.3_70b",
+        "significance": "p-values reported in Appendix C",
+        "notes": "Best performing model correlation with human judgments"
+      }
+    ],
+    "correlation_interpretation": {
+      "strength_described": "yes",
+      "interpretation": "moderate",
+      "threshold_used": "Traditional metrics with <0.3 Pearson correlation considered 'poor'",
+      "compared_to_prior_work": "yes"
+    },
+    "summary_finding": "LLMs outperform traditional readability metrics, with best model achieving 0.56 Pearson correlation with human judgments, indicating better alignment than traditional metrics which averaged <0.3 correlation."
+  },
+  "criteria_mapping": {
+    "llm_only_criteria": [
+      "background_knowledge_required",
+      "technical_concepts_explained",
+      "accessibility_for_non_experts"
+    ],
+    "human_only_criteria": [],
+    "shared_criteria": [
+      "reading_ease"
+    ],
+    "notes": "Both LLM and human evaluate reading ease on same 1-5 scale; LLMs additionally provide reasoning about deeper readability attributes"
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "paper_id": "2025.acl-long.131",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Question Answering",
+      "Long Form Generation"
+    ],
+    "datasets": [
+      "ARC CHALLENGE",
+      "TriviaQA",
+      "POPQA",
+      "ALCE ASQA"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "mistral_7b",
+      "llama_3_8b",
+      "llama_2_7b",
+      "llama_2_13b",
+      "alpaca_7b",
+      "alpaca_13b",
+      "llama_2_chat_13b",
+      "self_rag",
+      "llama_2_ft_7b",
+      "ret_llama_2_chat_13b"
+    ],
+    "outputs": [
+      "answers to questions",
+      "long-form responses",
+      "multiple-choice selections"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [
+          "Text Summarization",
+          "Other:Text Generation"
+        ],
+        "datasets": [
+          "TriviaQA-unfiltered"
+        ],
+        "models": [
+          "Mistral 7B",
+          "Llama3 8B",
+          "Llama2 7B",
+          "Llama2 13B",
+          "Alpaca 7B",
+          "Alpaca 13B",
+          "Llama2-chat 13B",
+          "Mistral-7B",
+          "Llama3-8B",
+          "Llama2-7B",
+          "Llama2-13B",
+          "Alpaca-7B",
+          "Alpaca-13B",
+          "Llama2-chat-13B"
+        ],
+        "outputs": [
+          "answers to questions and long-form responses",
+          "generated answers to questions (short answers, multiple-choice selections, and long-form responses)",
+          "generated answers to questions and long-form text responses"
+        ]
+      },
+      "normalized": {
+        "Other:Question Answering": "Other:Question Answering",
+        "Other:Long-form Generation": "Other:Long-form Generation",
+        "ARC-Challenge": "ARC-Challenge",
+        "TriviaQA": "TriviaQA",
+        "PopQA": "PopQA",
+        "ALCE-ASQA": "ALCE-ASQA",
+        "English": "English",
+        "Mistral-7B": "Mistral-7B",
+        "Llama3-8B": "Llama3-8B",
+        "Llama2-7B": "Llama2-7B",
+        "Llama2-13B": "Llama2-13B",
+        "Alpaca-7B": "Alpaca-7B",
+        "Alpaca-13B": "Alpaca-13B",
+        "Llama2-chat-13B": "Llama2-chat-13B",
+        "Self-RAG": "Self-RAG",
+        "Llama2-FT-7B": "Llama2-FT-7B",
+        "Ret-Llama2-chat-13B": "Ret-Llama2-chat-13B"
+      },
+      "explanation": "Removed 'Text Summarization' and 'Other:Text Generation' as they are not evaluated tasks. Removed duplicate model entries and normalized to consistent naming. Kept only NLG tasks actually evaluated (QA and long-form generation)."
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "ACCURACY",
+      "ANSWER INCLUSION",
+      "STR EM",
+      "ROUGE",
+      "MAUVE"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "exact match inclusion",
+          "rouge",
+          "mauve"
+        ]
+      },
+      "normalized": {
+        "accuracy": "accuracy",
+        "answer inclusion": "answer inclusion",
+        "str-em": "str-em",
+        "rouge": "ROUGE",
+        "MAUVE": "MAUVE",
+        "mauve": "MAUVE"
+      },
+      "explanation": "Normalized 'rouge' to 'ROUGE' and 'mauve' to 'MAUVE'. Removed 'exact match inclusion' as it's redundant with 'answer inclusion'. Kept base forms of metrics."
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": true,
+    "models": [
+      "mistral_7b"
+    ],
+    "methods": [
+      "relevance judgment based on Doc-Q-A triplet",
+      "log probability difference between 'Yes' and 'No' tokens"
+    ],
+    "criteria": [
+      "Relevance",
+      "Supportiveness"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [
+          "Mistral-7B"
+        ],
+        "methods": [
+          "relevance judgment based on Doc-Q-A triplet",
+          "log probability difference between 'Yes' and 'No' tokens"
+        ],
+        "criteria": [
+          "relevance",
+          "supportiveness of document for answering the query"
+        ]
+      },
+      "removed": {
+        "models": [
+          "Mistral 7B",
+          "Llama3 8B"
+        ],
+        "methods": [],
+        "criteria": []
+      },
+      "normalized": {
+        "Mistral-7B": "Mistral-7B",
+        "relevance judgment based on Doc-Q-A triplet": "relevance judgment based on Doc-Q-A triplet",
+        "log probability difference between 'Yes' and 'No' tokens": "log probability difference between 'Yes' and 'No' tokens",
+        "relevance": "relevance",
+        "supportiveness of document for answering the query": "supportiveness of document for answering the query"
+      },
+      "explanation": "Changed answer from 'No' to 'Yes' because Agent-2 (Judge) uses LLM (Mistral-7B) to evaluate document relevance after generation. Removed Llama3-8B as it's not specified as the judge model. Added proper methods and criteria based on the paper description."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [],
+    "criteria": [],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": []
+      },
+      "normalized": {},
+      "explanation": "No human evaluation mentioned in the paper. All evaluations are automatic."
+    }
+  },
+  "overall_notes": "The paper focuses on improving RAG systems through multi-agent document filtering. It evaluates NLG outputs (question answering and long-form generation) using automatic metrics. The key insight for Q3 is that Agent-2 (Judge) uses an LLM (Mistral-7B) to evaluate document relevance after retrieval but before final generation, which qualifies as LLM-as-judge evaluation of intermediate outputs."
+}

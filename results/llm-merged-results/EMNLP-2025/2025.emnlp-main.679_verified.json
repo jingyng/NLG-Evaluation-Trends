@@ -1,0 +1,148 @@
+{
+  "paper_id": "2025.emnlp-main.679",
+  "answer_1": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "tasks": [
+      "Other:Reasoning Step Evaluation",
+      "Other:Mathematical Reasoning"
+    ],
+    "datasets": [
+      "ProcessBench",
+      "PRM-Bench",
+      "MATH500",
+      "Minerva Math",
+      "Olympiad-Bench",
+      "College Math",
+      "AIME24",
+      "AMC23"
+    ],
+    "languages": [
+      "English"
+    ],
+    "models": [
+      "Qwen2.5-Math-7B-Instruct",
+      "LLaMA3.3-70B-Instruct",
+      "GPT-4o",
+      "DeepSeek-R1-Distilled-Qwen-7B"
+    ],
+    "outputs": [
+      "comprehensive analysis and judgment for reasoning steps",
+      "step-by-step mathematical reasoning solutions"
+    ],
+    "changes_made": {
+      "added": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "removed": {
+        "tasks": [],
+        "datasets": [],
+        "languages": [],
+        "models": [],
+        "outputs": []
+      },
+      "normalized": {
+        "GPT-4": "GPT-4o",
+        "stronger LLMs used as judges": "LLaMA3.3-70B-Instruct"
+      },
+      "explanation": "Normalized GPT-4 to GPT-4o (mentioned in paper), clarified 'stronger LLMs' to the specific model used (LLaMA3.3-70B-Instruct)"
+    }
+  },
+  "answer_2": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "automatic_metrics": [
+      "F1",
+      "Accuracy"
+    ],
+    "changes_made": {
+      "added": {
+        "automatic_metrics": []
+      },
+      "removed": {
+        "automatic_metrics": [
+          "F1 score",
+          "accuracy",
+          "Pass@1"
+        ]
+      },
+      "normalized": {
+        "F1 score": "F1",
+        "accuracy": "Accuracy"
+      },
+      "explanation": "Normalized metrics to base forms (F1, Accuracy), removed Pass@1 as it's a sampling strategy not an evaluation metric"
+    }
+  },
+  "answer_3": {
+    "answer": "Yes",
+    "answer_changed": false,
+    "models": [
+      "LLaMA3.3-70B-Instruct",
+      "GPT-4o"
+    ],
+    "methods": [
+      "LLM as judge for step correctness",
+      "preference optimization (DPO)",
+      "prompting LLMs to generate evaluation tuples"
+    ],
+    "criteria": [
+      "step correctness",
+      "consistency with human label",
+      "judgment of step correctness (Yes/No)"
+    ],
+    "changes_made": {
+      "added": {
+        "models": [],
+        "methods": [],
+        "criteria": []
+      },
+      "removed": {
+        "models": [
+          "Qwen2.5-Math-7B-Instruct",
+          "GPT-4"
+        ],
+        "methods": [
+          "using LLM as a judge for data filtering"
+        ],
+        "criteria": [
+          "correctness of reasoning steps"
+        ]
+      },
+      "normalized": {
+        "stronger LLMs used as judges": "LLaMA3.3-70B-Instruct",
+        "GPT-4": "GPT-4o",
+        "prompting stronger LLMs to generate (Q, s 1:i , A i , J i ) tuples": "prompting LLMs to generate evaluation tuples"
+      },
+      "explanation": "Removed generation models (Qwen2.5-Math-7B-Instruct), kept only evaluation LLMs. Simplified method descriptions. Removed redundant criteria."
+    }
+  },
+  "answer_4": {
+    "answer": "No",
+    "answer_changed": false,
+    "guideline": [
+      "human annotation of the earliest error in step-by-step solutions"
+    ],
+    "criteria": [
+      "identification of the first incorrect step"
+    ],
+    "changes_made": {
+      "added": {
+        "guideline": [],
+        "criteria": []
+      },
+      "removed": {
+        "guideline": [],
+        "criteria": [
+          "correctness of reasoning steps"
+        ]
+      },
+      "normalized": {},
+      "explanation": "Removed redundant criteria. The paper mentions human annotations were used for benchmark creation, not for evaluating their own model outputs."
+    }
+  },
+  "overall_notes": "The paper focuses on process reward modeling for mathematical reasoning evaluation. It uses LLMs as judges for evaluating reasoning steps but does not conduct human evaluation of its own model outputs. The extraction was generally accurate but needed normalization and removal of some redundant/irrelevant items."
+}
