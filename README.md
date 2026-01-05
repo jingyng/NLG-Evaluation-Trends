@@ -83,19 +83,3 @@ See individual scripts in `src/` for detailed usage instructions.
 
 Due to GitHub storage limitations, PDFs, XMLs, and JSONs of all papers will be provided via external link after the anonymous review period.
 
-## Citation
-
-If you use this code or data, please cite our paper:
-
-```bibtex
-@article{your_paper_2026,
-  title={Order in the Evaluation Court: A Critical Analysis of NLG Evaluation Trends},
-  author={...},
-  journal={...},
-  year={2026}
-}
-```
-
-## License
-
-See `LICENSE` file for details. 
