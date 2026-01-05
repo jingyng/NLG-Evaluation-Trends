@@ -1,5 +1,3 @@
-# Order in the Evaluation Court: A Critical Analysis of NLG Evaluation Trends
-
 This repository contains the code and data for the paper **"Order in the Evaluation Court: A Critical Analysis of NLG Evaluation Trends"**.
 
 ## Overview
