@@ -6,6 +6,19 @@ This repository contains the code and data for the paper **"Order in the Evaluat
 
 This project analyzes evaluation trends in Natural Language Generation (NLG) research by extracting and analyzing metadata from academic papers. The workflow includes paper collection, LLM-based annotation, term normalization, and results analysis.
 
+## Usage
+
+The workflow follows these main steps:
+
+1. **Paper Collection**: Extract URLs and download PDFs
+2. **Text Extraction**: Convert PDFs to structured JSON
+3. **LLM Annotation**: Extract metadata using multiple LLMs
+4. **Harmonization**: Merge and harmonize LLM results
+5. **Normalization**: Normalize terms across categories
+6. **Analysis**: Generate figures and analyses
+
+See individual scripts in `src/` for detailed usage instructions.
+
 ## Repository Structure
 
 ### `src/`
@@ -57,27 +70,6 @@ Processed data at various stages:
 - `metadata_unique_counts/`: Original and normalized terms with their mappings
 - `prompts_guidelines/`: Full prompts for harmonization and validation between LaaJ and humans (LLM annotation prompt is directly coded in `run_llm_annotation.py`)
 - `paper_sources/`: Extracted paper URLs and metadata from ACL Anthology
-
-## Installation
-
-Install the required dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-## Usage
-
-The workflow follows these main steps:
-
-1. **Paper Collection**: Extract URLs and download PDFs
-2. **Text Extraction**: Convert PDFs to structured JSON
-3. **LLM Annotation**: Extract metadata using multiple LLMs
-4. **Harmonization**: Merge and harmonize LLM results
-5. **Normalization**: Normalize terms across categories
-6. **Analysis**: Generate figures and analyses
-
-See individual scripts in `src/` for detailed usage instructions.
 
 ## Data Availability
 
