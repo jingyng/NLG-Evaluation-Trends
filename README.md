@@ -62,36 +62,7 @@ Per-family outputs land in `metadata_unique_counts/{family}/`:
 
 ### Step 4 — QCET criterion classification (`src/qcet_normalization/`)
 
-Re-maps the normalised criterion strings onto the QCET taxonomy (Belz et al., 2024) plus a small auxiliary category set induced from residuals.
-
-```bash
-# 4.1 Calibrate batch size before the full classification run
-python src/qcet_normalization/calibrate_batch_size.py
-
-# 4.2 First-pass classification against the 111 QCET leaves;
-#     residuals (partial / no-fit) get clustered
-python src/qcet_normalization/classify_criteria.py
-python src/qcet_normalization/cluster_residuals.py
-
-# 4.3 Decide what to do with each residual cluster (LLM + manual curation)
-python src/qcet_normalization/decide_aux_categories.py
-python src/qcet_normalization/curate_aux_categories.py
-
-# 4.4 Final classification against 117 QCET leaves + 2 auxiliary categories
-python src/qcet_normalization/reclassify_criteria.py
-python src/qcet_normalization/apply_polysemous_overrides.py
-
-# 4.5 Fold the final classification into the per-family criterion CSVs
-python src/qcet_normalization/apply_qcet_to_metadata.py
-
-# 4.6 Two-annotator Likert validation on a 155-criterion stratified sample
-python src/qcet_normalization/sample_validation_set.py
-python src/qcet_normalization/export_validation_to_excel.py
-python src/qcet_normalization/score_validation.py
-```
-
-Prompts: [`classify_criteria_prompt.md`](prompts_guidelines/classify_criteria_prompt.md), [`reclassify_criteria_prompt.md`](prompts_guidelines/reclassify_criteria_prompt.md).
-QCET short labels for figure rendering live in `src/qcet_normalization/qcet_labels.py`.
+Re-maps the normalised criterion strings onto the QCET taxonomy (Belz et al., 2024) plus a small auxiliary category set induced from residuals. The full six-stage workflow (calibration → initial classification → residual clustering → aux-category decisions → final classification → two-annotator validation), with inputs, outputs, and prompt references, is documented in [`src/qcet_normalization/README.md`](src/qcet_normalization/README.md).
 
 ### Step 5 — Apply normalisation to the corpus
 
