@@ -10,7 +10,7 @@ The pipeline runs in six steps, each implemented by one module under `src/` (or 
 |---|---|---|
 | 1 | Paper collection + text extraction        | `src/pdf2text/` |
 | 2 | LLM-based metadata extraction              | `src/llm_annotation/` |
-| 3 | Per-family term normalisation              | `src/term_normalization/` |
+| 3 | Normalise each metadata category (tasks, automatic metrics, datasets, languages, models, criteria) separately | `src/term_normalization/` |
 | 4 | QCET criterion classification              | `src/qcet_normalization/` |
 | 5 | Apply normalisation to the corpus          | `src/llm_annotation/normalize_merged_results.py` |
 | 6 | Aggregations, association analysis, figures | `analysis/` |
@@ -44,7 +44,7 @@ Prompts: [`verify_and_normalize_prompt.md`](prompts_guidelines/verify_and_normal
 
 ### Step 3 — Term normalisation (`src/term_normalization/`)
 
-Per-family normalisation (preprocessing + fuzzy matching + manual mappings). Criterion families are stub-normalised here and re-mapped by the QCET pipeline in Step 4.
+Each metadata category (tasks, automatic metrics, datasets, languages, models, and human / LLM-as-a-Judge criteria) has its own normaliser — same shape (preprocessing + fuzzy matching + manual mappings) but category-specific rules and a separate output CSV. Criteria are stub-normalised here and re-mapped by the QCET pipeline in Step 4.
 
 ```bash
 python src/term_normalization/create_item_stats_csv.py       # builds {family}_stats.csv
@@ -57,8 +57,8 @@ python src/term_normalization/normalize_human_criteria.py
 python src/term_normalization/normalize_llm_criteria.py
 ```
 
-Per-family outputs land in `metadata_unique_counts/{family}/`:
-`{family}_normalization_mapping.csv` (raw → normalised) and `{family}_normalization_merges.csv` (multi-variant groupings).
+Outputs for each category land in `metadata_unique_counts/{category}/`:
+`{category}_normalization_mapping.csv` (raw → normalised) and `{category}_normalization_merges.csv` (multi-variant groupings).
 
 ### Step 4 — QCET criterion classification (`src/qcet_normalization/`)
 
@@ -109,7 +109,7 @@ acl2026-nlg-eval/
 │   ├── intermediate_results/    # Aggregations + QCET-pipeline outputs (under qcet/)
 │   └── figures/                 # Final figures used in the paper
 ├── results/                     # See the table in Step 5
-├── metadata_unique_counts/      # Per-family normalisation lookups (criteria, automatic_metrics,
+├── metadata_unique_counts/      # Per-category normalisation lookups (criteria, automatic_metrics,
 │                                # datasets, languages, models — each with mapping + merges CSVs)
 ├── prompts_guidelines/          # LLM prompts for Steps 2 and 4
 ├── human_annotation/            # Annotation guidelines + results
