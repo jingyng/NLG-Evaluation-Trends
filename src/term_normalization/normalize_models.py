@@ -150,8 +150,8 @@ def process_models(input_file, output_dir):
 
 def main():
     script_dir = Path(__file__).parent.parent
-    input_file = script_dir / 'metadata_unique_counts' / 'models_stats.csv'
-    output_dir = script_dir / 'metadata_unique_counts'
+    input_file = script_dir / 'metadata_unique_counts' / 'models' / 'models_stats.csv'
+    output_dir = script_dir / 'metadata_unique_counts' / 'models'
 
     print("="*80)
     print("Model Name Normalization (Unified Format)")

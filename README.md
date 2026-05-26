@@ -78,7 +78,7 @@ Processed data at various stages:
 ### Additional Directories
 
 - `human_annotation/`: Human-annotation guidelines and annotation results. 
-- `metadata_unique_counts/`: Original and normalized terms with their mapping CSVs (one per term family) and `criteria_qcet_short_labels.csv` (QCET full name → short label table used by figure scripts).
+- `metadata_unique_counts/`: Per-term-family subfolders (`criteria/`, `automatic_metrics/`, `datasets/`, `languages/`, `models/`), each containing the family's `*_normalization_mapping.csv` (raw → normalized lookup) and, where applicable, `*_normalization_merges.csv` (multi-variant groupings). `criteria/` additionally contains `criteria_qcet_short_labels.csv` (QCET full name → short label used by figure scripts).
 - `prompts_guidelines/`: Prompts for the four extraction stages — initial annotation, verification, normalisation, and LaaJ-vs-human validation extraction.
 - `paper_sources/`: Extracted paper URLs and metadata from ACL Anthology.
 

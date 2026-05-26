@@ -26,8 +26,8 @@ from typing import Iterable
 HERE = Path(__file__).resolve().parent
 PAPER_CODE = HERE.parent
 DATA_DIR = PAPER_CODE / "data" / "llm-merged-results-top30-tasks"
-LLM_MAP_CSV = PAPER_CODE / "metadata_unique_counts" / "llm_criteria_normalization_mapping.csv"
-HUM_MAP_CSV = PAPER_CODE / "metadata_unique_counts" / "human_criteria_normalization_mapping.csv"
+LLM_MAP_CSV = PAPER_CODE / "metadata_unique_counts" / "criteria" / "llm_criteria_normalization_mapping.csv"
+HUM_MAP_CSV = PAPER_CODE / "metadata_unique_counts" / "criteria" / "human_criteria_normalization_mapping.csv"
 
 
 def _criteria(data: dict, key: str) -> Iterable[str]:

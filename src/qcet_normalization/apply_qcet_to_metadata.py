@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Regenerate metadata_unique_counts/*_criteria_*.csv files using the QCET
+Regenerate metadata_unique_counts/criteria/*.csv files using the QCET
 classification results from stage4_classifications_simple.csv.
 
 Produces (overwrites):
-  metadata_unique_counts/
+  metadata_unique_counts/criteria/
     llm_criteria_normalization_mapping.csv      (original,normalized,count,qcet_id)
     human_criteria_normalization_mapping.csv
     llm_criteria_normalization_merges.csv       (normalized,total_count,num_variants,variants_with_counts,qcet_id)
@@ -26,7 +26,7 @@ from typing import Dict, List, Tuple
 BASE = Path(__file__).parent.parent           # paper_code/
 QCET_CSV = BASE / "05_criteria_normalization" / "outputs" / "stage4_classifications_simple.csv"
 POLY_OVERRIDES_CSV = BASE / "05_criteria_normalization" / "polysemous_overrides.csv"
-OUT_DIR = BASE / "metadata_unique_counts"
+OUT_DIR = BASE / "metadata_unique_counts" / "criteria"
 
 DROP_SENTINEL = "__DROP__"
 

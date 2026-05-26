@@ -9,11 +9,12 @@ from pathlib import Path
 
 
 BASE = Path(__file__).parent.parent
-INPUT = BASE / "metadata_unique_counts" / "datasets_stats.csv"
-OUTPUT = BASE / "metadata_unique_counts" / "datasets_stats_normalized.csv"
-MAP_OUTPUT = BASE / "metadata_unique_counts" / "datasets_normalization_mapping.csv"
-MERGES_OUTPUT = BASE / "metadata_unique_counts" / "datasets_normalization_merges.csv"
-FUZZY_MERGES_OUTPUT = BASE / "metadata_unique_counts" / "datasets_normalization_fuzzy_merges.csv"
+SUBDIR = BASE / "metadata_unique_counts" / "datasets"
+INPUT = SUBDIR / "datasets_stats.csv"
+OUTPUT = SUBDIR / "datasets_stats_normalized.csv"
+MAP_OUTPUT = SUBDIR / "datasets_normalization_mapping.csv"
+MERGES_OUTPUT = SUBDIR / "datasets_normalization_merges.csv"
+FUZZY_MERGES_OUTPUT = SUBDIR / "datasets_normalization_fuzzy_merges.csv"
 
 
 ALIASES = {

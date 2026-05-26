@@ -13,10 +13,11 @@ except ImportError:
     pycountry = None
 
 BASE = Path(__file__).parent.parent
-INPUT = BASE / "metadata_unique_counts" / "languages_stats.csv"
-OUTPUT = BASE / "metadata_unique_counts" / "languages_stats_normalized.csv"
-MAP_OUTPUT = BASE / "metadata_unique_counts" / "languages_normalization_mapping.csv"
-MERGES_OUTPUT = BASE / "metadata_unique_counts" / "languages_normalization_merges.csv"
+SUBDIR = BASE / "metadata_unique_counts" / "languages"
+INPUT = SUBDIR / "languages_stats.csv"
+OUTPUT = SUBDIR / "languages_stats_normalized.csv"
+MAP_OUTPUT = SUBDIR / "languages_normalization_mapping.csv"
+MERGES_OUTPUT = SUBDIR / "languages_normalization_merges.csv"
 
 ALIASES = {
     # regional/dialect

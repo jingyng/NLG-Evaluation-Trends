@@ -9,10 +9,11 @@ from difflib import SequenceMatcher
 from pathlib import Path
 
 BASE = Path(__file__).parent.parent
-INPUT = BASE / "metadata_unique_counts" / "tasks_stats.csv"
-OUTPUT = BASE / "metadata_unique_counts" / "tasks_stats_normalized.csv"
-MAP_OUTPUT = BASE / "metadata_unique_counts" / "tasks_normalization_mapping.csv"
-FUZZY_MERGES_OUTPUT = BASE / "metadata_unique_counts" / "tasks_normalization_fuzzy_merges.csv"
+SUBDIR = BASE / "metadata_unique_counts" / "tasks"
+INPUT = SUBDIR / "tasks_stats.csv"
+OUTPUT = SUBDIR / "tasks_stats_normalized.csv"
+MAP_OUTPUT = SUBDIR / "tasks_normalization_mapping.csv"
+FUZZY_MERGES_OUTPUT = SUBDIR / "tasks_normalization_fuzzy_merges.csv"
 
 # Lightweight aliases (no external mapping files)
 ALIASES = {

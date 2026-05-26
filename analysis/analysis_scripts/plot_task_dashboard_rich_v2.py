@@ -119,7 +119,7 @@ def _build_name_to_l1() -> dict[str, str]:
     and build a name → L1 lookup."""
     import csv
     out: dict[str, str] = {}
-    p = Path(__file__).parent.parent / "metadata_unique_counts" / "criteria_qcet_short_labels.csv"
+    p = Path(__file__).parent.parent / "metadata_unique_counts" / "criteria" / "criteria_qcet_short_labels.csv"
     if not p.exists():
         return out
     with p.open(newline="") as f:

@@ -28,7 +28,7 @@ def load_normalization_mappings():
     display_names = {}  # Maps normalized names to their most frequent variant for display
 
     # Load automatic metrics normalization
-    metrics_file = base_dir / 'automatic_metrics_normalization_mapping.csv'
+    metrics_file = base_dir / 'automatic_metrics' / 'automatic_metrics_normalization_mapping.csv'
     mappings['auto_metrics'] = {}
     with open(metrics_file, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
@@ -36,7 +36,7 @@ def load_normalization_mappings():
             mappings['auto_metrics'][row['original'].lower().strip()] = row['normalized']
 
     # Load automatic metrics merges to get most frequent variant for display
-    metrics_merges_file = base_dir / 'automatic_metrics_normalization_merges.csv'
+    metrics_merges_file = base_dir / 'automatic_metrics' / 'automatic_metrics_normalization_merges.csv'
     display_names['auto_metrics'] = {}
     with open(metrics_merges_file, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
@@ -50,7 +50,7 @@ def load_normalization_mappings():
             display_names['auto_metrics'][normalized] = variant_name
 
     # Load datasets normalization
-    datasets_file = base_dir / 'datasets_normalization_mapping.csv'
+    datasets_file = base_dir / 'datasets' / 'datasets_normalization_mapping.csv'
     mappings['datasets'] = {}
     with open(datasets_file, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
@@ -58,7 +58,7 @@ def load_normalization_mappings():
             mappings['datasets'][row['original'].lower().strip()] = row['normalized']
 
     # Load models normalization
-    models_file = base_dir / 'models_normalization_mapping.csv'
+    models_file = base_dir / 'models' / 'models_normalization_mapping.csv'
     mappings['models'] = {}
     with open(models_file, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
@@ -66,7 +66,7 @@ def load_normalization_mappings():
             mappings['models'][row['original'].lower().strip()] = row['normalized']
 
     # Load models merges to get most frequent variant for display
-    models_merges_file = base_dir / 'models_normalization_merges.csv'
+    models_merges_file = base_dir / 'models' / 'models_normalization_merges.csv'
     display_names['models'] = {}
     with open(models_merges_file, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
@@ -83,7 +83,7 @@ def load_normalization_mappings():
     display_names['laaj_models'] = display_names['models']
 
     # Load languages normalization
-    languages_file = base_dir / 'languages_normalization_mapping.csv'
+    languages_file = base_dir / 'languages' / 'languages_normalization_mapping.csv'
     mappings['languages'] = {}
     with open(languages_file, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
@@ -91,7 +91,7 @@ def load_normalization_mappings():
             mappings['languages'][row['original'].lower().strip()] = row['normalized']
 
     # Load human criteria normalization
-    human_file = base_dir / 'human_criteria_normalization_mapping.csv'
+    human_file = base_dir / 'criteria' / 'human_criteria_normalization_mapping.csv'
     mappings['human_criteria'] = {}
     with open(human_file, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
@@ -99,7 +99,7 @@ def load_normalization_mappings():
             mappings['human_criteria'][row['original'].lower().strip()] = row['normalized']
 
     # Load LLM criteria normalization
-    llm_file = base_dir / 'llm_criteria_normalization_mapping.csv'
+    llm_file = base_dir / 'criteria' / 'llm_criteria_normalization_mapping.csv'
     mappings['laaj_criteria'] = {}
     with open(llm_file, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)

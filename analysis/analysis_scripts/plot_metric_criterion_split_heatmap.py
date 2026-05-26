@@ -44,7 +44,7 @@ from association_measures import compute_all, bh_fdr
 OUT_DIR = HERE.parent / "figures"  # analysis/figures/ (was: paper imgs/)
 OUT_PNG = OUT_DIR / "metric_criterion_split_heatmap.png"
 OUT_PDF = OUT_DIR / "metric_criterion_split_heatmap.pdf"
-NORMALIZATION_CSV = BASE / "metadata_unique_counts" / "automatic_metrics_normalization_merges.csv"
+NORMALIZATION_CSV = BASE / "metadata_unique_counts" / "automatic_metrics" / "automatic_metrics_normalization_merges.csv"
 
 TASKS_ORDERED = [
     ("Dialogue Generation",   "Dialogue Generation"),

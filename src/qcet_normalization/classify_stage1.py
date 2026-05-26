@@ -57,8 +57,8 @@ from deepseek_client import DeepSeekClient
 HERE = Path(__file__).resolve().parent
 BASE = HERE.parent.parent  # repo root
 QCET_JSON = HERE / "qcet_taxonomy.json"
-LLM_CSV = BASE / "metadata_unique_counts" / "llm_criteria_stats.csv"
-HUMAN_CSV = BASE / "metadata_unique_counts" / "human_criteria_stats.csv"
+LLM_CSV = BASE / "metadata_unique_counts" / "criteria" / "llm_criteria_stats.csv"
+HUMAN_CSV = BASE / "metadata_unique_counts" / "criteria" / "human_criteria_stats.csv"
 OUT_DIR = HERE / "outputs"
 OUT_CSV = OUT_DIR / "stage1_classifications.csv"
 

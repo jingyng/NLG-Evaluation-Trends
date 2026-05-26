@@ -9,11 +9,12 @@ from pathlib import Path
 
 
 BASE = Path(__file__).parent.parent
-INPUT = BASE / "metadata_unique_counts" / "human_criteria_stats.csv"
-OUTPUT = BASE / "metadata_unique_counts" / "human_criteria_stats_normalized.csv"
-MAP_OUTPUT = BASE / "metadata_unique_counts" / "human_criteria_normalization_mapping.csv"
-MERGES_OUTPUT = BASE / "metadata_unique_counts" / "human_criteria_normalization_merges.csv"
-FUZZY_MERGES_OUTPUT = BASE / "metadata_unique_counts" / "human_criteria_normalization_fuzzy_merges.csv"
+SUBDIR = BASE / "metadata_unique_counts" / "criteria"
+INPUT = SUBDIR / "human_criteria_stats.csv"
+OUTPUT = SUBDIR / "human_criteria_stats_normalized.csv"
+MAP_OUTPUT = SUBDIR / "human_criteria_normalization_mapping.csv"
+MERGES_OUTPUT = SUBDIR / "human_criteria_normalization_merges.csv"
+FUZZY_MERGES_OUTPUT = SUBDIR / "human_criteria_normalization_fuzzy_merges.csv"
 
 
 def canonical(text: str) -> str:
