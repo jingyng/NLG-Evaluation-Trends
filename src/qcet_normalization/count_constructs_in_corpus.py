@@ -24,10 +24,10 @@ from pathlib import Path
 from typing import Iterable
 
 HERE = Path(__file__).resolve().parent
-PAPER_CODE = HERE.parent
-DATA_DIR = PAPER_CODE / "data" / "llm-merged-results-top30-tasks"
-LLM_MAP_CSV = PAPER_CODE / "metadata_unique_counts" / "criteria" / "llm_criteria_normalization_mapping.csv"
-HUM_MAP_CSV = PAPER_CODE / "metadata_unique_counts" / "criteria" / "human_criteria_normalization_mapping.csv"
+REPO_ROOT = HERE.parent.parent
+DATA_DIR = REPO_ROOT / "results" / "llm-merged-results-top30-tasks"
+LLM_MAP_CSV = REPO_ROOT / "metadata_unique_counts" / "criteria" / "llm_criteria_normalization_mapping.csv"
+HUM_MAP_CSV = REPO_ROOT / "metadata_unique_counts" / "criteria" / "human_criteria_normalization_mapping.csv"
 
 
 def _criteria(data: dict, key: str) -> Iterable[str]:
@@ -59,7 +59,7 @@ def main() -> None:
     canonical_any = canonical_llm | canonical_hum
 
     paths = sorted(DATA_DIR.rglob("*.json"))
-    print(f"Reading {len(paths)} papers from {DATA_DIR.relative_to(PAPER_CODE)}")
+    print(f"Reading {len(paths)} papers from {DATA_DIR.relative_to(REPO_ROOT)}")
 
     llm_constructs: Counter = Counter()
     hum_constructs: Counter = Counter()
