@@ -6,7 +6,7 @@ Reads the per-task paper coverage CSVs and writes:
   - analysis/coverage_summary.md
 
 Run from project root:
-  python nlg-eval-llm/analysis/build_coverage_summary.py
+  python analysis/analysis_scripts/build_coverage_summary.py
 """
 
 from __future__ import annotations
@@ -304,7 +304,7 @@ def main() -> None:
     axes1 = axes1.flatten().tolist() if isinstance(axes1, np.ndarray) else [axes1]
     fig1.set_dpi(150)
     plot_panels(fig1, axes1, plot1_panels)
-    png_out1 = os.path.join(base_dir, "coverage_summary_plot1.png")
+    png_out1 = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "analysis", "figures", "coverage_summary_plot1.png")
     fig1.savefig(png_out1, dpi=300)
     plt.close(fig1)
     print(f"Wrote: {png_out1}")
@@ -314,7 +314,7 @@ def main() -> None:
     axes2 = axes2.flatten().tolist() if isinstance(axes2, np.ndarray) else [axes2]
     fig2.set_dpi(150)
     plot_panels(fig2, axes2, plot2_panels)
-    png_out2 = os.path.join(base_dir, "coverage_summary_plot2.png")
+    png_out2 = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "analysis", "figures", "coverage_summary_plot2.png")
     fig2.savefig(png_out2, dpi=300)
     plt.close(fig2)
     print(f"Wrote: {png_out2}")
@@ -546,7 +546,7 @@ def main() -> None:
 
     plt.tight_layout(rect=[0, 0.08, 1, 0.98])
 
-    png_out3 = os.path.join(base_dir, "coverage_summary.png")
+    png_out3 = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'analysis', 'figures', 'coverage_summary.png')
     fig3.savefig(png_out3, dpi=300)
     plt.close(fig3)
     print(f"Wrote: {png_out3}")

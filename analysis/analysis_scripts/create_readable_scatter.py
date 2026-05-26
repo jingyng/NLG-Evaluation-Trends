@@ -15,9 +15,9 @@ from scipy.stats import pearsonr, spearmanr
 
 
 BASE = Path(__file__).parent.parent
-HUMAN_FILE = BASE / "analysis" / "figures" / "metrics_vs_human_eval" / "metrics_vs_human_eval_results.json"
-LLM_FILE = BASE / "analysis" / "figures" / "metrics_vs_llm_eval" / "metrics_vs_llm_eval_results.json"
-OUTPUT_DIR = BASE / "analysis" / "figures" / "human_vs_llm_comparison"
+HUMAN_FILE = BASE / "outputs" / "figures" / "metrics_vs_human_eval" / "metrics_vs_human_eval_results.json"
+LLM_FILE = BASE / "outputs" / "figures" / "metrics_vs_llm_eval" / "metrics_vs_llm_eval_results.json"
+OUTPUT_DIR = BASE / "outputs" / "figures" / "human_vs_llm_comparison"
 NORMALIZATION_CSV = BASE / "metadata_unique_counts" / "automatic_metrics_normalization_merges.csv"
 
 
@@ -136,6 +136,8 @@ def create_comparison_dataframe(human_data, llm_data, normalization_map, min_tot
                 "Human Enrichment": human_enrich,
                 "LLM Enrichment": llm_enrich,
                 "Total": total,
+                "Human q": human_stats.get("q_value", 1.0) if metric_in_human else 1.0,
+                "LLM q": llm_stats.get("q_value", 1.0) if metric_in_llm else 1.0,
             })
 
     df = pd.DataFrame(rows)
@@ -300,7 +302,7 @@ def create_improved_scatter(df, output_dir):
     below_diagonal = df_plot["LLM Plot"] < df_plot["Human Plot"]
 
     # Colors
-    red_color = '#D62728'  # Red for above diagonal (LaaJ-favored)
+    red_color = '#FF7F0E'  # Orange for above diagonal (LaaJ-favored)
     blue_color = '#1F77B4'  # Blue for below diagonal (Human-favored)
     grey_color = '#7F7F7F'  # Grey for Generic
 
@@ -444,12 +446,22 @@ def create_improved_scatter(df, output_dir):
                 pe.Normal()
             ])
 
+    # Mark non-significant associations (BH-FDR q > 0.05 for both human and LLM)
+    nonsig_mask = (df_plot["Human q"] > 0.05) & (df_plot["LLM q"] > 0.05)
+    if nonsig_mask.sum() > 0:
+        ax.scatter(
+            df_plot.loc[nonsig_mask, "Human Plot"],
+            df_plot.loc[nonsig_mask, "LLM Plot"],
+            marker='x', s=40, color='#888888', linewidth=0.8, alpha=0.7, zorder=6,
+        )
+
     # Nature Style: Minimal zone labels - very subtle, small, grey
     # Only add subtle threshold labels next to grid lines
     ax.text(1.0, 0.32, 'LR=1', fontsize=8, alpha=0.5, ha='center', color='#666666')  # Reduced for single-column
     ax.text(5.0, 0.32, 'LR=5', fontsize=8, alpha=0.5, ha='center', color='#666666')
     ax.text(0.32, 1.0, 'LR=1', fontsize=8, alpha=0.5, va='center', rotation=90, color='#666666')
     ax.text(0.32, 5.0, 'LR=5', fontsize=8, alpha=0.5, va='center', rotation=90, color='#666666')
+    ax.text(0.31, 0.34, '✕ = BH-FDR q>0.05', fontsize=7, alpha=0.6, color='#666666', va='bottom')
 
     # Styling - improved axis labels
     ax.set_xlabel('Association with Human Eval (>5 = Highly Specific)',
@@ -612,11 +624,20 @@ def create_improved_scatter(df, output_dir):
                 pe.Normal()
             ])
 
+    # Mark non-significant associations (BH-FDR q > 0.05 for both human and LLM)
+    if nonsig_mask.sum() > 0:
+        ax.scatter(
+            df_plot.loc[nonsig_mask, "Human Plot"],
+            df_plot.loc[nonsig_mask, "LLM Plot"],
+            marker='x', s=40, color='#888888', linewidth=0.8, alpha=0.7, zorder=6,
+        )
+
     # Nature Style: Minimal zone labels (same as PNG)
     ax.text(1.0, 0.32, 'LR=1', fontsize=8, alpha=0.5, ha='center', color='#666666')  # Reduced for single-column
     ax.text(5.0, 0.32, 'LR=5', fontsize=8, alpha=0.5, ha='center', color='#666666')
     ax.text(0.32, 1.0, 'LR=1', fontsize=8, alpha=0.5, va='center', rotation=90, color='#666666')
     ax.text(0.32, 5.0, 'LR=5', fontsize=8, alpha=0.5, va='center', rotation=90, color='#666666')
+    ax.text(0.31, 0.34, '✕ = BH-FDR q>0.05', fontsize=7, alpha=0.6, color='#666666', va='bottom')
 
     ax.set_xlabel('Association with Human Judges (>5 = Highly Specific)',
                  fontsize=11, fontweight='bold')  # Reduced for single-column

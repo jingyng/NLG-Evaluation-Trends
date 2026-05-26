@@ -1,0 +1,320 @@
+{
+  "schema_version": "1.1",
+  "description": "Auxiliary criterion categories extending the QCET taxonomy (Belz et al., 2025). Each category is defined by a CONSTRUCT (what is measured), not by surface labels. Default labels are the raw-string terms that, absent other evidence, map to this construct; disambiguation rules resolve construct-ambiguous terms using per-paper context. Six of the nine categories are placed at specific positions in QCET's L1 x L2 x L3 lattice (see 'tree_position'); three are meta-categories that deliberately resist decomposition and are tracked as flat buckets.",
+  "admission_rule": {
+    "prevalence_test": "Concept must appear as an explicit evaluation criterion label in >= 30 raw-criterion occurrences in the corpus.",
+    "non_reducibility_test": "Concept must not be reducible to a single existing QCET leaf without losing a semantic distinction the community actively makes in practice.",
+    "tree_placement_test": "If the concept has a natural unique position in QCET's L1 x L2 x L3 lattice, it is placed there as an extension node; otherwise it is marked as a meta-category.",
+    "fallback": "Candidates that fail any test are mapped back into QCET or into AUX-Other with a sub-reason."
+  },
+  "tree_position_schema": {
+    "level1": "Frame of reference: QO (Own right), QI (relative to Input), QT (relative to Target), QE (relative to External)",
+    "level2": "Type of quality: C (Correctness, error-countable), G (Goodness, holistic), F (Feature, bivalent)",
+    "level3": "Aspect: f (Form), c (Content), w (Outputs as a Whole)",
+    "extends_parent": "The QCET parent node under which the aux leaf sits (e.g., QEC-w means this aux leaf is a sibling of the existing QEC-w-N leaves).",
+    "meta_category": "If true, the category does not fit the lattice and is tracked as a flat meta-bucket (not used in L1/L2/L3 aggregations)."
+  },
+  "categories": [
+    {
+      "id": "AUX-Safety",
+      "name": "Safety (refusal correctness)",
+      "tree_position": {
+        "level1": "QE",
+        "level1_name": "Quality of outputs relative to a specified external frame of reference",
+        "level2": "C",
+        "level2_name": "Correctness",
+        "level3": "w",
+        "level3_name": "Outputs as a whole",
+        "extends_parent": "QEC-w",
+        "meta_category": false,
+        "siblings_in_qcet": ["QEC-w-1 Functional Correctness"],
+        "placement_rationale": "Safety is judged against an EXTERNAL safety policy/standard (frame-of-reference = External). Refusal errors (inappropriate compliance, inappropriate refusal) are COUNTABLE (type = Correctness). The judgment is made on the output as a WHOLE (aspect = Whole)."
+      },
+      "construct": "Refusal correctness: whether the model appropriately declines requests for unsafe, dangerous, illegal, or policy-violating content. Measured against an adversarial or red-teaming input distribution; the evaluated property is the model's decision to refuse, not the surface form of any generated text.",
+      "default_labels": [
+        "safety",
+        "refusal",
+        "full refusal",
+        "refusal behavior",
+        "absence of refusal in response",
+        "jailbreak success",
+        "correct reasoning driving safety prediction",
+        "harm category prediction",
+        "harmful intent",
+        "harmless query"
+      ],
+      "disambiguation_rules": [
+        "Labels 'harmlessness', 'harm', 'harmfulness', 'harmful content' map here IF the paper's task/dataset is red-teaming, adversarial evaluation, jailbreak benchmarks, or an alignment (HHH) dataset.",
+        "Default convention: in LLM-as-judge papers that use HHH terminology (Helpful/Harmless/Honest), 'harmlessness' maps to AUX-Safety."
+      ],
+      "closest_qcet_leaf_considered": null,
+      "non_reducibility_argument": "QCET measures quality of outputs that the system chose to produce. AUX-Safety measures whether the system correctly chose NOT to produce an output at all. These are categorically different constructs: quality-given-production vs. appropriateness-of-production."
+    },
+    {
+      "id": "AUX-Toxicity",
+      "name": "Content toxicity/offensiveness",
+      "tree_position": {
+        "level1": "QO",
+        "level1_name": "Quality of outputs in their own right",
+        "level2": "C",
+        "level2_name": "Correctness",
+        "level3": "c",
+        "level3_name": "Content",
+        "extends_parent": "QOC-c",
+        "meta_category": false,
+        "siblings_in_qcet": ["QOC-c-1 Semantic Correctness"],
+        "placement_rationale": "Toxicity is a property of the output content itself, assessable without reference to input/target/external (frame-of-reference = Own right). Toxic tokens/phrases/abuse instances are COUNTABLE (type = Correctness). The judgment is about the semantic/content properties of the text (aspect = Content)."
+      },
+      "construct": "Content toxicity: whether the output text itself contains toxic, offensive, abusive, profane, hateful, or degrading material. Distinct from refusal: evaluated on the surface content of outputs using toxicity classifiers or human judgements of offensiveness, on non-adversarial inputs.",
+      "default_labels": [
+        "toxicity",
+        "less toxic",
+        "offensiveness",
+        "inoffensiveness",
+        "absence of offensive content",
+        "absence of offensive/unethical content",
+        "harmful content",
+        "detoxification"
+      ],
+      "disambiguation_rules": [
+        "Labels 'harmlessness', 'harm', 'harmfulness' map here IF the paper's task is detoxification, content moderation, or the evaluation uses a toxicity classifier (Perspective API, Detoxify, RealToxicityPrompts) or human ratings of abusive language.",
+        "When a paper evaluates both refusal AND content toxicity, treat them as separate criteria and map each occurrence to the appropriate aux category using the specific label."
+      ],
+      "closest_qcet_leaf_considered": null,
+      "non_reducibility_argument": "QCET does not cover offensiveness as a quality aspect of output content. Toxicity is a property of linguistic content that can coexist with perfect fluency, coherence, and relevance; it is orthogonal to QCET's correctness/goodness/feature axes."
+    },
+    {
+      "id": "AUX-Bias",
+      "name": "Bias/Fairness",
+      "tree_position": {
+        "level1": "QE",
+        "level1_name": "Quality of outputs relative to a specified external frame of reference",
+        "level2": "C",
+        "level2_name": "Correctness",
+        "level3": "c",
+        "level3_name": "Content",
+        "extends_parent": "QEC-c",
+        "meta_category": false,
+        "siblings_in_qcet": ["QEC-c-1 Factual Truth", "QEC-c-2 Relative Factual Accuracy"],
+        "placement_rationale": "Fairness standards are EXTERNAL (societal / demographic reference; frame-of-reference = External). Stereotype instances, biased associations, and unequal treatment are COUNTABLE against probe datasets (type = Correctness). The bias is a property of the output's CONTENT with respect to demographic groups (aspect = Content)."
+      },
+      "construct": "Bias/fairness: whether outputs exhibit systematic unequal treatment of demographic groups, stereotypes, or biased associations. Typically measured distributionally across populations or via targeted probes (stereotype datasets, occupation-gender associations).",
+      "default_labels": [
+        "bias",
+        "biased",
+        "unbiased",
+        "fairness",
+        "unfair",
+        "stereotype",
+        "counter-stereotype",
+        "demographic bias",
+        "gender bias",
+        "racial bias",
+        "political bias",
+        "presence of stereotype or counter-stereotype text spans"
+      ],
+      "disambiguation_rules": [
+        "If 'bias' is used in a non-demographic sense (e.g., 'position bias', 'recency bias' in LaaJ judging), map to AUX-Other with sub-reason 'judgement-bias-not-output-property'. It is about the judge, not the output."
+      ],
+      "closest_qcet_leaf_considered": null,
+      "non_reducibility_argument": "Bias is a distributional property across populations of outputs or inputs. QCET criteria are properties of individual outputs. A single output, in isolation, cannot be 'biased' in the fairness sense (though it can instantiate a stereotype). The construct is inherently comparative and demographic; no QCET leaf captures this."
+    },
+    {
+      "id": "AUX-InstructionFollowing",
+      "name": "Instruction-Following",
+      "tree_position": {
+        "level1": "QI",
+        "level1_name": "Quality of outputs relative to input",
+        "level2": "C",
+        "level2_name": "Correctness",
+        "level3": "w",
+        "level3_name": "Outputs as a whole",
+        "extends_parent": "QIC-w",
+        "meta_category": false,
+        "siblings_in_qcet": ["QIC-w-1 Translation Accuracy"],
+        "placement_rationale": "Instructions and constraints are provided in the INPUT (frame-of-reference = Input). Constraint violations (format not met, length exceeded, forbidden content included) are COUNTABLE (type = Correctness). Instruction-following is assessed at the WHOLE-output level, spanning form, content, and style constraints simultaneously (aspect = Whole)."
+      },
+      "construct": "Instruction-following: whether the output obeys explicit instructions, constraints, or format requirements specified in the prompt/input. Includes format adherence, length constraints, style mandates, and respecting system-prompt rules. A dominant concept in modern LaaJ (AlpacaEval, MT-Bench, IFEval tradition).",
+      "default_labels": [
+        "instruction following",
+        "follows instructions",
+        "instruction adherence",
+        "adherence to instructions",
+        "respects constraints",
+        "follows prompt",
+        "adheres to system prompt",
+        "format compliance",
+        "alignment with task instruction",
+        "alignment with instruction",
+        "alignment with requirements"
+      ],
+      "disambiguation_rules": [
+        "The bare word 'alignment' is QCET-first: try Consistency with Input (QIC-c-3), Similarity to Target (QTG-*), Factual Accuracy (QEC-c-*), or Appropriateness of System Response Type (QIG-f-1) before considering this bucket.",
+        "Only route 'alignment' here if the paper's usage is explicitly about obeying instructions/constraints, and it does not collapse into one of the QCET leaves listed above.",
+        "Constraint-satisfaction criteria that check specific format rules (word count, JSON schema, bullet list format) map here, not to QCET Form Accuracy."
+      ],
+      "closest_qcet_leaf_considered": "QIG-f-1 Appropriateness of System Response Type",
+      "non_reducibility_argument": "QIG-f-1 is narrowly about whether the response is of the correct TYPE (e.g., is the output a question, a class label, an attempt at an answer). Instruction-following is broader: obeying any explicit constraint in the prompt (format, length, style, content inclusion/exclusion). Modern LLM evaluation uses instruction-following as a top-level dimension; the community does not treat it as a special case of response-type appropriateness."
+    },
+    {
+      "id": "AUX-Empathy",
+      "name": "Empathy/emotional attunement",
+      "tree_position": {
+        "level1": "QE",
+        "level1_name": "Quality of outputs relative to a specified external frame of reference",
+        "level2": "G",
+        "level2_name": "Goodness",
+        "level3": "w",
+        "level3_name": "Outputs as a whole",
+        "extends_parent": "QEG-w",
+        "meta_category": false,
+        "siblings_in_qcet": ["QEG-w-3 Usefulness", "QEG-w-6 User Satisfaction", "QEG-w-1 Naturalness (outputs as a whole)"],
+        "placement_rationale": "Empathy is judged against an EXTERNAL norm of emotionally-attuned response (social/communicative standard; frame-of-reference = External). Empathy has no clean countable-error formulation: an output can be more or less empathetic without a well-defined 'zero errors' state, so type = Goodness rather than Correctness. The judgment blends tone, word choice, and content acknowledgement and is made at the WHOLE-output level."
+      },
+      "construct": "Empathy: the output's demonstration of recognition of and appropriate response to the user's emotional state. Distinct from emotional impact on the user (QCET QEF-w-3): empathy is about the system's stance, not the user's resulting emotion.",
+      "default_labels": [
+        "empathy",
+        "empathetic",
+        "empathetic tone",
+        "empathetic response",
+        "emotional support",
+        "supportiveness",
+        "compassion",
+        "compassionate",
+        "emotional attunement",
+        "emotional awareness",
+        "emotional alignment"
+      ],
+      "disambiguation_rules": [
+        "If the criterion measures CHANGE in the user's emotional state as a result of the output (e.g., 'reduced user distress'), map to QCET QEF-w-3 Effect on User Emotion, not here.",
+        "Common in dialogue, mental-health, therapy-bot, and counseling evaluations."
+      ],
+      "closest_qcet_leaf_considered": "QEF-w-3 Effect on User Emotion",
+      "non_reducibility_argument": "QEF-w-3 measures the output's impact on user emotion (causal, extrinsic). Empathy measures the output's demonstration of emotional awareness (intrinsic, about the system's stance). A response can be empathetic without measurably shifting user emotion (and vice versa). Papers in dialogue and mental-health eval treat these as distinct constructs with different elicitation protocols."
+    },
+    {
+      "id": "AUX-Creativity",
+      "name": "Creativity/Originality",
+      "tree_position": {
+        "level1": "QO",
+        "level1_name": "Quality of outputs in their own right",
+        "level2": "F",
+        "level2_name": "Feature",
+        "level3": "w",
+        "level3_name": "Outputs as a whole",
+        "extends_parent": "QOF-w",
+        "meta_category": false,
+        "siblings_in_qcet": ["QOF-w-1 Diversity (outputs as a whole)", "QOF-w-2 Poeticness/Non-poeticness (outputs as a whole)", "QOF-w-5 Humorousness/Non-humorousness"],
+        "placement_rationale": "Creativity is judged of the output in its OWN RIGHT (no input/target/external required; frame-of-reference = Own right). Creativity is bivalent: in some contexts more creative is better (creative writing), in others less creative is better (technical documentation) -- this is the defining property of QCET's FEATURE type. The judgment blends form and content and is made at the WHOLE-output level."
+      },
+      "construct": "Creativity: aesthetic novel value of the output, including originality, imaginativeness, and creative expression. Typically evaluated in creative-writing, story-generation, and poetry tasks.",
+      "default_labels": [
+        "creativity",
+        "creative",
+        "originality",
+        "original",
+        "novelty",
+        "novel",
+        "imaginativeness",
+        "imaginative",
+        "inventiveness",
+        "creative expression",
+        "artistic quality"
+      ],
+      "disambiguation_rules": [
+        "If 'novelty' is used in a retrieval or scientific-discovery sense (new information not in training data), map to QCET QOG-c-2 Informativeness, not here.",
+        "Diversity across a SET of outputs maps to QCET diversity nodes (QOF-*-1); creativity of a SINGLE output maps here."
+      ],
+      "closest_qcet_leaf_considered": "QOF-w-1 Diversity (outputs as a whole)",
+      "non_reducibility_argument": "QCET diversity measures variedness across multiple outputs. Creativity/originality measures aesthetic novel value of an individual output. A single creative output may or may not contribute to diversity; and a diverse set of outputs may contain no creative one. Creative-writing evaluation literature clearly distinguishes these constructs."
+    },
+    {
+      "id": "AUX-OverallQuality",
+      "name": "Overall Quality / Preference",
+      "tree_position": {
+        "meta_category": true,
+        "placement_rationale": "OverallQuality is a META-category. By construction, it refuses to commit to any L1 frame-of-reference, any L2 type, or any L3 aspect -- it is the explicit choice to judge holistically. Forcing it into a specific lattice position would misrepresent the methodological stance the paper is taking. Tracked as a flat meta-bucket outside L1/L2/L3 aggregations."
+      },
+      "construct": "Holistic overall judgment of output quality without decomposition into specific aspects. Includes 'overall quality', 'overall rating', pairwise preference judgements, and Arena-style 'which is better' comparisons. The defining feature is the explicit REFUSAL to decompose into specific aspects; this is itself a methodological stance worth tracking.",
+      "default_labels": [
+        "overall quality",
+        "overall",
+        "overall rating",
+        "overall preference",
+        "preference",
+        "pairwise preference",
+        "rating",
+        "holistic quality",
+        "general quality",
+        "which is better"
+      ],
+      "disambiguation_rules": [
+        "If 'preference' appears with a specific aspect qualifier (e.g., 'preference for shorter outputs'), map to the QCET leaf or aux category matching the specific aspect.",
+        "System-level aggregate win rate across many comparisons may map to QCET QEG-w-10 Win Rate; per-output preference-as-criterion maps here.",
+        "If the criterion is 'quality' alone with no other context, use confidence='low' and land here; do NOT force into a specific QCET leaf."
+      ],
+      "closest_qcet_leaf_considered": "QEG-w-10 Win Rate",
+      "non_reducibility_argument": "QEG-w-10 is a system-level aggregate metric. Overall-quality-as-criterion is a per-output holistic judgment that deliberately avoids specifying an aspect. Mapping it into a specific QCET leaf would misrepresent the paper's methodological choice (it explicitly declined to commit to an aspect). The size of this bucket is itself a finding: prevalence of underspecified quality evaluation."
+    },
+    {
+      "id": "AUX-TaskSpecificPerformance",
+      "name": "Task-Specific Performance Label",
+      "tree_position": {
+        "meta_category": true,
+        "placement_rationale": "TaskSpecificPerformance is a META-category. Labels like 'summary quality' or 'MT quality' are task-level aggregate indicators that conflate multiple QCET dimensions (correctness, fluency, usefulness, content selection). They cannot be placed at a single lattice position without misrepresenting that conflation. Tracked as a flat meta-bucket; its size is informative as a diagnostic of under-decomposed task-level evaluation."
+      },
+      "construct": "Criterion labels that are really task-level aggregate performance indicators (e.g., 'QA accuracy', 'summary quality', 'translation quality', 'generation quality') without decomposition into output-quality aspects. These are often inherited from task benchmarks and conflate correctness, fluency, usefulness, and sometimes content selection.",
+      "default_labels": [
+        "qa accuracy",
+        "question answering accuracy",
+        "summary quality",
+        "summarization quality",
+        "translation quality",
+        "mt quality",
+        "generation quality",
+        "dialogue quality",
+        "response quality",
+        "caption quality",
+        "code quality",
+        "task performance",
+        "task completion"
+      ],
+      "disambiguation_rules": [
+        "Distinguish from AUX-OverallQuality: TaskSpecificPerformance names a specific task (QA, MT, summarization) while OverallQuality is task-agnostic.",
+        "If the paper decomposes the task-specific label into sub-criteria elsewhere, map this occurrence to the sub-criteria's aggregate, NOT here."
+      ],
+      "closest_qcet_leaf_considered": null,
+      "non_reducibility_argument": "These labels are aggregate performance indicators at the task level, typically conflating several QCET dimensions. Forcing them to any single QCET leaf would be misleading (a paper using 'summary quality' has not committed to measuring coherence, informativeness, factuality, or readability specifically). The bucket is small but methodologically informative: prevalence of under-decomposed task-level evaluation."
+    },
+    {
+      "id": "AUX-Other",
+      "name": "Other / Unclassifiable",
+      "tree_position": {
+        "meta_category": true,
+        "placement_rationale": "AUX-Other is a META-category by construction: it is the residual bucket for extraction noise and unclassifiable content. Tracked as a flat meta-bucket; its size is informative as a diagnostic of extraction quality and taxonomy coverage gaps."
+      },
+      "construct": "Residual bucket for strings that either (a) are not criteria at all, (b) are automatic-metric names that slipped into the criterion field, or (c) are plausibly criteria but cannot be confidently mapped to any QCET leaf or the eight aux categories above.",
+      "default_labels": [],
+      "sub_reasons": [
+        {
+          "id": "not_a_criterion",
+          "description": "Extraction junk. Examples: a single stopword, a full sentence copied from the paper, 'text', 'result', 'answer', a number, a hallucinated extraction."
+        },
+        {
+          "id": "metric_name_in_criterion_field",
+          "description": "An automatic-metric name appearing as a LaaJ or human criterion (e.g., 'BLEU', 'ROUGE-L', 'F1'). Recorded for audit; counts here are excluded from criterion associations and noted in the audit CSV."
+        },
+        {
+          "id": "judgement_bias",
+          "description": "Bias of the JUDGE (e.g., 'position bias', 'recency bias' in LaaJ). Not an output property; reported separately from output-quality criteria."
+        },
+        {
+          "id": "unclassifiable",
+          "description": "Plausibly a criterion but cannot be confidently mapped. Reported in an audit CSV for potential manual resolution."
+        }
+      ],
+      "closest_qcet_leaf_considered": null,
+      "non_reducibility_argument": "By construction, a residual bucket. Size and composition are reported as diagnostic of corpus extraction quality and of coverage gaps in QCET + aux."
+    }
+  ]
+}

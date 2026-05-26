@@ -15,8 +15,8 @@ from pathlib import Path
 
 # Get the directory of the current script
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(SCRIPT_DIR, '..', 'llm-merged-results-top30-tasks')
-OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'figures')
+DATA_DIR = os.path.join(SCRIPT_DIR, '..', 'data', 'llm-merged-results-top30-tasks')
+OUTPUT_DIR = os.path.join(SCRIPT_DIR, '..', 'outputs', 'figures', 'task_dashboard')
 
 def load_task_year_data():
     """Load all papers and extract task-year pairs."""

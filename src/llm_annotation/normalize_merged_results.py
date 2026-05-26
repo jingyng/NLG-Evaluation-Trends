@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 """
-Normalize merged paper JSON files using the prepared mapping CSVs.
+Step 4c – Normalize merged paper JSON files using manually curated mapping CSVs.
 
-For each paper in ``llm-merged-results`` it creates a normalized copy in
-``llm-merged-results-normalized`` (by default), preserving the folder layout.
-Only the metadata fields with mappings are touched; everything else is passed
-through unchanged.
+Mapping CSVs are in metadata_unique_counts/ (tasks, datasets, models, languages,
+automatic_metrics, llm_criteria, human_criteria).
+
+Usage (run from paper_code/ root):
+  python 04_postprocessing/normalize_merged_results.py \
+      --input  data/llm-merged-results \
+      --output data/llm-merged-results-normalized \
+      --mappings metadata_unique_counts
 """
 
 import argparse
@@ -26,6 +30,10 @@ MAPPING_FILES = {
     "human_criteria": "human_criteria_normalization_mapping.csv",
 }
 
+# Sentinel used by the QCET-based criteria mappings to mark AUX-Other rows
+# (criterion strings that are not real criteria, e.g. "GA", "predicate").
+DROP_SENTINEL = "__DROP__"
+
 
 def load_mapping(path: Path) -> Dict[str, str]:
     """Load a mapping CSV into a case-insensitive lookup."""
@@ -40,8 +48,8 @@ def load_mapping(path: Path) -> Dict[str, str]:
             if not orig or not norm:
                 continue
             mapping[orig.lower()] = norm
-            # Also allow normalized values to be idempotent.
-            mapping.setdefault(norm.lower(), norm)
+            if norm != DROP_SENTINEL:
+                mapping.setdefault(norm.lower(), norm)
     return mapping
 
 
@@ -82,6 +90,8 @@ def normalize_list(
         if norm is None:
             missing.add(text)
             norm = text
+        if norm == DROP_SENTINEL:
+            continue
         if norm not in seen:
             normalized.append(norm)
             seen.add(norm)
@@ -120,19 +130,29 @@ def normalize_record(
 
     answer_3 = data.get("answer_3")
     if isinstance(answer_3, dict):
+        # Drop criteria / models when the LLM said the paper does not use LaaJ:
+        # those entries are extraction noise (e.g. mentions in related work,
+        # methods discussed but not employed) and are not part of the paper's
+        # actual evaluation pipeline. This matches the yes-only filter applied
+        # by `src/create_item_stats_csv.py` upstream of QCET classification.
+        a3_yes = (answer_3.get("answer", "") or "").strip().lower() == "yes"
         if "criteria" in answer_3:
             answer_3["criteria"] = normalize_list(
-                answer_3.get("criteria"), mappings["llm_criteria"], missing["llm_criteria"]
+                answer_3.get("criteria") if a3_yes else [],
+                mappings["llm_criteria"], missing["llm_criteria"]
             )
         if "models" in answer_3:
             answer_3["models"] = normalize_list(
-                answer_3.get("models"), mappings["models"], missing["models"]
+                answer_3.get("models") if a3_yes else [],
+                mappings["models"], missing["models"]
             )
 
     answer_4 = data.get("answer_4")
     if isinstance(answer_4, dict) and "criteria" in answer_4:
+        a4_yes = (answer_4.get("answer", "") or "").strip().lower() == "yes"
         answer_4["criteria"] = normalize_list(
-            answer_4.get("criteria"), mappings["human_criteria"], missing["human_criteria"]
+            answer_4.get("criteria") if a4_yes else [],
+            mappings["human_criteria"], missing["human_criteria"]
         )
 
 

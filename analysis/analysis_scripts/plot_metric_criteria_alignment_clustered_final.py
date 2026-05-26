@@ -1,7 +1,16 @@
+import sys; sys.path.insert(0, __import__("os").path.dirname(__import__("os").path.dirname(__import__("os").path.abspath(__file__))))
 """
 Clustered Metric-Criteria Alignment Visualization
 Combines the strengths of network graphs (clustering/structure) 
 and heatmaps (comprehensive view with exact values).
+
+Features:
+- Hierarchical clustering of metrics and criteria (shows structure like network graphs)
+- Shows all relationships with exact values (like heatmaps)
+- Displays both association ratio (color) and coverage (transparency + text)
+- Side-by-side comparison of Human vs LLM
+- Dendrograms show clustering structure
+- AUTOMATIC ALIGNMENT: Ensures heatmap cells are physically identical in size
 """
 
 import matplotlib.pyplot as plt
@@ -10,11 +19,12 @@ import seaborn as sns
 from collections import Counter
 import numpy as np
 import os
-from data_loader import load_data
+from data_loader import load_data, short_label
 from matplotlib.colors import Normalize, LinearSegmentedColormap
 from matplotlib.patches import Rectangle, Circle
 from scipy.cluster.hierarchy import dendrogram, linkage, leaves_list
 from pathlib import Path
+from association_measures import compute_all, bh_fdr
 
 def load_metric_normalization_mapping():
     """Load mapping from normalized metric names to their most common variant."""
@@ -45,6 +55,15 @@ def load_metric_normalization_mapping():
 def calculate_composite_score(coverage, association, coverage_weight=0.4, association_weight=0.6):
     """
     Calculate composite score combining coverage and association.
+    
+    Args:
+        coverage: Normalized coverage (0-1)
+        association: Max association value (can be > 1)
+        coverage_weight: Weight for coverage component
+        association_weight: Weight for association component
+    
+    Returns:
+        Composite score (higher is better)
     """
     # Normalize association: log scale to handle large values, cap at 10
     norm_assoc = min(np.log1p(association) / np.log1p(10), 1.0) if association > 0 else 0
@@ -193,17 +212,15 @@ def create_clustered_metric_criteria_alignment(papers):
     metric_mapping = load_metric_normalization_mapping()
     print(f"Loaded {len(metric_mapping)} metric name mappings")
 
-    # Get all single-task papers
-    single_task_papers = [p for p in papers if len(p['tasks']) == 1]
+    # Use all papers (no filtering for single-task)
+    print(f"Total papers: {len(papers)}")
     
-    print(f"Total single-task papers: {len(single_task_papers)}")
-    
-    if len(single_task_papers) < 10:
-        print("Insufficient data for single-task papers")
+    if len(papers) < 10:
+        print("Insufficient data")
         return
     
-    # Process all single-task papers together
-    task_papers = single_task_papers
+    # Process all papers
+    task_papers = papers
     
     # Count papers using each evaluation type
     human_papers = [p for p in task_papers if len(p['human_criteria']) > 0]
@@ -215,7 +232,7 @@ def create_clustered_metric_criteria_alignment(papers):
     
     print(f"Human papers: {n_human}, LLM papers: {n_llm}, Total: {n_total}")
     
-    # Get top metrics and criteria across all single-task papers
+    # Get top metrics and criteria across all papers
     all_metrics = [m.lower().strip() for p in task_papers for m in p['auto_metrics']]
     all_human_criteria = [c.lower().strip() for p in human_papers for c in p['human_criteria']]
     all_llm_criteria = [c.lower().strip() for p in llm_papers for c in p['laaj_criteria']]
@@ -353,8 +370,8 @@ def create_clustered_metric_criteria_alignment(papers):
         top_human_criteria = select_ideal_items(criterion_associations, human_criteria_counts,
                                                n_select=20, min_assoc_threshold=1.5)
 
-        # Transform criteria names to capitalize first letter
-        top_human_criteria_display = [c.capitalize() for c in top_human_criteria]
+        # Map QCET full names to short labels for figures (case-insensitive lookup).
+        top_human_criteria_display = [short_label(c) for c in top_human_criteria]
 
         # Count tiers for reporting
         tier_counts_crit = {'tier1': 0, 'tier2': 0, 'tier3': 0}
@@ -373,6 +390,7 @@ def create_clustered_metric_criteria_alignment(papers):
         # Calculate matrices
         human_association_matrix = np.zeros((len(top_metrics), len(top_human_criteria)))
         human_coverage_matrix = np.zeros((len(top_metrics), len(top_human_criteria)))
+        human_p_matrix = np.ones((len(top_metrics), len(top_human_criteria)))
         
         for m_idx, metric in enumerate(top_metrics):
             for c_idx, criterion in enumerate(top_human_criteria):
@@ -397,11 +415,16 @@ def create_clustered_metric_criteria_alignment(papers):
                              if (criterion in [x.lower().strip() for x in p['human_criteria']] and
                                  metric in [x.lower().strip() for x in p['auto_metrics']]))
                 human_coverage_matrix[m_idx, c_idx] = co_occur / n_human
-                
+
+                # G² test for significance
+                _s = compute_all(count_with, n_with_crit - count_with,
+                                 count_without, n_without_crit - count_without)
+                human_p_matrix[m_idx, c_idx] = _s["p_value"]
+
                 # Enrichment: P(metric | criterion) / P(metric | not criterion)
                 pct_with = (count_with / n_with_crit * 100) if n_with_crit > 0 else 0
                 pct_without = (count_without / n_without_crit * 100) if n_without_crit > 0 else 0
-                
+
                 if pct_without > 0:
                     human_association_matrix[m_idx, c_idx] = pct_with / pct_without
                 elif pct_with > 0:
@@ -417,10 +440,16 @@ def create_clustered_metric_criteria_alignment(papers):
         # Replace infinite values with a capped value for visualization
         df_human = df_human.replace([float('inf'), np.inf], 100)
         df_human = df_human.fillna(1.0)
-        
+
+        # BH-FDR across all human (metric × criterion) pairs
+        flat_p = human_p_matrix.flatten().tolist()
+        flat_q, _ = bh_fdr(flat_p)
+        human_q_matrix = np.array(flat_q).reshape(human_p_matrix.shape)
+
         # Create clustered heatmap (on the right, col_idx=1)
         plot_clustered_heatmap(fig, df_human, human_coverage_matrix,
-                              'Human Evaluation', n_human, n_total, 1)
+                              'Human Evaluation', n_human, n_total, 1,
+                              q_matrix=human_q_matrix)
     else:
         ax = fig.add_subplot(1, 2, 2)
         ax.text(0.5, 0.5, "Insufficient\nHuman Data", ha='center',
@@ -490,8 +519,8 @@ def create_clustered_metric_criteria_alignment(papers):
         top_llm_criteria = select_ideal_items(criterion_associations, llm_criteria_counts,
                                               n_select=20, min_assoc_threshold=1.5)
 
-        # Transform criteria names to capitalize first letter
-        top_llm_criteria_display = [c.capitalize() for c in top_llm_criteria]
+        # Map QCET full names to short labels for figures (case-insensitive).
+        top_llm_criteria_display = [short_label(c) for c in top_llm_criteria]
 
         # Count tiers for reporting
         tier_counts_llm = {'tier1': 0, 'tier2': 0, 'tier3': 0}
@@ -510,6 +539,7 @@ def create_clustered_metric_criteria_alignment(papers):
         # Calculate matrices
         llm_association_matrix = np.zeros((len(top_metrics), len(top_llm_criteria)))
         llm_coverage_matrix = np.zeros((len(top_metrics), len(top_llm_criteria)))
+        llm_p_matrix = np.ones((len(top_metrics), len(top_llm_criteria)))
         
         for m_idx, metric in enumerate(top_metrics):
             for c_idx, criterion in enumerate(top_llm_criteria):
@@ -534,11 +564,16 @@ def create_clustered_metric_criteria_alignment(papers):
                              if (criterion in [x.lower().strip() for x in p['laaj_criteria']] and
                                  metric in [x.lower().strip() for x in p['auto_metrics']]))
                 llm_coverage_matrix[m_idx, c_idx] = co_occur / n_llm
-                
+
+                # G² test for significance
+                _s = compute_all(count_with, n_with_crit - count_with,
+                                 count_without, n_without_crit - count_without)
+                llm_p_matrix[m_idx, c_idx] = _s["p_value"]
+
                 # Enrichment: P(metric | criterion) / P(metric | not criterion)
                 pct_with = (count_with / n_with_crit * 100) if n_with_crit > 0 else 0
                 pct_without = (count_without / n_without_crit * 100) if n_without_crit > 0 else 0
-                
+
                 if pct_without > 0:
                     llm_association_matrix[m_idx, c_idx] = pct_with / pct_without
                 elif pct_with > 0:
@@ -554,10 +589,16 @@ def create_clustered_metric_criteria_alignment(papers):
         # Replace infinite values with a capped value for visualization
         df_llm = df_llm.replace([float('inf'), np.inf], 100)
         df_llm = df_llm.fillna(1.0)
-        
+
+        # BH-FDR across all LLM (metric × criterion) pairs
+        flat_p = llm_p_matrix.flatten().tolist()
+        flat_q, _ = bh_fdr(flat_p)
+        llm_q_matrix = np.array(flat_q).reshape(llm_p_matrix.shape)
+
         # Create clustered heatmap (on the left, col_idx=0)
         plot_clustered_heatmap(fig, df_llm, llm_coverage_matrix,
-                              'LLM-as-a-Judge', n_llm, n_total, 0)
+                              'LLM-as-a-Judge', n_llm, n_total, 0,
+                              q_matrix=llm_q_matrix)
     else:
         ax = fig.add_subplot(1, 2, 1)
         ax.text(0.5, 0.5, "Insufficient\nLLM Data", ha='center',
@@ -592,12 +633,12 @@ def create_clustered_metric_criteria_alignment(papers):
             cbar.set_ticklabels(['0', '1', '2', '5', '10+'])
     # ----------------------------------
 
-    out_path = os.path.join(os.path.dirname(__file__), 'figures', 'metric_criteria_alignment_clustered_final.png')
+    out_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'outputs', 'figures', 'metric_criteria_alignment', 'metric_criteria_alignment_clustered_final.png')
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     plt.savefig(out_path, dpi=300, bbox_inches='tight')
     print(f"Saved to {out_path}")
 
-def plot_clustered_heatmap(fig, df, coverage_matrix, title, n_eval, n_total, col_idx):
+def plot_clustered_heatmap(fig, df, coverage_matrix, title, n_eval, n_total, col_idx, q_matrix=None):
     """Plot clustered heatmap with dendrograms."""
     
     # Perform hierarchical clustering
@@ -620,6 +661,7 @@ def plot_clustered_heatmap(fig, df, coverage_matrix, title, n_eval, n_total, col
     # Reorder data according to clustering (but don't show dendrograms)
     df_clustered = df.iloc[metric_order, criteria_order]
     coverage_clustered = coverage_matrix[np.ix_(metric_order, criteria_order)]
+    q_clustered = q_matrix[np.ix_(metric_order, criteria_order)] if q_matrix is not None else None
     
     # Create heatmap subplot (no dendrograms)
     ax_heatmap = fig.add_subplot(1, 2, col_idx + 1)
@@ -629,7 +671,7 @@ def plot_clustered_heatmap(fig, df, coverage_matrix, title, n_eval, n_total, col
     ax_heatmap.set_aspect('equal', adjustable='box')
     
     # Set title with larger font
-    ax_heatmap.set_title(f'{title}\n({n_eval} papers with eval out of {n_total} single-task)',
+    ax_heatmap.set_title(f'{title}\n({n_eval} papers with eval out of {n_total} total)',
                         fontsize=20, fontweight='bold', pad=15)
     
     # Colormap - handle values up to 100 (for inf values)
@@ -666,9 +708,17 @@ def plot_clustered_heatmap(fig, df, coverage_matrix, title, n_eval, n_total, col
                            zorder=1)
             ax_heatmap.add_patch(rect)
             
+            # Hatch non-significant cells (BH-FDR q > 0.05)
+            if q_clustered is not None and q_clustered[m_idx, c_idx] > 0.05:
+                hatch_rect = Rectangle((c_idx - 0.5, m_idx - 0.5), 1, 1,
+                                       facecolor='none', hatch='/////',
+                                       edgecolor='#888888', linewidth=0,
+                                       alpha=0.45, zorder=2)
+                ax_heatmap.add_patch(hatch_rect)
+
             # Add circle inside cell to indicate coverage frequency
             if cov > 0.01:  # Only show circle if there's some coverage
-                circle = Circle((c_idx, m_idx), 
+                circle = Circle((c_idx, m_idx),
                                radius=circle_sizes[m_idx, c_idx],
                                facecolor='white',
                                edgecolor='black',
@@ -707,15 +757,61 @@ def plot_clustered_heatmap(fig, df, coverage_matrix, title, n_eval, n_total, col
         fig._heatmap_norm = norm
         fig._heatmap_cmap = cmap
     
+    # Add bubble size legend in upper right corner (using axes coordinates)
+    max_coverage = np.max(coverage_clustered) if np.max(coverage_clustered) > 0 else 1.0
+    min_circle_size = 0.1
+    max_circle_size = 0.4
     
-    # Add summary statistics with larger font
-    strong_assocs = (df_clustered.values > 2.0).sum()
-    total_cells = len(df_clustered) * len(df_clustered.columns)
-    pct_strong = (strong_assocs / total_cells * 100) if total_cells > 0 else 0
-    ax_heatmap.text(0.98, 0.02, f'Strong associations (>2.0): {strong_assocs}/{total_cells} ({pct_strong:.1f}%)',
-                   transform=ax_heatmap.transAxes, fontsize=13, style='italic',
-                   horizontalalignment='right', verticalalignment='bottom',
-                   bbox=dict(boxstyle='round', facecolor='lightblue', alpha=0.3))
+    # Example coverage values to show in legend (as fractions of max)
+    example_coverages = [0.1, 0.3, 0.5, 0.7, 1.0]
+    # Convert to actual coverage values (multiply by max_coverage)
+    actual_coverages = [cov * max_coverage for cov in example_coverages]
+    # Calculate circle sizes for these coverages (normalized)
+    example_circle_sizes = [min_circle_size + cov * (max_circle_size - min_circle_size) 
+                           for cov in example_coverages]
+    
+    # Position legend in upper right using axes coordinates (0-1)
+    legend_x_start_ax = 0.98
+    legend_y_start_ax = 0.98
+    legend_spacing_ax = 0.08
+    
+    # Convert circle sizes to axes coordinates (approximate, using a reference)
+    # We'll use a fixed reference size based on the plot dimensions
+    num_cols = len(df_clustered.columns)
+    num_rows = len(df_clustered)
+    # Approximate cell size in axes coordinates
+    cell_size_ax = 0.8 / max(num_cols, num_rows)  # Rough estimate
+    
+    # Draw example circles with labels
+    for i, (cov_frac, actual_cov, circle_size) in enumerate(zip(example_coverages, actual_coverages, example_circle_sizes)):
+        x_pos_ax = legend_x_start_ax - i * legend_spacing_ax
+        y_pos_ax = legend_y_start_ax
+        
+        # Convert circle radius to axes coordinates
+        circle_radius_ax = circle_size * cell_size_ax * 0.5  # Scale appropriately
+        
+        # Draw circle using axes coordinates
+        circle = Circle((x_pos_ax, y_pos_ax), 
+                         radius=circle_radius_ax,
+                         facecolor='white',
+                         edgecolor='black',
+                         linewidth=1.5,
+                         alpha=0.7,
+                         zorder=10,
+                         transform=ax_heatmap.transAxes)
+        ax_heatmap.add_patch(circle)
+        
+        # Add label showing coverage percentage
+        coverage_pct = actual_cov * 100
+        ax_heatmap.text(x_pos_ax, y_pos_ax - circle_radius_ax - 0.02, f'{coverage_pct:.1f}%',
+                       ha='center', va='top', fontsize=10, fontweight='bold',
+                       transform=ax_heatmap.transAxes)
+    
+    # Add legend title
+    ax_heatmap.text(legend_x_start_ax - (len(example_coverages) - 1) * legend_spacing_ax / 2, 
+                   legend_y_start_ax + 0.05, 'Coverage',
+                   ha='center', va='bottom', fontsize=11, fontweight='bold',
+                   transform=ax_heatmap.transAxes)
 
 if __name__ == "__main__":
     papers = load_data()

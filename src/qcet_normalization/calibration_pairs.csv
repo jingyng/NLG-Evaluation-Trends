@@ -1,0 +1,44 @@
+raw_string,gold_target_id,gold_target_name,notes
+# Stage-0 calibration pairs (30) — DRAFT for review.
+# Structure: 15 direct-match / 10 synonym-test / 5 NONE (incl. 1 adversarial).
+# Strings chosen from actual corpus high-count terms so failures on calibration
+# match failures we would hit in Stage 1.
+#
+# Edit freely. Delete any pair you disagree with; add your own. Any pair with
+# gold_target_id = NONE tests whether the classifier correctly refuses to
+# force-map. Any pair with a QCET id tests either direct-name mapping or
+# semantic synonymy.
+#
+# --- 15 direct-match ("QCET uses this exact word or near-exact phrase") ---
+fluency,QOG-w-3,Fluency,leaf name is Fluency; top-2 term in human corpus (477)
+coherence,QOG-c-3,Coherence,leaf name is Coherence; high-frequency
+grammaticality,QOC-f-1,Grammaticality,leaf name is Grammaticality
+informativeness,QOG-c-2,Informativeness,leaf name is Informativeness
+readability,QOG-w-2,Readability,leaf name is Readability
+clarity,QOG-w-5.1,Clarity,leaf name is Clarity (under Understandability)
+naturalness,QEG-w-1,Naturalness (outputs as a whole),"QCET distinguishes naturalness (context-appropriate) from humanlikeness (QOG-w-4); naturalness is unmarked = whole-output"
+humanlikeness,QOG-w-4,Humanlikeness,leaf name is Humanlikeness
+factuality,QEC-c-1,Factual Truth,"leaf name is Factual Truth; factuality = real-world truth, not wrt a source"
+translation accuracy,QIC-w-1,Translation Accuracy,leaf name is Translation Accuracy
+relevance,QIG-c-3,Relevance to Input,"relevance in NLG is almost always relative to input; leaf name matches"
+coverage,QIC-c-4,Coverage of Topics (given in input),leaf name is Coverage of Topics
+diversity,QOF-w-1,Diversity/Non-diversity (outputs as a whole),"unmarked 'diversity' = whole-output diversity"
+win rate,QEG-w-10,Win Rate,leaf name is Win Rate; exact match
+correctness,QOC-w-1,Correctness of Outputs (outputs as a whole),"bare 'correctness' = whole-output correctness; QCET has separate C-subleaves for semantic/grammatical/spelling correctness"
+# --- 10 synonym-test ("model must know semantic equivalence") ---
+helpfulness,QEG-w-3,Usefulness (nonspecific),"HHH 'helpful' = QCET 'useful' (nonspecific, no stated task)"
+hallucination,QEC-c-2,Relative Factual Accuracy,"hallucination = output contains content not supported by a source; QCET 'Relative Factual Accuracy' is untruths wrt a given source"
+truthfulness,QEC-c-1,Factual Truth,"truthfulness = real-world truth = Factual Truth (not wrt a source)"
+faithfulness,QIC-c-3,Consistency with Input,"summarization faithfulness = no inconsistencies with source document; in our corpus, faithfulness is overwhelmingly input-side"
+factual consistency,QEC-c-2,Relative Factual Accuracy,"factual consistency wrt a source → Relative Factual Accuracy"
+grammar,QOC-f-1,Grammaticality,"bare 'grammar' as a quality criterion = grammaticality"
+conciseness,QOG-f-1,Nonredundancy (form),"conciseness = lack of redundancy; QCET uses 'Nonredundancy'. Form because 'concise' typically describes surface length"
+adequacy,QIC-c-1,Absence of Omissions (relative to input),"MT adequacy = meaning from source preserved in output (primarily no omissions)"
+user satisfaction,QEG-w-6,User Satisfaction as Affected by Outputs,leaf name matches
+functional correctness,QEC-w-1,Functional Correctness,"code-gen term; leaf name matches"
+# --- 5 NONE cases (outside QCET; includes 1 adversarial 'not-a-criterion') ---
+safety,NONE,,"refusal-to-harm behavior; QCET has no leaf for output safety or harm avoidance"
+harmlessness,NONE,,"HHH 'harmless'; same construct as safety; no QCET leaf"
+creativity,NONE,,"QCET has poeticness, humorousness, complexity, but no 'creativity' leaf; creativity is a compound construct not represented"
+engagingness,NONE,,"output-side engagement; QCET has 'Effect on User Emotion' (QEF-w-3) but that's user-side observed effect, not output property"
+BLEU,NONE,,"NOT a quality criterion; it's a metric name. Rule 2 test — model should return fit=none with construct like 'automatic n-gram metric'"

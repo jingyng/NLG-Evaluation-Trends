@@ -1,3 +1,4 @@
+import sys; sys.path.insert(0, __import__("os").path.dirname(__import__("os").path.dirname(__import__("os").path.abspath(__file__))))
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -5,7 +6,7 @@ from collections import Counter, defaultdict
 import numpy as np
 import os
 import hashlib
-from data_loader import load_data
+from data_loader import load_data, short_label
 import matplotlib.colors as mcolors
 from pathlib import Path
 
@@ -402,13 +403,14 @@ def create_rich_task_dashboard(papers):
                 last_year = traj['years'][-1]
                 last_rank = traj['ranks'][-1]
 
-                # Use most common variant for auto_metrics, normalized name for criteria
+                # Use most common variant for auto_metrics; for criteria use the
+                # QCET short label.
                 display_name = term
                 if field_key == 'auto_metrics' and metric_mapping:
                     display_name = metric_mapping.get(term, term)
                 else:
-                    # For criteria, capitalize first letter
-                    display_name = term.capitalize()
+                    # For criteria: map QCET full name → figure short label.
+                    display_name = short_label(term)
 
                 ax.text(last_year, last_rank + 0.25, display_name,
                        fontsize=14, ha='center', va='top', color=line_color,
@@ -463,7 +465,7 @@ def create_rich_task_dashboard(papers):
     # Reduce left margin to minimize empty space while keeping y-axis titles visible
     plt.subplots_adjust(left=0.05)
     
-    out_path = os.path.join(os.path.dirname(__file__), 'figures', 'task_dashboard_rich.png')
+    out_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'outputs', 'figures', 'task_dashboard', 'task_dashboard_rich.png')
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     plt.savefig(out_path, dpi=300)
     print(f"Saved to {out_path}")

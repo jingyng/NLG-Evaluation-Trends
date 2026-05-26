@@ -1,0 +1,113 @@
+{
+  "method": "Stage-3 LLM verdicts + curate_stage3.py merges",
+  "source_file": "stage3_aux_taxonomy.json",
+  "n_aux_pre_curation": 5,
+  "n_aux_post_curation": 4,
+  "curation_log": [
+    {
+      "index": 1,
+      "kind": "MERGE",
+      "before_n": 5,
+      "after_n": 4,
+      "rationale": "Cluster 1 (abstract bias/fairness/objectivity, 11 variants/16 occ) and Cluster 2 (gender/stereotype/demographic bias, 22 variants/30 occ) are the same construct at two levels of specificity. The LLM split them because the embeddings cluster the demographic-specific instances separately, but the substitutability test is symmetric: any 'gender bias' criterion measures bias-and-fairness, and any 'unfair bias' criterion subsumes the demographic case."
+    }
+  ],
+  "categories": [
+    {
+      "cluster_id": 4,
+      "aux_id": "AUX-Safety",
+      "aux_name": "Safety",
+      "aux_definition": "The extent to which the output avoids harmful, toxic, unsafe, or abusive content.",
+      "n_variants": 37,
+      "occ_total": 258,
+      "top_raw": [
+        "safety",
+        "Safety",
+        "harmlessness",
+        "Harmlessness",
+        "toxicity",
+        "Toxicity",
+        "Harmful content",
+        "Harmless"
+      ]
+    },
+    {
+      "cluster_id": [
+        1,
+        2
+      ],
+      "aux_id": "AUX-BiasFairness",
+      "aux_name": "Bias and Fairness",
+      "aux_definition": "The extent to which the output is free from unfair bias, stereotypes, or discriminatory content (including bias regarding sensitive attributes such as gender, race, or age), maintains objectivity, or adheres to a specified bias level.",
+      "n_variants": 33,
+      "occ_total": 46,
+      "top_raw": [
+        "unfair bias",
+        "Fairness",
+        "direct bias",
+        "objectivity",
+        "Informational bias",
+        "Objectivity",
+        "alignment with intended bias",
+        "biased",
+        "stereotypical",
+        "Gender accuracy",
+        "Gender bias",
+        "Gender correctness",
+        "degree of gender bias",
+        "gender correctness",
+        "Gender Accuracy",
+        "Gender Correctness"
+      ],
+      "_curated_from": [
+        {
+          "cluster_id": 1,
+          "aux_id": "AUX-BiasFairness",
+          "aux_name": "Bias and Fairness"
+        },
+        {
+          "cluster_id": 2,
+          "aux_id": "AUX-Fairness",
+          "aux_name": "Fairness"
+        }
+      ],
+      "_curation_rationale": "Cluster 1 (abstract bias/fairness/objectivity, 11 variants/16 occ) and Cluster 2 (gender/stereotype/demographic bias, 22 variants/30 occ) are the same construct at two levels of specificity. The LLM split them because the embeddings cluster the demographic-specific instances separately, but the substitutability test is symmetric: any 'gender bias' criterion measures bias-and-fairness, and any 'unfair bias' criterion subsumes the demographic case."
+    },
+    {
+      "cluster_id": 7,
+      "aux_id": "AUX-EmotionalProperties",
+      "aux_name": "Emotional Properties",
+      "aux_definition": "The intrinsic emotional characteristics of the output, including its emotional tone, content, expression, and accuracy.",
+      "n_variants": 14,
+      "occ_total": 25,
+      "top_raw": [
+        "sentiment",
+        "Emotional Expression",
+        "Emotional Appeal",
+        "emotion accuracy",
+        "Emotion Strength Test",
+        "Emotional Understanding",
+        "Expressed emotions",
+        "Pathos"
+      ]
+    },
+    {
+      "cluster_id": 3,
+      "aux_id": "AUX-StyleConsistencyIntensity",
+      "aux_name": "Stylistic Consistency and Intensity",
+      "aux_definition": "The degree to which an output maintains uniform stylistic features and the prominence of those features throughout the text.",
+      "n_variants": 10,
+      "occ_total": 15,
+      "top_raw": [
+        "linguistic style",
+        "Style Strength",
+        "textual tone of voice consistency",
+        "writing style",
+        "Style Coherence",
+        "Style Intensity",
+        "Stylistic Coherence",
+        "humanlike tone"
+      ]
+    }
+  ]
+}

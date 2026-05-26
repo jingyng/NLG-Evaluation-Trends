@@ -1,0 +1,66 @@
+Robustness of associations to choice of measure
+============================================================
+
+[Human] 6560 (metric, criterion) pairs after frequency floor (metric>=10, criterion>=5).
+[LaaJ] 1829 (metric, criterion) pairs after frequency floor (metric>=10, criterion>=5).
+
+Spearman rho between LR and {NPMI, G^2}:
+eval_type        stratum    n  spearman_lr_npmi  spearman_lr_g2
+    Human all (k11 >= 1) 2468             0.993           0.463
+    Human   k11 in [1,2] 1449             0.999           0.504
+    Human   k11 in [3,9]  723             0.994           0.605
+    Human      k11 >= 10  296             0.981           0.594
+     LaaJ all (k11 >= 1)  913             0.990           0.524
+     LaaJ   k11 in [1,2]  508             0.999           0.350
+     LaaJ   k11 in [3,9]  308             0.989           0.719
+     LaaJ      k11 >= 10   97             0.985           0.857
+
+Filter impact (number of pairs surviving k11 floor and BH q threshold):
+eval_type  k11_floor  q_threshold  n_pairs_kept  n_pairs_total
+    Human          1        0.050            88           6560
+    Human          1        0.010            62           6560
+    Human          1        0.001            27           6560
+    Human          3        0.050            84           6560
+    Human          3        0.010            59           6560
+    Human          3        0.001            25           6560
+    Human          5        0.050            77           6560
+    Human          5        0.010            55           6560
+    Human          5        0.001            24           6560
+    Human         10        0.050            53           6560
+    Human         10        0.010            41           6560
+    Human         10        0.001            19           6560
+     LaaJ          1        0.050            50           1829
+     LaaJ          1        0.010            33           1829
+     LaaJ          1        0.001            16           1829
+     LaaJ          3        0.050            50           1829
+     LaaJ          3        0.010            33           1829
+     LaaJ          3        0.001            16           1829
+     LaaJ          5        0.050            50           1829
+     LaaJ          5        0.010            33           1829
+     LaaJ          5        0.001            16           1829
+     LaaJ         10        0.050            31           1829
+     LaaJ         10        0.010            24           1829
+     LaaJ         10        0.001            15           1829
+
+Top-10 'high LR, non-significant G^2' pairs (BH q > 0.05):
+eval_type               metric                                              criterion             criterion_short  k11  n_metric  n_criterion  n_total   lr  npmi   g2  q_value
+    Human           qafacteval                                 speed of understanding      Speed of Understanding    1        12            5     1711 35.4  0.45 5.05    0.444
+    Human               chrf++                                      spelling accuracy                    Spelling    2        23            7     1711 29.4 0.453 9.16    0.115
+    Human             comet qe                                     naturalness (form)          Naturalness (form)    1        10            7     1711 28.4 0.429 4.71    0.489
+    Human                auroc                                     naturalness (form)          Naturalness (form)    1        10            7     1711 28.4 0.429 4.71    0.489
+    Human             spearman                                  formality/informality                   Formality    1        12            6     1711 28.3 0.426 4.66    0.492
+    Human                prism                                      spelling accuracy                    Spelling    1        11            7     1711 25.8 0.417 4.52    0.512
+    Human              summaqa                                          output length               Output Length    1        10            8     1711 24.3 0.411 4.43    0.527
+    Human               supert                                          output length               Output Length    1        10            8     1711 24.3 0.411 4.43    0.527
+    Human                 gleu similarity/dissimilarity to input (outputs as a whole)            Input Similarity    1        14            6     1711 24.2 0.405 4.35    0.535
+    Human                ibleu                         diversity/non-diversity (form)            Diversity (form)    1        12            7     1711 23.6 0.405 4.34    0.535
+     LaaJ                 ndcg                               answerability from input               Answerability    2        10            7      632 24.9 0.503 8.76   0.0853
+     LaaJ spearman correlation                                        non-ai likeness             Non-AI Likeness    2        21            5      632 19.4 0.432 7.26    0.142
+     LaaJ                auroc                                       meaning accuracy            Meaning Accuracy    2        10            9      632 17.8 0.459 7.65    0.131
+     LaaJ                 chrf                                   translation accuracy        Translation Accuracy    2        13            8      632 15.9 0.434 7.07    0.145
+     LaaJ                  mrr                               adherence to style guide       Style-Guide Adherence    2        13            8      632 15.9 0.434 7.07    0.145
+     LaaJ                cider         similarity to target outputs (content/meaning) Target Similarity (content)    3        16           11      632 14.4 0.444 10.1   0.0505
+     LaaJ                 bleu                                        non-ai likeness             Non-AI Likeness    4       149            5      632   13 0.241 7.16    0.145
+     LaaJ    cosine similarity                                        non-ai likeness             Non-AI Likeness    1        13            5      632 11.9 0.353    3     0.56
+     LaaJ                 chrf                                           cohesiveness                Cohesiveness    2        13           10      632 11.9 0.395 6.13    0.206
+     LaaJ           alignscore                              relative factual accuracy                Faithfulness    2        11           12      632 11.3 0.393 6.06    0.211

@@ -1,16 +1,23 @@
-# Core dependencies for NLG Evaluation Trends UI
-streamlit>=1.28.0
-pandas>=1.5.0
-numpy>=1.24.0
-matplotlib>=3.6.0
-seaborn>=0.12.0
-plotly>=5.15.0
+# Core data processing
+pandas>=2.0
+numpy>=1.24
+openpyxl>=3.1            # read/write the .xlsx files in human_annotation/ and analysis/intermediate_results/qcet/
 
-# Additional dependencies for data processing
-pathlib
-json5
-collections-extended
+# Plotting
+matplotlib>=3.7
 
-# Optional: for better performance
-streamlit-aggrid
-streamlit-plotly-events
+# Statistics + association measures (used by analysis/association_analysis/)
+scipy>=1.10
+
+# QCET-criterion normalisation (src/qcet_normalization/)
+sentence-transformers>=2.2   # Stage 2 — embed construct phrases
+hdbscan>=0.8.33              # Stage 2 — density-based clustering
+scikit-learn>=1.3            # ancillary clustering / vectorisation utilities
+
+# LLM API client (used by the QCET pipeline and the LaaJ-Human validation extraction)
+requests>=2.31
+
+# Optional: legacy Streamlit exploration UI (kept for reference; not required to regenerate figures)
+# streamlit>=1.28
+# plotly>=5.15
+# seaborn>=0.12

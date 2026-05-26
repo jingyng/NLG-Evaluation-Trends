@@ -1,3 +1,4 @@
+import csv
 import json
 import os
 import glob
@@ -5,13 +6,112 @@ from collections import Counter
 
 # Get the directory of the current script
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-# Data dir is parallel to analysis folder, inside nlg-eval-llm
-# Structure:
-# nlg-eval-llm/
-#   analysis/
-#     data_loader.py
-#   llm-merged-results-top30-tasks/
-DATA_DIR = os.path.join(SCRIPT_DIR, '..', 'llm-merged-results-top30-tasks')
+# In the acl2026-nlg-eval layout this file is at
+# analysis/analysis_scripts/data_loader.py, so REPO_ROOT is two parents up.
+REPO_ROOT  = os.path.dirname(os.path.dirname(SCRIPT_DIR))
+DATA_DIR   = os.path.join(REPO_ROOT, 'results', 'llm-merged-results-top30-tasks')
+
+# ---------------------------------------------------------------------------
+# Criteria are already QCET-normalized at the JSON pre-bake step
+# (paper_code/04_postprocessing/normalize_merged_results.py reads
+#  metadata_unique_counts/{llm,human}_criteria_normalization_mapping.csv,
+#  which is regenerated from stage4_classifications_simple.csv via
+#  paper_code/05_criteria_normalization/apply_qcet_to_metadata.py).
+# Short labels for figures live in
+#  metadata_unique_counts/criteria_qcet_short_labels.csv.
+# ---------------------------------------------------------------------------
+
+_SHORT_LABELS_CSV = os.path.join(
+    REPO_ROOT, 'metadata_unique_counts', 'criteria_qcet_short_labels.csv'
+)
+_LLM_MAPPING_CSV = os.path.join(
+    REPO_ROOT, 'metadata_unique_counts', 'llm_criteria_normalization_mapping.csv'
+)
+_HUMAN_MAPPING_CSV = os.path.join(
+    REPO_ROOT, 'metadata_unique_counts', 'human_criteria_normalization_mapping.csv'
+)
+
+
+def _build_short_label_map() -> dict:
+    """Returns {qcet_name_lower: (qcet_name, short_label_bare, short_label_prefixed)}."""
+    mapping: dict = {}
+    if not os.path.exists(_SHORT_LABELS_CSV):
+        return mapping
+    with open(_SHORT_LABELS_CSV, newline='') as fh:
+        for row in csv.DictReader(fh):
+            full = row['qcet_name'].strip()
+            bare = row['short_label'].strip()
+            prefixed = (row.get('short_label_prefixed') or bare).strip() or bare
+            mapping[full.lower()] = (full, bare, prefixed)
+    return mapping
+
+
+_SHORT_LABEL_MAP: dict = _build_short_label_map()
+
+
+def short_label(criterion: str, prefixed: bool = True) -> str:
+    """Map a QCET full name to its short label for figures.  Case-insensitive.
+
+    By default returns the prefixed form '[QO] Coherence' so figures expose
+    the QCET frame-of-reference axis. Pass `prefixed=False` to get the bare
+    short label 'Coherence' (useful in body/table prose where the axis is
+    discussed separately).
+
+    Falls back to the input (preserving its case) if not in the table.
+    """
+    if criterion is None:
+        return ''
+    key = criterion.strip()
+    hit = _SHORT_LABEL_MAP.get(key.lower())
+    if hit is None:
+        return key
+    return hit[2] if prefixed else hit[1]
+
+
+# ---------------------------------------------------------------------------
+# Raw-string → QCET full-name lookup, used by analyses that read criterion
+# strings from sources OTHER than `data/llm-merged-results-top30-tasks/`
+# (which is already pre-normalized).  The clearest case is the LaaJ↔Human
+# validation pipeline, which extracts criterion strings from validation
+# papers separately.  Returns None if the raw string is AUX-Other (caller
+# should drop it).
+# ---------------------------------------------------------------------------
+
+def _build_raw_to_qcet_map() -> dict:
+    """{raw_lower: qcet_full_name | None} merged across LLM + Human mappings."""
+    mapping: dict = {}
+    for path in (_LLM_MAPPING_CSV, _HUMAN_MAPPING_CSV):
+        if not os.path.exists(path):
+            continue
+        with open(path, newline='') as fh:
+            for row in csv.DictReader(fh):
+                key = row['original'].strip().lower()
+                norm = row['normalized'].strip()
+                # Sentinel from apply_qcet_to_metadata: AUX-Other rows
+                mapping[key] = None if norm == '__DROP__' else norm
+    return mapping
+
+
+_RAW_TO_QCET_MAP: dict = _build_raw_to_qcet_map()
+
+
+def normalize_criterion_to_qcet(raw: str):
+    """Map a raw criterion string to its QCET full name (case-insensitive).
+    Returns the QCET name, or None for AUX-Other / unmapped strings.
+    Use short_label() on the result for figure labels."""
+    if not raw:
+        return None
+    key = str(raw).strip().lower()
+    if key in _RAW_TO_QCET_MAP:
+        return _RAW_TO_QCET_MAP[key]
+    return None
+
+
+def normalize_criteria(criteria_list: list) -> list:
+    """Pass-through: criteria are already QCET-normalized in the JSON files.
+    Kept for backwards compatibility with callers."""
+    return [str(c).strip() for c in criteria_list if c is not None]
+
 
 def load_data():
     all_papers = []
@@ -48,10 +148,12 @@ def load_data():
                     
                     auto_metrics = data.get('answer_2', {}).get('automatic_metrics', [])
                     
-                    laaj_criteria = data.get('answer_3', {}).get('criteria', [])
+                    laaj_criteria = normalize_criteria(
+                        data.get('answer_3', {}).get('criteria', []))
                     laaj_models = data.get('answer_3', {}).get('models', [])
-                    
-                    human_criteria = data.get('answer_4', {}).get('criteria', [])
+
+                    human_criteria = normalize_criteria(
+                        data.get('answer_4', {}).get('criteria', []))
                     
                     paper_info = {
                         'paper_id': data.get('paper_id', 'unknown'),
