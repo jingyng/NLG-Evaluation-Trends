@@ -57,9 +57,8 @@ DECISIONS_MD = OUT_DIR / "aux_category_decisions.md"
 AUX_OUT_JSON = OUT_DIR / "aux_taxonomy_candidates.json"
 
 
-# ----------------------------------------------------------------------------
+
 # Loading / aggregation
-# ----------------------------------------------------------------------------
 
 def load_qcet_leaves() -> list[dict[str, Any]]:
     tax = json.load(open(QCET_JSON))
@@ -121,9 +120,8 @@ def cluster_summary(rows: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
-# ----------------------------------------------------------------------------
+
 # Prompt construction
-# ----------------------------------------------------------------------------
 
 def build_system_prompt(leaves: list[dict[str, Any]]) -> str:
     lines: list[str] = []
@@ -225,9 +223,8 @@ def build_user_prompt(cid: int, summary: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
-# ----------------------------------------------------------------------------
+
 # Verdict parsing + validation
-# ----------------------------------------------------------------------------
 
 VALID_VERDICTS = {"FOLD_INTO_QCET", "KEEP_AUX", "SPLIT", "DROP"}
 
@@ -268,9 +265,8 @@ def validate_verdict(parsed: dict[str, Any], leaf_ids: set[str]) -> tuple[bool, 
     return True, ""
 
 
-# ----------------------------------------------------------------------------
+
 # Main
-# ----------------------------------------------------------------------------
 
 def main(argv: list[str]) -> int:
     # Line-buffer stdout so progress prints surface immediately when piped to

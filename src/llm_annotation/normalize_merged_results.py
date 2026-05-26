@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 """
-Step 4c – Normalize merged paper JSON files using manually curated mapping CSVs.
+Normalize merged paper JSON files using the per-category mapping CSVs under
+`metadata_unique_counts/` (tasks, datasets, models, languages, automatic_metrics,
+llm_criteria, human_criteria).
 
-Mapping CSVs are in metadata_unique_counts/ (tasks, datasets, models, languages,
-automatic_metrics, llm_criteria, human_criteria).
-
-Usage (run from paper_code/ root):
-  python 04_postprocessing/normalize_merged_results.py \
-      --input  data/llm-merged-results \
-      --output data/llm-merged-results-normalized \
+Usage (run from the repo root):
+  python src/llm_annotation/normalize_merged_results.py \
+      --input    results/llm-merged-results \
+      --output   results/llm-merged-results-normalized \
       --mappings metadata_unique_counts
 """
 

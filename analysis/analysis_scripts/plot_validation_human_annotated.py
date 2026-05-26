@@ -19,7 +19,8 @@ Pipeline:
   6. Filter to Correlation + Agreement metric families.
   7. Render a grouped boxplot to imgs/validation_single_grouped_boxplot.{png,pdf}.
 
-Intermediate audit data in paper_code/07_figures/validation_analysis_data/:
+Intermediate audit data is written next to this script under
+`validation_analysis_data/`:
   validation_human_stack.csv      pre-dedupe rows (audit data for Sec 4.3)
   validation_human_deduped.csv    rows fed to the figure
   validation_human_summary.json   counts/stats for Sec 4.3 and Sec 5.3 text
@@ -39,10 +40,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-# ----- Paths (HERE-relative, mirroring the convention in this directory) -----
-
-HERE = Path(__file__).resolve().parent  # analysis/analysis_scripts/
-REPO_ROOT = HERE.parent.parent           # acl2026-nlg-eval/ (repo root)
+HERE = Path(__file__).resolve().parent
+REPO_ROOT = HERE.parent.parent
 
 XLSX = REPO_ROOT / 'human_annotation' / 'LaaJ against Human Validation.xlsx'
 QCET_MAPPING_CSV = (REPO_ROOT / 'analysis' / 'intermediate_results' / 'qcet'
@@ -52,20 +51,15 @@ OUT_IMGS_DIR = REPO_ROOT / 'analysis' / 'figures'
 OUT_PNG = OUT_IMGS_DIR / 'validation_single_grouped_boxplot.png'
 OUT_PDF = OUT_IMGS_DIR / 'validation_single_grouped_boxplot.pdf'
 
-# Audit / intermediate data lives next to this script.
 DATA_DIR = HERE / 'validation_analysis_data'
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 OUT_IMGS_DIR.mkdir(parents=True, exist_ok=True)
 
 
-# ----- Thresholds -----
 # n>10 (i.e., n>=11) keeps the long tail of validated constructs visible.
 MIN_N_PER_CRITERION = 11
 MIN_N_PER_METRIC = 15
 
-
-# ----- Helpers copied from paper_visualization_code/scripts/plot_validation_combined_boxplot_strip.py
-# (inlined to keep this script self-contained within paper_code/). -----
 
 def normalize_metric_name(metric: str) -> str:
     ml = str(metric).lower().strip()
@@ -121,8 +115,6 @@ def clean_value(value, metric):
             val_float = max(0.0, min(1.0, val_float))
     return val_float
 
-
-# ----- QCET lookup (reuses the existing ~7,000-row mapping built for the LLM corpus) -----
 
 _QCET_LOOKUP = None
 _TYPO_FIXES = {
@@ -188,8 +180,6 @@ def qcet_map_criterion(raw):
     return None
 
 
-# ----- Matrix building -----
-
 def compute_matrix_qcet(scores):
     """Build the (metric -> criterion -> [values]) matrix. The criterion is
     already QCET-mapped upstream, so no further normalisation here.
@@ -204,8 +194,6 @@ def compute_matrix_qcet(scores):
             matrix[norm_metric][crit].append(s['value'])
     return matrix
 
-
-# ----- Plotting -----
 
 # Short forms mirror Figure 4 / Figure 5's LABEL_ABBREV (defined in
 # plot_task_dashboard_rich_v2.py and plot_metric_criterion_split_heatmap.py)
@@ -336,8 +324,6 @@ def plot_grouped_boxplot_thresholded(matrix, png_path, pdf_path, min_n_criterion
     plt.close()
 
 
-# ----- xlsx loading -----
-
 def extract_pid(url):
     if not isinstance(url, str):
         return None
@@ -354,8 +340,6 @@ def load_xlsx():
     df['Annotator'] = df['Annotator'].astype(str).str.strip()
     return df
 
-
-# ----- main -----
 
 def main():
     df = load_xlsx()

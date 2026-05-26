@@ -83,9 +83,8 @@ OUTPUT_HEADER = [
 ]
 
 
-# ---------------------------------------------------------------------------
+
 # Loaders
-# ---------------------------------------------------------------------------
 
 def load_qcet_leaves() -> list[dict[str, Any]]:
     data = json.load(open(QCET_JSON))
@@ -133,9 +132,8 @@ def load_aux_decisions() -> dict[int, dict[str, Any]]:
     return out
 
 
-# ---------------------------------------------------------------------------
+
 # Routing
-# ---------------------------------------------------------------------------
 
 def route_variant(
     v: dict[str, str],
@@ -203,9 +201,8 @@ def fill_qcet_names(rows: list[dict[str, Any]], leaves: list[dict[str, Any]]) ->
             r["chosen_name"] = name_for.get(r["chosen_id"], "")
 
 
-# ---------------------------------------------------------------------------
+
 # LLM prompts
-# ---------------------------------------------------------------------------
 
 _FIT_LEVELS_LINES: list[str] = [
     "## Fit levels",
@@ -376,9 +373,8 @@ def build_batched_user_prompt(variants: list[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
-# ---------------------------------------------------------------------------
+
 # Response parsing / validation
-# ---------------------------------------------------------------------------
 
 def _build_valid_target_index(leaves: list[dict[str, Any]]) -> dict[str, dict[str, str]]:
     idx: dict[str, dict[str, str]] = {}
@@ -445,9 +441,8 @@ def parse_batched_response(
     return out
 
 
-# ---------------------------------------------------------------------------
+
 # LLM unit processors
-# ---------------------------------------------------------------------------
 
 def _row_from_llm_item(v: dict[str, Any], item: dict[str, Any],
                        cache_hit: bool) -> dict[str, Any]:
@@ -529,9 +524,8 @@ def _classify_batch(
     return rows, n_fallbacks
 
 
-# ---------------------------------------------------------------------------
+
 # Main
-# ---------------------------------------------------------------------------
 
 def main(argv: list[str]) -> int:
     try:

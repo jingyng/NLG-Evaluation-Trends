@@ -10,9 +10,9 @@ arise because the QCET classifier was run on a slightly larger raw set
 during stage 1 and a small residual of raw strings remains unmapped in the
 final corpus).
 
-Run from `paper_code/`:
+Run from the repo root:
 
-    python 05_criteria_normalization/count_constructs_in_corpus.py
+    python src/qcet_normalization/count_constructs_in_corpus.py
 """
 
 from __future__ import annotations

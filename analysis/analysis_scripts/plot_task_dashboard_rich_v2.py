@@ -1,31 +1,19 @@
 #!/usr/bin/env python3
-"""Redesigned task dashboard (v2).
+"""Task dashboard figure: rank-over-time bumps of the most-frequent
+automatic metrics, human-evaluation criteria, and LaaJ criteria for the
+four major task families (DG / MT / TS / QA).
 
-Improvements over plot_task_dashboard_rich.py:
-  - Top-5 items per panel instead of top-10, selected by per-task frequency
-    (i.e., what the field actually uses most often when evaluating this
-    task).
-  - LR (relative risk) and G² log-likelihood test computed per (task, item)
-    over the full corpus, with BH-FDR within each (task, field) family.
-    The significance verdict only affects rendering: items whose LR is
-    significant after BH-FDR (q <= 0.05) are drawn with solid line + filled
-    markers; popular-but-not-distinctive items get dashed line + hollow
-    markers + LR shown in italic — flagging "this is widely used here but
-    not specific to the task".
-  - Labels at line endpoints only (start + end), no per-year cluttering.
-  - Drop bubble-size encoding for prevalence (uniform marker).
-  - Color by QCET L1 axis ([QO]/[QI]/[QT]/[QE] + auto-metrics + AUX) so the
-    figure tells a categorical story instead of asking the reader to track
-    30 individual lines.
+Each panel shows the top items in that (task × field) cell selected by
+per-task frequency, with significance from LR (relative risk) and the G²
+log-likelihood test (BH-FDR-corrected at p ≤ 0.05 within each
+(task, field) family).  Significant items render solid; non-significant
+ones render dashed with italicised LR, signalling "widely used here but
+not specific to the task".  Lines are coloured by QCET L1 axis
+([QO]/[QI]/[QT]/[QE], plus auto-metrics and AUX).
 
-Layout: 4 columns (DG / MT / TS / QA) x 3 rows (auto metrics / human criteria
-/ LaaJ criteria), 12 panels total. Each panel: rank-over-time bump chart of
-the top-5 most-frequent items in that task, with G² significance shown by
-line style.
+Run from the repo root:
 
-Run from `paper_code/`:
-
-    python 07_figures/plot_task_dashboard_rich_v2.py
+    python analysis/analysis_scripts/plot_task_dashboard_rich_v2.py
 """
 
 from __future__ import annotations
@@ -44,9 +32,6 @@ import numpy as np
 from data_loader import load_data, short_label
 from association_measures import compute_all, bh_fdr
 
-# ---------------------------------------------------------------------------
-# Config
-# ---------------------------------------------------------------------------
 TOP_N = 8
 
 # Figure-only abbreviations to keep endpoint labels short. The map is keyed
@@ -101,9 +86,6 @@ L1_NAMES = {
 }
 
 
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
 def _l1_axis(item: str, field_key: str) -> str:
     """Best-effort L1 classification for a display name. The criteria fields
     contain QCET full names (which start with the leaf 'name' but we don't
@@ -299,9 +281,6 @@ def _cell_totals(papers_for_task, field_key: str) -> dict[int, int]:
     return out
 
 
-# ---------------------------------------------------------------------------
-# Plotting
-# ---------------------------------------------------------------------------
 def _label_positions(chosen, ranks, final_year, top_n):
     """Return per-term label placement.
 

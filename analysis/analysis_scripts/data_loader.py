@@ -12,15 +12,12 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT  = os.path.dirname(os.path.dirname(SCRIPT_DIR))
 DATA_DIR   = os.path.join(REPO_ROOT, 'results', 'llm-merged-results-top30-tasks')
 
-# ---------------------------------------------------------------------------
-# Criteria are already QCET-normalized at the JSON pre-bake step
+# Criteria are already QCET-normalised at the JSON pre-bake step
 # (src/llm_annotation/normalize_merged_results.py reads
-#  metadata_unique_counts/criteria/{llm,human}_criteria_normalization_mapping.csv,
-#  which is regenerated from src/qcet_normalization/outputs/criteria_classifications.csv via
-#  src/qcet_normalization/apply_qcet_to_metadata.py).
-# Short labels for figures come from src/qcet_normalization/qcet_labels.py,
-# applied to the chosen_id/chosen_name pairs in the final classifications CSV.
-# ---------------------------------------------------------------------------
+# metadata_unique_counts/criteria/{llm,human}_criteria_normalization_mapping.csv,
+# regenerated from src/qcet_normalization/outputs/criteria_classifications.csv
+# via src/qcet_normalization/apply_qcet_to_metadata.py).  Short labels for
+# figures come from src/qcet_normalization/qcet_labels.py.
 
 sys.path.insert(0, os.path.join(REPO_ROOT, 'src', 'qcet_normalization'))
 from qcet_labels import build_label_map as _build_label_map
@@ -66,14 +63,11 @@ def short_label(criterion: str, prefixed: bool = True) -> str:
     return hit[2] if prefixed else hit[1]
 
 
-# ---------------------------------------------------------------------------
-# Raw-string → QCET full-name lookup, used by analyses that read criterion
-# strings from sources OTHER than `data/llm-merged-results-top30-tasks/`
-# (which is already pre-normalized).  The clearest case is the LaaJ↔Human
-# validation pipeline, which extracts criterion strings from validation
-# papers separately.  Returns None if the raw string is AUX-Other (caller
-# should drop it).
-# ---------------------------------------------------------------------------
+# Raw-string → QCET full-name lookup for analyses that read criterion strings
+# from sources other than `results/llm-merged-results-top30-tasks/` (which is
+# already pre-normalised).  The LaaJ↔Human validation pipeline is the main
+# case: it extracts criterion strings from validation xlsx separately.
+# Returns None for AUX-Other rows (caller should drop them).
 
 def _build_raw_to_qcet_map() -> dict:
     """{raw_lower: qcet_full_name | None} merged across LLM + Human mappings."""

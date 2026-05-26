@@ -30,11 +30,9 @@ RAW_JSON   = HERE / "outputs" / "aux_taxonomy_candidates.json"
 FINAL_JSON = HERE / "outputs" / "aux_taxonomy_curated.json"
 
 
-# ----------------------------------------------------------------------------
 # Curation rules — append new entries here as we curate.
 # Each rule is a dict with a `kind` field. They are applied in declaration
 # order; later rules see the result of earlier rules.
-# ----------------------------------------------------------------------------
 
 CURATION_RULES: list[dict[str, Any]] = [
     {
@@ -61,9 +59,8 @@ CURATION_RULES: list[dict[str, Any]] = [
 ]
 
 
-# ----------------------------------------------------------------------------
+
 # Rule executor
-# ----------------------------------------------------------------------------
 
 def apply_merge(categories: list[dict[str, Any]], rule: dict[str, Any]) -> list[dict[str, Any]]:
     src_ids = set(rule["merge_aux_ids"])

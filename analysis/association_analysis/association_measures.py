@@ -262,9 +262,6 @@ def compute_all(
     }
 
 
-# ---------------------------------------------------------------------------
-# Self-tests (run as `python association_measures.py`)
-# ---------------------------------------------------------------------------
 
 def _selftest() -> None:
     """A handful of sanity checks against textbook values and edge cases."""
