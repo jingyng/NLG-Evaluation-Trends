@@ -121,4 +121,4 @@ PDFs, XMLs, and per-paper JSONs will be released through an external link once t
 
 ## Requirements
 
-Python 3.10 or later. The principal third-party dependencies are `sentence-transformers`, `hdbscan`, `pandas`, `scipy`, `scikit-learn`, `matplotlib`, and `openpyxl`; see [`requirements.txt`](requirements.txt) for the complete list.
+Python 3.10 or later. The principal third-party dependencies are `pandas`, `numpy`, `scipy`, `matplotlib`, `seaborn`, `openpyxl`, `sentence-transformers`, `hdbscan`, `openai`, and `krippendorff`; see [`requirements.txt`](requirements.txt) for the complete list.
