@@ -1,7 +1,6 @@
 # What Are We Measuring in NLG? A Meta-Analysis of Evaluation Trends 2020–2025
 
-Code and data for the paper **"What Are We Measuring in NLG? A Meta-Analysis of Evaluation Trends 2020–2025"**.
-The pipeline extracts evaluation metadata — tasks, datasets, models, automatic metrics, human + LLM-as-a-Judge criteria — from ACL Anthology papers, normalises every term family, re-maps evaluation criteria onto the QCET taxonomy (Belz et al., 2024), and produces the figures and association analyses reported in the paper.
+Code and data for **"What Are We Measuring in NLG? A Meta-Analysis of Evaluation Trends 2020–2025"**. Run the pipeline below to reproduce the 3,334-paper analysis corpus and every figure and association analysis reported in the paper.
 
 ## Quick overview
 
