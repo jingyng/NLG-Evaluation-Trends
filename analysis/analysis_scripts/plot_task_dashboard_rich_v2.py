@@ -51,7 +51,7 @@ TOP_N = 8
 
 # Figure-only abbreviations to keep endpoint labels short. The map is keyed
 # on the *short_label()* output (the bare short name from
-# criteria_qcet_short_labels.csv), since `short_label()` is applied to the
+# qcet_short_labels.csv), since `short_label()` is applied to the
 # raw criterion before this map is consulted.
 LABEL_ABBREV = {
     "Overall Quality / Preference": "Overall Quality",
@@ -115,11 +115,11 @@ def _l1_axis(item: str, field_key: str) -> str:
 
 
 def _build_name_to_l1() -> dict[str, str]:
-    """Read criteria_qcet_short_labels.csv (qcet_id, qcet_l1, qcet_name, ...)
+    """Read qcet_short_labels.csv (qcet_id, qcet_l1, qcet_name, ...)
     and build a name → L1 lookup."""
     import csv
     out: dict[str, str] = {}
-    p = Path(__file__).parent.parent / "metadata_unique_counts" / "criteria" / "criteria_qcet_short_labels.csv"
+    p = Path(__file__).parent.parent / "metadata_unique_counts" / "criteria" / "qcet_short_labels.csv"
     if not p.exists():
         return out
     with p.open(newline="") as f:

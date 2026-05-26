@@ -1,31 +1,3 @@
-# QCET Classification — Stage 4 Prompt
-
-Final per-variant classification against the consolidated taxonomy: 111
-QCET leaves (Belz et al., 2025) + 6 extension leaves curated in Stage 3
-(= 117), plus two auxiliary catch-alls (`AUX-OverallQuality`,
-`AUX-Other`).  Unlike Stage 1, every input must be assigned a target —
-no `"none"` option.
-
-Source: `src/qcet_normalization/classify_stage4_simple.py`,
-`build_batched_system_prompt()`.  The `{QCET leaves block}` placeholder
-is expanded at run time from `src/qcet_normalization/qcet_taxonomy.json`
-(117 leaves grouped by L1/L2 axes).  The `{Auxiliary block}` is expanded
-from `src/qcet_normalization/aux_taxonomy_APRIORI.json`.
-
-The user message is a numbered list of raw criterion strings:
-
-```
-Classify each of the following criteria:
-1. <raw criterion 1>
-2. <raw criterion 2>
-...
-N. <raw criterion N>
-```
-
----
-
-## System prompt
-
 ```
 You normalize evaluation-criterion strings from NLG research papers into a consolidated taxonomy: 117 QCET leaves (Belz et al., 2025, extended) plus two auxiliary categories.
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Regenerate metadata_unique_counts/criteria/*.csv files using the QCET
-classification results from stage4_classifications_simple.csv.
+classification results from criteria_classifications.csv.
 
 Produces (overwrites):
   metadata_unique_counts/criteria/
@@ -11,7 +11,7 @@ Produces (overwrites):
     human_criteria_normalization_merges.csv
     llm_criteria_stats_normalized.csv           (criterion,count,qcet_id)
     human_criteria_stats_normalized.csv
-    criteria_qcet_short_labels.csv              (qcet_id,qcet_name,short_label)
+    qcet_short_labels.csv              (qcet_id,qcet_name,short_label)
 
 The "normalized" column carries the QCET full name (canonical, resolved across
 chosen_id ↔ chosen_name conflicts).  Rows whose chosen_id == 'AUX-Other' use
@@ -23,14 +23,15 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List, Tuple
 
-BASE = Path(__file__).parent.parent           # paper_code/
-QCET_CSV = BASE / "05_criteria_normalization" / "outputs" / "stage4_classifications_simple.csv"
-POLY_OVERRIDES_CSV = BASE / "05_criteria_normalization" / "polysemous_overrides.csv"
-OUT_DIR = BASE / "metadata_unique_counts" / "criteria"
+HERE = Path(__file__).parent                  # src/qcet_normalization/
+REPO_ROOT = HERE.parent.parent                # repo root
+QCET_CSV = HERE / "outputs" / "criteria_classifications.csv"
+POLY_OVERRIDES_CSV = HERE / "polysemous_overrides.csv"
+OUT_DIR = REPO_ROOT / "metadata_unique_counts" / "criteria"
 
 DROP_SENTINEL = "__DROP__"
 
-# Hand-fixes for chosen_id ↔ chosen_name conflicts in stage4 (resolved by
+# Hand-fixes for chosen_id ↔ chosen_name conflicts in the final classification (resolved by
 # (a) preferring the dominant name, (b) fixing typos, (c) keeping a single
 # name per QCET id).  See apply_qcet_to_metadata diagnostic output for
 # the conflict table.
@@ -258,8 +259,9 @@ def apply_polysemous_overrides(
 
 
 def resolve_canonical_names(rows: List[Dict[str, str]]) -> Dict[str, str]:
-    """Return {chosen_id: canonical_name}.  When stage4 has multiple chosen_name
-    values for the same chosen_id, prefer the override, else the dominant name."""
+    """Return {chosen_id: canonical_name}.  When the final classification has
+    multiple chosen_name values for the same chosen_id, prefer the override,
+    else the dominant name."""
     counts: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
     for row in rows:
         cid = row["chosen_id"]
@@ -373,10 +375,10 @@ def main() -> None:
     n_overridden = apply_polysemous_overrides(rows, overrides)
     canonical = resolve_canonical_names(rows)
 
-    print(f"Loaded {len(rows)} stage4 classifications.")
+    print(f"Loaded {len(rows)} classifications.")
     if overrides:
         print(f"Loaded {len(overrides)} polysemous overrides; "
-              f"applied to {n_overridden} stage4 rows.")
+              f"applied to {n_overridden} classification rows.")
     print(f"Canonical QCET names: {len(canonical)} (excluding AUX-Other).")
 
     for source, occ_field in [("llm", "occurrences_llm"), ("human", "occurrences_human")]:
@@ -389,7 +391,7 @@ def main() -> None:
         write_merges(OUT_DIR / f"{source}_criteria_normalization_merges.csv", entries)
         write_stats_normalized(OUT_DIR / f"{source}_criteria_stats_normalized.csv", entries)
 
-    write_short_labels(OUT_DIR / "criteria_qcet_short_labels.csv", canonical)
+    write_short_labels(OUT_DIR / "qcet_short_labels.csv", canonical)
     print(f"Wrote short-label table.")
 
 

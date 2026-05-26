@@ -13,16 +13,16 @@ DATA_DIR   = os.path.join(REPO_ROOT, 'results', 'llm-merged-results-top30-tasks'
 
 # ---------------------------------------------------------------------------
 # Criteria are already QCET-normalized at the JSON pre-bake step
-# (paper_code/04_postprocessing/normalize_merged_results.py reads
+# (src/llm_annotation/normalize_merged_results.py reads
 #  metadata_unique_counts/criteria/{llm,human}_criteria_normalization_mapping.csv,
-#  which is regenerated from stage4_classifications_simple.csv via
-#  paper_code/05_criteria_normalization/apply_qcet_to_metadata.py).
+#  which is regenerated from src/qcet_normalization/outputs/criteria_classifications.csv via
+#  src/qcet_normalization/apply_qcet_to_metadata.py).
 # Short labels for figures live in
-#  metadata_unique_counts/criteria/criteria_qcet_short_labels.csv.
+#  metadata_unique_counts/criteria/qcet_short_labels.csv.
 # ---------------------------------------------------------------------------
 
 _SHORT_LABELS_CSV = os.path.join(
-    REPO_ROOT, 'metadata_unique_counts', 'criteria', 'criteria_qcet_short_labels.csv'
+    REPO_ROOT, 'metadata_unique_counts', 'criteria', 'qcet_short_labels.csv'
 )
 _LLM_MAPPING_CSV = os.path.join(
     REPO_ROOT, 'metadata_unique_counts', 'criteria', 'llm_criteria_normalization_mapping.csv'

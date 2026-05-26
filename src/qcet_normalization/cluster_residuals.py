@@ -1,6 +1,6 @@
-"""Stage 2 — cluster Stage-1 residuals to surface aux-category candidates.
+"""Cluster initial-classification residuals to surface aux-category candidates.
 
-Input: outputs/stage1_classifications.csv (produced by classify_stage1.py).
+Input: outputs/criteria_classifications_initial.csv (produced by classify_criteria.py).
 Only rows with qcet_fit in {"none", "partial"} are considered residuals; they
 are clustered by the `construct` phrase the classifier returned.
 
@@ -12,19 +12,19 @@ Method:
      construct, top-10 raw strings, closest QCET leaf suggested by the
      classifier (if any), top partial-fit QCET leaves seen in the cluster.
 
-This is the input to the human-judgment step (Stage 3) where we apply the
+This is the input to the human-judgment step where we apply the
 prevalence + non-reducibility tests to decide which clusters become aux
 categories.
 
 Outputs:
-  outputs/stage2_cluster_assignments.csv   per-variant cluster id
-  outputs/stage2_cluster_report.csv        per-cluster summary
-  outputs/stage2_cluster_report.md         human-readable summary
+  outputs/residual_cluster_assignments.csv   per-variant cluster id
+  outputs/residual_cluster_report.csv        per-cluster summary
+  outputs/residual_cluster_report.md         human-readable summary
 
 Usage:
   pip install sentence-transformers hdbscan
-  python cluster_stage2.py
-  python cluster_stage2.py --min-cluster-size 15  # tune granularity
+  python cluster_residuals.py
+  python cluster_residuals.py --min-cluster-size 15  # tune granularity
 """
 
 from __future__ import annotations
@@ -38,18 +38,18 @@ from typing import Any
 
 HERE = Path(__file__).resolve().parent
 OUT_DIR = HERE / "outputs"
-STAGE1_CSV = OUT_DIR / "stage1_classifications.csv"
-ASSIGN_CSV = OUT_DIR / "stage2_cluster_assignments.csv"
-REPORT_CSV = OUT_DIR / "stage2_cluster_report.csv"
-REPORT_MD = OUT_DIR / "stage2_cluster_report.md"
+INITIAL_CLASSIFICATIONS_CSV = OUT_DIR / "criteria_classifications_initial.csv"
+ASSIGN_CSV = OUT_DIR / "residual_cluster_assignments.csv"
+REPORT_CSV = OUT_DIR / "residual_cluster_report.csv"
+REPORT_MD = OUT_DIR / "residual_cluster_report.md"
 
 
 def load_residuals() -> list[dict[str, Any]]:
-    if not STAGE1_CSV.exists():
-        print(f"ERROR: {STAGE1_CSV} not found. Run classify_stage1.py first.")
+    if not INITIAL_CLASSIFICATIONS_CSV.exists():
+        print(f"ERROR: {INITIAL_CLASSIFICATIONS_CSV} not found. Run classify_criteria.py first.")
         sys.exit(2)
     rows: list[dict[str, Any]] = []
-    with open(STAGE1_CSV) as f:
+    with open(INITIAL_CLASSIFICATIONS_CSV) as f:
         for row in csv.DictReader(f):
             fit = row.get("qcet_fit", "")
             if fit in ("none", "partial") and row.get("construct", "").strip():
@@ -65,7 +65,7 @@ def load_residuals() -> list[dict[str, Any]]:
                     "justification": row.get("justification", ""),
                 })
     if not rows:
-        print("No residuals found; every variant mapped strong to QCET. Stage 2 is unnecessary.")
+        print("No residuals found; every variant mapped strong to QCET. residual clustering is unnecessary.")
         sys.exit(0)
     return rows
 
@@ -154,7 +154,7 @@ def write_report(clusters: dict[int, dict[str, Any]], output_md: Path, output_cs
             ])
 
     with open(output_md, "w") as fout:
-        fout.write("# Stage 2 — residual cluster report\n\n")
+        fout.write("# Residual cluster report\n\n")
         fout.write(
             "Each cluster is a candidate aux category. Apply the prevalence + "
             "non-reducibility tests manually to decide which survive.\n\n"

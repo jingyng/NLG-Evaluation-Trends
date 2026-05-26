@@ -11,14 +11,14 @@ from association_measures import compute_all, bh_fdr
 from pathlib import Path
 
 # Visual encoding: bars for items that are statistically task-distinctive
-# (G²+BH-FDR q ≤ 0.05, LR > 1) render at full alpha; non-significant
+# (G²+BH-FDR p ≤ 0.05, LR > 1) render at full alpha; non-significant
 # items render at low alpha so the eye picks out "frequent AND
 # task-specific" vs "frequent but not distinctive". The "All Tasks"
 # column is treated as having no target task, so all its bars render at
 # full alpha (no significance dimming there).
 SIG_ALPHA = 0.85
 NONSIG_ALPHA = 0.25
-SIG_Q = 0.05
+SIG_P = 0.05
 
 def load_normalization_mappings():
     """Load normalization mappings from CSV files"""
@@ -149,7 +149,7 @@ def create_frequency_rank_dashboard(papers):
     def get_top_items_by_frequency(task_name, field_key, top_n=10):
         """Get top N items by frequency for a given task and field.
 
-        Also flags each item as LR-significant (G²+BH-FDR q ≤ SIG_Q and
+        Also flags each item as LR-significant (G²+BH-FDR p ≤ SIG_P and
         LR > 1) so the caller can dim non-significant bars. The "All
         Tasks" column has no target task, so all items there are flagged
         as significant=True (no dimming)."""
@@ -204,7 +204,7 @@ def create_frequency_rank_dashboard(papers):
                 lrs.append(lr if lr is not None and np.isfinite(lr) else 0.0)
                 pvals.append(p)
             qvals, _ = bh_fdr(pvals)
-            sig_flags = [q <= SIG_Q and lr > 1.0 for q, lr in zip(qvals, lrs)]
+            sig_flags = [q <= SIG_P and lr > 1.0 for q, lr in zip(qvals, lrs)]
             lrs_for_items = lrs
 
         # Convert to display names if available

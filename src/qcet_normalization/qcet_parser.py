@@ -14,7 +14,7 @@ hierarchy metadata but are never used as classification targets.
 
 Usage
 -----
-At runtime, classifier scripts (classify_stage1.py, classify_stage4_simple.py)
+At runtime, classifier scripts (classify_criteria.py, reclassify_criteria.py)
 read `qcet_taxonomy.json` directly; this parser is only needed to regenerate
 that JSON from a fresh markdown dump of the QCET site. To re-parse:
 

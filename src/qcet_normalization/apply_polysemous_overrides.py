@@ -1,11 +1,11 @@
 """
-build_stage4_with_overrides.py
+apply_polysemous_overrides.py
 
-Apply `polysemous_overrides.csv` on top of `outputs/stage4_classifications_simple.csv`
-and write `outputs/stage4_classifications_simple_with_overrides.csv`.
+Apply `polysemous_overrides.csv` on top of `outputs/criteria_classifications.csv`
+and write `outputs/criteria_classifications_final.csv`.
 
-The override-corrected frame is the canonical input for Stage 5 sampling
-(`sample_stage5_validation.py`), so the validation sample reflects the
+The override-corrected frame is the canonical input for the validation-sampling step
+(`sample_validation_set.py`), so the validation sample reflects the
 final routing reported in the paper rather than the pre-override classifier
 output.
 
@@ -27,9 +27,9 @@ import csv
 from pathlib import Path
 
 HERE = Path(__file__).parent
-SRC = HERE / "outputs" / "stage4_classifications_simple.csv"
+SRC = HERE / "outputs" / "criteria_classifications.csv"
 OVR = HERE / "polysemous_overrides.csv"
-DST = HERE / "outputs" / "stage4_classifications_simple_with_overrides.csv"
+DST = HERE / "outputs" / "criteria_classifications_final.csv"
 
 
 def main() -> None:
@@ -67,7 +67,7 @@ def main() -> None:
                 row["override_applied"] = ""
             writer.writerow(row)
 
-    print(f"Read {n_total} stage4 rows; rewrote {n_changed} via overrides.")
+    print(f"Read {n_total} classification rows; rewrote {n_changed} via overrides.")
     print(f"Wrote {DST}")
 
 

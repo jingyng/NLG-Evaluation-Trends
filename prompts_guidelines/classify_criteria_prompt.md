@@ -1,30 +1,3 @@
-# QCET Classification — Stage 1 Prompt
-
-Task-blind classification of every raw criterion string against the 111
-QCET leaves (Belz et al., 2025).  This is the initial LLM pass; outputs
-flagged `fit="partial"` or `fit="none"` are clustered in Stage 2 and may
-trigger taxonomy extensions in Stage 3.
-
-Source: `src/qcet_normalization/classify_stage1.py`,
-`build_batched_system_prompt()`.  The `{QCET leaves block}` placeholder
-is expanded at run time from `src/qcet_normalization/qcet_taxonomy.json`
-(111 leaves grouped by L1/L2 axes, one row per leaf in `id | name | short
-definition` format).
-
-The user message is a numbered list of raw criterion strings:
-
-```
-Classify each of the following criteria:
-1. <raw criterion 1>
-2. <raw criterion 2>
-...
-N. <raw criterion N>
-```
-
----
-
-## System prompt
-
 ```
 You normalize evaluation-criterion strings from NLG research papers into the QCET taxonomy (Belz et al., 2025).
 

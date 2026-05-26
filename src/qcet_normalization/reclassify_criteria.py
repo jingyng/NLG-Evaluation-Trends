@@ -1,11 +1,11 @@
-"""classify_stage4_simple.py — simplified single-pass Stage 4 classification.
+"""reclassify_criteria.py — final single-pass classification.
 
 Target set (119 entries):
   - 117 QCET leaves (Belz et al., 2025, extended from 111 to 117)
   - AUX-OverallQuality  — holistic overall-quality / preference judgements
   - AUX-Other          — catch-all for metrics, noise, out-of-scope items
 
-Routing (deterministic where Stage 3 already gave a clear verdict):
+Routing (deterministic where the aux-category decisions already gave a clear verdict):
   1. Stage-1 strong-fit → carry forward unchanged.
   2. Stage-3 FOLD_INTO_QCET → remap to target QCET leaf.
   3. Stage-3 SPLIT, Stage-1 fit present → keep Stage-1 per-variant assignment.
@@ -13,16 +13,15 @@ Routing (deterministic where Stage 3 already gave a clear verdict):
   5. All other variants (KEEP_AUX clusters + Stage-2 noise + Stage-1 errors)
      → single LLM call against the 119-entry target set.
 
-This replaces the previous two-pass design (classify_stage4.py + stage4b_reclassify.py)
-and the string-match rescue layer (subdivide_aux_other.py, apply_overrides_stage4.py).
+This replaces the previous two-pass design and string-match rescue layer.
 
 Usage:
   export OPENROUTER_API_KEY=sk-or-v1-...
-  python classify_stage4_simple.py --dry-run    # prompts + routing summary, no LLM
-  python classify_stage4_simple.py --plan-only  # deterministic rows + plan, no LLM
-  python classify_stage4_simple.py              # full run
-  python classify_stage4_simple.py --resume     # resume after partial run
-  python classify_stage4_simple.py --workers 4  # N concurrent API workers
+  python reclassify_criteria.py --dry-run    # prompts + routing summary, no LLM
+  python reclassify_criteria.py --plan-only  # deterministic rows + plan, no LLM
+  python reclassify_criteria.py              # full run
+  python reclassify_criteria.py --resume     # resume after partial run
+  python reclassify_criteria.py --workers 4  # N concurrent API workers
 """
 
 from __future__ import annotations
@@ -44,11 +43,11 @@ from deepseek_client import DeepSeekClient
 HERE    = Path(__file__).resolve().parent
 OUT_DIR = HERE / "outputs"
 QCET_JSON  = HERE / "qcet_taxonomy.json"
-STAGE1_CSV = OUT_DIR / "stage1_classifications.csv"
-STAGE2_CSV = OUT_DIR / "stage2_cluster_assignments.csv"
-STAGE3_CSV = OUT_DIR / "stage3_decisions.csv"
-OUT_CSV    = OUT_DIR / "stage4_classifications_simple.csv"
-PLAN_CSV   = OUT_DIR / "stage4_simple_routing_plan.csv"
+INITIAL_CLASSIFICATIONS_CSV = OUT_DIR / "criteria_classifications_initial.csv"
+RESIDUAL_CLUSTERS_CSV = OUT_DIR / "residual_cluster_assignments.csv"
+AUX_DECISIONS_CSV = OUT_DIR / "aux_category_decisions.csv"
+OUT_CSV    = OUT_DIR / "criteria_classifications.csv"
+PLAN_CSV   = OUT_DIR / "criteria_classification_routing.csv"
 
 # The two AUX entries that survive in the simplified taxonomy.
 _AUX_ENTRIES: list[dict[str, str]] = [
@@ -95,11 +94,11 @@ def load_qcet_leaves() -> list[dict[str, Any]]:
     return leaves
 
 
-def load_stage1() -> list[dict[str, str]]:
-    if not STAGE1_CSV.exists():
-        sys.exit(f"ERROR: {STAGE1_CSV} not found. Run classify_stage1.py first.")
+def load_initial_classifications() -> list[dict[str, str]]:
+    if not INITIAL_CLASSIFICATIONS_CSV.exists():
+        sys.exit(f"ERROR: {INITIAL_CLASSIFICATIONS_CSV} not found. Run classify_criteria.py first.")
     seen: dict[str, dict[str, str]] = {}
-    with open(STAGE1_CSV) as f:
+    with open(INITIAL_CLASSIFICATIONS_CSV) as f:
         for row in csv.DictReader(f):
             raw = row["raw_string"]
             if raw in seen and seen[raw].get("error"):
@@ -110,21 +109,21 @@ def load_stage1() -> list[dict[str, str]]:
     return list(seen.values())
 
 
-def load_stage2_clusters() -> dict[str, int]:
+def load_residual_clusters() -> dict[str, int]:
     out: dict[str, int] = {}
-    if not STAGE2_CSV.exists():
+    if not RESIDUAL_CLUSTERS_CSV.exists():
         return out
-    with open(STAGE2_CSV) as f:
+    with open(RESIDUAL_CLUSTERS_CSV) as f:
         for row in csv.DictReader(f):
             out[row["raw_string"]] = int(row["cluster_id"])
     return out
 
 
-def load_stage3_decisions() -> dict[int, dict[str, Any]]:
-    if not STAGE3_CSV.exists():
-        sys.exit(f"ERROR: {STAGE3_CSV} not found.")
+def load_aux_decisions() -> dict[int, dict[str, Any]]:
+    if not AUX_DECISIONS_CSV.exists():
+        sys.exit(f"ERROR: {AUX_DECISIONS_CSV} not found.")
     out: dict[int, dict[str, Any]] = {}
-    with open(STAGE3_CSV) as f:
+    with open(AUX_DECISIONS_CSV) as f:
         for row in csv.DictReader(f):
             try:
                 cid = int(row["cluster_id"])
@@ -159,7 +158,7 @@ def route_variant(
             "justification": v.get("justification", ""),
         }
 
-    # Variants absent from Stage 2 that weren't strong-fits go to LLM.
+    # Variants absent from the residual-clustering output that weren't strong-fits go to LLM.
     if cluster_id is None:
         return {"chosen_source": "stage4_llm"}
 
@@ -356,7 +355,7 @@ def build_user_prompt(v: dict[str, Any]) -> str:
     fold_hint = v.get("stage3_fold_hint", "")
     if fold_hint:
         lines.append(
-            f"(Cluster-level hint from Stage 3: similar variants mapped to {fold_hint}. "
+            f"(Cluster-level hint from the aux-category decisions: similar variants mapped to {fold_hint}. "
             f"Override if a better match exists, e.g. AUX-OverallQuality.)"
         )
     return "\n".join(lines)
@@ -372,7 +371,7 @@ def build_batched_user_prompt(variants: list[dict[str, Any]]) -> str:
             line += f"   [hint: prior partial-fit was {s1_id}]"
         fold_hint = v.get("stage3_fold_hint", "")
         if fold_hint:
-            line += f"   [stage3 cluster hint: {fold_hint}, override if needed]"
+            line += f"   [aux-decision cluster hint: {fold_hint}, override if needed]"
         lines.append(line)
     return "\n".join(lines)
 
@@ -560,14 +559,14 @@ def main(argv: list[str]) -> int:
     OUT_DIR.mkdir(exist_ok=True)
 
     leaves          = load_qcet_leaves()
-    stage1          = load_stage1()
-    stage2_clusters = load_stage2_clusters()
-    stage3          = load_stage3_decisions()
+    initial_classifications = load_initial_classifications()
+    residual_clusters = load_residual_clusters()
+    aux_decisions = load_aux_decisions()
     valid_targets   = _build_valid_target_index(leaves)
 
     print(f"Loaded {len(leaves)} QCET leaves, {len(_AUX_ENTRIES)} aux entries, "
-          f"{len(stage1)} Stage-1 rows, {len(stage2_clusters)} Stage-2 assignments, "
-          f"{len(stage3)} Stage-3 verdicts.")
+          f"{len(initial_classifications)} initial-classification rows, {len(residual_clusters)} cluster assignments, "
+          f"{len(aux_decisions)} aux-category verdicts.")
 
     system_singleton = build_system_prompt(leaves)
     system_batched   = build_batched_system_prompt(leaves)
@@ -578,8 +577,8 @@ def main(argv: list[str]) -> int:
     llm_pending: list[dict[str, Any]] = []
     src_counter: Counter[str] = Counter()
 
-    for v in stage1:
-        cluster_id = stage2_clusters.get(v["raw_string"])
+    for v in initial_classifications:
+        cluster_id = residual_clusters.get(v["raw_string"])
         base = {
             "raw_string":        v["raw_string"],
             "source":            v.get("source", ""),
@@ -594,9 +593,9 @@ def main(argv: list[str]) -> int:
             "construct":         v.get("construct", ""),
             "justification":     v.get("justification", ""),
         }
-        verdict = route_variant(v, cluster_id, stage3)
+        verdict = route_variant(v, cluster_id, aux_decisions)
         if verdict is None:
-            fold_target = stage3.get(cluster_id, {}).get("target_qcet_id", "") if cluster_id is not None else ""
+            fold_target = aux_decisions.get(cluster_id, {}).get("target_qcet_id", "") if cluster_id is not None else ""
             verdict = {"chosen_source": "stage4_llm", "stage3_fold_hint": fold_target}
         src_counter[verdict["chosen_source"]] += 1
 

@@ -46,15 +46,15 @@ Term normalization pipeline for tasks, metrics, models, languages, datasets, and
 - `normalize_human_criteria.py`, `normalize_llm_criteria.py`: Raw criterion-string normalisers (these are then re-mapped via QCET in `src/qcet_normalization/`)
 
 #### `qcet_normalization/`
-QCET-based criterion classification (Belz et al., 2024 taxonomy):
-- `calibrate_stage0_batched.py`: Stage 0 — calibrate batch size against 30 gold pairs.
-- `classify_stage1.py`: Stage 1 — task-blind classification of every raw variant against 111 QCET leaves.
-- `cluster_stage2.py`: Stage 2 — HDBSCAN clustering of Stage-1 residuals (`fit ∈ {partial, none}`) to surface aux-category candidates.
-- `decide_stage3.py` + `curate_stage3.py`: Stage 3 — non-reducibility verdicts (KEEP_AUX / FOLD / SPLIT / DROP) per cluster, followed by manual curation merging.
-- `classify_stage4_simple.py` + `build_stage4_with_overrides.py`: Stage 4 — per-variant final classification against the 117 QCET leaves + 2 meta-categories, with manual polysemous overrides applied.
-- `apply_qcet_to_metadata.py`: Folds the Stage-4 mapping back into the per-paper criterion-normalization CSVs.
-- `sample_stage5_validation.py` + `score_stage5_validation.py` + `export_stage5_excel.py`: Stage 5 — stratified random validation sample (155 criteria) for two-annotator Likert-scale evaluation.
-- `qcet_parser.py`, `qcet_taxonomy.json`, `aux_taxonomy_APRIORI.json`: QCET taxonomy + a-priori auxiliary categories used by Stages 1 and 4.
+QCET-based criterion classification (Belz et al., 2024 taxonomy). Scripts are listed in pipeline order:
+- `calibrate_batch_size.py`: calibrate the batched classifier against 30 gold pairs before the full run.
+- `classify_criteria.py`: task-blind classification of every raw variant against the 111 QCET leaves; residuals (`fit ∈ {partial, none}`) get flagged for clustering.
+- `cluster_residuals.py`: HDBSCAN clustering of the residuals to surface aux-category candidates.
+- `decide_aux_categories.py` + `curate_aux_categories.py`: non-reducibility verdicts (KEEP_AUX / FOLD / SPLIT / DROP) per cluster, followed by manual curation.
+- `reclassify_criteria.py` + `apply_polysemous_overrides.py`: per-variant final classification against 117 QCET leaves + 2 auxiliary categories, with manual polysemous overrides applied.
+- `apply_qcet_to_metadata.py`: folds the final classification back into the per-paper criterion-normalization CSVs under `metadata_unique_counts/criteria/`.
+- `sample_validation_set.py` + `export_validation_to_excel.py` + `score_validation.py`: stratified random validation sample (155 criteria) for two-annotator Likert-scale evaluation.
+- `qcet_parser.py`, `qcet_taxonomy.json`, `aux_taxonomy_initial.json`: QCET taxonomy + a priori auxiliary categories shared by the initial and final classification passes.
 
 ### `analysis/`
 
@@ -78,7 +78,7 @@ Processed data at various stages:
 ### Additional Directories
 
 - `human_annotation/`: Human-annotation guidelines and annotation results. 
-- `metadata_unique_counts/`: Per-term-family subfolders (`criteria/`, `automatic_metrics/`, `datasets/`, `languages/`, `models/`), each containing the family's `*_normalization_mapping.csv` (raw → normalized lookup) and, where applicable, `*_normalization_merges.csv` (multi-variant groupings). `criteria/` additionally contains `criteria_qcet_short_labels.csv` (QCET full name → short label used by figure scripts).
+- `metadata_unique_counts/`: Per-term-family subfolders (`criteria/`, `automatic_metrics/`, `datasets/`, `languages/`, `models/`), each containing the family's `*_normalization_mapping.csv` (raw → normalized lookup) and, where applicable, `*_normalization_merges.csv` (multi-variant groupings). `criteria/` additionally contains `qcet_short_labels.csv` (QCET full name → short label used by figure scripts).
 - `prompts_guidelines/`: Prompts used by the LLM pipeline — initial verification + term normalisation (`verify_and_normalize_prompt.md`), LaaJ-vs-human validation extraction (`extract_laaj_human_validation_prompt.md`), and QCET criterion classification at Stage 1 / Stage 4 (`qcet_classification_stage{1,4}_prompt.md`).
 - `paper_sources/`: Extracted paper URLs and metadata from ACL Anthology.
 

@@ -1,36 +1,36 @@
-"""Stage 3 — non-reducibility test for the 19 induced clusters from Stage 2.
+"""Non-reducibility verdicts on the residual clusters.
 
 For each cluster, the LLM is asked: given the cluster's central construct,
-its representative raw strings, and the QCET leaves the Stage-1 classifier
+its representative raw strings, and the QCET leaves the initial classifier
 already flagged as partial fits, render a verdict:
 
   KEEP_AUX        — the cluster's construct is not adequately captured by any
                     QCET leaf; it warrants a new auxiliary category.
   FOLD_INTO_QCET  — one QCET leaf does cover the construct; cluster members
-                    should be re-classified to that leaf in Stage 4.
+                    should be re-classified to that leaf in the final reclassification.
   SPLIT           — the cluster mixes >=2 distinct constructs that need
                     different destinations.
 
 Why one call per cluster (not per variant):
   - The decision is about CONCEPT reducibility, which is a cluster-level
-    property. Per-variant verdicts in Stage 3 would just duplicate Stage-4
+    property. Per-variant verdicts at the aux-decision step would just duplicate the final
     classification.
   - 19 calls vs ~600 calls is the difference between $0.02 and $1.50.
-  - Stage 4 still does per-variant judgement against {QCET + surviving aux}
+  - The final reclassification still does per-variant judgement against {QCET + surviving aux}
     so any per-variant errors here can be corrected later.
 
 The model also proposes a name + definition for KEEP_AUX clusters; these
-populate aux_taxonomy_INDUCED.json which Stage 4 uses.
+populate aux_taxonomy_candidates.json which the final reclassification uses.
 
 Output:
-  outputs/stage3_decisions.csv      one row per cluster with verdict
-  outputs/stage3_aux_taxonomy.json  surviving aux categories for Stage 4
-  outputs/stage3_decisions.md       human-readable summary
+  outputs/aux_category_decisions.csv      one row per cluster with verdict
+  outputs/aux_taxonomy_candidates.json  surviving aux categories for the final reclassification
+  outputs/aux_category_decisions.md       human-readable summary
 
 Usage:
   export OPENROUTER_API_KEY=...
-  python decide_stage3.py
-  python decide_stage3.py --dry-run    # print prompt for cluster 13 and exit
+  python decide_aux_categories.py
+  python decide_aux_categories.py --dry-run    # print prompt for cluster 13 and exit
 """
 
 from __future__ import annotations
@@ -50,11 +50,11 @@ from deepseek_client import DeepSeekClient
 HERE = Path(__file__).resolve().parent
 OUT_DIR = HERE / "outputs"
 QCET_JSON = HERE / "qcet_taxonomy.json"
-ASSIGN_CSV = OUT_DIR / "stage2_cluster_assignments.csv"
-STAGE1_CSV = OUT_DIR / "stage1_classifications.csv"
-DECISIONS_CSV = OUT_DIR / "stage3_decisions.csv"
-DECISIONS_MD = OUT_DIR / "stage3_decisions.md"
-AUX_OUT_JSON = OUT_DIR / "stage3_aux_taxonomy.json"
+ASSIGN_CSV = OUT_DIR / "residual_cluster_assignments.csv"
+INITIAL_CLASSIFICATIONS_CSV = OUT_DIR / "criteria_classifications_initial.csv"
+DECISIONS_CSV = OUT_DIR / "aux_category_decisions.csv"
+DECISIONS_MD = OUT_DIR / "aux_category_decisions.md"
+AUX_OUT_JSON = OUT_DIR / "aux_taxonomy_candidates.json"
 
 
 # ----------------------------------------------------------------------------
@@ -69,22 +69,22 @@ def load_qcet_leaves() -> list[dict[str, Any]]:
 def load_clusters() -> dict[int, list[dict[str, Any]]]:
     """Group Stage-2 cluster assignments by cluster_id, merging Stage-1 occurrences."""
     if not ASSIGN_CSV.exists():
-        sys.exit(f"ERROR: {ASSIGN_CSV} not found. Run cluster_stage2.py first.")
-    if not STAGE1_CSV.exists():
-        sys.exit(f"ERROR: {STAGE1_CSV} not found. Run classify_stage1.py first.")
+        sys.exit(f"ERROR: {ASSIGN_CSV} not found. Run cluster_residuals.py first.")
+    if not INITIAL_CLASSIFICATIONS_CSV.exists():
+        sys.exit(f"ERROR: {INITIAL_CLASSIFICATIONS_CSV} not found. Run classify_criteria.py first.")
 
     # Pull Stage-1's full row (we need source + justification + ALL the qcet
-    # info, which the smaller stage2 file dropped on writing).
-    stage1_by_raw: dict[str, dict[str, Any]] = {}
-    with open(STAGE1_CSV) as f:
+    # info, which the smaller residual-clusters file dropped on writing).
+    initial_by_raw: dict[str, dict[str, Any]] = {}
+    with open(INITIAL_CLASSIFICATIONS_CSV) as f:
         for r in csv.DictReader(f):
-            stage1_by_raw[r["raw_string"]] = r
+            initial_by_raw[r["raw_string"]] = r
 
     by_cluster: dict[int, list[dict[str, Any]]] = defaultdict(list)
     with open(ASSIGN_CSV) as f:
         for r in csv.DictReader(f):
             cid = int(r["cluster_id"])
-            s1 = stage1_by_raw.get(r["raw_string"], {})
+            s1 = initial_by_raw.get(r["raw_string"], {})
             by_cluster[cid].append({
                 "raw_string":    r["raw_string"],
                 "construct":     r["construct"],
@@ -440,7 +440,7 @@ def main(argv: list[str]) -> int:
 
     # Markdown summary
     with open(DECISIONS_MD, "w") as f:
-        f.write("# Stage 3 — Non-reducibility verdicts\n\n")
+        f.write("# Non-reducibility verdicts\n\n")
         f.write(f"Judged {len(candidate_cids)} clusters; "
                 f"kept {sum(1 for d in decisions if d['verdict']=='KEEP_AUX')} aux, "
                 f"folded {sum(1 for d in decisions if d['verdict']=='FOLD_INTO_QCET')}, "

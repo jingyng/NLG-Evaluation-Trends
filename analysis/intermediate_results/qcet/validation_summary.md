@@ -1,4 +1,4 @@
-# Stage 5 validation — Likert scorecard
+# QCET-validation Likert scorecard
 
 - Sample size:            155
 - Annotated rows scored:  155

@@ -1,4 +1,4 @@
-"""Stage 1 — pure-QCET classification of raw criterion variants.
+"""Initial pure-QCET classification of raw criterion variants.
 
 This is the *discovery* pass. The classifier is told about QCET ONLY (no aux
 taxonomy, no priors). For each raw criterion string it must either:
@@ -7,10 +7,10 @@ taxonomy, no priors). For each raw criterion string it must either:
   (b) return "none" and describe the construct in a short phrase.
 
 The point is to let the residuals — everything that doesn't fit QCET — surface
-naturally. Clustering (Stage 2) then drives the auxiliary taxonomy induction.
+naturally. Clustering then drives the auxiliary taxonomy induction.
 
 Three important methodological choices:
-  - No paper context at Stage 1. Classification depends only on the raw string
+  - No paper context at classification time. Classification depends only on the raw string
     and QCET. This maximizes reproducibility of the discovery and avoids
     injecting corpus-specific task information into the decision of which
     categories exist.
@@ -18,7 +18,7 @@ Three important methodological choices:
     gets exactly one classification. A later audit can resample per-occurrence
     for variants that look task-sensitive.
   - Batched classification by default (batch_size=5). Stage-0 calibration
-    (calibrate_stage0_batched.py) showed 86.7% EXACT on 30 gold pairs at
+    (calibrate_batch_size.py) showed 86.7% EXACT on 30 gold pairs at
     batch=5 vs 83.3% at batch=1, for ~5x lower per-item input cost and
     ~3.5x lower per-item output cost. The batched prompt explicitly
     instructs the model to classify each item independently; the parser
@@ -27,17 +27,17 @@ Three important methodological choices:
     singleton classification for every item in that batch — no lost rows.
 
 Outputs:
-  outputs/stage1_classifications.csv
+  outputs/criteria_classifications_initial.csv
     raw_string, source (llm/human/both), occurrences_llm, occurrences_human,
     qcet_id, qcet_name, qcet_fit, construct, justification, cache_hit, error
 
 Usage:
   export OPENROUTER_API_KEY=sk-or-v1-...
-  python classify_stage1.py --dry-run            # print prompts, no calls
-  python classify_stage1.py --limit 50           # 50 most-frequent variants
-  python classify_stage1.py                      # full run, batch_size=5
-  python classify_stage1.py --batch-size 1       # singleton mode (fallback)
-  python classify_stage1.py --resume             # continue from existing CSV
+  python classify_criteria.py --dry-run            # print prompts, no calls
+  python classify_criteria.py --limit 50           # 50 most-frequent variants
+  python classify_criteria.py                      # full run, batch_size=5
+  python classify_criteria.py --batch-size 1       # singleton mode (fallback)
+  python classify_criteria.py --resume             # continue from existing CSV
 """
 
 from __future__ import annotations
@@ -60,7 +60,7 @@ QCET_JSON = HERE / "qcet_taxonomy.json"
 LLM_CSV = BASE / "metadata_unique_counts" / "criteria" / "llm_criteria_stats.csv"
 HUMAN_CSV = BASE / "metadata_unique_counts" / "criteria" / "human_criteria_stats.csv"
 OUT_DIR = HERE / "outputs"
-OUT_CSV = OUT_DIR / "stage1_classifications.csv"
+OUT_CSV = OUT_DIR / "criteria_classifications_initial.csv"
 
 
 def load_qcet_leaves() -> list[dict[str, Any]]:

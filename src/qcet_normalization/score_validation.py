@@ -1,9 +1,9 @@
 """
-score_stage5_validation.py
+score_validation.py
 
-Score a Likert-annotated Stage 5 validation sample.
+Score a Likert-annotated Validation sample.
 
-Reads `outputs/stage5_validation_annotation.xlsx` after the annotator has
+Reads `outputs/validation_annotator_1.xlsx` after the annotator has
 filled the `score` column (1–5) and optional `notes` column.
 
 Score scale:
@@ -14,7 +14,7 @@ Score scale:
   1 = Wrong   — incorrect node, different construct
 
 Outputs:
-  outputs/stage5_validation_summary.md
+  outputs/validation_summary.md
 """
 
 from __future__ import annotations
@@ -27,8 +27,8 @@ from statistics import mean, stdev
 import openpyxl
 
 HERE = Path(__file__).parent
-DEFAULT_XLS = HERE / "outputs" / "stage5_validation_annotation.xlsx"
-DEFAULT_OUT_MD = HERE / "outputs" / "stage5_validation_summary.md"
+DEFAULT_XLS = HERE / "outputs" / "validation_annotator_1.xlsx"
+DEFAULT_OUT_MD = HERE / "outputs" / "validation_summary.md"
 
 STRATA_ORDER = [
     "A_qcet_strong_agree",
@@ -90,7 +90,7 @@ def main() -> None:
     n_unannotated = n_total - n_scored
 
     md: list[str] = []
-    md.append("# Stage 5 validation — Likert scorecard")
+    md.append("# Validation — Likert scorecard")
     md.append("")
     md.append(f"- Sample size:            {n_total}")
     md.append(f"- Annotated rows scored:  {n_scored}")

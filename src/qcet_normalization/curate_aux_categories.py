@@ -4,19 +4,19 @@ Stage-3 is automated (LLM judges each cluster), but the LLM occasionally
 splits a single construct across multiple clusters. We don't edit the raw
 verdict file (it stays as a reproducibility artifact); instead, all human
 overrides are declared HERE in `CURATION_RULES`, and this script derives
-`stage3_aux_taxonomy_FINAL.json` from `stage3_aux_taxonomy.json` + the rules.
+`aux_taxonomy_curated.json` from `aux_taxonomy_candidates.json` + the rules.
 
 This keeps the audit trail clean:
-  - `stage3_aux_taxonomy.json`        what the LLM said
+  - `aux_taxonomy_candidates.json`        what the LLM said
   - this file                          what we changed and why
-  - `stage3_aux_taxonomy_FINAL.json`  what Stage 4 actually uses
+  - `aux_taxonomy_curated.json`  what the final reclassification actually uses
 
 Rule kinds:
   MERGE    — combine N clusters into one aux with chosen id/name/definition.
   RENAME   — rename an aux_id (e.g. clarify naming).
   DROP     — discard an aux entry post-hoc.
   REDIRECT — change a KEEP_AUX into a FOLD_INTO_QCET. (Not implemented yet
-             because it would need to also touch stage3_decisions.csv.)
+             because it would need to also touch aux_category_decisions.csv.)
 """
 
 from __future__ import annotations
@@ -26,8 +26,8 @@ from pathlib import Path
 from typing import Any
 
 HERE = Path(__file__).resolve().parent
-RAW_JSON   = HERE / "outputs" / "stage3_aux_taxonomy.json"
-FINAL_JSON = HERE / "outputs" / "stage3_aux_taxonomy_FINAL.json"
+RAW_JSON   = HERE / "outputs" / "aux_taxonomy_candidates.json"
+FINAL_JSON = HERE / "outputs" / "aux_taxonomy_curated.json"
 
 
 # ----------------------------------------------------------------------------
@@ -105,7 +105,7 @@ def apply_drop(categories: list[dict[str, Any]], rule: dict[str, Any]) -> list[d
 
 def main() -> int:
     if not RAW_JSON.exists():
-        raise FileNotFoundError(f"{RAW_JSON} not found. Run decide_stage3.py first.")
+        raise FileNotFoundError(f"{RAW_JSON} not found. Run decide_aux_categories.py first.")
     raw = json.load(open(RAW_JSON))
     cats = list(raw["categories"])
     print(f"Loaded {len(cats)} aux categories from {RAW_JSON.name}.")
@@ -132,7 +132,7 @@ def main() -> int:
     cats.sort(key=lambda c: -c["occ_total"])
 
     final = {
-        "method":            "Stage-3 LLM verdicts + curate_stage3.py merges",
+        "method":            "Stage-3 LLM verdicts + curate_aux_categories.py merges",
         "source_file":       RAW_JSON.name,
         "n_aux_pre_curation":  len(raw["categories"]),
         "n_aux_post_curation": len(cats),

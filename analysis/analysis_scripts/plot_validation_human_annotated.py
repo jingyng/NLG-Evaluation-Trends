@@ -14,7 +14,7 @@ Pipeline:
   3. Stack all rows from those cells (union across annotators).
   4. Apply value cleaning, metric normalisation, and QCET criterion mapping
      via the existing ~7,000-row catalogue
-     (paper_code/05_criteria_normalization/outputs/stage4_classifications_simple_with_overrides.csv).
+     (analysis/intermediate_results/qcet/criteria_classifications_final.csv).
   5. Dedupe within (paper_id, norm_metric, norm_criterion, round(value, 2)).
   6. Filter to Correlation + Agreement metric families.
   7. Render a grouped boxplot to imgs/validation_single_grouped_boxplot.{png,pdf}.
@@ -46,7 +46,7 @@ REPO_ROOT = HERE.parent.parent           # acl2026-nlg-eval/ (repo root)
 
 XLSX = REPO_ROOT / 'human_annotation' / 'LaaJ against Human Validation.xlsx'
 QCET_MAPPING_CSV = (REPO_ROOT / 'analysis' / 'intermediate_results' / 'qcet'
-                    / 'stage4_classifications_simple_with_overrides.csv')
+                    / 'criteria_classifications_final.csv')
 
 OUT_IMGS_DIR = REPO_ROOT / 'analysis' / 'figures'
 OUT_PNG = OUT_IMGS_DIR / 'validation_single_grouped_boxplot.png'

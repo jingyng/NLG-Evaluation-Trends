@@ -1,11 +1,11 @@
 """
-sample_stage5_validation.py
+sample_validation_set.py
 
 Build a stratified validation sample on top of the override-corrected
-Stage-4 frame `outputs/stage4_classifications_simple_with_overrides.csv`
+Stage-4 frame `outputs/criteria_classifications_final.csv`
 (produced by applying `polysemous_overrides.csv` on top of
-`outputs/stage4_classifications_simple.csv`). Pass `--final-csv outputs/
-stage4_classifications_simple.csv` to sample against the pre-override frame
+`outputs/criteria_classifications.csv`). Pass `--final-csv outputs/
+criteria_classifications.csv` to sample against the pre-override frame
 instead.
 
 The output CSV is annotation-ready: for each sampled variant we record the
@@ -15,7 +15,7 @@ recipe and random seed for reproducibility.
 
 Defaults give 155 rows across 8 strata; sizes are CLI-tunable.
 
-Calibration-pairs (Stage 0 gold) and rows curated via manual_override are
+Calibration-pairs (gold pairs from the calibration step) and rows curated via manual_override are
 excluded so the validation set is independent of prior curation steps.
 """
 
@@ -29,10 +29,10 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 HERE = Path(__file__).parent
-DEFAULT_FINAL_CSV = HERE / "outputs" / "stage4_classifications_simple_with_overrides.csv"
+DEFAULT_FINAL_CSV = HERE / "outputs" / "criteria_classifications_final.csv"
 DEFAULT_CALIBRATION = HERE / "calibration_pairs.csv"
-DEFAULT_OUT_CSV = HERE / "outputs" / "stage5_validation_sample.csv"
-DEFAULT_META_JSON = HERE / "outputs" / "stage5_sample_metadata.json"
+DEFAULT_OUT_CSV = HERE / "outputs" / "validation_sample.csv"
+DEFAULT_META_JSON = HERE / "outputs" / "validation_sample_metadata.json"
 
 DEFAULT_STRATUM_SIZES = {
     "A_qcet_strong_agree": 25,
@@ -42,7 +42,7 @@ DEFAULT_STRATUM_SIZES = {
     "E_aux_specific": 10,   # reduced: only AUX-OverallQuality remains (32 variants)
     "F_aux_other": 25,
     "G_stage3_decisions": 10,
-    "H_new_qcet_nodes": 20, # new: stage4b reclassified items (8 new QCET nodes)
+    "H_new_qcet_nodes": 20, # final-reclassification items mapped to one of the 8 new QCET nodes
 }
 
 
@@ -78,7 +78,7 @@ def assign_stratum(r: dict[str, str]) -> str | None:
     if csource.startswith("stage3_"):
         return "G_stage3_decisions"
 
-    # Stage 4 LLM items that landed on one of the 6 new QCET nodes
+    # Final-reclassification LLM items that landed on one of the 6 new QCET nodes
     NEW_QCET_NODES = {
         "QOC-c-2", "QOF-w-6",
         "QEC-c-3", "QEC-w-2", "QEF-w-10", "QEF-w-11",
@@ -255,13 +255,13 @@ def main() -> None:
         "skipped": dict(skipped),
         "stratum_definitions": {
             "A_qcet_strong_agree": "QCET strong fit, stage1_qcet_id == chosen_id (sanity floor).",
-            "B_qcet_strong_rescued": "QCET strong fit, no stage 1 fit (Stage 4 LLM rescued).",
-            "C_qcet_partial": "QCET partial fit (low-confidence Stage 4 mapping).",
-            "D_qcet_disagreement": "QCET id changed between Stage 1 and Stage 4 (top movers).",
+            "B_qcet_strong_rescued": "QCET strong fit, no initial-classification fit (final reclassification rescued).",
+            "C_qcet_partial": "QCET partial fit (low-confidence final mapping).",
+            "D_qcet_disagreement": "QCET id changed between initial and final classification (top movers).",
             "E_aux_specific": "AUX-OverallQuality (composite/holistic labels that do not map to a single criterion).",
             "F_aux_other": "AUX-Other residual bucket (extraction noise vs missed signal).",
-            "G_stage3_decisions": "Stage 3 cluster-level decisions (fold/aux/split/drop).",
-            "H_new_qcet_nodes": "Stage 4 LLM items assigned to one of the 6 new QCET leaf nodes.",
+            "G_stage3_decisions": "Cluster-level aux-category decisions (fold/aux/split/drop).",
+            "H_new_qcet_nodes": "Final-reclassification items assigned to one of the 6 new QCET leaf nodes.",
         },
         "stratum_pool_sizes": {s: len(pool.get(s, [])) for s in DEFAULT_STRATUM_SIZES},
         "stratum_target_sizes": sizes,

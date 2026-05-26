@@ -1,9 +1,9 @@
-"""Stage 0 (batched) — calibration of the batched QCET classifier.
+"""Calibrate batched QCET classification against the 30-pair gold set.
 
-Same 30-pair gold set as calibrate_stage0.py, but criteria are packed into
-batches of BATCH_SIZE (default 5) items per API call. Tests whether batched
-mode preserves accuracy; if EXACT% >= ACCEPT_THRESHOLD (default 80%),
-batching is green-lit for Stage 1.
+Criteria are packed into batches of BATCH_SIZE (default 5) items per
+API call. Tests whether batched mode preserves accuracy; if
+EXACT% >= ACCEPT_THRESHOLD (default 80%), batching is green-lit for the
+full criterion-classification run.
 
 What this tests:
   - Accuracy: does reasoning-in-batch degrade classification vs singleton?
@@ -11,12 +11,12 @@ What this tests:
   - Cost: how do per-item input/output tokens scale with batch size?
 
 Output:
-  outputs/stage0_calibration_results_batched.csv
+  outputs/calibration_results_batched.csv
 
 Usage:
   export OPENROUTER_API_KEY=sk-or-v1-...
-  python calibrate_stage0_batched.py              # default BATCH_SIZE=5
-  python calibrate_stage0_batched.py --batch-size 10
+  python calibrate_batch_size.py              # default BATCH_SIZE=5
+  python calibrate_batch_size.py --batch-size 10
 """
 
 from __future__ import annotations
@@ -29,8 +29,8 @@ import time
 from pathlib import Path
 from typing import Any
 
-from calibrate_stage0 import leaf_index, load_pairs, score
-from classify_stage1 import (
+from calibrate_stage0 import leaf_index, load_pairs, score  # NOTE: source for the 30-pair gold set; not committed to this repo
+from classify_criteria import (
     build_batched_system_prompt,
     build_batched_user_prompt,
     load_qcet_leaves,
@@ -40,7 +40,7 @@ from deepseek_client import DeepSeekClient
 
 HERE = Path(__file__).resolve().parent
 OUT_DIR = HERE / "outputs"
-OUT_CSV_TMPL = "stage0_calibration_results_batched_bs{bs}.csv"
+OUT_CSV_TMPL = "calibration_results_batched_bs{bs}.csv"
 
 DEFAULT_BATCH_SIZE = 5
 ACCEPT_THRESHOLD = 80.0  # %  (moderate gate chosen in the plan)
@@ -188,10 +188,10 @@ def main(argv: list[str]) -> int:
 
     if ex_pct >= ACCEPT_THRESHOLD:
         print(f"GATE PASS: batched EXACT {ex_pct:.1f}% >= {ACCEPT_THRESHOLD:.0f}%.")
-        print("Batching is green-lit for Stage 1.")
+        print("Batching is green-lit for the full classification run.")
     else:
         print(f"GATE FAIL: batched EXACT {ex_pct:.1f}% < {ACCEPT_THRESHOLD:.0f}%.")
-        print("Do not proceed to batched Stage 1; inspect WRONGs.")
+        print("Do not proceed to batched classification; inspect WRONGs.")
     print(f"\nDetails: {out_csv}")
     return 0 if ex_pct >= ACCEPT_THRESHOLD else 1
 

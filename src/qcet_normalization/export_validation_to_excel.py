@@ -1,4 +1,4 @@
-"""Export stage5_validation_sample.csv to a formatted Excel workbook for Likert annotation."""
+"""Export validation_sample.csv to a formatted Excel workbook for Likert annotation."""
 
 import csv
 from pathlib import Path
@@ -10,8 +10,8 @@ from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 
 HERE = Path(__file__).parent
-IN_CSV  = HERE / "outputs" / "stage5_validation_sample.csv"
-OUT_XLS = HERE / "outputs" / "stage5_validation_annotation.xlsx"
+IN_CSV  = HERE / "outputs" / "validation_sample.csv"
+OUT_XLS = HERE / "outputs" / "validation_annotator_1.xlsx"
 
 # Stratum display colours (light fills)
 STRATUM_COLOURS = {
@@ -66,7 +66,7 @@ def main() -> None:
 
     wb = openpyxl.Workbook()
     ws = wb.active
-    ws.title = "Stage5 Validation"
+    ws.title = "Validation"
 
     col_keys  = [c[0] for c in COLUMNS]
     col_widths = [c[1] for c in COLUMNS]
