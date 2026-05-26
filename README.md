@@ -44,7 +44,7 @@ Prompts: [`verify_and_normalize_prompt.md`](prompts_guidelines/verify_and_normal
 
 ### Step 3 — Term normalisation (`src/term_normalization/`)
 
-Each metadata category (tasks, automatic metrics, datasets, languages, models, and human / LLM-as-a-Judge criteria) has its own normaliser — same shape (preprocessing + fuzzy matching + manual mappings) but category-specific rules and a separate output CSV. Criteria are stub-normalised here and re-mapped by the QCET pipeline in Step 4.
+This step normalises six metadata categories (tasks, automatic metrics, datasets, languages, models, and evaluation criteria) using category-specific rules. Each normaliser combines orthographic preprocessing, fuzzy matching of near-duplicate variants, and a hand-curated mapping table. Evaluation criteria are normalised separately by source (human evaluation vs LLM-as-a-Judge) and receive only a preliminary canonicalisation at this stage; their final assignment to the QCET taxonomy is performed in Step 4.
 
 ```bash
 python src/term_normalization/create_item_stats_csv.py       # builds {family}_stats.csv
