@@ -50,9 +50,9 @@ from association_measures import compute_all, bh_fdr
 TOP_N = 8
 
 # Figure-only abbreviations to keep endpoint labels short. The map is keyed
-# on the *short_label()* output (the bare short name from
-# qcet_short_labels.csv), since `short_label()` is applied to the
-# raw criterion before this map is consulted.
+# on the *short_label()* output (the bare short name from qcet_labels.py),
+# since `short_label()` is applied to the raw criterion before this map is
+# consulted.
 LABEL_ABBREV = {
     "Overall Quality / Preference": "Overall Quality",
     "Detectability of Author Trait": "Author Trait",
@@ -115,20 +115,17 @@ def _l1_axis(item: str, field_key: str) -> str:
 
 
 def _build_name_to_l1() -> dict[str, str]:
-    """Read qcet_short_labels.csv (qcet_id, qcet_l1, qcet_name, ...)
-    and build a name → L1 lookup."""
-    import csv
-    out: dict[str, str] = {}
-    p = Path(__file__).parent.parent / "metadata_unique_counts" / "criteria" / "qcet_short_labels.csv"
-    if not p.exists():
-        return out
-    with p.open(newline="") as f:
-        for row in csv.DictReader(f):
-            l1 = (row.get("qcet_l1") or "").strip()
-            name = (row.get("qcet_name") or "").strip()
-            if name:
-                out[name.lower()] = l1 if l1 else "AUX"
-    return out
+    """Build a name → L1 lookup using the shared QCET label module."""
+    import sys
+    repo_root = Path(__file__).resolve().parent.parent.parent
+    sys.path.insert(0, str(repo_root / "src" / "qcet_normalization"))
+    from qcet_labels import build_label_map
+
+    classifications_csv = (repo_root / "analysis" / "intermediate_results"
+                           / "qcet" / "criteria_classifications_final.csv")
+    return {name_lower: (l1 if l1 else "AUX")
+            for name_lower, (_name, l1, _bare, _prefixed)
+            in build_label_map(classifications_csv).items()}
 
 
 _NAME_TO_L1 = _build_name_to_l1()

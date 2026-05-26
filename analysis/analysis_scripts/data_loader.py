@@ -1,6 +1,7 @@
 import csv
 import json
 import os
+import sys
 import glob
 from collections import Counter
 
@@ -17,12 +18,16 @@ DATA_DIR   = os.path.join(REPO_ROOT, 'results', 'llm-merged-results-top30-tasks'
 #  metadata_unique_counts/criteria/{llm,human}_criteria_normalization_mapping.csv,
 #  which is regenerated from src/qcet_normalization/outputs/criteria_classifications.csv via
 #  src/qcet_normalization/apply_qcet_to_metadata.py).
-# Short labels for figures live in
-#  metadata_unique_counts/criteria/qcet_short_labels.csv.
+# Short labels for figures come from src/qcet_normalization/qcet_labels.py,
+# applied to the chosen_id/chosen_name pairs in the final classifications CSV.
 # ---------------------------------------------------------------------------
 
-_SHORT_LABELS_CSV = os.path.join(
-    REPO_ROOT, 'metadata_unique_counts', 'criteria', 'qcet_short_labels.csv'
+sys.path.insert(0, os.path.join(REPO_ROOT, 'src', 'qcet_normalization'))
+from qcet_labels import build_label_map as _build_label_map
+
+_CLASSIFICATIONS_CSV = os.path.join(
+    REPO_ROOT, 'analysis', 'intermediate_results', 'qcet',
+    'criteria_classifications_final.csv',
 )
 _LLM_MAPPING_CSV = os.path.join(
     REPO_ROOT, 'metadata_unique_counts', 'criteria', 'llm_criteria_normalization_mapping.csv'
@@ -34,16 +39,9 @@ _HUMAN_MAPPING_CSV = os.path.join(
 
 def _build_short_label_map() -> dict:
     """Returns {qcet_name_lower: (qcet_name, short_label_bare, short_label_prefixed)}."""
-    mapping: dict = {}
-    if not os.path.exists(_SHORT_LABELS_CSV):
-        return mapping
-    with open(_SHORT_LABELS_CSV, newline='') as fh:
-        for row in csv.DictReader(fh):
-            full = row['qcet_name'].strip()
-            bare = row['short_label'].strip()
-            prefixed = (row.get('short_label_prefixed') or bare).strip() or bare
-            mapping[full.lower()] = (full, bare, prefixed)
-    return mapping
+    full_map = _build_label_map(_CLASSIFICATIONS_CSV)
+    return {key: (name, bare, prefixed)
+            for key, (name, _l1, bare, prefixed) in full_map.items()}
 
 
 _SHORT_LABEL_MAP: dict = _build_short_label_map()

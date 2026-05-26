@@ -78,7 +78,7 @@ Processed data at various stages:
 ### Additional Directories
 
 - `human_annotation/`: Human-annotation guidelines and annotation results. 
-- `metadata_unique_counts/`: Per-term-family subfolders (`criteria/`, `automatic_metrics/`, `datasets/`, `languages/`, `models/`), each containing the family's `*_normalization_mapping.csv` (raw → normalized lookup) and, where applicable, `*_normalization_merges.csv` (multi-variant groupings). `criteria/` additionally contains `qcet_short_labels.csv` (QCET full name → short label used by figure scripts).
+- `metadata_unique_counts/`: Per-term-family subfolders (`criteria/`, `automatic_metrics/`, `datasets/`, `languages/`, `models/`), each containing the family's `*_normalization_mapping.csv` (raw → normalized lookup) and `*_normalization_merges.csv` (multi-variant groupings). The QCET short labels used by figure scripts are kept in `src/qcet_normalization/qcet_labels.py`.
 - `prompts_guidelines/`: Prompts used by the LLM pipeline — initial verification + term normalisation (`verify_and_normalize_prompt.md`), LaaJ-vs-human validation extraction (`extract_laaj_human_validation_prompt.md`), and QCET criterion classification at Stage 1 / Stage 4 (`qcet_classification_stage{1,4}_prompt.md`).
 - `paper_sources/`: Extracted paper URLs and metadata from ACL Anthology.
 
