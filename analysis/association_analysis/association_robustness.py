@@ -1,22 +1,20 @@
 #!/usr/bin/env python3
 """
-Robustness analysis: compare LR (relative risk) against NPMI and Dunning G^2
+Robustness analysis: compare LR (relative risk) against Dunning G^2
 for metric x criterion pairs in both Human and LaaJ evaluation papers.
 
-This script produces the artifacts referenced in Appendix B (Robustness of
-associations to choice of measure):
+This script produces the artifacts behind the G^2 + BH-FDR robustness
+check referenced in the paper:
 
   - association_robustness/pairs_human.csv
         One row per (metric, criterion) pair from the human-evaluation
-        sub-corpus, with k11/k12/k21/k22, LR, NPMI, G^2, p-value, q-value.
+        sub-corpus, with k11/k12/k21/k22, LR, G^2, p-value, q-value.
   - association_robustness/pairs_laaj.csv
         Same for the LaaJ sub-corpus.
   - association_robustness/scatter_lr_vs_g2.pdf
         LR vs. G^2, log-log, color = log(k11), one panel per evaluation type.
-  - association_robustness/scatter_lr_vs_npmi.pdf
-        LR vs. NPMI, color = log(k11), one panel per evaluation type.
   - association_robustness/spearman_by_k11_stratum.csv
-        Spearman rho between LR and {NPMI, G^2}, stratified by k11.
+        Spearman rho between LR and G^2, stratified by k11.
   - association_robustness/top10_high_lr_low_g2.csv
         Pairs with the largest LR but non-significant G^2 (BH q > 0.05).
   - association_robustness/filter_impact.csv
@@ -125,9 +123,9 @@ def build_pairs_table(papers, criterion_field):
 
 
 def annotate_measures(df: pd.DataFrame) -> pd.DataFrame:
-    """Add lr, npmi, g2, p_value, q_value columns to a pairs table."""
+    """Add lr, g2, p_value, q_value columns to a pairs table."""
     if df.empty:
-        for col in ["lr", "npmi", "g2", "p_value", "q_value", "reject_q05"]:
+        for col in ["lr", "g2", "p_value", "q_value", "reject_q05"]:
             df[col] = []
         return df
 
@@ -140,7 +138,6 @@ def annotate_measures(df: pd.DataFrame) -> pd.DataFrame:
     )
     df = df.copy()
     df["lr"] = out["lr"]
-    df["npmi"] = out["npmi"]
     df["g2"] = out["g2"]
     df["p_value"] = out["p_value"]
     df["q_value"] = out["q_value"]
@@ -149,16 +146,15 @@ def annotate_measures(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def spearman_by_stratum(df: pd.DataFrame, label: str) -> pd.DataFrame:
-    """Spearman rho between LR and (NPMI, G^2), stratified by k11 bucket.
+    """Spearman rho between LR and G^2, stratified by k11 bucket.
 
-    We exclude pairs with k11 == 0 (LR always equals 1 there, NPMI is NaN)
-    and pairs with infinite LR (no support in the denominator) for the
-    correlations.
+    We exclude pairs with k11 == 0 (LR always equals 1 there) and pairs
+    with infinite LR (no support in the denominator) for the correlation.
     """
     if df.empty:
         return pd.DataFrame()
     work = df[(df["k11"] > 0) & np.isfinite(df["lr"])].copy()
-    work = work.dropna(subset=["npmi", "g2"])
+    work = work.dropna(subset=["g2"])
 
     strata = [
         ("all (k11 >= 1)", work),
@@ -171,12 +167,11 @@ def spearman_by_stratum(df: pd.DataFrame, label: str) -> pd.DataFrame:
     for name, sub in strata:
         if len(sub) < 5:
             rows.append(dict(eval_type=label, stratum=name, n=len(sub),
-                             spearman_lr_npmi=np.nan, spearman_lr_g2=np.nan))
+                             spearman_lr_g2=np.nan))
             continue
-        rho_npmi = sub[["lr", "npmi"]].corr(method="spearman").iloc[0, 1]
         rho_g2 = sub[["lr", "g2"]].corr(method="spearman").iloc[0, 1]
         rows.append(dict(eval_type=label, stratum=name, n=len(sub),
-                         spearman_lr_npmi=rho_npmi, spearman_lr_g2=rho_g2))
+                         spearman_lr_g2=rho_g2))
     return pd.DataFrame(rows)
 
 
@@ -194,7 +189,7 @@ def top_high_lr_low_g2(df: pd.DataFrame, label: str, n: int = 10) -> pd.DataFram
     return cand[[
         "eval_type", "metric", "criterion",
         "k11", "n_metric", "n_criterion", "n_total",
-        "lr", "npmi", "g2", "q_value",
+        "lr", "g2", "q_value",
     ]]
 
 
@@ -271,7 +266,7 @@ def write_summary_text(out_path: Path, summary_pieces: dict) -> None:
                      f"frequency floor "
                      f"(metric>={MIN_METRIC_PAPERS}, criterion>={MIN_CRITERION_PAPERS}).")
     lines.append("")
-    lines.append("Spearman rho between LR and {NPMI, G^2}:")
+    lines.append("Spearman rho between LR and G^2:")
     lines.append(summary_pieces["spearman"].to_string(index=False, float_format="%.3f"))
     lines.append("")
     lines.append("Filter impact (number of pairs surviving k11 floor and BH q threshold):")
@@ -332,10 +327,6 @@ def main() -> None:
     make_scatter(results, x="lr", y="g2",
                  out_path=OUT_DIR / "scatter_lr_vs_g2.pdf",
                  log_x=True, log_y=True)
-    # LR vs NPMI: NPMI is bounded [-1, 1], LR is skewed.
-    make_scatter(results, x="lr", y="npmi",
-                 out_path=OUT_DIR / "scatter_lr_vs_npmi.pdf",
-                 log_x=True, log_y=False)
 
     write_summary_text(
         OUT_DIR / "summary.txt",
