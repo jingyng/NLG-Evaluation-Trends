@@ -1,6 +1,6 @@
 # What Are We Measuring in NLG? A Meta-Analysis of Evaluation Trends 2020–2025
 
-This repository accompanies the paper **"What Are We Measuring in NLG? A Meta-Analysis of Evaluation Trends 2020–2025"** and contains the code and data required to reproduce the 3,334-paper analysis corpus together with all figures and association analyses reported in the paper.
+This repository accompanies the paper **"What Are We Measuring in NLG? A Meta-Analysis of Evaluation Trends 2020–2025"** (EMNLP 2026), and contains the code and data required to reproduce the 3,334-paper analysis corpus together with all figures and association analyses reported in the paper.
 
 ## Pipeline overview
 
