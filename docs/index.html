@@ -1,0 +1,1858 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What Are We Measuring in NLG?</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="What Are We Measuring in NLG? A meta-analysis of evaluation trends in 3,334 NLG papers from ACL, EMNLP, NAACL and INLG, 2020–2025 (EMNLP 2026).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Noto+Sans:400,400i,500,600,700&display=swap">
+<style>
+/* Layout follows the Academic Project Page Template (Nerfies) used for
+   jingyng.github.io/tacl2025-ood-eval-self-rationalization: centred title block,
+   dark rounded link buttons, grey abstract band, centred section titles.
+   Method colours match the matplotlib figures in the paper. */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --panel: #f5f5f5;
+  --ink: #363636;
+  --ink-2: #4a4a4a;
+  --muted: #7a7a7a;
+  --rule: #dbdbdb;
+  --rule-2: #ededed;
+  --accent: #3273dc;
+  --s-auto: #888888;
+  --s-laaj: #ff7f0e;
+  --s-human: #1f77b4;
+  --s-val: #c92a2a;
+  --s-other: #9a9a9a;
+  --f-display: "Google Sans", "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-body: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --col: 1000px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 56px; }
+/* section menu */
+.nav { position: sticky; top: 0; z-index: 30; background: rgb(255 255 255 / .96); backdrop-filter: blur(6px); border-bottom: 1px solid var(--rule-2); padding-top: env(safe-area-inset-top, 0px); }
+.nav .wrap { display: flex; align-items: center; gap: 20px; height: 48px; max-width: 1200px; }
+.nav .brand { font: 600 15px var(--f-display); color: var(--ink); white-space: nowrap; }
+.nav .brand:hover { text-decoration: none; }
+.nav ul { list-style: none; display: flex; gap: 2px; margin: 0 0 0 auto; padding: 0; overflow-x: auto; scrollbar-width: none; min-width: 0; }
+.nav ul::-webkit-scrollbar { display: none; }
+.nav li a { display: block; padding: 5px 10px; border-radius: 4px; font: 400 14.5px var(--f-display); color: var(--ink-2); white-space: nowrap; }
+.nav li a:hover { background: var(--rule-2); text-decoration: none; }
+.nav li a.on { color: var(--ink); font-weight: 600; }
+@media (max-width: 900px) { .nav .brand { display: none; } .nav ul { margin-left: 0; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--ink-2); font: 400 16px/1.5 var(--f-body); -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+h1, h2, h3 { font-family: var(--f-display); margin: 0; color: var(--ink); }
+h3 { font-size: 1.15rem; font-weight: 600; }
+p { margin: 0; }
+.wrap { max-width: var(--col); margin: 0 auto; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+.prose { display: grid; gap: 12px; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.mono { font-family: var(--f-mono); font-size: .92em; }
+.label { font: 500 14px var(--f-display); color: var(--muted); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* title block */
+header.pub { padding-block: 3rem 1.5rem; text-align: center; }
+.pub h1 { font: 600 clamp(2rem, 1.3rem + 2.6vw, 3rem)/1.125 var(--f-display); color: var(--ink); max-width: 22ch; margin: 0 auto; }
+.authors { margin: 1.5rem auto 0; font: 400 1.25rem/1.6 var(--f-display); color: var(--ink-2); max-width: 46em; }
+.authors .author-block { display: inline-block; }
+.authors sup, .affils sup { font-size: .65em; }
+.affils { margin: .5rem auto 0; font: 400 1.05rem/1.6 var(--f-display); color: var(--ink-2); max-width: 46em; }
+.affils span { display: inline-block; margin: 0 .5em; }
+.pub .note { margin-top: .4rem; font-size: .9rem; color: var(--muted); }
+.pub .venue { margin-top: 1rem; font: 600 1.15rem var(--f-display); color: #555; }
+.links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 1.5rem; }
+.btn { display: inline-flex; align-items: center; gap: .5em; height: 2.5em; padding: 0 1.25em; border-radius: 9999px; border: 1px solid transparent; background: #363636; color: #fff; font: 400 1rem var(--f-body); cursor: pointer; }
+.btn:hover { background: #2f2f2f; text-decoration: none; }
+.btn.ghost { background: #fff; color: var(--ink); border-color: var(--rule); }
+.btn.ghost:hover { border-color: #b5b5b5; }
+.btn svg { width: 1em; height: 1em; }
+
+/* sections */
+section { padding-block: 3rem; }
+section.alt { background: var(--panel); }
+section > .wrap { display: grid; gap: 1.5rem; }
+.sec-head { display: grid; gap: 1rem; }
+.sec-head h2, .abstract h2 { font: 600 2rem/1.125 var(--f-display); color: var(--ink); text-align: center; }
+.sec-head .prose { max-width: 820px; margin: 0 auto; text-align: justify; font-size: 1.05rem; line-height: 1.6; }
+.abstract { max-width: 820px; margin: 0 auto; display: grid; gap: 1.25rem; }
+.abstract p { text-align: justify; line-height: 1.6; }
+.abstract strong { color: var(--ink); font-weight: 600; }
+.paperfig { margin: 0; display: grid; gap: .75rem; }
+.paperfig img { width: 100%; height: auto; display: block; }
+.fig { display: grid; gap: 14px; min-width: 0; }
+.panel { background: #fff; border: 1px solid var(--rule); border-radius: 6px; padding: 20px; }
+.fig-title { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; }
+.caption { font-size: 15px; color: var(--ink-2); line-height: 1.55; }
+.caption b { color: var(--ink); font-weight: 600; }
+.paperfig .caption, .fig > .caption { text-align: justify; }
+.recs { max-width: 820px; margin: 0 auto; display: grid; gap: 1.5rem; line-height: 1.6; }
+.recs ul { list-style: none; margin: .6rem 0 0; padding: 0; display: grid; gap: .7rem; }
+.recs li { position: relative; padding-left: 2em; }
+.recs li::before { content: ""; position: absolute; left: .15em; top: .3em; width: 1em; height: 1em; border: 1.5px solid #5a5a5a; border-radius: 2px; background: #fff; }
+.recs li b { display: block; }
+.recs b { color: var(--ink); font-weight: 600; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.ctl { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; background: #fff; }
+.seg button { font: 400 14px var(--f-body); padding: 5px 11px; border: 0; background: transparent; color: var(--ink-2); cursor: pointer; border-right: 1px solid var(--rule); }
+.seg button:last-child { border-right: 0; }
+.seg button:disabled { color: #c4c4c4; cursor: not-allowed; background: transparent; }
+.seg button:hover { background: var(--rule-2); }
+.seg button[aria-pressed="true"] { background: #363636; color: #fff; }
+select, input[type="search"], input[type="text"] { font: 400 14px var(--f-body); color: var(--ink); background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 5px 8px; max-width: 100%; }
+.chip { display: inline-flex; align-items: center; gap: 6px; font: 400 14px var(--f-body); padding: 4px 10px; border-radius: 9999px; border: 1px solid var(--rule); background: #fff; color: var(--ink-2); cursor: pointer; }
+.chip[aria-pressed="true"] { border-color: #363636; color: var(--ink); }
+.chip[aria-pressed="false"] { color: var(--muted); }
+.sw { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+.chip[aria-pressed="false"] .sw { opacity: .3; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font: 400 14px var(--f-display); color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.legend i { width: 16px; height: 3px; border-radius: 2px; display: inline-block; }
+.legend svg { overflow: visible; }
+.chart { width: 100%; min-width: 0; position: relative; }
+.chart svg { display: block; overflow: visible; }
+.scroll-x { overflow-x: auto; }
+.empty { padding: 36px 0; text-align: center; color: var(--muted); font-size: 15px; }
+.chart text { font-family: var(--f-display); fill: var(--ink-2); }
+.ax { font-size: 12px; fill: var(--muted) !important; font-variant-numeric: tabular-nums; }
+.axn { font-family: var(--f-mono); font-size: 10.5px; fill: var(--muted) !important; }
+.endlab { font-size: 12.5px; font-weight: 500; }
+.endlab tspan.v { fill: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* tooltip */
+#tip { position: fixed; z-index: 50; pointer-events: none; background: #fff; color: var(--ink); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; font: 13px/1.45 var(--f-display); box-shadow: 0 6px 20px rgb(0 0 0 / .12); max-width: 320px; }
+#tip .t { font-weight: 700; margin-bottom: 4px; }
+#tip .r { display: flex; justify-content: space-between; gap: 14px; font-variant-numeric: tabular-nums; }
+#tip .r span:first-child { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); }
+#tip .k { color: var(--muted); font-size: 12px; margin-top: 4px; }
+#tip i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; flex: none; }
+
+/* funnel */
+.funnel { display: grid; gap: 8px; }
+.frow { display: grid; grid-template-columns: minmax(0, 1fr) 76px; gap: 14px; align-items: center; }
+.fbar { position: relative; height: 30px; }
+.fbar .b { position: absolute; inset: 0 auto 0 0; border-radius: 0 4px 4px 0; background: #5b6470; min-width: 3px; }
+.fbar .b.l { background: var(--s-laaj); } .fbar .b.h { background: var(--s-human); } .fbar .b.v { background: var(--s-val); }
+.fbar .t { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font: 500 14px var(--f-display); color: #fff; white-space: nowrap; }
+.fbar .t.out { color: var(--ink-2); }
+.frow .n { font: 500 17px var(--f-display); text-align: right; font-variant-numeric: tabular-nums; }
+
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; }
+@media (max-width: 860px) { .two { grid-template-columns: 1fr; } }
+table.t { border-collapse: collapse; width: 100%; font: 14px var(--f-display); font-variant-numeric: tabular-nums; }
+table.t th, table.t td { padding: 7px 10px; border-bottom: 1px solid var(--rule-2); text-align: right; white-space: nowrap; }
+table.t th:first-child, table.t td:first-child { text-align: left; }
+table.t thead th { font-weight: 500; color: var(--muted); border-bottom-color: var(--rule); }
+table.t td.best { font-weight: 700; }
+table.t tr.hl td { background: var(--panel); }
+
+/* paper task view */
+.taskgrid { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 24px; }
+@media (max-width: 860px) { .taskgrid { grid-template-columns: 1fr; } }
+.tlist { display: grid; gap: 2px; max-height: 470px; overflow-y: auto; padding-right: 6px; align-content: start; }
+.tlist button { display: grid; grid-template-columns: minmax(0, 1fr) 44px; gap: 8px; align-items: center; text-align: left; border: 0; background: transparent; padding: 5px 8px; border-radius: 6px; cursor: pointer; color: var(--ink-2); font: 500 13.5px var(--f-display); position: relative; }
+.tlist button .bar { position: absolute; left: 0; top: 3px; bottom: 3px; background: var(--rule-2); border-radius: 0 3px 3px 0; }
+.tlist button span { position: relative; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tlist button .c { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
+.tlist button:hover { color: var(--ink); }
+.tlist button[aria-pressed="true"] { color: var(--ink); font-weight: 700; }
+.tlist button.all { border-bottom: 1px solid var(--rule); border-radius: 6px 6px 0 0; margin-bottom: 4px; }
+.tlist button[aria-pressed="true"] .bar { background: #dde8f3; }
+.tstats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.tstats div { display: grid; gap: 2px; }
+.tstats b { font: 500 23px var(--f-display); font-variant-numeric: tabular-nums; }
+.tstats small { font-size: 13px; color: var(--muted); line-height: 1.35; }
+@media (max-width: 560px) { .tstats { grid-template-columns: 1fr 1fr; } }
+.tops { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 680px) { .tops { grid-template-columns: 1fr; } }
+.tops ol { margin: 6px 0 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+.tops li { display: grid; grid-template-columns: minmax(0, 1fr) 44px; gap: 8px; font: 13.5px var(--f-display); position: relative; padding: 2px 6px; }
+.tops li .bar { position: absolute; left: 0; top: 1px; bottom: 1px; border-radius: 0 3px 3px 0; opacity: .16; }
+.tops li span { position: relative; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tops li .c { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* explorer workbench */
+.filterbar { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 49px); z-index: 20; background: #fff; border: 1px solid var(--rule); border-radius: 6px; padding: 12px 16px; display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; box-shadow: 0 2px 8px rgb(0 0 0 / .04); }
+.filterbar .count { margin-left: auto; font: 500 14px var(--f-display); color: var(--ink); white-space: nowrap; }
+.filterbar label.cb, .cb { display: inline-flex; align-items: center; gap: 6px; font: 500 13.5px var(--f-display); color: var(--ink-2); cursor: pointer; }
+@media (max-width: 760px) { .filterbar { position: static; } }
+.tabs-unused { display: flex; gap: 4px; border-bottom: 1px solid var(--rule); overflow-x: auto; scrollbar-width: thin; }
+.tabs button { font: 500 14.5px var(--f-display); padding: 10px 14px; border: 0; background: transparent; color: var(--ink-2); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; }
+.tabs button:hover { color: var(--ink); }
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: #363636; }
+[hidden] { display: none !important; }
+.xstep { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+.xstep h3 { margin: 0; font: 600 17px var(--f-display); color: var(--ink); }
+.xstep .hint { font-weight: 400; }
+.xn { font: 600 17px var(--f-display); color: var(--ink); }
+.views { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.views button { display: grid; grid-template-columns: 40px 1fr; grid-template-rows: auto auto; column-gap: 12px; row-gap: 3px; align-items: start; text-align: left; padding: 12px 14px; border: 1px solid var(--rule); border-radius: 6px; background: #fff; cursor: pointer; color: var(--ink-2); }
+.views button:hover { border-color: #9a9a9a; }
+.views button[aria-selected="true"] { border-color: #363636; box-shadow: inset 0 0 0 1px #363636; }
+.views svg { grid-row: 1 / 3; width: 40px; height: 28px; margin-top: 2px; fill: none; stroke: var(--s-human); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.views svg .b { stroke: var(--s-laaj); }
+.views svg circle { fill: var(--s-human); stroke: none; } .views svg circle.b { fill: var(--s-laaj); }
+.views svg.grid rect { fill: var(--s-human); stroke: none; } .views svg.grid rect.l { fill: #b4cde3; }
+.views b { font: 600 14.5px var(--f-display); color: var(--ink); }
+.views small { font-size: 12.5px; line-height: 1.4; color: var(--muted); }
+.examples { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+.examples .label { margin-right: 4px; }
+.examples button { font: 500 13px var(--f-display); padding: 4px 10px; border-radius: 999px; border: 1px dashed #b5b5b5; background: #fff; color: var(--ink-2); cursor: pointer; }
+.examples button:hover { border-style: solid; border-color: #363636; color: var(--ink); }
+.vhead h3 { margin: 0 0 2px; }
+.vhead p { margin: 0; color: var(--muted); font-size: 14px; max-width: 80ch; }
+.filterbar .count { display: inline-flex; align-items: center; gap: 4px; }
+.picker { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.picker .it { display: inline-flex; align-items: center; gap: 6px; padding: 3px 4px 3px 10px; border-radius: 999px; border: 1px solid var(--rule); font: 500 13px var(--f-display); background: #fff; }
+.picker .it button { border: 0; background: transparent; cursor: pointer; color: var(--muted); font-size: 15px; line-height: 1; padding: 0 6px; }
+.picker .it button:hover { color: var(--ink); }
+.picker input { width: 220px; }
+.addsel { max-width: 300px; }
+.linkbtn { border: 0; background: transparent; color: var(--accent); font: 500 13.5px var(--f-display); cursor: pointer; padding: 4px 6px; }
+.linkbtn:hover { text-decoration: underline; }
+.hint { font-size: 13px; color: var(--muted); }
+
+/* papers table */
+.drill { display: inline-flex; align-items: center; gap: 8px; padding: 5px 6px 5px 12px; background: #eef3fc; border-radius: 999px; font: 500 13.5px var(--f-display); color: var(--ink); }
+.drill button { border: 0; background: transparent; cursor: pointer; font-size: 16px; color: var(--ink-2); padding: 0 6px; }
+.ptable { width: 100%; border-collapse: collapse; font: 14px var(--f-display); }
+.ptable th { text-align: left; font-weight: 500; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+.ptable td { padding: 10px; border-bottom: 1px solid var(--rule-2); vertical-align: top; }
+.ptable tr.main { cursor: pointer; }
+.ptable tr.main:hover td { background: var(--panel); }
+.ptable .ti { font: 500 15px/1.4 var(--f-display); }
+.ptable .ti a { color: var(--ink); }
+.ptable .ti a:hover { color: var(--accent); }
+.ptable .au { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.ptable .vy { white-space: nowrap; font-size: 13px; color: var(--ink-2); }
+.tag { display: inline-block; padding: 1px 7px; border-radius: 4px; background: var(--rule-2); font-size: 12px; margin: 0 4px 4px 0; color: var(--ink-2); white-space: nowrap; }
+.pills { display: flex; gap: 3px; }
+.pill { width: 22px; height: 22px; border-radius: 5px; display: grid; place-items: center; font: 700 11px var(--f-display); color: #fff; }
+.pill.off { background: transparent !important; color: #c9ced4; border: 1px solid var(--rule); }
+.pill.a { background: #7a7a7a; } .pill.l { background: #e8700a; } .pill.h { background: var(--s-human); } .pill.v { background: var(--s-val); }
+.detail td { background: var(--panel); font-size: 13.5px; }
+.detail dl { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 6px 14px; margin: 0; }
+.detail dt { color: var(--muted); font: 500 13px var(--f-display); padding-top: 2px; }
+.detail dd { margin: 0; }
+@media (max-width: 640px) { .ptable .col-tasks, .ptable .col-met { display: none; } .detail dl { grid-template-columns: 1fr; } }
+.pager { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; font: 14px var(--f-display); color: var(--muted); }
+.pager .btns { display: flex; gap: 6px; }
+.pager button { font: 500 13.5px var(--f-display); padding: 6px 12px; border-radius: 8px; border: 1px solid var(--rule); background: #fff; color: var(--ink); cursor: pointer; }
+.pager button:disabled { opacity: .4; cursor: default; }
+
+pre.bib { margin: 0; padding: 1.25em 1.5em; background: var(--panel); border: 0; border-radius: 0; font: 13px/1.6 var(--f-mono); color: var(--ink-2); overflow-x: auto; white-space: pre; }
+footer { padding-block: 3rem 4rem; background: #fafafa; font-size: 15px; color: var(--ink-2); text-align: center; }
+footer .wrap { display: grid; gap: .5rem; max-width: 760px; }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a class="brand" href="#top">What Are We Measuring in NLG?</a>
+    <ul>
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#trends">Trends</a></li>
+      <li><a href="#method">Pipeline</a></li>
+      <li><a href="#inertia">Metric inertia</a></li>
+      <li><a href="#mapping">Metric–criteria</a></li>
+      <li><a href="#validation">Validation gap</a></li>
+      <li><a href="#papers">Papers</a></li>
+      <li><a href="#explore">Explorer</a></li>
+      <li><a href="#recommendations">Checklist</a></li>
+      <li><a href="#cite">BibTeX</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<header class="pub" id="top">
+  <div class="wrap">
+    <h1>What Are We Measuring in NLG? A Meta-Analysis of Evaluation Trends 2020–2025</h1>
+    <div class="authors">
+      <span class="author-block">Jing Yang<sup>1,2</sup>,</span>
+      <span class="author-block">Nils Feldhus<sup>7,3,*</sup>,</span>
+      <span class="author-block">Salar Mohtaj<sup>3</sup>,</span>
+      <span class="author-block">Leonhard Hennig<sup>3</sup>,</span>
+      <span class="author-block">Qianli Wang<sup>1</sup>,</span>
+      <span class="author-block">Eleni Metheniti<sup>4</sup>,</span>
+      <span class="author-block">Sherzod Hakimov<sup>5</sup>,</span>
+      <span class="author-block">Charlott Jakob<sup>1,3</sup>,</span>
+      <span class="author-block">Veronika Solopova<sup>1</sup>,</span>
+      <span class="author-block">Konrad Rieck<sup>1,2</sup>,</span>
+      <span class="author-block">David Schlangen<sup>3,5</sup>,</span>
+      <span class="author-block">Sebastian Möller<sup>1,2,3</sup>,</span>
+      <span class="author-block">Vera Schmitt<sup>1,3,6,8</sup></span>
+    </div>
+    <div class="affils">
+      <span><sup>1</sup>Technische Universität Berlin</span>
+      <span><sup>2</sup>BIFOLD – Berlin Institute for the Foundations of Learning and Data</span>
+      <span><sup>3</sup>German Research Center for Artificial Intelligence (DFKI)</span>
+      <span><sup>4</sup>Joint Research Center</span>
+      <span><sup>5</sup>University of Potsdam</span>
+      <span><sup>6</sup>CERTAIN</span>
+      <span><sup>7</sup>University of Groningen</span>
+      <span><sup>8</sup>Johannes Gutenberg University Mainz</span>
+    </div>
+    <p class="note"><sup>*</sup>Work done at TU Berlin and BIFOLD.</p>
+    <p class="venue">Conference on Empirical Methods in Natural Language Processing (EMNLP), 2026</p>
+    <div class="links" id="links"></div>
+  </div>
+</header>
+
+<section class="alt" id="abstract">
+  <div class="wrap">
+    <div class="abstract">
+      <h2>Abstract</h2>
+      <p>As Natural Language Generation (NLG) dominates modern NLP, scalable evaluation remains a critical bottleneck. Consequently, LLM-as-a-judge (LaaJ) adoption has accelerated rapidly, appearing in more papers than human evaluation in 2025. This pivotal shift motivates a critical analysis of current evaluation practices. Overcoming the limits of rigid keyword filtering and manual review, we employ a multi-LLM information extraction pipeline to gather structured metadata from 14,171 papers across four major NLP conferences (2020–2025). Analyzing 3,334 filtered NLG papers, we identify three systemic challenges. (1) <em>Metric inertia</em>: despite the shift toward open-ended generation, legacy lexical metrics (BLEU, ROUGE) persist as primary indicators, typically used alongside rather than replaced by semantic alternatives. (2) <em>Metric-criteria mapping problem</em>: our paper-level co-occurrence data reveals that general-purpose automatic metrics are applied as broad proxies for quality, without specifying which dimension of text generation they are intended to evaluate. (3) <em>Validation gap</em>: LaaJ has grown rapidly without commensurate human validation (fewer than 8% of papers). Crucially, while LaaJ correlates with aggregate quality, alignment collapses on fine-grained criteria like fluency. To address these gaps, we distill our findings into a minimal Evaluation Checklist to guide metric selection, construct validity, and LaaJ deployment.</p>
+    </div>
+  </div>
+</section>
+
+<section id="trends">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Evaluation trends, 2020–2025</h2>
+      <div class="prose"><p>LaaJ adoption surged from less than 1% of papers before 2023 to 46% in 2025, surpassing human evaluation, which declined from 51% to 43%. Yet only 16% of 2025 papers explicitly validate LaaJ against human evaluation. Practices differ by task: dialogue generation, machine translation, text summarization and question answering account for 78% of the corpus, and machine translation relies almost exclusively on automatic metrics.</p></div>
+    </div>
+    <div class="fig">
+      <div class="taskgrid">
+        <div>
+          <span class="label">Task, by number of papers</span>
+          <div class="tlist" id="task-list" role="group" aria-label="Choose a task"></div>
+        </div>
+        <div style="display:grid;gap:16px;min-width:0;align-content:start">
+          <div class="fig-title"><h3 id="task-title">All tasks</h3><span class="label" id="task-share"></span></div>
+          <div class="controls"><div class="ctl" id="trend-venues"><span class="label">Venue</span></div></div>
+          <div class="legend" id="task-legend"></div>
+          <div class="chart" id="task-chart"><p class="empty">Loading corpus…</p></div>
+          <div class="tops" id="task-tops"></div>
+        </div>
+      </div>
+      <p class="caption" id="task-caption"></p>
+    </div>
+  </div>
+</section>
+
+<section id="method" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Paper annotation pipeline</h2>
+    </div>
+    <figure class="paperfig">
+      <img src="static/images/pipeline.png" alt="Annotation pipeline: papers from the ACL Anthology are converted to text, three LLMs answer a questionnaire, answers are harmonized by majority vote, filtering, union and LLM verification into silver data, and human annotators produce gold data for a 110-paper subset.">
+      <figcaption class="caption"><b>Figure 2. Our paper annotation pipeline</b>, including converting PDF to text, extraction of metadata based on four NLG evaluation questions (DeepSeek-R1, GPT-OSS-120B, Qwen3-235B), harmonization based on majority vote, filtering, and merging, and human validation, yielding 14k structured papers including a subset of 110 papers with gold annotations.</figcaption>
+    </figure>
+    <div class="two">
+      <div class="fig">
+        <h3>Agreement with human annotation (%, 110 papers)</h3>
+        <div class="scroll-x">
+        <table class="t">
+          <thead><tr><th>Pair</th><th>Q1 NLG</th><th>Q2 Auto</th><th>Q3 LaaJ</th><th>Q4 Human</th></tr></thead>
+          <tbody>
+            <tr class="hl"><td>Human R1 vs. R2</td><td>81.8</td><td>80.0</td><td>89.1</td><td>91.8</td></tr>
+            <tr><td>DeepSeek-R1</td><td>74.6</td><td>73.6</td><td class="best">95.5</td><td class="best">92.7</td></tr>
+            <tr><td>GPT-OSS-120B</td><td>75.5</td><td class="best">75.5</td><td>90.9</td><td>90.9</td></tr>
+            <tr><td>Qwen3-235B</td><td>75.5</td><td>70.0</td><td>93.6</td><td>85.5</td></tr>
+            <tr><td>Majority vote</td><td>74.6</td><td>71.8</td><td>93.6</td><td>88.2</td></tr>
+            <tr><td>LLM-harmonized</td><td class="best">77.3</td><td>74.6</td><td class="best">95.5</td><td>90.0</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="caption">Model rows report agreement with the human annotation. For Q3 and Q4, LLM–human agreement is comparable to or higher than the agreement between the two human annotation rounds.</p>
+      </div>
+      <div class="fig">
+        <h3>Association measures</h3>
+        <div class="prose caption">
+          <p><strong>Frequency</strong> P(B | A) is the proportion of papers containing term A that also contain term B; for example, 81.5% of MT papers report BLEU.</p>
+          <p><strong>Likelihood ratio</strong> LR(A → B) = P(B | A) / P(B | ¬A) measures distinctiveness; for example, BLEU is 2.63 times more likely in MT papers than in other papers. LR &gt; 1 indicates attraction and LR &lt; 1 avoidance.</p>
+          <p>Statistical significance is assessed with Dunning’s G² test under Benjamini–Hochberg FDR correction; pairs with an adjusted p ≤ 0.05 are considered significant. All statistics on this page are computed from the paper-level data.</p>
+        </div>
+      </div>
+    </div>
+    <div class="fig">
+      <h3>Corpus filtering</h3>
+      <div class="funnel" id="funnel"></div>
+      <p class="caption">Main-conference papers from the ACL Anthology. Majority voting over three LLMs identifies 8,665 NLG papers; restricting these to the 30 most frequent NLG tasks yields the 3,334 papers analyzed on this page.</p>
+    </div>
+  </div>
+</section>
+
+<section id="inertia">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Metric inertia</h2>
+      <div class="prose"><p>Despite the shift toward open-ended generation, legacy lexical metrics persist as primary indicators. BLEU appears in <strong>81.5%</strong> of MT papers overall and declines only from 88.6% (2020) to <strong>61.8%</strong> (2025), while COMET grows to 39.0% in 2025. Exact Match still anchors <strong>27.1%</strong> of 2025 QA papers. Semantic metrics are typically used alongside rather than in place of lexical ones.</p></div>
+    </div>
+    <div class="fig">
+      <div class="fig-title"><h3 id="bump-title">Annual rank of the eight most frequent items</h3><span class="label" id="bump-n"></span></div>
+      <div class="controls">
+        <div class="ctl"><label class="label" for="bump-task">Task</label><select id="bump-task"></select></div>
+        <div class="ctl"><span class="label">Paradigm</span>
+          <div class="seg" id="bump-field">
+            <button type="button" data-v="m" aria-pressed="true">Automatic metrics</button>
+            <button type="button" data-v="hc" aria-pressed="false">Human criteria</button>
+            <button type="button" data-v="lc" aria-pressed="false">LaaJ criteria</button>
+          </div>
+        </div>
+      </div>
+      <div class="legend" id="bump-legend"></div>
+      <div class="chart scroll-x" id="bump-chart"></div>
+      <p class="caption"><b>Figure 4. Annual frequency rank of the eight most frequent items in single-task papers.</b> Marker size is proportional to the item's LR for the task in that year. <b>Solid lines with filled markers</b> denote items significantly associated with the task overall (G², BH-FDR-adjusted p ≤ 0.05); <b>dashed grey lines with hollow markers</b> denote frequent but non-distinctive items. Labels give (overall LR, number of papers). Color encodes the QCET dimension (dark grey for automatic metrics), and criteria are prefixed with it: QO intrinsic, QI relative to input, QT relative to target, QE relative to an external standard, AUX extension. Selecting a line lists the corresponding papers.</p>
+    </div>
+  </div>
+</section>
+
+<section id="mapping" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Metric–criteria mapping</h2>
+      <div class="prose"><p>A metric and a criterion may both be characteristic of a task without co-occurring in the same papers. We therefore test metric–criterion association within each task. Significant associations concentrate among frequent metrics and frequent criteria, whereas task-distinctive metrics (e.g. FactCC, COMET) are rarely associated with task-distinctive criteria (e.g. factual truth, translation accuracy).</p></div>
+    </div>
+    <div class="fig">
+      <div class="fig-title"><h3 id="heat-title">Within-task metric × criterion association</h3><span class="label" id="heat-n"></span></div>
+      <div class="controls">
+        <div class="ctl"><label class="label" for="heat-task">Task</label><select id="heat-task"></select></div>
+        <div class="ctl"><span class="label">Evaluated by</span>
+          <div class="seg" id="heat-mode">
+            <button type="button" data-v="both" aria-pressed="true">Both, split</button>
+            <button type="button" data-v="laaj" aria-pressed="false">LaaJ papers</button>
+            <button type="button" data-v="human" aria-pressed="false">Human-eval papers</button>
+          </div>
+        </div>
+      </div>
+      <div class="legend" id="heat-legend"></div>
+      <div class="chart scroll-x" id="heat-chart"></div>
+      <p class="caption"><b>Figure 5. Within-task association between metrics and criteria.</b> Shading encodes the co-occurrence LR, P(metric | criterion) / P(metric | ¬criterion), computed separately over the task's LaaJ papers (red, upper-left triangle) and human-evaluation papers (green, lower-right triangle). <b>Outlined</b> cells are significant (G², BH-FDR-adjusted p ≤ 0.05, at least 5 co-occurrences). Rows and columns contain the five most frequent items in the task followed by the five most task-distinctive items by task-LR (<i>italics</i>, beyond the dotted line). Selecting a cell lists the corresponding papers.</p>
+    </div>
+  </div>
+</section>
+
+<section id="validation">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Validation gap</h2>
+      <div class="prose"><p>Of the 679 papers that employ LaaJ, 433 also conduct human evaluation, and 254 report the agreement between the two (37% of LaaJ papers; 7.6% of the corpus). Among the 179 papers that use both methods without comparing them, 76% assess at least one criterion with both, indicating that a comparison would have been feasible in most cases.</p></div>
+    </div>
+    <div class="fig"><div class="funnel" id="val-funnel"></div></div>
+    <div class="fig">
+      <div class="fig-title"><h3>Reported LaaJ–human agreement by quality criterion</h3><span class="label" id="val-n"></span></div>
+      <div class="controls">
+        <div class="ctl" id="val-stats"><span class="label">Statistic</span></div>
+        <div class="ctl"><span class="label">Sort</span>
+          <div class="seg" id="val-sort">
+            <button type="button" data-v="n" aria-pressed="true">Most reported</button>
+            <button type="button" data-v="mean" aria-pressed="false">Highest mean</button>
+          </div>
+        </div>
+      </div>
+      <div class="chart" id="val-chart"></div>
+      <p class="caption"><b>Figure 6. Reported LaaJ–human agreement per QCET criterion.</b> Each point is one reported comparison value from the 70 papers with validation content in the 90-paper human-annotated subset; black ticks mark the mean per statistic. Only criteria with more than ten reported values are shown. LaaJ achieves moderately high correlations for aggregate Overall Quality, but alignment degrades on fine-grained criteria: Fluency and Coherence show median correlations near or below 0.4 with large variance, and LaaJ fails to align with humans on task usefulness.</p>
+    </div>
+  </div>
+</section>
+
+<section id="papers" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Papers</h2>
+      <div class="prose"><p>All 3,334 papers with their extracted evaluation metadata. The filters define a selection that can be analyzed in the corpus explorer below; selecting an element in any chart lists its papers here.</p></div>
+    </div>
+    <div class="fig panel">
+      <div class="controls">
+        <div class="ctl"><label class="label" for="pf-venue">Venue</label><select id="pf-venue"></select></div>
+        <div class="ctl"><span class="label">Years</span><select id="pf-from" aria-label="From year"></select><span class="label">to</span><select id="pf-to" aria-label="To year"></select></div>
+        <div class="ctl"><label class="label" for="pf-task">Task</label><select id="pf-task"></select></div>
+        <div class="ctl" id="pf-must"><span class="label">Evaluated with</span></div>
+        <label class="cb"><input type="checkbox" id="pf-single"> Single-task papers only</label>
+      </div>
+      <div class="controls">
+        <div class="ctl"><label class="label" for="pf-dim">Uses</label><select id="pf-dim"></select><select id="pf-val" aria-label="Value" class="addsel"></select></div>
+        <div class="picker" id="pf-conds"></div>
+      </div>
+      <div class="controls">
+        <input type="search" id="ex-q" placeholder="Search title, author, metric, criterion, dataset…" aria-label="Search papers" style="flex:1;min-width:220px">
+        <div class="ctl"><label class="label" for="pf-sort">Sort</label><select id="pf-sort"><option value="new">Newest first</option><option value="old">Oldest first</option><option value="title">Title</option><option value="venue">Venue</option></select></div>
+      </div>
+      <div class="controls"><span id="ex-drill"></span><span class="label num" id="pf-count"></span><button type="button" class="linkbtn" id="pf-reset" hidden>Clear all filters</button><a class="linkbtn" href="#explore" id="pf-analyze">Analyze the selection ↓</a></div>
+      <div class="scroll-x">
+        <table class="ptable">
+          <thead><tr><th>Paper</th><th>Venue</th><th class="col-tasks">Tasks</th><th>Evaluation</th><th class="col-met">Metrics</th></tr></thead>
+          <tbody id="ex-body"></tbody>
+        </table>
+      </div>
+      <div class="pager"><span id="ex-count" class="num"></span><div class="btns"><button type="button" id="ex-prev">Previous</button><button type="button" id="ex-next">Next</button></div></div>
+      <p class="caption"><b>A</b> automatic metrics · <b>L</b> LLM-as-a-judge · <b>H</b> human · <b>V</b> LaaJ validated against humans. Select a row for all extracted metadata.</p>
+    </div>
+  </div>
+</section>
+
+<section id="explore">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Corpus explorer</h2>
+      <div class="prose"><p>Custom analyses of all papers or of the papers selected in the section above. Selecting a chart element lists the underlying papers in the paper table.</p></div>
+    </div>
+    <div class="xstep"><span class="xn">1.</span><h3>Choose an analysis</h3></div>
+    <div class="views" role="tablist" id="tabs" aria-label="Analysis">
+      <button type="button" role="tab" data-v="trend" aria-selected="true">
+        <svg viewBox="0 0 40 28" aria-hidden="true"><path d="M2 24 L12 18 L22 20 L38 4" /><path d="M2 14 L12 15 L22 10 L38 16" class="b"/></svg>
+        <b>Trends over time</b><small>Usage of selected items per year</small></button>
+      <button type="button" role="tab" data-v="rank" aria-selected="false">
+        <svg viewBox="0 0 40 28" aria-hidden="true"><path d="M2 4 H36 M2 11 H28 M2 18 H20 M2 25 H12" /></svg>
+        <b>Most frequent items</b><small>Top items, or change after 2022</small></button>
+      <button type="button" role="tab" data-v="cross" aria-selected="false">
+        <svg viewBox="0 0 40 28" aria-hidden="true" class="grid"><rect x="4" y="2" width="9" height="7"/><rect x="15" y="2" width="9" height="7" class="l"/><rect x="26" y="2" width="9" height="7" class="l"/><rect x="4" y="11" width="9" height="7" class="l"/><rect x="15" y="11" width="9" height="7"/><rect x="26" y="11" width="9" height="7" class="l"/><rect x="4" y="20" width="9" height="7" class="l"/><rect x="15" y="20" width="9" height="7" class="l"/><rect x="26" y="20" width="9" height="7"/></svg>
+        <b>Co-occurrence</b><small>E.g. metrics × tasks</small></button>
+      <button type="button" role="tab" data-v="mix" aria-selected="false">
+        <svg viewBox="0 0 40 28" aria-hidden="true" class="grid"><rect x="4" y="2" width="8" height="10" class="l"/><rect x="4" y="13" width="8" height="14"/><rect x="16" y="2" width="8" height="6" class="l"/><rect x="16" y="9" width="8" height="18"/><rect x="28" y="2" width="8" height="12" class="l"/><rect x="28" y="15" width="8" height="12"/></svg>
+        <b>Method combinations</b><small>Metrics, LaaJ and human combined</small></button>
+      <button type="button" role="tab" data-v="cmp" aria-selected="false">
+        <svg viewBox="0 0 40 28" aria-hidden="true"><path d="M8 5 H30 M14 14 H34 M6 23 H20" /><circle cx="8" cy="5" r="3"/><circle cx="30" cy="5" r="3" class="b"/><circle cx="14" cy="14" r="3"/><circle cx="34" cy="14" r="3" class="b"/><circle cx="6" cy="23" r="3"/><circle cx="20" cy="23" r="3" class="b"/></svg>
+        <b>LaaJ vs. human criteria</b><small>Criteria assessed by each</small></button>
+      <button type="button" role="tab" data-v="venue" aria-selected="false">
+        <svg viewBox="0 0 40 28" aria-hidden="true" class="grid"><rect x="3" y="12" width="5" height="15"/><rect x="9" y="6" width="5" height="21" class="l"/><rect x="17" y="9" width="5" height="18"/><rect x="23" y="3" width="5" height="24" class="l"/><rect x="31" y="14" width="5" height="13"/></svg>
+        <b>Corpus composition</b><small>Papers per venue and year</small></button>
+    </div>
+    <div class="examples" id="examples"><span class="label">Examples</span></div>
+
+    <div class="xstep"><span class="xn">2.</span><h3>Papers to analyze</h3></div>
+    <div class="controls">
+      <div class="seg" id="g-scope"><button type="button" data-v="all" aria-pressed="true">All papers (<span class="num">3,334</span>)</button><button type="button" data-v="sel" aria-pressed="false">Selected papers (<span class="num" id="g-selcount">3,334</span>)</button></div>
+      <a class="linkbtn" href="#papers">Change the selection ↑</a>
+      <span class="hint" id="g-seldesc"></span>
+    </div>
+
+
+    <div class="xstep"><span class="xn">3.</span><h3>Result</h3></div>
+    <div class="fig panel">
+      <div class="vhead"><h3 id="view-title">Trends over time</h3></div>
+
+      <div data-tab="trend" style="display:grid;gap:14px">
+        <div class="controls">
+          <div class="ctl"><label class="label" for="tr-dim">Variable</label><select id="tr-dim"></select></div>
+          <div class="ctl"><span class="label">Measure</span><div class="seg" id="tr-measure"></div></div>
+          <div class="ctl"><span class="label">Chart</span><div class="seg" id="tr-chart">
+            <button type="button" data-v="line" aria-pressed="true">Lines</button><button type="button" data-v="area" aria-pressed="false">Stacked area</button><button type="button" data-v="bar" aria-pressed="false">Bars</button><button type="button" data-v="heat" aria-pressed="false">Heatmap</button></div></div>
+          <div class="ctl"><span class="label">By</span><div class="seg" id="tr-x"><button type="button" data-v="year" aria-pressed="true">Year</button><button type="button" data-v="venue" aria-pressed="false">Venue</button></div></div>
+        </div>
+        <div class="picker" id="tr-picker"></div>
+        <div class="legend" id="tr-legend"></div>
+        <div class="chart scroll-x" id="tr-chart-host"></div>
+        <p class="caption" id="tr-caption"></p>
+      </div>
+
+      <div data-tab="rank" style="display:grid;gap:14px" hidden>
+        <div class="controls">
+          <div class="ctl"><label class="label" for="rk-dim">Variable</label><select id="rk-dim"></select></div>
+          <div class="ctl"><span class="label">Top</span><div class="seg" id="rk-n"><button type="button" data-v="10" aria-pressed="false">10</button><button type="button" data-v="20" aria-pressed="true">20</button><button type="button" data-v="40" aria-pressed="false">40</button></div></div>
+          <div class="ctl"><span class="label">Measure</span><div class="seg" id="rk-measure"></div></div>
+          <div class="ctl"><span class="label">View</span><div class="seg" id="rk-mode"><button type="button" data-v="bars" aria-pressed="true">Ranking</button><button type="button" data-v="change" aria-pressed="false">Change 2020–22 vs. 2023–25</button></div></div>
+          <div class="ctl" id="rk-stack-ctl"><span class="label">Split by</span><div class="seg" id="rk-stack"><button type="button" data-v="none" aria-pressed="true">None</button><button type="button" data-v="venue" aria-pressed="false">Venue</button><button type="button" data-v="year" aria-pressed="false">Year</button></div></div>
+        </div>
+        <div class="legend" id="rk-legend"></div>
+        <div class="chart" id="rk-chart"></div>
+        <p class="caption" id="rk-caption"></p>
+      </div>
+
+      <div data-tab="cross" style="display:grid;gap:14px" hidden>
+        <div class="controls">
+          <div class="ctl"><label class="label" for="cx-row">Rows</label><select id="cx-row"></select></div>
+          <div class="ctl"><label class="label" for="cx-col">Columns</label><select id="cx-col"></select></div>
+          <div class="ctl"><span class="label">Top</span><div class="seg" id="cx-n"><button type="button" data-v="10" aria-pressed="false">10</button><button type="button" data-v="15" aria-pressed="true">15</button><button type="button" data-v="25" aria-pressed="false">25</button></div></div>
+          <div class="ctl"><span class="label">Value</span><div class="seg" id="cx-val"><button type="button" data-v="count" aria-pressed="false">Papers</button><button type="button" data-v="row" aria-pressed="true">Row %</button><button type="button" data-v="lr" aria-pressed="false">Association (LR)</button></div></div>
+          <label class="label" style="display:inline-flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="cx-vals"> Show values</label>
+        </div>
+        <div class="legend" id="cx-legend"></div>
+        <div class="chart scroll-x" id="cx-chart"></div>
+        <p class="caption" id="cx-caption"></p>
+      </div>
+
+      <div data-tab="mix" style="display:grid;gap:14px" hidden>
+        <div class="controls">
+          <div class="ctl"><span class="label">Group by</span><div class="seg" id="mx-by"><button type="button" data-v="year" aria-pressed="true">Year</button><button type="button" data-v="venue" aria-pressed="false">Venue</button><button type="button" data-v="task" aria-pressed="false">Task</button></div></div>
+          <div class="ctl"><span class="label">Measure</span><div class="seg" id="mx-measure"><button type="button" data-v="pct" aria-pressed="true">% of papers</button><button type="button" data-v="count" aria-pressed="false">Papers</button></div></div>
+        </div>
+        <div class="legend" id="mx-legend"></div>
+        <div class="chart scroll-x" id="mx-chart"></div>
+        
+      </div>
+
+      <div data-tab="cmp" style="display:grid;gap:14px" hidden>
+        <div class="controls">
+          <div class="ctl"><span class="label">Papers</span><div class="seg" id="cp-set"><button type="button" data-v="all" aria-pressed="true">All filtered papers</button><button type="button" data-v="both" aria-pressed="false">Papers using LaaJ and human evaluation</button></div></div>
+          <div class="ctl"><span class="label">Sort</span><div class="seg" id="cp-sort"><button type="button" data-v="gap" aria-pressed="true">Difference</button><button type="button" data-v="laaj" aria-pressed="false">LaaJ frequency</button><button type="button" data-v="human" aria-pressed="false">Human frequency</button></div></div>
+          <div class="ctl"><span class="label">Top</span><div class="seg" id="cp-n"><button type="button" data-v="15" aria-pressed="false">15</button><button type="button" data-v="25" aria-pressed="true">25</button><button type="button" data-v="40" aria-pressed="false">40</button></div></div>
+        </div>
+        <div class="legend" id="cp-legend"></div>
+        <div class="chart" id="cp-chart"></div>
+        <p class="caption" id="cp-caption"></p>
+      </div>
+
+      <div data-tab="venue" style="display:grid;gap:14px" hidden>
+        <div class="controls">
+          <div class="ctl"><span class="label">Stage</span><div class="seg" id="vn-stage"><button type="button" data-v="collected" aria-pressed="false">Collected</button><button type="button" data-v="nlg" aria-pressed="false">NLG (majority vote)</button><button type="button" data-v="final" aria-pressed="true">Top-30 NLG tasks</button></div></div>
+          <div class="ctl"><span class="label">Measure</span><div class="seg" id="vn-measure"><button type="button" data-v="count" aria-pressed="true">Papers</button><button type="button" data-v="pct" aria-pressed="false">% of collected</button></div></div>
+        </div>
+        <div class="legend" id="vn-legend"></div>
+        <div class="chart scroll-x" id="vn-chart"></div>
+        <p class="caption">NAACL was not held in 2020 or 2023.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="recommendations">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Evaluation Design Checklist</h2>
+      <div class="prose"><p>To help researchers translate these challenges into practice, we propose a compact Evaluation Design Checklist. Task-specific recommendations for dialogue generation, machine translation, text summarization and question answering are given in Appendix D of the paper.</p></div>
+    </div>
+    <div class="recs">
+      <div>
+        <h3>1. Metric Selection</h3>
+        <ul>
+          <li><b>Are you evaluating open-ended generation?</b> If yes, acknowledge that optimizing for exact n-gram overlap with a single reference penalizes valid paraphrases. Shift legacy metrics to secondary baselines.</li>
+          <li><b>Have you included a semantic metric?</b> Ensure legacy metrics (BLEU, ROUGE) are supplemented, or replaced, by semantic metrics (e.g., BERTScore, COMET, BLEURT) that reward meaning over lexical matching.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>2. Construct Validity</h3>
+        <ul>
+          <li><b>Is the target construct explicitly named?</b> Verify that every reported metric is explicitly tied to a specific quality criterion (e.g., “We use QAFactEval to measure factuality,” not just “to measure quality”).</li>
+          <li><b>Is the metric mathematically suited for the construct?</b> Ensure you are not using lexical overlap (e.g., ROUGE) to substantiate claims about high-level semantics (e.g., logical coherence, factual consistency).</li>
+        </ul>
+      </div>
+      <div>
+        <h3>3. LaaJ Deployment</h3>
+        <ul>
+          <li><b>Have you validated your LaaJ against human judgments?</b> Where a public meta-evaluation benchmark covers your target criterion, report your judge’s correlation against it. Otherwise, annotate a subset per criterion and report appropriate correlation or agreement metrics.</li>
+          <li><b>Are human experts retained for sensitive or poorly correlated criteria?</b> Acknowledge that LaaJ reliability often collapses on strict linguistic nuances (e.g., task usefulness). For these criteria, rely on expert human evaluation as your primary signal.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cite">
+  <div class="wrap">
+    <div class="sec-head" style="display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:12px">
+      <h2 style="text-align:left">BibTeX</h2>
+      <button class="btn ghost" type="button" id="copy-bib">Copy BibTeX</button>
+    </div>
+    <pre class="bib" id="bib">@inproceedings{yang2026measuring,
+  title     = {What Are We Measuring in {NLG}? A Meta-Analysis of Evaluation Trends 2020--2025},
+  author    = {Yang, Jing and Feldhus, Nils and Mohtaj, Salar and Hennig, Leonhard and
+               Wang, Qianli and Metheniti, Eleni and Hakimov, Sherzod and Jakob, Charlott and
+               Solopova, Veronika and Rieck, Konrad and Schlangen, David and
+               Möller, Sebastian and Schmitt, Vera},
+  booktitle = {Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing},
+  year      = {2026},
+  note      = {arXiv:2601.07648}
+}</pre>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Data: main-conference papers from the ACL Anthology (ACL, EMNLP, NAACL, INLG), 2020–2025.</p>
+    <p>This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>, which was adopted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> project page.</p>
+  </div>
+</footer>
+
+<div id="tip" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+"use strict";
+// Links shown in the header; set a value to null to hide its button.
+const LINKS = {
+  paper: "https://arxiv.org/pdf/2601.07648",
+  arxiv: "https://arxiv.org/abs/2601.07648",
+  code: "https://github.com/jingyng/NLG-Evaluation-Trends",
+  data: null,
+};
+
+const YEARS = [2020, 2021, 2022, 2023, 2024, 2025];
+const METHODS = [
+  { key: "auto", bit: 1, label: "Automatic metrics", short: "A", color: "var(--s-auto)", shape: "circle" },
+  { key: "laaj", bit: 2, label: "LLM-as-a-judge", short: "L", color: "var(--s-laaj)", shape: "triangle" },
+  { key: "human", bit: 4, label: "Human evaluation", short: "H", color: "var(--s-human)", shape: "square" },
+  { key: "val", bit: 8, label: "LaaJ validated vs. human", short: "V", color: "var(--s-val)", shape: "diamond" },
+];
+// Categorical series palette, validated for adjacent-pair CVD separation in this order.
+// QCET L1 colours, as in the paper's bump charts (plot_task_dashboard_rich_v2.py)
+const L1_COLORS = { AM: "#444444", QO: "#3b6ea8", QI: "#2a8a55", QT: "#cc7a00", QE: "#8a3a8a", AUX: "#6f6f6f" };
+const L1_NAMES = { AM: "Automatic metric", QO: "QO intrinsic", QI: "QI relative to input", QT: "QT relative to target", QE: "QE relative to external standard", AUX: "AUX extension" };
+const SERIES = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#17becf"];  // matplotlib tab10, as in the paper
+const YEAR_RAMP = ["#b7d3f6", "#86b6ef", "#5598e7", "#2a78d6", "#1c5cab", "#0d366b"];
+const SHAPES = { circle: d3.symbolCircle, square: d3.symbolSquare, triangle: d3.symbolTriangle, diamond: d3.symbolDiamond };
+const FIELD = {
+  m: { label: "Automatic metrics", color: "var(--s-auto)", min: 5 },
+  hc: { label: "Human criteria", color: "var(--s-human)", min: 3 },
+  lc: { label: "LaaJ criteria", color: "var(--s-laaj)", min: 3 },
+};
+
+let D, P, TASK_ID, DIMS, DIM;
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => [...document.querySelectorAll(s)];
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const pct = (v) => (v == null || isNaN(v) ? "–" : (v > 0 && v < 10 ? v.toFixed(1) : Math.round(v)) + "%");
+const fmtLR = (v) => (!isFinite(v) ? "∞" : v >= 10 ? v.toFixed(0) : v.toFixed(2));
+const trunc = (t, n) => (t.length > n ? t.slice(0, n - 1) + "…" : t);
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+};
+
+/* ---------- statistics (mirror paper_code/association_measures.py) ---------- */
+function rr(a, b, c, d) {
+  const pA = a + b > 0 ? a / (a + b) : 0, pN = c + d > 0 ? c / (c + d) : 0;
+  return pN > 0 ? pA / pN : pA > 0 ? Infinity : 1;
+}
+function g2(a, b, c, d) {
+  const n = a + b + c + d; if (!n) return 0;
+  const r1 = a + b, r2 = c + d, c1 = a + c, c2 = b + d;
+  const t = (o, e) => (o > 0 && e > 0 ? o * Math.log(o / e) : 0);
+  return 2 * (t(a, r1 * c1 / n) + t(b, r1 * c2 / n) + t(c, r2 * c1 / n) + t(d, r2 * c2 / n));
+}
+function erfc(x) { // Numerical Recipes erfcc, |err| < 1.2e-7
+  const z = Math.abs(x), t = 1 / (1 + 0.5 * z);
+  const r = t * Math.exp(-z * z - 1.26551223 + t * (1.00002368 + t * (0.37409196 + t * (0.09678418 + t * (-0.18628806 + t * (0.27886807 + t * (-1.13520398 + t * (1.48851587 + t * (-0.82215223 + t * 0.17087277)))))))));
+  return x >= 0 ? r : 2 - r;
+}
+const pChi1 = (g) => (g <= 0 ? 1 : erfc(Math.sqrt(g / 2)));
+function bh(ps) {
+  const m = ps.length, idx = ps.map((p, i) => i).sort((i, j) => ps[i] - ps[j]), q = new Array(m);
+  let prev = 1;
+  for (let r = m - 1; r >= 0; r--) { const i = idx[r]; prev = Math.min(prev, ps[i] * m / (r + 1)); q[i] = Math.min(1, prev); }
+  return q;
+}
+
+/* ---------- tooltip & small UI ---------- */
+const tip = $("#tip");
+function showTip(html, ev) {
+  if (html != null) tip.innerHTML = html;
+  tip.hidden = false;
+  const r = tip.getBoundingClientRect();
+  let x = ev.clientX + 14, y = ev.clientY + 14;
+  if (x + r.width > innerWidth - 8) x = ev.clientX - r.width - 14;
+  if (y + r.height > innerHeight - 8) y = ev.clientY - r.height - 14;
+  tip.style.left = Math.max(8, x) + "px"; tip.style.top = Math.max(8, y) + "px";
+}
+const hideTip = () => { tip.hidden = true; };
+const row = (label, val, color) => `<div class="r"><span>${color ? `<i style="background:${color}"></i>` : ""}${esc(label)}</span><b>${val}</b></div>`;
+function seg(el, onChange) {
+  el.addEventListener("click", (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    el.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+    onChange(b.dataset.v);
+  });
+}
+function segSet(el, opts, value) {
+  el.innerHTML = opts.map(([v, l]) => `<button type="button" data-v="${v}" aria-pressed="${v === value}">${l}</button>`).join("");
+}
+const shapeIcon = (shape, color) => `<svg width="12" height="12" viewBox="-6 -6 12 12"><path d="${d3.symbol(SHAPES[shape || "circle"], 60)()}" style="fill:${color}"/></svg>`;
+function legend(el, items) {
+  el.innerHTML = items.map((s) => `<span>${s.shape ? shapeIcon(s.shape, s.color) : `<i style="background:${s.color}"></i>`}${esc(s.label)}</span>`).join("");
+}
+function taskOptions(sel, { all, value, minPapers = 0 }) {
+  const counts = d3.rollup(P.flatMap((p) => p.tk), (v) => v.length, (d) => d);
+  const ids = D.tasks.map((t, i) => i).filter((i) => (counts.get(i) || 0) >= minPapers).sort((a, b) => counts.get(b) - counts.get(a));
+  sel.innerHTML = (all ? `<option value="-1">All tasks</option>` : "") + ids.map((i) => `<option value="${i}">${esc(D.tasks[i])} (${counts.get(i)})</option>`).join("");
+  sel.value = value;
+}
+function mkSvg(host, W, H, label) {
+  return d3.select(host).append("svg").attr("width", W).attr("height", H).attr("viewBox", `0 0 ${W} ${H}`).attr("role", "img").attr("aria-label", label);
+}
+function yGrid(svg, y, x0, x1, tick) {
+  y.ticks(5).forEach((t) => {
+    svg.append("line").attr("x1", x0).attr("x2", x1).attr("y1", y(t)).attr("y2", y(t)).attr("style", `stroke:${t === 0 ? "var(--rule)" : "var(--rule-2)"}`);
+    svg.append("text").attr("class", "ax").attr("x", x0 - 8).attr("y", y(t) + 4).attr("text-anchor", "end").text(tick(t));
+  });
+}
+const critName = (i, code = false) => (code && D.crits[i][1] ? `[${D.crits[i][1]}] ` : "") + D.crits[i][0];
+
+/* ---------- generic charts ---------- */
+// Multi-series line chart with crosshair; xs are keys, xlab maps key → label.
+function lineChart(host, { xs, xlab = (x) => x, series, n, fmt = pct, tick = (t) => t + "%", yMax, height = 330, onSeries, title = "Line chart" }) {
+  host.innerHTML = "";
+  const W = Math.max(300, host.clientWidth), narrow = W < 620;
+  const longest = d3.max(series, (s) => (s.short || s.label).length) || 6;
+  const m = { t: 14, r: narrow ? 14 : Math.min(250, 56 + longest * 7), b: n ? 50 : 34, l: 48 }, H = height;
+  const svg = mkSvg(host, W, H, title);
+  const x = d3.scalePoint().domain(xs).range([m.l + 12, W - m.r - 12]);
+  const top = yMax ?? (d3.max(series, (s) => d3.max(s.values)) || 1);
+  const y = d3.scaleLinear().domain([0, top]).nice(5).range([H - m.b, m.t]);
+  yGrid(svg, y, m.l, W - m.r, tick);
+  xs.forEach((k, i) => {
+    svg.append("text").attr("class", "ax").attr("x", x(k)).attr("y", H - m.b + 20).attr("text-anchor", "middle").text(xlab(k));
+    if (n) svg.append("text").attr("class", "axn").attr("x", x(k)).attr("y", H - m.b + 36).attr("text-anchor", "middle").text("n=" + n[i]);
+  });
+  const hl = svg.append("line").attr("y1", m.t).attr("y2", H - m.b).attr("style", "stroke:var(--muted)").attr("opacity", 0);
+  svg.append("rect").attr("x", m.l).attr("y", m.t).attr("width", Math.max(0, W - m.l - m.r)).attr("height", H - m.t - m.b).attr("fill", "transparent")
+    .on("mousemove", (ev) => {
+      const [mx] = d3.pointer(ev);
+      const i = d3.minIndex(xs, (k) => Math.abs(x(k) - mx));
+      hl.attr("x1", x(xs[i])).attr("x2", x(xs[i])).attr("opacity", 1);
+      const rows = series.map((s) => ({ s, v: s.values[i] })).sort((a, b) => (b.v ?? -1) - (a.v ?? -1));
+      showTip(`<div class="t">${esc(xlab(xs[i]))}</div>` + rows.map((r) => row(r.s.label, fmt(r.v), r.s.color)).join("") + (n ? `<div class="k">${n[i].toLocaleString()} papers</div>` : ""), ev);
+    })
+    .on("mouseleave", () => { hl.attr("opacity", 0); hideTip(); });
+  const line = d3.line().defined((d) => d.v != null).x((d) => x(d.k)).y((d) => y(d.v)).curve(d3.curveMonotoneX);
+  const groups = [];
+  series.forEach((s) => {
+    const pts = xs.map((k, i) => ({ k, v: s.values[i] }));
+    const g = svg.append("g").style("cursor", onSeries ? "pointer" : null);
+    g.append("path").attr("d", line(pts)).attr("fill", "none").attr("stroke-width", 2.25).attr("style", `stroke:${s.color}`);
+    if (onSeries) g.append("path").attr("d", line(pts)).attr("fill", "none").attr("stroke-width", 12).attr("stroke", "transparent");
+    g.selectAll("path.pt").data(pts.filter((d) => d.v != null)).join("path").attr("class", "pt")
+      .attr("transform", (d) => `translate(${x(d.k)},${y(d.v)})`).attr("d", d3.symbol(SHAPES[s.shape || "circle"], 56))
+      .attr("stroke-width", 1.5).attr("style", `fill:${s.color};stroke:#fff`);
+    if (onSeries) {
+      g.on("click", () => onSeries(s))
+        .on("mouseenter", () => groups.forEach((o) => o.g.attr("opacity", o.s === s ? 1 : 0.25)))
+        .on("mousemove", (ev) => showTip(`<div class="t">${esc(s.label)}</div><div class="k">Click to list its papers</div>`, ev))
+        .on("mouseleave", () => { groups.forEach((o) => o.g.attr("opacity", 1)); hideTip(); });
+    }
+    groups.push({ s, g });
+  });
+  if (!narrow) {
+    const last = xs.length - 1;
+    const labs = series.map((s) => ({ s, v: s.values[last], y: y(s.values[last] ?? 0) })).sort((a, b) => a.y - b.y);
+    for (let i = 1; i < labs.length; i++) labs[i].y = Math.max(labs[i].y, labs[i - 1].y + 16);
+    const over = labs.length ? labs[labs.length - 1].y - (H - m.b) : 0;
+    if (over > 0) labs.forEach((l) => (l.y -= over));
+    labs.forEach((l) => {
+      const t = svg.append("text").attr("class", "endlab").attr("x", x(xs[last]) + 12).attr("y", l.y + 4);
+      t.append("tspan").text(trunc(l.s.short || l.s.label, 30));
+      t.append("tspan").attr("class", "v").attr("dx", 6).text(l.v == null ? "" : fmt(l.v));
+    });
+  }
+}
+
+// Vertical bars, grouped or stacked.
+function barChart(host, { xs, xlab = (x) => x, series, fmt, tick, stacked = false, height = 340, onBar, n, title = "Bar chart" }) {
+  host.innerHTML = "";
+  const W = Math.max(300, host.clientWidth, xs.length * (stacked ? 34 : Math.max(26, series.length * 9 + 10)) + 80);
+  const m = { t: 14, r: 12, b: n ? 52 : 36, l: 50 }, H = height;
+  const svg = mkSvg(host, W, H, title);
+  const x = d3.scaleBand().domain(xs).range([m.l, W - m.r]).paddingInner(0.22).paddingOuter(0.1);
+  const totals = xs.map((k, i) => d3.sum(series, (s) => s.values[i] || 0));
+  const top = stacked ? d3.max(totals) : d3.max(series, (s) => d3.max(s.values));
+  const y = d3.scaleLinear().domain([0, top || 1]).nice(5).range([H - m.b, m.t]);
+  yGrid(svg, y, m.l, W - m.r, tick);
+  const inner = d3.scaleBand().domain(series.map((s, i) => i)).range([0, x.bandwidth()]).padding(0.08);
+  xs.forEach((k, i) => {
+    let acc = 0;
+    series.forEach((s, j) => {
+      const v = s.values[i] || 0; if (!v) return;
+      const bx = stacked ? x(k) : x(k) + inner(j), bw = stacked ? x.bandwidth() : inner.bandwidth();
+      const y0 = stacked ? y(acc) : y(0), y1 = stacked ? y(acc + v) : y(v);
+      acc += v;
+      svg.append("rect").attr("x", bx).attr("y", y1).attr("width", bw).attr("height", Math.max(0, y0 - y1 - (stacked ? 1.5 : 0))).attr("rx", stacked ? 0 : 2)
+        .attr("style", `fill:${s.color}`).style("cursor", onBar ? "pointer" : null)
+        .on("mousemove", (ev) => showTip(`<div class="t">${esc(xlab(k))}</div>` + row(s.label, fmt(v), s.color) + (n ? `<div class="k">${n[i].toLocaleString()} papers</div>` : ""), ev))
+        .on("mouseleave", hideTip).on("click", () => onBar && onBar(s, k));
+    });
+  });
+  xs.forEach((k, i) => {
+    svg.append("text").attr("class", "ax").attr("x", x(k) + x.bandwidth() / 2).attr("y", H - m.b + 18).attr("text-anchor", "middle").text(trunc(String(xlab(k)), Math.max(4, Math.floor(x.step() / 6.5))));
+    if (n) svg.append("text").attr("class", "axn").attr("x", x(k) + x.bandwidth() / 2).attr("y", H - m.b + 34).attr("text-anchor", "middle").text("n=" + n[i]);
+  });
+}
+
+// Stacked area over ordered xs.
+function areaChart(host, { xs, xlab = (x) => x, series, fmt, tick, height = 340, onSeries, title = "Stacked area chart" }) {
+  host.innerHTML = "";
+  const W = Math.max(300, host.clientWidth), m = { t: 14, r: 16, b: 36, l: 50 }, H = height;
+  const svg = mkSvg(host, W, H, title);
+  const x = d3.scalePoint().domain(xs).range([m.l + 8, W - m.r - 8]);
+  const rows = xs.map((k, i) => Object.fromEntries(series.map((s, j) => [j, s.values[i] || 0])));
+  const st = d3.stack().keys(series.map((s, j) => j))(rows);
+  const y = d3.scaleLinear().domain([0, d3.max(st, (l) => d3.max(l, (d) => d[1])) || 1]).nice(5).range([H - m.b, m.t]);
+  yGrid(svg, y, m.l, W - m.r, tick);
+  const area = d3.area().x((d, i) => x(xs[i])).y0((d) => y(d[0])).y1((d) => y(d[1])).curve(d3.curveMonotoneX);
+  st.forEach((layer, j) => svg.append("path").attr("d", area(layer)).attr("style", `fill:${series[j].color};stroke:#fff`).attr("stroke-width", 1.5).attr("fill-opacity", 0.85)
+    .style("cursor", onSeries ? "pointer" : null).on("click", () => onSeries && onSeries(series[j])));
+  xs.forEach((k) => svg.append("text").attr("class", "ax").attr("x", x(k)).attr("y", H - m.b + 20).attr("text-anchor", "middle").text(xlab(k)));
+  const hl = svg.append("line").attr("y1", m.t).attr("y2", H - m.b).attr("style", "stroke:var(--ink-2)").attr("opacity", 0).attr("pointer-events", "none");
+  svg.on("mousemove", (ev) => {
+    const [mx] = d3.pointer(ev);
+    const i = d3.minIndex(xs, (k) => Math.abs(x(k) - mx));
+    hl.attr("x1", x(xs[i])).attr("x2", x(xs[i])).attr("opacity", 1);
+    showTip(`<div class="t">${esc(xlab(xs[i]))}</div>` + [...series].reverse().map((s) => row(s.label, fmt(s.values[i]), s.color)).join("") + (onSeries ? `<div class="k">Click a band to list its papers</div>` : ""), ev);
+  }).on("mouseleave", () => { hl.attr("opacity", 0); hideTip(); });
+}
+
+// Rows × columns grid of colored cells.
+function heatGrid(host, { rows, cols, cell, onCell, showValues, title = "Heatmap" }) {
+  host.innerHTML = "";
+  const avail = host.clientWidth, narrow = avail < 640;
+  const lw = narrow ? 120 : Math.min(230, 30 + d3.max(rows, (r) => r.label.length) * 6.8), th = narrow ? 110 : Math.min(170, 30 + d3.max(cols, (c) => c.label.length) * 5.2);
+  const s = Math.max(24, Math.min(46, Math.floor((avail - lw - 20) / cols.length)));
+  const W = lw + s * cols.length + 12, H = th + s * rows.length + 8;
+  const svg = mkSvg(host, W, H, title);
+  rows.forEach((r, i) => svg.append("text").attr("x", lw - 8).attr("y", th + i * s + s / 2 + 4).attr("text-anchor", "end").attr("style", "font-size:12.5px;fill:var(--ink)").text(trunc(r.label, narrow ? 16 : 32)));
+  cols.forEach((c, j) => svg.append("text").attr("transform", `translate(${lw + j * s + s / 2 + 4},${th - 8}) rotate(-50)`).attr("style", "font-size:12.5px;fill:var(--ink)").text(trunc(c.label, narrow ? 16 : 30)));
+  rows.forEach((r, i) => cols.forEach((c, j) => {
+    const v = cell(r, c, i, j); if (!v) return;
+    const g = svg.append("g").style("cursor", onCell && v.click !== false ? "pointer" : null);
+    g.append("rect").attr("x", lw + j * s + 1).attr("y", th + i * s + 1).attr("width", s - 2).attr("height", s - 2).attr("rx", 2)
+      .attr("style", `fill:${v.fill};stroke:${v.sig ? "var(--ink)" : "none"}`).attr("stroke-width", 1.5);
+    if (showValues && v.text !== "" && v.text != null) g.append("text").attr("x", lw + j * s + s / 2).attr("y", th + i * s + s / 2 + 4).attr("text-anchor", "middle")
+      .attr("style", `font-size:${s < 32 ? 9.5 : 11}px;fill:${v.dark ? "#fff" : "var(--ink)"};pointer-events:none;font-variant-numeric:tabular-nums`).text(v.text);
+    g.on("mousemove", (ev) => showTip(v.tip, ev)).on("mouseleave", hideTip).on("click", () => onCell && v.click !== false && onCell(r, c));
+  }));
+}
+
+// Horizontal bars, optionally split into stacked segments.
+function hbarChart(host, { items, fmt, tick, onBar, title = "Ranking" }) {
+  host.innerHTML = "";
+  const W = Math.max(300, host.clientWidth), narrow = W < 620;
+  const lw = narrow ? 130 : Math.min(260, 24 + d3.max(items, (d) => d.label.length) * 7), rowH = 24;
+  const m = { t: 8, r: 56, b: 28 }, H = m.t + rowH * items.length + m.b;
+  const svg = mkSvg(host, W, H, title);
+  const x = d3.scaleLinear().domain([0, d3.max(items, (d) => d.total) || 1]).nice().range([lw, W - m.r]);
+  x.ticks(5).forEach((t) => {
+    svg.append("line").attr("x1", x(t)).attr("x2", x(t)).attr("y1", m.t).attr("y2", H - m.b).attr("style", `stroke:${t === 0 ? "var(--rule)" : "var(--rule-2)"}`);
+    svg.append("text").attr("class", "ax").attr("x", x(t)).attr("y", H - m.b + 18).attr("text-anchor", "middle").text(tick(t));
+  });
+  items.forEach((d, i) => {
+    const cy = m.t + i * rowH;
+    const g = svg.append("g").style("cursor", onBar ? "pointer" : null);
+    g.append("rect").attr("x", 0).attr("y", cy).attr("width", W).attr("height", rowH).attr("fill", "transparent");
+    g.append("text").attr("x", lw - 8).attr("y", cy + rowH / 2 + 4).attr("text-anchor", "end").attr("style", "font-size:12.5px;fill:var(--ink)").text(trunc(d.label, narrow ? 18 : 36));
+    let acc = 0;
+    d.segs.forEach((sg) => {
+      if (!sg.v) return;
+      g.append("rect").attr("x", x(acc)).attr("y", cy + 4).attr("width", Math.max(1, x(acc + sg.v) - x(acc) - (d.segs.length > 1 ? 1 : 0))).attr("height", rowH - 8).attr("style", `fill:${sg.color}`);
+      acc += sg.v;
+    });
+    g.append("text").attr("x", x(d.total) + 6).attr("y", cy + rowH / 2 + 4).attr("style", "font-size:12px;fill:var(--muted);font-variant-numeric:tabular-nums").text(fmt(d.total));
+    g.on("mousemove", (ev) => showTip(`<div class="t">${esc(d.label)}</div>` + (d.segs.length > 1 ? d.segs.filter((sg) => sg.v).map((sg) => row(sg.label, fmt(sg.v), sg.color)).join("") : "") + row("Total", fmt(d.total)) + (d.note ? `<div class="k">${d.note}</div>` : ""), ev))
+      .on("mouseleave", hideTip).on("click", () => onBar && onBar(d));
+  });
+}
+
+// Dumbbell: two values per row on one scale.
+function dumbbell(host, { items, a, b, fmt, tick, onRow, title = "Dumbbell chart" }) {
+  host.innerHTML = "";
+  const W = Math.max(300, host.clientWidth), narrow = W < 620;
+  const lw = narrow ? 130 : Math.min(270, 24 + d3.max(items, (d) => d.label.length) * 7), rowH = 26;
+  const m = { t: 8, r: 24, b: 28 }, H = m.t + rowH * items.length + m.b;
+  const svg = mkSvg(host, W, H, title);
+  const x = d3.scaleLinear().domain([Math.min(0, d3.min(items, (d) => Math.min(d.a, d.b))), d3.max(items, (d) => Math.max(d.a, d.b)) || 1]).nice().range([lw + 6, W - m.r]);
+  x.ticks(6).forEach((t) => {
+    svg.append("line").attr("x1", x(t)).attr("x2", x(t)).attr("y1", m.t).attr("y2", H - m.b).attr("style", `stroke:${t === 0 ? "var(--rule)" : "var(--rule-2)"}`);
+    svg.append("text").attr("class", "ax").attr("x", x(t)).attr("y", H - m.b + 18).attr("text-anchor", "middle").text(tick(t));
+  });
+  items.forEach((d, i) => {
+    const cy = m.t + i * rowH + rowH / 2;
+    const g = svg.append("g").style("cursor", onRow ? "pointer" : null);
+    g.append("rect").attr("x", 0).attr("y", cy - rowH / 2).attr("width", W).attr("height", rowH).attr("fill", i % 2 ? "transparent" : "#f6f7f9");
+    g.append("text").attr("x", lw - 8).attr("y", cy + 4).attr("text-anchor", "end").attr("style", "font-size:12.5px;fill:var(--ink)").text(trunc(d.label, narrow ? 18 : 38));
+    g.append("line").attr("x1", x(d.a)).attr("x2", x(d.b)).attr("y1", cy).attr("y2", cy).attr("style", "stroke:#b9bfc7").attr("stroke-width", 2.5);
+    g.append("path").attr("transform", `translate(${x(d.a)},${cy})`).attr("d", d3.symbol(SHAPES[a.shape || "circle"], 70)).attr("style", `fill:${a.color};stroke:#fff`).attr("stroke-width", 1.5);
+    g.append("path").attr("transform", `translate(${x(d.b)},${cy})`).attr("d", d3.symbol(SHAPES[b.shape || "circle"], 70)).attr("style", `fill:${b.color};stroke:#fff`).attr("stroke-width", 1.5);
+    g.on("mousemove", (ev) => showTip(`<div class="t">${esc(d.label)}</div>` + row(a.label, fmt(d.a), a.color) + row(b.label, fmt(d.b), b.color) + (d.note ? `<div class="k">${d.note}</div>` : ""), ev))
+      .on("mouseleave", hideTip).on("click", () => onRow && onRow(d));
+  });
+}
+
+/* ---------- Figure 1: trend ---------- */
+function adoption(ps) {
+  const byY = YEARS.map((yr) => ps.filter((p) => p.y === yr));
+  const short = { auto: "Automatic", laaj: "LaaJ", human: "Human", val: "Validated" };
+  return {
+    xs: YEARS, n: byY.map((a) => a.length),
+    series: METHODS.map((mt) => ({ ...mt, short: short[mt.key], values: byY.map((a) => (a.length ? 100 * a.filter((p) => p.f & mt.bit).length / a.length : null)) })),
+  };
+}
+const trend = { venues: new Set([0, 1, 2, 3]) };
+function initTrendVenues() {
+  const host = $("#trend-venues");
+  D.venues.forEach((v, i) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.setAttribute("aria-pressed", "true"); b.textContent = v;
+    b.onclick = () => {
+      if (trend.venues.has(i) && trend.venues.size === 1) return;
+      trend.venues.has(i) ? trend.venues.delete(i) : trend.venues.add(i);
+      b.setAttribute("aria-pressed", trend.venues.has(i)); renderTask();
+    };
+    host.appendChild(b);
+  });
+}
+
+/* ---------- funnels ---------- */
+function funnel(el, rows) {
+  const max = rows[0].n;
+  el.innerHTML = rows.map((r) => {
+    const w = Math.max(0.4, 100 * r.n / max), out = w < 45;
+    return `<div class="frow"><div class="fbar"><div class="b ${r.cls || ""}" style="width:${w}%"></div><span class="t ${out ? "out" : ""}" style="${out ? `left:calc(${w}% + 10px)` : ""}">${esc(r.label)}</span></div><span class="n">${r.n.toLocaleString()}</span></div>`;
+  }).join("");
+}
+
+/* ---------- Figures 1 and 3: adoption overall and per task ---------- */
+let curTask;
+function initTasks() {
+  const counts = d3.rollup(P.flatMap((p) => p.tk), (v) => v.length, (d) => d);
+  const ids = [...counts.keys()].sort((a, b) => counts.get(b) - counts.get(a));
+  const max = counts.get(ids[0]);
+  const list = $("#task-list");
+  list.innerHTML = `<button type="button" class="all" data-t="-1" aria-pressed="false"><i class="bar" style="width:0"></i><span>All tasks</span><span class="c">${P.length.toLocaleString()}</span></button>` + ids.map((i) => `<button type="button" data-t="${i}" aria-pressed="false"><i class="bar" style="width:${100 * counts.get(i) / max}%"></i><span>${esc(D.tasks[i])}</span><span class="c">${counts.get(i)}</span></button>`).join("");
+  list.onclick = (e) => { const b = e.target.closest("button"); if (b) selectTask(+b.dataset.t); };
+  legend($("#task-legend"), METHODS);
+  initTrendVenues();
+  selectTask(-1);
+}
+function selectTask(t) {
+  curTask = t;
+  document.querySelectorAll("#task-list button").forEach((b) => b.setAttribute("aria-pressed", +b.dataset.t === t));
+  renderTask();
+}
+function topItems(ps, key, nameOf, k = 5) {
+  const c = new Map(); ps.forEach((p) => p[key].forEach((i) => c.set(i, (c.get(i) || 0) + 1)));
+  return [...c].sort((a, b) => b[1] - a[1]).slice(0, k).map(([i, v]) => ({ name: nameOf(i), pct: 100 * v / ps.length }));
+}
+const CAP_ALL = '<b>Figure 1. Evaluation method adoption across the 3,334 Top-30 NLG-task papers (2020–2025).</b> Automatic metrics remain ubiquitous (~95%). LaaJ adoption surged from less than 1% before 2023 to 46% in 2025, surpassing human evaluation, which declined from 51% to 43%. Yet only 16% of papers in 2025 explicitly validate LaaJ against human evaluation, indicating a validation gap. Select a task on the left for its adoption trend. NAACL was not held in 2020 or 2023.';
+const CAP_TASK = '<b>Figure 3. Per-task evaluation method adoption</b> (% of the task’s papers per year), with the task’s most frequent metrics, human criteria and LaaJ criteria. Papers addressing several tasks are counted under each task.';
+function renderTask() {
+  const all = curTask < 0, inV = (p) => trend.venues.has(p.v);
+  const ps = P.filter((p) => inV(p) && (all || p.tk.includes(curTask))), base = P.filter(inV);
+  const name = all ? "All tasks" : D.tasks[curTask];
+  $("#task-title").textContent = all ? "Evaluation method adoption, all tasks" : `Evaluation method adoption, ${name}`;
+  $("#task-share").textContent = all ? `${ps.length.toLocaleString()} papers` : `${ps.length.toLocaleString()} papers · ${(100 * ps.length / base.length).toFixed(1)}% of corpus`;
+  $("#task-caption").innerHTML = all ? CAP_ALL : CAP_TASK;
+  lineChart($("#task-chart"), { ...adoption(ps), yMax: 100, height: 300, title: `Evaluation method adoption, ${name}` });
+  const cols = [
+    ["Automatic metrics", topItems(ps, "m", (i) => D.metrics[i]), "var(--s-auto)"],
+    ["Human criteria", topItems(ps, "hc", (i) => critName(i)), "var(--s-human)"],
+    ["LaaJ criteria", topItems(ps, "lc", (i) => critName(i)), "var(--s-laaj)"],
+  ];
+  $("#task-tops").innerHTML = cols.map(([h, items, col]) => `<div><span class="label">${h}, % of papers</span><ol>${items.length ? items.map((it) =>
+    `<li><i class="bar" style="width:${it.pct}%;background:${col}"></i><span>${esc(it.name)}</span><span class="c">${pct(it.pct)}</span></li>`).join("") : `<li><span style="color:var(--muted)">None reported</span></li>`}</ol></div>`).join("");
+}
+
+/* ---------- Figure 3: bump chart ---------- */
+const bump = { task: null, field: "m" };
+function bumpData(t, field) {
+  const inT = P.filter((p) => p.tk.length === 1 && p.tk[0] === t), S = new Set(inT), other = P.filter((p) => !S.has(p));
+  const nT = inT.length, nO = other.length;
+  const cT = new Map(), cO = new Map();
+  inT.forEach((p) => p[field].forEach((i) => cT.set(i, (cT.get(i) || 0) + 1)));
+  other.forEach((p) => p[field].forEach((i) => cO.set(i, (cO.get(i) || 0) + 1)));
+  const cands = [...cT].filter(([, k]) => k >= FIELD[field].min).map(([id, k]) => {
+    const c = cO.get(id) || 0;
+    return { id, k, lr: rr(k, nT - k, c, nO - c), p: pChi1(g2(k, nT - k, c, nO - c)) };
+  });
+  const q = bh(cands.map((c) => c.p));
+  cands.forEach((c, i) => { c.q = q[i]; c.sig = q[i] <= 0.05; });
+  const chosen = cands.sort((a, b) => b.k - a.k).slice(0, 8);
+  const ids = new Set(chosen.map((c) => c.id));
+  const yearly = YEARS.map((yr) => {
+    const tY = inT.filter((p) => p.y === yr), oY = other.filter((p) => p.y === yr);
+    const cnt = new Map(), cnO = new Map();
+    tY.forEach((p) => p[field].forEach((i) => ids.has(i) && cnt.set(i, (cnt.get(i) || 0) + 1)));
+    oY.forEach((p) => p[field].forEach((i) => ids.has(i) && cnO.set(i, (cnO.get(i) || 0) + 1)));
+    const order = chosen.filter((c) => cnt.get(c.id)).sort((a, b) => cnt.get(b.id) - cnt.get(a.id));
+    const rank = new Map(order.map((c, i) => [c.id, i + 1]));
+    const lr = new Map(order.map((c) => [c.id, (cnt.get(c.id) / tY.length) / Math.max((cnO.get(c.id) || 0) / Math.max(oY.length, 1), 1 / Math.max(oY.length, 1))]));
+    return { n: tY.length, cnt, rank, lr };
+  });
+  return { chosen, yearly, nT };
+}
+function initBump() {
+  taskOptions($("#bump-task"), { value: TASK_ID["Machine Translation"], minPapers: 20 });
+  bump.task = +$("#bump-task").value;
+  $("#bump-task").onchange = (e) => { bump.task = +e.target.value; renderBump(); };
+  seg($("#bump-field"), (v) => { bump.field = v; renderBump(); });
+  renderBump();
+}
+function renderBump() {
+  const host = $("#bump-chart"), F = FIELD[bump.field];
+  const { chosen, yearly, nT } = bumpData(bump.task, bump.field);
+  $("#bump-n").textContent = `${nT} single-task papers (of ${P.filter((p) => p.tk.includes(bump.task)).length} ${D.tasks[bump.task]} papers)`;
+  $("#bump-title").textContent = `${D.tasks[bump.task]}: annual rank of ${F.label.toLowerCase()}`;
+  const l1s = bump.field === "m" ? ["AM"] : Object.keys(L1_COLORS).filter((k) => k !== "AM" && chosen.some((c) => c.sig && (D.crits[c.id][1] || "AUX") === k));
+  $("#bump-legend").innerHTML = l1s.map((k) => `<span><i style="background:${L1_COLORS[k]}"></i>${L1_NAMES[k]}</span>`).join("") +
+    `<span><i style="background:repeating-linear-gradient(90deg,#b5b5b5 0 5px,transparent 5px 8px)"></i>Frequent, not distinctive</span>`;
+  host.innerHTML = "";
+  if (!chosen.length) { host.innerHTML = `<p class="empty">Insufficient single-task ${esc(D.tasks[bump.task])} papers reporting ${F.label.toLowerCase()}.</p>`; return; }
+  const name = (id) => (bump.field === "m" ? D.metrics[id] : critName(id, true));
+  const W = Math.max(560, host.clientWidth), narrow = host.clientWidth < 700;
+  const m = { t: 16, r: narrow ? 170 : 300, b: 46, l: 40 }, H = 56 + 8 * 40;
+  const svg = mkSvg(host, W, H, `Bump chart of ${F.label} for ${D.tasks[bump.task]}`);
+  const x = d3.scalePoint().domain(YEARS).range([m.l + 10, W - m.r - 10]);
+  const y = d3.scalePoint().domain(d3.range(1, 9)).range([m.t + 12, H - m.b - 8]);
+  d3.range(1, 9).forEach((r) => {
+    svg.append("line").attr("x1", m.l).attr("x2", W - m.r).attr("y1", y(r)).attr("y2", y(r)).attr("style", "stroke:var(--rule-2)");
+    svg.append("text").attr("class", "ax").attr("x", m.l - 10).attr("y", y(r) + 4).attr("text-anchor", "end").text("#" + r);
+  });
+  YEARS.forEach((yr, i) => {
+    svg.append("text").attr("class", "ax").attr("x", x(yr)).attr("y", H - m.b + 22).attr("text-anchor", "middle").text(yr);
+    svg.append("text").attr("class", "axn").attr("x", x(yr)).attr("y", H - m.b + 37).attr("text-anchor", "middle").text("n=" + yearly[i].n);
+  });
+  const rSize = (lr) => 3.5 + 5.5 * Math.max(0, Math.min(1, Math.log(Math.max(lr, 1)) / Math.log(30)));
+  const labelRank = (c) => yearly[5].rank.get(c.id) ?? 9 + chosen.indexOf(c);
+  const order = [...chosen].sort((a, b) => labelRank(a) - labelRank(b));
+  const slotY = d3.scalePoint().domain(d3.range(order.length)).range([y(1), y(Math.max(order.length, 2))]);
+  const groups = [];
+  chosen.forEach((c) => {
+    const col = c.sig ? (bump.field === "m" ? L1_COLORS.AM : L1_COLORS[D.crits[c.id][1]] || L1_COLORS.AUX) : "#b5b5b5";
+    const pts = YEARS.map((yr, i) => ({ yr, i, r: yearly[i].rank.get(c.id) })).filter((d) => d.r);
+    const gg = svg.append("g").style("cursor", "pointer");
+    groups.push({ c, g: gg });
+    for (let j = 1; j < pts.length; j++) {
+      const a = pts[j - 1], b = pts[j], gap = b.i - a.i > 1;
+      gg.append("path").attr("d", d3.line().curve(d3.curveBumpX)([[x(a.yr), y(a.r)], [x(b.yr), y(b.r)]])).attr("fill", "none")
+        .attr("stroke-width", c.sig ? 2.5 : 1.75).attr("stroke-dasharray", gap ? "1 4" : c.sig ? null : "5 3").attr("stroke-linecap", "round").attr("style", `stroke:${col}`);
+    }
+    pts.forEach((d) => gg.append("circle").attr("cx", x(d.yr)).attr("cy", y(d.r)).attr("r", rSize(yearly[d.i].lr.get(c.id)))
+      .attr("stroke-width", 2).attr("style", c.sig ? `fill:${col};stroke:#fff` : `fill:#fff;stroke:${col}`));
+    const last = pts[pts.length - 1], ly = slotY(order.indexOf(c)), lx = W - m.r + 14;
+    gg.append("path").attr("d", `M${x(last.yr) + 8},${y(last.r)} C${lx - 6},${y(last.r)} ${lx - 14},${ly} ${lx - 4},${ly}`).attr("fill", "none").attr("stroke-width", 1).attr("style", "stroke:var(--rule)");
+    const nm = name(c.id);
+    const t = gg.append("text").attr("class", "endlab").attr("x", lx).attr("y", ly + 4);
+    t.append("tspan").text(narrow ? trunc(nm, 20) : nm).attr("style", c.sig ? "" : "font-style:italic;font-weight:400");
+    if (!narrow) t.append("tspan").attr("class", "v").attr("dx", 6).text(`(${fmtLR(c.lr)}, ${c.k})`);
+    gg.append("rect").attr("x", lx - 4).attr("y", ly - 11).attr("width", m.r - 14).attr("height", 22).attr("fill", "transparent");
+    gg.on("mouseenter", (ev) => {
+      groups.forEach((o) => o.g.attr("opacity", o.c === c ? 1 : 0.15));
+      showTip(`<div class="t">${esc(nm)}</div>` + row("Overall task LR", fmtLR(c.lr)) + row("BH-FDR q", c.q < 0.001 ? "<0.001" : c.q.toFixed(3)) +
+        YEARS.map((yr, i) => { const k = yearly[i].cnt.get(c.id) || 0; return row(`${yr}${yearly[i].rank.get(c.id) ? " · #" + yearly[i].rank.get(c.id) : ""}`, `${k}/${yearly[i].n} · ${pct(yearly[i].n ? 100 * k / yearly[i].n : null)}`); }).join("") +
+        `<div class="k">${c.k} of ${nT} single-task papers${c.sig ? "" : " · not significantly task-specific"}. Click to list papers.</div>`, ev);
+    }).on("mousemove", (ev) => showTip(null, ev)).on("mouseleave", () => { groups.forEach((o) => o.g.attr("opacity", 1)); hideTip(); })
+      .on("click", () => drill(`${D.tasks[bump.task]} (single-task) · ${nm}`, (p) => p.tk.length === 1 && p.tk[0] === bump.task && p[bump.field].includes(c.id), true));
+  });
+}
+
+/* ---------- Figure 4: metric × criterion heatmap ---------- */
+const heat = { task: null, mode: "both" };
+function heatData(t) {
+  const inT = P.filter((p) => p.tk.includes(t)), S = new Set(inT), other = P.filter((p) => !S.has(p));
+  const nT = inT.length, nO = other.length;
+  const laajP = inT.filter((p) => p.lc.length), humP = inT.filter((p) => p.hc.length);
+  const count = (ps, f) => { const c = new Map(); ps.forEach((p) => f(p).forEach((i) => c.set(i, (c.get(i) || 0) + 1))); return c; };
+  const mT = count(inT, (p) => p.m), mO = count(other, (p) => p.m);
+  const cSlots = count(inT, (p) => [...p.lc, ...p.hc]);
+  const either = (p) => new Set([...p.lc, ...p.hc]);
+  const cT = count(inT, either), cO = count(other, either);
+  const pick = (cand, cntIn, cntOut, cnt) => {
+    const lrs = new Map(cand.map((i) => { const a = cntIn.get(i) || 0, c = cntOut.get(i) || 0; const v = rr(a, nT - a, c, nO - c); return [i, isFinite(v) ? v : 1]; }));
+    const freq = [...cand].sort((a, b) => cnt.get(b) - cnt.get(a)).slice(0, 5);
+    const fs = new Set(freq);
+    const dist = cand.filter((i) => !fs.has(i)).sort((a, b) => lrs.get(b) - lrs.get(a)).slice(0, 5);
+    return { freq, dist };
+  };
+  const M = pick([...mT].filter(([, k]) => k >= 10).map(([i]) => i), mT, mO, mT);
+  const C = pick([...cSlots].filter(([, k]) => k >= 8).map(([i]) => i), cT, cO, cSlots);
+  const rows = [...M.freq, ...M.dist], cols = [...C.freq, ...C.dist];
+  const grid = (ps, key) => {
+    const cells = [];
+    rows.forEach((mi, r) => cols.forEach((ci, c) => {
+      const w = ps.filter((p) => p[key].includes(ci)), wo = ps.filter((p) => !p[key].includes(ci));
+      if (!w.length || !wo.length) { cells.push({ r, c, lr: 1, p: 1, co: 0, nw: w.length, kwo: 0, nwo: wo.length }); return; }
+      const kw = w.filter((p) => p.m.includes(mi)).length, kwo = wo.filter((p) => p.m.includes(mi)).length;
+      const lr = rr(kw, w.length - kw, kwo, wo.length - kwo);
+      cells.push({ r, c, lr: isFinite(lr) ? lr : 1, p: pChi1(g2(kw, w.length - kw, kwo, wo.length - kwo)), co: kw, nw: w.length, kwo, nwo: wo.length });
+    }));
+    const q = bh(cells.map((x) => x.p));
+    cells.forEach((x, i) => { x.q = q[i]; x.sig = q[i] <= 0.05 && x.co >= 5; });
+    return cells;
+  };
+  return { rows, cols, nM: M.freq.length, nC: C.freq.length, laaj: grid(laajP, "lc"), human: grid(humP, "hc"), nL: laajP.length, nH: humP.length, nT };
+}
+function initHeat() {
+  taskOptions($("#heat-task"), { value: TASK_ID["Text Summarization"], minPapers: 60 });
+  heat.task = +$("#heat-task").value;
+  $("#heat-task").onchange = (e) => { heat.task = +e.target.value; renderHeat(); };
+  seg($("#heat-mode"), (v) => { heat.mode = v; renderHeat(); });
+  renderHeat();
+}
+const LR_HIGH = 8;
+const shade = (lr, col) => `color-mix(in oklab, ${col} ${Math.round(100 * Math.max(0, Math.min(1, Math.log10(Math.max(lr, 1)) / Math.log10(LR_HIGH))))}%, #f4f5f7)`;
+function renderHeat() {
+  const host = $("#heat-chart"), d = heatData(heat.task);
+  $("#heat-n").textContent = `${d.nT} papers · ${d.nL} LaaJ · ${d.nH} human`;
+  $("#heat-title").textContent = `${D.tasks[heat.task]}: metric–criterion association`;
+  const ramp = (col, lab) => `<span>${lab}<i style="width:72px;height:10px;border-radius:2px;background:linear-gradient(90deg,#f4f5f7,${col})"></i><span style="font-size:12px;color:var(--muted)">LR 1 → ${LR_HIGH}+</span></span>`;
+  $("#heat-legend").innerHTML = (heat.mode !== "human" ? ramp("var(--s-laaj)", "LaaJ papers") : "") + (heat.mode !== "laaj" ? ramp("var(--s-human)", "Human-eval papers") : "") +
+    `<span><i style="width:12px;height:12px;border:2px solid var(--ink);background:transparent"></i>Significant (adjusted p ≤ 0.05, ≥ 5 papers)</span>`;
+  host.innerHTML = "";
+  if (!d.rows.length || !d.cols.length) { host.innerHTML = `<p class="empty">Insufficient metrics and criteria reported for ${esc(D.tasks[heat.task])}.</p>`; return; }
+  const avail = host.clientWidth, narrow = avail < 640;
+  const lw = narrow ? 112 : 168, th = narrow ? 120 : 150;
+  const s = Math.max(30, Math.min(52, Math.floor((avail - lw - 20) / d.cols.length)));
+  const W = lw + s * d.cols.length + 12, H = th + s * d.rows.length + 10;
+  const svg = mkSvg(host, W, H, `Metric by criterion association heatmap for ${D.tasks[heat.task]}`);
+  const X = (c) => lw + c * s, Y = (r) => th + r * s;
+  d.rows.forEach((mi, r) => svg.append("text").attr("x", lw - 8).attr("y", Y(r) + s / 2 + 4).attr("text-anchor", "end")
+    .attr("style", `font-size:12.5px;fill:var(--ink);${r >= d.nM ? "font-style:italic" : ""}`).text(trunc(D.metrics[mi], narrow ? 14 : 22)));
+  d.cols.forEach((ci, c) => svg.append("text").attr("transform", `translate(${X(c) + s / 2 + 4},${th - 8}) rotate(-50)`)
+    .attr("style", `font-size:12.5px;fill:var(--ink);${c >= d.nC ? "font-style:italic" : ""}`).text(trunc(critName(ci), narrow ? 16 : 24)));
+  if (d.nM < d.rows.length) svg.append("line").attr("x1", 4).attr("x2", W).attr("y1", Y(d.nM)).attr("y2", Y(d.nM)).attr("style", "stroke:var(--muted)").attr("stroke-dasharray", "2 3");
+  if (d.nC < d.cols.length) svg.append("line").attr("x1", X(d.nC)).attr("x2", X(d.nC)).attr("y1", th - 6).attr("y2", H).attr("style", "stroke:var(--muted)").attr("stroke-dasharray", "2 3");
+  const cell = (arr, r, c) => arr[r * d.cols.length + c];
+  d.rows.forEach((mi, r) => d.cols.forEach((ci, c) => {
+    const x0 = X(c) + 1, y0 = Y(r) + 1, z = s - 2, L = cell(d.laaj, r, c), Hm = cell(d.human, r, c);
+    const gg = svg.append("g").style("cursor", "pointer");
+    const tri = (pts, v, col) => gg.append("path").attr("d", "M" + pts.join("L") + "Z").attr("style", `fill:${shade(v.lr, col)};stroke:${v.sig ? "var(--ink)" : "none"}`).attr("stroke-width", 1.75).attr("stroke-linejoin", "round");
+    if (heat.mode === "both") {
+      tri([[x0, y0], [x0 + z, y0], [x0, y0 + z]], L, "var(--s-laaj)");
+      tri([[x0 + z, y0], [x0 + z, y0 + z], [x0, y0 + z]], Hm, "var(--s-human)");
+    } else {
+      const v = heat.mode === "laaj" ? L : Hm;
+      tri([[x0, y0], [x0 + z, y0], [x0 + z, y0 + z], [x0, y0 + z]], v, heat.mode === "laaj" ? "var(--s-laaj)" : "var(--s-human)");
+    }
+    gg.append("rect").attr("x", x0).attr("y", y0).attr("width", z).attr("height", z).attr("fill", "transparent")
+      .on("mousemove", (ev) => {
+        const line = (lab, v, col) => row(lab, "LR " + fmtLR(v.lr), col) + `<div class="k" style="margin:0 0 4px 14px">${v.co} of ${v.nw} papers with the criterion use the metric${v.nwo ? ` (vs. ${v.kwo} of ${v.nwo} without)` : ""} · q ${v.q < 0.001 ? "<0.001" : v.q.toFixed(3)}${v.sig ? " · significant" : ""}</div>`;
+        showTip(`<div class="t">${esc(D.metrics[mi])} × ${esc(critName(ci))}</div>` + line("LaaJ papers", L, "var(--s-laaj)") + line("Human-eval papers", Hm, "var(--s-human)") + `<div class="k">Click to list papers.</div>`, ev);
+      }).on("mouseleave", hideTip)
+      .on("click", () => drill(`${D.tasks[heat.task]} · ${D.metrics[mi]} × ${critName(ci)}`, (p) => p.tk.includes(heat.task) && p.m.includes(mi) && (p.lc.includes(ci) || p.hc.includes(ci)), true));
+  }));
+}
+
+/* ---------- Figure 5: validation ---------- */
+const VSTATS = [
+  { key: "Pearson r", label: "Pearson r", color: "var(--s-auto)" },
+  { key: "Spearman ρ", label: "Spearman ρ", color: "var(--s-laaj)" },
+  { key: "Kendall's τ", label: "Kendall τ", color: "var(--s-human)" },
+  { key: "agree", label: "Agreement (κ, α, %)", color: "var(--s-other)" },
+];
+const AGREE = new Set(["Agreement", "Fleiss' κ", "Fleiss’es κ", "Krippendorff's α"]);
+const val = { on: new Set(VSTATS.map((s) => s.key)), sort: "n" };
+function initVal() {
+  const f = D.funnel;
+  funnel($("#val-funnel"), [
+    { label: "NLG papers", n: f.final },
+    { label: "employ LaaJ", n: f.laaj, cls: "l" },
+    { label: "employ LaaJ and human evaluation", n: f.dual, cls: "h" },
+    { label: "report LaaJ–human agreement", n: f.validated, cls: "v" },
+  ]);
+  const host = $("#val-stats");
+  VSTATS.forEach((s) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.setAttribute("aria-pressed", "true");
+    b.innerHTML = `<span class="sw" style="background:${s.color}"></span>${esc(s.label)}`;
+    b.onclick = () => { if (val.on.has(s.key) && val.on.size === 1) return; val.on.has(s.key) ? val.on.delete(s.key) : val.on.add(s.key); b.setAttribute("aria-pressed", val.on.has(s.key)); renderVal(); };
+    host.appendChild(b);
+  });
+  seg($("#val-sort"), (v) => { val.sort = v; renderVal(); });
+  renderVal();
+}
+function renderVal() {
+  const rows = D.validation.map(([pid, met, crit, v, model]) => ({ pid, crit, v, model, met, g: AGREE.has(met) ? "agree" : met }))
+    .filter((r) => VSTATS.some((s) => s.key === r.g) && r.crit !== "Other / Unclassifiable");
+  const byC = d3.group(rows, (r) => r.crit);
+  const crits = [...byC].filter(([, a]) => a.length > 10).map(([c, a]) => ({ c, all: a, a: a.filter((r) => val.on.has(r.g)) }));
+  crits.forEach((o) => { o.mean = d3.mean(o.a, (r) => r.v) ?? -2; const p = o.all.filter((r) => r.g === "Pearson r"); o.pear = p.length ? d3.mean(p, (r) => r.v) : null; });
+  crits.sort(val.sort === "n" ? (a, b) => b.all.length - a.all.length : (a, b) => b.mean - a.mean);
+  $("#val-n").textContent = `${crits.length} criteria · ${d3.sum(crits, (o) => o.a.length)} values · ${new Set(rows.map((r) => r.pid)).size} papers`;
+  const host = $("#val-chart"); host.innerHTML = "";
+  const W = Math.max(300, host.clientWidth), narrow = W < 640;
+  const lw = narrow ? 128 : 230, rw = narrow ? 44 : 120, rowH = 34;
+  const m = { t: 26, b: 36 }, H = m.t + rowH * crits.length + m.b;
+  const svg = mkSvg(host, W, H, "Strip plot of reported LaaJ–human agreement per criterion");
+  const x = d3.scaleLinear().domain([-1, 1]).range([lw + 8, W - rw - 8]);
+  const lane = d3.scalePoint().domain(VSTATS.map((s) => s.key).filter((k) => val.on.has(k))).range([-9, 9]);
+  if (lane.domain().length === 1) lane.range([0, 0]);
+  [-1, -0.5, 0, 0.5, 1].forEach((t) => {
+    svg.append("line").attr("x1", x(t)).attr("x2", x(t)).attr("y1", m.t - 6).attr("y2", H - m.b + 4).attr("style", `stroke:${t === 0 ? "var(--muted)" : "var(--rule-2)"}`);
+    svg.append("text").attr("class", "ax").attr("x", x(t)).attr("y", H - m.b + 20).attr("text-anchor", "middle").text(t);
+  });
+  svg.append("text").attr("x", W - rw + 8).attr("y", m.t - 10).attr("style", "font:500 12px var(--f-display);fill:var(--muted)").text(narrow ? "n" : "n · Pearson");
+  const rnd = d3.randomLcg(7);
+  crits.forEach((o, i) => {
+    const cy = m.t + i * rowH + rowH / 2;
+    if (i % 2 === 0) svg.append("rect").attr("x", 0).attr("y", cy - rowH / 2).attr("width", W).attr("height", rowH).attr("style", "fill:#f6f7f9");
+    svg.append("text").attr("x", lw - 6).attr("y", cy + 4).attr("text-anchor", "end").attr("style", "font-size:13px;fill:var(--ink)").text(narrow ? trunc(o.c, 17) : o.c);
+    svg.append("text").attr("x", W - rw + 8).attr("y", cy + 4).attr("style", "font-size:12.5px;font-variant-numeric:tabular-nums;fill:var(--ink-2)")
+      .text(narrow ? o.a.length : `${o.a.length} · ${o.pear == null ? "–" : o.pear.toFixed(2)}`);
+    o.a.forEach((r) => {
+      const st = VSTATS.find((s) => s.key === r.g);
+      svg.append("circle").attr("cx", x(r.v)).attr("cy", cy + lane(r.g) + (rnd() - 0.5) * 4).attr("r", 3.6).attr("stroke-width", 1)
+        .attr("style", `fill:${st.color};stroke:#fff;opacity:.85`)
+        .on("mousemove", (ev) => showTip(`<div class="t">${esc(o.c)}</div>` + row(r.met, r.v, st.color) + `<div class="k">${esc(r.model || "")} · ${esc(r.pid)}</div>`, ev))
+        .on("mouseleave", hideTip);
+    });
+    VSTATS.filter((s) => val.on.has(s.key)).forEach((s) => {
+      const vs = o.a.filter((r) => r.g === s.key); if (!vs.length) return;
+      const mu = d3.mean(vs, (r) => r.v);
+      svg.append("rect").attr("x", x(mu) - 2).attr("y", cy + lane(s.key) - 7).attr("width", 4).attr("height", 14).attr("rx", 1).attr("stroke-width", 1.5)
+        .attr("style", "fill:var(--ink);stroke:#fff")
+        .on("mousemove", (ev) => showTip(`<div class="t">${esc(o.c)}</div>` + row("Mean " + s.label, mu.toFixed(2), s.color) + `<div class="k">${vs.length} values</div>`, ev))
+        .on("mouseleave", hideTip);
+    });
+  });
+}
+
+/* ===================================================================
+   Explore the corpus: global filters + six views + paper list
+   =================================================================== */
+const G = { venues: new Set([0, 1, 2, 3]), from: 2020, to: 2025, task: -1, must: 0, single: false };
+// The explorer analyzes either all papers or the selection defined in the Papers section (PF + search).
+// G mirrors that selection for the views (year range, venues, fixed task).
+let SCOPE = "all";
+const searchTerms = () => $("#ex-q").value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+const inSel = (p, q = searchTerms()) => inPF(p) && q.every((w) => p.hay.includes(w));
+function syncG() {
+  const sel = SCOPE === "sel";
+  Object.assign(G, { venues: new Set(sel && PF.venue >= 0 ? [PF.venue] : [0, 1, 2, 3]), from: sel ? PF.from : 2020, to: sel ? PF.to : 2025, task: sel ? PF.task : -1 });
+}
+function gPapers() { if (SCOPE === "all") return P; const q = searchTerms(); return P.filter((p) => inSel(p, q)); }
+const gYears = () => YEARS.filter((y) => y >= G.from && y <= G.to);
+const gVenues = () => [0, 1, 2, 3].filter((v) => G.venues.has(v));
+function initDims() {
+  DIMS = [
+    { key: "tk", label: "NLG tasks", name: (i) => D.tasks[i] },
+    { key: "m", label: "Automatic metrics", name: (i) => D.metrics[i] },
+    { key: "hc", label: "Human-evaluation criteria", name: (i) => critName(i, true) },
+    { key: "lc", label: "LaaJ criteria", name: (i) => critName(i, true) },
+    { key: "lm", label: "LaaJ judge models", name: (i) => D.models[i] },
+    { key: "me", label: "LaaJ methods", name: (i) => D.methods[i] },
+    { key: "ds", label: "Datasets", name: (i) => D.datasets[i] },
+    { key: "lg", label: "Languages", name: (i) => D.languages[i] },
+    { key: "gm", label: "Generation models", name: (i) => D.genModels[i] },
+    { key: "ev", label: "Evaluation methods", name: (i) => METHODS[i].label, get: (p) => METHODS.map((m, i) => (p.f & m.bit ? i : -1)).filter((i) => i >= 0) },
+    { key: "vn", label: "Venues", name: (i) => D.venues[i], get: (p) => [p.v] },
+  ];
+  DIMS.forEach((d) => { if (!d.get) d.get = (p) => p[d.key]; });
+  DIM = Object.fromEntries(DIMS.map((d) => [d.key, d]));
+}
+const dimOptions = (sel, value, skip = []) => { sel.innerHTML = DIMS.filter((d) => !skip.includes(d.key)).map((d) => `<option value="${d.key}">${d.label}</option>`).join(""); sel.value = value; };
+function freq(ps, dim) { const c = new Map(); ps.forEach((p) => dim.get(p).forEach((i) => c.set(i, (c.get(i) || 0) + 1))); return c; }
+const topIds = (ps, dim, n) => [...freq(ps, dim)].sort((a, b) => b[1] - a[1]).slice(0, n).map(([i]) => i);
+const baseLabel = (dim) => ({ hc: "papers with human evaluation", lc: "papers using LaaJ", lm: "papers using LaaJ", me: "papers using LaaJ", m: "papers with automatic metrics" }[dim.key] || "papers reporting any " + dim.label.toLowerCase());
+const MEASURES = (dim) => [["pct", "% of papers"], ["base", "% of " + baseLabel(dim)], ["count", "Papers"]];
+function measureFn(measure, dim) {
+  if (measure === "count") return (sub, k) => k;
+  if (measure === "base") return (sub, k) => { const b = sub.filter((p) => dim.get(p).length).length; return b ? 100 * k / b : null; };
+  return (sub, k) => (sub.length ? 100 * k / sub.length : null);
+}
+const fmtFor = (measure) => (measure === "count" ? { fmt: (v) => (v == null ? "–" : d3.format(",")(Math.round(v))), tick: d3.format(",") } : { fmt: pct, tick: (t) => t + "%" });
+/* a variable that the filters fix to a single value cannot be broken down: disable it */
+function fixedDims() {
+  const f = new Set();
+  if (G.task >= 0) f.add("tk");
+  if (G.venues.size === 1) f.add("vn");
+  return f;
+}
+function syncDims() {
+  const fixed = fixedDims();
+  const why = { tk: "fixed by the task filter", vn: "fixed by the venue filter" };
+  ["#tr-dim", "#rk-dim", "#cx-row", "#cx-col"].forEach((sel) => $$(sel + " option").forEach((o) => {
+    const off = fixed.has(o.value);
+    o.disabled = off; o.textContent = DIM[o.value].label + (off ? ` (${why[o.value]})` : "");
+  }));
+  const ok = (k) => !fixed.has(k);
+  if (!ok(tr.dim)) { tr.dim = "m"; tr.items = null; tr.measure = "pct"; $("#tr-dim").value = "m"; }
+  if (!ok(rk.dim)) { rk.dim = "m"; $("#rk-dim").value = "m"; }
+  const alt = (other) => ["tk", "m", "hc", "lc", "lm"].find((k) => ok(k) && k !== other);
+  if (!ok(cx.row)) { cx.row = alt(cx.col); $("#cx-row").value = cx.row; }
+  if (!ok(cx.col)) { cx.col = alt(cx.row); $("#cx-col").value = cx.col; }
+  const mxOff = { task: fixed.has("tk"), venue: fixed.has("vn") };
+  $$("#mx-by button").forEach((b) => { b.disabled = !!mxOff[b.dataset.v]; b.title = mxOff[b.dataset.v] ? "Fixed by the current filter" : ""; });
+  if (mxOff[mx.by]) { mx.by = "year"; pressSeg("#mx-by", "year"); }
+  $$("#tr-x button, #rk-stack button").forEach((b) => { b.disabled = b.dataset.v === "venue" && fixed.has("vn"); });
+  if (tr.x === "venue" && fixed.has("vn")) { tr.x = "year"; pressSeg("#tr-x", "year"); }
+  if (rk.stack === "venue" && fixed.has("vn")) { rk.stack = "none"; pressSeg("#rk-stack", "none"); }
+}
+function rerenderExplore() {
+  syncG(); syncDims();
+  $("#g-selcount").textContent = P.filter((p) => inSel(p)).length.toLocaleString();
+  $("#g-seldesc").textContent = SCOPE === "sel" ? selDesc() : "";
+  renderTab(); renderExplorer();
+}
+
+/* drill-down into the paper list */
+let DR = null;
+function drill(label, pred, ignoreGlobal = false) {
+  // paper-figure drill-downs and explorer drill-downs over all papers bypass the Papers filters
+  DR = { label, pred, all: ignoreGlobal || SCOPE === "all" };
+  ex.page = 0; ex.open = null; renderExplorer();
+  $("#papers").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+}
+
+let TAB = "trend";
+function renderTab() { ({ trend: renderTr, rank: renderRk, cross: renderCx, mix: renderMx, cmp: renderCp, venue: renderVn })[TAB](); }
+function initGlobal() {
+  $("#g-scope").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; setScope(b.dataset.v); rerenderExplore(); });
+  $("#tabs").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) selectTab(b.dataset.v); });
+  initExamples();
+  const saved = store.get("nlg-tab");
+  selectTab(saved && VIEWS[saved] ? saved : "trend", false);
+}
+const VIEWS = {
+  trend: ["Trends over time", "Proportion of papers per year (or venue) that use each selected item. Choose a variable, then add or remove items; the five most frequent items are shown by default."],
+  rank: ["Most frequent items", "Items ranked by the proportion of papers that use them. The second mode compares 2020–2022 with 2023–2025 and sorts items from largest increase to largest decrease."],
+  cross: ["Co-occurrence", "Cross-tabulation of the most frequent items of two variables. Row % gives P(column | row); LR measures association, with significant cells outlined (G², BH-FDR-adjusted p ≤ 0.05)."],
+  mix: ["Method combinations", "Each paper is assigned to exactly one combination of automatic metrics (A), LLM-as-a-judge (L) and human evaluation (H)."],
+  cmp: ["LaaJ vs. human criteria", "For each QCET criterion, the proportion of LaaJ papers and of human-evaluation papers that assess it. Criteria far from the diagonal are emphasized by one method only."],
+  venue: ["Corpus composition", "Number of main-conference papers per venue and year at each stage of the collection pipeline."],
+};
+function selectTab(v, render = true) {
+  TAB = v; store.set("nlg-tab", v);
+  document.querySelectorAll("#tabs button").forEach((x) => x.setAttribute("aria-selected", x.dataset.v === v));
+  document.querySelectorAll("[data-tab]").forEach((p) => (p.hidden = p.dataset.tab !== v));
+  $("#view-title").textContent = VIEWS[v][0]; 
+  if (render) renderTab();
+}
+/* set the global filters (missing keys reset to defaults) and sync their controls */
+function setScope(v) { SCOPE = v; pressSeg("#g-scope", v); }
+/* used by the examples: set the Papers filters and analyze that selection */
+function setGlobal(o) { DR = null; $("#ex-q").value = ""; setPF(o); setScope(Object.keys(o).length ? "sel" : "all"); }
+function selDesc() {
+  const parts = [];
+  if (PF.venue >= 0) parts.push(D.venues[PF.venue]);
+  if (PF.from !== 2020 || PF.to !== 2025) parts.push(PF.from === PF.to ? `${PF.from}` : `${PF.from}–${PF.to}`);
+  if (PF.task >= 0) parts.push(D.tasks[PF.task]);
+  METHODS.forEach((m) => { if (PF.must & m.bit) parts.push(m.label); });
+  if (PF.single) parts.push("single-task");
+  PF.conds.forEach((c) => parts.push(DIM[c.dim].name(c.id)));
+  const q = $("#ex-q").value.trim(); if (q) parts.push(`“${q}”`);
+  return parts.length ? parts.join(" · ") : "No filters set: the selection is all papers.";
+}
+const pressSeg = (sel, v) => $$(sel + " button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.v === String(v)));
+const byName = (arr, name) => arr.findIndex((x) => x === name);
+function initExamples() {
+  const T = (n) => byName(D.tasks, n), M = (n) => byName(D.metrics, n);
+  const EX = [
+    ["MT metrics over time", () => { setGlobal({ task: T("Machine Translation") }); Object.assign(tr, { dim: "m", items: ["BLEU", "chrF", "COMET", "BERTScore"].map(M).filter((i) => i >= 0), measure: "pct", chart: "line", userChart: "line", x: "year" }); return "trend"; }],
+    ["Judge models since 2023", () => { setGlobal({ from: 2023 }); Object.assign(tr, { dim: "lm", items: null, measure: "base", chart: "line", userChart: "line", x: "year" }); return "trend"; }],
+    ["Rising and declining metrics", () => { setGlobal({}); Object.assign(rk, { dim: "m", mode: "change", measure: "pct", n: 20 }); return "rank"; }],
+    ["Human criteria in dialogue", () => { setGlobal({ task: T("Dialogue Generation") }); Object.assign(rk, { dim: "hc", mode: "bars", measure: "base", n: 20, stack: "none" }); return "rank"; }],
+    ["Metrics × tasks", () => { setGlobal({}); Object.assign(cx, { row: "tk", col: "m", n: 15, val: "row" }); return "cross"; }],
+    ["Judge models × criteria", () => { setGlobal({}); Object.assign(cx, { row: "lm", col: "lc", n: 15, val: "row" }); return "cross"; }],
+    ["Methods by task", () => { setGlobal({}); Object.assign(mx, { by: "task", measure: "pct" }); return "mix"; }],
+  ];
+  const host = $("#examples");
+  EX.forEach(([label, fn]) => {
+    const b = document.createElement("button"); b.type = "button"; b.textContent = label;
+    b.onclick = () => {
+      const v = fn();
+      $("#tr-dim").value = tr.dim; pressSeg("#tr-chart", tr.chart); pressSeg("#tr-x", tr.x);
+      $("#rk-dim").value = rk.dim; pressSeg("#rk-n", rk.n); pressSeg("#rk-mode", rk.mode); pressSeg("#rk-stack", rk.stack);
+      $("#cx-row").value = cx.row; $("#cx-col").value = cx.col; pressSeg("#cx-n", cx.n); pressSeg("#cx-val", cx.val);
+      pressSeg("#mx-by", mx.by); pressSeg("#mx-measure", mx.measure);
+      DR = null; ex.page = 0; selectTab(v, false); rerenderExplore();
+      $("#tabs").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+    };
+    host.appendChild(b);
+  });
+}
+
+/* --- view: trends over time --- */
+const tr = { dim: "m", items: null, measure: "pct", chart: "line", x: "year" };
+function initTr() {
+  dimOptions($("#tr-dim"), tr.dim, ["vn"]);
+  $("#tr-dim").onchange = (e) => { tr.dim = e.target.value; tr.items = null; tr.measure = "pct"; renderTr(); };
+  seg($("#tr-measure"), (v) => { tr.measure = v; renderTr(); });
+  seg($("#tr-chart"), (v) => { tr.chart = v; tr.userChart = v; renderTr(); });
+  seg($("#tr-x"), (v) => { tr.x = v; renderTr(); });
+}
+function renderPicker(dim, ps) {
+  const host = $("#tr-picker");
+  const opts = [...freq(ps, dim)].sort((a, b) => b[1] - a[1]).slice(0, 400);
+  const canAdd = tr.items.length < 8 && tr.chart !== "heat";
+  host.innerHTML = (tr.chart === "heat" ? `<span class="hint">The heatmap shows the 25 most frequent items under the current filters.</span>` :
+    tr.items.map((id, j) => `<span class="it"><span class="sw" style="background:${SERIES[j]}"></span>${esc(dim.name(id))}<button type="button" data-rm="${id}" aria-label="Remove ${esc(dim.name(id))}">×</button></span>`).join("") +
+    (canAdd ? `<select id="tr-add" aria-label="Add item" class="addsel"><option value="">+ Add ${esc(dim.label.toLowerCase())}…</option>${opts.filter(([id]) => !tr.items.includes(id)).map(([id, k]) => `<option value="${id}">${esc(dim.name(id))} (${k})</option>`).join("")}</select>` : tr.items.length >= 8 ? `<span class="hint">Up to 8 items</span>` : "") +
+    `<button type="button" class="linkbtn" id="tr-top">Reset to top 5</button>` + (tr.items.length ? `<button type="button" class="linkbtn" id="tr-clear">Clear</button>` : ""));
+  host.querySelectorAll("[data-rm]").forEach((b) => (b.onclick = () => { tr.items = tr.items.filter((i) => i !== +b.dataset.rm); renderTr(); }));
+  const add = $("#tr-add");
+  if (add) add.onchange = () => { const id = +add.value; if (add.value !== "" && !tr.items.includes(id)) { tr.items.push(id); renderTr(); const a = $("#tr-add"); a && a.focus(); } };
+  const top = $("#tr-top"); if (top) top.onclick = () => { tr.items = null; renderTr(); };
+  const cl = $("#tr-clear"); if (cl) cl.onclick = () => { tr.items = []; renderTr(); };
+}
+function renderTr() {
+  const dim = DIM[tr.dim], ps = gPapers();
+  if (!tr.items) tr.items = topIds(ps, dim, 5);
+  // venues are categories, not a sequence: no lines or areas across them
+  const byVenue = tr.x === "venue", want = tr.userChart || tr.chart;
+  tr.chart = byVenue && (want === "line" || want === "area") ? "bar" : want;
+  $$("#tr-chart button").forEach((b) => {
+    const off = byVenue && (b.dataset.v === "line" || b.dataset.v === "area");
+    b.disabled = off; b.title = off ? "Not available by venue: venues are categories, not a time sequence" : "";
+    b.setAttribute("aria-pressed", b.dataset.v === tr.chart);
+  });
+  segSet($("#tr-measure"), MEASURES(dim), tr.measure);
+  renderPicker(dim, ps);
+  const host = $("#tr-chart-host");
+  const xs = tr.x === "year" ? gYears() : gVenues();
+  const xlab = tr.x === "year" ? (k) => k : (k) => D.venues[k];
+  const xOf = (p) => (tr.x === "year" ? p.y : p.v);
+  const sub = xs.map((k) => ps.filter((p) => xOf(p) === k));
+  const mf = measureFn(tr.measure, dim), { fmt, tick } = fmtFor(tr.measure);
+  const n = sub.map((a) => a.length);
+  const onSeries = (s) => drill(`${dim.label}: ${s.label}`, (p) => dim.get(p).includes(s.id));
+  $("#tr-caption").innerHTML = `${MEASURES(dim).find((m) => m[0] === tr.measure)[1]} · n = ${ps.length.toLocaleString()}`;
+  if (tr.chart === "heat") {
+    const ids = topIds(ps, dim, 25);
+    if (!ids.length) { $("#tr-legend").innerHTML = ""; host.innerHTML = `<p class="empty">No ${dim.label.toLowerCase()} in the filtered papers.</p>`; return; }
+    const vals = ids.map((id) => sub.map((a) => mf(a, a.filter((p) => dim.get(p).includes(id)).length)));
+    const mx = d3.max(vals.flat()) || 1, col = d3.scaleSequential([0, mx], d3.interpolateRgb("#eef4fc", "#0d366b"));
+    $("#tr-legend").innerHTML = `<span><i style="width:72px;height:10px;background:linear-gradient(90deg,#eef4fc,#0d366b)"></i>${tr.measure === "count" ? "Papers" : "Percent"}, darker is higher</span>`;
+    heatGrid(host, {
+      rows: ids.map((id, i) => ({ id, i, label: dim.name(id) })), cols: xs.map((k, j) => ({ k, j, label: String(xlab(k)) })), showValues: true,
+      cell: (r, c) => { const v = vals[r.i][c.j]; return v == null ? null : { fill: col(v), text: tr.measure === "count" ? v : Math.round(v), dark: v > mx * 0.55, tip: `<div class="t">${esc(r.label)}</div>` + row(c.label, fmt(v)) + `<div class="k">${n[c.j]} papers in ${c.label}. Click to list.</div>` }; },
+      onCell: (r, c) => drill(`${dim.label}: ${r.label} · ${c.label}`, (p) => dim.get(p).includes(r.id) && xOf(p) === c.k),
+      title: `${dim.label} heatmap by ${tr.x}`,
+    });
+    return;
+  }
+  const series = tr.items.map((id, j) => ({ id, label: dim.name(id), color: SERIES[j], values: sub.map((a) => mf(a, a.filter((p) => dim.get(p).includes(id)).length)) }));
+  legend($("#tr-legend"), series);
+  if (!series.length) { host.innerHTML = `<p class="empty">Select at least one item above.</p>`; return; }
+  const opts = { xs, xlab, series, n, fmt, tick, onSeries, onBar: (s, k) => drill(`${dim.label}: ${s.label} · ${xlab(k)}`, (p) => dim.get(p).includes(s.id) && xOf(p) === k), title: `${dim.label} by ${tr.x}` };
+  if (tr.chart === "line") lineChart(host, opts);
+  else if (tr.chart === "area") areaChart(host, opts);
+  else barChart(host, opts);
+}
+
+/* --- view: rankings --- */
+const rk = { dim: "m", n: 20, measure: "pct", mode: "bars", stack: "none" };
+function initRk() {
+  dimOptions($("#rk-dim"), rk.dim, ["vn"]);
+  $("#rk-dim").onchange = (e) => { rk.dim = e.target.value; renderRk(); };
+  seg($("#rk-n"), (v) => { rk.n = +v; renderRk(); });
+  seg($("#rk-measure"), (v) => { rk.measure = v; renderRk(); });
+  seg($("#rk-mode"), (v) => { rk.mode = v; renderRk(); });
+  seg($("#rk-stack"), (v) => { rk.stack = v; renderRk(); });
+}
+function renderRk() {
+  const dim = DIM[rk.dim], ps = gPapers();
+  if (rk.mode === "change" && rk.measure === "count") rk.measure = "pct";
+  segSet($("#rk-measure"), rk.mode === "change" ? MEASURES(dim).slice(0, 2) : MEASURES(dim), rk.measure);
+  $("#rk-stack-ctl").hidden = rk.mode !== "bars";
+  const mf = measureFn(rk.measure, dim), { fmt, tick } = fmtFor(rk.measure), host = $("#rk-chart");
+  const toPapers = (d) => drill(`${dim.label}: ${d.label}`, (p) => dim.get(p).includes(d.id));
+  if (rk.mode === "change") {
+    const A = ps.filter((p) => p.y <= 2022), B = ps.filter((p) => p.y >= 2023);
+    if (!A.length || !B.length) { $("#rk-legend").innerHTML = ""; $("#rk-caption").innerHTML = ""; host.innerHTML = `<p class="empty">The year range must include years before and after 2022 to compare the two periods.</p>`; return; }
+    const cA = freq(A, dim), cB = freq(B, dim);
+    const cand = [...new Set([...cA.keys(), ...cB.keys()])].filter((id) => (cA.get(id) || 0) + (cB.get(id) || 0) >= 5);
+    const items = cand.map((id) => ({ id, label: dim.name(id), a: mf(A, cA.get(id) || 0) ?? 0, b: mf(B, cB.get(id) || 0) ?? 0 }))
+      .map((d) => ({ ...d, note: `${d.b >= d.a ? "+" : ""}${(d.b - d.a).toFixed(1)} points · ${cA.get(d.id) || 0} → ${cB.get(d.id) || 0} papers. Click to list.` }))
+      .sort((x, y) => Math.abs(y.b - y.a) - Math.abs(x.b - x.a)).slice(0, rk.n).sort((x, y) => (y.b - y.a) - (x.b - x.a));
+    const a = { label: `${G.from}–2022`, color: "#86b6ef", shape: "circle" }, b = { label: `2023–${G.to}`, color: "#0d366b", shape: "diamond" };
+    legend($("#rk-legend"), [a, b]);
+    $("#rk-caption").innerHTML = `${G.from}–2022 vs. 2023–${G.to} · items with ≥ 5 papers`;
+    if (!items.length) { host.innerHTML = `<p class="empty">Insufficient data under the current filters.</p>`; return; }
+    dumbbell(host, { items, a, b, fmt, tick, onRow: toPapers, title: `${dim.label} change between periods` });
+    return;
+  }
+  const ids = topIds(ps, dim, rk.n);
+  let groups = [{ label: "All", color: "#5b84c4", pred: () => true }];
+  if (rk.stack === "venue") groups = gVenues().map((v, j) => ({ label: D.venues[v], color: SERIES[j], pred: (p) => p.v === v }));
+  if (rk.stack === "year") groups = gYears().map((y) => ({ label: String(y), color: YEAR_RAMP[YEARS.indexOf(y)], pred: (p) => p.y === y }));
+  const items = ids.map((id) => {
+    const hit = ps.filter((p) => dim.get(p).includes(id));
+    const total = mf(ps, hit.length) ?? 0;
+    const segs = groups.map((g) => ({ label: g.label, color: g.color, v: hit.length ? total * hit.filter(g.pred).length / hit.length : 0 }));
+    return { id, label: dim.name(id), total, segs, note: `${hit.length.toLocaleString()} papers` };
+  });
+  legend($("#rk-legend"), groups.length > 1 ? groups : []);
+  $("#rk-caption").innerHTML = `n = ${ps.length.toLocaleString()}`;
+  if (!items.length) { host.innerHTML = `<p class="empty">No ${dim.label.toLowerCase()} in the filtered papers.</p>`; return; }
+  hbarChart(host, { items, fmt, tick, onBar: toPapers, title: `Ranking of ${dim.label}` });
+}
+
+/* --- view: cross-tab heatmap --- */
+const cx = { row: "tk", col: "m", n: 15, val: "row", show: false };
+function initCx() {
+  dimOptions($("#cx-row"), cx.row); dimOptions($("#cx-col"), cx.col);
+  $("#cx-row").onchange = (e) => { cx.row = e.target.value; renderCx(); };
+  $("#cx-col").onchange = (e) => { cx.col = e.target.value; renderCx(); };
+  seg($("#cx-n"), (v) => { cx.n = +v; renderCx(); });
+  seg($("#cx-val"), (v) => { cx.val = v; renderCx(); });
+  $("#cx-vals").onchange = (e) => { cx.show = e.target.checked; renderCx(); };
+}
+function renderCx() {
+  const R = DIM[cx.row], C = DIM[cx.col], ps = gPapers(), N = ps.length, host = $("#cx-chart");
+  const rows = topIds(ps, R, cx.n), cols = topIds(ps, C, cx.n), same = cx.row === cx.col;
+  if (!rows.length || !cols.length) { host.innerHTML = `<p class="empty">No co-occurrences under the current filters.</p>`; $("#cx-legend").innerHTML = ""; $("#cx-caption").innerHTML = ""; return; }
+  const rSet = rows.map((id) => new Set(ps.filter((p) => R.get(p).includes(id)))), cSet = cols.map((id) => new Set(ps.filter((p) => C.get(p).includes(id))));
+  const cells = [];
+  rows.forEach((rid, i) => cols.forEach((cid, j) => {
+    let a = 0; rSet[i].forEach((p) => cSet[j].has(p) && a++);
+    const nr = rSet[i].size, nc = cSet[j].size;
+    cells.push({ i, j, a, nr, nc, lr: rr(a, nr - a, nc - a, N - nr - nc + a), p: pChi1(g2(a, nr - a, nc - a, N - nr - nc + a)), diag: same && rid === cid });
+  }));
+  const q = bh(cells.filter((c) => !c.diag).map((c) => c.p)); let qi = 0;
+  cells.forEach((c) => { if (!c.diag) { c.q = q[qi++]; c.sig = c.q <= 0.05 && c.a >= 5; } });
+  const at = (i, j) => cells[i * cols.length + j];
+  let color;
+  if (cx.val === "lr") {
+    const sc = d3.scaleDiverging([-3, 0, 3], d3.interpolateRgbBasis(["#1c5cab", "#86b6ef", "#f0efec", "#f19b9a", "#b12a2a"])).clamp(true);
+    color = (c) => sc(c.a ? Math.log2(isFinite(c.lr) ? c.lr : 8) : -3);
+    $("#cx-legend").innerHTML = `<span>Avoidance<i style="width:110px;height:10px;background:linear-gradient(90deg,#1c5cab,#86b6ef,#f0efec,#f19b9a,#b12a2a)"></i>Attraction</span><span class="hint">LR from ⅛ to 8, log scale</span><span><i style="width:12px;height:12px;border:2px solid var(--ink);background:transparent"></i>Significant (adjusted p ≤ 0.05, ≥ 5 papers)</span>`;
+  } else {
+    const v = (c) => (cx.val === "count" ? c.a : c.nr ? 100 * c.a / c.nr : 0);
+    const mx = d3.max(cells.filter((c) => !c.diag), v) || 1, sc = d3.scaleSequential([0, mx], d3.interpolateRgb("#f4f7fb", "#0d366b"));
+    color = (c) => sc(v(c));
+    $("#cx-legend").innerHTML = `<span><i style="width:90px;height:10px;background:linear-gradient(90deg,#f4f7fb,#0d366b)"></i>${cx.val === "count" ? "Papers with both items" : "P(column | row), %"}</span>`;
+  }
+  $("#cx-caption").innerHTML = `${cx.val === "lr" ? "LR = P(col | row) / P(col | ¬row)" : cx.val === "row" ? "P(col | row)" : "Papers with both items"} · n = ${N.toLocaleString()}`;
+  heatGrid(host, {
+    rows: rows.map((id, i) => ({ id, i, label: R.name(id) })), cols: cols.map((id, j) => ({ id, j, label: C.name(id) })), showValues: cx.show,
+    cell: (r, c) => {
+      const z = at(r.i, c.j); if (z.diag) return { fill: "#e9ebee", tip: `<div class="t">${esc(r.label)}</div><div class="k">Same item</div>`, click: false };
+      const text = cx.val === "count" ? z.a : cx.val === "row" ? Math.round(z.nr ? 100 * z.a / z.nr : 0) : z.a ? fmtLR(z.lr) : "";
+      return { fill: color(z), sig: cx.val === "lr" && z.sig, text, dark: d3.hsl(color(z)).l < 0.5,
+        tip: `<div class="t">${esc(r.label)} × ${esc(c.label)}</div>` + row("Papers with both", z.a) + row("Row %", pct(z.nr ? 100 * z.a / z.nr : 0)) + row("Column %", pct(z.nc ? 100 * z.a / z.nc : 0)) + row("LR", fmtLR(z.lr)) + row("BH-FDR q", z.q < 0.001 ? "<0.001" : z.q.toFixed(3)) + `<div class="k">Click to list papers.</div>` };
+    },
+    onCell: (r, c) => drill(`${r.label} × ${c.label}`, (p) => R.get(p).includes(r.id) && C.get(p).includes(c.id)),
+    title: `${R.label} by ${C.label} heatmap`,
+  });
+}
+
+/* --- view: evaluation mix --- */
+const COMBOS = [
+  [1, "Automatic only"], [5, "Automatic + human"], [7, "Automatic + LaaJ + human"], [3, "Automatic + LaaJ"],
+  [6, "LaaJ + human"], [4, "Human only"], [2, "LaaJ only"], [0, "None extracted"],
+].map(([k, label], j) => ({ k, label, color: SERIES[j] }));
+const mx = { by: "year", measure: "pct" };
+function initMx() {
+  seg($("#mx-by"), (v) => { mx.by = v; renderMx(); });
+  seg($("#mx-measure"), (v) => { mx.measure = v; renderMx(); });
+  legend($("#mx-legend"), COMBOS);
+}
+function renderMx() {
+  const ps = gPapers(), host = $("#mx-chart");
+  if (!ps.length) { host.innerHTML = `<p class="empty">No papers match the current filters.</p>`; return; }
+  let xs, xlab, key = null;
+  if (mx.by === "year") { xs = gYears(); xlab = (k) => k; key = (p) => p.y; }
+  else if (mx.by === "venue") { xs = gVenues(); xlab = (k) => D.venues[k]; key = (p) => p.v; }
+  else { xs = topIds(ps, DIM.tk, 15); xlab = (k) => D.tasks[k]; }
+  const sub = xs.map((k) => ps.filter((p) => (key ? key(p) === k : p.tk.includes(k))));
+  const { fmt, tick } = fmtFor(mx.measure);
+  const series = COMBOS.map((c) => ({ ...c, values: sub.map((a) => { const k = a.filter((p) => (p.f & 7) === c.k).length; return mx.measure === "count" ? k : a.length ? 100 * k / a.length : 0; }) }));
+  if (mx.by === "task") {
+    const items = xs.map((k, i) => ({ id: k, label: xlab(k), total: d3.sum(series, (s) => s.values[i]), segs: series.map((s) => ({ label: s.label, color: s.color, v: s.values[i] })), note: `${sub[i].length} papers` }));
+    hbarChart(host, { items, fmt, tick, onBar: (d) => drill(`Task: ${d.label}`, (p) => p.tk.includes(d.id)), title: "Evaluation mix by task" });
+  } else {
+    barChart(host, { xs, xlab, series, fmt, tick, stacked: true, n: sub.map((a) => a.length), title: `Evaluation mix by ${mx.by}`,
+      onBar: (s, k) => drill(`${s.label} · ${xlab(k)}`, (p) => (p.f & 7) === s.k && key(p) === k) });
+  }
+}
+
+/* --- view: LaaJ vs human criteria --- */
+const cp = { set: "all", sort: "gap", n: 25 };
+function initCp() {
+  seg($("#cp-set"), (v) => { cp.set = v; renderCp(); });
+  seg($("#cp-sort"), (v) => { cp.sort = v; renderCp(); });
+  seg($("#cp-n"), (v) => { cp.n = +v; renderCp(); });
+}
+function renderCp() {
+  let ps = gPapers(); if (cp.set === "both") ps = ps.filter((p) => p.lc.length && p.hc.length);
+  const L = ps.filter((p) => p.lc.length), Hh = ps.filter((p) => p.hc.length), host = $("#cp-chart");
+  const a = { label: `LaaJ papers (n=${L.length})`, color: "var(--s-laaj)", shape: "triangle" }, b = { label: `Human-eval papers (n=${Hh.length})`, color: "var(--s-human)", shape: "square" };
+  legend($("#cp-legend"), [a, b]);
+  $("#cp-caption").innerHTML = `% of papers using each method`;
+  if (!L.length || !Hh.length) { host.innerHTML = `<p class="empty">No papers with both LaaJ and human criteria under the current filters.</p>`; return; }
+  const cL = freq(L, DIM.lc), cH = freq(Hh, DIM.hc);
+  const ids = [...new Set([...cL.keys(), ...cH.keys()])].filter((id) => (cL.get(id) || 0) + (cH.get(id) || 0) >= 4);
+  let items = ids.map((id) => ({ id, label: critName(id, true), a: 100 * (cL.get(id) || 0) / L.length, b: 100 * (cH.get(id) || 0) / Hh.length }))
+    .map((d) => ({ ...d, note: `${cL.get(d.id) || 0} LaaJ · ${cH.get(d.id) || 0} human papers. Click to list.` }));
+  const sorter = { gap: (x, y) => Math.abs(y.a - y.b) - Math.abs(x.a - x.b), laaj: (x, y) => y.a - x.a, human: (x, y) => y.b - x.b }[cp.sort];
+  items = items.sort(sorter).slice(0, cp.n);
+  if (cp.sort === "gap") items.sort((x, y) => (y.a - y.b) - (x.a - x.b));
+  if (!items.length) { host.innerHTML = `<p class="empty">Insufficient criteria under the current filters.</p>`; return; }
+  dumbbell(host, { items, a, b, fmt: pct, tick: (t) => t + "%", onRow: (d) => drill(`Criterion: ${critName(d.id)}`, (p) => p.lc.includes(d.id) || p.hc.includes(d.id)), title: "LaaJ vs human criteria" });
+}
+
+/* --- view: venues --- */
+const vn = { stage: "final", measure: "count" };
+function initVn() {
+  seg($("#vn-stage"), (v) => { vn.stage = v; renderVn(); });
+  seg($("#vn-measure"), (v) => { vn.measure = v; renderVn(); });
+}
+function renderVn() {
+  const xs = gYears(), vs = gVenues(), host = $("#vn-chart");
+  const finalC = d3.rollup(P, (a) => a.length, (p) => p.v, (p) => p.y);
+  const get = (v, y, stage) => { const bv = D.byVenueYear[`${D.venues[v]}-${y}`]; if (!bv) return null; return stage === "final" ? (finalC.get(v)?.get(y) || 0) : bv[stage]; };
+  const series = vs.map((v, j) => ({ id: v, label: D.venues[v], color: SERIES[j], values: xs.map((y) => {
+    const n = get(v, y, vn.stage); if (n == null) return null;
+    return vn.measure === "count" ? n : 100 * n / get(v, y, "collected");
+  }) }));
+  legend($("#vn-legend"), series);
+  const { fmt, tick } = fmtFor(vn.measure === "count" ? "count" : "pct");
+  if (vn.measure === "pct") lineChart(host, { xs, series, fmt, tick, title: "Share of collected papers per venue" });
+  else barChart(host, { xs, series, fmt, tick, title: "Papers per venue and year", onBar: vn.stage === "final" ? (s, y) => drill(`${s.label} ${y}`, (p) => p.v === s.id && p.y === y, true) : null });
+}
+
+/* --- paper list --- */
+const ex = { page: 0, per: 20, open: null };
+/* paper-list filters, independent of the explorer filters */
+const PF0 = { venue: -1, from: 2020, to: 2025, task: -1, must: 0, single: false, conds: [], sort: "new" };
+let PF = JSON.parse(JSON.stringify(PF0));
+const PF_DIMS = ["m", "hc", "lc", "lm", "me", "ds", "lg", "gm"];
+const inPF = (p) => (PF.venue < 0 || p.v === PF.venue) && p.y >= PF.from && p.y <= PF.to && (PF.task < 0 || p.tk.includes(PF.task)) && (p.f & PF.must) === PF.must
+  && (!PF.single || p.tk.length === 1) && PF.conds.every((c) => DIM[c.dim].get(p).includes(c.id));
+function setPF(o) {
+  PF = { ...JSON.parse(JSON.stringify(PF0)), ...o };
+  $("#pf-venue").value = PF.venue; $("#pf-from").value = PF.from; $("#pf-to").value = PF.to; $("#pf-task").value = PF.task; $("#pf-sort").value = PF.sort; $("#pf-single").checked = PF.single;
+  $$("#pf-must .chip").forEach((b, i) => b.setAttribute("aria-pressed", !!(PF.must & METHODS[i].bit)));
+  renderConds();
+}
+function renderConds() {
+  $("#pf-conds").innerHTML = PF.conds.map((c, j) => `<span class="it"><span class="hint">${esc(DIM[c.dim].label)}:</span> ${esc(DIM[c.dim].name(c.id))}<button type="button" data-rm="${j}" aria-label="Remove">×</button></span>`).join("");
+  $$("#pf-conds [data-rm]").forEach((b) => (b.onclick = () => { PF.conds.splice(+b.dataset.rm, 1); renderConds(); ex.page = 0; rerenderExplore(); }));
+}
+function fillPFList() {
+  const dim = DIM[$("#pf-dim").value];
+  $("#pf-val").innerHTML = `<option value="">+ Add ${esc(dim.label.toLowerCase())}…</option>` +
+    [...freq(P, dim)].sort((a, b) => b[1] - a[1]).slice(0, 1000).map(([id, k]) => `<option value="${id}">${esc(dim.name(id))} (${k})</option>`).join("");
+}
+function initPF() {
+  const upd = () => { ex.page = 0; rerenderExplore(); };
+  $("#pf-venue").innerHTML = `<option value="-1">All venues</option>` + D.venues.map((v, i) => `<option value="${i}">${v}</option>`).join("");
+  const yo = YEARS.map((y) => `<option>${y}</option>`).join(""); $("#pf-from").innerHTML = yo; $("#pf-to").innerHTML = yo;
+  taskOptions($("#pf-task"), { all: true, value: -1 });
+  $("#pf-venue").onchange = (e) => { PF.venue = +e.target.value; upd(); };
+  $("#pf-from").onchange = (e) => { PF.from = +e.target.value; if (PF.to < PF.from) { PF.to = PF.from; $("#pf-to").value = PF.to; } upd(); };
+  $("#pf-to").onchange = (e) => { PF.to = +e.target.value; if (PF.from > PF.to) { PF.from = PF.to; $("#pf-from").value = PF.from; } upd(); };
+  $("#pf-task").onchange = (e) => { PF.task = +e.target.value; upd(); };
+  $("#pf-sort").onchange = (e) => { PF.sort = e.target.value; ex.page = 0; renderExplorer(); };
+  $("#pf-single").onchange = (e) => { PF.single = e.target.checked; upd(); };
+  $("#pf-analyze").onclick = () => { setScope("sel"); rerenderExplore(); };
+  const nm = { auto: "Metrics", laaj: "LaaJ", human: "Human", val: "Validated" };
+  METHODS.forEach((mt) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.setAttribute("aria-pressed", "false");
+    b.innerHTML = `<span class="sw" style="background:${mt.color}"></span>${nm[mt.key]}`;
+    b.onclick = () => { PF.must ^= mt.bit; b.setAttribute("aria-pressed", !!(PF.must & mt.bit)); upd(); };
+    $("#pf-must").appendChild(b);
+  });
+  $("#pf-dim").innerHTML = PF_DIMS.map((k) => `<option value="${k}">${DIM[k].label}</option>`).join("");
+  $("#pf-dim").onchange = fillPFList;
+  $("#pf-val").onchange = () => {
+    const dim = DIM[$("#pf-dim").value], v = $("#pf-val").value, id = +v;
+    $("#pf-val").value = "";
+    if (v === "" || PF.conds.some((c) => c.dim === dim.key && c.id === id)) return;
+    PF.conds.push({ dim: dim.key, id }); renderConds(); upd();
+  };
+  $("#pf-reset").onclick = () => { DR = null; $("#ex-q").value = ""; setPF({}); upd(); };
+  fillPFList(); setPF({});
+}
+function initExplorer() {
+  initPF();
+  let tmr; $("#ex-q").oninput = () => { clearTimeout(tmr); tmr = setTimeout(() => { ex.page = 0; rerenderExplore(); }, 200); };
+  $("#ex-prev").onclick = () => { ex.page--; renderExplorer(); };
+  $("#ex-next").onclick = () => { ex.page++; renderExplorer(); };
+  $("#ex-body").onclick = (e) => { if (e.target.closest("a")) return; const t = e.target.closest("tr.main"); if (!t) return; ex.open = ex.open === t.dataset.id ? null : t.dataset.id; renderExplorer(); };
+  $("#ex-drill").onclick = (e) => { if (e.target.closest("button")) { DR = null; ex.page = 0; renderExplorer(); } };
+  P.forEach((p) => {
+    p.hay = [p.t, p.a, p.id, ...p.m.map((i) => D.metrics[i]), ...p.lc.map((i) => D.crits[i][0]), ...p.hc.map((i) => D.crits[i][0]), ...p.tk.map((i) => D.tasks[i]),
+      ...p.ds.map((i) => D.datasets[i]), ...p.lg.map((i) => D.languages[i]), ...p.lm.map((i) => D.models[i])].join(" ").toLowerCase();
+  });
+}
+function renderExplorer() {
+  const q = $("#ex-q").value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const rows = P.filter((p) => (DR && DR.all ? q.every((w) => p.hay.includes(w)) : inSel(p, q)) && (!DR || DR.pred(p)));
+  const by = { new: (a, b) => b.y - a.y || a.v - b.v, old: (a, b) => a.y - b.y || a.v - b.v, title: (a, b) => (a.t || a.id).localeCompare(b.t || b.id), venue: (a, b) => a.v - b.v || b.y - a.y }[PF.sort];
+  rows.sort(by);
+  $("#ex-drill").innerHTML = DR ? `<span class="drill">${esc(DR.label)}${DR.all && JSON.stringify({ ...PF, sort: "new" }) !== JSON.stringify(PF0) ? " (all papers, filters not applied)" : ""}<button type="button" aria-label="Clear selection">×</button></span>` : "";
+  $("#pf-count").textContent = `${rows.length.toLocaleString()} of ${P.length.toLocaleString()} papers`;
+  $("#pf-reset").hidden = !DR && !q.length && JSON.stringify(PF) === JSON.stringify(PF0);
+  const pages = Math.max(1, Math.ceil(rows.length / ex.per));
+  ex.page = Math.max(0, Math.min(ex.page, pages - 1));
+  const slice = rows.slice(ex.page * ex.per, ex.page * ex.per + ex.per);
+  const tags = (arr, nameOf, k) => arr.slice(0, k).map((i) => `<span class="tag">${esc(nameOf(i))}</span>`).join("") + (arr.length > k ? `<span class="tag">+${arr.length - k}</span>` : "");
+  const list = (arr, nameOf) => (arr.length ? arr.map((i) => `<span class="tag">${esc(nameOf(i))}</span>`).join("") : `<span style="color:var(--muted)">None</span>`);
+  $("#ex-body").innerHTML = slice.length ? slice.map((p) => {
+    const pills = METHODS.map((mt) => `<span class="pill ${p.f & mt.bit ? mt.short.toLowerCase() : "off"}" title="${mt.label}">${mt.short}</span>`).join("");
+    let html = `<tr class="main" data-id="${esc(p.id)}" aria-expanded="${ex.open === p.id}"><td><div class="ti"><a href="https://aclanthology.org/${encodeURIComponent(p.id)}/" target="_blank" rel="noopener">${esc(p.t || p.id)}</a></div><div class="au">${esc(p.a)}</div></td>
+      <td class="vy">${D.venues[p.v]} ${p.y}</td><td class="col-tasks">${tags(p.tk, (i) => D.tasks[i], 2)}</td><td><div class="pills">${pills}</div></td><td class="col-met">${tags(p.m, (i) => D.metrics[i], 3)}</td></tr>`;
+    if (ex.open === p.id) html += `<tr class="detail"><td colspan="5"><dl>
+      <dt>Tasks</dt><dd>${list(p.tk, (i) => D.tasks[i])}</dd>
+      <dt>Datasets</dt><dd>${list(p.ds, (i) => D.datasets[i])}</dd>
+      <dt>Languages</dt><dd>${list(p.lg, (i) => D.languages[i])}</dd>
+      <dt>Generation models</dt><dd>${list(p.gm, (i) => D.genModels[i])}</dd>
+      <dt>Automatic metrics</dt><dd>${list(p.m, (i) => D.metrics[i])}</dd>
+      <dt>Human criteria</dt><dd>${list(p.hc, (i) => critName(i, true))}</dd>
+      <dt>LaaJ criteria</dt><dd>${list(p.lc, (i) => critName(i, true))}</dd>
+      <dt>LaaJ models</dt><dd>${list(p.lm, (i) => D.models[i])}</dd>
+      <dt>LaaJ methods</dt><dd>${list(p.me, (i) => D.methods[i])}</dd>
+      <dt>Anthology ID</dt><dd class="mono">${esc(p.id)}</dd></dl></td></tr>`;
+    return html;
+  }).join("") : `<tr><td colspan="5" class="empty">No matching papers.</td></tr>`;
+  $("#ex-count").textContent = rows.length ? `${(ex.page * ex.per + 1).toLocaleString()}–${Math.min(rows.length, (ex.page + 1) * ex.per).toLocaleString()} of ${rows.length.toLocaleString()} papers` : "0 papers";
+  $("#ex-prev").disabled = ex.page === 0; $("#ex-next").disabled = ex.page >= pages - 1;
+}
+
+/* ---------- links, cite ---------- */
+function initNav() {
+  const links = $$(".nav li a");
+  const io = new IntersectionObserver((es) => es.forEach((e) => {
+    if (!e.isIntersecting) return;
+    links.forEach((a) => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+    const on = links.find((a) => a.classList.contains("on"));
+    const ul = $(".nav ul");
+    if (on && ul.scrollWidth > ul.clientWidth) ul.scrollLeft = on.offsetLeft - (ul.clientWidth - on.offsetWidth) / 2;
+  }), { rootMargin: "-30% 0px -65% 0px" });
+  $$("section[id]").forEach((sec) => io.observe(sec));
+}
+function initLinks() {
+  const icon = {
+    paper: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg>',
+    code: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.4c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>',
+    data: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>',
+  };
+  icon.arxiv = icon.paper;
+  const items = [["paper", "Paper"], ["code", "Code"], ["arxiv", "arXiv"], ["data", "Data"]].filter(([k]) => LINKS[k]);
+  $("#links").innerHTML = items.map(([k, l]) => `<a class="btn" href="${LINKS[k]}" target="_blank" rel="noopener">${icon[k]}${l}</a>`).join("") +
+    `<a class="btn" href="#explore">Explorer</a>`;
+}
+$("#copy-bib").onclick = async (e) => {
+  const b = e.currentTarget, txt = $("#bib").textContent;
+  try { await navigator.clipboard.writeText(txt); b.textContent = "Copied"; }
+  catch (err) { const r = document.createRange(); r.selectNodeContents($("#bib")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected; press ⌘C to copy"; }
+  setTimeout(() => (b.textContent = "Copy BibTeX"), 2000);
+};
+
+/* ---------- boot ---------- */
+async function boot() {
+  initLinks(); if ("IntersectionObserver" in window) initNav();
+  try {
+    D = await (await fetch("data/corpus.json")).json();
+  } catch (e) {
+    $("#task-chart").innerHTML = `<p class="empty">Failed to load data/corpus.json. The page must be served over HTTP (e.g. <span class="mono">python -m http.server</span>).</p>`;
+    return;
+  }
+  P = D.papers.map((r) => ({ id: r[0], v: r[1], y: r[2], t: r[3], a: r[4], tk: r[5], m: r[6], lc: r[7], hc: r[8], lm: r[9], f: r[10], ds: r[11] || [], lg: r[12] || [], gm: r[13] || [], me: r[14] || [] }));
+  TASK_ID = Object.fromEntries(D.tasks.map((t, i) => [t, i]));
+  initDims();
+  const f = D.funnel;
+  funnel($("#funnel"), [
+    { label: "Collected papers", n: f.collected },
+    { label: "NLG papers (majority vote)", n: f.nlg },
+    { label: "Top-30 NLG tasks", n: f.final },
+    { label: "LaaJ and human evaluation", n: f.dual, cls: "h" },
+    { label: "LaaJ validated against humans", n: f.validated, cls: "v" },
+  ]);
+  initTasks(); initBump(); initHeat(); initVal();
+  initTr(); initRk(); initCx(); initMx(); initCp(); initVn();
+  initGlobal(); initExplorer(); rerenderExplore();
+  let w = innerWidth, tmr;
+  addEventListener("resize", () => { if (innerWidth === w) return; w = innerWidth; clearTimeout(tmr); tmr = setTimeout(() => { renderTask(); renderBump(); renderHeat(); renderVal(); renderTab(); }, 150); });
+}
+boot();
+</script>
+</body>
+</html>
