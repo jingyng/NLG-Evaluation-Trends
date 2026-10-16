@@ -197,14 +197,15 @@ table.t tr.hl td { background: var(--panel); }
 .xstep h3 { margin: 0; font: 600 17px var(--f-display); color: var(--ink); }
 .xstep .hint { font-weight: 400; }
 .xn { font: 600 17px var(--f-display); color: var(--ink); }
-.views { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.views { display: grid; grid-template-columns: 1fr; gap: 10px; }
 .views button { display: grid; grid-template-columns: 40px 1fr; grid-template-rows: auto auto; column-gap: 12px; row-gap: 3px; align-items: start; align-content: start; text-align: left; padding: 12px 14px; border: 1px solid var(--rule); border-radius: 6px; background: #fff; cursor: pointer; color: var(--ink-2); }
 .views button:hover { border-color: #9a9a9a; }
 .views button[aria-selected="true"] { border-color: #363636; box-shadow: inset 0 0 0 1px #363636; }
 .views svg { grid-row: 1 / 3; width: 40px; height: 28px; margin-top: 2px; fill: none; stroke: var(--s-human); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 .views svg .b { stroke: var(--s-laaj); }
 .views svg.grid rect { fill: var(--s-human); stroke: none; } .views svg.grid rect.l { fill: #b4cde3; }
-@media (min-width: 880px) { .views { grid-template-columns: repeat(5, minmax(0, 1fr)); } .views button { grid-template-columns: 1fr; } .views svg { grid-row: auto; margin-bottom: 4px; } }
+@media (min-width: 520px) { .views { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 880px) { .views { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .views b { font: 600 14.5px var(--f-display); color: var(--ink); }
 .views small { font-size: 12.5px; line-height: 1.4; color: var(--muted); }
 .examples { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
@@ -518,10 +519,7 @@ footer .wrap { display: grid; gap: .5rem; max-width: 760px; }
         <b>Co-occurrence</b><small>E.g. metrics × tasks</small></button>
       <button type="button" role="tab" data-v="mix" aria-selected="false">
         <svg viewBox="0 0 40 28" aria-hidden="true" class="grid"><rect x="4" y="2" width="8" height="10" class="l"/><rect x="4" y="13" width="8" height="14"/><rect x="16" y="2" width="8" height="6" class="l"/><rect x="16" y="9" width="8" height="18"/><rect x="28" y="2" width="8" height="12" class="l"/><rect x="28" y="15" width="8" height="12"/></svg>
-        <b>Method combinations</b><small>Metrics, LaaJ and human combined</small></button>
-      <button type="button" role="tab" data-v="venue" aria-selected="false">
-        <svg viewBox="0 0 40 28" aria-hidden="true" class="grid"><rect x="3" y="12" width="5" height="15"/><rect x="9" y="6" width="5" height="21" class="l"/><rect x="17" y="9" width="5" height="18"/><rect x="23" y="3" width="5" height="24" class="l"/><rect x="31" y="14" width="5" height="13"/></svg>
-        <b>Corpus composition</b><small>Papers per venue and year</small></button>
+        <b>Corpus composition</b><small>Papers by venue or evaluation method</small></button>
     </div>
     <div class="examples" id="examples"><span class="label">Examples</span></div>
 
@@ -579,22 +577,14 @@ footer .wrap { display: grid; gap: .5rem; max-width: 760px; }
 
       <div data-tab="mix" style="display:grid;gap:14px" hidden>
         <div class="controls">
+          <div class="ctl"><span class="label">Split by</span><div class="seg" id="mx-split"><button type="button" data-v="methods" aria-pressed="true">Evaluation methods</button><button type="button" data-v="venue" aria-pressed="false">Venue</button></div></div>
           <div class="ctl"><span class="label">Group by</span><div class="seg" id="mx-by"><button type="button" data-v="year" aria-pressed="true">Year</button><button type="button" data-v="venue" aria-pressed="false">Venue</button><button type="button" data-v="task" aria-pressed="false">Task</button></div></div>
           <div class="ctl"><span class="label">Measure</span><div class="seg" id="mx-measure"><button type="button" data-v="pct" aria-pressed="true">% of papers</button><button type="button" data-v="count" aria-pressed="false">Papers</button></div></div>
+          <div class="ctl" id="mx-stage-ctl" hidden><span class="label">Stage</span><div class="seg" id="mx-stage"><button type="button" data-v="collected" aria-pressed="false">Collected</button><button type="button" data-v="nlg" aria-pressed="false">NLG (majority vote)</button><button type="button" data-v="final" aria-pressed="true">Top-30 NLG tasks</button></div></div>
         </div>
         <div class="legend" id="mx-legend"></div>
         <div class="chart scroll-x" id="mx-chart"></div>
-        
-      </div>
-
-      <div data-tab="venue" style="display:grid;gap:14px" hidden>
-        <div class="controls">
-          <div class="ctl"><span class="label">Stage</span><div class="seg" id="vn-stage"><button type="button" data-v="collected" aria-pressed="false">Collected</button><button type="button" data-v="nlg" aria-pressed="false">NLG (majority vote)</button><button type="button" data-v="final" aria-pressed="true">Top-30 NLG tasks</button></div></div>
-          <div class="ctl"><span class="label">Measure</span><div class="seg" id="vn-measure"><button type="button" data-v="count" aria-pressed="true">Papers</button><button type="button" data-v="pct" aria-pressed="false">% of collected</button></div></div>
-        </div>
-        <div class="legend" id="vn-legend"></div>
-        <div class="chart scroll-x" id="vn-chart"></div>
-        <p class="caption">NAACL was not held in 2020 or 2023.</p>
+        <p class="caption" id="mx-cap" hidden>NAACL was not held in 2020 or 2023.</p>
       </div>
     </div>
 
@@ -831,7 +821,7 @@ function lineChart(host, { xs, xlab = (x) => x, series, n, fmt = pct, tick = (t)
 }
 
 // Vertical bars, grouped or stacked.
-function barChart(host, { xs, xlab = (x) => x, series, fmt, tick, stacked = false, height = 340, onBar, n, title = "Bar chart" }) {
+function barChart(host, { xs, xlab = (x) => x, series, fmt, tick, stacked = false, height = 340, onBar, n, yMax, title = "Bar chart" }) {
   host.innerHTML = "";
   const W = Math.max(300, host.clientWidth, xs.length * (stacked ? 34 : Math.max(26, series.length * 9 + 10)) + 80);
   const m = { t: 14, r: 12, b: n ? 52 : 36, l: 50 }, H = height;
@@ -839,7 +829,7 @@ function barChart(host, { xs, xlab = (x) => x, series, fmt, tick, stacked = fals
   const x = d3.scaleBand().domain(xs).range([m.l, W - m.r]).paddingInner(0.22).paddingOuter(0.1);
   const totals = xs.map((k, i) => d3.sum(series, (s) => s.values[i] || 0));
   const top = stacked ? d3.max(totals) : d3.max(series, (s) => d3.max(s.values));
-  const y = d3.scaleLinear().domain([0, top || 1]).nice(5).range([H - m.b, m.t]);
+  const y = d3.scaleLinear().domain([0, yMax || top || 1]).nice(5).range([H - m.b, m.t]);
   yGrid(svg, y, m.l, W - m.r, tick);
   const inner = d3.scaleBand().domain(series.map((s, i) => i)).range([0, x.bandwidth()]).padding(0.08);
   xs.forEach((k, i) => {
@@ -1291,7 +1281,7 @@ function renderVal() {
 }
 
 /* ===================================================================
-   Explore the corpus: global filters + five views + paper list
+   Explore the corpus: global filters + four views + paper list
    =================================================================== */
 const G = { venues: new Set([0, 1, 2, 3]), from: 2020, to: 2025, task: -1, must: 0, single: false };
 // The explorer analyzes either all papers or the selection defined in the Papers section (PF + search).
@@ -1354,9 +1344,6 @@ function syncDims() {
   const alt = (other) => ["tk", "m", "hc", "lc", "lm"].find((k) => ok(k) && k !== other);
   if (!ok(cx.row)) { cx.row = alt(cx.col); $("#cx-row").value = cx.row; }
   if (!ok(cx.col)) { cx.col = alt(cx.row); $("#cx-col").value = cx.col; }
-  const mxOff = { task: fixed.has("tk"), venue: fixed.has("vn") };
-  $$("#mx-by button").forEach((b) => { b.disabled = !!mxOff[b.dataset.v]; b.title = mxOff[b.dataset.v] ? "Fixed by the current filter" : ""; });
-  if (mxOff[mx.by]) { mx.by = "year"; pressSeg("#mx-by", "year"); }
   $$("#tr-x button, #rk-stack button").forEach((b) => { b.disabled = b.dataset.v === "venue" && fixed.has("vn"); });
   if (tr.x === "venue" && fixed.has("vn")) { tr.x = "year"; pressSeg("#tr-x", "year"); }
   if (rk.stack === "venue" && fixed.has("vn")) { rk.stack = "none"; pressSeg("#rk-stack", "none"); }
@@ -1392,20 +1379,19 @@ function drill(label, pred, ignoreGlobal = false) {
 }
 
 let TAB = "trend";
-function renderTab() { ({ trend: renderTr, rank: renderRk, cross: renderCx, mix: renderMx, venue: renderVn })[TAB](); }
+function renderTab() { ({ trend: renderTr, rank: renderRk, cross: renderCx, mix: renderMx })[TAB](); }
 function initGlobal() {
   $("#g-scope").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; setScope(b.dataset.v); rerenderExplore(); });
   $("#tabs").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) selectTab(b.dataset.v); });
   initExamples();
-  const saved = store.get("nlg-tab");
-  selectTab(saved && VIEWS[saved] ? saved : "trend", false);
+  const saved = store.get("nlg-tab"), v = saved === "venue" ? "mix" : saved;  // "venue" was merged into "mix"
+  selectTab(v && VIEWS[v] ? v : "trend", false);
 }
 const VIEWS = {
   trend: ["Trends over time", "Proportion of papers per year (or venue) that use each selected item. Choose a variable, then add or remove items; the five most frequent items are shown by default."],
   rank: ["Most frequent items", "Items ranked by the proportion of papers that use them. The second mode compares 2020–2022 with 2023–2025 and sorts items from largest increase to largest decrease."],
   cross: ["Co-occurrence", "Cross-tabulation of the most frequent items of two variables. Row % gives P(column | row); LR measures association, with significant cells outlined (G², BH-FDR-adjusted p ≤ 0.05)."],
-  mix: ["Method combinations", "Each paper is assigned to exactly one combination of automatic metrics (A), LLM-as-a-judge (L) and human evaluation (H)."],
-  venue: ["Corpus composition", "Number of main-conference papers per venue and year at each stage of the collection pipeline."],
+  mix: ["Corpus composition", "Papers per year, venue or task, split by evaluation-method combination (A automatic metrics, L LLM-as-a-judge, H human evaluation) or by venue."],
 };
 function selectTab(v, render = true) {
   TAB = v; store.set("nlg-tab", v);
@@ -1440,7 +1426,7 @@ function initExamples() {
     ["Human criteria in dialogue", () => { setGlobal({ task: T("Dialogue Generation") }); Object.assign(rk, { dim: "hc", mode: "bars", measure: "base", n: 20, stack: "none" }); return "rank"; }],
     ["Metrics × tasks", () => { setGlobal({}); Object.assign(cx, { row: "tk", col: "m", n: 15, val: "row" }); return "cross"; }],
     ["Judge models × criteria", () => { setGlobal({}); Object.assign(cx, { row: "lm", col: "lc", n: 15, val: "row" }); return "cross"; }],
-    ["Methods by task", () => { setGlobal({}); Object.assign(mx, { by: "task", measure: "pct" }); return "mix"; }],
+    ["Methods by task", () => { setGlobal({}); Object.assign(mx, { split: "methods", by: "task", measure: "pct" }); return "mix"; }],
   ];
   const host = $("#examples");
   EX.forEach(([label, fn]) => {
@@ -1450,7 +1436,7 @@ function initExamples() {
       $("#tr-dim").value = tr.dim; pressSeg("#tr-chart", tr.chart); pressSeg("#tr-x", tr.x);
       $("#rk-dim").value = rk.dim; pressSeg("#rk-n", rk.n); pressSeg("#rk-mode", rk.mode); pressSeg("#rk-stack", rk.stack);
       $("#cx-row").value = cx.row; $("#cx-col").value = cx.col; pressSeg("#cx-n", cx.n); pressSeg("#cx-val", cx.val);
-      pressSeg("#mx-by", mx.by); pressSeg("#mx-measure", mx.measure);
+      pressSeg("#mx-split", mx.split); pressSeg("#mx-by", mx.by); pressSeg("#mx-measure", mx.measure); pressSeg("#mx-stage", mx.stage);
       DR = null; ex.page = 0; selectTab(v, false); rerenderExplore();
       $("#tabs").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
     };
@@ -1623,54 +1609,58 @@ function renderCx() {
   });
 }
 
-/* --- view: evaluation mix --- */
+/* --- view: corpus composition (papers split by evaluation-method combination or by venue) --- */
 const COMBOS = [
   [1, "Automatic only"], [5, "Automatic + human"], [7, "Automatic + LaaJ + human"], [3, "Automatic + LaaJ"],
   [6, "LaaJ + human"], [4, "Human only"], [2, "LaaJ only"], [0, "None extracted"],
 ].map(([k, label], j) => ({ k, label, color: SERIES[j] }));
-const mx = { by: "year", measure: "pct" };
+const mx = { split: "methods", by: "year", measure: "pct", stage: "final" };
 function initMx() {
+  seg($("#mx-split"), (v) => { mx.split = v; renderMx(); });
   seg($("#mx-by"), (v) => { mx.by = v; renderMx(); });
   seg($("#mx-measure"), (v) => { mx.measure = v; renderMx(); });
-  legend($("#mx-legend"), COMBOS);
+  seg($("#mx-stage"), (v) => { mx.stage = v; renderMx(); });
+}
+/* venue cannot be both the split and the grouping; a variable fixed by the filters cannot be used */
+function syncMx() {
+  const fx = fixedDims(), vnFixed = fx.has("vn"), tkFixed = fx.has("tk");
+  if (vnFixed && mx.split === "venue") mx.split = "methods";
+  if ((tkFixed && mx.by === "task") || (vnFixed && mx.by === "venue")) mx.by = "year";
+  const set = (sel, v, off, fixed) => { const b = $(`${sel} [data-v="${v}"]`); b.disabled = off; b.title = fixed ? "Fixed by the current filter" : ""; };
+  set("#mx-split", "venue", vnFixed || mx.by === "venue", vnFixed);
+  set("#mx-by", "venue", vnFixed || mx.split === "venue", vnFixed);
+  set("#mx-by", "task", tkFixed, tkFixed);
+  pressSeg("#mx-split", mx.split); pressSeg("#mx-by", mx.by);
 }
 function renderMx() {
-  const ps = gPapers(), host = $("#mx-chart");
+  syncMx();
+  const ps = gPapers(), host = $("#mx-chart"), byVenue = mx.split === "venue";
+  // the collection stages (paper Table 18) exist only per venue and year, for all papers
+  const stageOn = byVenue && mx.by === "year" && SCOPE === "all", stage = stageOn ? mx.stage : "final";
+  $("#mx-stage-ctl").hidden = !stageOn;
+  $("#mx-cap").hidden = !(byVenue || mx.by === "venue");
   if (!ps.length) { host.innerHTML = `<p class="empty">No papers match the current filters.</p>`; return; }
   let xs, xlab, key = null;
   if (mx.by === "year") { xs = gYears(); xlab = (k) => k; key = (p) => p.y; }
   else if (mx.by === "venue") { xs = gVenues(); xlab = (k) => D.venues[k]; key = (p) => p.v; }
   else { xs = topIds(ps, DIM.tk, 15); xlab = (k) => D.tasks[k]; }
   const sub = xs.map((k) => ps.filter((p) => (key ? key(p) === k : p.tk.includes(k))));
+  const groups = byVenue ? gVenues().map((v) => ({ k: v, label: D.venues[v], color: SERIES[v], is: (p) => p.v === v }))
+    : COMBOS.map((c) => ({ ...c, is: (p) => (p.f & 7) === c.k }));
+  const counts = stage === "final" ? groups.map((g) => sub.map((a) => a.filter(g.is).length))
+    : groups.map((g) => xs.map((y) => D.byVenueYear[`${D.venues[g.k]}-${y}`]?.[stage] || 0));
+  const n = xs.map((k, i) => d3.sum(counts, (c) => c[i]));
   const { fmt, tick } = fmtFor(mx.measure);
-  const series = COMBOS.map((c) => ({ ...c, values: sub.map((a) => { const k = a.filter((p) => (p.f & 7) === c.k).length; return mx.measure === "count" ? k : a.length ? 100 * k / a.length : 0; }) }));
+  const series = groups.map((g, j) => ({ ...g, values: counts[j].map((c, i) => (mx.measure === "count" ? c : n[i] ? 100 * c / n[i] : 0)) }));
+  legend($("#mx-legend"), series);
+  const what = byVenue ? "venue" : "evaluation methods";
   if (mx.by === "task") {
     const items = xs.map((k, i) => ({ id: k, label: xlab(k), total: d3.sum(series, (s) => s.values[i]), segs: series.map((s) => ({ label: s.label, color: s.color, v: s.values[i] })), note: `${sub[i].length} papers` }));
-    hbarChart(host, { items, fmt, tick, onBar: (d) => drill(`Task: ${d.label}`, (p) => p.tk.includes(d.id)), title: "Evaluation mix by task" });
+    hbarChart(host, { items, fmt, tick, onBar: (d) => drill(`Task: ${d.label}`, (p) => p.tk.includes(d.id)), title: `Papers by task and ${what}` });
   } else {
-    barChart(host, { xs, xlab, series, fmt, tick, stacked: true, n: sub.map((a) => a.length), title: `Evaluation mix by ${mx.by}`,
-      onBar: (s, k) => drill(`${s.label} · ${xlab(k)}`, (p) => (p.f & 7) === s.k && key(p) === k) });
+    barChart(host, { xs, xlab, series, fmt, tick, stacked: true, n, yMax: mx.measure === "pct" ? 100 : undefined, title: `Papers by ${mx.by} and ${what}`,
+      onBar: stage === "final" ? (s, k) => drill(`${s.label} · ${xlab(k)}`, (p) => s.is(p) && key(p) === k) : null });
   }
-}
-
-/* --- view: venues --- */
-const vn = { stage: "final", measure: "count" };
-function initVn() {
-  seg($("#vn-stage"), (v) => { vn.stage = v; renderVn(); });
-  seg($("#vn-measure"), (v) => { vn.measure = v; renderVn(); });
-}
-function renderVn() {
-  const xs = gYears(), vs = gVenues(), host = $("#vn-chart");
-  const finalC = d3.rollup(P, (a) => a.length, (p) => p.v, (p) => p.y);
-  const get = (v, y, stage) => { const bv = D.byVenueYear[`${D.venues[v]}-${y}`]; if (!bv) return null; return stage === "final" ? (finalC.get(v)?.get(y) || 0) : bv[stage]; };
-  const series = vs.map((v, j) => ({ id: v, label: D.venues[v], color: SERIES[j], values: xs.map((y) => {
-    const n = get(v, y, vn.stage); if (n == null) return null;
-    return vn.measure === "count" ? n : 100 * n / get(v, y, "collected");
-  }) }));
-  legend($("#vn-legend"), series);
-  const { fmt, tick } = fmtFor(vn.measure === "count" ? "count" : "pct");
-  if (vn.measure === "pct") lineChart(host, { xs, series, fmt, tick, title: "Share of collected papers per venue" });
-  else barChart(host, { xs, series, fmt, tick, title: "Papers per venue and year", onBar: vn.stage === "final" ? (s, y) => drill(`${s.label} ${y}`, (p) => p.v === s.id && p.y === y, true) : null });
 }
 
 /* --- paper list --- */
@@ -1832,7 +1822,7 @@ async function boot() {
     { label: "LaaJ validated against humans", n: f.validated, cls: "v" },
   ]);
   initTasks(); initBump(); initHeat(); initVal();
-  initTr(); initRk(); initCx(); initMx(); initVn();
+  initTr(); initRk(); initCx(); initMx();
   initGlobal(); initExplorer(); rerenderExplore();
   let w = innerWidth, tmr;
   addEventListener("resize", () => { if (innerWidth === w) return; w = innerWidth; clearTimeout(tmr); tmr = setTimeout(() => { renderTask(); renderBump(); renderHeat(); renderVal(); renderTab(); }, 150); });
