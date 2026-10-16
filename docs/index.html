@@ -974,12 +974,15 @@ function dumbbell(host, { items, a, b, fmt, tick, onRow, title = "Dumbbell chart
 }
 
 /* ---------- Figure 1: trend ---------- */
+/* Figures 1 and 3 count a method only when its extracted list is non-empty; the flags in p.f
+   follow the counts in Section 5.3 (679 LaaJ, 433 LaaJ + human, 254 validated papers). */
+const FIG1 = { auto: (p) => p.m.length > 0, laaj: (p) => p.lc.length + p.lm.length > 0, human: (p) => p.hc.length > 0, val: (p) => (p.f & 8) > 0 };
 function adoption(ps) {
   const byY = YEARS.map((yr) => ps.filter((p) => p.y === yr));
   const short = { auto: "Automatic", laaj: "LaaJ", human: "Human", val: "Validated" };
   return {
     xs: YEARS, n: byY.map((a) => a.length),
-    series: METHODS.map((mt) => ({ ...mt, short: short[mt.key], values: byY.map((a) => (a.length ? 100 * a.filter((p) => p.f & mt.bit).length / a.length : null)) })),
+    series: METHODS.map((mt) => ({ ...mt, short: short[mt.key], values: byY.map((a) => (a.length ? 100 * a.filter(FIG1[mt.key]).length / a.length : null)) })),
   };
 }
 const trend = { venues: new Set([0, 1, 2, 3]) };
@@ -1372,7 +1375,21 @@ function syncDims() {
   if (tr.x === "venue" && fixed.has("vn")) { tr.x = "year"; pressSeg("#tr-x", "year"); }
   if (rk.stack === "venue" && fixed.has("vn")) { rk.stack = "none"; pressSeg("#rk-stack", "none"); }
 }
-function rerenderExplore() {
+/* Keep the control the viewer just used at the same place on screen while the papers and
+   explorer re-render (guards against browser scroll jumps when content heights change). */
+let lastCtl = null;
+document.addEventListener("pointerdown", (e) => { lastCtl = e.target.closest("button, select, input, label") || null; }, true);
+document.addEventListener("keydown", () => { lastCtl = document.activeElement; }, true);
+function keepPlace(fn) {
+  const el = lastCtl && document.contains(lastCtl) ? lastCtl : null;
+  const top = el && el.getBoundingClientRect().top;
+  fn();
+  if (!el || !document.contains(el)) return;
+  const fix = () => { const d = el.getBoundingClientRect().top - top; if (Math.abs(d) > 2) window.scrollBy({ top: d, behavior: "instant" }); };
+  fix(); requestAnimationFrame(() => { fix(); requestAnimationFrame(fix); });
+}
+function rerenderExplore() { keepPlace(rerenderExploreNow); }
+function rerenderExploreNow() {
   syncG(); syncDims();
   $("#g-selcount").textContent = P.filter((p) => inSel(p)).length.toLocaleString();
   $("#g-seldesc").textContent = SCOPE === "sel" ? selDesc() : "";
@@ -1780,7 +1797,9 @@ function renderExplorer() {
   ex.page = Math.max(0, Math.min(ex.page, pages - 1));
   const slice = rows.slice(ex.page * ex.per, ex.page * ex.per + ex.per);
   const tags = (arr, nameOf, k) => arr.slice(0, k).map((i) => `<span class="tag">${esc(nameOf(i))}</span>`).join("") + (arr.length > k ? `<span class="tag">+${arr.length - k}</span>` : "");
-  const list = (arr, nameOf) => (arr.length ? arr.map((i) => `<span class="tag">${esc(nameOf(i))}</span>`).join("") : `<span style="color:var(--muted)">None</span>`);
+  const list = (arr, nameOf, note) => (arr.length ? arr.map((i) => `<span class="tag">${esc(nameOf(i))}</span>`).join("") : `<span style="color:var(--muted)">${note || "None"}</span>`);
+  /* the paper answered "Yes" to the question (bits 16/32/64 = Q2/Q3/Q4) but nothing was extracted */
+  const yesNote = (p, bit, q, what) => (p.f & bit ? `None extracted, although the paper ${what} (${q}: Yes).` : "");
   $("#ex-body").innerHTML = slice.length ? slice.map((p) => {
     const pills = METHODS.map((mt) => `<span class="pill ${p.f & mt.bit ? mt.short.toLowerCase() : "off"}" title="${mt.label}">${mt.short}</span>`).join("");
     let html = `<tr class="main" data-id="${esc(p.id)}" aria-expanded="${ex.open === p.id}"><td><div class="ti"><a href="https://aclanthology.org/${encodeURIComponent(p.id)}/" target="_blank" rel="noopener">${esc(p.t || p.id)}</a></div><div class="au">${esc(p.a)}</div></td>
@@ -1790,10 +1809,10 @@ function renderExplorer() {
       <dt>Datasets</dt><dd>${list(p.ds, (i) => D.datasets[i])}</dd>
       <dt>Languages</dt><dd>${list(p.lg, (i) => D.languages[i])}</dd>
       <dt>Generation models</dt><dd>${list(p.gm, (i) => D.genModels[i])}</dd>
-      <dt>Automatic metrics</dt><dd>${list(p.m, (i) => D.metrics[i])}</dd>
-      <dt>Human criteria</dt><dd>${list(p.hc, (i) => critName(i, true))}</dd>
-      <dt>LaaJ criteria</dt><dd>${list(p.lc, (i) => critName(i, true))}</dd>
-      <dt>LaaJ models</dt><dd>${list(p.lm, (i) => D.models[i])}</dd>
+      <dt>Automatic metrics</dt><dd>${list(p.m, (i) => D.metrics[i], yesNote(p, 16, "Q2", "uses automatic metrics"))}</dd>
+      <dt>Human criteria</dt><dd>${list(p.hc, (i) => critName(i, true), yesNote(p, 64, "Q4", "conducts human evaluation"))}</dd>
+      <dt>LaaJ criteria</dt><dd>${list(p.lc, (i) => critName(i, true), yesNote(p, 32, "Q3", "uses LLMs as judges"))}</dd>
+      <dt>LaaJ models</dt><dd>${list(p.lm, (i) => D.models[i], yesNote(p, 32, "Q3", "uses LLMs as judges"))}</dd>
       <dt>LaaJ methods</dt><dd>${list(p.me, (i) => D.methods[i])}</dd>
       <dt>Anthology ID</dt><dd class="mono">${esc(p.id)}</dd></dl></td></tr>`;
     return html;
@@ -1836,7 +1855,7 @@ $("#copy-bib").onclick = async (e) => {
 async function boot() {
   initLinks(); if ("IntersectionObserver" in window) initNav();
   try {
-    D = await (await fetch("data/corpus.json")).json();
+    D = await (await fetch("data/corpus.json", { cache: "no-cache" })).json(); // revalidate so the data never lags the page
   } catch (e) {
     $("#task-chart").innerHTML = `<p class="empty">Failed to load data/corpus.json. The page must be served over HTTP (e.g. <span class="mono">python -m http.server</span>).</p>`;
     return;

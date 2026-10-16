@@ -29,8 +29,17 @@ Opening `index.html` directly from disk does not work because the page fetches `
 `build_data.py` documents how `data/corpus.json` was compiled from the extraction results
 (QCET-normalized top-30-task papers, LaaJ–human validation results and the human-annotated
 validation values). It expects the authors' working-tree layout, so its input paths may need
-adjusting. Its sanity output should show 2025: automatic metrics 95.0%, LaaJ 46.4%,
-human 43.1%, validated 15.8%; and MT papers using BLEU 88.6% (2020) → 61.8% (2025).
+adjusting. Its sanity output should show 679 LaaJ papers, 433 LaaJ + human, 254 validated;
+2025: automatic metrics 95.0%, LaaJ 46.4%, human 43.1%, validated 15.8%; and MT papers using
+BLEU 88.6% (2020) → 61.8% (2025).
+
+The paper uses two definitions of method use, and the page follows each where the paper does.
+Figures 1 and 3 count a method only when its extracted list is non-empty, and the page derives
+those charts from the lists. The paper filters, the table and the explorer use the per-paper
+flags, which follow Section 5.3: a paper uses LaaJ if it answered Q3 "Yes", and uses human
+evaluation if human criteria were extracted or it is one of the 433 papers that answered "Yes"
+to both Q3 and Q4. Flag bits 16, 32 and 64 record "Yes" answers to Q2, Q3 and Q4; the paper
+details use them to note when a paper answered "Yes" but no items were extracted.
 
 Link buttons (Paper, Code, arXiv, Data) are set in the `LINKS` object at the top of the
 `<script>` in `index.html`; a `null` entry hides its button.

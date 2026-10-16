@@ -131,13 +131,18 @@ def main():
         a1, a2, a3, a4 = (d.get(f"answer_{i}") or {} for i in range(1, 5))
         n_laaj_yes += yes(a3)  # the paper's "679 LaaJ-using papers" counts Q3 = Yes
         uniq = lambda xs: list(dict.fromkeys(x.strip() for x in (xs or []) if x and x.strip()))
-        # Same definitions as paper_code/07_figures/plot_evaluation_method_adoption.py (Fig. 1):
-        # a method counts when its extracted list is non-empty.
+        # Method flags follow the counts in Sec. 5.3: LaaJ = Q3 "Yes" or LaaJ criteria/models extracted
+        # (679 papers); human = human criteria extracted or one of the 433 LaaJ+human papers
+        # (Q3 = Q4 = "Yes"). Fig. 1 counts a method only when its extracted list is non-empty
+        # (paper_code/07_figures/plot_evaluation_method_adoption.py); the page derives that
+        # definition from the lists for Figures 1 and 3.
         mets, lcr, hcr, lmo = (uniq(a2.get("automatic_metrics")), uniq(a3.get("criteria")),
                                uniq(a4.get("criteria")), uniq(a3.get("models")))
-        flags = (1 if mets else 0) | (2 if (lcr or lmo) else 0) | (4 if hcr else 0)
+        flags = (1 if mets else 0) | (2 if (lcr or lmo or yes(a3)) else 0) | (4 if (hcr or pid in validated) else 0)
         if validated.get(pid):
             flags |= 8
+        # "Yes" answers to Q2-Q4, so the paper details can note when nothing was extracted
+        flags |= (16 if yes(a2) else 0) | (32 if yes(a3) else 0) | (64 if yes(a4) else 0)
         papers.append([
             pid, VENUES.index(venue), year, m.get("title", ""), short_authors(m.get("authors", [])),
             [V["task"](t) for t in uniq(a1.get("tasks"))],
@@ -198,10 +203,13 @@ def sanity(out):
     P = out["papers"]
     tidx = {t: i for i, t in enumerate(out["tasks"])}
     print("funnel", out["funnel"])
-    for y in (2020, 2023, 2025):
+    n = lambda b: sum(1 for p in P if p[10] & b == b)
+    print("flags: laaj", n(2), "laaj+human", n(6), "validated", n(8), "validated+laaj+human", n(14))
+    for y in (2020, 2023, 2025):  # Fig. 1 definition (non-empty lists)
         ps = [p for p in P if p[2] == y]
-        r = lambda b: round(100 * sum(1 for p in ps if p[10] & b) / len(ps), 1)
-        print(y, len(ps), "auto", r(1), "laaj", r(2), "human", r(4), "validated", r(8))
+        r = lambda f: round(100 * sum(1 for p in ps if f(p)) / len(ps), 1)
+        print(y, len(ps), "auto", r(lambda p: p[6]), "laaj", r(lambda p: p[7] or p[9]),
+              "human", r(lambda p: p[8]), "validated", r(lambda p: p[10] & 8))
     bleu = out["metrics"].index("BLEU")
     mt = tidx["Machine Translation"]
     for single in (False, True):
