@@ -1132,7 +1132,7 @@ function renderBump() {
     gg.append("rect").attr("x", lx - 4).attr("y", ly - 11).attr("width", m.r - 14).attr("height", 22).attr("fill", "transparent");
     gg.on("mouseenter", (ev) => {
       groups.forEach((o) => o.g.attr("opacity", o.c === c ? 1 : 0.15));
-      showTip(`<div class="t">${esc(nm)}</div>` + row("Overall task LR", fmtLR(c.lr)) + row("BH-FDR q", c.q < 0.001 ? "<0.001" : c.q.toFixed(3)) +
+      showTip(`<div class="t">${esc(nm)}</div>` + row("Overall task LR", fmtLR(c.lr)) + row("Adjusted p (BH)", c.q < 0.001 ? "< 0.001" : c.q.toFixed(3)) +
         YEARS.map((yr, i) => { const k = yearly[i].cnt.get(c.id) || 0; return row(`${yr}${yearly[i].rank.get(c.id) ? " · #" + yearly[i].rank.get(c.id) : ""}`, `${k}/${yearly[i].n} · ${pct(yearly[i].n ? 100 * k / yearly[i].n : null)}`); }).join("") +
         `<div class="k">${c.k} of ${nT} single-task papers${c.sig ? "" : " · not significantly task-specific"}. Click to list papers.</div>`, ev);
     }).on("mousemove", (ev) => showTip(null, ev)).on("mouseleave", () => { groups.forEach((o) => o.g.attr("opacity", 1)); hideTip(); })
@@ -1220,7 +1220,7 @@ function renderHeat() {
     }
     gg.append("rect").attr("x", x0).attr("y", y0).attr("width", z).attr("height", z).attr("fill", "transparent")
       .on("mousemove", (ev) => {
-        const line = (lab, v, col) => row(lab, "LR " + fmtLR(v.lr), col) + `<div class="k" style="margin:0 0 4px 14px">${v.co} of ${v.nw} papers with the criterion use the metric${v.nwo ? ` (vs. ${v.kwo} of ${v.nwo} without)` : ""} · q ${v.q < 0.001 ? "<0.001" : v.q.toFixed(3)}${v.sig ? " · significant" : ""}</div>`;
+        const line = (lab, v, col) => row(lab, "LR " + fmtLR(v.lr), col) + `<div class="k" style="margin:0 0 4px 14px">${v.co} of ${v.nw} papers with the criterion use the metric${v.nwo ? ` (vs. ${v.kwo} of ${v.nwo} without)` : ""} · adjusted p ${v.q < 0.001 ? "< 0.001" : v.q.toFixed(3)}${v.sig ? " · significant" : ""}</div>`;
         showTip(`<div class="t">${esc(D.metrics[mi])} × ${esc(critName(ci))}</div>` + line("LaaJ papers", L, "var(--s-laaj)") + line("Human-eval papers", Hm, "var(--s-human)") + `<div class="k">Click to list papers.</div>`, ev);
       }).on("mouseleave", hideTip)
       .on("click", () => drill(`${D.tasks[heat.task]} · ${D.metrics[mi]} × ${critName(ci)}`, (p) => p.tk.includes(heat.task) && p.m.includes(mi) && (p.lc.includes(ci) || p.hc.includes(ci)), true));
@@ -1614,7 +1614,7 @@ function renderCx() {
       const z = at(r.i, c.j); if (z.diag) return { fill: "#e9ebee", tip: `<div class="t">${esc(r.label)}</div><div class="k">Same item</div>`, click: false };
       const text = cx.val === "count" ? z.a : cx.val === "row" ? Math.round(z.nr ? 100 * z.a / z.nr : 0) : z.a ? fmtLR(z.lr) : "";
       return { fill: color(z), sig: cx.val === "lr" && z.sig, text, dark: d3.hsl(color(z)).l < 0.5,
-        tip: `<div class="t">${esc(r.label)} × ${esc(c.label)}</div>` + row("Papers with both", z.a) + row("Row %", pct(z.nr ? 100 * z.a / z.nr : 0)) + row("Column %", pct(z.nc ? 100 * z.a / z.nc : 0)) + row("LR", fmtLR(z.lr)) + row("BH-FDR q", z.q < 0.001 ? "<0.001" : z.q.toFixed(3)) + `<div class="k">Click to list papers.</div>` };
+        tip: `<div class="t">${esc(r.label)} × ${esc(c.label)}</div>` + row("Papers with both", z.a) + row("Row %", pct(z.nr ? 100 * z.a / z.nr : 0)) + row("Column %", pct(z.nc ? 100 * z.a / z.nc : 0)) + row("LR", fmtLR(z.lr)) + row("Adjusted p (BH)", z.q < 0.001 ? "< 0.001" : z.q.toFixed(3)) + `<div class="k">Click to list papers.</div>` };
     },
     onCell: (r, c) => drill(`${r.label} × ${c.label}`, (p) => R.get(p).includes(r.id) && C.get(p).includes(c.id)),
     title: `${R.label} by ${C.label} heatmap`,
@@ -1753,8 +1753,14 @@ function initPF() {
 function initExplorer() {
   initPF();
   let tmr; $("#ex-q").oninput = () => { clearTimeout(tmr); tmr = setTimeout(() => { ex.page = 0; rerenderExplore(); }, 200); };
-  $("#ex-prev").onclick = () => { ex.page--; renderExplorer(); };
-  $("#ex-next").onclick = () => { ex.page++; renderExplorer(); };
+  // after paging, show the new page from its first row (row heights differ between pages)
+  const turn = (d) => {
+    ex.page += d; ex.open = null; renderExplorer();
+    const t = $("#papers .ptable");
+    if (t.getBoundingClientRect().top < 0) t.scrollIntoView({ behavior: "auto", block: "start" });
+  };
+  $("#ex-prev").onclick = () => turn(-1);
+  $("#ex-next").onclick = () => turn(1);
   $("#ex-body").onclick = (e) => { if (e.target.closest("a")) return; const t = e.target.closest("tr.main"); if (!t) return; ex.open = ex.open === t.dataset.id ? null : t.dataset.id; renderExplorer(); };
   $("#ex-drill").onclick = (e) => { if (e.target.closest("button")) { DR = null; ex.page = 0; renderExplorer(); } };
   P.forEach((p) => {
