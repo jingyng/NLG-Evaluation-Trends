@@ -198,13 +198,13 @@ table.t tr.hl td { background: var(--panel); }
 .xstep .hint { font-weight: 400; }
 .xn { font: 600 17px var(--f-display); color: var(--ink); }
 .views { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
-.views button { display: grid; grid-template-columns: 40px 1fr; grid-template-rows: auto auto; column-gap: 12px; row-gap: 3px; align-items: start; text-align: left; padding: 12px 14px; border: 1px solid var(--rule); border-radius: 6px; background: #fff; cursor: pointer; color: var(--ink-2); }
+.views button { display: grid; grid-template-columns: 40px 1fr; grid-template-rows: auto auto; column-gap: 12px; row-gap: 3px; align-items: start; align-content: start; text-align: left; padding: 12px 14px; border: 1px solid var(--rule); border-radius: 6px; background: #fff; cursor: pointer; color: var(--ink-2); }
 .views button:hover { border-color: #9a9a9a; }
 .views button[aria-selected="true"] { border-color: #363636; box-shadow: inset 0 0 0 1px #363636; }
 .views svg { grid-row: 1 / 3; width: 40px; height: 28px; margin-top: 2px; fill: none; stroke: var(--s-human); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 .views svg .b { stroke: var(--s-laaj); }
-.views svg circle { fill: var(--s-human); stroke: none; } .views svg circle.b { fill: var(--s-laaj); }
 .views svg.grid rect { fill: var(--s-human); stroke: none; } .views svg.grid rect.l { fill: #b4cde3; }
+@media (min-width: 880px) { .views { grid-template-columns: repeat(5, minmax(0, 1fr)); } .views button { grid-template-columns: 1fr; } .views svg { grid-row: auto; margin-bottom: 4px; } }
 .views b { font: 600 14.5px var(--f-display); color: var(--ink); }
 .views small { font-size: 12.5px; line-height: 1.4; color: var(--muted); }
 .examples { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
@@ -519,9 +519,6 @@ footer .wrap { display: grid; gap: .5rem; max-width: 760px; }
       <button type="button" role="tab" data-v="mix" aria-selected="false">
         <svg viewBox="0 0 40 28" aria-hidden="true" class="grid"><rect x="4" y="2" width="8" height="10" class="l"/><rect x="4" y="13" width="8" height="14"/><rect x="16" y="2" width="8" height="6" class="l"/><rect x="16" y="9" width="8" height="18"/><rect x="28" y="2" width="8" height="12" class="l"/><rect x="28" y="15" width="8" height="12"/></svg>
         <b>Method combinations</b><small>Metrics, LaaJ and human combined</small></button>
-      <button type="button" role="tab" data-v="cmp" aria-selected="false">
-        <svg viewBox="0 0 40 28" aria-hidden="true"><path d="M8 5 H30 M14 14 H34 M6 23 H20" /><circle cx="8" cy="5" r="3"/><circle cx="30" cy="5" r="3" class="b"/><circle cx="14" cy="14" r="3"/><circle cx="34" cy="14" r="3" class="b"/><circle cx="6" cy="23" r="3"/><circle cx="20" cy="23" r="3" class="b"/></svg>
-        <b>LaaJ vs. human criteria</b><small>Criteria assessed by each</small></button>
       <button type="button" role="tab" data-v="venue" aria-selected="false">
         <svg viewBox="0 0 40 28" aria-hidden="true" class="grid"><rect x="3" y="12" width="5" height="15"/><rect x="9" y="6" width="5" height="21" class="l"/><rect x="17" y="9" width="5" height="18"/><rect x="23" y="3" width="5" height="24" class="l"/><rect x="31" y="14" width="5" height="13"/></svg>
         <b>Corpus composition</b><small>Papers per venue and year</small></button>
@@ -588,17 +585,6 @@ footer .wrap { display: grid; gap: .5rem; max-width: 760px; }
         <div class="legend" id="mx-legend"></div>
         <div class="chart scroll-x" id="mx-chart"></div>
         
-      </div>
-
-      <div data-tab="cmp" style="display:grid;gap:14px" hidden>
-        <div class="controls">
-          <div class="ctl"><span class="label">Papers</span><div class="seg" id="cp-set"><button type="button" data-v="all" aria-pressed="true">All filtered papers</button><button type="button" data-v="both" aria-pressed="false">Papers using LaaJ and human evaluation</button></div></div>
-          <div class="ctl"><span class="label">Sort</span><div class="seg" id="cp-sort"><button type="button" data-v="gap" aria-pressed="true">Difference</button><button type="button" data-v="laaj" aria-pressed="false">LaaJ frequency</button><button type="button" data-v="human" aria-pressed="false">Human frequency</button></div></div>
-          <div class="ctl"><span class="label">Top</span><div class="seg" id="cp-n"><button type="button" data-v="15" aria-pressed="false">15</button><button type="button" data-v="25" aria-pressed="true">25</button><button type="button" data-v="40" aria-pressed="false">40</button></div></div>
-        </div>
-        <div class="legend" id="cp-legend"></div>
-        <div class="chart" id="cp-chart"></div>
-        <p class="caption" id="cp-caption"></p>
       </div>
 
       <div data-tab="venue" style="display:grid;gap:14px" hidden>
@@ -1305,7 +1291,7 @@ function renderVal() {
 }
 
 /* ===================================================================
-   Explore the corpus: global filters + six views + paper list
+   Explore the corpus: global filters + five views + paper list
    =================================================================== */
 const G = { venues: new Set([0, 1, 2, 3]), from: 2020, to: 2025, task: -1, must: 0, single: false };
 // The explorer analyzes either all papers or the selection defined in the Papers section (PF + search).
@@ -1406,7 +1392,7 @@ function drill(label, pred, ignoreGlobal = false) {
 }
 
 let TAB = "trend";
-function renderTab() { ({ trend: renderTr, rank: renderRk, cross: renderCx, mix: renderMx, cmp: renderCp, venue: renderVn })[TAB](); }
+function renderTab() { ({ trend: renderTr, rank: renderRk, cross: renderCx, mix: renderMx, venue: renderVn })[TAB](); }
 function initGlobal() {
   $("#g-scope").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; setScope(b.dataset.v); rerenderExplore(); });
   $("#tabs").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) selectTab(b.dataset.v); });
@@ -1419,7 +1405,6 @@ const VIEWS = {
   rank: ["Most frequent items", "Items ranked by the proportion of papers that use them. The second mode compares 2020–2022 with 2023–2025 and sorts items from largest increase to largest decrease."],
   cross: ["Co-occurrence", "Cross-tabulation of the most frequent items of two variables. Row % gives P(column | row); LR measures association, with significant cells outlined (G², BH-FDR-adjusted p ≤ 0.05)."],
   mix: ["Method combinations", "Each paper is assigned to exactly one combination of automatic metrics (A), LLM-as-a-judge (L) and human evaluation (H)."],
-  cmp: ["LaaJ vs. human criteria", "For each QCET criterion, the proportion of LaaJ papers and of human-evaluation papers that assess it. Criteria far from the diagonal are emphasized by one method only."],
   venue: ["Corpus composition", "Number of main-conference papers per venue and year at each stage of the collection pipeline."],
 };
 function selectTab(v, render = true) {
@@ -1668,31 +1653,6 @@ function renderMx() {
   }
 }
 
-/* --- view: LaaJ vs human criteria --- */
-const cp = { set: "all", sort: "gap", n: 25 };
-function initCp() {
-  seg($("#cp-set"), (v) => { cp.set = v; renderCp(); });
-  seg($("#cp-sort"), (v) => { cp.sort = v; renderCp(); });
-  seg($("#cp-n"), (v) => { cp.n = +v; renderCp(); });
-}
-function renderCp() {
-  let ps = gPapers(); if (cp.set === "both") ps = ps.filter((p) => p.lc.length && p.hc.length);
-  const L = ps.filter((p) => p.lc.length), Hh = ps.filter((p) => p.hc.length), host = $("#cp-chart");
-  const a = { label: `LaaJ papers (n=${L.length})`, color: "var(--s-laaj)", shape: "triangle" }, b = { label: `Human-eval papers (n=${Hh.length})`, color: "var(--s-human)", shape: "square" };
-  legend($("#cp-legend"), [a, b]);
-  $("#cp-caption").innerHTML = `% of papers using each method`;
-  if (!L.length || !Hh.length) { host.innerHTML = `<p class="empty">No papers with both LaaJ and human criteria under the current filters.</p>`; return; }
-  const cL = freq(L, DIM.lc), cH = freq(Hh, DIM.hc);
-  const ids = [...new Set([...cL.keys(), ...cH.keys()])].filter((id) => (cL.get(id) || 0) + (cH.get(id) || 0) >= 4);
-  let items = ids.map((id) => ({ id, label: critName(id, true), a: 100 * (cL.get(id) || 0) / L.length, b: 100 * (cH.get(id) || 0) / Hh.length }))
-    .map((d) => ({ ...d, note: `${cL.get(d.id) || 0} LaaJ · ${cH.get(d.id) || 0} human papers. Click to list.` }));
-  const sorter = { gap: (x, y) => Math.abs(y.a - y.b) - Math.abs(x.a - x.b), laaj: (x, y) => y.a - x.a, human: (x, y) => y.b - x.b }[cp.sort];
-  items = items.sort(sorter).slice(0, cp.n);
-  if (cp.sort === "gap") items.sort((x, y) => (y.a - y.b) - (x.a - x.b));
-  if (!items.length) { host.innerHTML = `<p class="empty">Insufficient criteria under the current filters.</p>`; return; }
-  dumbbell(host, { items, a, b, fmt: pct, tick: (t) => t + "%", onRow: (d) => drill(`Criterion: ${critName(d.id)}`, (p) => p.lc.includes(d.id) || p.hc.includes(d.id)), title: "LaaJ vs human criteria" });
-}
-
 /* --- view: venues --- */
 const vn = { stage: "final", measure: "count" };
 function initVn() {
@@ -1872,7 +1832,7 @@ async function boot() {
     { label: "LaaJ validated against humans", n: f.validated, cls: "v" },
   ]);
   initTasks(); initBump(); initHeat(); initVal();
-  initTr(); initRk(); initCx(); initMx(); initCp(); initVn();
+  initTr(); initRk(); initCx(); initMx(); initVn();
   initGlobal(); initExplorer(); rerenderExplore();
   let w = innerWidth, tmr;
   addEventListener("resize", () => { if (innerWidth === w) return; w = innerWidth; clearTimeout(tmr); tmr = setTimeout(() => { renderTask(); renderBump(); renderHeat(); renderVal(); renderTab(); }, 150); });
